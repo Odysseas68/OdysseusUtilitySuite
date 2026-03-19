@@ -1,0 +1,3 @@
+(Note: If you ever discover a new zone that says just "Fishing", 
+you can simply type /run print(C_Map.GetBestMapForUnit("player")) 
+in the game chat to get the ID, and add a new line to this table!)

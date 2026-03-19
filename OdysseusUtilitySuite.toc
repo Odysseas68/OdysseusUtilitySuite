@@ -1,0 +1,23 @@
+## Interface: 120000, 120001, 120005
+## Title: Odysseus Utility Suite
+## Notes: A modular suite of highly optimized utility tools.
+## Author: Odysseus
+## Version: 1.0
+## SavedVariables: OdysseusDB
+## IconTexture: 133853
+## AddonCompartmentFunc: Odysseus_ToggleConfig
+## AddonCompartmentIcon: 133853
+
+# Libraries
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua
+
+# Core Engine & Config
+Core.lua
+Config.lua
+
+# Modules
+Flightmaster.lua
+Fasterloot.lua
+Fishingtracker.lua

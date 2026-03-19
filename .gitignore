@@ -1,0 +1,22 @@
+# OS Generated Files (Keeps Mac/Windows junk out)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE and Editor Folders (Keeps your personal VS Code settings private)
+.vscode/
+.idea/
+*.sublime-workspace
+*.code-workspace
+
+# Build and Packaging Artifacts (For when you eventually make .zip files for CurseForge)
+*.zip
+*.rar
+/release/
+/build/
+/out/
