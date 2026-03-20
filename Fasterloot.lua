@@ -62,8 +62,8 @@ f:SetScript("OnEvent", function(self, event, autoLootTriggeredByGame)
                 end
             end
 
-            -- If it passed the checks, grab it instantly!
-            if canLoot and (slotType == 1 or slotType == 2) then -- 2 is LOOT_SLOT_MONEY
+            -- THE FIX: We added slotType == 3 so it automatically grabs Currencies!
+            if canLoot and (slotType == 1 or slotType == 2 or slotType == 3) then
                 LootSlot(i)
             else
                 -- Flag that an item was skipped so the window stays open
