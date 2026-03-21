@@ -1709,6 +1709,9 @@ SFT_FlightData = {
         ["Mear's Farm"] = 45,
         ["Town Center"] = 30,
     },
+    ["Brumewood Hollow, Founder's Point"] = {
+        ["Gilded Oaks, Founder's Point"] = 24,
+    },
     ["Camber Alcove"] = {
         ["Arcae Locus"] = 2,
     },
@@ -4001,6 +4004,10 @@ SFT_FlightData = {
         ["Undercity"] = 415,
         ["Zul'Aman"] = 91,
     },
+    ["Fairbreeze Village, Eversong Woods"] = {
+        ["Sanctum of Light, Silvermoon City"] = 49,
+        ["Tranquillien, Eversong Woods"] = 57,
+    },
     ["Faith's Repose"] = {
         ["Haven"] = 20,
         ["Pilgrim's Grace"] = 37,
@@ -5343,6 +5350,9 @@ SFT_FlightData = {
     },
     ["Gilded Oaks"] = {
         ["Town Center"] = 37,
+    },
+    ["Gilded Oaks, Founder's Point"] = {
+        ["Town Center, Founder's Point"] = 36,
     },
     ["Glitterfall Basin"] = {
         ["Aspirant's Rest"] = 151,
@@ -7884,6 +7894,9 @@ SFT_FlightData = {
         ["Veiled Ossuary"] = 148,
         ["Wingrest Embassy"] = 129,
     },
+    ["Masters' Perch, Voidstorm"] = {
+        ["Howling Ridge, Voidstorm"] = 54,
+    },
     ["Mear's Farm"] = {
         ["Brumewood Hollow"] = 35,
         ["Town Center"] = 25,
@@ -10349,6 +10362,9 @@ SFT_FlightData = {
         ["Tranquillien"] = 92,
     },
     ["Sanctum of Light, Silvermoon City"] = {
+        ["Atal'Aman, Zul'Aman"] = 182,
+        ["Fairbreeze Village, Eversong Woods"] = 50,
+        ["Tranquillien, Eversong Woods"] = 92,
         ["Witherbark Bluffs, Zul'Aman"] = 125,
     },
     ["Sanctum of the Stars"] = {
@@ -13023,6 +13039,9 @@ SFT_FlightData = {
     ["Terrace of the Sun"] = {
         ["Sanctum of Light"] = 101,
     },
+    ["Terrace of the Sun, Isle of Quel'Danas"] = {
+        ["Sanctum of Light, Silvermoon City"] = 100,
+    },
     ["Thal'darah Overlook"] = {
         ["Astranaar"] = 171,
         ["Blackfathom Camp"] = 126,
@@ -14804,6 +14823,9 @@ SFT_FlightData = {
         ["Thondroril River"] = 211,
         ["Undercity"] = 372,
         ["Zul'Aman"] = 51,
+    },
+    ["Tranquillien, Eversong Woods"] = {
+        ["Fairbreeze Village, Eversong Woods"] = 61,
     },
     ["Transitus Shield"] = {
         ["Agmar's Hammer"] = 137,
