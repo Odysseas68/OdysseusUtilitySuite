@@ -204,9 +204,17 @@ scrollChild:SetSize(180, 1)
 
 local dropdownButtons = {}
 
-local function OpenDropDown(mediaType, currentName, onSelect)
+-- THE FIX: Exported globally to OUS and added intelligent toggling!
+function OUS.OpenDropDown(mediaType, currentName, onSelect)
+    local expectedTitle = "Select " .. (mediaType == "font" and "Font" or (mediaType == "statusbar" and "Texture" or "Border"))
+    
+    if dropDown:IsShown() and dropDown.title:GetText() == expectedTitle then
+        dropDown:Hide()
+        return
+    end
+
     dropDown:Show()
-    dropDown.title:SetText("Select " .. (mediaType == "font" and "Font" or (mediaType == "statusbar" and "Texture" or "Border")))
+    dropDown.title:SetText(expectedTitle)
     local list = LSM:List(mediaType)
     for _, btn in ipairs(dropdownButtons) do btn:Hide() end
 
@@ -417,33 +425,27 @@ local colorBtn = CreateLabeledButton(tabs.FlightMaster, "Color:", 20, -95, "Chan
 end)
 
 local texBtn = CreateLabeledButton(tabs.FlightMaster, "Texture:", 20, -130, "Loading...", 105, function(self)
-    if dropDown:IsShown() and dropDown.title:GetText() == "Select Texture" then dropDown:Hide() else
-        OpenDropDown("statusbar", OdysseusDB.flightSettings.textureName, function(name)
-            OdysseusDB.flightSettings.textureName = name
-            self:SetText(string.sub(name, 1, 14)) 
-            OUS.ApplyFlightTexture()
-        end)
-    end
+    OUS.OpenDropDown("statusbar", OdysseusDB.flightSettings.textureName, function(name)
+        OdysseusDB.flightSettings.textureName = name
+        self:SetText(string.sub(name, 1, 14)) 
+        OUS.ApplyFlightTexture()
+    end)
 end)
 
 local fontBtn = CreateLabeledButton(tabs.FlightMaster, "Font:", 20, -165, "Loading...", 105, function(self)
-    if dropDown:IsShown() and dropDown.title:GetText() == "Select Font" then dropDown:Hide() else
-        OpenDropDown("font", OdysseusDB.flightSettings.fontName, function(name)
-            OdysseusDB.flightSettings.fontName = name
-            self:SetText(string.sub(name, 1, 14))
-            OUS.ApplyFlightFonts()
-        end)
-    end
+    OUS.OpenDropDown("font", OdysseusDB.flightSettings.fontName, function(name)
+        OdysseusDB.flightSettings.fontName = name
+        self:SetText(string.sub(name, 1, 14))
+        OUS.ApplyFlightFonts()
+    end)
 end)
 
 local borderBtn = CreateLabeledButton(tabs.FlightMaster, "Border:", 20, -200, "Loading...", 105, function(self)
-    if dropDown:IsShown() and dropDown.title:GetText() == "Select Border" then dropDown:Hide() else
-        OpenDropDown("border", OdysseusDB.flightSettings.borderName, function(name)
-            OdysseusDB.flightSettings.borderName = name
-            self:SetText(string.sub(name, 1, 14))
-            OUS.ApplyFlightBorder()
-        end)
-    end
+    OUS.OpenDropDown("border", OdysseusDB.flightSettings.borderName, function(name)
+        OdysseusDB.flightSettings.borderName = name
+        self:SetText(string.sub(name, 1, 14))
+        OUS.ApplyFlightBorder()
+    end)
 end)
 
 local tooltipCB = CreateFrame("CheckButton", "OdysseusTooltipCheckButton", tabs.FlightMaster, "ChatConfigCheckButtonTemplate")
@@ -604,7 +606,7 @@ cfg:SetScript("OnHide", function() dropDown:Hide() end)
 ShowTab("General")
 
 -- =====================================
--- NEW: ON-SCREEN HELP FRAME
+-- ON-SCREEN HELP FRAME
 -- =====================================
 local helpFrame = CreateFrame("Frame", "OdysseusHelpFrame", UIParent, "BackdropTemplate")
 helpFrame:SetSize(350, 280)

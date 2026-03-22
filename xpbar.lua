@@ -33,7 +33,9 @@ local defaults = {
     delveBarPos = {p = "TOP", rP = "TOP", x = 0, y = -150},
     toastEnabled = true,
     toastSound = false,
-    toastPos = {p = "TOP", rP = "TOP", x = 0, y = -120} -- NEW: Saves Toast Position!
+    toastPos = {p = "TOP", rP = "TOP", x = 0, y = -120},
+    xpFont = "Friz Quadrata TT",
+    xpFontSize = 12
 }
 
 local function DeepCopyTable(src)
@@ -52,9 +54,11 @@ local delveCheckTicker = nil
 local isDebugOn = false 
 local sleepTimer = nil
 local fadeTicker = nil
+
 local sessionXP = 0
 local sessionRep = {}
 local repCache = { renown = {}, paragon = {} }
+local lastGainedFactionName = nil 
 
 local function DebugPrint(msg)
     if isDebugOn then print("|cFF00FFFF[OUS Debug]:|r " .. tostring(msg)) end
@@ -69,10 +73,12 @@ xpBar.bg = xpBar:CreateTexture(nil, "BACKGROUND"); xpBar.bg:SetAllPoints(true); 
 xpBar.restedBar = CreateFrame("StatusBar", nil, xpBar); xpBar.restedBar:SetAllPoints(true); xpBar.restedBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 xpBar.progressBar = CreateFrame("StatusBar", nil, xpBar); xpBar.progressBar:SetAllPoints(true); xpBar.progressBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 xpBar:SetBackdrop({ edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 }); xpBar:SetBackdropBorderColor(0, 0, 0, 1)
-xpBar.text = xpBar.progressBar:CreateFontString(nil, "OVERLAY", "GameFontHighlight"); xpBar.text:SetPoint("CENTER", xpBar, "CENTER", 0, 0); xpBar.text:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
+xpBar.text = xpBar.progressBar:CreateFontString(nil, "OVERLAY", "GameFontHighlight"); xpBar.text:SetPoint("CENTER", xpBar, "CENTER", 0, 0); 
 
 xpBar:SetMovable(true); xpBar:EnableMouse(true); xpBar:RegisterForDrag("LeftButton")
-xpBar:SetScript("OnDragStart", xpBar.StartMoving)
+xpBar:SetScript("OnDragStart", function(self)
+    if IsShiftKeyDown() then self:StartMoving() end
+end)
 xpBar:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
     local point, _, relPoint, x, y = self:GetPoint()
@@ -84,12 +90,14 @@ local delveBar = OUS.delveBarFrame
 delveBar:SetBackdrop({ edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 }); delveBar:SetBackdropBorderColor(0, 0, 0, 1)
 delveBar.bg = delveBar:CreateTexture(nil, "BACKGROUND"); delveBar.bg:SetAllPoints(true); delveBar.bg:SetColorTexture(0.07, 0.05, 0.1, 0.8)
 delveBar.compBar = CreateFrame("StatusBar", nil, delveBar); delveBar.compBar:SetPoint("TOP", 0, -1); delveBar.compBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-delveBar.compText = delveBar.compBar:CreateFontString(nil, "OVERLAY", "GameFontHighlight"); delveBar.compText:SetPoint("CENTER"); delveBar.compText:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+delveBar.compText = delveBar.compBar:CreateFontString(nil, "OVERLAY", "GameFontHighlight"); delveBar.compText:SetPoint("CENTER"); 
 delveBar.jourBar = CreateFrame("StatusBar", nil, delveBar); delveBar.jourBar:SetPoint("BOTTOM", 0, 1); delveBar.jourBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-delveBar.jourText = delveBar.jourBar:CreateFontString(nil, "OVERLAY", "GameFontHighlight"); delveBar.jourText:SetPoint("CENTER"); delveBar.jourText:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+delveBar.jourText = delveBar.jourBar:CreateFontString(nil, "OVERLAY", "GameFontHighlight"); delveBar.jourText:SetPoint("CENTER"); 
 
 delveBar:SetMovable(true); delveBar:EnableMouse(true); delveBar:RegisterForDrag("LeftButton")
-delveBar:SetScript("OnDragStart", delveBar.StartMoving)
+delveBar:SetScript("OnDragStart", function(self)
+    if IsShiftKeyDown() then self:StartMoving() end
+end)
 delveBar:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
     local point, _, relPoint, x, y = self:GetPoint()
@@ -97,7 +105,6 @@ delveBar:SetScript("OnDragStop", function(self)
 end)
 delveBar:Hide()
 
--- THE TOAST POPUP (Now movable with Shift+Drag)
 local toast = CreateFrame("Frame", "OdysseusToastFrame", UIParent, "BackdropTemplate")
 toast:SetSize(300, 56)
 toast:SetFrameStrata("DIALOG")
@@ -163,8 +170,23 @@ function OUS.ShowToast(title, subText, iconPath)
 end
 
 -- ==========================================
--- 3. THE DIMENSIONS & FADE ENGINE
+-- 3. THE DIMENSIONS & FONTS & FADE ENGINE
 -- ==========================================
+local function ApplyFonts()
+    if not OdysseusDB or not OdysseusDB.xpBar then return end
+    local db = OdysseusDB.xpBar
+    local fontPath = "Fonts\\FRIZQT__.TTF"
+    local LSM = LibStub and LibStub("LibSharedMedia-3.0", true)
+    if LSM then
+        fontPath = LSM:Fetch("font", db.xpFont) or fontPath
+    end
+    
+    local size = db.xpFontSize or 12
+    xpBar.text:SetFont(fontPath, size, "OUTLINE")
+    delveBar.compText:SetFont(fontPath, math.max(8, size - 2), "OUTLINE")
+    delveBar.jourText:SetFont(fontPath, math.max(8, size - 2), "OUTLINE")
+end
+
 local function ApplyDimensions()
     if not OdysseusDB or not OdysseusDB.xpBar then return end
     local db = OdysseusDB.xpBar
@@ -398,8 +420,24 @@ local function UpdateBar()
     local playerLevel = UnitLevel("player")
     local maxExpansionLevel = GetMaxPlayerLevel and GetMaxPlayerLevel() or 80
     local isMaxLevel = (playerLevel >= maxExpansionLevel) or (IsXPUserDisabled and IsXPUserDisabled())
+    
+    local displayData = nil
     local watchedData = C_Reputation.GetWatchedFactionData()
-    local showRep = isMaxLevel or (forceRepDisplay and watchedData)
+
+    if forceRepDisplay and lastGainedFactionName then
+        if C_Reputation and C_Reputation.GetNumFactions then
+            for i = 1, C_Reputation.GetNumFactions() do
+                local data = C_Reputation.GetFactionDataByIndex(i)
+                if data and data.name == lastGainedFactionName and not data.isHeader then
+                    displayData = data
+                    break
+                end
+            end
+        end
+    end
+    
+    if not displayData then displayData = watchedData end
+    local showRep = isMaxLevel or (forceRepDisplay and displayData)
 
     if not showRep then
         local curXP, maxXP = UnitXP("player"), UnitXPMax("player")
@@ -422,9 +460,9 @@ local function UpdateBar()
         xpBar:Show()
     else
         xpBar.restedBar:Hide()
-        if watchedData then
-            local factionID = watchedData.factionID
-            local name = watchedData.name
+        if displayData then
+            local factionID = displayData.factionID
+            local name = displayData.name
             local standingText = "Neutral"
             local curRep, maxRep = 0, 1
             local isMaxed = false
@@ -462,12 +500,12 @@ local function UpdateBar()
             end
 
             if not isMajorFaction and not isFriendship then
-                standingText = GetText("FACTION_STANDING_LABEL" .. (watchedData.reaction or 4)) or "Neutral"
-                if watchedData.currentValue then 
-                    curRep, maxRep = watchedData.currentValue, watchedData.maxValue
-                elseif watchedData.currentStanding then
-                    curRep = watchedData.currentStanding - watchedData.currentReactionThreshold
-                    maxRep = watchedData.nextReactionThreshold - watchedData.currentReactionThreshold
+                standingText = GetText("FACTION_STANDING_LABEL" .. (displayData.reaction or 4)) or "Neutral"
+                if displayData.currentValue then 
+                    curRep, maxRep = displayData.currentValue, displayData.maxValue
+                elseif displayData.currentStanding then
+                    curRep = displayData.currentStanding - displayData.currentReactionThreshold
+                    maxRep = displayData.nextReactionThreshold - displayData.currentReactionThreshold
                 end
                 if curRep >= maxRep and maxRep > 0 then isMaxed = true; curRep = 1; maxRep = 1 end
             end
@@ -520,6 +558,9 @@ local stats = OUS.statsFrame
 stats:SetSize(350, 400)
 stats:SetPoint("CENTER")
 stats:SetFrameStrata("DIALOG")
+
+-- THE FIX: Adding the frame to UISpecialFrames makes it closeable via Escape key!
+tinsert(UISpecialFrames, stats:GetName())
 
 stats:SetBackdrop({
     bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
@@ -651,6 +692,10 @@ local function BuildXPConfigUI()
         local editBox = CreateFrame("EditBox", nil, editBg)
         editBox:SetFontObject("GameFontHighlightSmall"); editBox:SetPoint("TOPLEFT", 4, -2); editBox:SetPoint("BOTTOMRIGHT", -4, 2); editBox:SetAutoFocus(false); editBox:SetJustifyH("CENTER")
 
+        local initVal = OdysseusDB.xpBar[dbKey] or minVal
+        slider:SetValue(initVal)
+        editBox:SetText(initVal)
+
         btnMinus:SetScript("OnClick", function() slider:SetValue(slider:GetValue() - step) end)
         btnPlus:SetScript("OnClick", function() slider:SetValue(slider:GetValue() + step) end)
         editBox:SetScript("OnEscapePressed", function(self) self:ClearFocus(); self:SetText(slider:GetValue()) end)
@@ -663,29 +708,57 @@ local function BuildXPConfigUI()
             editBox:SetText(snappedValue)
             if onUpdate then onUpdate() end
         end)
-        return slider
+        return slider, editBox
     end
 
     -- PAGE 1: GLOBAL
+    local fontSizeSlider, fontSizeBox = CreatePremiumSlider(pages[1], "Global Font Size", -10, "xpFontSize", 8, 32, 1, ApplyFonts)
+
+    local fontLbl = pages[1]:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    fontLbl:SetPoint("TOPLEFT", 12, -60)
+    fontLbl:SetText("Global Font (Requires LibSharedMedia):")
+    
+    local fontBtn = CreateFrame("Button", nil, pages[1], "UIPanelButtonTemplate")
+    fontBtn:SetSize(200, 24)
+    fontBtn:SetPoint("TOPLEFT", 12, -75)
+    fontBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.xpFont or "Friz Quadrata TT"), 1, 25))
+    fontBtn:SetScript("OnClick", function(self)
+        if OUS.OpenDropDown then
+            OUS.OpenDropDown("font", OdysseusDB.xpBar.xpFont, function(name)
+                OdysseusDB.xpBar.xpFont = name
+                self:SetText(string.sub(tostring(name), 1, 25))
+                ApplyFonts()
+            end)
+        end
+    end)
+
     local hideBlizzCheck = CreateFrame("CheckButton", nil, pages[1], "UICheckButtonTemplate")
-    hideBlizzCheck:SetPoint("TOPLEFT", 12, -10); hideBlizzCheck.text = hideBlizzCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall"); hideBlizzCheck.text:SetPoint("LEFT", hideBlizzCheck, "RIGHT", 4, 0); hideBlizzCheck.text:SetText("Hide Default Blizzard UI (Requires Reload)")
+    hideBlizzCheck:SetPoint("TOPLEFT", 12, -110); hideBlizzCheck.text = hideBlizzCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall"); hideBlizzCheck.text:SetPoint("LEFT", hideBlizzCheck, "RIGHT", 4, 0); hideBlizzCheck.text:SetText("Hide Default Blizzard UI (Requires Reload)")
     hideBlizzCheck:SetScript("OnClick", function(self) OdysseusDB.xpBar.hideBlizz = self:GetChecked(); StaticPopup_Show("ODYSSEUS_RELOAD_PROMPT") end)
-    pages[1]:SetScript("OnShow", function() if IsInInstance() then hideBlizzCheck:Disable(); hideBlizzCheck.text:SetTextColor(0.5, 0.5, 0.5) else hideBlizzCheck:Enable(); hideBlizzCheck.text:SetTextColor(1, 1, 1) end end)
+
+    pages[1]:SetScript("OnShow", function() 
+        if IsInInstance() then 
+            hideBlizzCheck:Disable(); hideBlizzCheck.text:SetTextColor(0.5, 0.5, 0.5) 
+        else 
+            hideBlizzCheck:Enable(); hideBlizzCheck.text:SetTextColor(1, 1, 1) 
+        end 
+        if fontBtn then fontBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.xpFont or "Friz Quadrata TT"), 1, 25)) end
+    end)
 
     local autoHideCheck = CreateFrame("CheckButton", nil, pages[1], "UICheckButtonTemplate")
-    autoHideCheck:SetPoint("TOPLEFT", 12, -40); autoHideCheck.text = autoHideCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall"); autoHideCheck.text:SetPoint("LEFT", autoHideCheck, "RIGHT", 4, 0); autoHideCheck.text:SetText("Enable Auto-Hide / Mouseover Engine")
+    autoHideCheck:SetPoint("TOPLEFT", 12, -140); autoHideCheck.text = autoHideCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall"); autoHideCheck.text:SetPoint("LEFT", autoHideCheck, "RIGHT", 4, 0); autoHideCheck.text:SetText("Enable Auto-Hide / Mouseover Engine")
     autoHideCheck:SetScript("OnClick", function(self) OdysseusDB.xpBar.autoHide = self:GetChecked(); WakeBars(); SleepBars() end)
 
-    local repTimeSlider = CreatePremiumSlider(pages[1], "Auto-Switch Display Time (Seconds)", -80, "repDisplayTime", 5, 60, 1, function() WakeBars(); SleepBars() end)
-    local fadeDelaySlider = CreatePremiumSlider(pages[1], "Auto-Hide Fade Delay (Seconds)", -130, "fadeDelay", 0, 60, 1, function() WakeBars(); SleepBars() end)
-    local activeAlphaSlider = CreatePremiumSlider(pages[1], "Active Opacity (%)", -180, "activeAlpha", 10, 100, 5, function() WakeBars(); SleepBars() end)
-    local fadedAlphaSlider = CreatePremiumSlider(pages[1], "Faded Opacity (%)", -230, "fadedAlpha", 0, 100, 5, function() WakeBars(); SleepBars() end)
+    local repTimeSlider, repTimeBox = CreatePremiumSlider(pages[1], "Auto-Switch Display Time (Seconds)", -180, "repDisplayTime", 5, 60, 1, function() WakeBars(); SleepBars() end)
+    local fadeDelaySlider, fadeDelayBox = CreatePremiumSlider(pages[1], "Auto-Hide Fade Delay (Seconds)", -230, "fadeDelay", 0, 60, 1, function() WakeBars(); SleepBars() end)
+    local activeAlphaSlider, activeAlphaBox = CreatePremiumSlider(pages[1], "Active Opacity (%)", -280, "activeAlpha", 10, 100, 5, function() WakeBars(); SleepBars() end)
+    local fadedAlphaSlider, fadedAlphaBox = CreatePremiumSlider(pages[1], "Faded Opacity (%)", -330, "fadedAlpha", 0, 100, 5, function() WakeBars(); SleepBars() end)
 
     local resetGlobalBtn = CreateFrame("Button", nil, pages[1], "UIPanelButtonTemplate"); resetGlobalBtn:SetSize(120, 24); resetGlobalBtn:SetPoint("BOTTOMRIGHT", -12, 12); resetGlobalBtn:SetText("Reset Defaults")
     resetGlobalBtn:SetScript("OnClick", function() 
-        OdysseusDB.xpBar.hideBlizz = defaults.hideBlizz; OdysseusDB.xpBar.autoHide = defaults.autoHide; OdysseusDB.xpBar.repDisplayTime = defaults.repDisplayTime; OdysseusDB.xpBar.fadeDelay = defaults.fadeDelay; OdysseusDB.xpBar.activeAlpha = defaults.activeAlpha; OdysseusDB.xpBar.fadedAlpha = defaults.fadedAlpha
-        hideBlizzCheck:SetChecked(defaults.hideBlizz); autoHideCheck:SetChecked(defaults.autoHide); repTimeSlider:SetValue(defaults.repDisplayTime); fadeDelaySlider:SetValue(defaults.fadeDelay); activeAlphaSlider:SetValue(defaults.activeAlpha); fadedAlphaSlider:SetValue(defaults.fadedAlpha)
-        ApplyBlizzardKiller(); WakeBars(); SleepBars()
+        OdysseusDB.xpBar.hideBlizz = defaults.hideBlizz; OdysseusDB.xpBar.autoHide = defaults.autoHide; OdysseusDB.xpBar.repDisplayTime = defaults.repDisplayTime; OdysseusDB.xpBar.fadeDelay = defaults.fadeDelay; OdysseusDB.xpBar.activeAlpha = defaults.activeAlpha; OdysseusDB.xpBar.fadedAlpha = defaults.fadedAlpha; OdysseusDB.xpBar.xpFont = defaults.xpFont; OdysseusDB.xpBar.xpFontSize = defaults.xpFontSize;
+        hideBlizzCheck:SetChecked(defaults.hideBlizz); autoHideCheck:SetChecked(defaults.autoHide); repTimeSlider:SetValue(defaults.repDisplayTime); repTimeBox:SetText(defaults.repDisplayTime); fadeDelaySlider:SetValue(defaults.fadeDelay); fadeDelayBox:SetText(defaults.fadeDelay); activeAlphaSlider:SetValue(defaults.activeAlpha); activeAlphaBox:SetText(defaults.activeAlpha); fadedAlphaSlider:SetValue(defaults.fadedAlpha); fadedAlphaBox:SetText(defaults.fadedAlpha); fontSizeSlider:SetValue(defaults.xpFontSize); fontSizeBox:SetText(defaults.xpFontSize); fontBtn:SetText(defaults.xpFont)
+        ApplyBlizzardKiller(); ApplyFonts(); WakeBars(); SleepBars()
     end)
 
     -- PAGE 2: EXPERIENCE
@@ -693,14 +766,14 @@ local function BuildXPConfigUI()
     local xpColorBox = CreateColorBox(pages[2], "Main Experience Color", 12, -70, "xpColor")
     local restColorBox = CreateColorBox(pages[2], "Rested Experience Color", 220, -70, "restColor")
 
-    local xpWidthSlider = CreatePremiumSlider(pages[2], "Main Bar Width", -110, "xpBarWidth", 100, 1000, 10, function() ApplyDimensions(); WakeBars(); SleepBars() end)
-    local xpHeightSlider = CreatePremiumSlider(pages[2], "Main Bar Height", -160, "xpBarHeight", 10, 100, 1, function() ApplyDimensions(); WakeBars(); SleepBars() end)
-    local xpScaleSlider = CreatePremiumSlider(pages[2], "Main Bar Scale", -210, "xpBarScale", 0.5, 2.0, 0.05, function() ApplyDimensions(); WakeBars(); SleepBars() end)
+    local xpWidthSlider, xpWidthBox = CreatePremiumSlider(pages[2], "Main Bar Width", -110, "xpBarWidth", 100, 1000, 10, function() ApplyDimensions(); WakeBars(); SleepBars() end)
+    local xpHeightSlider, xpHeightBox = CreatePremiumSlider(pages[2], "Main Bar Height", -160, "xpBarHeight", 10, 100, 1, function() ApplyDimensions(); WakeBars(); SleepBars() end)
+    local xpScaleSlider, xpScaleBox = CreatePremiumSlider(pages[2], "Main Bar Scale", -210, "xpBarScale", 0.5, 2.0, 0.05, function() ApplyDimensions(); WakeBars(); SleepBars() end)
 
     local resetXPBtn = CreateFrame("Button", nil, pages[2], "UIPanelButtonTemplate"); resetXPBtn:SetSize(120, 24); resetXPBtn:SetPoint("BOTTOMRIGHT", -12, 12); resetXPBtn:SetText("Reset Defaults")
     resetXPBtn:SetScript("OnClick", function() 
         OdysseusDB.xpBar.xpTemplate = defaults.xpTemplate; OdysseusDB.xpBar.xpColor = DeepCopyTable(defaults.xpColor); OdysseusDB.xpBar.restColor = DeepCopyTable(defaults.restColor); OdysseusDB.xpBar.xpBarWidth = defaults.xpBarWidth; OdysseusDB.xpBar.xpBarHeight = defaults.xpBarHeight; OdysseusDB.xpBar.xpBarScale = defaults.xpBarScale; OdysseusDB.xpBar.xpBarPos = DeepCopyTable(defaults.xpBarPos);
-        xpEditBox:SetText(defaults.xpTemplate); xpEditBox:SetCursorPosition(0); xpColorBox:SetBackdropColor(defaults.xpColor.r, defaults.xpColor.g, defaults.xpColor.b, 1); restColorBox:SetBackdropColor(defaults.restColor.r, defaults.restColor.g, defaults.restColor.b, 1); xpWidthSlider:SetValue(defaults.xpBarWidth); xpHeightSlider:SetValue(defaults.xpBarHeight); xpScaleSlider:SetValue(defaults.xpBarScale);
+        xpEditBox:SetText(defaults.xpTemplate); xpEditBox:SetCursorPosition(0); xpColorBox:SetBackdropColor(defaults.xpColor.r, defaults.xpColor.g, defaults.xpColor.b, 1); restColorBox:SetBackdropColor(defaults.restColor.r, defaults.restColor.g, defaults.restColor.b, 1); xpWidthSlider:SetValue(defaults.xpBarWidth); xpWidthBox:SetText(defaults.xpBarWidth); xpHeightSlider:SetValue(defaults.xpBarHeight); xpHeightBox:SetText(defaults.xpBarHeight); xpScaleSlider:SetValue(defaults.xpBarScale); xpScaleBox:SetText(defaults.xpBarScale);
         xpBar:ClearAllPoints(); xpBar:SetPoint(defaults.xpBarPos.p, UIParent, defaults.xpBarPos.rP, defaults.xpBarPos.x, defaults.xpBarPos.y)
         ApplyDimensions(); WakeBars(); UpdateBar(); SleepBars() 
     end)
@@ -732,19 +805,19 @@ local function BuildXPConfigUI()
     local delveCompColorBox = CreateColorBox(pages[4], "Companion Color", 12, -120, "delveCompColor")
     local delveJourColorBox = CreateColorBox(pages[4], "Journey Color", 220, -120, "delveJourColor")
 
-    local delveWidthSlider = CreatePremiumSlider(pages[4], "Delve Bar Width", -160, "delveBarWidth", 100, 1000, 10, function() ApplyDimensions(); WakeBars(); SleepBars() end)
-    local delveHeightSlider = CreatePremiumSlider(pages[4], "Delve Bar Height", -210, "delveBarHeight", 20, 100, 2, function() ApplyDimensions(); WakeBars(); SleepBars() end)
-    local delveScaleSlider = CreatePremiumSlider(pages[4], "Delve Bar Scale", -260, "delveBarScale", 0.5, 2.0, 0.05, function() ApplyDimensions(); WakeBars(); SleepBars() end)
+    local delveWidthSlider, delveWidthBox = CreatePremiumSlider(pages[4], "Delve Bar Width", -160, "delveBarWidth", 100, 1000, 10, function() ApplyDimensions(); WakeBars(); SleepBars() end)
+    local delveHeightSlider, delveHeightBox = CreatePremiumSlider(pages[4], "Delve Bar Height", -210, "delveBarHeight", 20, 100, 2, function() ApplyDimensions(); WakeBars(); SleepBars() end)
+    local delveScaleSlider, delveScaleBox = CreatePremiumSlider(pages[4], "Delve Bar Scale", -260, "delveBarScale", 0.5, 2.0, 0.05, function() ApplyDimensions(); WakeBars(); SleepBars() end)
 
     local resetDelveBtn = CreateFrame("Button", nil, pages[4], "UIPanelButtonTemplate"); resetDelveBtn:SetSize(120, 24); resetDelveBtn:SetPoint("BOTTOMRIGHT", -12, 12); resetDelveBtn:SetText("Reset Defaults")
     resetDelveBtn:SetScript("OnClick", function() 
         OdysseusDB.xpBar.delveCompTemplate = defaults.delveCompTemplate; OdysseusDB.xpBar.delveJourTemplate = defaults.delveJourTemplate; OdysseusDB.xpBar.delveCompColor = DeepCopyTable(defaults.delveCompColor); OdysseusDB.xpBar.delveJourColor = DeepCopyTable(defaults.delveJourColor); OdysseusDB.xpBar.delveBarWidth = defaults.delveBarWidth; OdysseusDB.xpBar.delveBarHeight = defaults.delveBarHeight; OdysseusDB.xpBar.delveBarScale = defaults.delveBarScale; OdysseusDB.xpBar.delveBarPos = DeepCopyTable(defaults.delveBarPos);
-        delveCompEditBox:SetText(defaults.delveCompTemplate); delveCompEditBox:SetCursorPosition(0); delveJourEditBox:SetText(defaults.delveJourTemplate); delveJourEditBox:SetCursorPosition(0); delveCompColorBox:SetBackdropColor(defaults.delveCompColor.r, defaults.delveCompColor.g, defaults.delveCompColor.b, 1); delveJourColorBox:SetBackdropColor(defaults.delveJourColor.r, defaults.delveJourColor.g, defaults.delveJourColor.b, 1); delveWidthSlider:SetValue(defaults.delveBarWidth); delveHeightSlider:SetValue(defaults.delveBarHeight); delveScaleSlider:SetValue(defaults.delveBarScale);
+        delveCompEditBox:SetText(defaults.delveCompTemplate); delveCompEditBox:SetCursorPosition(0); delveJourEditBox:SetText(defaults.delveJourTemplate); delveJourEditBox:SetCursorPosition(0); delveCompColorBox:SetBackdropColor(defaults.delveCompColor.r, defaults.delveCompColor.g, defaults.delveCompColor.b, 1); delveJourColorBox:SetBackdropColor(defaults.delveJourColor.r, defaults.delveJourColor.g, defaults.delveJourColor.b, 1); delveWidthSlider:SetValue(defaults.delveBarWidth); delveWidthBox:SetText(defaults.delveBarWidth); delveHeightSlider:SetValue(defaults.delveBarHeight); delveHeightBox:SetText(defaults.delveBarHeight); delveScaleSlider:SetValue(defaults.delveBarScale); delveScaleBox:SetText(defaults.delveBarScale);
         delveBar:ClearAllPoints(); delveBar:SetPoint(defaults.delveBarPos.p, UIParent, defaults.delveBarPos.rP, defaults.delveBarPos.x, defaults.delveBarPos.y)
         ApplyDimensions(); WakeBars(); UpdateBar(); SleepBars() 
     end)
 
-    -- PAGE 5: HELP (THE FIX: Updated to show Command List!)
+    -- PAGE 5: HELP
     local helpText = pages[5]:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     helpText:SetPoint("TOPLEFT", 12, -12); helpText:SetJustifyH("LEFT")
     helpText:SetText(
@@ -764,39 +837,26 @@ local function BuildXPConfigUI()
         "|cFF00FF00/ous help|r - Show All Commands\n" ..
         "|cFF00FF00/xpstats|r - Show Session XP/Rep\n" ..
         "|cFF00FF00/toasttest|r - Test Popup (Hold Shift to Move!)\n" ..
-        "|cFF00FF00/delvetest|r - Toggle Delve Bar\n" ..
-        "|cFF00FF00/delvedebug|r - Print Advanced Delve IDs"
+        "|cFF888888(Tip: Hold Shift to drag the XP & Delve bars!)|r"
     )
     
-    -- Sync Initial Values
     hideBlizzCheck:SetChecked(OdysseusDB.xpBar.hideBlizz)
     autoHideCheck:SetChecked(OdysseusDB.xpBar.autoHide)
-    repTimeSlider:SetValue(OdysseusDB.xpBar.repDisplayTime)
-    fadeDelaySlider:SetValue(OdysseusDB.xpBar.fadeDelay)
-    activeAlphaSlider:SetValue(OdysseusDB.xpBar.activeAlpha)
-    fadedAlphaSlider:SetValue(OdysseusDB.xpBar.fadedAlpha)
-    xpWidthSlider:SetValue(OdysseusDB.xpBar.xpBarWidth)
-    xpHeightSlider:SetValue(OdysseusDB.xpBar.xpBarHeight)
-    xpScaleSlider:SetValue(OdysseusDB.xpBar.xpBarScale)
-    delveWidthSlider:SetValue(OdysseusDB.xpBar.delveBarWidth)
-    delveHeightSlider:SetValue(OdysseusDB.xpBar.delveBarHeight)
-    delveScaleSlider:SetValue(OdysseusDB.xpBar.delveBarScale)
-    
     toastEnableCheck:SetChecked(OdysseusDB.xpBar.toastEnabled)
     toastSoundCheck:SetChecked(OdysseusDB.xpBar.toastSound)
     
-    xpEditBox:SetText(OdysseusDB.xpBar.xpTemplate); xpEditBox:SetCursorPosition(0)
-    repEditBox:SetText(OdysseusDB.xpBar.repTemplate); repEditBox:SetCursorPosition(0)
-    delveCompEditBox:SetText(OdysseusDB.xpBar.delveCompTemplate); delveCompEditBox:SetCursorPosition(0)
-    delveJourEditBox:SetText(OdysseusDB.xpBar.delveJourTemplate); delveJourEditBox:SetCursorPosition(0)
+    xpEditBox:SetText(OdysseusDB.xpBar.xpTemplate or "")
+    repEditBox:SetText(OdysseusDB.xpBar.repTemplate or "")
+    delveCompEditBox:SetText(OdysseusDB.xpBar.delveCompTemplate or "")
+    delveJourEditBox:SetText(OdysseusDB.xpBar.delveJourTemplate or "")
     
     local cXP, cRest, cRep = OdysseusDB.xpBar.xpColor, OdysseusDB.xpBar.restColor, OdysseusDB.xpBar.repColor
     local cDC, cDJ = OdysseusDB.xpBar.delveCompColor, OdysseusDB.xpBar.delveJourColor
-    xpColorBox:SetBackdropColor(cXP.r, cXP.g, cXP.b, 1)
-    restColorBox:SetBackdropColor(cRest.r, cRest.g, cRest.b, 1)
-    repColorBox:SetBackdropColor(cRep.r, cRep.g, cRep.b, 1)
-    delveCompColorBox:SetBackdropColor(cDC.r, cDC.g, cDC.b, 1)
-    delveJourColorBox:SetBackdropColor(cDJ.r, cDJ.g, cDJ.b, 1)
+    if cXP then xpColorBox:SetBackdropColor(cXP.r, cXP.g, cXP.b, 1) end
+    if cRest then restColorBox:SetBackdropColor(cRest.r, cRest.g, cRest.b, 1) end
+    if cRep then repColorBox:SetBackdropColor(cRep.r, cRep.g, cRep.b, 1) end
+    if cDC then delveCompColorBox:SetBackdropColor(cDC.r, cDC.g, cDC.b, 1) end
+    if cDJ then delveJourColorBox:SetBackdropColor(cDJ.r, cDJ.g, cDJ.b, 1) end
 end
 
 -- ==========================================
@@ -819,12 +879,19 @@ f:SetScript("OnEvent", function(self, event, arg1)
     if event == "ADDON_LOADED" and arg1 == addonName then
         OdysseusDB = OdysseusDB or {}
         OdysseusDB.xpBar = OdysseusDB.xpBar or {}
+        
         for k, v in pairs(defaults) do
-            if OdysseusDB.xpBar[k] == nil then
-                if type(v) == "table" then OdysseusDB.xpBar[k] = DeepCopyTable(v) else OdysseusDB.xpBar[k] = v end
+            if OdysseusDB.xpBar[k] == nil or (type(v) == "string" and OdysseusDB.xpBar[k] == "") then
+                if type(v) == "table" then
+                    OdysseusDB.xpBar[k] = DeepCopyTable(v)
+                else
+                    OdysseusDB.xpBar[k] = v
+                end
             end
         end
+        
         BuildXPConfigUI() 
+        ApplyFonts()
         
         local xpP = OdysseusDB.xpBar.xpBarPos
         xpBar:ClearAllPoints(); xpBar:SetPoint(xpP.p, UIParent, xpP.rP, xpP.x, xpP.y)
@@ -868,9 +935,28 @@ f:SetScript("OnEvent", function(self, event, arg1)
         WakeBars(); UpdateBar(); SleepBars()
 
     elseif event == "CHAT_MSG_COMBAT_FACTION_CHANGE" or event == "CHAT_MSG_SYSTEM" then
-        local faction, amount = string.match(arg1, "[Rr]eputation with (.-) increased by (%d+)")
-        if not faction then faction, amount = string.match(arg1, "Warband's reputation with (.-) increased by (%d+)") end
-        if faction and amount then sessionRep[faction] = (sessionRep[faction] or 0) + tonumber(amount) end
+        if not arg1 then return end
+        
+        local success, msg = pcall(function() return tostring(arg1) end)
+        if not success or type(msg) ~= "string" then return end
+        
+        msg = string.gsub(msg, "|c%x%x%x%x%x%x%x%x", "")
+        msg = string.gsub(msg, "|r", "")
+        msg = string.gsub(msg, "|H.-|h(.-)|h", "%1")
+        
+        local faction, amount = string.match(msg, "[Rr]eputation with (.-) increased by (%d+)")
+        if not faction then 
+            faction, amount = string.match(msg, "Warband's reputation with (.-) increased by (%d+)") 
+        end
+        
+        if faction and amount then 
+            faction = string.gsub(faction, "[%[%]%.]", "")
+            faction = string.gsub(faction, "^%s+", "")
+            faction = string.gsub(faction, "%s+$", "")
+            
+            sessionRep[faction] = (sessionRep[faction] or 0) + tonumber(amount) 
+            lastGainedFactionName = faction 
+        end
 
     elseif event == "PLAYER_REGEN_DISABLED" then
         WakeBars()
