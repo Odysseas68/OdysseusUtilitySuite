@@ -1,3 +1,31 @@
+# Changelog
+
+## [Latest Version] - The "Midnight" & Delves Update 21/03/2026
+
+This massive update transforms Odysseus from a collection of standalone tools into a cohesive, highly optimized Utility Suite. The entire configuration system has been unified, and the Experience & Reputation tracking has been rebuilt from the ground up to fully support modern World of Warcraft systems (The War Within & Midnight).
+
+### 🌟 Major Features
+* **Unified Configuration Suite (`/ous`)**: All modules (Flight Master, Faster Loot, Fishing Tracker, and the new Exp/Rep Bar) have been merged into a single, beautifully styled "Midnight-themed" control panel. 
+* **Dynamic Experience & Reputation Bar**: 
+  * Fully customizable, movable, and resizable layout with custom text tags.
+  * Added full support for **Renown (Major Factions)** and **Friendship Factions (Ranks)**.
+  * Added **Paragon Support**: The bar will now track Paragon overflow XP and alert you when a reward box is pending.
+  * Properly parses account-wide "Warband" reputation gains.
+* **Smart Delves Integration**:
+  * The addon now utilizes an invisible radar based on Difficulty IDs to flawlessly detect when you enter a Delve.
+  * Automatically replaces the main XP bar with a dual-bar system tracking your **Companion** (Brann Bronzebeard / Valeera Sanguinar) and your **Journey** progress.
+* **Auto-Hide & Fade Engine**: The Exp/Rep bars now feature a buttery-smooth animation engine. They will intelligently fade out when idle and instantly wake up during combat, mouse-hover, or upon gaining XP/Rep.
+* **Session Statistics (`/xpstats`)**: A new, lightweight tracking window that records total XP gained and provides a detailed breakdown of all Faction Reputation earned during your current session.
+* **Reward Toasts**: Added an achievement-style, animated popup that slides onto the screen whenever you level up a Renown faction or earn a Paragon reward box. (Shift+Drag to reposition!).
+* **On-Screen Help Menu (`/ous help`)**: Replaced standard chat-box command spam with a clean, draggable floating window.
+
+### 🐛 Bug Fixes & Optimizations
+* Fixed an issue where modern scenarios and seamless instances were preventing UI elements from loading.
+* Fixed a race condition causing nil errors during the database merging process on initial login.
+* The Flight Master timer now correctly saves its screen position and dimensions across sessions.
+* Stripped out bulky default Blizzard borders in favor of a minimalist, 1-pixel dark aesthetic.
+
+------------------------------------------------------------
 
 ### ⚡ Faster Loot Module (Safety & API Compatibility Update)
 * **Cross-Version API Support:** Updated the loot-method detection to be fully compatible with both Classic WoW and modern Retail WoW (safely bypassing Blizzard's removal of the `GetLootMethod` command in Retail).

@@ -10,6 +10,14 @@ Manage your entire suite from a single, beautifully designed dashboard.
 * **Data Management:** Safely wipe or export your saved database history (with built-in confirmation warnings).
 * **SharedMedia Integration:** Fully supports LibSharedMedia for custom fonts, textures, and borders.
 
+### 📊 Experience, Reputation & Delves Bar
+A highly customizable, dual-purpose tracking bar that seamlessly adapts to what you are doing in the game.
+* **Modern Tracking:** Fully supports Classic Reputations, Friendship Ranks, Renown, and Paragon overflow (including account-wide Warband gains).
+* **Delves Auto-Detection:** Utilizes an invisible radar to detect when you enter a Delve, automatically swapping the main bar to a custom UI that tracks your active Companion (Brann Bronzebeard / Valeera Sanguinar) and Journey progress.
+* **Smart Auto-Hide:** Configure your bars to smoothly fade out when idle, instantly waking up when you enter combat, gain XP/Reputation, or hover over them with your mouse.
+* **Reward Toasts:** Get a stylish, animated popup notification whenever your Renown increases or a Paragon reward box is ready to be claimed! (Hold **Shift** and drag to reposition the popup).
+* **Session Stats:** Type `/xpstats` to open a sleek window detailing exactly how much XP and Reputation you've farmed during your current session.
+
 ### 🦅 Flight Master
 A smart, learning flight timer that tracks your travel network.
 * **Dynamic Learning:** Automatically learns and permanently records flight durations the first time you take a path.
@@ -32,8 +40,20 @@ A comprehensive, professional-grade fishing dashboard and database.
 * **Expansion Aware:** Reads Zone IDs to display modern expansion fishing tiers (e.g., *Midnight Fishing*, *Khaz Algar Fishing*).
 * **Custom Transparency:** Set the exact alpha level of the tracker's background frames without "ghosting" the text.
 
+## ⚙️ Commands
+
+* `/ous` - Open the Main Configuration Panel.
+* `/ous help` - Opens a draggable on-screen mini-window listing all available commands.
+* `/xpstats` (or `/ousxp`) - Open the Session XP & Reputation summary window.
+* `/toasttest` - Fire a test Reward Popup (Hold **Shift** and drag to move it!).
+
+**Developer Commands:**
+* `/delvetest` - Toggles fake data to let you preview and move the Delves UI anywhere in the world.
+* `/delvedebug` - Prints advanced instance/scenario IDs to the chat to help calibrate Delve detection.
+* `/ousdebug` - Toggles the global developer mode for background process monitoring.
+
 ## 🛠️ Installation
 1. Download the latest release.
 2. Extract the `OdysseusUtilitySuite` folder.
 3. Place the folder into your World of Warcraft `_retail_\Interface\AddOns\` directory.
-4. Log in and type `/ous` or open your Interface options to configure!
+4. Log in and type `/ous` to customize your experience!

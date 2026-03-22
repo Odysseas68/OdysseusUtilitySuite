@@ -2,8 +2,9 @@ local addonName, OUS = ...
 local LSM = LibStub("LibSharedMedia-3.0")
 
 local cfg = CreateFrame("Frame", "OdysseusConfigFrame", UIParent, "BackdropTemplate")
-cfg:SetSize(520, 480)
+cfg:SetSize(650, 520) 
 cfg:SetPoint("CENTER")
+cfg:SetFrameStrata("DIALOG") 
 cfg:Hide()
 cfg:SetMovable(true)
 cfg:EnableMouse(true)
@@ -13,7 +14,6 @@ cfg:SetScript("OnDragStop", cfg.StopMovingOrSizing)
 tinsert(UISpecialFrames, cfg:GetName())
 OUS.ConfigFrame = cfg
 
--- Midnight Theme Backdrop
 cfg:SetBackdrop({
     bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
     edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
@@ -38,31 +38,30 @@ cfg.title:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE")
 cfg.closeBtn = CreateFrame("Button", nil, cfg, "UIPanelCloseButton")
 cfg.closeBtn:SetPoint("TOPRIGHT", cfg, "TOPRIGHT", -2, -2)
 
--- Left Navigation Panel
 local navPanel = CreateFrame("Frame", nil, cfg, "BackdropTemplate")
-navPanel:SetSize(140, 440)
+navPanel:SetSize(150, 470)
 navPanel:SetPoint("TOPLEFT", cfg, "TOPLEFT", 4, -34)
 navPanel:SetBackdrop({ bgFile = "Interface\\ChatFrame\\ChatFrameBackground" })
 navPanel:SetBackdropColor(0, 0, 0, 0.3)
 
--- Right Content Panel Container
 local contentPanel = CreateFrame("Frame", nil, cfg)
-contentPanel:SetSize(370, 440)
+contentPanel:SetSize(480, 470)
 contentPanel:SetPoint("TOPLEFT", navPanel, "TOPRIGHT", 0, 0)
 
--- Tab Frames
 local tabs = {}
 tabs.General = CreateFrame("Frame", nil, contentPanel)
 tabs.FlightMaster = CreateFrame("Frame", nil, contentPanel)
 tabs.FasterLoot = CreateFrame("Frame", nil, contentPanel)
 tabs.Fishing = CreateFrame("Frame", nil, contentPanel)
+tabs.XPBar = CreateFrame("Frame", nil, contentPanel) 
+
+OUS.XPBarTab = tabs.XPBar 
 
 for _, tab in pairs(tabs) do
     tab:SetAllPoints()
     tab:Hide()
 end
 
--- Tab Switching Logic
 local function ShowTab(tabName)
     for k, tab in pairs(tabs) do
         if k == tabName then tab:Show() else tab:Hide() end
@@ -71,7 +70,7 @@ end
 
 local function CreateNavButton(label, yOffset, targetTab)
     local btn = CreateFrame("Button", nil, navPanel, "UIPanelButtonTemplate")
-    btn:SetSize(130, 30)
+    btn:SetSize(140, 30)
     btn:SetPoint("TOP", navPanel, "TOP", 0, yOffset)
     btn:SetText(label)
     btn:SetScript("OnClick", function() ShowTab(targetTab) end)
@@ -81,11 +80,8 @@ CreateNavButton("General", -10, "General")
 CreateNavButton("Flight Master", -45, "FlightMaster")
 CreateNavButton("Faster Loot", -80, "FasterLoot")
 CreateNavButton("Fishing Tracker", -115, "Fishing")
+CreateNavButton("Exp & Rep Bar", -150, "XPBar")
 
-
--- =====================================
--- GLOBALS: WIPES & EXPORTS
--- =====================================
 StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE"] = {
     text = "Are you sure you want to wipe ALL recorded flight times? This cannot be undone.",
     button1 = "Yes, Wipe",
@@ -108,9 +104,7 @@ StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE_FISHING"] = {
         if OdysseusDB and OdysseusDB.fishingSettings then
             OdysseusDB.fishingSettings.history = {}
             print("|cFF00CCFFOdysseus:|r All recorded fishing history |cFFFF0000wiped|r!")
-            if OUS.UpdateFishingUI then
-                OUS.UpdateFishingUI()
-            end
+            if OUS.UpdateFishingUI then OUS.UpdateFishingUI() end
         end
     end,
     timeout = 0,
@@ -122,7 +116,7 @@ StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE_FISHING"] = {
 local exportFrame = CreateFrame("Frame", "OdysseusExportFrame", UIParent, "BackdropTemplate")
 exportFrame:SetSize(450, 400)
 exportFrame:SetPoint("CENTER")
-exportFrame:SetFrameStrata("DIALOG")
+exportFrame:SetFrameStrata("FULLSCREEN_DIALOG")
 exportFrame:Hide()
 tinsert(UISpecialFrames, exportFrame:GetName())
 
@@ -174,15 +168,11 @@ closeExpBtn:SetPoint("BOTTOMRIGHT", -15, 10)
 closeExpBtn:SetText("Close")
 closeExpBtn:SetScript("OnClick", function() exportFrame:Hide() end)
 
-
--- =====================================
--- GLOBALS: DROPDOWNS & SLIDERS
--- =====================================
 local dropDown = CreateFrame("Frame", "OdysseusMediaDropDown", cfg, "BackdropTemplate")
 dropDown:SetSize(220, 350)
 dropDown:SetPoint("TOPLEFT", cfg, "TOPRIGHT", 5, 0)
 dropDown:Hide()
-dropDown:SetFrameStrata("TOOLTIP")
+dropDown:SetFrameStrata("FULLSCREEN_DIALOG")
 
 dropDown:SetBackdrop({
     bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
@@ -386,7 +376,6 @@ local fmTitle = tabs.FlightMaster:CreateFontString(nil, "OVERLAY", "GameFontHigh
 fmTitle:SetPoint("TOPLEFT", 20, -20)
 fmTitle:SetText("Flight Master Settings")
 
--- LEFT COLUMN (Buttons & Dropdowns)
 local lockBtn = CreateFrame("Button", nil, tabs.FlightMaster, "UIPanelButtonTemplate")
 lockBtn:SetSize(160, 25)
 lockBtn:SetPoint("TOPLEFT", 20, -55)
@@ -499,7 +488,6 @@ wipeBtn:SetScript("OnClick", function()
     StaticPopup_Show("ODYSSEUS_CONFIRM_WIPE")
 end)
 
--- RIGHT COLUMN (Sliders)
 local widthSlider, widthBox = CreateSliderControl(tabs.FlightMaster, "Bar Width:", 185, -55, 50, 600, 10, function(val)
     OdysseusDB.flightSettings.width = val; OUS.timerBar:SetWidth(val)
 end)
@@ -527,22 +515,16 @@ tabs.FlightMaster:SetScript("OnShow", function()
     
     fontSlider:SetValue(OdysseusDB.flightSettings.fontSize or 12)
     fontBox:SetText(OdysseusDB.flightSettings.fontSize or 12)
-    
     widthSlider:SetValue(OdysseusDB.flightSettings.width or 200)
     widthBox:SetText(OdysseusDB.flightSettings.width or 200)
-    
     heightSlider:SetValue(OdysseusDB.flightSettings.height or 20)
     heightBox:SetText(OdysseusDB.flightSettings.height or 20)
-    
     scaleSlider:SetValue(OdysseusDB.flightSettings.scale or 1.0)
     scaleBox:SetText(OdysseusDB.flightSettings.scale or 1.0)
-    
     borderSlider:SetValue(OdysseusDB.flightSettings.borderSize or 16)
     borderBox:SetText(OdysseusDB.flightSettings.borderSize or 16)
-    
     tooltipCB:SetChecked(OdysseusDB.flightSettings.showTooltips or false)
 end)
-
 
 -- =====================================
 -- TAB 3: FASTER LOOT
@@ -553,7 +535,7 @@ lootTitle:SetText("Faster Loot")
 
 local lootDesc = tabs.FasterLoot:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 lootDesc:SetPoint("TOPLEFT", 20, -50)
-lootDesc:SetWidth(330)
+lootDesc:SetWidth(420)
 lootDesc:SetJustifyH("LEFT")
 lootDesc:SetText("Faster Loot operates silently in the background.\n\nIt dynamically reads your Auto-Loot settings and Shift-Click modifiers. When triggered, it loots items directly from memory, bypassing the Blizzard UI rendering delay.")
 lootDesc:SetTextColor(0.8, 0.8, 0.8)
@@ -591,13 +573,10 @@ local delaySlider, delayBox = CreateSliderControl(tabs.Fishing, "Auto-close Dela
     end
 end)
 
--- NEW: Alpha Transparency Slider (0.1 to 1.0)
 local alphaSlider, alphaBox = CreateSliderControl(tabs.Fishing, "Frame Transparency:", 25, -200, 0.1, 1.0, 0.05, function(val)
     if OdysseusDB and OdysseusDB.fishingSettings then
         OdysseusDB.fishingSettings.alpha = val
-        if OUS.UpdateFishingAlpha then
-            OUS.UpdateFishingAlpha()
-        end
+        if OUS.UpdateFishingAlpha then OUS.UpdateFishingAlpha() end
     end
 end)
 
@@ -621,8 +600,67 @@ tabs.Fishing:SetScript("OnShow", function()
     end
 end)
 
--- Hide Dropdown if config is closed
 cfg:SetScript("OnHide", function() dropDown:Hide() end)
-
--- Show default tab
 ShowTab("General")
+
+-- =====================================
+-- NEW: ON-SCREEN HELP FRAME
+-- =====================================
+local helpFrame = CreateFrame("Frame", "OdysseusHelpFrame", UIParent, "BackdropTemplate")
+helpFrame:SetSize(350, 280)
+helpFrame:SetPoint("CENTER")
+helpFrame:SetFrameStrata("DIALOG")
+helpFrame:SetBackdrop({
+    bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = false, edgeSize = 16,
+    insets = { left = 4, right = 4, top = 4, bottom = 4 }
+})
+helpFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.98)
+helpFrame:SetBackdropBorderColor(0.5, 0.3, 0.7, 1)
+helpFrame:Hide()
+helpFrame:SetMovable(true)
+helpFrame:EnableMouse(true)
+helpFrame:RegisterForDrag("LeftButton")
+helpFrame:SetScript("OnDragStart", helpFrame.StartMoving)
+helpFrame:SetScript("OnDragStop", helpFrame.StopMovingOrSizing)
+tinsert(UISpecialFrames, helpFrame:GetName())
+
+helpFrame.headerBg = helpFrame:CreateTexture(nil, "BACKGROUND", nil, 2)
+helpFrame.headerBg:SetPoint("TOPLEFT", 4, -4)
+helpFrame.headerBg:SetPoint("TOPRIGHT", -4, -4)
+helpFrame.headerBg:SetHeight(26)
+helpFrame.headerBg:SetColorTexture(1, 1, 1, 1)
+helpFrame.headerBg:SetGradient("HORIZONTAL", CreateColor(0.3, 0.1, 0.5, 0.8), CreateColor(0.07, 0.05, 0.1, 0.8))
+
+helpFrame.title = helpFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+helpFrame.title:SetPoint("TOP", helpFrame, "TOP", 0, -8)
+helpFrame.title:SetText("Odysseus Commands")
+helpFrame.title:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE")
+
+local helpCloseBtn = CreateFrame("Button", nil, helpFrame, "UIPanelCloseButton")
+helpCloseBtn:SetPoint("TOPRIGHT", helpFrame, "TOPRIGHT", -2, -2)
+
+local helpTextStr = helpFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+helpTextStr:SetPoint("TOPLEFT", 20, -45)
+helpTextStr:SetJustifyH("LEFT")
+helpTextStr:SetText(
+    "|cFF00FF00/ous|r - Open Main Configuration Panel\n\n" ..
+    "|cFF00FF00/ous help|r - Show This Window\n\n" ..
+    "|cFF00FF00/xpstats|r - Show Session XP & Rep Data\n\n" ..
+    "|cFF00FF00/toasttest|r - Test Popup (Hold Shift to Move!)\n\n" ..
+    "|cFF00FF00/delvetest|r - Toggle Fake Delve Bar\n\n" ..
+    "|cFF00FF00/delvedebug|r - Print Advanced Delve IDs\n\n" ..
+    "|cFF00FF00/ousdebug|r - Toggle Global Debug Mode"
+)
+
+-- MASTER SLASH COMMAND & HELP SYSTEM
+SLASH_ODYSSEUS1 = "/ous"
+SlashCmdList["ODYSSEUS"] = function(msg)
+    msg = string.lower(msg or "")
+    if msg == "help" then
+        if helpFrame:IsShown() then helpFrame:Hide() else helpFrame:Show() end
+    else
+        if cfg:IsShown() then cfg:Hide() else cfg:Show() end
+    end
+end
