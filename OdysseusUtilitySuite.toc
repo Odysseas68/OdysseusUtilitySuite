@@ -21,4 +21,7 @@ Config.lua
 Flightmaster.lua
 Fasterloot.lua
 Fishingtracker.lua
-xpbar.lua
+xpbar_data.lua
+xpbar_core.lua
+xpbar_engine.lua
+xpbar_config.lua

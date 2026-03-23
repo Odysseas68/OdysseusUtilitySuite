@@ -5,7 +5,7 @@ local f = CreateFrame("Frame")
 -- 1. DATABASE, DEFAULTS & STATE VARIABLES
 -- ==========================================
 local defaults = {
-    xpTemplate = "Exp: [curXP]/[maxXP] ([restPC]%) :: Level [pLVL] :: [KTL] Kills",
+    xpTemplate = "Exp: [curXP]/[maxXP] ([restPC]) :: [curPC] through [pLVL] lvl :: [needXP] XP left :: [KTL] kills to lvl",
     repTemplate = "Rep: [faction] ([standing]) [curRep]/[maxRep] :: [repPC]%",
     delveCompTemplate = "[compName]: Level [pLVL] - [curXP]/[maxXP]",
     delveJourTemplate = "Journey: [curRep]/[maxRep]",
