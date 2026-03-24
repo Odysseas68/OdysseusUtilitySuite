@@ -25,6 +25,7 @@ Core.lua
 # ==========================================
 flightdata.lua
 xpbar_data.lua
+Odysseus_RoutingDB.lua
 
 # ==========================================
 # 4. MODULE ENGINES (The actual logic)
@@ -34,6 +35,7 @@ Fasterloot.lua
 Fishingtracker.lua
 xpbar_core.lua
 xpbar_engine.lua
+FlightRouting.lua
 
 # ==========================================
 # 5. CONFIGURATION UI (Loads last to attach to engines)
