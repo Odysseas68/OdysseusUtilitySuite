@@ -16,7 +16,7 @@ C_RED = "\033[91m"    # Bright Red
 C_RESET = "\033[0m"   # Resets color back to default white/gray
 
 # File names
-MASTER_FILE = "FlightData.lua"
+MASTER_FILE = "flightdata.lua" # Updated to match your .toc file!
 UPDATE_FILE = "update.txt"
 
 def parse_lua_table(filepath):
@@ -46,6 +46,39 @@ def parse_lua_table(filepath):
             
     return data
 
+def clean_legacy_duplicates(flight_data):
+    """
+    Scans the flight database and removes old short-name flights 
+    if a modern full-name flight already exists.
+    """
+    def get_short_name(name):
+        return name.split(',')[0].strip()
+
+    modern_start_nodes = [node for node in flight_data.keys() if ',' in node]
+
+    for full_start in modern_start_nodes:
+        short_start = get_short_name(full_start)
+        
+        if short_start in flight_data and short_start != full_start:
+            for old_dest in list(flight_data[short_start].keys()):
+                old_dest_short = get_short_name(old_dest)
+                
+                is_duplicate = False
+                for modern_dest in flight_data[full_start].keys():
+                    if get_short_name(modern_dest) == old_dest_short:
+                        is_duplicate = True
+                        break
+                
+                if is_duplicate:
+                    # Delete the legacy duplicate!
+                    del flight_data[short_start][old_dest]
+            
+            # If the old category is now empty, delete it completely
+            if not flight_data[short_start]:
+                del flight_data[short_start]
+
+    return flight_data
+
 def write_lua_table(filepath, data):
     """Writes the Python dictionary back into a perfectly formatted Lua file."""
     with open(filepath, 'w', encoding='utf-8') as f:
@@ -64,7 +97,7 @@ def write_lua_table(filepath, data):
         f.write("}\n")
 
 def main():
-    print(f"\n{C_BLUE}=== SimpleFlightTimer Database Updater ==={C_RESET}\n")
+    print(f"\n{C_BLUE}=== Odysseus Flight Database Updater ==={C_RESET}\n")
     
     if not os.path.exists(UPDATE_FILE):
         print(f"{C_RED}Error:{C_RESET} Could not find '{C_YELLOW}{UPDATE_FILE}{C_RESET}' inside {SCRIPT_DIR}.")
@@ -95,15 +128,19 @@ def main():
             total_updates += 1
             print(f" {C_GREEN}-> Merged:{C_RESET} {C_YELLOW}{start_node}{C_RESET} to {C_YELLOW}{dest_node}{C_RESET} ({C_GREEN}{time_val}s{C_RESET})")
             
+    # --- THE FIX: Purge the legacy duplicates before saving! ---
+    print(f"\nScanning for and removing legacy duplicate formats...")
+    master_data = clean_legacy_duplicates(master_data)
+            
     # 4. Write the beautifully merged data back to the master file
-    print(f"\nSaving {C_GREEN}{total_updates}{C_RESET} updates to {C_YELLOW}{MASTER_FILE}{C_RESET}...")
+    print(f"Saving {C_GREEN}{total_updates}{C_RESET} updates to {C_YELLOW}{MASTER_FILE}{C_RESET}...")
     write_lua_table(MASTER_FILE, master_data)
     
     # 5. Clear out the update file so it's fresh for next time
     with open(UPDATE_FILE, 'w', encoding='utf-8') as f:
         f.write("-- Paste your exported flights here next time!\n")
         
-    print(f"\n{C_GREEN}Success!{C_RESET} Your master database is completely up to date.")
+    print(f"\n{C_GREEN}Success!{C_RESET} Your master database is completely up to date and deduplicated.")
     input("Press Enter to exit...")
 
 if __name__ == "__main__":

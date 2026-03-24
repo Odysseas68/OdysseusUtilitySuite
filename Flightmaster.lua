@@ -91,26 +91,34 @@ end)
 -- ==========================================
 local cachedStartFull = "Unknown"
 
+-- Aggressively strip color codes, newlines, and trailing spaces
+local function CleanString(str)
+    if not str then return "Unknown" end
+    str = string.gsub(str, "|c%x%x%x%x%x%x%x%x", "")
+    str = string.gsub(str, "|r", "")
+    str = string.gsub(str, "[\r\n]", "")
+    return string.match(str, "^%s*(.-)%s*$")
+end
+
 hooksecurefunc("TakeTaxiNode", function(slot)
     if TaxiNodeName(slot) then
-        currentDestFull = TaxiNodeName(slot)
+        currentDestFull = CleanString(TaxiNodeName(slot))
         currentDestShort = GetShortName(currentDestFull)
         
         local foundStart = false
         for i = 1, NumTaxiNodes() do
             if TaxiNodeGetType(i) == "CURRENT" then
-                currentStartFull = TaxiNodeName(i)
+                currentStartFull = CleanString(TaxiNodeName(i))
                 foundStart = true
                 break
             end
         end
         
-        -- THE FIX: If the map closed too fast, use the safely cached node!
         if not foundStart then
             if cachedStartFull ~= "Unknown" then
                 currentStartFull = cachedStartFull
             else
-                currentStartFull = GetMinimapZoneText() or GetZoneText() or "Unknown"
+                currentStartFull = CleanString(GetMinimapZoneText() or GetZoneText())
             end
         end
         
@@ -119,7 +127,7 @@ hooksecurefunc("TakeTaxiNode", function(slot)
 end)
 
 -- ==========================================
--- 3. THE CUSTOM MIDNIGHT MAP TOOLTIP
+-- 3. THE CUSTOM MAP TOOLTIP & LOOKUP
 -- ==========================================
 local mapTooltip = CreateFrame("Frame", "OdysseusMapTooltip", UIParent, "BackdropTemplate")
 mapTooltip:SetFrameStrata("TOOLTIP")
@@ -153,27 +161,27 @@ mapTooltip.timeText:SetPoint("TOP", mapTooltip.title, "BOTTOM", 0, -6)
 mapTooltip.costText = mapTooltip:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 mapTooltip.costText:SetPoint("TOP", mapTooltip.timeText, "BOTTOM", 0, -4)
 
--- THE FIX: Exhaustive 4-way database lookup ensures mixed data formats ALWAYS match
+-- Exhaustive Database Lookup
 local function GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
     local function SearchTable(db)
-        if not db then return nil end
-        -- 1. Exact Match (Full -> Full)
+        if type(db) ~= "table" then return nil end
         if db[startFull] and db[startFull][destFull] then return db[startFull][destFull] end
-        -- 2. Old Format Match (Short -> Short)
         if db[startShort] and db[startShort][destShort] then return db[startShort][destShort] end
-        -- 3. Mixed Format (Full -> Short)
         if db[startFull] and db[startFull][destShort] then return db[startFull][destShort] end
-        -- 4. Mixed Format (Short -> Full)
         if db[startShort] and db[startShort][destFull] then return db[startShort][destFull] end
         return nil
     end
 
-    -- Priority 1: User's local saved settings
-    local time = SearchTable(OdysseusDB.flightSettings.times)
+    local time = SearchTable(OdysseusDB and OdysseusDB.flightSettings and OdysseusDB.flightSettings.times)
     if time then return time end
     
-    -- Priority 2: Global static database
-    return SearchTable(SFT_FlightData)
+    time = SearchTable(SFT_FlightData)
+    if time then return time end
+    
+    time = SearchTable(OUS and OUS.FlightData) -- Fallback just in case your generated file uses OUS
+    if time then return time end
+    
+    return nil
 end
 
 hooksecurefunc(GameTooltip, "Show", function(self)
@@ -186,29 +194,46 @@ hooksecurefunc(GameTooltip, "Show", function(self)
         return 
     end
 
-    local destFull = _G["GameTooltipTextLeft1"] and _G["GameTooltipTextLeft1"]:GetText()
-    if not destFull then return end
+    local rawDest = _G["GameTooltipTextLeft1"] and _G["GameTooltipTextLeft1"]:GetText()
+    if not rawDest then return end
 
+    local destFull = CleanString(rawDest)
     local nodeID = nil
     local startFull = "Unknown"
 
     for i = 1, NumTaxiNodes() do
-        local nodeName = TaxiNodeName(i)
-        if TaxiNodeGetType(i) == "CURRENT" then
-            startFull = nodeName
-            cachedStartFull = nodeName -- Safely cache this for the click event later!
-        elseif nodeName == destFull then
-            nodeID = i
+        local rawNode = TaxiNodeName(i)
+        if rawNode then
+            local nodeName = CleanString(rawNode)
+            if TaxiNodeGetType(i) == "CURRENT" then
+                startFull = nodeName
+                cachedStartFull = nodeName
+            elseif nodeName == destFull or string.find(destFull, nodeName, 1, true) then
+                nodeID = i
+                destFull = nodeName -- Force exact sync
+            end
         end
     end
 
-    if not nodeID or startFull == "Unknown" then return end
+    if startFull == "Unknown" and cachedStartFull ~= "Unknown" then
+        startFull = cachedStartFull
+    end
+
+    if startFull == "Unknown" then
+        startFull = CleanString(GetMinimapZoneText() or GetZoneText())
+    end
+
+    if not nodeID then return end
 
     local destShort = GetShortName(destFull)
     local startShort = GetShortName(startFull)
 
-    local knownTime = GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
+    -- DIAGNOSTIC TOOL: Hold ALT to see exactly what the addon is searching for!
+    if IsAltKeyDown() then
+        print("|cFF00FFFF[Odysseus Debug]|r DB Search: [" .. startFull .. "] -> [" .. destFull .. "]")
+    end
 
+    local knownTime = GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
     local cost = TaxiNodeCost(nodeID)
     local showCost = false
     local costString = ""
@@ -233,11 +258,7 @@ hooksecurefunc(GameTooltip, "Show", function(self)
             mapTooltip.timeText:SetTextColor(0.5, 0.5, 0.5) 
         end
         
-        if showCost then
-            mapTooltip.costText:SetText("Cost: " .. costString)
-        else
-            mapTooltip.costText:SetText("")
-        end
+        if showCost then mapTooltip.costText:SetText("Cost: " .. costString) else mapTooltip.costText:SetText("") end
         
         local w1 = mapTooltip.timeText:GetStringWidth()
         local w2 = mapTooltip.costText:GetStringWidth()

@@ -8,20 +8,35 @@
 ## AddonCompartmentFunc: Odysseus_ToggleConfig
 ## AddonCompartmentIcon: 133853
 
-# Libraries
+# ==========================================
+# 1. LIBRARIES (Must load absolutely first)
+# ==========================================
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
 Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua
 
-# Core Engine & Config
+# ==========================================
+# 2. CORE NAMESPACE (Creates the OUS table)
+# ==========================================
 Core.lua
-Config.lua
 
-# Modules
+# ==========================================
+# 3. DATABASES (Must load before the engines read them)
+# ==========================================
+flightdata.lua
+xpbar_data.lua
+
+# ==========================================
+# 4. MODULE ENGINES (The actual logic)
+# ==========================================
 Flightmaster.lua
 Fasterloot.lua
 Fishingtracker.lua
-xpbar_data.lua
 xpbar_core.lua
 xpbar_engine.lua
+
+# ==========================================
+# 5. CONFIGURATION UI (Loads last to attach to engines)
+# ==========================================
+Config.lua
 xpbar_config.lua

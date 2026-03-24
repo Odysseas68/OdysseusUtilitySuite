@@ -285,10 +285,12 @@ SFT_FlightData = {
     },
     ["Amani'Zar Village"] = {
         ["Fairbreeze Village"] = 203,
-        ["Sanctum of Light"] = 231,
         ["Shadebasin Watch"] = 90,
         ["Torntusk Overlook"] = 50,
         ["Witherbark Bluffs"] = 122,
+    },
+    ["Amani'Zar Village, Zul'Aman"] = {
+        ["Sanctum of Light, Silvermoon City"] = 231,
     },
     ["Amber Ledge"] = {
         ["Agmar's Hammer"] = 108,
@@ -745,6 +747,7 @@ SFT_FlightData = {
     },
     ["Atal'Aman, Zul'Aman"] = {
         ["Shadebasin Watch, Zul'Aman"] = 74,
+        ["Torntusk Overlook, Zul'Aman"] = 55,
     },
     ["Atal'Dazar"] = {
         ["Atal'Gral"] = 83,
@@ -3017,7 +3020,6 @@ SFT_FlightData = {
         ["Dunelle's Kindness"] = 86,
         ["Durgaz Cabin"] = 44,
         ["Faerin's Advance"] = 141,
-        ["Freywold Village"] = 39,
         ["Gundargaz"] = 58,
         ["Gutterville"] = 148,
         ["Hillhelm Family Farm"] = 93,
@@ -3036,6 +3038,9 @@ SFT_FlightData = {
         ["Weaver's Lair"] = 177,
         ["Wildcamp Or'lay"] = 221,
         ["Wildcamp Ul'ar"] = 122,
+    },
+    ["Dornogal, Isle of Dorn"] = {
+        ["Freywold Village, Isle of Dorn"] = 39,
     },
     ["Dragon's Mouth"] = {
         ["Andorhal"] = 396,
@@ -3985,7 +3990,6 @@ SFT_FlightData = {
         ["Plaguewood Tower"] = 248,
         ["Revantusk Village"] = 303,
         ["Ruins of Southshore"] = 382,
-        ["Sanctum of Light"] = 50,
         ["Sandy Beach"] = 688,
         ["Shattered Landing"] = 795,
         ["Shattered Sun Staging Area"] = 212,
@@ -4000,7 +4004,6 @@ SFT_FlightData = {
         ["The Sepulcher"] = 432,
         ["Thondroril River"] = 254,
         ["Thorium Point"] = 593,
-        ["Tranquillien"] = 46,
         ["Undercity"] = 415,
         ["Zul'Aman"] = 91,
     },
@@ -5347,9 +5350,6 @@ SFT_FlightData = {
     ["Genesis Cradle Omega"] = {
         ["Ephemeral Plains Alpha"] = 69,
         ["Genesis Cradle Beta"] = 18,
-    },
-    ["Gilded Oaks"] = {
-        ["Town Center"] = 37,
     },
     ["Gilded Oaks, Founder's Point"] = {
         ["Town Center, Founder's Point"] = 36,
@@ -7506,8 +7506,8 @@ SFT_FlightData = {
         ["Veiled Ossuary"] = 199,
         ["Wingrest Embassy"] = 212,
     },
-    ["Locus Point"] = {
-        ["Howling Ridge"] = 34,
+    ["Locus Point, Voidstorm"] = {
+        ["Howling Ridge, Voidstorm"] = 34,
     },
     ["Longying Outpost"] = {
         ["Binan Village"] = 115,
@@ -10355,11 +10355,9 @@ SFT_FlightData = {
     },
     ["Sanctum of Light"] = {
         ["Amani'Zar Village"] = 232,
-        ["Fairbreeze Village"] = 50,
         ["Light's Hope Chapel"] = 240,
         ["Terrace of the Sun"] = 106,
         ["Torntusk Overlook"] = 227,
-        ["Tranquillien"] = 92,
     },
     ["Sanctum of Light, Silvermoon City"] = {
         ["Atal'Aman, Zul'Aman"] = 182,
@@ -10775,10 +10773,10 @@ SFT_FlightData = {
         ["Watchers' Aerie"] = 30,
     },
     ["Shadebasin Watch"] = {
-        ["Amani'Zar Village"] = 90,
         ["Witherbark Bluffs"] = 41,
     },
     ["Shadebasin Watch, Zul'Aman"] = {
+        ["Amani'Zar Village, Zul'Aman"] = 90,
         ["Sanctum of Light, Silvermoon City"] = 151,
     },
     ["Shadebough"] = {
@@ -13036,9 +13034,6 @@ SFT_FlightData = {
         ["Theater of Pain"] = 225,
         ["Tirna Vaal"] = 223,
     },
-    ["Terrace of the Sun"] = {
-        ["Sanctum of Light"] = 101,
-    },
     ["Terrace of the Sun, Isle of Quel'Danas"] = {
         ["Sanctum of Light, Silvermoon City"] = 100,
     },
@@ -13595,7 +13590,9 @@ SFT_FlightData = {
     },
     ["The Ingress"] = {
         ["Howling Ridge"] = 37,
-        ["Locus Point"] = 27,
+    },
+    ["The Ingress, Voidstorm"] = {
+        ["Locus Point, Voidstorm"] = 26,
     },
     ["The Iron Front"] = {
         ["Aktar's Post"] = 35,
@@ -14641,9 +14638,11 @@ SFT_FlightData = {
     },
     ["Torntusk Overlook"] = {
         ["Amani'Zar Village"] = 50,
-        ["Atal'Aman"] = 53,
         ["Sanctum of Light"] = 229,
         ["Shadebasin Watch"] = 126,
+    },
+    ["Torntusk Overlook, Zul'Aman"] = {
+        ["Atal'Aman, Zul'Aman"] = 52,
     },
     ["Tortaka Refuge"] = {
         ["Atal'Gral"] = 174,
@@ -14792,7 +14791,6 @@ SFT_FlightData = {
         ["Crown Guard Tower"] = 180,
         ["Eastpoint Tower"] = 333,
         ["Eastwall Tower"] = 139,
-        ["Fairbreeze Village"] = 52,
         ["Falconwing Square"] = 95,
         ["Flame Crest"] = 672,
         ["Forsaken Forward Command"] = 443,
@@ -14809,7 +14807,6 @@ SFT_FlightData = {
         ["Plaguewood Tower"] = 204,
         ["Revantusk Village"] = 259,
         ["Ruins of Southshore"] = 339,
-        ["Sanctum of Light"] = 90,
         ["Sandy Beach"] = 644,
         ["Shattered Sun Staging Area"] = 256,
         ["Silvermoon City"] = 74,
@@ -14826,6 +14823,7 @@ SFT_FlightData = {
     },
     ["Tranquillien, Eversong Woods"] = {
         ["Fairbreeze Village, Eversong Woods"] = 61,
+        ["Sanctum of Light, Silvermoon City"] = 89,
     },
     ["Transitus Shield"] = {
         ["Agmar's Hammer"] = 137,
