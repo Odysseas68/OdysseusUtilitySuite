@@ -92,14 +92,8 @@ OUS.TaxiNodes = {
     [88] = "Transport",
     [89] = "Transport",
     [90] = "Transport",
-    [91] = "Quest - Azuremyst Shaman Target",
-    [92] = "Quest - Azuremyst Shaman Start",
     [93] = "Blood Watch",
     [94] = "The Exodar",
-    [95] = "Zangarmarsh - Quest - As the Crow Flies",
-    [96] = "Zangarmarsh - Quest - As the Crow Flies - End",
-    [97] = "Quest - Elekk Path to Kessel",
-    [98] = "Quest - Elekk to Kessel Target",
     [99] = "Thrallmar",
     [100] = "Honor Hold",
     [101] = "Temple of Telhamat",
@@ -112,12 +106,6 @@ OUS.TaxiNodes = {
     [108] = "Nagrand - PvP - Attack Run End 3",
     [109] = "Nagrand - PvP - Attack Run Start 4",
     [110] = "Nagrand - PvP - Attack Run End 4",
-    [111] = "Eversong - Duskwither Teleport",
-    [112] = "Eversong - Duskwither Teleport End",
-    [113] = "Quest - Nethrandamus Start",
-    [114] = "Quest - Nethrandamus End Target",
-    [115] = "Quest - Caverns of Time OH - Begin",
-    [116] = "Quest - Caverns of Time OH - End",
     [117] = "Telredor",
     [118] = "Zabra'jin",
     [119] = "Telaar",
@@ -132,91 +120,45 @@ OUS.TaxiNodes = {
     [128] = "Shattrath",
     [129] = "Hellfire Peninsula",
     [130] = "Hellfire Peninsula",
-    [131] = "Quest - Horde Hellfire Start",
-    [132] = "Quest - Horde Hellfire End",
-    [133] = "Quest - Hellfire Peninsula (Alliance Path) Start",
-    [134] = "Quest - Hellfire Peninsula (Alliance) End",
-    [135] = "Quest - Hellfire",
-    [136] = "Quest - Hellfire",
-    [137] = "Quest - Hellfire",
-    [138] = "Quest - Hellfire",
     [139] = "The Stormspire",
     [140] = "Altar of Sha'tar",
     [141] = "Spinebreaker Ridge",
     [142] = "Hellfire Peninsula - Reaver's Fall",
-    [143] = "Quest - Caverns of Time (Intro Flight Path) (End)",
-    [144] = "Quest - Caverns of Time (Intro Flight Path) (Start)",
-    [145] = "Quest - Netherstorm - Stealth Flight - Begin",
-    [146] = "Quest - Netherstorm - Stealth Flight - End",
     [147] = "Hellfire Peninsula - Force Camp Beach Head",
     [148] = "Shatter Point",
     [149] = "Shatter Point",
     [150] = "Cosmowrench",
     [151] = "Swamprat Post",
-    [152] = "Quest - Netherstorm - Manaforge Ultris (Start)",
-    [153] = "Quest - Netherstorm - Manaforge Ultris (End)",
-    [154] = "Quest - Netherstorm - Manaforge Ultris (Second Pass) Start",
-    [155] = "Quest - Netherstorm - Manaforge Ultris (Second Pass) End",
     [156] = "Toshley's Station",
-    [157] = "Quest - Blade's Edge - Vision Guide - Start",
-    [158] = "Quest - Blade's Edge - Vision Guide - End",
     [159] = "Sanctum of the Stars",
     [160] = "Evergrove",
-    [161] = "Quest - Nether Dragon Ally - Start",
-    [162] = "Quest - Nether Dragon Ally - End",
     [163] = "Mok'Nathal Village",
     [164] = "Orebor Harborage",
     [165] = "Transport",
     [166] = "Emerald Sanctuary",
     [167] = "Forest Song",
     [168] = "Filming",
-    [169] = "Quest - Netherwing Ledge - Mine Cart Ride - South - Start",
-    [170] = "Quest - Netherwing Ledge - Mine Cart Ride - South - End",
     [171] = "Skettis",
     [172] = "Ogri'La",
-    [173] = "Quest - Yarzill Flight Start",
-    [174] = "Quest - Yarzill Flight Start End",
     [175] = "Transport",
-    [176] = "Quest - Howling Fjord Tauren Canoe (Start)",
-    [177] = "Quest - Howling Fjord Tauren Canoe (End)",
     [178] = "Transport",
     [179] = "Mudsprocket",
-    [180] = "Quest - Dustwallow - Alcaz Survey Start",
-    [181] = "Quest - Dustwallow - Alcaz Survey End",
-    [182] = "Quest - Howling Fjord - Break the Blockade Zeppelin",
     [183] = "Valgarde Port",
     [184] = "Fort Wildervar",
     [185] = "Westguard Keep",
-    [186] = "Quest - Howling Fjord - Flight to the Windrunner - Start",
-    [187] = "Quest - Howling Fjord - Flight to the Windrunner - End",
     [190] = "New Agamand",
     [191] = "Vengeance Landing",
     [192] = "Camp Winterhoof",
-    [193] = "Quest - Howling Fjord - Mission: Plague This! - End",
-    [194] = "Quest - Howling Fjord - Mission: Plague This! - Start",
     [195] = "Rebel Camp",
-    [199] = "Quest - Howling Fjord - McGoyver Start",
-    [200] = "Quest - Howling Fjord - McGoyver End",
     [201] = "Development Land - Kyle Radue Start",
     [202] = "Development Land - Kyle Radue End",
-    [203] = "Quest - Stars' Rest -> Wintergarde",
-    [204] = "Quest - New Agamand -> Venomspite",
     [205] = "Zul'Aman",
     [206] = "Transport",
-    [207] = "Quest - Howling Fjord - Sister Mercy (Start)",
-    [208] = "Quest - Howling Fjord - Sister Mercy (End)",
-    [209] = "Quest - Sunwell Daily - Dead Scar Bombing - Start",
-    [210] = "Quest - Sunwell Daily - Dead Scar Bombing - End",
-    [211] = "Quest - Sunwell Daily - Ship Bombing - Start",
-    [212] = "Quest - Sunwell Daily - Ship Bombing - End",
     [213] = "Shattered Sun Staging Area",
-    [214] = "Quest - Howling Fjord - Naglfar (Start)",
-    [215] = "Quest - Howling Fjord - Naglfar (Nodes)",
     [218] = "Transport",
     [219] = "Transport",
     [221] = "Amber Ledge",
     [222] = "Beryl Point",
-    [223] = "Quest - Naglevar",
     [224] = "Borean Tundra",
     [225] = "Amber Ledge",
     [226] = "Transitus Shield",
@@ -229,18 +171,13 @@ OUS.TaxiNodes = {
     [235] = "Transitus Shield",
     [236] = "Coldarra",
     [237] = "Coldarra",
-    [239] = "Borean Tundra - Quest - Dusk Start",
-    [240] = "Borean Tundra - Quest - Dusk - End",
     [241] = "Transport",
-    [242] = "Quest - Dragonblight - Spiritual Vision - Begin",
-    [243] = "Quest - Dragonblight - Spiritual Vision - End",
     [244] = "Wintergarde Keep",
     [245] = "Valiance Keep",
     [246] = "Fizzcrank Airstrip",
     [247] = "Stars' Rest",
     [248] = "Apothecary Camp",
     [249] = "Camp Oneqwah",
-    [250] = "Conquest Hold",
     [251] = "Fordragon Hold",
     [252] = "Wyrmrest Temple",
     [253] = "Amberpine Lodge",
@@ -251,7 +188,6 @@ OUS.TaxiNodes = {
     [258] = "Taunka'le Village",
     [259] = "Bor'gorok Outpost",
     [260] = "Kor'kron Vanguard",
-    [261] = "Quest - Stars' Rest to Wintergarde End",
     [262] = "Grizzly Hills",
     [263] = "Grizzly Hills",
     [264] = "Transport",
@@ -259,47 +195,27 @@ OUS.TaxiNodes = {
     [266] = "Transport",
     [267] = "Grizzly Hills",
     [268] = "Grizzly Hills",
-    [269] = "Quest - Westguard Keep to Wintergarde Keep Begin",
-    [270] = "Quest - Westguard Keep to Wintergarde Keep End",
     [271] = "Grizzly Hills",
     [272] = "Grizzly Hills",
-    [273] = "Wyrmrest Temple - bottom to top",
-    [274] = "Wyrmrest Temple - bottom to top",
-    [275] = "Wyrmrest Temple - top to bottom",
-    [276] = "Wyrmrest Temple - top to bottom",
-    [277] = "Wyrmrest Temple - top to middle",
-    [278] = "Wyrmrest Temple - top to middle",
-    [279] = "Wyrmrest Temple - middle to top",
-    [280] = "Wyrmrest Temple - middle to top",
     [281] = "Wyrmrest Temple - middle to bottom",
     [282] = "Wyrmrest Temple - middle to bottom",
     [283] = "Wyrmrest Temple - bottom to middle",
     [284] = "Wyrmrest Temple - bottom to middle",
-    [285] = "Quest - Wintergarde -> Stars' Rest (Start)",
-    [286] = "Quest - Wintergarde -> Stars' Rest (End)",
-    [287] = "Quest - Valgarde -> Westguard Keep Start",
-    [288] = "Quest - Valgarde -> Westguard Keep End",
     [289] = "Amber Ledge",
     [290] = "Argent Stand",
     [291] = "Ruined City Post 01",
     [292] = "Flavor - Stormwind Harbor  - Start",
-    [293] = "Flavor - Stormwind Harbor - Stop",
     [294] = "Moa'ki",
     [295] = "Kamagua",
     [296] = "Unu'pe",
-    [297] = "Sholazar Basin - Quest - Reconnaisance - Start",
-    [298] = "Sholazar Basin - Quest - Reconnaisance - End",
     [299] = "Transport: Menethil <-> Valgarde",
     [300] = "Transport",
-    [301] = "Quest - Borean Tundra - Check In With Bixie - Begin",
-    [302] = "Quest - Borean Tundra - Check In With Bixie - End",
     [303] = "Valiance Landing Camp",
     [304] = "The Argent Stand",
     [305] = "Ebon Watch",
     [306] = "Light's Breach",
     [307] = "Zim'Torga",
     [308] = "River's Heart",
-    [309] = "Nesingwary Base Camp",
     [310] = "Dalaran",
     [311] = "Camp Onequah",
     [312] = "Light's Breach",
@@ -334,24 +250,18 @@ OUS.TaxiNodes = {
     [341] = "Ulduar Raid - Interior - Insertion Point",
     [342] = "Ulduar Raid - Iron Concourse",
     [343] = "Splintertree",
-    [344] = "Quest - Splintertree  Post -> Zoramgar",
-    [345] = "Quest - Zoramgar",
     [346] = "Ashenvale 4.x",
     [347] = "Ashenvale 4.x",
     [348] = "Transport: Thunder Bluff <-> Org (Zep)",
     [349] = "Andruk",
     [350] = "Hellscream's Watch",
     [351] = "Stardust Spire",
-    [352] = "Isle of Conquest - Gunships",
     [354] = "The Mor'Shan Ramparts",
     [356] = "Silverwind Refuge",
-    [358] = "Quest - Icecrown - North Sea Kraken Bombing - Start",
-    [359] = "Quest - Icecrown - North Sea Kraken Bombing - End",
     [360] = "Cliffwalker Post",
     [361] = "Windshear Hold",
     [362] = "Krom'gar Fortress",
     [363] = "Malaka'jin",
-    [364] = "Northwatch Expedition Base Camp",
     [365] = "Farwatcher's Glen",
     [366] = "Furien's Post",
     [367] = "Thargad's Camp",
@@ -365,11 +275,8 @@ OUS.TaxiNodes = {
     [375] = "Transport",
     [376] = "Icecrown Raid - Airship Battle Taxi Paths",
     [377] = "Icecrown Dungeon - Gunships",
-    [378] = "Quest - Dun Morogh - Coldridge Valley - Pack Your Bags End",
     [379] = "Icecrown Raid - Saurfang's Ship (End)",
     [380] = "Icecrown Raid - Saurfang's Ship (Start)",
-    [381] = "Quest [Transport] Icecrown Raid - Saurfang Ship (START)",
-    [382] = "Quest [Transport] Icecrown Raid - Saurfang Ship (END)",
     [383] = "Thondroril River",
     [384] = "The Bulwark",
     [386] = "Mossy Pile",
@@ -378,19 +285,11 @@ OUS.TaxiNodes = {
     [389] = "Fort Triumph",
     [390] = "Hunter's Hill",
     [391] = "Desolation Hold",
-    [392] = "CC Prologue - GT - Quest - Vent Horizon - Start",
-    [393] = "CC Prologue - GT - Quest - Vent Horizon - End",
     [394] = "CC Prologue - GT - Battle Flight - Start",
     [395] = "CC Prologue - GT - Battle Flight - End",
     [402] = "Bloodhoof Village",
     [404] = "Durotar - ET - CC Prologue Spy Frog Start",
     [405] = "Durotar - ET - CC Prologue Spy Frog End",
-    [413] = "Quest - \"To The Summit\" - Westreach Summit - End",
-    [414] = "Quest - \"To The Summit\" - Camp Mojache -> Westreach Summit - Begin",
-    [429] = "Quest - \"To The Summit\" - Mudsprocket -> Westreach Summit - Begin",
-    [433] = "Quest - \"To New Thalanaar\" - Mudsprocket -> New Thalanaar - Begin",
-    [434] = "Quest - \"To New Thalanaar\" - New Thalanaar - End",
-    [436] = "Quest - \"To New Thalanaar\" - Shadebough -> New Thalanaar - Begin",
     [438] = "Durotar - ET - CC Prologue Troll Taxi Bat Start",
     [439] = "Durotar - ET - CC Prologue Troll Recruit End",
     [440] = "Durotar - ET - CC Prologue - Troll Battle End",
@@ -420,23 +319,13 @@ OUS.TaxiNodes = {
     [557] = "Shrine of Aviana",
     [558] = "Grove of Aessina",
     [559] = "Nordrassil",
-    [560] = "Quest Path 2171: [3.x] Transport",
-    [561] = "Quest Path 2172: [3.x] Transport",
-    [562] = "Quest Path 2173: [3.x] Transport",
-    [563] = "Quest Path 2174: [3.x] Transport",
-    [564] = "Quest Path 2175: Stonetalon 4.x - Taxi to Thal'darah Overlook Start",
     [565] = "Dreamer's Rest",
     [567] = "Tower of Estulan",
     [568] = "Camp Ataya",
     [569] = "Stonemaul Hold",
-    [574] = "Quest Path 2201: Dun Morogh - Quest - Flight to Ironforge Airfield",
-    [575] = "Quest Path 2203: Dun Morogh - Quest - Striking Back (Bombing Run)",
-    [577] = "Quest Path 2206: Ironforge",
-    [578] = "Quest Path 2207: Dun Morogh - Quest - Flight to Gol'Bolar from Ironforge Airfield",
     [582] = "Goldshire",
     [583] = "Moonbrook",
     [584] = "Furlbrow's Pumpkin Farm",
-    [585] = "Quest Path 293: Transport",
     [589] = "Eastvale Logging Camp",
     [590] = "Fort Livingston",
     [591] = "Explorers' League Digsite",
@@ -472,10 +361,6 @@ OUS.TaxiNodes = {
     [622] = "Raven Hill",
     [624] = "Azure Watch",
     [625] = "Fairbreeze Village",
-    [626] = "Quest Path 508: zzzThe Exodar -> Blood Watch",
-    [627] = "Quest Path 2376: zzzThe Exodar -> Azure Watch",
-    [628] = "Quest Path 507: zzzBlood Watch",
-    [629] = "Quest Path 2375: zzzAzure Watch",
     [630] = "Light's Shield Tower",
     [631] = "Falconwing Square",
     [632] = "Bloodwatcher Point",
@@ -512,28 +397,10 @@ OUS.TaxiNodes = {
     [676] = "Chiselgrip",
     [681] = "Forsaken Rear Guard",
     [683] = "Valormok",
-    [728] = "Quest Path 2653: 4.1 - ZG Event - Rebel Camp -> Explorers' League",
     [781] = "Sanctuary of Malorne",
-    [888] = "Quest Path 2837: Quest - Jade Forest: (DLA) - Dawnblossom to Jade Mines",
     [894] = "Grookin Hill",
     [895] = "Dawn's Blossom",
-    [906] = "Dragon Soul Raid - Wyrmrest Temple Base",
     [907] = "Dragon Soul Raid - East Sarlac",
-    [918] = "Quest Path 2954: Quest - Valley of the Four Winds (Flyback: Chen A) PRK",
-    [919] = "Quest Path 2955: Quest - Valley of the Four Winds (Flyback: Chen B) PRK",
-    [920] = "Quest Path 2956: Quest - Valley of the Four Winds (Flyback: Chen C) PRK",
-    [921] = "Quest Path 2957: Quest - Valley of the Four Winds (Flyback: Chen D) PRK",
-    [922] = "Quest Path 2958: Quest - Valley of the Four Winds (Flyback: Sad Panda A) PRK",
-    [923] = "Quest Path 2959: Quest - Valley of the Four Winds (Flyback: Sad Panda B) PRK",
-    [924] = "Quest Path 2960: Quest - Valley of the Four Winds (Flyback: Horde A) PRK",
-    [925] = "Quest Path 2961: Quest - Valley of the Four Winds (Flyback: Alliance A) PRK",
-    [926] = "Quest Path 2962: Quest - Valley of the Four Winds (Flyback: Horde B) PRK",
-    [927] = "Quest Path 2963: Quest - Valley of the Four Winds (Flyback: Alliance B) PRK",
-    [935] = "Quest Path 2986: Jade Forest: -hmc (Taxi: Glassfin Village to Dawnblossom)",
-    [949] = "Quest Path 3002: Jade Forest: -hmc (Taxi: Serpent's Spine to Statue Top)",
-    [950] = "Quest Path 3003: Jade Forest: -hmc (Taxi: Statue Top to Serpent's Spine)",
-    [951] = "Quest Path 3004: Quest - Jade Forest - Fort Grookin -> Ka Pao Rise",
-    [963] = "Quest Path 3018: Quest - Jade Forest - Glassfin Village -> Ka Pao Rise",
     [966] = "Paw'Don Village",
     [967] = "The Arboretum",
     [968] = "Jade Temple Grounds",
@@ -549,31 +416,19 @@ OUS.TaxiNodes = {
     [988] = "The Incursion",
     [989] = "Stoneplow",
     [990] = "Dawnchaser Retreat",
-    [991] = "Sentinel Basecamp",
     [992] = "Cradle of Chi-Ji",
     [993] = "Marista",
-    [998] = "Quest Path 3154: Quest - Kun-Lai Summit - Neverrest Peak -> Valley of Emperors",
-    [1009] = "Quest Path 3173: Quest - Kun-Lai Summit - Valley -> Whispercloud Rise",
-    [1016] = "Quest Path 3066: Quest - Jade Forest - Serpent's Spine -> VotFW - JLR",
     [1017] = "Binan Village",
     [1018] = "Temple of the White Tiger",
     [1019] = "Eastwind Rest",
     [1020] = "Westwind Rest",
     [1021] = "Zouchin Village",
     [1022] = "One Keg",
-    [1023] = "Kota Basecamp",
     [1024] = "Shado-Pan Fallback",
     [1025] = "Winter's Blossom",
     [1029] = "Tavern in the Mists",
-    [1030] = "Quest Path 3244: Jade Forest: -hmc (Taxi: Serpent's Spine to East Temple)",
-    [1032] = "Quest Path 3246: Quest - Kun-Lai Summit - GoWB - To the Wall! (NLC)",
-    [1038] = "Quest Path 3248: Quest - Kun-Lai Summit - GoWB - Back from the Wall (NLC)",
     [1046] = "Jade Forest - Cliff path 04 Start",
     [1047] = "Jade Forest - Cliff path 04 End",
-    [1048] = "Quest Path 3263: Jade forest - Cliff path 04",
-    [1049] = "Quest Path 3264: Jade Forest - Cliff Path 01",
-    [1050] = "Quest Path 3265: Jade Forest - Cliff Path 02",
-    [1051] = "Quest Path 3266: Jade Forest - Cliff Path 03",
     [1052] = "Grassy Cline",
     [1053] = "Longying Outpost",
     [1054] = "Gao-Ran Battlefront",
@@ -585,24 +440,14 @@ OUS.TaxiNodes = {
     [1071] = "Soggy's Gamble",
     [1072] = "The Sunset Brewgarden",
     [1073] = "Serpent's Spine",
-    [1076] = "Quest Path 3375: Jade Forest: JSB - East Temple -> Grookin' Hill",
-    [1079] = "Quest Path 3377: Jade Forest: JSB - East Temple -> Glassfin Village",
     [1080] = "Serpent's Overlook",
     [1090] = "The Briny Muck",
-    [1091] = "Quest Path 3448: Dread Wastes: Klaxxi'vess -> Briny Muck Quest Path",
-    [1092] = "Quest Path 3449: Dread Wastes: Klaxxi'vess -> Lake of Stars Quest Path",
-    [1114] = "Quest Path 3481: Quest - Kun-Lai Summit: JLR - Zouchin Village -> Isle of Reckoning",
     [1115] = "The Lion's Redoubt",
-    [1116] = "Quest Path 3482: Quest - Kun-Lai Summit: JLR - Isle of Reckoning - Zouchin",
     [1117] = "Serpent's Spine",
-    [1130] = "Quest Path 3506: Jade Forest: -hmc (Taxi: Serpent's Spine to Statue Top) NEW (Tab 870)",
-    [1131] = "Quest Path 3507: Jade Forest: -hmc (Taxi: Statue Top to Serpent's Spine) NEW (Tab 870)",
     [1190] = "Lion's Landing",
     [1195] = "Domination Point",
     [1221] = "Beeble's Wreck",
     [1222] = "Bozzle's Wreck",
-    [1284] = "Quest Path 3877: Garrosh Raid - Siege Engineer - Pipe Transfer",
-    [1292] = "Quest Path 3886: Timeless Isle 5.4 - Vignette - Source of Water - Bubble Down (RKS) [REUSEME]",
     [1293] = "Tushui Landing",
     [1294] = "Huojin Landing",
     [1350] = "Shadowmoon Valley 6.0 - Observatory (JP3)",
@@ -621,7 +466,6 @@ OUS.TaxiNodes = {
     [1408] = "Warspear",
     [1420] = "Stormshield (Alliance)",
     [1421] = "Shadowmoon Valley 6.0:Jp3 - Darktide Roost - Bottom Of Hill",
-    [1422] = "Shadowmoon Valley 6.0:JP3 - Darktide Roost - Top of Hill",
     [1432] = "Frostwall Garrison",
     [1440] = "Zangarra",
     [1441] = "Frostwolf Overlook",
@@ -636,25 +480,12 @@ OUS.TaxiNodes = {
     [1453] = "Exarch's Refuge",
     [1454] = "Exarch's Refuge",
     [1462] = "Terokkar Refuge",
-    [1463] = "Quest Path 4263: Draenor Zone Breadcrumb - Frostfire Garrison > Talador Start Loc (CSA)",
-    [1464] = "Quest Path 4266: Draenor Zone Breadcrumb - Shadowmoon Garrison > Talador Start Loc (CSA)",
-    [1465] = "Quest Path 4269: Draenor Zone Breadcrumb - Shadowmoon Garrison > Nagrand Start Loc (ELM)",
-    [1466] = "Quest Path 4270: Draenor Zone Breadcrumb - Frostfire Ridge Garrison > Nagrand Start Loc (ELM)",
     [1467] = "The Draakorium",
     [1468] = "Elodor (Alliance)",
     [1475] = "Socrethar's Rise",
     [1476] = "Lunarfall (Alliance)",
-    [1477] = "Quest Path 4316: Frostfire Ridge - Garrison - Max-Level Chapter - Sargerei - Taxi Path to Shadowmoon (HMC)",
     [1487] = "Axefall",
-    [1488] = "Quest Path 4333: Shadowmoon Valley 6.0:JP3 - Darktide Roost - Taxi Path to Darktide Roost",
-    [1489] = "Quest Path 4334: Frostfire Ridge:JP3 - Darktide Roost - Taxi to Darktide Roost",
-    [1490] = "Quest Path 4337: Spires of Arak 6.0 - Horde Garrison Outpost > Shadow's Defiance",
     [1493] = "Southport",
-    [1494] = "Quest Path 4341: Spires of Arak 6.0 - Alliance Garrison Outpost > Shadow's Defiance",
-    [1495] = "Quest Path 4342: Shadowmoon Valley 6.0:JP3 - A - Broken Precipice - Taxi Path to Broken Precipice",
-    [1496] = "Quest Path 4345: Spires of Arak 6.0 - Shattered Hand Poison Camp > Horde Garrison Outpost",
-    [1497] = "Quest Path 4346: Spires of Arak 6.0 - Shattered Hand Poison Camp > Alliance Garrison Outpost",
-    [1498] = "Quest Path 4353: Frostfire Ridge:JP3 - Broken Precipice - Taxi to Nagrand / Broken Precipice",
     [1502] = "The Ring of Trials",
     [1503] = "Throne of the Elements",
     [1504] = "Wor'var",
@@ -674,26 +505,13 @@ OUS.TaxiNodes = {
     [1520] = "Breaker's Crown",
     [1523] = "Deeproot",
     [1524] = "Iron Docks",
-    [1527] = "Quest Path 4442: Spires of Arak: (DLA) - Veil Terokk -> Talon Watch Breadcrumb",
     [1528] = "Iron Siegeworks",
     [1529] = "Darktide Roost",
-    [1535] = "Quest Path 4535: Quest Path - Spires of Arak 6.0 - Horde Garrison Outpost > Pinchwhistle Gearworks (LWB)",
-    [1536] = "Quest Path 4538: Quest Path - Spires of Arak 6.0 - Alliance Garrison Outpost > Pinchwhistle Gearworks (LWB)",
     [1537] = "Shattered Landing",
     [1538] = "Shattered Beachhead",
     [1539] = "Skysea Ridge",
-    [1540] = "Quest Path 4579: Talador 6.0 - Zangarra > Khadgar's Tower",
-    [1541] = "Quest Path 4580: Talador 6.0 - Khadgar's Tower > Zangarra",
-    [1547] = "Quest Path 4590: Shadowmoon Valley 6.0:JP3 - A - Ashran - Taxi Path to Ashran Staging Area",
-    [1549] = "Quest Path 4600: Frostfire Ridge:JP3 - Ashran Staging Area - Taxi to Ashran",
-    [1550] = "Quest Path 4599: Shadowmoon 6.x - \"The Search for Owynn Graddock\": Garrison",
-    [1553] = "Quest Path 4634: Shadowmoon 6.x - \"Pinchwhistle Gearworks\": Garrison",
-    [1554] = "Quest Path 4635: Frostfire 6.x - \"Pinchwhistle Gearworks\": Garrison",
-    [1555] = "Quest Path 4636: Shadowmoon Valley",
     [1556] = "Tranquil Court",
     [1559] = "Wolf's Stand",
-    [1562] = "Quest Path 4665: Ashran - Lane - Warspear to Stormshield",
-    [1563] = "Quest Path 4666: Ashran - Lane - Stormshield to Warspear",
     [1567] = "Temple of Karabor",
     [1568] = "Everbloom Wilds",
     [1569] = "Akeeta's Hovel",
@@ -701,26 +519,12 @@ OUS.TaxiNodes = {
     [1573] = "Nivek's Overlook",
     [1574] = "Joz's Rylaks",
     [1580] = "Everbloom Overlook",
-    [1581] = "Quest Path 4881: Lunarfall",
-    [1582] = "Quest Path 4888: Frostwall Garrison",
-    [1599] = "Quest Path 4958: Garrison - 6.1 Chapter - H - Taxi to Iron Docks - JMC",
-    [1601] = "Quest Path 4960: Garrison - 6.1 Chapter - H - Taxi from Iron Docks to Garrison - JMC",
-    [1605] = "Quest Path 4965: Garrison - 6.1 Chapter - A - Taxi from Garrison to Iron Docks - JMC",
-    [1606] = "Quest Path 4966: Garrison - 6.1 Chapter - A - Taxi from Iron Docks to Garrison - JMC",
     [1613] = "Azurewing Repose",
-    [1614] = "Quest Path 4974: 6.2 Tanaan - Quest - H - From Vol'mar to Iron Front - JMC",
     [1615] = "Challiane's Terrace",
     [1620] = "Lion's Watch",
     [1621] = "Vol'mar",
     [1622] = "Illidari Stand",
-    [1625] = "Quest Path 4987: 6.2 Tanaan - Lion's Watch - Taxi Path to Aktar's Post (LWB)",
-    [1626] = "Quest Path 4988: 6.2 Tanaan - Volmar - Taxi Path to Aktar's Post (LWB)",
     [1633] = "Shackle's Den",
-    [1634] = "Quest Path 5017: 7.0 Azsuna - Rift 01 - East Chasm -> West Chasm",
-    [1635] = "Quest Path 5018: 7.0 Azsuna - Rift 01 - West Chasm -> East Chasm",
-    [1636] = "Quest Path 5019: 7.0 Azsuna - Rift 02 - Tower -> Rock (ZTO)",
-    [1637] = "Quest Path 5020: 7.0 Azsuna - Rift 03",
-    [1642] = "Quest Path 5026: 6.2 Tanaan - Quest - A - From Lion's Watch to Iron Front - JMC",
     [1643] = "Aktar's Post",
     [1644] = "The Iron Front",
     [1645] = "The Iron Front",
@@ -729,14 +533,8 @@ OUS.TaxiNodes = {
     [1648] = "Sha'naari Refuge",
     [1673] = "Lorlathil",
     [1713] = "Bradensbrook",
-    [1716] = "Quest Path 5222: Garrison",
     [1719] = "Thunder Totem",
-    [1722] = "Quest Path 5262: Stormheim: (DLA) - Valdisdall -> Dreadwake (Spell Taxi)",
-    [1723] = "Quest Path 5263: Stormheim: (DLA) - Valdisdall -> Greywatch (Spell Taxi)",
-    [1729] = "Quest Path 5283: Alliance Garrison (Tier 3) > Alliance Shipyard",
-    [1730] = "Quest Path 5284: Alliance Shipyard > Alliance Garrison (Tier 3)",
     [1731] = "Alliance Shipyard Taxi",
-    [1732] = "Quest Path 5286: 7.0 DH-Mardum - Illidari Foothold -> The Fel Hammer (ELM)",
     [1738] = "Cullen's Post",
     [1739] = "Dreadwake's Landing",
     [1741] = "Forsaken Foothold",
@@ -744,7 +542,6 @@ OUS.TaxiNodes = {
     [1744] = "Greywatch",
     [1745] = "Lorna's Watch",
     [1747] = "Skyfire Triage Camp",
-    [1748] = "Quest Path 5333: 7.0 Artifacts - Monk - Order Formation - Number Nine Flight - LWB",
     [1753] = "Skyhorn",
     [1754] = "The Witchwood",
     [1755] = "Felbane Camp",
@@ -759,29 +556,7 @@ OUS.TaxiNodes = {
     [1774] = "Dalaran",
     [1777] = "Sylvan Falls",
     [1778] = "Stonehoof Watch",
-    [1783] = "Quest Path 5500: 7.0 Azsuna - Rift 02 - Rock -> Tower (ZTO)",
-    [1784] = "Quest Path 5509: 7.0 Highmountain - Stonehoof Watch -> Sylvan Falls (Quest",
-    [1787] = "Quest Path 5512: Quest Path 5020: 7.0 Azsuna - Rift 03",
-    [1800] = "Quest Path 4621: [OLD]7.0 Quest - Azsuna (Down to Azsuna: Unlearned Taxi Dalaran --> Azsuna - Alliance) - ELM",
-    [1801] = "Quest Path 5597: [OLD]7.0 Quest - Azsuna (Down to Azsuna: Unlearned Taxi Dalaran --> Azsuna - Horde) - ELM",
-    [1803] = "Quest Path 5615: 7.0 Dalaran -> Trueshot Lodge",
-    [1813] = "Quest Path 5643: 7.0 Quest - Azsuna (Down to Azsuna: Unlearned Taxi Dalaran --> Azsuna - Alliance) - ELM",
-    [1814] = "Quest Path 5645: [OLD2]7.0 Quest - Azsuna (Down to Azsuna: Unlearned Taxi Dalaran --> Azsuna - Horde) - ELM",
     [1815] = "The Dreamgrove",
-    [1818] = "Quest Path 5654: 7.0 Artifacts - Druid - Feral - Q:42428 - Dreamgrove -> Ashamane's Fall - LWB",
-    [1819] = "Quest Path 5655: 7.0 Quest - Azsuna (Down to Azsuna: Unlearned Taxi Dalaran --> Azsuna - Horde) - ELM",
-    [1825] = "Quest Path 5667: 7.0 DH-OHC - \"Malace in Vrykul Land\" Alliance - Dalaran -> Valdishall (ELM)",
-    [1826] = "Quest Path 5668: 7.0 DH-OHC - \"Malace in Vrykul Land\" Horde - Dalaran -> Valdishall (ELM)",
-    [1827] = "Quest Path 5669: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Rings Portal 01 - SBV",
-    [1828] = "Quest Path 5670: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Rings Portal Top -> Ring A - SBV",
-    [1829] = "Quest Path 5671: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Rings Portal Middle 02 - SBV",
-    [1830] = "Quest Path 5672: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Rings Portal Middle 03 - SBV",
-    [1831] = "Quest Path 5673: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Side Platform Portal B -> Ring C - SBV",
-    [1832] = "Quest Path 5674: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Portal - Ring A -> Center - SBV",
-    [1833] = "Quest Path 5675: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Portal - Ring B -> Center - SBV",
-    [1834] = "Quest Path 5676: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Side Platform Portal A -> Ring B - SBV",
-    [1835] = "Quest Path 5677: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Side Platform Portal C -> Ring A - SBV",
-    [1836] = "Quest Path 5678: 7.0 Order Hall - Mage - Ch 4 - The Oculus - Rings Portal - Ring C -> Ring A - SBV",
     [1837] = "Wardens' Redoubt",
     [1838] = "Thorim's Peak",
     [1839] = "Nastrondir",
@@ -802,55 +577,24 @@ OUS.TaxiNodes = {
     [1861] = "Illidari Perch",
     [1862] = "Acherus: The Ebon Hold",
     [1863] = "Hafr Fjall",
-    [1864] = "Quest Path 5598: Nesingwary",
     [1865] = "Boost 2.0 - Alliance - Leave Point",
-    [1867] = "Quest Path 5911: 7.0 Dalaran -> Acherus",
-    [1868] = "Quest Path 5912: 7.0 Acherus -> Dalaran",
-    [1869] = "Quest Path 5913: 7.0 Karazhan - Ballroom -> Opera Portal",
     [1870] = "Eye of Azshara",
-    [1871] = "Quest Path 5925: Quest Path 5654: 7.0 Artifacts - Druid - Feral - Q:42428 - Ashamane's Fall -> Dreamgrove - LWB",
-    [1874] = "Quest Path 5962: 7.0 Artifacts - Death Knight - Blood - From Dalaran to Broken Shore Portal - Taxi Version - LWB",
-    [1875] = "Quest Path 5963: 7.0 Artifacts - Death Knight - Blood - From Broken Shore to Dalaran - Taxi - LWB",
-    [1877] = "Quest Path 5626: 7.0 Artifacts - Priest - Holy - Dalaran to Broken Shore Portal - LWB",
-    [1878] = "Quest Path 5627: 7.0 Artifacts - Priest - Holy - Quest NPC - Broken Shore - Fly Back - LWB",
     [1879] = "Crimson Thicket",
     [1880] = "Irongrove Retreat",
     [1885] = "Gloaming Reef",
-    [1892] = "Quest Path 6004: 7.2 Assault - Val'sharah - Black Rook - Base Camp to Ramparts - LWB",
-    [1893] = "Quest Path 6005: 7.2 Legion Invasion - Val'sharah - 03 - Taxi to Top - LWB",
-    [1894] = "Quest Path 6009: 7.1 Suramar -> Black Rook Hold (\"We Need Weapons\" ) - ZTO",
-    [1899] = "Quest Path 6026: 7.2 OHC - Paladin - Light's Hope Chapel (Alliance) -> Broken Shore (1666) - JAP",
-    [1900] = "Quest Path 6027: Quest Path 6026: 7.2 OHC - Paladin - Light's Hope Chapel (Horde) -> Broken Shore (1666) - JAP",
-    [1902] = "Quest Path 6030: 7.2 Fel Hammer -> 7.2 Mardum",
     [1906] = "The Fel Hammer",
-    [1907] = "Quest Path 6038: 7.0 - Death Knight - No Man's Land - Taxi Route - LWB",
-    [1908] = "Quest Path 6036: 7.2 Fel Hammer -> 7.2 Broken Shore",
-    [1909] = "Quest Path 6041: 7.2 Wandering Isle -> Stormstout Brewery",
-    [1910] = "Quest Path 6042: 7.2 OHC - Priest - Dalaran -> Broken Shore - Teleport (JAP)",
-    [1913] = "Quest Path 6048: Quest Path 6005: 7.2 Legion Invasion - Val'sharah - 03 - Taxi to Bottom - LWB",
-    [1916] = "Quest Path 6052: 7.2 OHC - Hunter - Trueshot Lodge -> Broken Shore - Teleport (JAP)",
-    [1917] = "Quest Path 6053: 7.2 Order Hall - Shaman - Ch 5 - Thunderaan Transport (JLW)",
-    [1922] = "Quest Path 6065: 7.2 Assault - Val'sharah - Black Rook - Top to Final Terrace",
-    [1923] = "Quest Path 6067: 7.2 Assault - Val'sharah - Black Rook - Base Camp to Final Terrace",
-    [1924] = "Quest Path 6068: 7.2 Acherus: The Ebon Hold -> Illidari Camp",
-    [1927] = "Quest Path 6072: 7.2 Order Hall - Rogue - Ch 5 - Temp To BS (JLW)",
     [1928] = "Krokul Hovel",
-    [1933] = "Quest Path 6084: Acherus: The Ebon Hold -> Thorim's Peak",
     [1934] = "TEMPAREA1",
     [1935] = "TEMPAREA2",
     [1941] = "Deliverance Point",
     [1942] = "Aalgen Point",
     [1944] = "Vindicaar",
-    [1947] = "Quest Path 6175: 7.3 Argus - Isle 2 - Alleria Arc - Alleria Shadow Ball Taxi (JAK)",
     [1953] = "Zul'jan",
     [1954] = "Zo'bal Ruins",
     [1955] = "Gloom Hollow",
     [1956] = "Forlorn Ruins",
     [1957] = "Port of Zandalar",
     [1959] = "The Great Seal",
-    [1961] = "Quest Path 6233: 8.0 Nazmir - Q: 47250 - Taxi to Jeb'watha ruins - LWB",
-    [1962] = "Quest Path 6234: 8.0 Nazmir - Q: 42750 - Flight from Jeb'watha -> Zul'jan - LWB",
-    [1964] = "Quest Path 6237: 8.0 Warfronts - Barrens - Intro Quest - Taxi from Theramore to Fort Triumph",
     [1965] = "Nesingwary's Gameland",
     [1966] = "Warbeast Kraal",
     [1967] = "Shattered Fields",
@@ -861,8 +605,6 @@ OUS.TaxiNodes = {
     [1978] = "Conservatory of the Arcane",
     [1981] = "Shadowguard Incursion",
     [1982] = "Triumvirate's End",
-    [1983] = "Quest Path 6309: 8.0 Nazmir - Q: 47631 - Flight from Zul'jan -> Gloom Hollow - LWB",
-    [1984] = "Quest Path 6310: 8.0 Nazmir - Q: 47602 - Flight out of Sundered Span - LWB",
     [1985] = "[Hidden] Argus Ground Points Hub (Ground TP out to here",
     [1986] = "[Hidden] Argus Vindicaar Ground Hub (Vindicaar TP out to here",
     [1987] = "[Hidden] Argus Vindicaar No Load Hub (Vindicaar No Load transition goes through here)",
@@ -874,14 +616,12 @@ OUS.TaxiNodes = {
     [2003] = "City Center",
     [2009] = "Warport Rastari",
     [2012] = "Xibala",
-    [2015] = "Quest Path 6437: 8.0 Nazmir - Q49082 - Flight out of Hir'eek's Lair - LWB",
     [2023] = "Freehold",
     [2027] = "Temple of the Prophet",
     [2033] = "Fallhaven",
     [2034] = "Hangman's Point",
     [2035] = "Fletcher's Hollow",
     [2037] = "Barbthorn Ridge",
-    [2041] = "Quest Path 6474: Freehold",
     [2042] = "Vigil Hill",
     [2043] = "xxOLD - Zuldazar",
     [2045] = "Garden of the Loa",
@@ -937,15 +677,12 @@ OUS.TaxiNodes = {
     [2111] = "Vorrik's Sanctum",
     [2112] = "Vulture's Nest",
     [2114] = "Deadwood Cove",
-    [2116] = "Quest Path 6698: Horde Embassy",
     [2117] = "Vulpera Hideaway",
     [2118] = "Temple of Akunda",
     [2119] = "Sanctuary of the Devoted",
     [2120] = "Tortaka Refuge",
     [2126] = "Scaletrader Post",
     [2127] = "Anyport",
-    [2128] = "Quest Path 6783: 8.0 Stormsong - Monastery -> Water Bridge - GJC",
-    [2129] = "Quest Path 6799: 8.0 Nazmir - Player Flight Path to Altar of Rot - (STM)",
     [2133] = "Shrine of the Storm",
     [2135] = "Krazzlefrazz Outpost",
     [2137] = "Millstone Hamlet",
@@ -958,25 +695,13 @@ OUS.TaxiNodes = {
     [2147] = "Castaway Encampment",
     [2148] = "Mugamba Overlook",
     [2153] = "Mistvine Ledge",
-    [2156] = "Quest Path 6967: 8.0 War Campaign - Horde - Chapter 02 - Anyport to Barrowknoll (JLW)",
     [2157] = "Veiled Grotto",
-    [2158] = "Quest Path 6995: 8.0 Quest - Warchief's Command: Thousand Needles! - Orgrimmar --> Mudsprocket (ELM)",
-    [2159] = "Quest Path 6996: 8.0 Quest - Warchief's Command: Un'Goro Crater! - Orgrimmar --> Marshal's Stand (ELM)",
-    [2160] = "Quest Path 6997: 8.0 Quest - Warchief's Command: Silithus! - Orgrimmar --> Cenarion Hold (ELM)",
     [2161] = "Redfield's Watch",
     [2162] = "Devoted Sanctuary",
-    [2163] = "Quest Path 7004: 8.0 Quest - Warchief's Command: Southern Barrens! - Orgrimmar --> Malaka'jin (ELM)",
     [2164] = "Isle of Fangs",
     [2165] = "Tusk Isle",
-    [2166] = "Quest Path 7063: 8.0 War Campaign - Horde - Chapter 05 - Plunder Harbor to Flagship (JLW)",
-    [2167] = "Quest Path 7064: 8.0 War Campaign - Horde - Chapter 05 - Plunder Harbor to Ship (JLW)",
-    [2168] = "Quest Path 7065: 8.0 War Campaign - Horde - Chapter 05 - Ship to Plunder Harbor (JLW)",
-    [2169] = "Quest Path 7066: 8.0 War Campaign - Horde - Chapter 05 - Flagship to Plunder Harbor (JLW)",
-    [2170] = "Quest Path 7067: 8.0 War Campaign - Horde - Chapter 05 - Ship to Flagship (JLW)",
-    [2171] = "Quest Path 7068: 8.0 War Campaign - Horde - Chapter 05 - Flagship to Ship (JLW)",
     [2172] = "Disable Taxi Paths - Source - RRB",
     [2173] = "Disable Taxi Paths - Destination - RRB",
-    [2272] = "Quest Path 6801: 8.0 Nazmir - Altar of Rot to Zul'jan Ruins - (STM)",
     [2273] = "Waning Glacier",
     [2274] = "Swiftwind Post",
     [2275] = "Mudfisher Cove",
@@ -984,12 +709,7 @@ OUS.TaxiNodes = {
     [2277] = "Proudmoore Keep",
     [2278] = "Mariner's Row",
     [2279] = "Stonefist Watch",
-    [2282] = "Quest Path 6478: 8.0 Nazmir - Zuldazar to Talanji's Camp - (STM)",
     [2381] = "The Mugambala",
-    [2382] = "Quest Path 7405: 8.1 War Campaign - A - Ch1 - South Shore -> Ramparts - KRB",
-    [2383] = "Quest Path 7496: 8.1 War Campaign - A - Ch1 - Ramparts -> South Shore  - KRB",
-    [2384] = "Quest Path 7497: 8.1 War Campaign - A - Ch1 - North Shore -> Ramparts - KRB",
-    [2392] = "Quest Path 7569: 8.2 Nazjatar - Kal'methir - Boss Path",
     [2393] = "TEMP",
     [2394] = "TEMP",
     [2395] = "Oribos",
@@ -1016,8 +736,6 @@ OUS.TaxiNodes = {
     [2482] = "The Tidal Conflux",
     [2483] = "The Tidal Conflux",
     [2488] = "Darkhaven",
-    [2490] = "Quest Path 7759: Oribos go south 2 (msc)",
-    [2506] = "Quest Path 7794: 9.0 Bastion - Temple of Humility - Quest - Transport To Humiity Top (JLW)",
     [2511] = "Sanctuary of the Mad",
     [2512] = "Halls of Atonement",
     [2513] = "Old Gate",
@@ -1027,38 +745,19 @@ OUS.TaxiNodes = {
     [2518] = "Wanecrypt Hill",
     [2519] = "Aspirant's Rest",
     [2520] = "Sagehaven",
-    [2527] = "Quest Path 7856: 9.0 Ardenweald - COV - MC - Q57782 - Taxi to Boss - LWB",
     [2528] = "Elysian Hold",
     [2529] = "Hero's Rest",
     [2537] = "Charred Ramparts",
-    [2541] = "Quest Path 7899: 9.0 Bastion - Campaign - Ch 05 - Revendreth - Redelav District - Transport Down from Wall (JLW)",
     [2544] = "Mistfall Village",
     [2548] = "Sinfall",
-    [2549] = "Quest Path 7925: 9.0 Bastion - Temple of Wisdom - Teleport Pads - Grounds -> Temple Base - GJC",
-    [2550] = "Quest Path 7926: 9.0 Bastion - Temple of Wisdom - Teleport Pads - Temple Base -> Grounds - GJC",
-    [2552] = "Quest Path 7869: 9.0 Bastion - Hero's Rest - Zipline - North - Up - GJC",
-    [2553] = "Quest Path 7949: 9.0 Ardenweald - Bastion Campaign - Queen's Chamber - Up - RRB",
-    [2554] = "Quest Path 7950: 9.0 Ardenweald - Bastion Campaign - Queen's Chamber - Down - RRB/ELM",
     [2555] = "The Maw",
     [2556] = "Progenitor Console",
-    [2557] = "[Hidden] The Maw - Outdoor - Cocyrus Oribos Teleport Dest",
     [2558] = "The Spearhead",
     [2559] = "Spider's Watch",
     [2560] = "Keres' Rest",
     [2561] = "Renounced Bastille",
-    [2562] = "Quest Path 7870: 9.0 Bastion - Hero's Rest - Zipline - South - Up - GJC",
-    [2563] = "Quest Path 7876: 9.0 Bastion - Hero's Rest - Zipline - South - Down - GJC",
     [2564] = "Theater of Pain",
-    [2566] = "Quest Path 7875: 9.0 Bastion - Hero's Rest - Zipline - West - Down - GJC",
-    [2567] = "Quest Path 7874: 9.0 Bastion - Hero's Rest - Zipline - West - Up - GJC",
-    [2568] = "Quest Path 7877: 9.0 Bastion - Hero's Rest - Zipline - North - Down - GJC",
     [2569] = "Plague Watch",
-    [2572] = "Quest Path 8039: 9.0 Bastion - Campaign - Ch 05 - Revendreth - Tower to Ember Ward (JLW)",
-    [2573] = "Quest Path 8047: 9.0 Ardenweald - Covenant Hall - Queen's Audience Chamber Taxi Up - KRB",
-    [2574] = "Quest Path 8048: 9.0 Ardenweald - Covenant Hall - Queen's Audience Chamber Taxi Down - KRB",
-    [2575] = "Quest Path 8054: 9.0 Ardenweald - COV - Sisters - Q05 - Queen's Audience Chamber Taxi Up - KRB",
-    [2576] = "Quest Path 8055: 9.0 Ardenweald - COV - Sisters - Q05 - Queen's Audience Chamber Taxi Down - KRB",
-    [2580] = "Quest Path 8079: 9.0 Bastion Campaign - Ch 09 - Loyalty - Stage 6 - Ground -> Temple of Loyalty - GJC",
     [2584] = "Glitterfall Basin",
     [2585] = "Tirna Vaal",
     [2586] = "Hibernal Hollow",
@@ -1067,13 +766,6 @@ OUS.TaxiNodes = {
     [2589] = "Claw's Edge",
     [2590] = "Refugee Camp",
     [2591] = "Crucible of Souls",
-    [2594] = "9.0 Maw - Oribos - Teleport In",
-    [2595] = "Quest Path 8159: 9.0 Bastion - Level Up - Memory Extraction - Zipline - Up (JAK)",
-    [2596] = "Quest Path 8160: 9.0 Bastion - Level Up - Memory Extraction - Zipline - Down (JAK)",
-    [2602] = "Quest Path 8194: 9.0 Bastion - Level Up - Temple of Purity - Zipline - Up (JAK)",
-    [2603] = "Quest Path 8195: 9.0 Bastion - Level Up - Temple of Purity - Zipline - Down (JAK)",
-    [2604] = "Quest Path 8242: [UNUSED]9.x Quest - The Battle for Lordaeron (H) - Orgrimmar",
-    [2605] = "Quest Path 8278: Theater of Pain Taxi Path",
     [2625] = "Elysian Hold",
     [2626] = "Hero's Rest",
     [2627] = "[Hidden] 9.0 Bastion Ground Points Hub (Ground TP out to here",
@@ -1086,90 +778,32 @@ OUS.TaxiNodes = {
     [2635] = "Temple of Humility",
     [2636] = "Terrace of the Collectors",
     [2637] = "Summoned Steward",
-    [2639] = "Quest Path 8321: 9.0 Bastion - Treasure Max Level - Wisdom - Taxi - A to D - EJC",
-    [2640] = "Quest Path 8322: 9.0 Bastion - Treasure Max Level - Wisdom - Taxi - B to C - EJC",
-    [2641] = "Quest Path 8323: 9.0 Bastion - Treasure Max Level - Wisdom - Taxi - C to D - EJC",
-    [2642] = "Quest Path 8324: 9.0 Bastion - Treasure Max Level - Wisdom - Taxi - D to E - EJC",
     [2643] = "Theater of Pain North",
-    [2644] = "Quest Path 8326: 9.0 Bastion - Treasure Max Level - Wisdom - Taxi - F to A - EJC",
-    [2645] = "Quest Path 8327: 9.0 Bastion - Treasure Max Level - Wisdom - Taxi - C to F - EJC",
-    [2646] = "Quest Path 8328: 9.0 Bastion - Max Level - Temple of Courage - Zipline -  Up (JAK)",
-    [2647] = "Quest Path 8329: 9.0 Bastion - Max Level - Temple of Courage - Zipline -  Down (JAK)",
-    [2648] = "Quest Path 8330: 9.0 Bastion - Max Level - Temple of Wisdom - Zipline -  Up (JAK)",
-    [2649] = "Quest Path 8331: 9.0 Bastion - Max Level - Temple of Wisdom - Zipline - Down (JAK)",
-    [2650] = "Quest Path 8332: 9.0 Bastion - Max Level - Temple of Humility - Zipline -  Up (JAK)",
-    [2651] = "Quest Path 8333: 9.0 Bastion - Max Level - Temple of Humility - Zipline -  Down (JAK)",
-    [2652] = "Quest Path 8334: 9.0 Bastion - Treasure Max Level - Wisdom - Taxi - E to B - EJC",
-    [2653] = "Quest Path 8336: 9.0 Bastion - Max Level - Temple of Loyalty - Zipline - Lower - Up (JAK)",
-    [2654] = "Quest Path 8337: 9.0 Bastion - Max Level - Temple of Loyalty - Zipline - Lower - Down (JAK)",
-    [2655] = "Quest Path 8338: 9.0 Bastion - Max Level - Temple of Loyalty - Zipline - Upper - Up (JAK)",
-    [2656] = "Quest Path 8339: 9.0 Bastion - Max Level - Temple of Loyalty - Zipline - Upper - Down (JAK)",
-    [2657] = "Quest Path 8335: 9.0 Maw - Torghast - Floor 90 - Up",
-    [2658] = "Quest Path 8340: 9.0 Maw - Torghast - Floor 90 - Down",
-    [2659] = "Quest Path 8347: 9.0 Bastion - Treasure Max Level - Courage - Taxi - Return - EJC",
-    [2660] = "Quest Path 8348: 9.0 Bastion - Treasure Max Level - Wisdom - Taxi - Return - EJC",
-    [2661] = "Quest Path 8359: 9.0 Ardenweald - COV - Drust - Ch2 - Flight out of Darkreach - LWB",
-    [2662] = "Quest Path 8363: 9.0 Maldraxxus - House of Plagues - Pipeline Up - EJC",
-    [2663] = "Quest Path 8372: 9.0 Bastion - Path of Ascension - Capture - Devourer - Anima Gateway Taxi - GJC",
-    [2664] = "Quest Path 8374: 9.0 Maw - Outdoor - Ve'nari -> Planes of Torment",
-    [2665] = "Quest Path 8387: 9.0 Bastion - Teleport Pads -  Eternal Forge Suburbs -> Miri's Chapel - SBV",
-    [2666] = "Quest Path 8388: 9.0 Bastion - Teleport Pads -  Miri's Chapel ->  Eternal Forge Suburbs - SBV",
-    [2670] = "Quest Path 8421: 9.0 Maw - Outdoor - Mawsworn Rifts - Zovaal's -> Calcis",
-    [2671] = "Quest Path 8422: 9.0 Maw - Outdoor - Mawsworn Rifts - Calcis -> Zovaal's",
-    [2672] = "Quest Path 8423: 9.0 Maw - Outdoor - Mawsworn Rifts - Crucible -> Tremaculum",
-    [2673] = "Quest Path 8424: 9.0 Maw - Outdoor - Mawsworn Rifts - Tremaculum -> Crucible",
-    [2674] = "Quest Path 8375: 9.0 Maw - Outdoor - Ve'nari -> Beastwarrens",
-    [2675] = "Quest Path 8425: 9.0 Bastion - Treasure - Out of Bounds Teleporter - 01 - SBV",
-    [2676] = "Quest Path 8426: 9.0 Bastion - Treasure - Out of Bounds Teleporter - 02 - SBV",
-    [2677] = "Quest Path 8427: 9.0 Bastion - Treasure - Out of Bounds Teleporter - 03 - SBV",
-    [2678] = "Quest Path 8428: 9.0 Bastion - Treasure - Out of Bounds Teleporter - 04 - SBV",
     [2680] = "Terrace of the Collectors",
-    [2681] = "Quest Path 8460: 9.0 Bastion - Cloudwalker Coffer - Zipline - To Memorial Shrine (MAH)",
     [2682] = "Elysian Beacon",
-    [2683] = "Quest Path 8472: 9.0 Bastion - Covenant Hall - Flight to Sanctum - Amphitheater -> Covenant Hall - GJC",
-    [2684] = "Quest Path 8473: 9.0 Bastion - Covenant Hall - Flight to Sanctum - Sanctum -> Amphitheater - GJC",
-    [2685] = "Quest Path 8474: 9.0 Bastion - Covenant Hall - Flight to Sanctum - Fate's Precipice -> Sanctum - GJC",
-    [2686] = "Quest Path 8475: 9.0 Bastion - Covenant Hall - Flight to Sanctum - Sanctum -> Fate's Precipice - GJC",
-    [2687] = "Quest Path 8476: 9.0 Bastion - Covenant Hall - Flight to Sanctum - Humility Terrace -> Sanctum - GJC",
-    [2688] = "Quest Path 8477: 9.0 Bastion - Covenant Hall - Flight to Sanctum - Sanctum -> Humility Terrace - GJC",
-    [2690] = "Quest Path 8500: 9.0.5 Maw - Hidden Object - Shadehound Mount - Perdition Upper to Zovaals - LJS",
-    [2691] = "Quest Path 8507: 9.1 Campaign- Ch 06 - House of Rituals - Surface -> Exoramas - KRB",
-    [2692] = "Quest Path 8508: 9.1 Campaign- Ch 06 - House of Rituals - Exoramas -> Surface - KRB",
     [2693] = "Seamless Proto",
     [2694] = "Seamless Proto",
     [2698] = "Keeper's Respite",
     [2699] = "Tazavesh Outdoor",
     [2700] = "Ve'nari's Refuge",
     [2703] = "Tazavesh",
-    [2708] = "Quest Path 8614: 9.0 Maw - Outdoor - Ve'nari -> Perdition Hold",
-    [2709] = "Quest Path 8615: 9.0 Maw - Outdoor - Ve'nari -> Desmotaeron",
-    [2710] = "Quest Path 8616: 9.0 Maw - Outdoor - Mawsworn Rifts - Desmotaeron -> Perdition Hold",
-    [2711] = "Quest Path 8617: 9.0 Maw - Outdoor - Mawsworn Rifts - Perdition Hold -> Desmotaeron",
     [2712] = "Immortal Hearth",
     [2713] = "Genesis Cradle Alpha",
     [2714] = "Genesis Cradle Beta",
     [2715] = "Ephemeral Plains Alpha",
     [2716] = "Ephemeral Plains Omega",
-    [2717] = "Quest Path 8628: 10.0 - Pre-Prod - Krav'rel to Azure Archives - (STM)",
-    [2718] = "Quest Path 8629: 10.0 - Pre-Prod: Azure Archives to Kirin Tor Hub - (STM)",
-    [2719] = "Quest Path 8630: 10.0 - Pre-Prod - Bombing Run - (STM)",
-    [2720] = "Quest Path 8631: 10.0 - Pre-Prod - Kalthraz Fortress to Azure Archives - (STM)",
-    [2722] = "Quest Path 8635: 10.0 Pre-Prod - Grasslands - Dragonsmeet to Emerald Gardens (JLW)",
     [2724] = "Haven",
     [2725] = "Faith's Repose",
     [2728] = "Pilgrim's Grace",
     [2729] = "Gravid Repose Locus",
     [2730] = "Interior Locus",
     [2731] = "Domination's Grasp",
-    [2732] = "[HIDDEN] - 9.2 Resonant Peaks - Teleport Network - Hidden Hub (Connects all Nodes to each other without unique paths) (MAH/JDA)",
     [2733] = "Zovaal's Grasp",
     [2734] = "Antecedent Isle",
     [2736] = "Sepulcher Overlook",
     [2737] = "Sepulcher Of The First Ones",
     [2738] = "Ultimus Locus",
     [2739] = "Rebuff Lookout",
-    [2740] = "10.0 Construction - Teleport Network - Hidden Hub (Connects all Nodes to each other without unique paths) (JDA)",
-    [2741] = "Skytop Lookout (QD)",
     [2742] = "Quintus Locus",
     [2743] = "Quartus Locus",
     [2744] = "Tertius Locus",
@@ -1186,8 +820,6 @@ OUS.TaxiNodes = {
     [2773] = "Azure Archives",
     [2774] = "Camp Antonidas",
     [2775] = "Iskaara",
-    [2782] = "Quest Path 8851: 10.0 Plains - Emerald Hub - Taxi Down to Portal Grove (RMV)",
-    [2783] = "Quest Path 8852: 10.0 Plains - Emerald Hub - Taxi Up to Shady Snctuary (RMV)",
     [2784] = "Camp Nowhere",
     [2786] = "Rhonin's Shield",
     [2787] = "Cobalt Assembly",
@@ -1211,7 +843,6 @@ OUS.TaxiNodes = {
     [2806] = "Life Vault Ruins",
     [2807] = "Ruby Life Pools",
     [2808] = "Obsidian Bulwark",
-    [2809] = "Dragonscale Basecamp",
     [2810] = "Valdrakken",
     [2811] = "Gelikyr Post",
     [2812] = "Temporal Conflux",
@@ -1219,33 +850,21 @@ OUS.TaxiNodes = {
     [2814] = "Veiled Ossuary",
     [2815] = "Garden Shrine",
     [2816] = "Shifting Sands",
-    [2817] = "Skytop Observatory",
     [2818] = "Vault of the Incarnates",
-    [2820] = "Quest Path 9123: 10.0 Plains - Merithra's Watch - Taxi Down to Shady Sanctuary (RMV)",
-    [2821] = "Quest Path 9124: 10.0 Plains - Emerald Hub - Taxi Up to Merithra's Watch (RMV)",
-    [2822] = "Quest Path 9125: 10.0 Plains - Emerald Hub - Taxi to Lunedane (RMV)",
-    [2823] = "Quest Path 9126: 10.0 Plains - Lunedane - Taxi to Shady Sanctuary (RMV)",
-    [2824] = "Quest Path 9147: 10.0 Plains - Emerald Hub - Taxi to Lunedane - PERSONAL (RMV)",
     [2825] = "Ohn'iri Springs",
     [2834] = "Eon's Fringe",
-    [2835] = "[Hidden] 10.0 Travel Network - Destination Input",
     [2836] = "Algeth'era",
     [2837] = "Vakthros",
     [2838] = "Cobalt Assembly",
     [2839] = "Rusza'thar Reach",
     [2840] = "Shady Sanctuary",
-    [2841] = "Skytop Observatory",
     [2842] = "Rubyscale Outpost",
-    [2843] = "[Hidden] 10.0 Travel Network - Destination Output",
     [2847] = "Maruukai",
     [2848] = "The Nokhud Approach",
     [2849] = "The Battle of Spears",
     [2850] = "Teerakai",
     [2851] = "Ohn'iri Springs",
     [2855] = "Morqut Village",
-    [2856] = "Quest Path 9315: 10.0.7 Forbidden Reach - War Creche - Taxi - Go Up - EJC",
-    [2857] = "Quest Path 9316: 10.0.7 Forbidden Reach - War Creche - Taxi - Go Down - EJC",
-    [2860] = "10.1 UG - Campaign - Ch6 - Aberrus Upper Platform (SMART)",
     [2862] = "Morqut Islet",
     [2863] = "Loamm",
     [2864] = "Obsidian Rest",
@@ -1257,9 +876,7 @@ OUS.TaxiNodes = {
     [2876] = "Lookout Breach",
     [2877] = "Lookout Breach",
     [2882] = "Weaver's Lair",
-    [2887] = "Quest Path 9429: 10.1.7 Heritage - Night Elf - Player Up to the Start of Shadow Hold",
     [2889] = "Wildcamp Or'lay",
-    [2892] = "Quest Path 9443: 10.1.7 Heritage - Night Elf - Player Up to the Start of Shadow Hold",
     [2893] = "The Burrows",
     [2902] = "Central Encampment",
     [2903] = "Verdant Landing",
@@ -1288,11 +905,8 @@ OUS.TaxiNodes = {
     [2943] = "Lorel's Crossing",
     [2944] = "Hillhelm Family Farm",
     [2950] = "The Aegis Wall",
-    [2955] = "Quest Path 9706: 11.0 Z2 - Max Level - CH3 - Q2 - Pipe Ingress 1 Taxi (SMART)",
     [2962] = "Gundargaz",
     [2963] = "Shadowvein Point",
-    [2964] = "Quest Path 9786: 11.0 Z2 - Campaign - Ch 3 - Dark Iron From Above - Boss Flyover - (LWB)",
-    [2967] = "Quest Path 9870: 11.0 Raid - Nerubian - Zone - Thread Elevator - 04 Taxi Path 01 - TJS",
     [2970] = "Tranquil Strand",
     [2971] = "The Pulsing Pit (One-way)",
     [2972] = "Entrance Gate",
@@ -1312,7 +926,6 @@ OUS.TaxiNodes = {
     [2999] = "The Gallagio",
     [3000] = "Gutterville",
     [3003] = "The Crown of Shadows",
-    [3026] = "Quest Path 10254: 11.2 Raid - Manaforge - Zone - Traversal - Gateway Taxi 01 - Pipes to Hub - TJS",
     [3029] = "Tazavesh",
     [3030] = "Eco-Dome: Rhovan",
     [3031] = "The Oasis",
@@ -1328,18 +941,10 @@ OUS.TaxiNodes = {
     [3077] = "Gilded Oaks",
     [3078] = "Brumewood Hollow",
     [3079] = "Stoneveil Ridge",
-    [3093] = "Quest Path 10497: 12.0 Z3 - Legends - Shrine 01 - Exit Path - (LWB)",
-    [3101] = "Quest Path 10502: 12.0 Z3 - Legends - Shrine 02 - Exit Path - (LWB)",
-    [3102] = "Thalassian University Teleport Base",
-    [3103] = "Thalassian University Teleport Top",
-    [3104] = "Quest Path 10509: 12.0 Z3 - Legends - Shrine 03 - Exit Path - (LWB)",
-    [3105] = "Quest Path 10517: 12.0 Z3 - Legends - Shrine 04 - Exit Path - (LWB)",
     [3106] = "Camp Stonewash",
-    [3111] = "Quest Path 10562: 11.2 Raid - Manaforge - Zone - Traversal - Dimensius Forward Left (Quest/Event) - SRC",
     [3119] = "The Ingress",
     [3120] = "Locus Point",
     [3121] = "Howling Ridge",
-    [3122] = "Quest Path 10677: 11.1.7 Lorewalking - Xal - Q2 - Vehicle - Summon - stormsong to drustvar - Quest Taxi Version (LAS)",
     [3123] = "Masters' Perch",
     [3125] = "Terrace of the Sun",
     [3126] = "Torntusk Overlook",
@@ -1351,7 +956,6 @@ OUS.TaxiNodes = {
     [3132] = "The Royal Exchange",
     [3133] = "Fairbreeze Village",
     [3134] = "Tranquillien",
-    [3135] = "12.0 Z1 - Isle of Quel'Danas - Flightmaster - Gloaming - SJC",
     [3145] = "Tazavesh",
     [3146] = "The Oasis",
     [3147] = "Shan'dorah",
@@ -1365,62 +969,17 @@ OUS.TaxiNodes = {
     [3162] = "Untethered Space",
     [3163] = "Ruins of Yaathron",
     [3164] = "Hosaas' Rest",
-    [3165] = "Quest Path 11099: 12.0 Z1 - Silvermoon - Teleporters - Bazaar > Mage Academy - SJC",
-    [3166] = "Quest Path 11100: 12.0 Z1 - Silvermoon - Teleporters - Mage Academy > Bazaar - SJC",
-    [3169] = "Base Node",
     [3170] = "Collapsar",
     [3171] = "Deep Well",
     [3172] = "Exposed Vein",
     [3173] = "Focal Point",
     [3174] = "Forge of Secrets",
-    [3175] = "Quest Path 11142: 11.2.7 Catch Up - TWW - Q2 - Dornegal to Freywold (KRB)",
-    [3176] = "Quest Path 11144: 11.2.7 Catch Up - TWW - Q2 - Meadery to Coreway (KRB)",
-    [3177] = "Quest Path 11146: 11.2.7 Catch Up - TWW - Q2 - Coreway to Ringing Deeps (KRB)",
-    [3178] = "Quest Path 11147: 11.2.7 Catch Up - TWW - Q3 - Weaver to City (KRB)",
-    [3179] = "Quest Path 11151: 11.2.7 Catch Up - TWW - Q3 - Priory to Foundation Hall (KRB)",
-    [3186] = "12.0 Silvermoon Sunwing Rookery Teleport Intro Base",
-    [3187] = "12.0 Silvermoon Sunwing Rookery Teleport Intro Top",
-    [3188] = "12.0 Silvermoon Sunwing Rookery Teleport Main Base",
-    [3189] = "12.0 Silvermoon Sunwing Rookery Teleport Main Top",
     [3190] = "Silverglade Refuge",
     [3192] = "Har'athir",
     [3193] = "The Den",
     [3194] = "Har'kuai",
     [3195] = "Har'alnor",
     [3196] = "Har'mara",
-    [3201] = "Quest Path 11282: 12.0.5 Event - Prop Hunt - Teleporter - Upper > Lower",
-    [3202] = "Quest Path 11283: 12.0.5 Event - Prop Hunt - Teleporter - Lower > Upper",
-    [3204] = "Quest Path 11298: 11.2.7 Catch Up -  TWW -  Q2 -  Cavern to Awakening Machine (KRB)",
-    [3211] = "12.0 Silvermoon Teleport Thalassian University Base",
-    [3212] = "12.0 Silvermoon Thalassian University Teleport Top",
-    [3213] = "Quest Path 11346: 12.0 Z1 - Eversong - Teleporters - Tranquil Repose - Going Up - Force Taxi - SJC",
-    [3214] = "Quest Path 11347: 12.0 Z1 - Eversong - Teleporters - Tranquil Repose - Going Down - Force Taxi - SJC",
-    [3215] = "Quest Path 11348: 12.0 Z1 - Eversong - Teleporters - Moon Tower - Going Up - SJC",
-    [3216] = "Quest Path 11349: 12.0 Z1 - Eversong - Teleporters - Moon Tower - Going Down - SJC",
-    [3218] = "12.0 Silvermoon Sunfury Spire Teleport Base",
-    [3219] = "12.0 Silvermoon Sunfury Spire Teleport Top",
-    [3220] = "Quest Path 11370: 12.0 Z1 - Fairbreeze - Main Translocator - Going Up - SJC",
-    [3221] = "Quest Path 11371: 12.0 Z1 - Fairbreeze - Main Translocator - Going Down - SJC",
-    [3222] = "Quest Path 11372: 12.0 Z1 - Eversong - Teleporters - Fairbreeze West - A > B - SJC",
-    [3223] = "Quest Path 11373: 12.0 Z1 - Eversong - Teleporters - Fairbreeze West - B > A - SJC",
-    [3224] = "Quest Path 11374: 12.0 Z1 - Eversong - Teleporters - Fairbreeze East - A > B - SJC",
-    [3225] = "Quest Path 11375: 12.0 Z1 - Eversong - Teleporters - Fairbreeze East - B > A - SJC",
-    [3226] = "Quest Path 11376: 12.0 Z1 - Eversong - Teleporters - River Tower - Going Up - SJC",
-    [3227] = "Quest Path 11377: 12.0 Z1 - Eversong - Teleporters - River Tower - Going Down - SJC",
-    [3228] = "Quest Path 11378: 12.0 Z1 - Eversong - Teleporters - Goldenmist - Going Up - SJC",
-    [3229] = "Quest Path 11379: 12.0 Z1 - Eversong - Teleporters - Goldenmist - Going Down - SJC",
-    [3230] = "Quest Path 11380: 12.0 Z1 - Silvermoon City - Teleporters - Sunfury Spire - Going Up - SJC",
-    [3231] = "Quest Path 11381: 12.0 Z1 - Silvermoon City - Teleporters - Sunfury Spire - Going Down - SJC",
-    [3232] = "Quest Path 10760: 12.0 Z1 - Local Story 09 - How to Train Your Protegee Q2c - Teleport to Top - Missile Teleport Curve Up (RRN)",
-    [3233] = "Quest Path 10761: 12.0 Z1 - Local Story 02c - How to Train Your Protegee Q02c - Teleport Down - Missle Teleport Curve Down (RRN)",
-    [3234] = "Quest Path 10393: 12.0 Z1 - Local Story 01 - Aspiring Academic Q03 - Teleport to Top - Missile Teleport Curve Up (RRN)",
-    [3235] = "Quest Path 10398: 12.0 Z1 - Local Story 01 - Aspiring Academic Q03 - Teleport Down - Missle Teleport Curve Down (RRN)",
-    [3236] = "Quest Path 11400: 12.0 Z1 - Eversong - Teleporters - Dawning Lane > Rookery - Going Up - Force Taxi - SJC",
-    [3237] = "Quest Path 11401: 12.0 Z1 - Eversong - Teleporters - Dawning Lane > Rookery - Going Down - Force Taxi - SJC",
-    [3238] = "Quest Path 11402: 12.0 Z1 - Eversong - Teleporters - Upper Rookery - Going Up - Force Taxi - SJC",
-    [3239] = "Quest Path 11403: 12.0 Z1 - Eversong - Teleporters - Upper Rookery - Going Down - Force Taxi - SJC",
-    [3240] = "Quest Path 11404: 12.0 Z1 - Eversong - Teleporters - Brightwing Estates - Going Up - Force Taxi - SJC",
-    [3241] = "Quest Path 11405: 12.0 Z1 - Eversong - Teleporters - Brightwing Estates - Going Down - Force Taxi - SJC",
 }
 
 OUS.TaxiRoutes = {
@@ -1735,7 +1294,6 @@ OUS.TaxiRoutes = {
         [339] = { cost = 15 },
         [351] = { cost = 28 },
         [361] = { cost = 15 },
-        [364] = { cost = 15 },
         [365] = { cost = 15 },
         [367] = { cost = 28 },
         [368] = { cost = 28 },
@@ -1751,7 +1309,6 @@ OUS.TaxiRoutes = {
         [41] = { cost = 44 },
         [351] = { cost = 28 },
         [361] = { cost = 28 },
-        [364] = { cost = 28 },
         [365] = { cost = 28 },
         [367] = { cost = 15 },
         [368] = { cost = 15 },
@@ -2121,9 +1678,6 @@ OUS.TaxiRoutes = {
         [383] = { cost = 44 },
         [630] = { cost = 44 },
     },
-    [92] = {
-        [91] = { cost = 0 },
-    },
     [93] = {
         [94] = { cost = 110 },
     },
@@ -2132,12 +1686,6 @@ OUS.TaxiRoutes = {
         [27] = { cost = 110 },
         [93] = { cost = 110 },
         [624] = { cost = 0 },
-    },
-    [95] = {
-        [96] = { cost = 0 },
-    },
-    [97] = {
-        [98] = { cost = 0 },
     },
     [99] = {
         [102] = { cost = 1020 },
@@ -2175,15 +1723,6 @@ OUS.TaxiRoutes = {
     },
     [109] = {
         [110] = { cost = 0 },
-    },
-    [111] = {
-        [112] = { cost = 0 },
-    },
-    [113] = {
-        [114] = { cost = 0 },
-    },
-    [115] = {
-        [116] = { cost = 0 },
     },
     [117] = {
         [101] = { cost = 1020 },
@@ -2277,19 +1816,6 @@ OUS.TaxiRoutes = {
         [99] = { cost = 0 },
         [102] = { cost = 0 },
     },
-    [131] = {
-        [132] = { cost = 0 },
-    },
-    [133] = {
-        [134] = { cost = 0 },
-        [149] = { cost = 0 },
-    },
-    [135] = {
-        [136] = { cost = 0 },
-    },
-    [137] = {
-        [138] = { cost = 0 },
-    },
     [139] = {
         [122] = { cost = 1020 },
         [125] = { cost = 1020 },
@@ -2305,12 +1831,6 @@ OUS.TaxiRoutes = {
     },
     [142] = {
         [141] = { cost = 1020 },
-    },
-    [144] = {
-        [143] = { cost = 0 },
-    },
-    [145] = {
-        [146] = { cost = 0 },
     },
     [147] = {
         [148] = { cost = 0 },
@@ -2333,12 +1853,6 @@ OUS.TaxiRoutes = {
         [128] = { cost = 1020 },
         [163] = { cost = 1020 },
     },
-    [152] = {
-        [153] = { cost = 0 },
-    },
-    [154] = {
-        [155] = { cost = 0 },
-    },
     [156] = {
         [117] = { cost = 1020 },
         [122] = { cost = 1020 },
@@ -2354,9 +1868,6 @@ OUS.TaxiRoutes = {
         [125] = { cost = 510 },
         [126] = { cost = 510 },
         [156] = { cost = 510 },
-    },
-    [161] = {
-        [162] = { cost = 0 },
     },
     [163] = {
         [122] = { cost = 1020 },
@@ -2392,24 +1903,15 @@ OUS.TaxiRoutes = {
     [168] = {
         [2] = { cost = 1 },
     },
-    [169] = {
-        [170] = { cost = 0 },
-    },
     [171] = {
         [172] = { cost = 0 },
     },
     [172] = {
         [171] = { cost = 0 },
     },
-    [173] = {
-        [174] = { cost = 0 },
-    },
     [175] = {
         [14] = { cost = 0 },
         [178] = { cost = 0 },
-    },
-    [176] = {
-        [177] = { cost = 0 },
     },
     [178] = {
         [24] = { cost = 0 },
@@ -2422,9 +1924,6 @@ OUS.TaxiRoutes = {
         [389] = { cost = 23 },
         [391] = { cost = 23 },
         [513] = { cost = 23 },
-    },
-    [180] = {
-        [181] = { cost = 0 },
     },
     [183] = {
         [184] = { cost = 4000 },
@@ -2445,9 +1944,6 @@ OUS.TaxiRoutes = {
         [253] = { cost = 4000 },
         [295] = { cost = 4000 },
     },
-    [186] = {
-        [187] = { cost = 0 },
-    },
     [190] = {
         [191] = { cost = 4000 },
         [192] = { cost = 4000 },
@@ -2466,10 +1962,6 @@ OUS.TaxiRoutes = {
         [191] = { cost = 4000 },
         [248] = { cost = 4000 },
         [249] = { cost = 6000 },
-        [250] = { cost = 6000 },
-    },
-    [194] = {
-        [193] = { cost = 0 },
     },
     [195] = {
         [2] = { cost = 36 },
@@ -2480,37 +1972,16 @@ OUS.TaxiRoutes = {
         [622] = { cost = 10 },
         [1538] = { cost = 11000 },
     },
-    [199] = {
-        [200] = { cost = 0 },
-    },
-    [203] = {
-        [261] = { cost = 0 },
-    },
-    [204] = {
-        [254] = { cost = 0 },
-    },
     [205] = {
         [67] = { cost = 1020 },
         [68] = { cost = 1020 },
         [83] = { cost = 530 },
         [213] = { cost = 730 },
     },
-    [209] = {
-        [210] = { cost = 0 },
-    },
-    [211] = {
-        [212] = { cost = 0 },
-    },
-    [212] = {
-        [211] = { cost = 0 },
-    },
     [213] = {
         [67] = { cost = 1750 },
         [82] = { cost = 530 },
         [205] = { cost = 730 },
-    },
-    [214] = {
-        [215] = { cost = 0 },
     },
     [221] = {
         [222] = { cost = 0 },
@@ -2541,9 +2012,6 @@ OUS.TaxiRoutes = {
     [236] = {
         [237] = { cost = 0 },
     },
-    [239] = {
-        [240] = { cost = 0 },
-    },
     [241] = {
         [36] = { cost = 0 },
     },
@@ -2571,7 +2039,6 @@ OUS.TaxiRoutes = {
         [289] = { cost = 4000 },
         [296] = { cost = 4000 },
         [308] = { cost = 6000 },
-        [309] = { cost = 6000 },
     },
     [247] = {
         [244] = { cost = 4000 },
@@ -2586,24 +2053,15 @@ OUS.TaxiRoutes = {
     [248] = {
         [190] = { cost = 4000 },
         [192] = { cost = 4000 },
-        [250] = { cost = 4000 },
         [254] = { cost = 7000 },
         [295] = { cost = 4000 },
     },
     [249] = {
         [191] = { cost = 6000 },
         [192] = { cost = 6000 },
-        [250] = { cost = 4000 },
         [304] = { cost = 6000 },
         [306] = { cost = 6000 },
         [307] = { cost = 6000 },
-    },
-    [250] = {
-        [192] = { cost = 6000 },
-        [248] = { cost = 6000 },
-        [249] = { cost = 4000 },
-        [254] = { cost = 6000 },
-        [306] = { cost = 6000 },
     },
     [251] = {
         [244] = { cost = 4000 },
@@ -2634,7 +2092,6 @@ OUS.TaxiRoutes = {
     [254] = {
         [190] = { cost = 8000 },
         [248] = { cost = 7000 },
-        [250] = { cost = 4000 },
         [252] = { cost = 4000 },
         [256] = { cost = 4000 },
         [260] = { cost = 4000 },
@@ -2676,7 +2133,6 @@ OUS.TaxiRoutes = {
         [258] = { cost = 4000 },
         [289] = { cost = 4000 },
         [308] = { cost = 6000 },
-        [309] = { cost = 6000 },
     },
     [260] = {
         [252] = { cost = 4000 },
@@ -2696,35 +2152,14 @@ OUS.TaxiRoutes = {
     [267] = {
         [268] = { cost = 0 },
     },
-    [269] = {
-        [270] = { cost = 0 },
-    },
     [271] = {
         [272] = { cost = 0 },
-    },
-    [273] = {
-        [274] = { cost = 0 },
-    },
-    [275] = {
-        [276] = { cost = 0 },
-    },
-    [277] = {
-        [278] = { cost = 0 },
-    },
-    [280] = {
-        [279] = { cost = 0 },
     },
     [282] = {
         [281] = { cost = 0 },
     },
     [284] = {
         [283] = { cost = 0 },
-    },
-    [285] = {
-        [286] = { cost = 0 },
-    },
-    [287] = {
-        [288] = { cost = 0 },
     },
     [289] = {
         [226] = { cost = 5000 },
@@ -2736,9 +2171,6 @@ OUS.TaxiRoutes = {
     },
     [290] = {
         [291] = { cost = 0 },
-    },
-    [292] = {
-        [293] = { cost = 0 },
     },
     [294] = {
         [244] = { cost = 4000 },
@@ -2764,12 +2196,6 @@ OUS.TaxiRoutes = {
         [257] = { cost = 4000 },
         [258] = { cost = 4000 },
         [294] = { cost = 6000 },
-    },
-    [297] = {
-        [298] = { cost = 0 },
-    },
-    [301] = {
-        [302] = { cost = 0 },
     },
     [303] = {
         [247] = { cost = 6000 },
@@ -2803,7 +2229,6 @@ OUS.TaxiRoutes = {
     [306] = {
         [244] = { cost = 6000 },
         [249] = { cost = 6000 },
-        [250] = { cost = 6000 },
         [253] = { cost = 6000 },
         [254] = { cost = 6000 },
         [304] = { cost = 4000 },
@@ -2822,16 +2247,9 @@ OUS.TaxiRoutes = {
         [246] = { cost = 6000 },
         [259] = { cost = 6000 },
         [303] = { cost = 6000 },
-        [309] = { cost = 4000 },
         [310] = { cost = 7000 },
         [325] = { cost = 6000 },
         [332] = { cost = 6000 },
-    },
-    [309] = {
-        [246] = { cost = 6000 },
-        [259] = { cost = 6000 },
-        [308] = { cost = 4000 },
-        [325] = { cost = 6000 },
     },
     [310] = {
         [183] = { cost = 20000 },
@@ -2911,7 +2329,6 @@ OUS.TaxiRoutes = {
     [325] = {
         [303] = { cost = 6000 },
         [308] = { cost = 6000 },
-        [309] = { cost = 6000 },
         [332] = { cost = 6000 },
         [333] = { cost = 4000 },
         [335] = { cost = 4000 },
@@ -3003,9 +2420,6 @@ OUS.TaxiRoutes = {
     [341] = {
         [342] = { cost = 0 },
     },
-    [344] = {
-        [345] = { cost = 0 },
-    },
     [346] = {
         [347] = { cost = 0 },
     },
@@ -3026,7 +2440,6 @@ OUS.TaxiRoutes = {
         [33] = { cost = 28 },
         [37] = { cost = 28 },
         [361] = { cost = 28 },
-        [364] = { cost = 28 },
         [387] = { cost = 44 },
     },
     [354] = {
@@ -3044,9 +2457,6 @@ OUS.TaxiRoutes = {
         [354] = { cost = 15 },
         [362] = { cost = 28 },
     },
-    [358] = {
-        [359] = { cost = 0 },
-    },
     [360] = {
         [29] = { cost = 15 },
         [58] = { cost = 28 },
@@ -3059,7 +2469,6 @@ OUS.TaxiRoutes = {
         [33] = { cost = 15 },
         [37] = { cost = 28 },
         [351] = { cost = 28 },
-        [364] = { cost = 15 },
         [365] = { cost = 15 },
         [541] = { cost = 15 },
     },
@@ -3079,20 +2488,11 @@ OUS.TaxiRoutes = {
         [360] = { cost = 15 },
         [362] = { cost = 15 },
     },
-    [364] = {
-        [33] = { cost = 15 },
-        [37] = { cost = 28 },
-        [351] = { cost = 28 },
-        [361] = { cost = 15 },
-        [365] = { cost = 15 },
-        [387] = { cost = 44 },
-    },
     [365] = {
         [33] = { cost = 15 },
         [37] = { cost = 28 },
         [41] = { cost = 44 },
         [361] = { cost = 15 },
-        [364] = { cost = 15 },
         [541] = { cost = 15 },
     },
     [366] = {
@@ -3170,7 +2570,6 @@ OUS.TaxiRoutes = {
     [387] = {
         [80] = { cost = 36 },
         [351] = { cost = 44 },
-        [364] = { cost = 44 },
         [388] = { cost = 15 },
         [389] = { cost = 15 },
     },
@@ -3199,10 +2598,6 @@ OUS.TaxiRoutes = {
         [179] = { cost = 23 },
         [390] = { cost = 5 },
     },
-    [392] = {
-        [6] = { cost = 0 },
-        [393] = { cost = 0 },
-    },
     [394] = {
         [395] = { cost = 0 },
     },
@@ -3211,15 +2606,6 @@ OUS.TaxiRoutes = {
     },
     [404] = {
         [405] = { cost = 0 },
-    },
-    [414] = {
-        [413] = { cost = 0 },
-    },
-    [433] = {
-        [434] = { cost = 0 },
-    },
-    [436] = {
-        [434] = { cost = 0 },
     },
     [438] = {
         [439] = { cost = 0 },
@@ -3352,21 +2738,6 @@ OUS.TaxiRoutes = {
         [557] = { cost = 10000 },
         [558] = { cost = 10000 },
     },
-    [560] = {
-        [560] = { cost = 0 },
-    },
-    [561] = {
-        [561] = { cost = 0 },
-    },
-    [562] = {
-        [562] = { cost = 0 },
-    },
-    [563] = {
-        [563] = { cost = 0 },
-    },
-    [564] = {
-        [564] = { cost = 0 },
-    },
     [565] = {
         [41] = { cost = 15 },
         [367] = { cost = 15 },
@@ -3385,18 +2756,6 @@ OUS.TaxiRoutes = {
         [568] = { cost = 36 },
         [2059] = { cost = 36 },
     },
-    [574] = {
-        [574] = { cost = 0 },
-    },
-    [575] = {
-        [575] = { cost = 0 },
-    },
-    [577] = {
-        [577] = { cost = 110 },
-    },
-    [578] = {
-        [578] = { cost = 0 },
-    },
     [582] = {
         [2] = { cost = 0 },
         [12] = { cost = 5 },
@@ -3408,9 +2767,6 @@ OUS.TaxiRoutes = {
     [584] = {
         [2] = { cost = 5 },
         [4] = { cost = 5 },
-    },
-    [585] = {
-        [585] = { cost = 0 },
     },
     [589] = {
         [5] = { cost = 5 },
@@ -3570,18 +2926,6 @@ OUS.TaxiRoutes = {
     [625] = {
         [82] = { cost = 0 },
         [83] = { cost = 330 },
-    },
-    [626] = {
-        [626] = { cost = 110 },
-    },
-    [627] = {
-        [627] = { cost = 0 },
-    },
-    [628] = {
-        [628] = { cost = 110 },
-    },
-    [629] = {
-        [629] = { cost = 0 },
     },
     [630] = {
         [67] = { cost = 44 },
@@ -3776,14 +3120,8 @@ OUS.TaxiRoutes = {
         [61] = { cost = 50 },
         [616] = { cost = 10000 },
     },
-    [728] = {
-        [728] = { cost = 630 },
-    },
     [781] = {
         [557] = { cost = 10000 },
-    },
-    [888] = {
-        [888] = { cost = 0 },
     },
     [894] = {
         [895] = { cost = 11000 },
@@ -3807,54 +3145,6 @@ OUS.TaxiRoutes = {
         [1080] = { cost = 11000 },
         [1293] = { cost = 11000 },
         [1294] = { cost = 11000 },
-    },
-    [906] = {
-        [907] = { cost = 0 },
-    },
-    [918] = {
-        [918] = { cost = 0 },
-    },
-    [919] = {
-        [919] = { cost = 0 },
-    },
-    [920] = {
-        [920] = { cost = 0 },
-    },
-    [921] = {
-        [921] = { cost = 0 },
-    },
-    [922] = {
-        [922] = { cost = 0 },
-    },
-    [923] = {
-        [923] = { cost = 0 },
-    },
-    [924] = {
-        [924] = { cost = 0 },
-    },
-    [925] = {
-        [925] = { cost = 0 },
-    },
-    [926] = {
-        [926] = { cost = 0 },
-    },
-    [927] = {
-        [927] = { cost = 0 },
-    },
-    [935] = {
-        [935] = { cost = 0 },
-    },
-    [949] = {
-        [949] = { cost = 0 },
-    },
-    [950] = {
-        [950] = { cost = 0 },
-    },
-    [951] = {
-        [951] = { cost = 0 },
-    },
-    [963] = {
-        [963] = { cost = 0 },
     },
     [966] = {
         [895] = { cost = 11000 },
@@ -3922,7 +3212,6 @@ OUS.TaxiRoutes = {
         [987] = { cost = 11000 },
         [988] = { cost = 11000 },
         [989] = { cost = 11000 },
-        [991] = { cost = 11000 },
         [992] = { cost = 11000 },
         [1052] = { cost = 11000 },
         [1057] = { cost = 11000 },
@@ -3945,7 +3234,6 @@ OUS.TaxiRoutes = {
     [988] = {
         [985] = { cost = 11000 },
         [989] = { cost = 11000 },
-        [991] = { cost = 11000 },
         [992] = { cost = 11000 },
         [993] = { cost = 11000 },
         [1190] = { cost = 11000 },
@@ -3954,7 +3242,6 @@ OUS.TaxiRoutes = {
         [985] = { cost = 11000 },
         [988] = { cost = 11000 },
         [990] = { cost = 11000 },
-        [991] = { cost = 11000 },
         [992] = { cost = 11000 },
         [1070] = { cost = 11000 },
         [1195] = { cost = 11000 },
@@ -3967,37 +3254,18 @@ OUS.TaxiRoutes = {
         [1070] = { cost = 11000 },
         [1195] = { cost = 11000 },
     },
-    [991] = {
-        [985] = { cost = 11000 },
-        [988] = { cost = 11000 },
-        [989] = { cost = 11000 },
-        [992] = { cost = 11000 },
-        [993] = { cost = 11000 },
-        [1070] = { cost = 11000 },
-    },
     [992] = {
         [985] = { cost = 11000 },
         [988] = { cost = 11000 },
         [989] = { cost = 11000 },
         [990] = { cost = 11000 },
-        [991] = { cost = 11000 },
         [993] = { cost = 11000 },
     },
     [993] = {
         [987] = { cost = 11000 },
         [988] = { cost = 11000 },
         [990] = { cost = 11000 },
-        [991] = { cost = 11000 },
         [992] = { cost = 11000 },
-    },
-    [998] = {
-        [998] = { cost = 0 },
-    },
-    [1009] = {
-        [1009] = { cost = 0 },
-    },
-    [1016] = {
-        [1016] = { cost = 0 },
     },
     [1017] = {
         [966] = { cost = 11000 },
@@ -4023,7 +3291,6 @@ OUS.TaxiRoutes = {
         [1018] = { cost = 11000 },
         [1021] = { cost = 11000 },
         [1022] = { cost = 11000 },
-        [1023] = { cost = 11000 },
         [1024] = { cost = 11000 },
         [1058] = { cost = 11000 },
     },
@@ -4032,7 +3299,6 @@ OUS.TaxiRoutes = {
         [1018] = { cost = 11000 },
         [1021] = { cost = 11000 },
         [1022] = { cost = 11000 },
-        [1023] = { cost = 11000 },
         [1024] = { cost = 11000 },
         [1057] = { cost = 11000 },
     },
@@ -4050,24 +3316,14 @@ OUS.TaxiRoutes = {
         [1019] = { cost = 11000 },
         [1020] = { cost = 11000 },
         [1021] = { cost = 11000 },
-        [1023] = { cost = 11000 },
-    },
-    [1023] = {
-        [1019] = { cost = 11000 },
-        [1020] = { cost = 11000 },
-        [1022] = { cost = 11000 },
-        [1024] = { cost = 11000 },
-        [1025] = { cost = 11000 },
     },
     [1024] = {
         [1019] = { cost = 11000 },
         [1020] = { cost = 11000 },
-        [1023] = { cost = 11000 },
         [1053] = { cost = 11000 },
         [1054] = { cost = 11000 },
     },
     [1025] = {
-        [1023] = { cost = 11000 },
         [1053] = { cost = 11000 },
         [1073] = { cost = 11000 },
     },
@@ -4075,27 +3331,6 @@ OUS.TaxiRoutes = {
         [984] = { cost = 11000 },
         [1017] = { cost = 11000 },
         [1052] = { cost = 11000 },
-    },
-    [1030] = {
-        [1030] = { cost = 0 },
-    },
-    [1032] = {
-        [1032] = { cost = 0 },
-    },
-    [1038] = {
-        [1038] = { cost = 0 },
-    },
-    [1048] = {
-        [1048] = { cost = 0 },
-    },
-    [1049] = {
-        [1049] = { cost = 0 },
-    },
-    [1050] = {
-        [1050] = { cost = 0 },
-    },
-    [1051] = {
-        [1051] = { cost = 0 },
     },
     [1052] = {
         [984] = { cost = 11000 },
@@ -4159,7 +3394,6 @@ OUS.TaxiRoutes = {
     [1070] = {
         [989] = { cost = 11000 },
         [990] = { cost = 11000 },
-        [991] = { cost = 11000 },
         [1057] = { cost = 11000 },
         [1058] = { cost = 11000 },
         [1071] = { cost = 11000 },
@@ -4187,12 +3421,6 @@ OUS.TaxiRoutes = {
         [1071] = { cost = 11000 },
         [1072] = { cost = 11000 },
     },
-    [1076] = {
-        [1076] = { cost = 0 },
-    },
-    [1079] = {
-        [1079] = { cost = 0 },
-    },
     [1080] = {
         [894] = { cost = 11000 },
         [895] = { cost = 11000 },
@@ -4202,31 +3430,13 @@ OUS.TaxiRoutes = {
         [1070] = { cost = 11000 },
         [1071] = { cost = 11000 },
     },
-    [1091] = {
-        [1091] = { cost = 0 },
-    },
-    [1092] = {
-        [1092] = { cost = 0 },
-    },
-    [1114] = {
-        [1114] = { cost = 0 },
-    },
     [1115] = {
         [1057] = { cost = 11000 },
-    },
-    [1116] = {
-        [1116] = { cost = 0 },
     },
     [1117] = {
         [1053] = { cost = 11000 },
         [1054] = { cost = 11000 },
         [1058] = { cost = 11000 },
-    },
-    [1130] = {
-        [1130] = { cost = 0 },
-    },
-    [1131] = {
-        [1131] = { cost = 0 },
     },
     [1190] = {
         [966] = { cost = 11000 },
@@ -4243,12 +3453,6 @@ OUS.TaxiRoutes = {
     [1222] = {
         [1021] = { cost = 11000 },
         [1058] = { cost = 11000 },
-    },
-    [1284] = {
-        [1284] = { cost = 0 },
-    },
-    [1292] = {
-        [1292] = { cost = 0 },
     },
     [1293] = {
         [895] = { cost = 11000 },
@@ -4378,9 +3582,6 @@ OUS.TaxiRoutes = {
         [1529] = { cost = 11000 },
         [1569] = { cost = 11000 },
         [1620] = { cost = 11000 },
-    },
-    [1421] = {
-        [1422] = { cost = 0 },
     },
     [1432] = {
         [1386] = { cost = 11000 },
@@ -4561,18 +3762,6 @@ OUS.TaxiRoutes = {
         [1515] = { cost = 11000 },
         [1569] = { cost = 11000 },
     },
-    [1463] = {
-        [1463] = { cost = 0 },
-    },
-    [1464] = {
-        [1464] = { cost = 0 },
-    },
-    [1465] = {
-        [1465] = { cost = 0 },
-    },
-    [1466] = {
-        [1466] = { cost = 0 },
-    },
     [1467] = {
         [1381] = { cost = 11000 },
         [1382] = { cost = 11000 },
@@ -4627,9 +3816,6 @@ OUS.TaxiRoutes = {
         [1569] = { cost = 11000 },
         [1646] = { cost = 11000 },
     },
-    [1477] = {
-        [1477] = { cost = 0 },
-    },
     [1487] = {
         [1432] = { cost = 11000 },
         [1443] = { cost = 11000 },
@@ -4643,15 +3829,6 @@ OUS.TaxiRoutes = {
         [1569] = { cost = 11000 },
         [1573] = { cost = 11000 },
     },
-    [1488] = {
-        [1488] = { cost = 0 },
-    },
-    [1489] = {
-        [1489] = { cost = 0 },
-    },
-    [1490] = {
-        [1490] = { cost = 0 },
-    },
     [1493] = {
         [1447] = { cost = 11000 },
         [1450] = { cost = 11000 },
@@ -4663,21 +3840,6 @@ OUS.TaxiRoutes = {
         [1513] = { cost = 11000 },
         [1569] = { cost = 11000 },
         [1573] = { cost = 11000 },
-    },
-    [1494] = {
-        [1494] = { cost = 0 },
-    },
-    [1495] = {
-        [1495] = { cost = 0 },
-    },
-    [1496] = {
-        [1496] = { cost = 0 },
-    },
-    [1497] = {
-        [1497] = { cost = 0 },
-    },
-    [1498] = {
-        [1498] = { cost = 0 },
     },
     [1502] = {
         [1450] = { cost = 11000 },
@@ -4867,9 +4029,6 @@ OUS.TaxiRoutes = {
         [1539] = { cost = 11000 },
         [1568] = { cost = 11000 },
     },
-    [1527] = {
-        [1527] = { cost = 0 },
-    },
     [1528] = {
         [1389] = { cost = 11000 },
         [1447] = { cost = 11000 },
@@ -4890,12 +4049,6 @@ OUS.TaxiRoutes = {
         [1467] = { cost = 11000 },
         [1475] = { cost = 11000 },
         [1476] = { cost = 11000 },
-    },
-    [1535] = {
-        [1535] = { cost = 0 },
-    },
-    [1536] = {
-        [1536] = { cost = 0 },
     },
     [1537] = {
         [56] = { cost = 11000 },
@@ -4919,30 +4072,6 @@ OUS.TaxiRoutes = {
         [1528] = { cost = 11000 },
         [1568] = { cost = 11000 },
     },
-    [1540] = {
-        [1540] = { cost = 0 },
-    },
-    [1541] = {
-        [1541] = { cost = 0 },
-    },
-    [1547] = {
-        [1547] = { cost = 0 },
-    },
-    [1549] = {
-        [1549] = { cost = 0 },
-    },
-    [1550] = {
-        [1550] = { cost = 0 },
-    },
-    [1553] = {
-        [1553] = { cost = 0 },
-    },
-    [1554] = {
-        [1554] = { cost = 0 },
-    },
-    [1555] = {
-        [1555] = { cost = 0 },
-    },
     [1556] = {
         [1383] = { cost = 11000 },
         [1467] = { cost = 11000 },
@@ -4952,12 +4081,6 @@ OUS.TaxiRoutes = {
         [1395] = { cost = 11000 },
         [1396] = { cost = 11000 },
         [1432] = { cost = 11000 },
-    },
-    [1562] = {
-        [1562] = { cost = 0 },
-    },
-    [1563] = {
-        [1563] = { cost = 0 },
     },
     [1568] = {
         [1408] = { cost = 11000 },
@@ -5019,24 +4142,6 @@ OUS.TaxiRoutes = {
     [1580] = {
         [1568] = { cost = 11000 },
     },
-    [1581] = {
-        [1581] = { cost = 11000 },
-    },
-    [1582] = {
-        [1582] = { cost = 11000 },
-    },
-    [1599] = {
-        [1599] = { cost = 0 },
-    },
-    [1601] = {
-        [1601] = { cost = 0 },
-    },
-    [1605] = {
-        [1605] = { cost = 0 },
-    },
-    [1606] = {
-        [1606] = { cost = 0 },
-    },
     [1613] = {
         [1615] = { cost = 11000 },
         [1622] = { cost = 11000 },
@@ -5045,9 +4150,6 @@ OUS.TaxiRoutes = {
         [1858] = { cost = 11000 },
         [1859] = { cost = 11000 },
         [1880] = { cost = 11000 },
-    },
-    [1614] = {
-        [1614] = { cost = 0 },
     },
     [1615] = {
         [1613] = { cost = 11000 },
@@ -5080,12 +4182,6 @@ OUS.TaxiRoutes = {
         [1837] = { cost = 11000 },
         [1861] = { cost = 11000 },
     },
-    [1625] = {
-        [1625] = { cost = 0 },
-    },
-    [1626] = {
-        [1626] = { cost = 0 },
-    },
     [1633] = {
         [1613] = { cost = 11000 },
         [1622] = { cost = 11000 },
@@ -5093,21 +4189,6 @@ OUS.TaxiRoutes = {
         [1837] = { cost = 11000 },
         [1859] = { cost = 11000 },
         [1870] = { cost = 11000 },
-    },
-    [1634] = {
-        [1634] = { cost = 0 },
-    },
-    [1635] = {
-        [1635] = { cost = 0 },
-    },
-    [1636] = {
-        [1636] = { cost = 0 },
-    },
-    [1637] = {
-        [1637] = { cost = 0 },
-    },
-    [1642] = {
-        [1642] = { cost = 0 },
     },
     [1643] = {
         [1440] = { cost = 11000 },
@@ -5185,9 +4266,6 @@ OUS.TaxiRoutes = {
         [1815] = { cost = 11000 },
         [1885] = { cost = 11000 },
     },
-    [1716] = {
-        [1716] = { cost = 0 },
-    },
     [1719] = {
         [1753] = { cost = 11000 },
         [1754] = { cost = 11000 },
@@ -5198,21 +4276,6 @@ OUS.TaxiRoutes = {
         [1767] = { cost = 11000 },
         [1777] = { cost = 11000 },
         [1778] = { cost = 11000 },
-    },
-    [1722] = {
-        [1722] = { cost = 0 },
-    },
-    [1723] = {
-        [1723] = { cost = 0 },
-    },
-    [1729] = {
-        [1729] = { cost = 0 },
-    },
-    [1730] = {
-        [1730] = { cost = 0 },
-    },
-    [1732] = {
-        [1732] = { cost = 0 },
     },
     [1738] = {
         [1739] = { cost = 11000 },
@@ -5265,9 +4328,6 @@ OUS.TaxiRoutes = {
         [1759] = { cost = 11000 },
         [1778] = { cost = 11000 },
         [1857] = { cost = 11000 },
-    },
-    [1748] = {
-        [1748] = { cost = 0 },
     },
     [1753] = {
         [1719] = { cost = 11000 },
@@ -5393,77 +4453,11 @@ OUS.TaxiRoutes = {
         [1759] = { cost = 11000 },
         [1857] = { cost = 11000 },
     },
-    [1783] = {
-        [1783] = { cost = 0 },
-    },
-    [1784] = {
-        [1784] = { cost = 0 },
-    },
-    [1787] = {
-        [1787] = { cost = 0 },
-    },
-    [1800] = {
-        [1800] = { cost = 0 },
-    },
-    [1801] = {
-        [1801] = { cost = 0 },
-    },
-    [1803] = {
-        [1803] = { cost = 1100 },
-    },
-    [1813] = {
-        [1813] = { cost = 0 },
-    },
-    [1814] = {
-        [1814] = { cost = 0 },
-    },
     [1815] = {
         [1713] = { cost = 11000 },
         [1755] = { cost = 11000 },
         [1766] = { cost = 11000 },
         [1885] = { cost = 11000 },
-    },
-    [1818] = {
-        [1818] = { cost = 0 },
-    },
-    [1819] = {
-        [1819] = { cost = 0 },
-    },
-    [1825] = {
-        [1825] = { cost = 0 },
-    },
-    [1826] = {
-        [1826] = { cost = 0 },
-    },
-    [1827] = {
-        [1827] = { cost = 0 },
-    },
-    [1828] = {
-        [1828] = { cost = 0 },
-    },
-    [1829] = {
-        [1829] = { cost = 0 },
-    },
-    [1830] = {
-        [1830] = { cost = 0 },
-    },
-    [1831] = {
-        [1831] = { cost = 0 },
-    },
-    [1832] = {
-        [1832] = { cost = 0 },
-    },
-    [1833] = {
-        [1833] = { cost = 0 },
-    },
-    [1834] = {
-        [1834] = { cost = 0 },
-    },
-    [1835] = {
-        [1835] = { cost = 0 },
-    },
-    [1836] = {
-        [1836] = { cost = 0 },
     },
     [1837] = {
         [1622] = { cost = 11000 },
@@ -5582,38 +4576,11 @@ OUS.TaxiRoutes = {
         [1862] = { cost = 11000 },
         [1879] = { cost = 11000 },
     },
-    [1864] = {
-        [1864] = { cost = 0 },
-    },
-    [1867] = {
-        [1867] = { cost = 0 },
-    },
-    [1868] = {
-        [1868] = { cost = 0 },
-    },
-    [1869] = {
-        [1869] = { cost = 0 },
-    },
     [1870] = {
         [1633] = { cost = 11000 },
         [1774] = { cost = 11000 },
         [1856] = { cost = 11000 },
         [1860] = { cost = 11000 },
-    },
-    [1871] = {
-        [1871] = { cost = 0 },
-    },
-    [1874] = {
-        [1874] = { cost = 0 },
-    },
-    [1875] = {
-        [1875] = { cost = 0 },
-    },
-    [1877] = {
-        [1877] = { cost = 0 },
-    },
-    [1878] = {
-        [1878] = { cost = 0 },
     },
     [1879] = {
         [1738] = { cost = 11000 },
@@ -5642,62 +4609,8 @@ OUS.TaxiRoutes = {
         [1713] = { cost = 11000 },
         [1815] = { cost = 11000 },
     },
-    [1892] = {
-        [1892] = { cost = 0 },
-    },
-    [1893] = {
-        [1893] = { cost = 0 },
-    },
-    [1894] = {
-        [1894] = { cost = 0 },
-    },
-    [1899] = {
-        [1899] = { cost = 0 },
-    },
-    [1900] = {
-        [1900] = { cost = 0 },
-    },
-    [1902] = {
-        [1902] = { cost = 0 },
-    },
-    [1907] = {
-        [1907] = { cost = 0 },
-    },
-    [1908] = {
-        [1908] = { cost = 11000 },
-    },
-    [1909] = {
-        [1909] = { cost = 0 },
-    },
-    [1910] = {
-        [1910] = { cost = 0 },
-    },
-    [1913] = {
-        [1913] = { cost = 0 },
-    },
-    [1916] = {
-        [1916] = { cost = 0 },
-    },
-    [1917] = {
-        [1917] = { cost = 0 },
-    },
-    [1922] = {
-        [1922] = { cost = 0 },
-    },
-    [1923] = {
-        [1923] = { cost = 0 },
-    },
-    [1924] = {
-        [1924] = { cost = 11000 },
-    },
-    [1927] = {
-        [1927] = { cost = 0 },
-    },
     [1928] = {
         [1985] = { cost = 0 },
-    },
-    [1933] = {
-        [1933] = { cost = 11000 },
     },
     [1941] = {
         [1774] = { cost = 11000 },
@@ -5712,9 +4625,6 @@ OUS.TaxiRoutes = {
     [1944] = {
         [1986] = { cost = 0 },
         [1987] = { cost = 0 },
-    },
-    [1947] = {
-        [1947] = { cost = 0 },
     },
     [1953] = {
         [1954] = { cost = 1135 },
@@ -5759,15 +4669,6 @@ OUS.TaxiRoutes = {
         [2046] = { cost = 60 },
         [2061] = { cost = 60 },
         [2381] = { cost = 60 },
-    },
-    [1961] = {
-        [1961] = { cost = 0 },
-    },
-    [1962] = {
-        [1962] = { cost = 0 },
-    },
-    [1964] = {
-        [1964] = { cost = 0 },
     },
     [1965] = {
         [1953] = { cost = 1135 },
@@ -5814,12 +4715,6 @@ OUS.TaxiRoutes = {
     },
     [1982] = {
         [1985] = { cost = 0 },
-    },
-    [1983] = {
-        [1983] = { cost = 0 },
-    },
-    [1984] = {
-        [1984] = { cost = 0 },
     },
     [1985] = {
         [1944] = { cost = 0 },
@@ -5876,9 +4771,6 @@ OUS.TaxiRoutes = {
         [2153] = { cost = 14000 },
         [2157] = { cost = 14000 },
     },
-    [2015] = {
-        [2015] = { cost = 0 },
-    },
     [2023] = {
         [2042] = { cost = 60 },
         [2067] = { cost = 14000 },
@@ -5922,9 +4814,6 @@ OUS.TaxiRoutes = {
         [2084] = { cost = 1135 },
         [2102] = { cost = 1135 },
         [2107] = { cost = 1135 },
-    },
-    [2041] = {
-        [2041] = { cost = 0 },
     },
     [2042] = {
         [2023] = { cost = 60 },
@@ -6240,9 +5129,6 @@ OUS.TaxiRoutes = {
         [2119] = { cost = 14000 },
         [2148] = { cost = 14000 },
     },
-    [2116] = {
-        [2116] = { cost = 0 },
-    },
     [2117] = {
         [1953] = { cost = 7500 },
         [1954] = { cost = 7500 },
@@ -6286,12 +5172,6 @@ OUS.TaxiRoutes = {
         [2109] = { cost = 1135 },
         [2135] = { cost = 14000 },
         [2274] = { cost = 14000 },
-    },
-    [2128] = {
-        [2128] = { cost = 0 },
-    },
-    [2129] = {
-        [2129] = { cost = 0 },
     },
     [2133] = {
         [2085] = { cost = 7500 },
@@ -6360,9 +5240,6 @@ OUS.TaxiRoutes = {
         [2145] = { cost = 14000 },
         [2157] = { cost = 14000 },
     },
-    [2156] = {
-        [2156] = { cost = 0 },
-    },
     [2157] = {
         [2012] = { cost = 14000 },
         [2075] = { cost = 14000 },
@@ -6370,22 +5247,10 @@ OUS.TaxiRoutes = {
         [2148] = { cost = 14000 },
         [2153] = { cost = 14000 },
     },
-    [2158] = {
-        [2158] = { cost = 36 },
-    },
-    [2159] = {
-        [2159] = { cost = 0 },
-    },
-    [2160] = {
-        [2160] = { cost = 0 },
-    },
     [2161] = {
         [2078] = { cost = 14000 },
         [2080] = { cost = 14000 },
         [2120] = { cost = 14000 },
-    },
-    [2163] = {
-        [2163] = { cost = 0 },
     },
     [2164] = {
         [1974] = { cost = 60 },
@@ -6396,29 +5261,8 @@ OUS.TaxiRoutes = {
         [2075] = { cost = 60 },
         [2164] = { cost = 60 },
     },
-    [2166] = {
-        [2166] = { cost = 0 },
-    },
-    [2167] = {
-        [2167] = { cost = 0 },
-    },
-    [2168] = {
-        [2168] = { cost = 0 },
-    },
-    [2169] = {
-        [2169] = { cost = 0 },
-    },
-    [2170] = {
-        [2170] = { cost = 0 },
-    },
-    [2171] = {
-        [2171] = { cost = 0 },
-    },
     [2172] = {
         [2173] = { cost = 60 },
-    },
-    [2272] = {
-        [2272] = { cost = 0 },
     },
     [2273] = {
         [2062] = { cost = 14000 },
@@ -6465,26 +5309,11 @@ OUS.TaxiRoutes = {
         [2067] = { cost = 14000 },
         [2274] = { cost = 14000 },
     },
-    [2282] = {
-        [2282] = { cost = 0 },
-    },
     [2381] = {
         [1957] = { cost = 60 },
         [1959] = { cost = 60 },
         [2009] = { cost = 60 },
         [2027] = { cost = 60 },
-    },
-    [2382] = {
-        [2382] = { cost = 0 },
-    },
-    [2383] = {
-        [2383] = { cost = 0 },
-    },
-    [2384] = {
-        [2384] = { cost = 0 },
-    },
-    [2392] = {
-        [2392] = { cost = 0 },
     },
     [2394] = {
         [2643] = { cost = 0 },
@@ -6602,12 +5431,6 @@ OUS.TaxiRoutes = {
         [2518] = { cost = 11500 },
         [2537] = { cost = 11500 },
     },
-    [2490] = {
-        [2490] = { cost = 0 },
-    },
-    [2506] = {
-        [2506] = { cost = 0 },
-    },
     [2511] = {
         [2515] = { cost = 11500 },
         [2517] = { cost = 11500 },
@@ -6659,9 +5482,6 @@ OUS.TaxiRoutes = {
         [2529] = { cost = 11500 },
         [2680] = { cost = 11500 },
     },
-    [2527] = {
-        [2527] = { cost = 0 },
-    },
     [2528] = {
         [2520] = { cost = 11500 },
         [2529] = { cost = 11500 },
@@ -6678,33 +5498,12 @@ OUS.TaxiRoutes = {
         [2517] = { cost = 11500 },
         [2518] = { cost = 11500 },
     },
-    [2541] = {
-        [2541] = { cost = 0 },
-    },
     [2544] = {
         [1057] = { cost = 11000 },
         [1058] = { cost = 11000 },
     },
     [2548] = {
         [2511] = { cost = 0 },
-    },
-    [2549] = {
-        [2549] = { cost = 0 },
-    },
-    [2550] = {
-        [2550] = { cost = 0 },
-    },
-    [2552] = {
-        [2552] = { cost = 0 },
-    },
-    [2553] = {
-        [2553] = { cost = 0 },
-    },
-    [2554] = {
-        [2554] = { cost = 0 },
-    },
-    [2556] = {
-        [2557] = { cost = 0 },
     },
     [2558] = {
         [2398] = { cost = 11500 },
@@ -6733,12 +5532,6 @@ OUS.TaxiRoutes = {
         [2564] = { cost = 11500 },
         [2569] = { cost = 11500 },
     },
-    [2562] = {
-        [2562] = { cost = 0 },
-    },
-    [2563] = {
-        [2563] = { cost = 0 },
-    },
     [2564] = {
         [2395] = { cost = 0 },
         [2398] = { cost = 11500 },
@@ -6748,38 +5541,11 @@ OUS.TaxiRoutes = {
         [2561] = { cost = 11500 },
         [2569] = { cost = 11500 },
     },
-    [2566] = {
-        [2566] = { cost = 0 },
-    },
-    [2567] = {
-        [2567] = { cost = 0 },
-    },
-    [2568] = {
-        [2568] = { cost = 0 },
-    },
     [2569] = {
         [2398] = { cost = 11500 },
         [2558] = { cost = 11500 },
         [2561] = { cost = 11500 },
         [2564] = { cost = 11500 },
-    },
-    [2572] = {
-        [2572] = { cost = 0 },
-    },
-    [2573] = {
-        [2573] = { cost = 0 },
-    },
-    [2574] = {
-        [2574] = { cost = 0 },
-    },
-    [2575] = {
-        [2575] = { cost = 0 },
-    },
-    [2576] = {
-        [2576] = { cost = 0 },
-    },
-    [2580] = {
-        [2580] = { cost = 0 },
     },
     [2584] = {
         [2585] = { cost = 11500 },
@@ -6830,27 +5596,6 @@ OUS.TaxiRoutes = {
         [2588] = { cost = 11500 },
         [2589] = { cost = 11500 },
     },
-    [2594] = {
-        [2591] = { cost = 0 },
-    },
-    [2595] = {
-        [2595] = { cost = 0 },
-    },
-    [2596] = {
-        [2596] = { cost = 0 },
-    },
-    [2602] = {
-        [2602] = { cost = 0 },
-    },
-    [2603] = {
-        [2603] = { cost = 0 },
-    },
-    [2604] = {
-        [2604] = { cost = 0 },
-    },
-    [2605] = {
-        [2605] = { cost = 0 },
-    },
     [2625] = {
         [2627] = { cost = 0 },
         [2628] = { cost = 0 },
@@ -6894,149 +5639,11 @@ OUS.TaxiRoutes = {
     [2636] = {
         [2627] = { cost = 0 },
     },
-    [2639] = {
-        [2639] = { cost = 0 },
-    },
-    [2640] = {
-        [2640] = { cost = 0 },
-    },
-    [2641] = {
-        [2641] = { cost = 0 },
-    },
-    [2642] = {
-        [2642] = { cost = 0 },
-    },
-    [2644] = {
-        [2644] = { cost = 0 },
-    },
-    [2645] = {
-        [2645] = { cost = 0 },
-    },
-    [2646] = {
-        [2646] = { cost = 0 },
-    },
-    [2647] = {
-        [2647] = { cost = 0 },
-    },
-    [2648] = {
-        [2648] = { cost = 0 },
-    },
-    [2649] = {
-        [2649] = { cost = 0 },
-    },
-    [2650] = {
-        [2650] = { cost = 0 },
-    },
-    [2651] = {
-        [2651] = { cost = 0 },
-    },
-    [2652] = {
-        [2652] = { cost = 0 },
-    },
-    [2653] = {
-        [2653] = { cost = 0 },
-    },
-    [2654] = {
-        [2654] = { cost = 0 },
-    },
-    [2655] = {
-        [2655] = { cost = 0 },
-    },
-    [2656] = {
-        [2656] = { cost = 0 },
-    },
-    [2657] = {
-        [2657] = { cost = 0 },
-    },
-    [2658] = {
-        [2658] = { cost = 0 },
-    },
-    [2659] = {
-        [2659] = { cost = 0 },
-    },
-    [2660] = {
-        [2660] = { cost = 0 },
-    },
-    [2661] = {
-        [2661] = { cost = 0 },
-    },
-    [2662] = {
-        [2662] = { cost = 0 },
-    },
-    [2663] = {
-        [2663] = { cost = 0 },
-    },
-    [2664] = {
-        [2664] = { cost = 0 },
-    },
-    [2665] = {
-        [2665] = { cost = 0 },
-    },
-    [2666] = {
-        [2666] = { cost = 0 },
-    },
-    [2670] = {
-        [2670] = { cost = 0 },
-    },
-    [2671] = {
-        [2671] = { cost = 0 },
-    },
-    [2672] = {
-        [2672] = { cost = 0 },
-    },
-    [2673] = {
-        [2673] = { cost = 0 },
-    },
-    [2674] = {
-        [2674] = { cost = 0 },
-    },
-    [2675] = {
-        [2675] = { cost = 0 },
-    },
-    [2676] = {
-        [2676] = { cost = 0 },
-    },
-    [2677] = {
-        [2677] = { cost = 0 },
-    },
-    [2678] = {
-        [2678] = { cost = 0 },
-    },
     [2680] = {
         [2520] = { cost = 11500 },
     },
-    [2681] = {
-        [2681] = { cost = 0 },
-    },
     [2682] = {
         [2627] = { cost = 0 },
-    },
-    [2683] = {
-        [2683] = { cost = 0 },
-    },
-    [2684] = {
-        [2684] = { cost = 0 },
-    },
-    [2685] = {
-        [2685] = { cost = 0 },
-    },
-    [2686] = {
-        [2686] = { cost = 0 },
-    },
-    [2687] = {
-        [2687] = { cost = 0 },
-    },
-    [2688] = {
-        [2688] = { cost = 0 },
-    },
-    [2690] = {
-        [2690] = { cost = 0 },
-    },
-    [2691] = {
-        [2691] = { cost = 0 },
-    },
-    [2692] = {
-        [2692] = { cost = 0 },
     },
     [2693] = {
         [2694] = { cost = 0 },
@@ -7052,18 +5659,6 @@ OUS.TaxiRoutes = {
     },
     [2703] = {
         [2395] = { cost = 0 },
-    },
-    [2708] = {
-        [2708] = { cost = 0 },
-    },
-    [2709] = {
-        [2709] = { cost = 0 },
-    },
-    [2710] = {
-        [2710] = { cost = 0 },
-    },
-    [2711] = {
-        [2711] = { cost = 0 },
     },
     [2712] = {
         [2713] = { cost = 0 },
@@ -7085,21 +5680,6 @@ OUS.TaxiRoutes = {
     [2716] = {
         [2715] = { cost = 0 },
     },
-    [2717] = {
-        [2717] = { cost = 0 },
-    },
-    [2718] = {
-        [2718] = { cost = 0 },
-    },
-    [2719] = {
-        [2719] = { cost = 0 },
-    },
-    [2720] = {
-        [2720] = { cost = 0 },
-    },
-    [2722] = {
-        [2722] = { cost = 0 },
-    },
     [2724] = {
         [2725] = { cost = 0 },
         [2728] = { cost = 0 },
@@ -7114,7 +5694,6 @@ OUS.TaxiRoutes = {
     },
     [2729] = {
         [2730] = { cost = 0 },
-        [2732] = { cost = 0 },
     },
     [2730] = {
         [2729] = { cost = 0 },
@@ -7122,15 +5701,6 @@ OUS.TaxiRoutes = {
     },
     [2731] = {
         [2712] = { cost = 0 },
-    },
-    [2732] = {
-        [2729] = { cost = 0 },
-        [2738] = { cost = 0 },
-        [2742] = { cost = 0 },
-        [2743] = { cost = 0 },
-        [2744] = { cost = 0 },
-        [2745] = { cost = 0 },
-        [2746] = { cost = 0 },
     },
     [2733] = {
         [2734] = { cost = 0 },
@@ -7143,35 +5713,6 @@ OUS.TaxiRoutes = {
     },
     [2737] = {
         [2736] = { cost = 0 },
-    },
-    [2738] = {
-        [2732] = { cost = 0 },
-    },
-    [2739] = {
-        [2740] = { cost = 0 },
-    },
-    [2740] = {
-        [2739] = { cost = 0 },
-        [2741] = { cost = 0 },
-        [2752] = { cost = 0 },
-    },
-    [2741] = {
-        [2740] = { cost = 0 },
-    },
-    [2742] = {
-        [2732] = { cost = 0 },
-    },
-    [2743] = {
-        [2732] = { cost = 0 },
-    },
-    [2744] = {
-        [2732] = { cost = 0 },
-    },
-    [2745] = {
-        [2732] = { cost = 0 },
-    },
-    [2746] = {
-        [2732] = { cost = 0 },
     },
     [2747] = {
         [2754] = { cost = 0 },
@@ -7187,9 +5728,6 @@ OUS.TaxiRoutes = {
     },
     [2751] = {
         [2754] = { cost = 0 },
-    },
-    [2752] = {
-        [2740] = { cost = 0 },
     },
     [2754] = {
         [2747] = { cost = 0 },
@@ -7220,12 +5758,6 @@ OUS.TaxiRoutes = {
         [2774] = { cost = 12000 },
         [2789] = { cost = 12000 },
         [2796] = { cost = 11500 },
-    },
-    [2782] = {
-        [2782] = { cost = 0 },
-    },
-    [2783] = {
-        [2783] = { cost = 0 },
     },
     [2784] = {
         [2773] = { cost = 12000 },
@@ -7269,7 +5801,6 @@ OUS.TaxiRoutes = {
         [2797] = { cost = 11500 },
         [2799] = { cost = 11500 },
         [2807] = { cost = 11500 },
-        [2809] = { cost = 11500 },
         [2810] = { cost = 11500 },
     },
     [2792] = {
@@ -7319,7 +5850,6 @@ OUS.TaxiRoutes = {
         [2792] = { cost = 11500 },
         [2801] = { cost = 11500 },
         [2808] = { cost = 11500 },
-        [2809] = { cost = 11500 },
     },
     [2798] = {
         [2787] = { cost = 11500 },
@@ -7364,7 +5894,6 @@ OUS.TaxiRoutes = {
         [2804] = { cost = 11000 },
         [2806] = { cost = 11000 },
         [2814] = { cost = 12500 },
-        [2817] = { cost = 11000 },
         [2855] = { cost = 12500 },
     },
     [2806] = {
@@ -7372,13 +5901,11 @@ OUS.TaxiRoutes = {
         [2805] = { cost = 11000 },
         [2807] = { cost = 11000 },
         [2813] = { cost = 11500 },
-        [2817] = { cost = 11000 },
     },
     [2807] = {
         [2790] = { cost = 11500 },
         [2806] = { cost = 11000 },
         [2808] = { cost = 11000 },
-        [2809] = { cost = 11000 },
         [2810] = { cost = 12500 },
         [2813] = { cost = 12500 },
     },
@@ -7388,13 +5915,6 @@ OUS.TaxiRoutes = {
         [2802] = { cost = 11000 },
         [2804] = { cost = 11000 },
         [2807] = { cost = 11000 },
-        [2809] = { cost = 11000 },
-    },
-    [2809] = {
-        [2790] = { cost = 11500 },
-        [2797] = { cost = 11500 },
-        [2807] = { cost = 11000 },
-        [2808] = { cost = 11000 },
     },
     [2810] = {
         [2790] = { cost = 12500 },
@@ -7422,13 +5942,11 @@ OUS.TaxiRoutes = {
         [2810] = { cost = 12500 },
         [2811] = { cost = 12500 },
         [2814] = { cost = 12500 },
-        [2817] = { cost = 12500 },
         [2818] = { cost = 12500 },
     },
     [2814] = {
         [2805] = { cost = 12500 },
         [2813] = { cost = 12500 },
-        [2817] = { cost = 12500 },
         [2818] = { cost = 12500 },
         [2855] = { cost = 12500 },
     },
@@ -7447,74 +5965,15 @@ OUS.TaxiRoutes = {
         [2812] = { cost = 12500 },
         [2815] = { cost = 12500 },
     },
-    [2817] = {
-        [2805] = { cost = 11000 },
-        [2806] = { cost = 11000 },
-        [2813] = { cost = 12500 },
-        [2814] = { cost = 12500 },
-    },
     [2818] = {
         [2811] = { cost = 12500 },
         [2813] = { cost = 12500 },
         [2814] = { cost = 12500 },
     },
-    [2820] = {
-        [2820] = { cost = 0 },
-    },
-    [2821] = {
-        [2821] = { cost = 0 },
-    },
-    [2822] = {
-        [2822] = { cost = 0 },
-    },
-    [2823] = {
-        [2823] = { cost = 0 },
-    },
-    [2824] = {
-        [2824] = { cost = 0 },
-    },
     [2825] = {
         [2792] = { cost = 11000 },
         [2793] = { cost = 11000 },
         [2794] = { cost = 11000 },
-    },
-    [2834] = {
-        [2835] = { cost = 0 },
-    },
-    [2835] = {
-        [2843] = { cost = 0 },
-    },
-    [2836] = {
-        [2835] = { cost = 0 },
-    },
-    [2837] = {
-        [2835] = { cost = 0 },
-    },
-    [2838] = {
-        [2835] = { cost = 0 },
-    },
-    [2839] = {
-        [2835] = { cost = 0 },
-    },
-    [2840] = {
-        [2835] = { cost = 0 },
-    },
-    [2841] = {
-        [2835] = { cost = 0 },
-    },
-    [2842] = {
-        [2835] = { cost = 0 },
-    },
-    [2843] = {
-        [2834] = { cost = 0 },
-        [2836] = { cost = 0 },
-        [2837] = { cost = 0 },
-        [2838] = { cost = 0 },
-        [2839] = { cost = 0 },
-        [2840] = { cost = 0 },
-        [2841] = { cost = 0 },
-        [2842] = { cost = 0 },
-        [2862] = { cost = 0 },
     },
     [2847] = {
         [2848] = { cost = 0 },
@@ -7543,15 +6002,6 @@ OUS.TaxiRoutes = {
     [2855] = {
         [2805] = { cost = 12500 },
         [2814] = { cost = 12500 },
-    },
-    [2856] = {
-        [2856] = { cost = 0 },
-    },
-    [2857] = {
-        [2857] = { cost = 0 },
-    },
-    [2862] = {
-        [2835] = { cost = 0 },
     },
     [2863] = {
         [2864] = { cost = 12500 },
@@ -7602,17 +6052,11 @@ OUS.TaxiRoutes = {
         [2920] = { cost = 12000 },
         [2921] = { cost = 12000 },
     },
-    [2887] = {
-        [2887] = { cost = 0 },
-    },
     [2889] = {
         [2882] = { cost = 12000 },
         [2919] = { cost = 12000 },
         [2920] = { cost = 12000 },
         [2924] = { cost = 12000 },
-    },
-    [2892] = {
-        [2892] = { cost = 0 },
     },
     [2893] = {
         [2882] = { cost = 12000 },
@@ -7765,9 +6209,6 @@ OUS.TaxiRoutes = {
         [2942] = { cost = 24000 },
         [2962] = { cost = 12000 },
     },
-    [2955] = {
-        [2955] = { cost = 0 },
-    },
     [2962] = {
         [2922] = { cost = 12000 },
         [2926] = { cost = 12000 },
@@ -7778,12 +6219,6 @@ OUS.TaxiRoutes = {
     [2963] = {
         [2926] = { cost = 12000 },
         [2962] = { cost = 12000 },
-    },
-    [2964] = {
-        [2964] = { cost = 0 },
-    },
-    [2967] = {
-        [2967] = { cost = 0 },
     },
     [2970] = {
         [2928] = { cost = 12000 },
@@ -7866,9 +6301,6 @@ OUS.TaxiRoutes = {
     },
     [3000] = {
         [2925] = { cost = 1100 },
-    },
-    [3026] = {
-        [3026] = { cost = 0 },
     },
     [3029] = {
         [3030] = { cost = 11000 },
@@ -7954,27 +6386,9 @@ OUS.TaxiRoutes = {
         [3073] = { cost = 12000 },
         [3078] = { cost = 12000 },
     },
-    [3093] = {
-        [3093] = { cost = 0 },
-    },
-    [3101] = {
-        [3101] = { cost = 0 },
-    },
-    [3102] = {
-        [3103] = { cost = 0 },
-    },
-    [3104] = {
-        [3104] = { cost = 0 },
-    },
-    [3105] = {
-        [3105] = { cost = 0 },
-    },
     [3106] = {
         [3129] = { cost = 12000 },
         [3130] = { cost = 12000 },
-    },
-    [3111] = {
-        [3111] = { cost = 0 },
     },
     [3119] = {
         [3120] = { cost = 12000 },
@@ -7990,9 +6404,6 @@ OUS.TaxiRoutes = {
         [3119] = { cost = 12000 },
         [3120] = { cost = 12000 },
         [3123] = { cost = 12000 },
-    },
-    [3122] = {
-        [3122] = { cost = 0 },
     },
     [3123] = {
         [3119] = { cost = 12000 },
@@ -8239,46 +6650,17 @@ OUS.TaxiRoutes = {
         [3162] = { cost = 0 },
         [3163] = { cost = 0 },
     },
-    [3165] = {
-        [3165] = { cost = 0 },
-    },
-    [3166] = {
-        [3166] = { cost = 0 },
-    },
-    [3169] = {
-        [3172] = { cost = 0 },
-        [3173] = { cost = 0 },
-        [3174] = { cost = 0 },
-    },
     [3172] = {
-        [3169] = { cost = 0 },
         [3173] = { cost = 0 },
         [3174] = { cost = 0 },
     },
     [3173] = {
-        [3169] = { cost = 0 },
         [3172] = { cost = 0 },
         [3174] = { cost = 0 },
     },
     [3174] = {
-        [3169] = { cost = 0 },
         [3172] = { cost = 0 },
         [3173] = { cost = 0 },
-    },
-    [3175] = {
-        [3175] = { cost = 0 },
-    },
-    [3176] = {
-        [3176] = { cost = 0 },
-    },
-    [3177] = {
-        [3177] = { cost = 0 },
-    },
-    [3178] = {
-        [3178] = { cost = 0 },
-    },
-    [3179] = {
-        [3179] = { cost = 0 },
     },
     [3190] = {
         [672] = { cost = 12000 },
@@ -8313,98 +6695,5 @@ OUS.TaxiRoutes = {
         [3193] = { cost = 11000 },
         [3194] = { cost = 11000 },
         [3195] = { cost = 11000 },
-    },
-    [3201] = {
-        [3201] = { cost = 0 },
-    },
-    [3202] = {
-        [3202] = { cost = 0 },
-    },
-    [3204] = {
-        [3204] = { cost = 0 },
-    },
-    [3213] = {
-        [3213] = { cost = 0 },
-    },
-    [3214] = {
-        [3214] = { cost = 0 },
-    },
-    [3215] = {
-        [3215] = { cost = 0 },
-    },
-    [3216] = {
-        [3216] = { cost = 0 },
-    },
-    [3218] = {
-        [3219] = { cost = 0 },
-    },
-    [3219] = {
-        [3218] = { cost = 0 },
-    },
-    [3220] = {
-        [3220] = { cost = 0 },
-    },
-    [3221] = {
-        [3221] = { cost = 0 },
-    },
-    [3222] = {
-        [3222] = { cost = 0 },
-    },
-    [3223] = {
-        [3223] = { cost = 0 },
-    },
-    [3224] = {
-        [3224] = { cost = 0 },
-    },
-    [3225] = {
-        [3225] = { cost = 0 },
-    },
-    [3226] = {
-        [3226] = { cost = 0 },
-    },
-    [3227] = {
-        [3227] = { cost = 0 },
-    },
-    [3228] = {
-        [3228] = { cost = 0 },
-    },
-    [3229] = {
-        [3229] = { cost = 0 },
-    },
-    [3230] = {
-        [3230] = { cost = 0 },
-    },
-    [3231] = {
-        [3231] = { cost = 0 },
-    },
-    [3232] = {
-        [3232] = { cost = 0 },
-    },
-    [3233] = {
-        [3233] = { cost = 0 },
-    },
-    [3234] = {
-        [3234] = { cost = 0 },
-    },
-    [3235] = {
-        [3235] = { cost = 0 },
-    },
-    [3236] = {
-        [3236] = { cost = 0 },
-    },
-    [3237] = {
-        [3237] = { cost = 0 },
-    },
-    [3238] = {
-        [3238] = { cost = 0 },
-    },
-    [3239] = {
-        [3239] = { cost = 0 },
-    },
-    [3240] = {
-        [3240] = { cost = 0 },
-    },
-    [3241] = {
-        [3241] = { cost = 0 },
     },
 }

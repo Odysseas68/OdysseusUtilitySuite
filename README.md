@@ -18,11 +18,12 @@ A highly customizable, dual-purpose tracking bar that seamlessly adapts to what 
 * **Reward Toasts:** Get a stylish, animated popup notification whenever your Renown increases or a Paragon reward box is ready to be claimed! (Hold **Shift** and drag to reposition the popup).
 * **Session Stats:** Type `/xpstats` to open a sleek window detailing exactly how much XP and Reputation you've farmed during your current session.
 
-### 🦅 Flight Master
-A smart, learning flight timer that tracks your travel network.
-* **Dynamic Learning:** Automatically learns and permanently records flight durations the first time you take a path.
-* **Smart Map Tooltips:** Hover over a flight node on the map to see the historical flight time and copper cost before you even speak to the Flight Master.
-* **Fully Customizable:** Unlock the visual timer bar to drag it anywhere. Fine-tune the width, height, scale, colors, fonts, and borders to match your UI perfectly.
+### 🦅 Flight Master & GPS Routing
+"Google Maps for Azeroth." A mathematically perfect routing engine and smart flight tracker.
+* **Interactive Itinerary Sidebar:** Hover over any destination on the map to trigger a premium, slide-out sidebar that lists your exact starting location, intermediate hops, destination, and sub-zones before you even speak to the Flight Master.
+* **Glowing Map Engine:** Bypasses Blizzard's native UI limitations to draw thick, glowing cyan paths directly onto your map. Powered by invisible anchor frames, the lines seamlessly scale, zoom, and pan with the 3D map canvas.
+* **Cross-Continent Dijkstra Engine:** Type `/route [Start], [End]` anywhere in the world to calculate the absolute shortest path across expansions, automatically filtering out hidden developer testing nodes and Faction-restricted outposts.
+* **Dynamic Learning Timer:** Automatically learns and permanently records flight durations the first time you take a path. Fully customizable visual timer bar (scale, width, height, colors, and fonts).
 
 ### ⚡ Faster Loot
 An ultra-fast, intelligent auto-looter that safely bypasses Blizzard's UI rendering delays.
@@ -45,6 +46,7 @@ A comprehensive, professional-grade fishing dashboard and database.
 * `/ous` - Open the Main Configuration Panel.
 * `/ous help` - Opens a draggable on-screen mini-window listing all available commands.
 * `/xpstats` (or `/ousxp`) - Open the Session XP & Reputation summary window.
+* `/route [Start], [Dest]` - Calculates the shortest flight path between any two flight masters.
 * `/toasttest` - Fire a test Reward Popup (Hold **Shift** and drag to move it!).
 
 **Developer Commands:**
