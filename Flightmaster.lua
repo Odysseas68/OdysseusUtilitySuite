@@ -89,6 +89,8 @@ end)
 -- ==========================================
 -- 2. SECURELY GET DESTINATION & START
 -- ==========================================
+local cachedStartFull = "Unknown"
+
 hooksecurefunc("TakeTaxiNode", function(slot)
     if TaxiNodeName(slot) then
         currentDestFull = TaxiNodeName(slot)
@@ -102,9 +104,16 @@ hooksecurefunc("TakeTaxiNode", function(slot)
                 break
             end
         end
+        
+        -- THE FIX: If the map closed too fast, use the safely cached node!
         if not foundStart then
-            currentStartFull = GetMinimapZoneText() or GetZoneText() or "Unknown"
+            if cachedStartFull ~= "Unknown" then
+                currentStartFull = cachedStartFull
+            else
+                currentStartFull = GetMinimapZoneText() or GetZoneText() or "Unknown"
+            end
         end
+        
         currentStartShort = GetShortName(currentStartFull)
     end
 end)
@@ -144,19 +153,27 @@ mapTooltip.timeText:SetPoint("TOP", mapTooltip.title, "BOTTOM", 0, -6)
 mapTooltip.costText = mapTooltip:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 mapTooltip.costText:SetPoint("TOP", mapTooltip.timeText, "BOTTOM", 0, -4)
 
+-- THE FIX: Exhaustive 4-way database lookup ensures mixed data formats ALWAYS match
 local function GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
-    if OdysseusDB.flightSettings.times and OdysseusDB.flightSettings.times[startFull] and OdysseusDB.flightSettings.times[startFull][destFull] then
-        return OdysseusDB.flightSettings.times[startFull][destFull]
+    local function SearchTable(db)
+        if not db then return nil end
+        -- 1. Exact Match (Full -> Full)
+        if db[startFull] and db[startFull][destFull] then return db[startFull][destFull] end
+        -- 2. Old Format Match (Short -> Short)
+        if db[startShort] and db[startShort][destShort] then return db[startShort][destShort] end
+        -- 3. Mixed Format (Full -> Short)
+        if db[startFull] and db[startFull][destShort] then return db[startFull][destShort] end
+        -- 4. Mixed Format (Short -> Full)
+        if db[startShort] and db[startShort][destFull] then return db[startShort][destFull] end
+        return nil
     end
-    if SFT_FlightData and SFT_FlightData[startFull] and SFT_FlightData[startFull][destFull] then
-        return SFT_FlightData[startFull][destFull]
-    end
-    if OdysseusDB.flightSettings.times and OdysseusDB.flightSettings.times[startShort] and OdysseusDB.flightSettings.times[startShort][destShort] then
-        return OdysseusDB.flightSettings.times[startShort][destShort]
-    elseif SFT_FlightData and SFT_FlightData[startShort] and SFT_FlightData[startShort][destShort] then
-        return SFT_FlightData[startShort][destShort]
-    end
-    return nil
+
+    -- Priority 1: User's local saved settings
+    local time = SearchTable(OdysseusDB.flightSettings.times)
+    if time then return time end
+    
+    -- Priority 2: Global static database
+    return SearchTable(SFT_FlightData)
 end
 
 hooksecurefunc(GameTooltip, "Show", function(self)
@@ -179,6 +196,7 @@ hooksecurefunc(GameTooltip, "Show", function(self)
         local nodeName = TaxiNodeName(i)
         if TaxiNodeGetType(i) == "CURRENT" then
             startFull = nodeName
+            cachedStartFull = nodeName -- Safely cache this for the click event later!
         elseif nodeName == destFull then
             nodeID = i
         end
