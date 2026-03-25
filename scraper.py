@@ -1,7 +1,24 @@
 import csv
 import os
 import sys
+import logging
 from typing import Dict, Any, Optional
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# HELPER FUNCTIONS
+
+def log_missing_waypoint(waypoint):
+    logging.warning(f'Missing waypoint: {waypoint}')
+    
+def write_lua_file():
+    # existing code...
+    # Example integration of logging in write_lua_file
+    for waypoint in waypoints:
+        if not waypoint:
+            log_missing_waypoint(waypoint)
+            continue  # or handle accordingly
 
 # ==========================================
 # 1. CONFIGURATION & CONSTANTS
