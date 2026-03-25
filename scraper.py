@@ -9,10 +9,8 @@ from typing import Dict, Any, Optional
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 os.chdir(SCRIPT_DIR)
 
-# Wake up Windows CMD to process ANSI color codes
 os.system("")
 
-# Terminal Colors
 C_CYAN = '\033[96m'
 C_GREEN = '\033[92m'
 C_YELLOW = '\033[93m'
@@ -20,56 +18,53 @@ C_RED = '\033[91m'
 C_PURPLE = '\033[95m'
 C_RESET = '\033[0m'
 
-FACTION_CSV = "Faction.csv"
-PARAGON_CSV = "ParagonReputation.csv"
+FACTION_CSV = r"d:\Wow.export.data\Faction.csv"
+PARAGON_CSV = r"d:\Wow.export.data\ParagonReputation.csv"
 OUTPUT_FILE = "xpbar_data.lua"
 
 SCRAPE_ALL = True 
 TARGET_FACTIONS = {2590, 2594, 2570, 2563, 2503}
 FORBIDDEN_WORDS = ("UNUSED", "REUSE", "DO NOT USE", "DEPRECATED", "TRASH", "QA ", "TEST")
 
-# =================================================================
-# STATIC OVERRIDES: Major Quartermaster Coordinates
-# =================================================================
 CUSTOM_WAYPOINTS: Dict[int, Dict[str, Any]] = {
-    # --- MIDNIGHT (Example) ---
-    2710: {"mapID": 2395, "x": 43.4, "y": 47.4, "npcName": "Caeris Fairdawn"},            # Silvermoon Court
-    2696: {"mapID": 2437, "x": 45.9, "y": 65.9, "npcName": "Magovu"},                     # Amani Tribe
-    2704: {"mapID": 2413, "x": 51.0, "y": 50.8, "npcName": "Naynar"},                     # Hara’ti
-    2699: {"mapID": 2405, "x": 52.5, "y": 72.9, "npcName": "Void Researcher Anomander"},  # The Singularity
-    2770: {"mapID": 2444, "x": 39.3, "y": 80.9, "npcName": "Thraxadar"},                  # The Slayer's Duellum
-
-    # --- THE WAR WITHIN ---
-    2590: {"mapID": 2339, "x": 39.1, "y": 24.2, "npcName": "Auditor Balwurz"},       # Council of Dornogal
-    2594: {"mapID": 2214, "x": 47.3, "y": 32.9, "npcName": "Waxmonger Squick"},      # Assembly of the Deeps
-    2570: {"mapID": 2215, "x": 41.3, "y": 53.1, "npcName": "Auralia Steelstrike"},   # Hallowfall Arathi
-    2563: {"mapID": 2255, "x": 55.5, "y": 41.2, "npcName": "Lady Vinazian"},         # The Severed Threads
-
-    # --- DRAGONFLIGHT ---
-    2510: {"mapID": 2112, "x": 58.9, "y": 38.3, "npcName": "Unatos"},                # Valdrakken Accord
-    2503: {"mapID": 2023, "x": 62.7, "y": 41.3, "npcName": "Huseng"},                # Maruuk Centaur
-    2511: {"mapID": 2024, "x": 13.1, "y": 49.3, "npcName": "Murik"},                 # Iskaara Tuskarr
-    2507: {"mapID": 2022, "x": 47.0, "y": 82.6, "npcName": "Cataloger Jakes"},       # Dragonscale Expedition
-    2564: {"mapID": 2133, "x": 56.4, "y": 55.6, "npcName": "Harlowe Marl"},          # Loamm Niffen
-    2574: {"mapID": 2200, "x": 50.2, "y": 61.6, "npcName": "Moon Priestess Lasara"}, # Dream Wardens
+    2710: {"mapID": 2395, "x": 43.4, "y": 47.4, "npcName": "Caeris Fairdawn"},            
+    2696: {"mapID": 2437, "x": 45.9, "y": 65.9, "npcName": "Magovu"},                     
+    2704: {"mapID": 2413, "x": 51.0, "y": 50.8, "npcName": "Naynar"},                     
+    2699: {"mapID": 2405, "x": 52.5, "y": 72.9, "npcName": "Void Researcher Anomander"},  
+    2770: {"mapID": 2444, "x": 39.3, "y": 80.9, "npcName": "Thraxadar"},                  
+    2590: {"mapID": 2339, "x": 39.1, "y": 24.2, "npcName": "Auditor Balwurz"},       
+    2594: {"mapID": 2214, "x": 47.3, "y": 32.9, "npcName": "Waxmonger Squick"},      
+    2570: {"mapID": 2215, "x": 41.3, "y": 53.1, "npcName": "Auralia Steelstrike"},   
+    2563: {"mapID": 2255, "x": 55.5, "y": 41.2, "npcName": "Lady Vinazian"},         
+    2510: {"mapID": 2112, "x": 58.9, "y": 38.3, "npcName": "Unatos"},                
+    2503: {"mapID": 2023, "x": 62.7, "y": 41.3, "npcName": "Huseng"},                
+    2511: {"mapID": 2024, "x": 13.1, "y": 49.3, "npcName": "Murik"},                 
+    2507: {"mapID": 2022, "x": 47.0, "y": 82.6, "npcName": "Cataloger Jakes"},       
+    2564: {"mapID": 2133, "x": 56.4, "y": 55.6, "npcName": "Harlowe Marl"},          
+    2574: {"mapID": 2200, "x": 50.2, "y": 61.6, "npcName": "Moon Priestess Lasara"}, 
 }
 
 # ==========================================
 # 2. HELPER FUNCTIONS
 # ==========================================
+def detect_delimiter(filepath: str) -> str:
+    """Sniffs the first line of the file to determine if it uses commas or semicolons."""
+    try:
+        with open(filepath, 'r', encoding='utf-8-sig') as f:
+            first_line = f.readline()
+            if ';' in first_line: return ';'
+            elif '\t' in first_line: return '\t'
+            return ','
+    except Exception:
+        return ','
+
 def print_log(level: str, msg: str):
-    """Standardized terminal logger."""
-    if level == "INFO":
-        print(f"{C_YELLOW}[INFO] {msg}{C_RESET}")
-    elif level == "SUCCESS":
-        print(f"{C_GREEN}[+] {msg}{C_RESET}")
-    elif level == "LINK":
-        print(f"{C_CYAN}[LINK] {msg}{C_RESET}")
-    elif level == "ERROR":
-        print(f"{C_RED}[ERROR] {msg}{C_RESET}")
+    if level == "INFO": print(f"{C_YELLOW}[INFO] {msg}{C_RESET}")
+    elif level == "SUCCESS": print(f"{C_GREEN}[+] {msg}{C_RESET}")
+    elif level == "LINK": print(f"{C_CYAN}[LINK] {msg}{C_RESET}")
+    elif level == "ERROR": print(f"{C_RED}[ERROR] {msg}{C_RESET}")
 
 def get_col_name(row: Dict[str, str], target_substr: str) -> Optional[str]:
-    """Safely finds a column name even if Blizzard changes the exact formatting."""
     target = target_substr.upper()
     return next((k for k in row.keys() if k and target in k.upper()), None)
 
@@ -77,13 +72,13 @@ def get_col_name(row: Dict[str, str], target_substr: str) -> Optional[str]:
 # 3. CORE PARSING LOGIC
 # ==========================================
 def parse_paragon_data() -> Dict[int, Dict[str, int]]:
-    """Reads ParagonReputation.csv and maps paragon thresholds and quest IDs."""
     print_log("INFO", f"Analyzing {PARAGON_CSV}...")
     paragon_data: Dict[int, Dict[str, int]] = {}
+    delim = detect_delimiter(PARAGON_CSV)
     
     try:
         with open(PARAGON_CSV, mode='r', encoding='utf-8-sig') as p_file:
-            reader = csv.DictReader(p_file)
+            reader = csv.DictReader(p_file, delimiter=delim)
             for row in reader:
                 fac_id_col = get_col_name(row, 'FACTIONID')
                 thresh_col = get_col_name(row, 'LEVELTHRESHOLD')
@@ -103,16 +98,15 @@ def parse_paragon_data() -> Dict[int, Dict[str, int]]:
         sys.exit(1)
 
 def parse_faction_data(paragon_data: Dict[int, Dict[str, int]]) -> Dict[int, Dict[str, Any]]:
-    """Reads Faction.csv, filters out junk, and binds Paragon relationships."""
     print_log("INFO", f"Analyzing {FACTION_CSV} and building relationships...")
     faction_data: Dict[int, Dict[str, Any]] = {}
+    delim = detect_delimiter(FACTION_CSV)
 
     try:
         with open(FACTION_CSV, mode='r', encoding='utf-8-sig') as f_file:
-            reader = csv.DictReader(f_file)
+            reader = csv.DictReader(f_file, delimiter=delim)
             for row in reader:
                 id_col = get_col_name(row, 'ID')
-                # Try to find NAME_LANG first, fallback to NAME
                 name_col = get_col_name(row, 'NAME_LANG') or get_col_name(row, 'NAME')
                 para_link_col = get_col_name(row, 'PARAGONFACTIONID')
 
@@ -128,10 +122,7 @@ def parse_faction_data(paragon_data: Dict[int, Dict[str, int]]) -> Dict[int, Dic
                             is_valid_name = False
                             break
                     
-                    # We grab it if it's valid, OR if it's explicitly a hidden paragon ID we need
                     if (name != "" and is_valid_name and (SCRAPE_ALL or fid in TARGET_FACTIONS)) or fid in paragon_data:
-                        
-                        # Determine the Paragon info
                         p_info = None
                         if linked_paragon_id > 0 and linked_paragon_id in paragon_data:
                             p_info = dict(paragon_data[linked_paragon_id])
@@ -153,7 +144,6 @@ def parse_faction_data(paragon_data: Dict[int, Dict[str, int]]) -> Dict[int, Dic
         sys.exit(1)
 
 def link_waypoints(faction_data: Dict[int, Dict[str, Any]]):
-    """Automatically copies Custom Waypoints from Base Factions to their Paragon counterparts."""
     links_made = 0
     for fid, data in faction_data.items():
         if fid in CUSTOM_WAYPOINTS:
@@ -167,7 +157,6 @@ def link_waypoints(faction_data: Dict[int, Dict[str, Any]]):
         print_log("INFO", "No new Paragon waypoint links needed.")
 
 def write_lua_file(faction_data: Dict[int, Dict[str, Any]]):
-    """Formats the compiled data into the final World of Warcraft Lua script."""
     print_log("INFO", f"\nCompiling {OUTPUT_FILE}...")
     try:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
@@ -178,7 +167,6 @@ def write_lua_file(faction_data: Dict[int, Dict[str, Any]]):
             f.write('OUS.FactionData = {\n')
             
             for fid, data in sorted(faction_data.items()):
-                # Fix blank names for hidden paragon rows
                 display_name = data["name"]
                 if display_name == "":
                     display_name = f"Paragon Faction {fid}"
@@ -224,16 +212,9 @@ def main():
         input("Press Enter to exit...")
         sys.exit(1)
 
-    # 1. Map Paragon data
     paragon_data = parse_paragon_data()
-    
-    # 2. Map Faction data
     faction_data = parse_faction_data(paragon_data)
-    
-    # 3. Inherit Waypoints
     link_waypoints(faction_data)
-    
-    # 4. Generate Lua
     write_lua_file(faction_data)
     
     input("Press Enter to exit...")

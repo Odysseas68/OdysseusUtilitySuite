@@ -10,8 +10,8 @@ from typing import Dict, Optional
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 os.chdir(SCRIPT_DIR)
 
-NODE_CSV = "TaxiNodes.csv"
-PATH_CSV = "TaxiPath.csv"
+NODE_CSV = r"d:\Wow.export.data\TaxiNodes.csv"
+PATH_CSV = r"d:\Wow.export.data\TaxiPath.csv"
 OUTPUT_LUA = "Odysseus_RoutingDB.lua"
 
 # Terminal Colors
@@ -32,6 +32,19 @@ INVALID_KEYWORDS = (
 # ==========================================
 # 2. HELPER FUNCTIONS
 # ==========================================
+def detect_delimiter(filepath: str) -> str:
+    """Sniffs the first line of the file to determine if it uses commas or semicolons."""
+    try:
+        with open(filepath, 'r', encoding='utf-8-sig') as f:
+            first_line = f.readline()
+            if ';' in first_line:
+                return ';'
+            elif '\t' in first_line:
+                return '\t'
+            return ','
+    except Exception:
+        return ',' # Fallback to comma
+
 def get_col_name(row: Dict[str, str], target_substr: str) -> Optional[str]:
     """Safely finds a column name even if Blizzard changes the exact formatting."""
     target = target_substr.upper()
@@ -73,11 +86,13 @@ def parse_nodes() -> Dict[int, str]:
     print_log("INFO", f"Parsing {NODE_CSV}...")
     nodes: Dict[int, str] = {}
     
+    # THE FIX: Automatically detect the delimiter!
+    delim = detect_delimiter(NODE_CSV)
+    
     try:
         with open(NODE_CSV, mode='r', encoding='utf-8-sig') as f:
-            reader = csv.DictReader(f)
+            reader = csv.DictReader(f, delimiter=delim)
             for row in reader:
-                # Find columns dynamically
                 node_id_col = get_col_name(row, 'ID')
                 name_col = get_col_name(row, 'NAME_LANG')
                 
@@ -100,9 +115,12 @@ def parse_paths(valid_nodes: Dict[int, str]) -> Dict[int, Dict[int, int]]:
     routes: Dict[int, Dict[int, int]] = {}
     path_count = 0
     
+    # THE FIX: Automatically detect the delimiter!
+    delim = detect_delimiter(PATH_CSV)
+    
     try:
         with open(PATH_CSV, mode='r', encoding='utf-8-sig') as f:
-            reader = csv.DictReader(f)
+            reader = csv.DictReader(f, delimiter=delim)
             for row in reader:
                 from_col = get_col_name(row, 'FROMTAXINODE')
                 to_col = get_col_name(row, 'TOTAXINODE')
@@ -113,7 +131,6 @@ def parse_paths(valid_nodes: Dict[int, str]) -> Dict[int, Dict[int, int]]:
                     to_id = int(row[to_col])
                     cost = int(row[cost_col]) if cost_col and row.get(cost_col) else 0
 
-                    # Ignore flight paths leading to quest/test nodes
                     if from_id in valid_nodes and to_id in valid_nodes:
                         if from_id not in routes:
                             routes[from_id] = {}
@@ -137,14 +154,12 @@ def write_lua_database(nodes: Dict[int, str], routes: Dict[int, Dict[int, int]])
             f.write('-- ==========================================\n')
             f.write('local addonName, OUS = ...\n\n')
             
-            # Write Nodes Table
             f.write('OUS.TaxiNodes = {\n')
             for nid, name in sorted(nodes.items()):
                 safe_name = name.replace('"', '\\"')
                 f.write(f'    [{nid}] = "{safe_name}",\n')
             f.write('}\n\n')
 
-            # Write Routes Table
             f.write('OUS.TaxiRoutes = {\n')
             for from_id in sorted(routes.keys()):
                 f.write(f'    [{from_id}] = {{\n')
@@ -168,13 +183,8 @@ def main():
         input("Press Enter to exit...")
         sys.exit(1)
 
-    # 1. Gather Valid Nodes
     valid_nodes = parse_nodes()
-    
-    # 2. Map the Connections
     mapped_routes = parse_paths(valid_nodes)
-    
-    # 3. Build the Addon File
     write_lua_database(valid_nodes, mapped_routes)
     
     input("Press Enter to exit...")

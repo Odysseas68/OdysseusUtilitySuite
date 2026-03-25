@@ -4567,20 +4567,4 @@ OUS.FactionData = {
         isParagon = false,
         rewardNPC = { mapID = 0, x = 0.0, y = 0.0 },
     },
-    [2792] = {
-        name = "Ritual Sites",
-        isParagon = true,
-        paragonFactionID = 2793,
-        paragonThreshold = 7500,
-        paragonQuestID = 95391,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0 },
-    },
-    [2793] = {
-        name = "Ritual Sites (Paragon)",
-        isParagon = true,
-        paragonFactionID = 2793,
-        paragonThreshold = 7500,
-        paragonQuestID = 95391,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0 },
-    },
 }
