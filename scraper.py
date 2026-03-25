@@ -20,7 +20,7 @@ def write_lua_file(data, factions):
             continue
         with open(f"{faction}.lua", 'w') as lua_file:
             lua_file.write(data[faction])
-    logging.info("Lua file(s) written successfully."  # Additional logging for successful writing)
+    logging.info("Lua file(s) written successfully.")  # Additional logging for successful writing)
 
 
 # ==========================================
