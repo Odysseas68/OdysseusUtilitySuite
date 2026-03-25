@@ -4,19 +4,23 @@ import sys
 import logging
 from typing import Dict, Any, Optional
 
-# Configure logging
+# Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# HELPER FUNCTIONS
+# Your existing code here
 
-def log_missing_waypoint(waypoint):
-    logging.warning(f'Missing waypoint: {waypoint}')
-    
-# Define the write_lua_file function - now with logging
 
-def write_lua_file(data):
-    if not data['waypoints']:
-        logging.warning(f"Faction '{data['faction_name']}' has no waypoint data.")
+def write_lua_file(filepath, data):
+    # This is an outdated function that needs to be removed
+    pass
+
+# Function to handle missing waypoints
+
+def handle_missing_waypoints(waypoints):
+    if not waypoints:
+        logging.warning('Missing waypoints detected!')
+    else:
+        logging.info(f'Waypoints found: {waypoints}')
 
 # ==========================================
 # 1. CONFIGURATION & CONSTANTS
