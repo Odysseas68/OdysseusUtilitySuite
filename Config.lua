@@ -655,14 +655,3 @@ helpTextStr:SetText(
     "|cFF00FF00/delvedebug|r - Print Advanced Delve IDs\n\n" ..
     "|cFF00FF00/ousdebug|r - Toggle Global Debug Mode"
 )
-
--- MASTER SLASH COMMAND & HELP SYSTEM
-SLASH_ODYSSEUS1 = "/ous"
-SlashCmdList["ODYSSEUS"] = function(msg)
-    msg = string.lower(msg or "")
-    if msg == "help" then
-        if helpFrame:IsShown() then helpFrame:Hide() else helpFrame:Show() end
-    else
-        if cfg:IsShown() then cfg:Hide() else cfg:Show() end
-    end
-end

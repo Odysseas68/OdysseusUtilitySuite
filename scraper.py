@@ -1,8 +1,18 @@
 import csv
 import os
-import time
+import sys
+from typing import Dict, Any, Optional
 
-# --- TERMINAL COLORS ---
+# ==========================================
+# 1. CONFIGURATION & CONSTANTS
+# ==========================================
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+os.chdir(SCRIPT_DIR)
+
+# Wake up Windows CMD to process ANSI color codes
+os.system("")
+
+# Terminal Colors
 C_CYAN = '\033[96m'
 C_GREEN = '\033[92m'
 C_YELLOW = '\033[93m'
@@ -15,18 +25,19 @@ PARAGON_CSV = "ParagonReputation.csv"
 OUTPUT_FILE = "xpbar_data.lua"
 
 SCRAPE_ALL = True 
-TARGET_FACTIONS = [2590, 2594, 2570, 2563, 2503]
+TARGET_FACTIONS = {2590, 2594, 2570, 2563, 2503}
+FORBIDDEN_WORDS = ("UNUSED", "REUSE", "DO NOT USE", "DEPRECATED", "TRASH", "QA ", "TEST")
 
 # =================================================================
 # STATIC OVERRIDES: Major Quartermaster Coordinates
 # =================================================================
-CUSTOM_WAYPOINTS = {
+CUSTOM_WAYPOINTS: Dict[int, Dict[str, Any]] = {
     # --- MIDNIGHT (Example) ---
-    2710: {"mapID": 2395, "x": 43.4, "y": 47.4, "npcName": "Caeris Fairdawn"},            #Silvermoon Court
-    2696: {"mapID": 2437, "x": 45.9, "y": 65.9, "npcName": "Magovu"},                     #Amani Tribe
-    2704: {"mapID": 2413, "x": 51.0, "y": 50.8, "npcName": "Naynar"},                     #Hara’ti
-    2699: {"mapID": 2405, "x": 52.5, "y": 72.9, "npcName": "Void Researcher Anomander"},  #The Singularity
-    2770: {"mapID": 2444, "x": 39.3, "y": 80.9, "npcName": "Thraxadar"},                  #The Slayer's Duellum
+    2710: {"mapID": 2395, "x": 43.4, "y": 47.4, "npcName": "Caeris Fairdawn"},            # Silvermoon Court
+    2696: {"mapID": 2437, "x": 45.9, "y": 65.9, "npcName": "Magovu"},                     # Amani Tribe
+    2704: {"mapID": 2413, "x": 51.0, "y": 50.8, "npcName": "Naynar"},                     # Hara’ti
+    2699: {"mapID": 2405, "x": 52.5, "y": 72.9, "npcName": "Void Researcher Anomander"},  # The Singularity
+    2770: {"mapID": 2444, "x": 39.3, "y": 80.9, "npcName": "Thraxadar"},                  # The Slayer's Duellum
 
     # --- THE WAR WITHIN ---
     2590: {"mapID": 2339, "x": 39.1, "y": 24.2, "npcName": "Auditor Balwurz"},       # Council of Dornogal
@@ -43,75 +54,90 @@ CUSTOM_WAYPOINTS = {
     2574: {"mapID": 2200, "x": 50.2, "y": 61.6, "npcName": "Moon Priestess Lasara"}, # Dream Wardens
 }
 
-def compile_lua_data():
-    print(f"{C_CYAN}=================================================={C_RESET}")
-    print(f"{C_PURPLE}   Odysseus Relational Faction Compiler...{C_RESET}")
-    print(f"{C_CYAN}=================================================={C_RESET}\n")
+# ==========================================
+# 2. HELPER FUNCTIONS
+# ==========================================
+def print_log(level: str, msg: str):
+    """Standardized terminal logger."""
+    if level == "INFO":
+        print(f"{C_YELLOW}[INFO] {msg}{C_RESET}")
+    elif level == "SUCCESS":
+        print(f"{C_GREEN}[+] {msg}{C_RESET}")
+    elif level == "LINK":
+        print(f"{C_CYAN}[LINK] {msg}{C_RESET}")
+    elif level == "ERROR":
+        print(f"{C_RED}[ERROR] {msg}{C_RESET}")
 
-    if not os.path.exists(FACTION_CSV) or not os.path.exists(PARAGON_CSV):
-        print(f"{C_RED}[ERROR] Missing CSV files! Ensure Faction.csv and ParagonReputation.csv are present.{C_RESET}")
-        input("Press Enter to exit...")
-        return
+def get_col_name(row: Dict[str, str], target_substr: str) -> Optional[str]:
+    """Safely finds a column name even if Blizzard changes the exact formatting."""
+    target = target_substr.upper()
+    return next((k for k in row.keys() if k and target in k.upper()), None)
 
-    # --- STEP 1: PARSE PARAGON DATA ---
-    print(f"{C_YELLOW}[INFO] Analyzing {PARAGON_CSV}...{C_RESET}")
-    paragon_data = {}
+# ==========================================
+# 3. CORE PARSING LOGIC
+# ==========================================
+def parse_paragon_data() -> Dict[int, Dict[str, int]]:
+    """Reads ParagonReputation.csv and maps paragon thresholds and quest IDs."""
+    print_log("INFO", f"Analyzing {PARAGON_CSV}...")
+    paragon_data: Dict[int, Dict[str, int]] = {}
     
     try:
         with open(PARAGON_CSV, mode='r', encoding='utf-8-sig') as p_file:
             reader = csv.DictReader(p_file)
             for row in reader:
-                fac_id_col = next((k for k in row.keys() if 'FACTIONID' in k.upper()), None)
-                thresh_col = next((k for k in row.keys() if 'LEVELTHRESHOLD' in k.upper()), None)
-                quest_col = next((k for k in row.keys() if 'QUESTID' in k.upper()), None)
+                fac_id_col = get_col_name(row, 'FACTIONID')
+                thresh_col = get_col_name(row, 'LEVELTHRESHOLD')
+                quest_col = get_col_name(row, 'QUESTID')
 
                 if fac_id_col and row[fac_id_col]:
                     fid = int(row[fac_id_col])
                     paragon_data[fid] = {
-                        "threshold": int(row[thresh_col]) if thresh_col and row[thresh_col] else 0,
-                        "questID": int(row[quest_col]) if quest_col and row[quest_col] else 0
+                        "threshold": int(row[thresh_col]) if thresh_col and row.get(thresh_col) else 0,
+                        "questID": int(row[quest_col]) if quest_col and row.get(quest_col) else 0
                     }
-        print(f"{C_GREEN}[+] Mapped {len(paragon_data)} Paragon quest links.{C_RESET}\n")
+                    
+        print_log("SUCCESS", f"Mapped {len(paragon_data)} Paragon quest links.\n")
+        return paragon_data
     except Exception as e:
-        print(f"{C_RED}[ERROR] Paragon CSV failed: {e}{C_RESET}")
-        input("Press Enter to exit...")
-        return
+        print_log("ERROR", f"Paragon CSV failed: {e}")
+        sys.exit(1)
 
-    # --- STEP 2: PARSE FACTION DATA ---
-    print(f"{C_YELLOW}[INFO] Analyzing {FACTION_CSV} and building relationships...{C_RESET}")
-    faction_data = {}
-    forbidden_words = ["UNUSED", "REUSE", "DO NOT USE", "DEPRECATED", "TRASH", "QA ", "TEST"]
+def parse_faction_data(paragon_data: Dict[int, Dict[str, int]]) -> Dict[int, Dict[str, Any]]:
+    """Reads Faction.csv, filters out junk, and binds Paragon relationships."""
+    print_log("INFO", f"Analyzing {FACTION_CSV} and building relationships...")
+    faction_data: Dict[int, Dict[str, Any]] = {}
 
     try:
         with open(FACTION_CSV, mode='r', encoding='utf-8-sig') as f_file:
             reader = csv.DictReader(f_file)
             for row in reader:
-                id_col = next((k for k in row.keys() if k.upper() == 'ID'), None)
-                name_col = next((k for k in row.keys() if 'NAME_LANG' in k.upper() or 'NAME' in k.upper()), None)
-                para_link_col = next((k for k in row.keys() if 'PARAGONFACTIONID' in k.upper()), None)
+                id_col = get_col_name(row, 'ID')
+                # Try to find NAME_LANG first, fallback to NAME
+                name_col = get_col_name(row, 'NAME_LANG') or get_col_name(row, 'NAME')
+                para_link_col = get_col_name(row, 'PARAGONFACTIONID')
 
                 if id_col and row[id_col]:
                     fid = int(row[id_col])
-                    name = row[name_col] if name_col and row[name_col] else ""
-                    linked_paragon_id = int(row[para_link_col]) if para_link_col and row[para_link_col] else 0
+                    name = row[name_col] if name_col and row.get(name_col) else ""
+                    linked_paragon_id = int(row[para_link_col]) if para_link_col and row.get(para_link_col) else 0
                     
                     is_valid_name = True
-                    for word in forbidden_words:
-                        if word in name.upper():
+                    upper_name = name.upper()
+                    for word in FORBIDDEN_WORDS:
+                        if word in upper_name:
                             is_valid_name = False
                             break
                     
                     # We grab it if it's valid, OR if it's explicitly a hidden paragon ID we need
                     if (name != "" and is_valid_name and (SCRAPE_ALL or fid in TARGET_FACTIONS)) or fid in paragon_data:
                         
-                        # Determine the Paragon info. 
-                        # Is this the base faction linking to a Paragon? Or IS this the Paragon faction?
+                        # Determine the Paragon info
                         p_info = None
                         if linked_paragon_id > 0 and linked_paragon_id in paragon_data:
-                            p_info = paragon_data[linked_paragon_id]
+                            p_info = dict(paragon_data[linked_paragon_id])
                             p_info["paragonFactionID"] = linked_paragon_id
                         elif fid in paragon_data:
-                            p_info = paragon_data[fid]
+                            p_info = dict(paragon_data[fid])
                             p_info["paragonFactionID"] = fid
 
                         faction_data[fid] = {
@@ -119,28 +145,35 @@ def compile_lua_data():
                             "paragon": p_info,
                             "linked_p_id": linked_paragon_id
                         }
-                        print(f"{C_GREEN}[+] Processed Faction:{C_RESET} {fid} - {name}")
-                        time.sleep(0.005) 
                         
+        print_log("SUCCESS", f"Processed {len(faction_data)} valid factions.")
+        return faction_data
     except Exception as e:
-        print(f"{C_RED}[ERROR] Faction CSV failed: {e}{C_RESET}")
-        input("Press Enter to exit...")
-        return
+        print_log("ERROR", f"Faction CSV failed: {e}")
+        sys.exit(1)
 
-    # --- STEP 3: SMART WAYPOINT LINKING ---
-    # Automatically copy Custom Waypoints from the Base Faction to the Paragon Faction!
+def link_waypoints(faction_data: Dict[int, Dict[str, Any]]):
+    """Automatically copies Custom Waypoints from Base Factions to their Paragon counterparts."""
+    links_made = 0
     for fid, data in faction_data.items():
         if fid in CUSTOM_WAYPOINTS:
             linked_pid = data.get("linked_p_id", 0)
             if linked_pid > 0 and linked_pid not in CUSTOM_WAYPOINTS:
                 CUSTOM_WAYPOINTS[linked_pid] = CUSTOM_WAYPOINTS[fid]
-                print(f"{C_CYAN}[LINK] Auto-copied {data['name']} coordinates to Paragon ID {linked_pid}!{C_RESET}")
+                print_log("LINK", f"Auto-copied {data['name']} coordinates to Paragon ID {linked_pid}!")
+                links_made += 1
+                
+    if links_made == 0:
+        print_log("INFO", "No new Paragon waypoint links needed.")
 
-    # --- STEP 4: WRITE LUA FILE ---
-    print(f"\n{C_YELLOW}[INFO] Compiling {OUTPUT_FILE}...{C_RESET}")
+def write_lua_file(faction_data: Dict[int, Dict[str, Any]]):
+    """Formats the compiled data into the final World of Warcraft Lua script."""
+    print_log("INFO", f"\nCompiling {OUTPUT_FILE}...")
     try:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-            f.write('-- Auto-Generated by Odysseus Relational Compiler\n')
+            f.write('-- ==========================================\n')
+            f.write('-- ODYSSEUS AUTO-GENERATED FACTION DATABASE\n')
+            f.write('-- ==========================================\n')
             f.write('local addonName, OUS = ...\n\n')
             f.write('OUS.FactionData = {\n')
             
@@ -172,12 +205,38 @@ def compile_lua_data():
                 
             f.write('}\n')
         
-        print(f"{C_GREEN}[SUCCESS] {len(faction_data)} Factions successfully compiled to {OUTPUT_FILE}!{C_RESET}")
-        input("Press Enter to exit...")
+        print(f"\n{C_GREEN}[SUCCESS] {len(faction_data)} Factions successfully compiled to {OUTPUT_FILE}!{C_RESET}")
         
     except Exception as e:
-        print(f"{C_RED}[ERROR] Failed to write Lua file: {e}{C_RESET}")
+        print_log("ERROR", f"Failed to write Lua file: {e}")
+        sys.exit(1)
+
+# ==========================================
+# 4. MAIN EXECUTION
+# ==========================================
+def main():
+    print(f"{C_CYAN}=================================================={C_RESET}")
+    print(f"{C_PURPLE}   Odysseus Relational Faction Compiler{C_RESET}")
+    print(f"{C_CYAN}=================================================={C_RESET}\n")
+
+    if not os.path.exists(FACTION_CSV) or not os.path.exists(PARAGON_CSV):
+        print_log("ERROR", "Missing CSV files! Ensure Faction.csv and ParagonReputation.csv are present.")
         input("Press Enter to exit...")
+        sys.exit(1)
+
+    # 1. Map Paragon data
+    paragon_data = parse_paragon_data()
+    
+    # 2. Map Faction data
+    faction_data = parse_faction_data(paragon_data)
+    
+    # 3. Inherit Waypoints
+    link_waypoints(faction_data)
+    
+    # 4. Generate Lua
+    write_lua_file(faction_data)
+    
+    input("Press Enter to exit...")
 
 if __name__ == "__main__":
-    compile_lua_data()
+    main()

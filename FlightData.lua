@@ -10361,6 +10361,7 @@ SFT_FlightData = {
     },
     ["Sanctum of Light, Silvermoon City"] = {
         ["Atal'Aman, Zul'Aman"] = 182,
+        ["Camp Stonewash, Zul'Aman"] = 161,
         ["Fairbreeze Village, Eversong Woods"] = 50,
         ["Tranquillien, Eversong Woods"] = 92,
         ["Witherbark Bluffs, Zul'Aman"] = 125,

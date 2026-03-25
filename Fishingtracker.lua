@@ -1,3 +1,6 @@
+-- ==========================================
+-- 1. ODYSSEUS UTILITY SUITE: FISHING TRACKER
+-- ==========================================
 local addonName, OUS = ...
 local f = CreateFrame("Frame")
 
@@ -22,7 +25,7 @@ local sessionData = {
 }
 
 -- ==========================================
--- ZONE ID MAPPING FOR FISHING NAMES
+-- 2. ZONE ID MAPPING FOR FISHING NAMES
 -- ==========================================
 local ZONE_FISHING_NAMES = {
     -- Midnight
@@ -48,19 +51,21 @@ local function FormatTimer(diff)
 end
 
 -- ==========================================
--- 1. BUILD THE UI: MAIN FRAME
+-- 3. BUILD THE UI: MAIN FRAME
 -- ==========================================
 local mainFrame = CreateFrame("Frame", "OdysseusFishingMain", UIParent, "BackdropTemplate")
-mainFrame:SetSize(340, 220) 
+-- WIDENED: Increased from 340 to 360 to prevent text clipping
+mainFrame:SetSize(370, 220) 
 mainFrame:SetPoint("RIGHT", UIParent, "RIGHT", -250, 0)
 mainFrame:Hide()
+
 mainFrame:SetMovable(true)
 mainFrame:EnableMouse(true)
 mainFrame:RegisterForDrag("LeftButton")
 mainFrame:SetScript("OnDragStart", mainFrame.StartMoving)
 mainFrame:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
-    local point, relativeTo, relativePoint, xOfs, yOfs = self:GetPoint()
+    local point, _, relativePoint, xOfs, yOfs = self:GetPoint()
     if OdysseusDB and OdysseusDB.fishingSettings then
         OdysseusDB.fishingSettings.pos = {point, relativePoint, xOfs, yOfs}
     end
@@ -75,12 +80,13 @@ mainFrame:SetBackdrop({
 mainFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.95)
 mainFrame:SetBackdropBorderColor(0.2, 0.5, 0.8, 1)
 
--- STATS BUTTON
+-- Stats Button
 local openStatsBtn = CreateFrame("Button", nil, mainFrame, "UIPanelButtonTemplate")
 openStatsBtn:SetSize(110, 22)
 openStatsBtn:SetPoint("TOPRIGHT", mainFrame, "TOPRIGHT", -12, -12)
 openStatsBtn:SetText("Overall Stats")
 
+-- Fishing Pole Icon
 local poleBtn = CreateFrame("Button", nil, mainFrame)
 poleBtn:SetSize(36, 36)
 poleBtn:SetPoint("TOPLEFT", 12, -12)
@@ -99,6 +105,7 @@ poleBtn:SetScript("OnEnter", function(self)
 end)
 poleBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
+-- Headers & Text
 local zoneText = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
 zoneText:SetPoint("TOPLEFT", poleBtn, "TOPRIGHT", 10, -2)
 zoneText:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE")
@@ -120,6 +127,7 @@ divider1:SetPoint("TOP", skillText, "BOTTOM", 0, -8)
 divider1:SetPoint("LEFT", mainFrame, "LEFT", 12, 0)
 divider1:SetPoint("RIGHT", mainFrame, "RIGHT", -12, 0)
 
+-- Column Labels
 local locStatsTitle = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 locStatsTitle:SetPoint("TOPLEFT", divider1, "BOTTOMLEFT", 0, -8)
 locStatsTitle:SetText("Current Location Stats:")
@@ -135,14 +143,16 @@ mfColName:SetText("Fish Name")
 local mfColPct = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 mfColPct:SetPoint("TOP", mfColName, "TOP", 0, 0)
 mfColPct:SetPoint("RIGHT", mainFrame, "RIGHT", -15, 0)
-mfColPct:SetWidth(45)
+-- WIDENED: Increased to 55 to comfortably fit "100.0%"
+mfColPct:SetWidth(55)
 mfColPct:SetJustifyH("RIGHT")
 mfColPct:SetText("Percent")
 
 local mfColCount = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 mfColCount:SetPoint("TOP", mfColName, "TOP", 0, 0)
-mfColCount:SetPoint("RIGHT", mfColPct, "LEFT", -15, 0)
-mfColCount:SetWidth(40)
+mfColCount:SetPoint("RIGHT", mfColPct, "LEFT", -10, 0)
+-- WIDENED: Increased to 45
+mfColCount:SetWidth(45)
 mfColCount:SetJustifyH("CENTER")
 mfColCount:SetText("Count")
 
@@ -160,10 +170,11 @@ lastCatchText:SetJustifyH("LEFT")
 lastCatchText:SetText("")
 
 -- ==========================================
--- 2. BUILD THE UI: SESSION FRAME
+-- 4. BUILD THE UI: SESSION FRAME
 -- ==========================================
 local sessFrame = CreateFrame("Frame", "OdysseusFishingSession", mainFrame, "BackdropTemplate")
-sessFrame:SetSize(320, 150) 
+-- WIDENED: Increased from 320 to 340 to prevent text clipping
+sessFrame:SetSize(350, 150) 
 sessFrame:SetPoint("TOPLEFT", mainFrame, "TOPRIGHT", 5, 0)
 
 sessFrame:SetBackdrop({
@@ -177,9 +188,7 @@ sessFrame:SetBackdropBorderColor(0.2, 0.8, 0.4, 1)
 
 local closeSessBtn = CreateFrame("Button", nil, sessFrame, "UIPanelCloseButton")
 closeSessBtn:SetPoint("TOPRIGHT", sessFrame, "TOPRIGHT", -2, -2)
-closeSessBtn:SetScript("OnClick", function()
-    mainFrame:Hide() 
-end)
+closeSessBtn:SetScript("OnClick", function() mainFrame:Hide() end)
 
 local sessTitle = sessFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 sessTitle:SetPoint("TOP", sessFrame, "TOP", 0, -12)
@@ -190,6 +199,7 @@ timerText:SetPoint("TOP", sessTitle, "BOTTOM", 0, -4)
 timerText:SetText("00:00:00")
 timerText:SetTextColor(0.2, 0.8, 0.4)
 
+-- Session Control Buttons
 local buttonContainer = CreateFrame("Frame", nil, sessFrame)
 buttonContainer:SetSize(170, 20)
 buttonContainer:SetPoint("TOP", timerText, "BOTTOM", 0, -6)
@@ -219,6 +229,7 @@ closeTimerText:SetPoint("BOTTOMRIGHT", sessFrame, "BOTTOMRIGHT", -10, 8)
 closeTimerText:SetTextColor(1, 0.5, 0.5)
 closeTimerText:SetText("")
 
+-- Button Scripts
 resetBtn:SetScript("OnClick", function()
     sessionData.total = 0
     sessionData.catches = {}
@@ -227,6 +238,7 @@ resetBtn:SetScript("OnClick", function()
     lastCatchText:SetText("")
     if sessionTimerActive then sessionStartTime = GetTime() end
     OUS.UpdateFishingUI()
+    OUS.LogDebug("Fishing", "Session timer reset.")
 end)
 
 pauseBtn:SetScript("OnClick", function()
@@ -235,11 +247,13 @@ pauseBtn:SetScript("OnClick", function()
         sessionTimerActive = false
         sessionPaused = true
         pauseBtn:SetText("Resume")
+        OUS.LogDebug("Fishing", "Session paused.")
     else
         sessionStartTime = GetTime()
         sessionTimerActive = true
         sessionPaused = false
         pauseBtn:SetText("Pause")
+        OUS.LogDebug("Fishing", "Session resumed.")
     end
 end)
 
@@ -250,8 +264,10 @@ stopBtn:SetScript("OnClick", function()
     end
     sessionPaused = true
     pauseBtn:SetText("Resume")
+    OUS.LogDebug("Fishing", "Session stopped.")
 end)
 
+-- Session Columns
 local sessDivider = sessFrame:CreateTexture(nil, "ARTWORK")
 sessDivider:SetColorTexture(0.2, 0.8, 0.4, 0.5)
 sessDivider:SetHeight(1)
@@ -270,14 +286,16 @@ sfColName:SetText("Fish Name")
 local sfColPct = sessFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 sfColPct:SetPoint("TOP", sfColName, "TOP", 0, 0)
 sfColPct:SetPoint("RIGHT", sessFrame, "RIGHT", -15, 0)
-sfColPct:SetWidth(45)
+-- WIDENED: Increased to 55 to comfortably fit "100.0%"
+sfColPct:SetWidth(55)
 sfColPct:SetJustifyH("RIGHT")
 sfColPct:SetText("Percent")
 
 local sfColCount = sessFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 sfColCount:SetPoint("TOP", sfColName, "TOP", 0, 0)
-sfColCount:SetPoint("RIGHT", sfColPct, "LEFT", -15, 0)
-sfColCount:SetWidth(40)
+sfColCount:SetPoint("RIGHT", sfColPct, "LEFT", -10, 0)
+-- WIDENED: Increased to 45
+sfColCount:SetWidth(45)
 sfColCount:SetJustifyH("CENTER")
 sfColCount:SetText("Count")
 
@@ -290,12 +308,13 @@ sessDivider2:SetPoint("RIGHT", sessFrame, "RIGHT", -12, 0)
 
 
 -- ==========================================
--- 3. BUILD THE UI: GLOBAL STATS FRAME
+-- 5. BUILD THE UI: GLOBAL STATS FRAME
 -- ==========================================
 local statsFrame = CreateFrame("Frame", "OdysseusFishingStats", UIParent, "BackdropTemplate")
 statsFrame:SetSize(400, 450)
 statsFrame:SetPoint("CENTER")
 statsFrame:Hide()
+
 statsFrame:SetMovable(true)
 statsFrame:EnableMouse(true)
 statsFrame:RegisterForDrag("LeftButton")
@@ -331,10 +350,8 @@ statsTitle:SetText("Overall Fishing Statistics Summary:")
 
 local stat1 = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 stat1:SetPoint("TOPLEFT", statsTitle, "BOTTOMLEFT", 0, -8)
-
 local stat2 = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 stat2:SetPoint("TOPLEFT", stat1, "BOTTOMLEFT", 0, -5)
-
 local stat3 = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 stat3:SetPoint("TOPLEFT", stat2, "BOTTOMLEFT", 0, -5)
 
@@ -380,7 +397,6 @@ local function UpdateGlobalStatsFrame()
     local globalFish = {}
     local uniqueZones = 0
     local uniqueSubZones = 0
-    
     local zoneDataList = {}
     
     for zone, data in pairs(history) do
@@ -424,9 +440,11 @@ local function UpdateGlobalStatsFrame()
             if not statsRows[i] then
                 local row = CreateFrame("Button", nil, scrollChild)
                 row:SetSize(340, 20)
+                
                 row.icon = row:CreateTexture(nil, "ARTWORK")
                 row.icon:SetSize(16, 16)
                 row.icon:SetPoint("LEFT", 0, 0)
+                
                 row.name = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
                 row.name:SetPoint("LEFT", row.icon, "RIGHT", 5, 0)
                 row.name:SetWidth(180)
@@ -481,6 +499,7 @@ local function UpdateGlobalStatsFrame()
             if not statsRows[i] then
                 local row = CreateFrame("Button", nil, scrollChild)
                 row:SetSize(340, 20)
+                
                 row.name = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
                 row.name:SetPoint("LEFT", 0, 0)
                 row.name:SetWidth(180)
@@ -519,9 +538,12 @@ local function UpdateGlobalStatsFrame()
 end
 
 openStatsBtn:SetScript("OnClick", function()
-    if statsFrame:IsShown() then statsFrame:Hide() else
+    if statsFrame:IsShown() then 
+        statsFrame:Hide() 
+    else
         statsFrame:Show()
         UpdateGlobalStatsFrame()
+        OUS.LogDebug("Fishing", "Opened Global Stats panel.")
     end
 end)
 
@@ -529,7 +551,7 @@ statsTabFish:SetScript("OnClick", function() currentStatsTab = "Fish"; UpdateGlo
 statsTabZone:SetScript("OnClick", function() currentStatsTab = "Zone"; UpdateGlobalStatsFrame() end)
 
 -- ==========================================
--- 4. ROW CREATION (3-COLUMN LAYOUT)
+-- 6. ROW CREATION (3-COLUMN LAYOUT)
 -- ==========================================
 local mainRows = {}
 local sessRows = {}
@@ -544,18 +566,21 @@ local function CreateFishRow(parent)
     
     row.name = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     row.name:SetPoint("LEFT", row.icon, "RIGHT", 4, 0)
-    row.name:SetWidth(parent:GetWidth() - 110) 
+    -- WIDENED: Adjusted to make sure the item name doesn't bleed into the newly widened percent/count columns
+    row.name:SetWidth(parent:GetWidth() - 130) 
     row.name:SetJustifyH("LEFT")
     row.name:SetWordWrap(false)
     
     row.pct = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
     row.pct:SetPoint("RIGHT", row, "RIGHT", -5, 0)
-    row.pct:SetWidth(45)
+    -- WIDENED: 55px width
+    row.pct:SetWidth(55)
     row.pct:SetJustifyH("RIGHT")
     
     row.count = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
     row.count:SetPoint("RIGHT", row.pct, "LEFT", -10, 0)
-    row.count:SetWidth(40)
+    -- WIDENED: 45px width
+    row.count:SetWidth(45)
     row.count:SetJustifyH("CENTER")
     
     row:SetScript("OnEnter", function(self)
@@ -570,15 +595,13 @@ local function CreateFishRow(parent)
 end
 
 -- ==========================================
--- 5. DATA LOGIC & ALPHA UPDATE
+-- 7. DATA LOGIC & UI UPDATE
 -- ==========================================
-
--- THE FIX: Applies Alpha ONLY to the Background Colors to prevent ghost text!
 function OUS.UpdateFishingAlpha()
     if not OdysseusDB or not OdysseusDB.fishingSettings then return end
     local alpha = OdysseusDB.fishingSettings.alpha or 0.95
     
-    -- Force master frames back to 100% solid opacity to cure any previous ghosting
+    -- Force master frames to solid opacity to cure any previous ghosting
     if mainFrame then mainFrame:SetAlpha(1.0) end
     if statsFrame then statsFrame:SetAlpha(1.0) end
     
@@ -622,6 +645,7 @@ function OUS.UpdateFishingUI()
     local poleTex = GetInventoryItemTexture("player", 28) or GetInventoryItemTexture("player", 16) or 136245
     poleBtn.icon:SetTexture(poleTex)
 
+    -- Update Main Rows
     for _, row in ipairs(mainRows) do row:Hide() end
     local yOffset = -180 
     local rowIndex = 1
@@ -657,6 +681,7 @@ function OUS.UpdateFishingUI()
     end
     mainFrame:SetHeight(math.max(220, math.abs(yOffset) + 35))
 
+    -- Update Session Rows
     for _, row in ipairs(sessRows) do row:Hide() end
     local sessY = -155 
     local sessIdx = 1
@@ -706,13 +731,16 @@ local function RecordCatch(itemLink, quantity)
     local coloredName = colorPrefix .. "[" .. exactName .. "]|r"
     local statusText = ""
     
+    -- Filter out trash (Grey items)
     if itemQuality and itemQuality == 0 then
         statusText = "|cFFFF0000not saved.|r"
         lastCatchText:SetText(coloredName .. " (|cFFFFFFFFx" .. quantity .. "|r) |cFF87CEEB[ID: " .. tostring(itemID) .. "]|r " .. statusText)
+        OUS.LogDebug("Fishing", "Ignored trash catch: " .. exactName)
         return 
     else
         statusText = "|cFF87CEEBsaved.|r"
         lastCatchText:SetText(coloredName .. " (|cFFFFFFFFx" .. quantity .. "|r) |cFF87CEEB[ID: " .. tostring(itemID) .. "]|r " .. statusText)
+        OUS.LogDebug("Fishing", "Saved catch: " .. exactName .. " x" .. quantity)
     end
     
     currentZone = GetRealZoneText() or "Unknown Zone"
@@ -736,7 +764,7 @@ local function RecordCatch(itemLink, quantity)
 end
 
 -- ==========================================
--- 6. CORE EVENT LISTENERS
+-- 8. CORE EVENT LISTENERS
 -- ==========================================
 local FISHING_SPELL_IDS = { 
     [131476] = true, [131474] = true, [7620] = true, [1224771] = true,
@@ -793,6 +821,7 @@ f:SetScript("OnEvent", function(self, event, ...)
             if not mainFrame:IsShown() then
                 mainFrame:Show()
                 OUS.UpdateFishingUI()
+                OUS.LogDebug("Fishing", "Cast detected. Tracker opened/woken up.")
             end
         end
         
@@ -833,7 +862,9 @@ f:SetScript("OnEvent", function(self, event, ...)
     end
 end)
 
--- TIMER, FPH & AUTO-CLOSE LOOP
+-- ==========================================
+-- 9. TIMER & AUTO-CLOSE LOOP
+-- ==========================================
 local updateFrame = CreateFrame("Frame")
 updateFrame:SetScript("OnUpdate", function(self, elapsed)
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.fishingTracker then return end
@@ -887,6 +918,7 @@ updateFrame:SetScript("OnUpdate", function(self, elapsed)
             pauseBtn:SetText("Resume")
             mainFrame:Hide()
             closeTimerText:SetText("")
+            OUS.LogDebug("Fishing", "Tracker auto-closed due to inactivity/mounting.")
         else
             if remaining <= 10 and (sessionData.total > 0 or sessionTimerActive) then
                 closeTimerText:SetText(string.format("Closing in: %ds", math.ceil(remaining)))
@@ -897,11 +929,15 @@ updateFrame:SetScript("OnUpdate", function(self, elapsed)
     end
 end)
 
+-- ==========================================
+-- 10. TOGGLE API
+-- ==========================================
 function OUS.ToggleFishingTracker()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.fishingTracker then return end
 
     if mainFrame:IsShown() then
         mainFrame:Hide()
+        OUS.LogDebug("Fishing", "Tracker manually hidden.")
     else
         mainFrame:Show()
         lastCastTime = GetTime() 
@@ -912,5 +948,6 @@ function OUS.ToggleFishingTracker()
             pauseBtn:SetText("Pause")
         end
         OUS.UpdateFishingUI()
+        OUS.LogDebug("Fishing", "Tracker manually opened.")
     end
 end

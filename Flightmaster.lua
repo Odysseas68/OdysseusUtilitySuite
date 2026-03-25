@@ -1,3 +1,6 @@
+-- ==========================================
+-- 1. ODYSSEUS UTILITY SUITE: FLIGHT MASTER
+-- ==========================================
 local addonName, OUS = ...
 local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
@@ -22,7 +25,7 @@ local function GetShortName(name)
 end
 
 -- ==========================================
--- 1. CREATE THE VISUAL TIMER BAR
+-- 2. CREATE THE VISUAL TIMER BAR
 -- ==========================================
 OUS.timerBar = CreateFrame("StatusBar", nil, UIParent)
 local timerBar = OUS.timerBar
@@ -83,11 +86,13 @@ timerBar:SetScript("OnDragStart", timerBar.StartMoving)
 timerBar:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
     local point, relativeTo, relativePoint, xOfs, yOfs = self:GetPoint()
-    OdysseusDB.flightSettings.pos = {point, relativePoint, xOfs, yOfs}
+    if OdysseusDB and OdysseusDB.flightSettings then
+        OdysseusDB.flightSettings.pos = {point, relativePoint, xOfs, yOfs}
+    end
 end)
 
 -- ==========================================
--- 2. SECURELY GET DESTINATION & START
+-- 3. SECURELY GET DESTINATION & START
 -- ==========================================
 local cachedStartFull = "Unknown"
 
@@ -123,11 +128,12 @@ hooksecurefunc("TakeTaxiNode", function(slot)
         end
         
         currentStartShort = GetShortName(currentStartFull)
+        OUS.LogDebug("Flight", string.format("Hooked TakeTaxiNode: [%s] -> [%s]", currentStartFull, currentDestFull))
     end
 end)
 
 -- ==========================================
--- 3. THE CUSTOM MAP TOOLTIP & LOOKUP
+-- 4. THE CUSTOM MAP TOOLTIP & LOOKUP
 -- ==========================================
 local mapTooltip = CreateFrame("Frame", "OdysseusMapTooltip", UIParent, "BackdropTemplate")
 mapTooltip:SetFrameStrata("TOOLTIP")
@@ -174,19 +180,18 @@ local function GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
 
     local time = SearchTable(OdysseusDB and OdysseusDB.flightSettings and OdysseusDB.flightSettings.times)
     if time then return time end
-    
     time = SearchTable(SFT_FlightData)
     if time then return time end
-    
-    time = SearchTable(OUS and OUS.FlightData) -- Fallback just in case your generated file uses OUS
+    time = SearchTable(OUS and OUS.FlightData) 
     if time then return time end
-    
     return nil
 end
 
 hooksecurefunc(GameTooltip, "Show", function(self)
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then return end
-    if not OdysseusDB.flightSettings.showTooltips then return end
+    
+    -- Safety Check: Ensure tooltips default to TRUE if the config hasn't been saved yet.
+    if OdysseusDB.flightSettings.showTooltips == false then return end
 
     local flightMapOpen = (FlightMapFrame and FlightMapFrame:IsShown()) or (TaxiFrame and TaxiFrame:IsShown())
     if not flightMapOpen then 
@@ -195,6 +200,12 @@ hooksecurefunc(GameTooltip, "Show", function(self)
     end
 
     local rawDest = _G["GameTooltipTextLeft1"] and _G["GameTooltipTextLeft1"]:GetText()
+    
+    -- Debug Radar: Tell us what the engine sees!
+    if IsAltKeyDown() then
+        OUS.LogDebug("Flight", "Tooltip Hovered! Text found: " .. tostring(rawDest))
+    end
+
     if not rawDest then return end
 
     local destFull = CleanString(rawDest)
@@ -215,22 +226,19 @@ hooksecurefunc(GameTooltip, "Show", function(self)
         end
     end
 
-    if startFull == "Unknown" and cachedStartFull ~= "Unknown" then
-        startFull = cachedStartFull
-    end
+    if startFull == "Unknown" and cachedStartFull ~= "Unknown" then startFull = cachedStartFull end
+    if startFull == "Unknown" then startFull = CleanString(GetMinimapZoneText() or GetZoneText()) end
 
-    if startFull == "Unknown" then
-        startFull = CleanString(GetMinimapZoneText() or GetZoneText())
+    if not nodeID then 
+        if IsAltKeyDown() then OUS.LogDebug("Flight", "Failed to find matching nodeID for: " .. destFull) end
+        return 
     end
-
-    if not nodeID then return end
 
     local destShort = GetShortName(destFull)
     local startShort = GetShortName(startFull)
 
-    -- DIAGNOSTIC TOOL: Hold ALT to see exactly what the addon is searching for!
     if IsAltKeyDown() then
-        print("|cFF00FFFF[Odysseus Debug]|r DB Search: [" .. startFull .. "] -> [" .. destFull .. "]")
+        OUS.LogDebug("Flight", string.format("DB Search: [%s] -> [%s]", startFull, destFull))
     end
 
     local knownTime = GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
@@ -272,12 +280,10 @@ hooksecurefunc(GameTooltip, "Show", function(self)
     end
 end)
 
-hooksecurefunc(GameTooltip, "Hide", function()
-    mapTooltip:Hide()
-end)
+hooksecurefunc(GameTooltip, "Hide", function() mapTooltip:Hide() end)
 
 -- ==========================================
--- 4. FLIGHT DETECTION & UPGRADE UPDATE
+-- 5. FLIGHT DETECTION & UPGRADE UPDATE
 -- ==========================================
 local updateFrame = CreateFrame("Frame")
 updateFrame:SetScript("OnUpdate", function(self, elapsed)
@@ -293,6 +299,7 @@ updateFrame:SetScript("OnUpdate", function(self, elapsed)
         OUS.timerTopText:SetText(currentStartFull .. " -> " .. currentDestFull)
         
         local knownTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
+        OUS.LogDebug("Flight", "Liftoff! Known Time: " .. (knownTime and tostring(math.floor(knownTime)) .. "s" or "Unknown"))
         
         if knownTime then
             timerBar:SetMinMaxValues(0, knownTime)
@@ -306,6 +313,7 @@ updateFrame:SetScript("OnUpdate", function(self, elapsed)
         if not OUS.isFlightBarUnlocked then timerBar:Hide() end
         
         local duration = GetTime() - startTime
+        OUS.LogDebug("Flight", string.format("Landed. Total duration: %.1f seconds.", duration))
         
         if duration > 10 and currentDestFull ~= "Unknown" then 
             OdysseusDB.flightSettings.times = OdysseusDB.flightSettings.times or {}
@@ -317,8 +325,10 @@ updateFrame:SetScript("OnUpdate", function(self, elapsed)
                 
                 if not oldTime then
                     print("|cFF00CCFFOdysseus:|r |cFF33FF33Learned|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
+                    OUS.LogDebug("Flight", "Saved new flight time to database.")
                 else 
                     print("|cFF00CCFFOdysseus:|r |cFFFFAA00Updated|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
+                    OUS.LogDebug("Flight", "Updated existing flight time in database.")
                 end
             end
         end
@@ -344,7 +354,7 @@ updateFrame:SetScript("OnUpdate", function(self, elapsed)
 end)
 
 -- ==========================================
--- 5. LOAD SAVED DATA
+-- 6. LOAD SAVED DATA
 -- ==========================================
 f:SetScript("OnEvent", function(self, event, arg1)
     if event == "ADDON_LOADED" and arg1 == addonName then
@@ -358,23 +368,17 @@ f:SetScript("OnEvent", function(self, event, arg1)
             timerBar:SetPoint(p[1], UIParent, p[2], p[3], p[4])
         end
         if OdysseusDB.flightSettings.color then timerBar:SetStatusBarColor(unpack(OdysseusDB.flightSettings.color)) else timerBar:SetStatusBarColor(1, 0.7, 0) end
+        
+        OUS.LogDebug("Flight", "Database loaded successfully.")
     end
     
     if event == "PLAYER_LOGIN" then
-        -- Apply visuals
         OUS.ApplyFlightFonts()
         OUS.ApplyFlightTexture()
         OUS.ApplyFlightBorder()
 
-        -- Apply saved dimensions & scale
-        if OdysseusDB.flightSettings.width then
-            timerBar:SetWidth(OdysseusDB.flightSettings.width)
-        end
-        if OdysseusDB.flightSettings.height then
-            timerBar:SetHeight(OdysseusDB.flightSettings.height)
-        end
-        if OdysseusDB.flightSettings.scale then
-            timerBar:SetScale(OdysseusDB.flightSettings.scale)
-        end
+        if OdysseusDB.flightSettings.width then timerBar:SetWidth(OdysseusDB.flightSettings.width) end
+        if OdysseusDB.flightSettings.height then timerBar:SetHeight(OdysseusDB.flightSettings.height) end
+        if OdysseusDB.flightSettings.scale then timerBar:SetScale(OdysseusDB.flightSettings.scale) end
     end
 end)

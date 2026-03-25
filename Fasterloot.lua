@@ -1,7 +1,12 @@
+-- ==========================================
+-- 1. ODYSSEUS UTILITY SUITE: FASTER LOOT
+-- ==========================================
 local addonName, OUS = ...
 local f = CreateFrame("Frame")
 
--- SPEEDY'S SECRET: The Invisible Garage
+-- ==========================================
+-- 2. THE INVISIBLE GARAGE (FRAME HIJACKING)
+-- ==========================================
 local hiddenFrame = CreateFrame("Frame")
 hiddenFrame:Hide()
 
@@ -35,40 +40,48 @@ local function HideLootFrame()
     end
 end
 
+-- ==========================================
+-- 3. THE LOOT ENGINE (EVENT HANDLER)
+-- ==========================================
 f:RegisterEvent("LOOT_READY")
 f:RegisterEvent("LOOT_CLOSED")
 f:RegisterEvent("UI_ERROR_MESSAGE")
 
 f:SetScript("OnEvent", function(self, event, ...)
+    -- 1. MODULE CHECK: Is FasterLoot enabled?
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.fasterLoot then
         ShowLootFrame()
         return
     end
 
-    -- Cleanup and hide the window for the NEXT kill
+    -- 2. CLEANUP: Hide the window for the NEXT kill
     if event == "LOOT_CLOSED" then
         if lootTicker then
             lootTicker:Cancel()
             lootTicker = nil
         end
         HideLootFrame()
+        OUS.LogDebug("FasterLoot", "Corpse closed. Hidden frame reset.")
         return
     end
 
-    -- ERROR DETECTION: Immediately reveal window if bags are full
+    -- 3. ERROR DETECTION: Reveal window if bags are full
     if event == "UI_ERROR_MESSAGE" then
         local errorType, msg = ...
         if msg == ERR_INV_FULL or msg == ERR_ITEM_MAX_COUNT then
+            OUS.LogDebug("FasterLoot", "Inventory Full or Max Count reached! Yielding UI.")
             ShowLootFrame()
         end
         return
     end
 
+    -- 4. THE CORE LOOT LOGIC
     if event == "LOOT_READY" then
         local autoLootTriggeredByGame = ...
         
         -- SUITE COMMUNICATION: Yield to the Fishing Tracker!
         if IsFishingLoot and IsFishingLoot() then 
+            OUS.LogDebug("FasterLoot", "Bobber detected. Yielding to Fishing Tracker.")
             ShowLootFrame()
             return 
         end
@@ -78,7 +91,8 @@ f:SetScript("OnEvent", function(self, event, ...)
         local shouldFastLoot = autoLootTriggeredByGame or (isAutoLootOn ~= isModifierDown)
 
         if not shouldFastLoot then
-            -- If the player intentionally DOES NOT want to auto-loot, show the window!
+            -- The player intentionally DOES NOT want to auto-loot.
+            OUS.LogDebug("FasterLoot", "Manual loot requested. Revealing window.")
             ShowLootFrame()
             return
         end
@@ -89,7 +103,6 @@ f:SetScript("OnEvent", function(self, event, ...)
         local inGroup = IsInGroup() or IsInRaid()
         local lootMethod = GetLootMethod and GetLootMethod() or "personal"
         local lootThreshold = GetLootThreshold and GetLootThreshold() or 2
-        
         local itemsLeftBehind = false
 
         if lootTicker then
@@ -98,6 +111,7 @@ f:SetScript("OnEvent", function(self, event, ...)
 
         -- Ensure it stays locked in the invisible frame while processing
         HideLootFrame()
+        OUS.LogDebug("FasterLoot", string.format("Processing %d items invisibly...", numItems))
 
         -- Server Throttling Ticker (0.033 seconds per item)
         local currentSlot = numItems
@@ -106,13 +120,19 @@ f:SetScript("OnEvent", function(self, event, ...)
                 local slotType = GetLootSlotType(currentSlot)
                 local canLoot = true
 
-                -- If slot is a standard item, check group rules
+                -- Check standard items for locks and group rules
                 if slotType == 1 then
                     local _, _, _, _, quality, locked = GetLootSlotInfo(currentSlot)
-                    if locked then canLoot = false end
+                    
+                    if locked then 
+                        canLoot = false 
+                        OUS.LogDebug("FasterLoot", "Locked item detected in slot " .. currentSlot)
+                    end
+                    
                     if inGroup and quality and quality >= lootThreshold then
                         if lootMethod == "master" or lootMethod == "group" or lootMethod == "needbeforegreed" then
                             canLoot = false
+                            OUS.LogDebug("FasterLoot", "Group roll required for slot " .. currentSlot)
                         end
                     end
                 end
@@ -122,6 +142,7 @@ f:SetScript("OnEvent", function(self, event, ...)
                     canLoot = false
                 end
 
+                -- Execute Loot or Flag as left behind
                 if canLoot then
                     LootSlot(currentSlot)
                 else
@@ -132,6 +153,7 @@ f:SetScript("OnEvent", function(self, event, ...)
             else
                 -- Ticker finished: Check if anything was left behind
                 if itemsLeftBehind or GetNumLootItems() > 0 then
+                    OUS.LogDebug("FasterLoot", "Items left behind (Roll/Locked/Full). Revealing window.")
                     ShowLootFrame()
                 else
                     CloseLoot()
