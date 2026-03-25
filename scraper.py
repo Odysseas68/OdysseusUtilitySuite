@@ -4,8 +4,16 @@ import sys
 import logging
 from typing import Dict, Any, Optional
 
-# Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Set up logging to both console AND file
+def setup_missing_waypoints_logger():
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('missing_waypoints.log'),
+            logging.StreamHandler()  # Also print to console
+        ]
+    )
 
 # Helper functions
 
@@ -226,6 +234,9 @@ def main():
     print(f"{C_CYAN}=================================================={C_RESET}")
     print(f"{C_PURPLE}   Odysseus Relational Faction Compiler{C_RESET}")
     print(f"{C_CYAN}=================================================={C_RESET}\n")
+
+    # Initialize logging to file
+    setup_missing_waypoints_logger()
 
     if not os.path.exists(FACTION_CSV) or not os.path.exists(PARAGON_CSV):
         print_log("ERROR", "Missing CSV files! Ensure Faction.csv and ParagonReputation.csv are present.")
