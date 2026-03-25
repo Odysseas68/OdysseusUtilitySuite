@@ -215,6 +215,8 @@ def write_lua_file(faction_data: Dict[int, Dict[str, Any]]):
                     wp = CUSTOM_WAYPOINTS[fid]
                     f.write(f'        rewardNPC = {{ mapID = {wp["mapID"]}, x = {wp["x"]}, y = {wp["y"]} }},\n')
                 else:
+                    # LOG MISSING WAYPOINT HERE!
+                    log_missing_waypoint(f"Faction ID: {fid} | Name: '{display_name}'")
                     f.write(f'        rewardNPC = {{ mapID = 0, x = 0.0, y = 0.0 }},\n') 
                     
                 f.write(f'    }},\n')

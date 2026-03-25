@@ -7,6 +7,7 @@
 ehthumbs.db
 Thumbs.db
 desktop.ini
+missing_waypoints.log
 
 # IDE and Editor Folders (Keeps your personal VS Code settings private)
 .vscode/
@@ -17,6 +18,7 @@ desktop.ini
 # Build and Packaging Artifacts (For when you eventually make .zip files for CurseForge)
 *.zip
 *.rar
+*.csv
 /release/
 /build/
 /out/
