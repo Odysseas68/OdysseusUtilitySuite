@@ -12,13 +12,11 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def log_missing_waypoint(waypoint):
     logging.warning(f'Missing waypoint: {waypoint}')
     
-def write_lua_file():
-    # existing code...
-    # Example integration of logging in write_lua_file
-    for waypoint in waypoints:
-        if not waypoint:
-            log_missing_waypoint(waypoint)
-            continue  # or handle accordingly
+# Define the write_lua_file function - now with logging
+
+def write_lua_file(data):
+    if not data['waypoints']:
+        logging.warning(f"Faction '{data['faction_name']}' has no waypoint data.")
 
 # ==========================================
 # 1. CONFIGURATION & CONSTANTS
