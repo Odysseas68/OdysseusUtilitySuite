@@ -1,0 +1,7 @@
+# Automatically scraped waypoints from Wowhead Comments
+# Copy and paste these into your CUSTOM_WAYPOINTS dictionary:
+
+    2517: {"mapID": 2022, "x": 26.70, "y": 62.60, "npcName": "Wrathion"},
+    2518: {"mapID": 2022, "x": 26.70, "y": 62.60, "npcName": "Wrathion"},
+    2526: {"mapID": 2024, "x": 63.2, "y": 58.6, "npcName": "Garzquote"},
+    2544: {"mapID": 2112, "x": 35.51, "y": 58.98, "npcName": "Rabul"},

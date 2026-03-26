@@ -4,32 +4,22 @@ import sys
 import logging
 from typing import Dict, Any, Optional
 
-# Set up logging to both console AND file
+# ==========================================
+# 0. LOGGING SETUP
+# ==========================================
 def setup_missing_waypoints_logger():
+    """Sets up the logger to write ONLY to the missing_waypoints.log file."""
     logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s',
+        level=logging.WARNING,
+        format='%(message)s',
         handlers=[
-            logging.FileHandler('missing_waypoints.log'),
-            logging.StreamHandler()  # Also print to console
+            logging.FileHandler('missing_waypoints.log', mode='w', encoding='utf-8')
         ]
     )
 
-# Helper functions
-
-def log_missing_waypoint(faction_name):
-    logging.warning(f"Missing waypoint data for faction: {faction_name}")
-
-
-def write_lua_file(data, factions):
-    for faction in factions:
-        if not data.get(faction):
-            log_missing_waypoint(faction)
-            continue
-        with open(f"{faction}.lua", 'w') as lua_file:
-            lua_file.write(data[faction])
-    logging.info("Lua file(s) written successfully.")  # Additional logging for successful writing)
-
+def log_missing_waypoint(faction_info: str):
+    """Custom helper function to log factions that lack coordinates."""
+    logging.warning(faction_info)
 
 # ==========================================
 # 1. CONFIGURATION & CONSTANTS
@@ -50,8 +40,39 @@ FACTION_CSV = r"d:\Wow.export.data\Faction.csv"
 PARAGON_CSV = r"d:\Wow.export.data\ParagonReputation.csv"
 OUTPUT_FILE = "xpbar_data.lua"
 
-SCRAPE_ALL = True 
-TARGET_FACTIONS = {2590, 2594, 2570, 2563, 2503}
+SCRAPE_ALL = False 
+# Add the specific IDs for The War Within, Dragonflight, etc. here!
+TARGET_FACTIONS = {
+    # === MIDNIGHT ===
+    2710, # Silvermoon Court
+    2696, # Magovu's Faction
+    2704, # Naynar's Faction
+    2699, # Void Researcher Anomander's Faction
+    2770, # Thraxadar's Faction
+
+    # === THE WAR WITHIN ===
+    2590, # Council of Dornogal
+    2594, # The Assembly of the Deeps
+    2570, # Hallowfall Arathi
+    2563, # The Severed Threads
+    2600, # The Weaver (Severed Threads Pact)
+    2601, # The General (Severed Threads Pact)
+    2605, # The Vizier (Severed Threads Pact)
+    
+    # === DRAGONFLIGHT ===
+    2503, # Dragonscale Expedition
+    2507, # Valdrakken Accord
+    2510, # Iskaara Tuskarr
+    2511, # Maruuk Centaur
+    2564, # Loamm Niffen
+    2574, # Dream Wardens
+    2544, # Artisan's Consortium
+    2526, # Winterpelt Furbolg
+    2550, # Soridormi
+    2532, # Cobalt Assembly
+    2517, # Sabellian
+    2518, # Wrathion
+}
 FORBIDDEN_WORDS = ("UNUSED", "REUSE", "DO NOT USE", "DEPRECATED", "TRASH", "QA ", "TEST")
 
 CUSTOM_WAYPOINTS: Dict[int, Dict[str, Any]] = {
@@ -69,7 +90,12 @@ CUSTOM_WAYPOINTS: Dict[int, Dict[str, Any]] = {
     2511: {"mapID": 2024, "x": 13.1, "y": 49.3, "npcName": "Murik"},                 
     2507: {"mapID": 2022, "x": 47.0, "y": 82.6, "npcName": "Cataloger Jakes"},       
     2564: {"mapID": 2133, "x": 56.4, "y": 55.6, "npcName": "Harlowe Marl"},          
-    2574: {"mapID": 2200, "x": 50.2, "y": 61.6, "npcName": "Moon Priestess Lasara"}, 
+    2574: {"mapID": 2200, "x": 50.2, "y": 61.6, "npcName": "Moon Priestess Lasara"},
+    # --- Automatically Scraped ---
+    2517: {"mapID": 2022, "x": 26.70, "y": 62.60, "npcName": "Wrathion"},
+    2518: {"mapID": 2022, "x": 26.70, "y": 62.60, "npcName": "Wrathion"},
+    2526: {"mapID": 2024, "x": 63.2, "y": 58.6, "npcName": "Garzquote"},
+    2544: {"mapID": 2112, "x": 35.51, "y": 58.98, "npcName": "Rabul"},
 }
 
 # ==========================================
@@ -186,6 +212,8 @@ def link_waypoints(faction_data: Dict[int, Dict[str, Any]]):
 
 def write_lua_file(faction_data: Dict[int, Dict[str, Any]]):
     print_log("INFO", f"\nCompiling {OUTPUT_FILE}...")
+    missing_count = 0
+    
     try:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             f.write('-- ==========================================\n')
@@ -215,14 +243,18 @@ def write_lua_file(faction_data: Dict[int, Dict[str, Any]]):
                     wp = CUSTOM_WAYPOINTS[fid]
                     f.write(f'        rewardNPC = {{ mapID = {wp["mapID"]}, x = {wp["x"]}, y = {wp["y"]} }},\n')
                 else:
-                    # LOG MISSING WAYPOINT HERE!
-                    log_missing_waypoint(f"Faction ID: {fid} | Name: '{display_name}'")
+                    # SILENTLY LOG THE MISSING WAYPOINT!
+                    log_missing_waypoint(f"{fid},{display_name}")
+                    missing_count += 1
                     f.write(f'        rewardNPC = {{ mapID = 0, x = 0.0, y = 0.0 }},\n') 
                     
                 f.write(f'    }},\n')
                 
             f.write('}\n')
         
+        if missing_count > 0:
+            print_log("INFO", f"Logged {missing_count} factions missing waypoints to 'missing_waypoints.log'")
+            
         print(f"\n{C_GREEN}[SUCCESS] {len(faction_data)} Factions successfully compiled to {OUTPUT_FILE}!{C_RESET}")
         
     except Exception as e:
@@ -237,7 +269,7 @@ def main():
     print(f"{C_PURPLE}   Odysseus Relational Faction Compiler{C_RESET}")
     print(f"{C_CYAN}=================================================={C_RESET}\n")
 
-    # Initialize logging to file
+    # Initialize the silent file logger BEFORE doing anything else
     setup_missing_waypoints_logger()
 
     if not os.path.exists(FACTION_CSV) or not os.path.exists(PARAGON_CSV):

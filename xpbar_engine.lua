@@ -87,8 +87,6 @@ function OUS.SleepBars()
     end)
 end
 
-xpBar:HookScript("OnEnter", OUS.WakeBars)
-xpBar:HookScript("OnLeave", OUS.SleepBars)
 delveBar:HookScript("OnEnter", OUS.WakeBars)
 delveBar:HookScript("OnLeave", OUS.SleepBars)
 
@@ -406,7 +404,6 @@ function OUS.UpdateBar()
     
     local targetFactionID = nil
     
-    -- Check if we should forcefully display a recently gained faction
     if Session.forceRepDisplay and Session.lastGainedFactionName then
         if C_Reputation and C_Reputation.GetNumFactions then
             for i = 1, C_Reputation.GetNumFactions() do 
@@ -419,13 +416,11 @@ function OUS.UpdateBar()
         end
     end
     
-    -- Fallback to the user's manual "Watched Faction"
     if not targetFactionID then 
         local w = C_Reputation.GetWatchedFactionData()
         if w then targetFactionID = w.factionID end 
     end
 
-    -- Render XP if not max level and not forcing a rep display
     if not isMaxLevel and not (Session.forceRepDisplay and targetFactionID) then
         local curXP, maxXP = UnitXP("player"), UnitXPMax("player")
         local restXP = GetXPExhaustion() or 0
@@ -459,7 +454,15 @@ function OUS.UpdateBar()
                 xpBar.progressBar:SetMinMaxValues(0, info.maxRep)
                 xpBar.progressBar:SetValue(info.curRep)
                 xpBar.progressBar:SetStatusBarColor(db.repColor.r, db.repColor.g, db.repColor.b, 0.9)
-                xpBar.text:SetText(ParseRepText(db.repTemplate, info.name, info.standingText, info.curRep, info.maxRep, info.isMaxed))
+                
+                local repText = ParseRepText(db.repTemplate, info.name, info.standingText, info.curRep, info.maxRep, info.isMaxed)
+                
+                -- FEATURE: PARAGON LOOT ICON INJECTION
+                if info.hasRewardPending then
+                    repText = repText .. " |TInterface\\Icons\\UI-LFG-Loot-Bag:16:16:0:0|t"
+                end
+                
+                xpBar.text:SetText(repText)
                 xpBar:Show()
             else 
                 xpBar:Hide() 
@@ -487,7 +490,7 @@ local function TriggerAggressiveDelveCheck()
 end
 
 -- ==========================================
--- 7. REPUTATION ADVANCED MENUS
+-- 7. REPUTATION ADVANCED MENUS & SMART HOVER
 -- ==========================================
 OUS.factionSelectFrame = CreateFrame("Frame", "OdysseusFactionSelectFrame", UIParent, "BackdropTemplate")
 local factionSelectFrame = OUS.factionSelectFrame
@@ -567,8 +570,7 @@ local function RefreshFactionSelectTree()
                 
                 btn.wbIcon = btn:CreateTexture(nil, "OVERLAY")
                 btn.wbIcon:SetSize(14, 14)
-                local success = pcall(function() btn.wbIcon:SetAtlas("warbands-icon") end)
-                if not success then btn.wbIcon:SetTexture("Interface\\Icons\\Achievement_GuildPerk_EverybodysFriend") end
+                pcall(function() btn.wbIcon:SetAtlas("warbands-icon") end)
                 
                 btn.facIcon = btn:CreateTexture(nil, "OVERLAY")
                 btn.facIcon:SetSize(16, 16)
@@ -598,23 +600,13 @@ local function RefreshFactionSelectTree()
                     if info then
                         GameTooltip:SetOwner(btn, "ANCHOR_RIGHT")
                         local iconStr = ""
-                        if info.textureKit then 
-                            iconStr = "|A:UI-MajorFaction-"..info.textureKit..":18:18|a " 
-                        elseif info.icon then 
-                            iconStr = "|T"..info.icon..":18:18:0:0|t " 
-                        end
+                        if info.textureKit then iconStr = "|A:UI-MajorFaction-"..info.textureKit..":18:18|a " elseif info.icon then iconStr = "|T"..info.icon..":18:18:0:0|t " end
                         GameTooltip:SetText(iconStr .. info.name, 0.6, 0.2, 0.8)
                         GameTooltip:AddLine(info.standingText .. " - " .. OUS.FormatLargeNumber(info.curRep) .. " / " .. OUS.FormatLargeNumber(info.maxRep), 1, 1, 1)
                         if info.hasRewardPending then GameTooltip:AddLine("Paragon Reward Ready!", 0, 1, 0) end
                         if info.description and info.description ~= "" then 
                             GameTooltip:AddLine(" ")
                             GameTooltip:AddLine(info.description, 0.8, 0.8, 0.8, true) 
-                        end
-                        
-                        local fData = OUS.FactionData and OUS.FactionData[btn.data.factionID]
-                        if fData and fData.rewardNPC and fData.rewardNPC.mapID > 0 then
-                            GameTooltip:AddLine(" ")
-                            GameTooltip:AddLine("Quartermaster Coordinates Available", 0, 1, 0)
                         end
                         GameTooltip:Show()
                     end
@@ -748,6 +740,26 @@ favFrame:SetBackdropColor(0.05, 0.03, 0.08, 0.95)
 favFrame:SetBackdropBorderColor(0.6, 0.2, 0.8, 1)
 favFrame:Hide()
 
+-- FEATURE: Enable mouse detection on the frame so our Smart Timer knows when you are inside it!
+favFrame:EnableMouse(true)
+
+favFrame:SetScript("OnEnter", function()
+    -- If they move into the frame, cancel the timer so it stays open forever!
+    if Session.favTimer then Session.favTimer:Cancel(); Session.favTimer = nil end
+    OUS.WakeBars()
+end)
+
+favFrame:SetScript("OnLeave", function()
+    -- If they leave the frame, close it instantly (0.2s grace period)
+    if Session.favTimer then Session.favTimer:Cancel() end
+    Session.favTimer = C_Timer.NewTimer(0.2, function()
+        if not favFrame:IsMouseOver() and not xpBar:IsMouseOver() then
+            favFrame:Hide()
+            OUS.SleepBars()
+        end
+    end)
+end)
+
 local favTitle = favFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 favTitle:SetPoint("TOP", 0, -8)
 favTitle:SetText("|cFFB088FFOdysseus Favorites Dashboard|r")
@@ -824,6 +836,8 @@ local function RefreshHoverFavorites()
                             row.txt:SetWordWrap(false)
                             
                             row:SetScript("OnEnter", function(self)
+                                -- Stop the frame from closing while we look at a specific row tooltip
+                                if Session.favTimer then Session.favTimer:Cancel(); Session.favTimer = nil end
                                 self:SetBackdropColor(0.2, 0.15, 0.3, 0.8)
                                 self:SetBackdropBorderColor(0.6, 0.2, 0.8, 1)
                                 OUS.WakeBars()
@@ -837,12 +851,6 @@ local function RefreshHoverFavorites()
                                     GameTooltip:AddLine(rInfo.standingText .. " - " .. OUS.FormatLargeNumber(rInfo.curRep) .. " / " .. OUS.FormatLargeNumber(rInfo.maxRep), 1, 1, 1)
                                     if rInfo.hasRewardPending then GameTooltip:AddLine("Paragon Reward Ready!", 0, 1, 0) end
                                     if rInfo.description and rInfo.description ~= "" then GameTooltip:AddLine(" "); GameTooltip:AddLine(rInfo.description, 0.8, 0.8, 0.8, true) end
-                                    
-                                    local fData = OUS.FactionData and OUS.FactionData[self.factionID]
-                                    if fData and fData.rewardNPC and fData.rewardNPC.mapID > 0 then
-                                        GameTooltip:AddLine(" ")
-                                        GameTooltip:AddLine("Right-Click to set Quartermaster Waypoint", 0, 1, 0)
-                                    end
                                     GameTooltip:Show()
                                 end
                             end)
@@ -851,7 +859,10 @@ local function RefreshHoverFavorites()
                                 self:SetBackdropColor(0, 0, 0, 0.4)
                                 self:SetBackdropBorderColor(0.2, 0.2, 0.2, 1)
                                 GameTooltip:Hide()
-                                C_Timer.After(0.1, function() 
+                                
+                                -- Re-arm the closing timer in case we slid off the edge of the row and out of the frame
+                                if Session.favTimer then Session.favTimer:Cancel() end
+                                Session.favTimer = C_Timer.NewTimer(0.2, function()
                                     if not favFrame:IsMouseOver() and not xpBar:IsMouseOver() then 
                                         favFrame:Hide()
                                         OUS.SleepBars() 
@@ -969,13 +980,7 @@ xpBar:SetScript("OnMouseUp", function(self, button)
     end
 end)
 
-local function CheckHideFavFrame() 
-    if not favFrame:IsMouseOver() and not xpBar:IsMouseOver() then 
-        favFrame:Hide()
-        OUS.SleepBars() 
-    end 
-end
-
+-- FEATURE: XP Bar Smart Hover Tracking
 xpBar:HookScript("OnEnter", function()
     OUS.WakeBars()
     RefreshHoverFavorites()
@@ -995,7 +1000,27 @@ xpBar:HookScript("OnEnter", function()
             favFrame:SetPoint("TOP", xpBar, "BOTTOM", 0, -5) 
         end
         favFrame:Show() 
+        
+        -- Start the 3-second auto-close timer if they just hover the bar without moving up
+        if Session.favTimer then Session.favTimer:Cancel() end
+        Session.favTimer = C_Timer.NewTimer(3.0, function()
+            if not favFrame:IsMouseOver() and not xpBar:IsMouseOver() then
+                favFrame:Hide()
+                OUS.SleepBars()
+            end
+        end)
     end
+end)
+
+xpBar:HookScript("OnLeave", function()
+    -- Give them 0.5s to move their mouse from the XP Bar into the Favorites Frame before closing it
+    if Session.favTimer then Session.favTimer:Cancel() end
+    Session.favTimer = C_Timer.NewTimer(0.5, function()
+        if not favFrame:IsMouseOver() and not xpBar:IsMouseOver() then
+            favFrame:Hide()
+            OUS.SleepBars()
+        end
+    end)
 end)
 
 -- ==========================================
