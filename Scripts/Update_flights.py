@@ -4,7 +4,7 @@ import sys
 from typing import Dict
 
 # ==========================================
-# 1. CONFIGURATION & CONSTANTS
+# 1. CONFIGURATION & CONSTANTS & FILE PATHS
 # ==========================================
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 os.chdir(SCRIPT_DIR)
@@ -20,8 +20,8 @@ C_RED = '\033[91m'
 C_RESET = '\033[0m'
 
 # File names
-MASTER_FILE = "flightdata.lua" 
-UPDATE_FILE = "update.txt"
+MASTER_FILE = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'flightdata.lua'))
+UPDATE_FILE = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'update.txt'))
 
 # Pre-compile Regex Patterns for performance
 LUA_OUTER_PATTERN = re.compile(r'\["(.*?)"\]\s*=\s*\{([^}]*)\}')

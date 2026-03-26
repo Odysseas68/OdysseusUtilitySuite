@@ -5,14 +5,16 @@ import sys
 from typing import Dict, Optional
 
 # ==========================================
-# 1. CONFIGURATION & CONSTANTS
+# 1. CONFIGURATION & CONSTANTS & FILE PATHS
 # ==========================================
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 os.chdir(SCRIPT_DIR)
 
 NODE_CSV = r"d:\Wow.export.data\TaxiNodes.csv"
 PATH_CSV = r"d:\Wow.export.data\TaxiPath.csv"
-OUTPUT_LUA = "Odysseus_RoutingDB.lua"
+OUTPUT_LUA = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'Odysseus_RoutingDB.lua'))
+
+os.system("")
 
 # Terminal Colors
 C_CYAN = '\033[96m'

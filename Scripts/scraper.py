@@ -22,10 +22,23 @@ def log_missing_waypoint(faction_info: str):
     logging.warning(faction_info)
 
 # ==========================================
-# 1. CONFIGURATION & CONSTANTS
+# 1. CONFIGURATION & CONSTANTS & FILE PATHS
 # ==========================================
+# SCRIPT_DIR is now your new sub-directory (/OdysseusUtilitySuite/Tools/)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 os.chdir(SCRIPT_DIR)
+
+# INPUTS: These were already absolute paths on your D: drive, so they stay the same!
+PARAGON_CSV = r"d:\Wow.export.data\ParagonReputation.csv"
+FACTION_CSV = r"d:\Wow.export.data\Faction.csv"
+
+# OUTPUTS: We tell Python to save the Lua file ONE FOLDER UP (..) into the main addon root
+# OUTPUT_FILE = os.path.join(SCRIPT_DIR, '..', 'xpbar_data.lua')
+# Optional: This just makes the path look pretty in the terminal!
+OUTPUT_FILE = os.path.abspath(os.path.join(SCRIPT_DIR, '..', 'xpbar_data.lua'))
+
+# LOGS: We keep these inside your new Tools folder to keep the addon root perfectly clean!
+MISSING_LOG = "missing_waypoints.log"
 
 os.system("")
 
@@ -35,10 +48,6 @@ C_YELLOW = '\033[93m'
 C_RED = '\033[91m'
 C_PURPLE = '\033[95m'
 C_RESET = '\033[0m'
-
-FACTION_CSV = r"d:\Wow.export.data\Faction.csv"
-PARAGON_CSV = r"d:\Wow.export.data\ParagonReputation.csv"
-OUTPUT_FILE = "xpbar_data.lua"
 
 SCRAPE_ALL = False 
 # Add the specific IDs for The War Within, Dragonflight, etc. here!
