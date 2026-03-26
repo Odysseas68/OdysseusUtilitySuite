@@ -6,66 +6,102 @@ local addonName, OUS = ...
 -- ==========================================
 -- 2. DEFAULTS & SESSION STATE
 -- ==========================================
+-- ==========================================
+-- 2. DEFAULTS & SESSION STATE
+-- ==========================================
 OUS.defaults = {
-    xpTemplate = "Exp: [curXP]/[maxXP] ([restPC]) :: [curPC] through [pLVL] lvl :: [needXP] XP left :: [KTL] kills to lvl",
+    xpTemplate = "Exp: [curXP]/[maxXP] ([restPC]) :: [curPC]% through [pLVL] lvl :: [needXP] XP left :: [KTL] kills to lvl",
     repTemplate = "Rep: [faction] ([standing]) [curRep]/[maxRep] :: [repPC]%",
     delveCompTemplate = "[compName]: Level [pLVL] - [curXP]/[maxXP]",
     delveJourTemplate = "Journey: [curRep]/[maxRep]",
-    xpColor = {r = 0.6, g = 0.2, b = 0.8}, 
-    restColor = {r = 0.0, g = 0.4, b = 0.9}, 
-    repColor = {r = 0.2, g = 0.8, b = 0.4},
-    delveCompColor = {r = 0.8, g = 0.4, b = 0.0}, 
+    
+    -- Main Experience Colors
+    xpColor = {r = 0.6, g = 0.2, b = 0.8},
+    restColor = {r = 0.0, g = 0.4, b = 0.9},
+    xpTextColor = {r = 1.0, g = 1.0, b = 1.0},
+    showRestIcon = true,
+    
+    -- Dynamic Reputation Colors (Nested!)
+    repTextColor = {r = 1.0, g = 1.0, b = 1.0},
+    repColors = {
+        hated = {r = 0.8, g = 0.13, b = 0.13},
+        hostile = {r = 1.0, g = 0.0, b = 0.0},
+        unfriendly = {r = 0.93, g = 0.4, b = 0.13},
+        neutral = {r = 0.93, g = 0.8, b = 0.13},
+        friendly = {r = 0.0, g = 1.0, b = 0.0},
+        honored = {r = 0.0, g = 1.0, b = 0.53},
+        revered = {r = 0.0, g = 1.0, b = 0.8},
+        exalted = {r = 0.0, g = 1.0, b = 1.0},
+        renown = {r = 0.0, g = 0.6, b = 1.0},
+        paragon = {r = 0.4, g = 0.8, b = 0.6},
+    },
+
+    delveCompColor = {r = 0.8, g = 0.4, b = 0.0},
     delveJourColor = {r = 0.0, g = 0.6, b = 0.8},
-    hideBlizz = false, 
-    repDisplayTime = 15, 
+    hideBlizz = true,
+    shortNumbers = true,
+    repDisplayTime = 15,
     journeyID = 2640, delveBrannID = 2640, delveValeeraID = 2744,
     autoHide = false, fadeDelay = 5, activeAlpha = 100, fadedAlpha = 0,
-    xpBarWidth = 400, xpBarHeight = 24, xpBarScale = 1.0, 
-    xpBarPos = {p = "BOTTOM", rP = "BOTTOM", x = 0, y = 150},
-    delveBarWidth = 300, delveBarHeight = 40, delveBarScale = 1.0, 
+    xpBarWidth = 650, xpBarHeight = 25, xpBarScale = 1.0,
+    xpBarPos = {p = "TOP", rP = "TOP", x = -56, y = -99},
+    delveBarWidth = 300, delveBarHeight = 40, delveBarScale = 1.0,
     delveBarPos = {p = "TOP", rP = "TOP", x = 0, y = -150},
-    toastEnabled = true, toastSound = false, 
-    toastPos = {p = "TOP", rP = "TOP", x = 0, y = -120},
-    xpFont = "Friz Quadrata TT", xpFontSize = 12, 
+    toastEnabled = true, toastSound = false,
+    toastPos = {p = "TOP", rP = "TOP", x = -22, y = -130},
+    xpFont = "Friz Quadrata TT", xpFontSize = 15,
     repMenuMod = "CTRL", favFactions = {}
 }
 
 OUS.Session = {
-    sessionXP = 0, 
-    sessionRep = {}, 
-    repCache = { renown = {}, paragon = {} }, 
+    sessionXP = 0,
+    sessionRep = {},
+    repCache = { renown = {}, paragon = {} },
     lastGainedFactionName = nil,
-    lastXP = 0, 
-    lastMaxXP = 0, 
-    lastXPGain = 0, 
-    forceRepDisplay = false, 
+    lastXP = 0,
+    lastMaxXP = 0,
+    lastXPGain = 0,
+    forceRepDisplay = false,
     repTimer = nil,
-    sleepTimer = nil, 
-    fadeTicker = nil, 
-    delveCheckTicker = nil, 
+    sleepTimer = nil,
+    fadeTicker = nil,
+    delveCheckTicker = nil,
     isTestingDelve = false
 }
 
 function OUS.DeepCopyTable(src)
     local dest = {}
-    for k, v in pairs(src) do 
+    for k, v in pairs(src) do
         if type(v) == "table" then 
             dest[k] = OUS.DeepCopyTable(v) 
         else 
-            dest[k] = v 
-        end 
+            dest[k] = v
+        end
     end
     return dest
 end
 
 function OUS.FormatLargeNumber(n)
-    if not n then return 0 end
-    if n >= 1000000 then 
+    if not n then return "0" end
+    
+    -- If the user disabled abbreviated numbers, format with standard commas
+    if OdysseusDB and OdysseusDB.xpBar and OdysseusDB.xpBar.shortNumbers == false then
+        local formatted = tostring(math.floor(n))
+        local k
+        while true do  
+            formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
+            if (k==0) then break end
+        end
+        return formatted
+    end
+    
+    -- Default behavior (Abbreviated: 1.5K, 2.3M)
+    if n >= 1000000 then
         return string.format("%.1fM", n / 1000000) 
     elseif n >= 1000 then 
         return string.format("%.1fK", n / 1000) 
-    else 
-        return tostring(n) 
+    else
+        return tostring(math.floor(n)) 
     end
 end
 

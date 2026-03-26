@@ -426,9 +426,7 @@ function OUS.UpdateBar()
         local restXP = GetXPExhaustion() or 0
         local ktl = "?"
         
-        if Session.lastXPGain > 0 then 
-            ktl = tostring(math.ceil((maxXP - curXP) / Session.lastXPGain)) 
-        end
+        if Session.lastXPGain > 0 then ktl = tostring(math.ceil((maxXP - curXP) / Session.lastXPGain)) end
         
         xpBar.progressBar:SetMinMaxValues(0, maxXP)
         xpBar.progressBar:SetValue(curXP)
@@ -443,7 +441,19 @@ function OUS.UpdateBar()
             xpBar.restedBar:Hide() 
         end
         
-        xpBar.text:SetText(ParseXPText(db.xpTemplate, curXP, maxXP, restXP, playerLevel, maxExpansionLevel, ktl, false, nil))
+        -- Apply Text Color
+        xpBar.text:SetTextColor(db.xpTextColor.r, db.xpTextColor.g, db.xpTextColor.b)
+        
+        local parsedText = ParseXPText(db.xpTemplate, curXP, maxXP, restXP, playerLevel, maxExpansionLevel, ktl, false, nil)
+        
+        -- FEATURE: Zzzz Resting Icon Injection!
+-- FEATURE: Zzzz Resting Icon Injection!
+        if IsResting() and db.showRestIcon then
+            -- 0:32:0:32 grabs the Top-Left quadrant (Zzzz). And we append parsedText AFTER it so it sits on the left!
+            parsedText = "|TInterface\\CharacterFrame\\UI-StateIcon:16:16:0:-2:64:64:0:32:0:32|t " .. parsedText
+        end
+        
+        xpBar.text:SetText(parsedText)
         xpBar:Show()
     else
         -- Render Reputation
@@ -453,23 +463,25 @@ function OUS.UpdateBar()
             if info then
                 xpBar.progressBar:SetMinMaxValues(0, info.maxRep)
                 xpBar.progressBar:SetValue(info.curRep)
-                xpBar.progressBar:SetStatusBarColor(db.repColor.r, db.repColor.g, db.repColor.b, 0.9)
+                
+                -- FEATURE: Dynamic Reputation Colors
+                local reactionToKey = { [1]="hated", [2]="hostile", [3]="unfriendly", [4]="neutral", [5]="friendly", [6]="honored", [7]="revered", [8]="exalted" }
+                local rColor = db.repColors.neutral -- Safe fallback
+                
+                if string.find(info.standingText, "Renown") then rColor = db.repColors.renown
+                elseif string.find(info.standingText, "Paragon") then rColor = db.repColors.paragon
+                elseif info.reaction and reactionToKey[info.reaction] then rColor = db.repColors[reactionToKey[info.reaction]] end
+                
+                xpBar.progressBar:SetStatusBarColor(rColor.r, rColor.g, rColor.b, 0.9)
+                xpBar.text:SetTextColor(db.repTextColor.r, db.repTextColor.g, db.repTextColor.b)
                 
                 local repText = ParseRepText(db.repTemplate, info.name, info.standingText, info.curRep, info.maxRep, info.isMaxed)
-                
-                -- FEATURE: PARAGON LOOT ICON INJECTION
-                if info.hasRewardPending then
-                    repText = repText .. " |TInterface\\Icons\\UI-LFG-Loot-Bag:16:16:0:0|t"
-                end
+                if info.hasRewardPending then repText = repText .. " |TInterface\\Icons\\UI-LFG-Loot-Bag:16:16:0:0|t" end
                 
                 xpBar.text:SetText(repText)
                 xpBar:Show()
-            else 
-                xpBar:Hide() 
-            end
-        else 
-            xpBar:Hide() 
-        end
+            else xpBar:Hide() end
+        else xpBar:Hide() end
     end
     
     OUS.UpdateDelveBar()

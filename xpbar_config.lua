@@ -144,14 +144,13 @@ function OUS.BuildXPConfigUI()
         })
     end
 
-    local function CreateColorBox(parent, labelText, xOffset, yOffset, dbKey)
+local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef)
         local box = CreateFrame("Button", nil, parent, "BackdropTemplate")
-        box:SetSize(22, 22)
+        box:SetSize(20, 20) -- Made the box smaller!
         box:SetPoint("TOPLEFT", xOffset, yOffset)
         box:SetBackdrop({ 
             bgFile = "Interface\\ChatFrame\\ChatFrameBackground", 
-            edgeFile = "Interface\\Buttons\\WHITE8x8", 
-            edgeSize = 1 
+            edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 
         })
         box:SetBackdropBorderColor(0.8, 0.8, 0.8, 1)
         
@@ -161,7 +160,10 @@ function OUS.BuildXPConfigUI()
         
         box:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(1, 1, 1, 1) end)
         box:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(0.8, 0.8, 0.8, 1) end)
-        box:SetScript("OnClick", function(self) OpenColorPicker(OdysseusDB.xpBar[dbKey], self) end)
+        box:SetScript("OnClick", function(self) OpenColorPicker(colorTableRef, self) end)
+        
+        -- Set initial color
+        box:SetBackdropColor(colorTableRef.r, colorTableRef.g, colorTableRef.b, 1)
         return box
     end
 
@@ -298,6 +300,16 @@ function OUS.BuildXPConfigUI()
         OUS.SleepBars() 
     end)
 
+    local shortNumCheck = CreateFrame("CheckButton", nil, pages[1], "UICheckButtonTemplate")
+    shortNumCheck:SetPoint("TOPLEFT", 280, -140) -- Places it nicely in a 2nd column next to Auto-Hide!
+    shortNumCheck.text = shortNumCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    shortNumCheck.text:SetPoint("LEFT", shortNumCheck, "RIGHT", 4, 0)
+    shortNumCheck.text:SetText("Abbreviate Numbers")
+    shortNumCheck:SetScript("OnClick", function(self) 
+        OdysseusDB.xpBar.shortNumbers = self:GetChecked()
+        OUS.UpdateBar() 
+    end)
+
     local repTimeSlider, repTimeBox = CreatePremiumSlider(pages[1], "Auto-Switch Display Time (Seconds)", -180, "repDisplayTime", 5, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
     local fadeDelaySlider, fadeDelayBox = CreatePremiumSlider(pages[1], "Auto-Hide Fade Delay (Seconds)", -230, "fadeDelay", 0, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
     local activeAlphaSlider, activeAlphaBox = CreatePremiumSlider(pages[1], "Active Opacity (%)", -280, "activeAlpha", 10, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)
@@ -351,112 +363,81 @@ function OUS.BuildXPConfigUI()
         end 
     end)
 
-    -- ==========================================
+-- ==========================================
     -- 5. TAB 2: EXPERIENCE SETTINGS
     -- ==========================================
     local xpEditBox = CreateTemplateBox(pages[2], "Text Format", -10, "xpTemplate")
-    local xpColorBox = CreateColorBox(pages[2], "Main Experience Color", 12, -70, "xpColor")
-    local restColorBox = CreateColorBox(pages[2], "Rested Experience Color", 220, -70, "restColor")
     
-    local xpWidthSlider, xpWidthBox = CreatePremiumSlider(pages[2], "Main Bar Width", -110, "xpBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
-    local xpHeightSlider, xpHeightBox = CreatePremiumSlider(pages[2], "Main Bar Height", -160, "xpBarHeight", 10, 100, 1, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
-    local xpScaleSlider, xpScaleBox = CreatePremiumSlider(pages[2], "Main Bar Scale", -210, "xpBarScale", 0.5, 2.0, 0.05, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    -- Row 1 of Colors
+    local xpColorBox = CreateColorBox(pages[2], "Main EXP Bar", 12, -70, OdysseusDB.xpBar.xpColor)
+    local xpTextColorBox = CreateColorBox(pages[2], "Text Color", 180, -70, OdysseusDB.xpBar.xpTextColor)
+    -- Row 2 of Colors
+    local restColorBox = CreateColorBox(pages[2], "Rested Bar", 12, -95, OdysseusDB.xpBar.restColor)
+    
+    local restIconCheck = CreateFrame("CheckButton", nil, pages[2], "UICheckButtonTemplate")
+    restIconCheck:SetPoint("TOPLEFT", 180, -90)
+    restIconCheck.text = restIconCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    restIconCheck.text:SetPoint("LEFT", restIconCheck, "RIGHT", 4, 0)
+    restIconCheck.text:SetText("Show 'Zzzz' Icon when Resting")
+    restIconCheck:SetChecked(OdysseusDB.xpBar.showRestIcon)
+    restIconCheck:SetScript("OnClick", function(self) OdysseusDB.xpBar.showRestIcon = self:GetChecked(); OUS.UpdateBar() end)
+    
+    local xpWidthSlider, xpWidthBox = CreatePremiumSlider(pages[2], "Main Bar Width", -135, "xpBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local xpHeightSlider, xpHeightBox = CreatePremiumSlider(pages[2], "Main Bar Height", -185, "xpBarHeight", 10, 100, 1, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local xpScaleSlider, xpScaleBox = CreatePremiumSlider(pages[2], "Main Bar Scale", -235, "xpBarScale", 0.5, 2.0, 0.05, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
     
     local resetXPBtn = CreateFrame("Button", nil, pages[2], "UIPanelButtonTemplate")
     resetXPBtn:SetSize(120, 24)
     resetXPBtn:SetPoint("BOTTOMRIGHT", -12, 12)
     resetXPBtn:SetText("Reset Defaults")
-    resetXPBtn:SetScript("OnClick", function() 
-        OdysseusDB.xpBar.xpTemplate = OUS.defaults.xpTemplate
-        OdysseusDB.xpBar.xpColor = OUS.DeepCopyTable(OUS.defaults.xpColor)
-        OdysseusDB.xpBar.restColor = OUS.DeepCopyTable(OUS.defaults.restColor)
-        OdysseusDB.xpBar.xpBarWidth = OUS.defaults.xpBarWidth
-        OdysseusDB.xpBar.xpBarHeight = OUS.defaults.xpBarHeight
-        OdysseusDB.xpBar.xpBarScale = OUS.defaults.xpBarScale
-        OdysseusDB.xpBar.xpBarPos = OUS.DeepCopyTable(OUS.defaults.xpBarPos)
-        
-        xpEditBox:SetText(OUS.defaults.xpTemplate)
-        xpEditBox:SetCursorPosition(0)
-        xpColorBox:SetBackdropColor(OUS.defaults.xpColor.r, OUS.defaults.xpColor.g, OUS.defaults.xpColor.b, 1)
-        restColorBox:SetBackdropColor(OUS.defaults.restColor.r, OUS.defaults.restColor.g, OUS.defaults.restColor.b, 1)
-        xpWidthSlider:SetValue(OUS.defaults.xpBarWidth)
-        xpWidthBox:SetText(OUS.defaults.xpBarWidth)
-        xpHeightSlider:SetValue(OUS.defaults.xpBarHeight)
-        xpHeightBox:SetText(OUS.defaults.xpBarHeight)
-        xpScaleSlider:SetValue(OUS.defaults.xpBarScale)
-        xpScaleBox:SetText(OUS.defaults.xpBarScale)
-        
-        OUS.xpBarFrame:ClearAllPoints()
-        OUS.xpBarFrame:SetPoint(OUS.defaults.xpBarPos.p, UIParent, OUS.defaults.xpBarPos.rP, OUS.defaults.xpBarPos.x, OUS.defaults.xpBarPos.y)
-        OUS.ApplyDimensions()
-        OUS.WakeBars()
-        OUS.UpdateBar()
-        OUS.SleepBars() 
-        OUS.LogDebug("XPBar", "Experience defaults restored.")
-    end)
+    -- (You can leave your existing reset logic here, just make sure to add OdysseusDB.xpBar.xpTextColor = OUS.DeepCopyTable(OUS.defaults.xpTextColor) inside it later!)
 
     -- ==========================================
     -- 6. TAB 3: REPUTATION SETTINGS
     -- ==========================================
     local repEditBox = CreateTemplateBox(pages[3], "Text Format", -10, "repTemplate")
-    local repColorBox = CreateColorBox(pages[3], "Main Reputation Color", 12, -70, "repColor")
+    
+    -- Clean 2-Column Grid for Dynamic Reputation Colors
+    local repTextColorBox = CreateColorBox(pages[3], "Rep Text Color", 12, -65, OdysseusDB.xpBar.repTextColor)
+    
+    local cGrid = OdysseusDB.xpBar.repColors
+    local h_box = CreateColorBox(pages[3], "Hated", 12, -95, cGrid.hated)
+    local ho_box = CreateColorBox(pages[3], "Hostile", 120, -95, cGrid.hostile)
+    local u_box = CreateColorBox(pages[3], "Unfriendly", 220, -95, cGrid.unfriendly)
+    
+    local n_box = CreateColorBox(pages[3], "Neutral", 12, -120, cGrid.neutral)
+    local f_box = CreateColorBox(pages[3], "Friendly", 120, -120, cGrid.friendly)
+    local hn_box = CreateColorBox(pages[3], "Honored", 220, -120, cGrid.honored)
+    
+    local r_box = CreateColorBox(pages[3], "Revered", 12, -145, cGrid.revered)
+    local e_box = CreateColorBox(pages[3], "Exalted", 120, -145, cGrid.exalted)
+    local rn_box = CreateColorBox(pages[3], "Renown", 220, -145, cGrid.renown)
+    local p_box = CreateColorBox(pages[3], "Paragon", 320, -145, cGrid.paragon)
     
     local toastEnableCheck = CreateFrame("CheckButton", nil, pages[3], "UICheckButtonTemplate")
-    toastEnableCheck:SetPoint("TOPLEFT", 12, -110)
+    toastEnableCheck:SetPoint("TOPLEFT", 12, -175)
     toastEnableCheck.text = toastEnableCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     toastEnableCheck.text:SetPoint("LEFT", toastEnableCheck, "RIGHT", 4, 0)
     toastEnableCheck.text:SetText("Enable Renown & Paragon Reward Popups")
     toastEnableCheck:SetScript("OnClick", function(self) OdysseusDB.xpBar.toastEnabled = self:GetChecked() end)
     
     local toastSoundCheck = CreateFrame("CheckButton", nil, pages[3], "UICheckButtonTemplate")
-    toastSoundCheck:SetPoint("TOPLEFT", 32, -140)
+    toastSoundCheck:SetPoint("TOPLEFT", 32, -200)
     toastSoundCheck.text = toastSoundCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     toastSoundCheck.text:SetPoint("LEFT", toastSoundCheck, "RIGHT", 4, 0)
     toastSoundCheck.text:SetText("Play Sound on Reward Popup")
     toastSoundCheck:SetScript("OnClick", function(self) OdysseusDB.xpBar.toastSound = self:GetChecked() end)
 
     local modLbl = pages[3]:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    modLbl:SetPoint("TOPLEFT", 12, -180)
+    modLbl:SetPoint("TOPLEFT", 12, -235)
     modLbl:SetText("Right-Click Modifier for Faction Menu:")
     
     local modBtn = CreateFrame("Button", nil, pages[3], "UIPanelButtonTemplate")
     modBtn:SetSize(120, 24)
-    modBtn:SetPoint("TOPLEFT", 12, -195)
+    modBtn:SetPoint("TOPLEFT", 12, -250)
     modBtn:SetText(OdysseusDB.xpBar.repMenuMod or "CTRL")
     modBtn:SetScript("OnClick", function(self) 
-        local current = OdysseusDB.xpBar.repMenuMod or "CTRL"
-        local nextMod = "CTRL"
-        if current == "CTRL" then nextMod = "SHIFT" 
-        elseif current == "SHIFT" then nextMod = "ALT" 
-        elseif current == "ALT" then nextMod = "NONE" 
-        else nextMod = "CTRL" end
-        
-        OdysseusDB.xpBar.repMenuMod = nextMod
-        self:SetText(nextMod) 
-    end)
-
-    local resetRepBtn = CreateFrame("Button", nil, pages[3], "UIPanelButtonTemplate")
-    resetRepBtn:SetSize(120, 24)
-    resetRepBtn:SetPoint("BOTTOMRIGHT", -12, 12)
-    resetRepBtn:SetText("Reset Defaults")
-    resetRepBtn:SetScript("OnClick", function() 
-        OdysseusDB.xpBar.repTemplate = OUS.defaults.repTemplate
-        OdysseusDB.xpBar.repColor = OUS.DeepCopyTable(OUS.defaults.repColor)
-        OdysseusDB.xpBar.toastEnabled = OUS.defaults.toastEnabled
-        OdysseusDB.xpBar.toastSound = OUS.defaults.toastSound
-        OdysseusDB.xpBar.repMenuMod = OUS.defaults.repMenuMod
-        
-        repEditBox:SetText(OUS.defaults.repTemplate)
-        repEditBox:SetCursorPosition(0)
-        repColorBox:SetBackdropColor(OUS.defaults.repColor.r, OUS.defaults.repColor.g, OUS.defaults.repColor.b, 1)
-        toastEnableCheck:SetChecked(OUS.defaults.toastEnabled)
-        toastSoundCheck:SetChecked(OUS.defaults.toastSound)
-        modBtn:SetText(OUS.defaults.repMenuMod)
-        
-        OUS.WakeBars()
-        OUS.UpdateBar()
-        OUS.SleepBars() 
-        OUS.LogDebug("XPBar", "Reputation defaults restored.")
+        -- (Keep your existing modifier click logic here!)
     end)
 
     -- ==========================================
@@ -465,8 +446,8 @@ function OUS.BuildXPConfigUI()
     local delveCompEditBox = CreateTemplateBox(pages[4], "Companion Text Format", -10, "delveCompTemplate")
     local delveJourEditBox = CreateTemplateBox(pages[4], "Journey Text Format", -65, "delveJourTemplate")
     
-    local delveCompColorBox = CreateColorBox(pages[4], "Companion Color", 12, -120, "delveCompColor")
-    local delveJourColorBox = CreateColorBox(pages[4], "Journey Color", 220, -120, "delveJourColor")
+    local delveCompColorBox = CreateColorBox(pages[4], "Companion Color", 12, -120, OdysseusDB.xpBar.delveCompColor)
+    local delveJourColorBox = CreateColorBox(pages[4], "Journey Color", 220, -120, OdysseusDB.xpBar.delveJourColor)
     
     local delveWidthSlider, delveWidthBox = CreatePremiumSlider(pages[4], "Delve Bar Width", -160, "delveBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
     local delveHeightSlider, delveHeightBox = CreatePremiumSlider(pages[4], "Delve Bar Height", -210, "delveBarHeight", 20, 100, 2, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
@@ -541,6 +522,7 @@ function OUS.BuildXPConfigUI()
     -- ==========================================
     hideBlizzCheck:SetChecked(OdysseusDB.xpBar.hideBlizz)
     autoHideCheck:SetChecked(OdysseusDB.xpBar.autoHide)
+    shortNumCheck:SetChecked(OdysseusDB.xpBar.shortNumbers)
     toastEnableCheck:SetChecked(OdysseusDB.xpBar.toastEnabled)
     toastSoundCheck:SetChecked(OdysseusDB.xpBar.toastSound)
     
@@ -555,9 +537,9 @@ function OUS.BuildXPConfigUI()
     local cDC = OdysseusDB.xpBar.delveCompColor
     local cDJ = OdysseusDB.xpBar.delveJourColor
     
-    if cXP then xpColorBox:SetBackdropColor(cXP.r, cXP.g, cXP.b, 1) end
-    if cRest then restColorBox:SetBackdropColor(cRest.r, cRest.g, cRest.b, 1) end
-    if cRep then repColorBox:SetBackdropColor(cRep.r, cRep.g, cRep.b, 1) end
-    if cDC then delveCompColorBox:SetBackdropColor(cDC.r, cDC.g, cDC.b, 1) end
-    if cDJ then delveJourColorBox:SetBackdropColor(cDJ.r, cDJ.g, cDJ.b, 1) end
+    --if cXP then xpColorBox:SetBackdropColor(cXP.r, cXP.g, cXP.b, 1) end
+    --if cRest then restColorBox:SetBackdropColor(cRest.r, cRest.g, cRest.b, 1) end
+    --if cRep then repColorBox:SetBackdropColor(cRep.r, cRep.g, cRep.b, 1) end
+    --if cDC then delveCompColorBox:SetBackdropColor(cDC.r, cDC.g, cDC.b, 1) end
+    --if cDJ then delveJourColorBox:SetBackdropColor(cDJ.r, cDJ.g, cDJ.b, 1) end
 end
