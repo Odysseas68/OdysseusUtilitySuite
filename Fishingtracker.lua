@@ -28,19 +28,148 @@ local sessionData = {
 -- 2. ZONE ID MAPPING FOR FISHING NAMES
 -- ==========================================
 local ZONE_FISHING_NAMES = {
-    -- Midnight
+    -- ======================================
+    -- MIDNIGHT (Your current list)
+    -- ======================================
     [2395] = "Midnight Fishing", [2567] = "Midnight Fishing", [2393] = "Midnight Fishing",
     [2443] = "Midnight Fishing", [2480] = "Midnight Fishing", [2405] = "Midnight Fishing",
     [2479] = "Midnight Fishing", [2437] = "Midnight Fishing", [2568] = "Midnight Fishing",
     [2531] = "Midnight Fishing", [2532] = "Midnight Fishing", [2529] = "Midnight Fishing",
-    [2530] = "Midnight Fishing", 
-    -- Khaz Algar
-    [2451] = "Khaz Algar Fishing",
-    -- Cataclysm
-    [198] = "Cataclysm Fishing", [201] = "Cataclysm Fishing", [203] = "Cataclysm Fishing",
-    [204] = "Cataclysm Fishing", [205] = "Cataclysm Fishing", [241] = "Cataclysm Fishing",
-    -- Legion
-    [41] = "Legion Fishing", 
+    [2530] = "Midnight Fishing",
+
+    -- ======================================
+    -- KHAZ ALGAR (The War Within)
+    -- ======================================
+    [2274] = "Khaz Algar Fishing", -- Continent
+    [2248] = "Khaz Algar Fishing", -- Isle of Dorn
+    [2339] = "Khaz Algar Fishing", -- Dornogal
+    [2214] = "Khaz Algar Fishing", -- The Ringing Deeps
+    [2215] = "Khaz Algar Fishing", -- Hallowfall
+    [2255] = "Khaz Algar Fishing", -- Azj-Kahet
+    [2213] = "Khaz Algar Fishing", -- City of Threads
+    [2451] = "Khaz Algar Fishing", -- Siren Isle
+
+    -- ======================================
+    -- DRAGON ISLES (Dragonflight)
+    -- ======================================
+    [1978] = "Isles Fishing", -- Continent
+    [2022] = "Isles Fishing", -- The Waking Shores
+    [2023] = "Isles Fishing", -- Ohn'ahran Plains
+    [2024] = "Isles Fishing", -- The Azure Span
+    [2025] = "Isles Fishing", -- Thaldraszus
+    [2112] = "Isles Fishing", -- Valdrakken
+    [2151] = "Isles Fishing", -- The Forbidden Reach
+    [2133] = "Isles Fishing", -- Zaralek Cavern
+    [2200] = "Isles Fishing", -- Emerald Dream
+
+    -- ======================================
+    -- SHADOWLANDS
+    -- ======================================
+    [1550] = "Shadowlands Fishing", -- Continent
+    [1525] = "Shadowlands Fishing", -- Revendreth
+    [1533] = "Shadowlands Fishing", -- Bastion
+    [1536] = "Shadowlands Fishing", -- Maldraxxus
+    [1543] = "Shadowlands Fishing", -- The Maw
+    [1565] = "Shadowlands Fishing", -- Ardenweald
+    [1670] = "Shadowlands Fishing", -- Oribos
+    [1961] = "Shadowlands Fishing", -- Korthia
+    [1970] = "Shadowlands Fishing", -- Zereth Mortis
+
+    -- ======================================
+    -- KUL TIRAS & ZANDALAR (Battle for Azeroth)
+    -- ======================================
+    [875] = "BfA Fishing", -- Zandalar Continent
+    [876] = "BfA Fishing", -- Kul Tiras Continent
+    [862] = "BfA Fishing", -- Zuldazar
+    [863] = "BfA Fishing", -- Nazmir
+    [864] = "BfA Fishing", -- Vol'dun
+    [895] = "BfA Fishing", -- Tiragarde Sound
+    [896] = "BfA Fishing", -- Drustvar
+    [942] = "BfA Fishing", -- Stormsong Valley
+    [1161] = "BfA Fishing", -- Boralus
+    [1165] = "BfA Fishing", -- Dazar'alor
+    [1355] = "BfA Fishing", -- Nazjatar
+    [1462] = "BfA Fishing", -- Mechagon
+
+    -- ======================================
+    -- BROKEN ISLES (Legion)
+    -- ======================================
+    [619] = "Legion Fishing", -- Continent
+    [627] = "Legion Fishing", -- Dalaran
+    [630] = "Legion Fishing", -- Azsuna
+    [634] = "Legion Fishing", -- Stormheim
+    [641] = "Legion Fishing", -- Val'sharah
+    [646] = "Legion Fishing", -- Broken Shore
+    [650] = "Legion Fishing", -- Highmountain
+    [680] = "Legion Fishing", -- Suramar
+    [830] = "Legion Fishing", -- Krokuun
+    [882] = "Legion Fishing", -- Mac'Aree
+    [885] = "Legion Fishing", -- Antoran Wastes
+
+    -- ======================================
+    -- DRAENOR (Warlords of Draenor)
+    -- ======================================
+    [572] = "Draenor Fishing", -- Continent
+    [525] = "Draenor Fishing", -- Frostfire Ridge
+    [534] = "Draenor Fishing", -- Tanaan Jungle
+    [535] = "Draenor Fishing", -- Talador
+    [542] = "Draenor Fishing", -- Spires of Arak
+    [543] = "Draenor Fishing", -- Gorgrond
+    [550] = "Draenor Fishing", -- Nagrand
+    [558] = "Draenor Fishing", -- Shadowmoon Valley
+
+    -- ======================================
+    -- PANDARIA (Mists of Pandaria)
+    -- ======================================
+    [424] = "Pandaria Fishing", -- Continent
+    [371] = "Pandaria Fishing", -- The Jade Forest
+    [376] = "Pandaria Fishing", -- Valley of the Four Winds
+    [378] = "Pandaria Fishing", -- Krasarang Wilds
+    [379] = "Pandaria Fishing", -- Kun-Lai Summit
+    [388] = "Pandaria Fishing", -- Townlong Steppes
+    [390] = "Pandaria Fishing", -- Vale of Eternal Blossoms
+    [418] = "Pandaria Fishing", -- Dread Wastes
+    [422] = "Pandaria Fishing", -- Timeless Isle
+
+    -- ======================================
+    -- CATACLYSM
+    -- ======================================
+    [198] = "Cataclysm Fishing", -- Mount Hyjal
+    [201] = "Cataclysm Fishing", -- Kelp'thar Forest
+    [203] = "Cataclysm Fishing", -- Vashj'ir
+    [204] = "Cataclysm Fishing", -- Abyssal Depths
+    [205] = "Cataclysm Fishing", -- Shimmering Expanse
+    [241] = "Cataclysm Fishing", -- Twilight Highlands
+    [245] = "Cataclysm Fishing", -- Tol Barad
+    [249] = "Cataclysm Fishing", -- Uldum
+    [207] = "Cataclysm Fishing", -- Deepholm
+
+    -- ======================================
+    -- NORTHREND (Wrath of the Lich King)
+    -- ======================================
+    [113] = "Northrend Fishing", -- Continent
+    [114] = "Northrend Fishing", -- Borean Tundra
+    [115] = "Northrend Fishing", -- Dragonblight
+    [116] = "Northrend Fishing", -- Grizzly Hills
+    [117] = "Northrend Fishing", -- Howling Fjord
+    [118] = "Northrend Fishing", -- Icecrown
+    [119] = "Northrend Fishing", -- Sholazar Basin
+    [120] = "Northrend Fishing", -- The Storm Peaks
+    [121] = "Northrend Fishing", -- Zul'Drak
+    [125] = "Northrend Fishing", -- Dalaran (Old)
+
+    -- ======================================
+    -- OUTLAND (The Burning Crusade)
+    -- ======================================
+    [101] = "Outland Fishing", -- Continent
+    [100] = "Outland Fishing", -- Hellfire Peninsula
+    [102] = "Outland Fishing", -- Zangarmarsh
+    [103] = "Outland Fishing", -- Terokkar Forest
+    [104] = "Outland Fishing", -- Nagrand (Old)
+    [105] = "Outland Fishing", -- Blade's Edge Mountains
+    [107] = "Outland Fishing", -- Netherstorm
+    [108] = "Outland Fishing", -- Shadowmoon Valley (Old)
+    [111] = "Outland Fishing", -- Shattrath City
 }
 
 local function FormatTimer(diff)
@@ -473,12 +602,17 @@ local function UpdateGlobalStatsFrame()
             end
             
             local row = statsRows[i]
-            local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(data.link)
-            local hex = select(4, GetItemQualityColor(itemQuality or 1))
-            local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
-            
-            row.icon:SetTexture(itemIcon)
-            row.name:SetText(colorPrefix .. (itemName or "Unknown") .. "|r")
+            row.name:SetText("Loading...")
+            row.icon:SetTexture(134400)
+
+            local item = Item:CreateFromItemLink(data.link)
+            item:ContinueOnItemLoad(function()
+                local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(data.link)
+                local hex = select(4, GetItemQualityColor(itemQuality or 1))
+                local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
+                row.icon:SetTexture(itemIcon)
+                row.name:SetText(colorPrefix .. (itemName or "Unknown") .. "|r")
+            end)
             row.count:SetText(data.count)
             
             local pct = (globalTotal > 0) and string.format("%.1f%%", (data.count / globalTotal) * 100) or "0%"
@@ -633,7 +767,11 @@ function OUS.UpdateFishingUI()
     local prof1, prof2, _, fishProf = GetProfessions()
     if fishProf then
         local name, icon, skillLevel, maxSkillLevel, numAbilities, spelloffset, skillLine, skillModifier = GetProfessionInfo(fishProf)
-        profText:SetText(customProfName or name)
+        if not customProfName and name == "Fishing" then
+            profText:SetText("Classic Fishing")
+        else
+            profText:SetText(customProfName or name)
+        end
         local modStr = ""
         if skillModifier > 0 then modStr = "|cFF00FF00+" .. skillModifier .. "|r" end
         skillText:SetText(string.format("(Skill: |cFFFFFF00%d|r%s)/%d", skillLevel, modStr, maxSkillLevel))
@@ -660,13 +798,21 @@ function OUS.UpdateFishingUI()
         for _, data in ipairs(sortedAreaCatches) do
             if not mainRows[rowIndex] then mainRows[rowIndex] = CreateFishRow(mainFrame) end
             local row = mainRows[rowIndex]
-            local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(data.link)
-            local hex = select(4, GetItemQualityColor(itemQuality or 1))
-            local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
-            
-            row.icon:SetTexture(itemIcon)
-            row.name:SetText(colorPrefix .. (itemName or "Unknown") .. "|r")
-            
+
+            -- Set temporary placeholders while the server fetches the data
+            row.name:SetText("Loading...")
+            row.icon:SetTexture(134400) -- Default question mark icon
+
+            -- Ask the server for the item, and wait for it to load
+            local item = Item:CreateFromItemLink(data.link)
+            item:ContinueOnItemLoad(function()
+                local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(data.link)
+                local hex = select(4, GetItemQualityColor(itemQuality or 1))
+                local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
+                row.icon:SetTexture(itemIcon)
+                row.name:SetText(colorPrefix .. (itemName or "Unknown") .. "|r")
+            end)
+
             local pct = (areaData.total > 0) and string.format("%.1f%%", (data.count / areaData.total) * 100) or "0%"
             row.count:SetText(data.count)
             row.pct:SetText(pct)
@@ -695,13 +841,19 @@ function OUS.UpdateFishingUI()
     for _, data in ipairs(sortedSessionCatches) do
         if not sessRows[sessIdx] then sessRows[sessIdx] = CreateFishRow(sessFrame) end
         local row = sessRows[sessIdx]
-        local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(data.link)
-        local hex = select(4, GetItemQualityColor(itemQuality or 1))
-        local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
-        
-        row.icon:SetTexture(itemIcon)
-        row.name:SetText(colorPrefix .. (itemName or "Unknown") .. "|r")
-        
+
+        row.name:SetText("Loading...")
+        row.icon:SetTexture(134400)
+
+        local item = Item:CreateFromItemLink(data.link)
+        item:ContinueOnItemLoad(function()
+            local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(data.link)
+            local hex = select(4, GetItemQualityColor(itemQuality or 1))
+            local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
+            row.icon:SetTexture(itemIcon)
+            row.name:SetText(colorPrefix .. (itemName or "Unknown") .. "|r")
+        end)
+
         local pct = (sessionData.total > 0) and string.format("%.1f%%", (data.count / sessionData.total) * 100) or "0%"
         row.count:SetText(data.count)
         row.pct:SetText(pct)
@@ -809,12 +961,25 @@ f:SetScript("OnEvent", function(self, event, ...)
     if event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START" then
         local unit, _, spellID = ...
         if unit == "player" and FISHING_SPELL_IDS[spellID] then
+            -- 1. The 3-Minute Grace Period Check
+            if (GetTime() - lastCastTime) > 180 then
+                sessionData.total = 0
+                sessionData.catches = {}
+                sessionAccumulatedTime = 0
+                fphUpdateTimer = 15 
+                lastCatchText:SetText("")
+                sessionPaused = false -- Clear the pause state on a hard reset
+                OUS.LogDebug("Fishing", "Session auto-reset after 3+ minutes of inactivity.")
+            end
+
             isFishingActive = true
             lastCastTime = GetTime()
             
-            if not sessionTimerActive and not sessionPaused then
+            -- 2. FIX: Auto-Resume the Timer
+            if not sessionTimerActive then
                 sessionStartTime = GetTime()
                 sessionTimerActive = true
+                sessionPaused = false
                 pauseBtn:SetText("Pause")
             end
             
