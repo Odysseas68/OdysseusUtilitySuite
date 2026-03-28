@@ -607,8 +607,8 @@ local function UpdateGlobalStatsFrame()
 
             local item = Item:CreateFromItemLink(data.link)
             item:ContinueOnItemLoad(function()
-                local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(data.link)
-                local hex = select(4, GetItemQualityColor(itemQuality or 1))
+                local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = C_Item.GetItemInfo(data.link)
+                local _, _, _, hex = C_Item.GetItemQualityColor(itemQuality or 1)
                 local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
                 row.icon:SetTexture(itemIcon)
                 row.name:SetText(colorPrefix .. (itemName or "Unknown") .. "|r")
@@ -806,8 +806,8 @@ function OUS.UpdateFishingUI()
             -- Ask the server for the item, and wait for it to load
             local item = Item:CreateFromItemLink(data.link)
             item:ContinueOnItemLoad(function()
-                local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(data.link)
-                local hex = select(4, GetItemQualityColor(itemQuality or 1))
+                local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = C_Item.GetItemInfo(data.link)
+                local _, _, _, hex = C_Item.GetItemQualityColor(itemQuality or 1)
                 local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
                 row.icon:SetTexture(itemIcon)
                 row.name:SetText(colorPrefix .. (itemName or "Unknown") .. "|r")
@@ -847,8 +847,8 @@ function OUS.UpdateFishingUI()
 
         local item = Item:CreateFromItemLink(data.link)
         item:ContinueOnItemLoad(function()
-            local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = GetItemInfo(data.link)
-            local hex = select(4, GetItemQualityColor(itemQuality or 1))
+            local itemName, _, itemQuality, _, _, _, _, _, _, itemIcon = C_Item.GetItemInfo(data.link)
+            local _, _, _, hex = C_Item.GetItemQualityColor(itemQuality or 1)
             local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
             row.icon:SetTexture(itemIcon)
             row.name:SetText(colorPrefix .. (itemName or "Unknown") .. "|r")
@@ -874,10 +874,10 @@ local function RecordCatch(itemLink, quantity)
     if not OdysseusDB or not OdysseusDB.fishingSettings then return end
     quantity = quantity or 1
     
-    local itemName, _, itemQuality = GetItemInfo(itemLink)
+    local itemName, _, itemQuality = C_Item.GetItemInfo(itemLink)
     local exactName = string.match(itemLink, "%[(.-)%]") or itemName or "Unknown"
     local itemID = string.match(itemLink, "item:(%d+)")
-    local hex = select(4, GetItemQualityColor(itemQuality or 1))
+    local _, _, _, hex = C_Item.GetItemQualityColor(itemQuality or 1)
     local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
     
     local coloredName = colorPrefix .. "[" .. exactName .. "]|r"
