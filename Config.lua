@@ -2,7 +2,7 @@ local addonName, OUS = ...
 local LSM = LibStub("LibSharedMedia-3.0")
 
 local cfg = CreateFrame("Frame", "OdysseusConfigFrame", UIParent, "BackdropTemplate")
-cfg:SetSize(650, 520) 
+cfg:SetSize(650, 620) 
 cfg:SetPoint("CENTER")
 cfg:SetFrameStrata("DIALOG") 
 cfg:Hide()
@@ -39,13 +39,13 @@ cfg.closeBtn = CreateFrame("Button", nil, cfg, "UIPanelCloseButton")
 cfg.closeBtn:SetPoint("TOPRIGHT", cfg, "TOPRIGHT", -2, -2)
 
 local navPanel = CreateFrame("Frame", nil, cfg, "BackdropTemplate")
-navPanel:SetSize(150, 470)
+navPanel:SetSize(150, 570)
 navPanel:SetPoint("TOPLEFT", cfg, "TOPLEFT", 4, -34)
 navPanel:SetBackdrop({ bgFile = "Interface\\ChatFrame\\ChatFrameBackground" })
 navPanel:SetBackdropColor(0, 0, 0, 0.3)
 
 local contentPanel = CreateFrame("Frame", nil, cfg)
-contentPanel:SetSize(480, 470)
+contentPanel:SetSize(480, 570)
 contentPanel:SetPoint("TOPLEFT", navPanel, "TOPRIGHT", 0, 0)
 
 local tabs = {}

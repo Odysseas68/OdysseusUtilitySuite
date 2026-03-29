@@ -249,7 +249,7 @@ hooksecurefunc(GameTooltip, "Show", function(self)
     if cost then
         local success, isGreaterThanZero = pcall(function() return cost > 0 end)
         if success and isGreaterThanZero then
-            local strSuccess, strVal = pcall(GetCoinTextureString, cost)
+            local strSuccess, strVal = pcall(C_CurrencyInfo.GetMoneyString, cost)
             if strSuccess and strVal then
                 showCost = true
                 costString = strVal

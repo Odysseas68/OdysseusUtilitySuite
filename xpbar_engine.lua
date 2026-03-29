@@ -6,6 +6,35 @@ local f = CreateFrame("Frame")
 local Session = OUS.Session
 local xpBar, delveBar, toast = OUS.xpBarFrame, OUS.delveBarFrame, OUS.toastFrame
 
+function OUS.ApplyXPBarBorders()
+    if not OdysseusDB or not OdysseusDB.xpBar then return end
+    local db = OdysseusDB.xpBar
+    local bName = db.barBorderName or "None"
+    local bPath = LibStub("LibSharedMedia-3.0"):Fetch("border", bName)
+    local bSize = db.barBorderSize or 16
+    local bColor = db.barBorderColor or {r=1, g=1, b=1}
+
+    local function ApplyToFrame(barFrame)
+        local borderFrame = barFrame.borderFrame
+        if not borderFrame then return end
+
+        if bPath and bName ~= "None" then
+            borderFrame:SetBackdrop({ edgeFile = bPath, edgeSize = bSize })
+            borderFrame:SetBackdropBorderColor(bColor.r, bColor.g, bColor.b, 1)
+            local offset = math.floor(bSize / 3)
+            borderFrame:ClearAllPoints()
+            borderFrame:SetPoint("TOPLEFT", barFrame, "TOPLEFT", -offset, offset)
+            borderFrame:SetPoint("BOTTOMRIGHT", barFrame, "BOTTOMRIGHT", offset, -offset)
+        else
+            borderFrame:SetBackdrop(nil)
+            borderFrame:ClearAllPoints()
+            borderFrame:SetAllPoints(barFrame)
+        end
+    end
+
+    ApplyToFrame(xpBar)
+    ApplyToFrame(delveBar)
+end
 -- ==========================================
 -- 2. CORE VISUAL HELPERS
 -- ==========================================
@@ -1081,6 +1110,7 @@ f:SetScript("OnEvent", function(self, event, arg1)
         toast:SetPoint(tP.p, UIParent, tP.rP, tP.x, tP.y)
         
         OUS.ApplyDimensions()
+        OUS.ApplyXPBarBorders()
         Session.lastXP, Session.lastMaxXP = UnitXP("player"), UnitXPMax("player")
         OUS.WakeBars()
         OUS.SleepBars()

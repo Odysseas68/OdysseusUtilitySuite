@@ -40,6 +40,9 @@ OUS.defaults = {
     delveJourColor = {r = 0.0, g = 0.6, b = 0.8},
     hideBlizz = true,
     shortNumbers = true,
+    barBorderName = "Blizzard Tooltip",
+    barBorderSize = 8,
+    barBorderColor = {r = 0.6, g = 0.2, b = 0.8},
     repDisplayTime = 15,
     journeyID = 2640, delveBrannID = 2640, delveValeeraID = 2744,
     autoHide = false, fadeDelay = 5, activeAlpha = 100, fadedAlpha = 0,
@@ -124,8 +127,8 @@ xpBar.progressBar = CreateFrame("StatusBar", nil, xpBar)
 xpBar.progressBar:SetAllPoints(true)
 xpBar.progressBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
-xpBar:SetBackdrop({ edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 })
-xpBar:SetBackdropBorderColor(0, 0, 0, 1)
+xpBar.borderFrame = CreateFrame("Frame", nil, xpBar, "BackdropTemplate")
+xpBar.borderFrame:SetFrameLevel(xpBar:GetFrameLevel() + 2)
 
 xpBar.text = xpBar.progressBar:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 xpBar.text:SetPoint("CENTER", xpBar, "CENTER", 0, 0)
@@ -143,8 +146,9 @@ end)
 -- Delve Bar
 OUS.delveBarFrame = CreateFrame("Frame", "OdysseusDelveBar", UIParent, "BackdropTemplate")
 local delveBar = OUS.delveBarFrame
-delveBar:SetBackdrop({ edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 })
-delveBar:SetBackdropBorderColor(0, 0, 0, 1)
+
+delveBar.borderFrame = CreateFrame("Frame", nil, delveBar, "BackdropTemplate")
+delveBar.borderFrame:SetFrameLevel(delveBar:GetFrameLevel() + 2)
 
 delveBar.bg = delveBar:CreateTexture(nil, "BACKGROUND")
 delveBar.bg:SetAllPoints(true)

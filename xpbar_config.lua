@@ -126,7 +126,8 @@ function OUS.BuildXPConfigUI()
         return editBox
     end
 
-    local function OpenColorPicker(dbColor, colorBoxFrame)
+    local function OpenColorPicker(dbColor, colorBoxFrame, onUpdateFunc)
+        local onUpdate = onUpdateFunc or OUS.UpdateBar
         ColorPickerFrame:SetupColorPickerAndShow({ 
             r = dbColor.r, g = dbColor.g, b = dbColor.b, 
             hasOpacity = false, 
@@ -134,17 +135,17 @@ function OUS.BuildXPConfigUI()
                 local r, g, b = ColorPickerFrame:GetColorRGB()
                 dbColor.r, dbColor.g, dbColor.b = r, g, b
                 colorBoxFrame:SetBackdropColor(r, g, b, 1)
-                OUS.UpdateBar() 
+                onUpdate() 
             end, 
             cancelFunc = function(previousValues) 
                 dbColor.r, dbColor.g, dbColor.b = previousValues.r, previousValues.g, previousValues.b
                 colorBoxFrame:SetBackdropColor(previousValues.r, previousValues.g, previousValues.b, 1)
-                OUS.UpdateBar() 
+                onUpdate() 
             end 
         })
     end
 
-local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef)
+    local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef, onUpdateFunc)
         local box = CreateFrame("Button", nil, parent, "BackdropTemplate")
         box:SetSize(20, 20) -- Made the box smaller!
         box:SetPoint("TOPLEFT", xOffset, yOffset)
@@ -160,7 +161,7 @@ local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef
         
         box:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(1, 1, 1, 1) end)
         box:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(0.8, 0.8, 0.8, 1) end)
-        box:SetScript("OnClick", function(self) OpenColorPicker(colorTableRef, self) end)
+        box:SetScript("OnClick", function(self) OpenColorPicker(colorTableRef, self, onUpdateFunc) end)
         
         -- Set initial color
         box:SetBackdropColor(colorTableRef.r, colorTableRef.g, colorTableRef.b, 1)
@@ -313,8 +314,28 @@ local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef
     local repTimeSlider, repTimeBox = CreatePremiumSlider(pages[1], "Auto-Switch Display Time (Seconds)", -180, "repDisplayTime", 5, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
     local fadeDelaySlider, fadeDelayBox = CreatePremiumSlider(pages[1], "Auto-Hide Fade Delay (Seconds)", -230, "fadeDelay", 0, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
     local activeAlphaSlider, activeAlphaBox = CreatePremiumSlider(pages[1], "Active Opacity (%)", -280, "activeAlpha", 10, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)
-    local fadedAlphaSlider, fadedAlphaBox = CreatePremiumSlider(pages[1], "Faded Opacity (%)", -330, "fadedAlpha", 0, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)
-    
+    local fadedAlphaSlider, fadedAlphaBox = CreatePremiumSlider(pages[1], "Faded Opacity (%)", -330, "fadedAlpha", 0, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)    
+
+    local borderLbl = pages[1]:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    borderLbl:SetPoint("TOPLEFT", 12, -380)
+    borderLbl:SetText("Bar Border Style (Requires LibSharedMedia):")
+
+    local borderBtn = CreateFrame("Button", nil, pages[1], "UIPanelButtonTemplate")
+    borderBtn:SetSize(200, 24)
+    borderBtn:SetPoint("TOPLEFT", borderLbl, "BOTTOMLEFT", 0, -4)
+    borderBtn:SetScript("OnClick", function(self)
+        if OUS.OpenDropDown then
+            OUS.OpenDropDown("border", OdysseusDB.xpBar.barBorderName, function(name)
+                OdysseusDB.xpBar.barBorderName = name
+                self:SetText(string.sub(tostring(name), 1, 25))
+                if OUS.ApplyXPBarBorders then OUS.ApplyXPBarBorders() end
+            end)
+        end
+    end)
+
+    local borderColorBox = CreateColorBox(pages[1], "Border Color", 230, -400, OdysseusDB.xpBar.barBorderColor, OUS.ApplyXPBarBorders)
+    local borderSizeSlider, borderSizeBox = CreatePremiumSlider(pages[1], "Bar Border Size", -430, "barBorderSize", 0, 50, 1, function() if OUS.ApplyXPBarBorders then OUS.ApplyXPBarBorders() end end)
+
     local resetGlobalBtn = CreateFrame("Button", nil, pages[1], "UIPanelButtonTemplate")
     resetGlobalBtn:SetSize(120, 24)
     resetGlobalBtn:SetPoint("BOTTOMRIGHT", -12, 12)
@@ -328,6 +349,9 @@ local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef
         OdysseusDB.xpBar.fadedAlpha = OUS.defaults.fadedAlpha
         OdysseusDB.xpBar.xpFont = OUS.defaults.xpFont
         OdysseusDB.xpBar.xpFontSize = OUS.defaults.xpFontSize
+        OdysseusDB.xpBar.barBorderName = OUS.defaults.barBorderName
+        OdysseusDB.xpBar.barBorderSize = OUS.defaults.barBorderSize
+        OdysseusDB.xpBar.barBorderColor = OUS.DeepCopyTable(OUS.defaults.barBorderColor)
         
         hideBlizzCheck:SetChecked(OUS.defaults.hideBlizz)
         autoHideCheck:SetChecked(OUS.defaults.autoHide)
@@ -342,9 +366,14 @@ local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef
         fontSizeSlider:SetValue(OUS.defaults.xpFontSize)
         fontSizeBox:SetText(OUS.defaults.xpFontSize)
         fontBtn:SetText(OUS.defaults.xpFont)
+        borderBtn:SetText(string.sub(tostring(OUS.defaults.barBorderName), 1, 25))
+        borderSizeSlider:SetValue(OUS.defaults.barBorderSize)
+        borderSizeBox:SetText(OUS.defaults.barBorderSize)
+        borderColorBox:SetBackdropColor(OUS.defaults.barBorderColor.r, OUS.defaults.barBorderColor.g, OUS.defaults.barBorderColor.b, 1)
         
         if ApplyBlizzardKiller then ApplyBlizzardKiller() end
         OUS.ApplyFonts()
+        if OUS.ApplyXPBarBorders then OUS.ApplyXPBarBorders() end
         OUS.WakeBars()
         OUS.SleepBars() 
         OUS.LogDebug("XPBar", "Global defaults restored.")
@@ -361,6 +390,9 @@ local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef
         if fontBtn then 
             fontBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.xpFont or "Friz Quadrata TT"), 1, 25)) 
         end 
+        if borderBtn then
+            borderBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.barBorderName or "None"), 1, 25))
+        end
     end)
 
 -- ==========================================
@@ -369,10 +401,10 @@ local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef
     local xpEditBox = CreateTemplateBox(pages[2], "Text Format", -10, "xpTemplate")
     
     -- Row 1 of Colors
-    local xpColorBox = CreateColorBox(pages[2], "Main EXP Bar", 12, -70, OdysseusDB.xpBar.xpColor)
-    local xpTextColorBox = CreateColorBox(pages[2], "Text Color", 180, -70, OdysseusDB.xpBar.xpTextColor)
+    local xpColorBox = CreateColorBox(pages[2], "Main EXP Bar", 12, -70, OdysseusDB.xpBar.xpColor, OUS.UpdateBar)
+    local xpTextColorBox = CreateColorBox(pages[2], "Text Color", 180, -70, OdysseusDB.xpBar.xpTextColor, OUS.UpdateBar)
     -- Row 2 of Colors
-    local restColorBox = CreateColorBox(pages[2], "Rested Bar", 12, -95, OdysseusDB.xpBar.restColor)
+    local restColorBox = CreateColorBox(pages[2], "Rested Bar", 12, -95, OdysseusDB.xpBar.restColor, OUS.UpdateBar)
     
     local restIconCheck = CreateFrame("CheckButton", nil, pages[2], "UICheckButtonTemplate")
     restIconCheck:SetPoint("TOPLEFT", 180, -90)
@@ -398,21 +430,21 @@ local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef
     local repEditBox = CreateTemplateBox(pages[3], "Text Format", -10, "repTemplate")
     
     -- Clean 2-Column Grid for Dynamic Reputation Colors
-    local repTextColorBox = CreateColorBox(pages[3], "Rep Text Color", 12, -65, OdysseusDB.xpBar.repTextColor)
+    local repTextColorBox = CreateColorBox(pages[3], "Rep Text Color", 12, -65, OdysseusDB.xpBar.repTextColor, OUS.UpdateBar)
     
     local cGrid = OdysseusDB.xpBar.repColors
-    local h_box = CreateColorBox(pages[3], "Hated", 12, -95, cGrid.hated)
-    local ho_box = CreateColorBox(pages[3], "Hostile", 120, -95, cGrid.hostile)
-    local u_box = CreateColorBox(pages[3], "Unfriendly", 220, -95, cGrid.unfriendly)
+    local h_box = CreateColorBox(pages[3], "Hated", 12, -95, cGrid.hated, OUS.UpdateBar)
+    local ho_box = CreateColorBox(pages[3], "Hostile", 120, -95, cGrid.hostile, OUS.UpdateBar)
+    local u_box = CreateColorBox(pages[3], "Unfriendly", 220, -95, cGrid.unfriendly, OUS.UpdateBar)
     
-    local n_box = CreateColorBox(pages[3], "Neutral", 12, -120, cGrid.neutral)
-    local f_box = CreateColorBox(pages[3], "Friendly", 120, -120, cGrid.friendly)
-    local hn_box = CreateColorBox(pages[3], "Honored", 220, -120, cGrid.honored)
+    local n_box = CreateColorBox(pages[3], "Neutral", 12, -120, cGrid.neutral, OUS.UpdateBar)
+    local f_box = CreateColorBox(pages[3], "Friendly", 120, -120, cGrid.friendly, OUS.UpdateBar)
+    local hn_box = CreateColorBox(pages[3], "Honored", 220, -120, cGrid.honored, OUS.UpdateBar)
     
-    local r_box = CreateColorBox(pages[3], "Revered", 12, -145, cGrid.revered)
-    local e_box = CreateColorBox(pages[3], "Exalted", 120, -145, cGrid.exalted)
-    local rn_box = CreateColorBox(pages[3], "Renown", 220, -145, cGrid.renown)
-    local p_box = CreateColorBox(pages[3], "Paragon", 320, -145, cGrid.paragon)
+    local r_box = CreateColorBox(pages[3], "Revered", 12, -145, cGrid.revered, OUS.UpdateBar)
+    local e_box = CreateColorBox(pages[3], "Exalted", 120, -145, cGrid.exalted, OUS.UpdateBar)
+    local rn_box = CreateColorBox(pages[3], "Renown", 220, -145, cGrid.renown, OUS.UpdateBar)
+    local p_box = CreateColorBox(pages[3], "Paragon", 320, -145, cGrid.paragon, OUS.UpdateBar)
     
     local toastEnableCheck = CreateFrame("CheckButton", nil, pages[3], "UICheckButtonTemplate")
     toastEnableCheck:SetPoint("TOPLEFT", 12, -175)
@@ -446,8 +478,8 @@ local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef
     local delveCompEditBox = CreateTemplateBox(pages[4], "Companion Text Format", -10, "delveCompTemplate")
     local delveJourEditBox = CreateTemplateBox(pages[4], "Journey Text Format", -65, "delveJourTemplate")
     
-    local delveCompColorBox = CreateColorBox(pages[4], "Companion Color", 12, -120, OdysseusDB.xpBar.delveCompColor)
-    local delveJourColorBox = CreateColorBox(pages[4], "Journey Color", 220, -120, OdysseusDB.xpBar.delveJourColor)
+    local delveCompColorBox = CreateColorBox(pages[4], "Companion Color", 12, -120, OdysseusDB.xpBar.delveCompColor, OUS.UpdateDelveBar)
+    local delveJourColorBox = CreateColorBox(pages[4], "Journey Color", 220, -120, OdysseusDB.xpBar.delveJourColor, OUS.UpdateDelveBar)
     
     local delveWidthSlider, delveWidthBox = CreatePremiumSlider(pages[4], "Delve Bar Width", -160, "delveBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
     local delveHeightSlider, delveHeightBox = CreatePremiumSlider(pages[4], "Delve Bar Height", -210, "delveBarHeight", 20, 100, 2, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
@@ -524,7 +556,8 @@ local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef
     autoHideCheck:SetChecked(OdysseusDB.xpBar.autoHide)
     shortNumCheck:SetChecked(OdysseusDB.xpBar.shortNumbers)
     toastEnableCheck:SetChecked(OdysseusDB.xpBar.toastEnabled)
-    toastSoundCheck:SetChecked(OdysseusDB.xpBar.toastSound)
+    toastSoundCheck:SetChecked(OdysseusDB.xpBar.toastSound)    
+    borderBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.barBorderName or "None"), 1, 25))
     
     xpEditBox:SetText(OdysseusDB.xpBar.xpTemplate or "")
     repEditBox:SetText(OdysseusDB.xpBar.repTemplate or "")
