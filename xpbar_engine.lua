@@ -236,9 +236,10 @@ local function GetActiveDelveCompanion()
 end
 
 local function IsPlayerInDelve()
-    if Session.isTestingDelve then return true end
-    local _, _, difficultyID = GetInstanceInfo()
-    if difficultyID and difficultyID >= 205 and difficultyID <= 220 then return true end
+    if Session.isTestingDelve then return true end    
+    if C_PartyInfo and C_PartyInfo.IsDelveInProgress then
+        return C_PartyInfo.IsDelveInProgress()
+    end
     return false
 end
 
@@ -1078,9 +1079,17 @@ f:RegisterEvent("UPDATE_FACTION")
 f:RegisterEvent("PLAYER_REGEN_DISABLED")
 f:RegisterEvent("PLAYER_REGEN_ENABLED")
 f:RegisterEvent("CHAT_MSG_COMBAT_FACTION_CHANGE")
-f:RegisterEvent("CHAT_MSG_SYSTEM") 
+f:RegisterEvent("CHAT_MSG_SYSTEM")
+f:RegisterEvent("PARTY_MEMBER_ENABLE")
+f:RegisterEvent("GROUP_LEFT")
 
 f:SetScript("OnEvent", function(self, event, arg1)
+    -- ADDON_LOADED must always run to initialize the database and frames.
+    -- All other events will be guarded by the module toggle.
+    if event ~= "ADDON_LOADED" then
+        if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
+    end
+
     if event == "ADDON_LOADED" and arg1 == addonName then
         OdysseusDB = OdysseusDB or {}
         OdysseusDB.xpBar = OdysseusDB.xpBar or {}
@@ -1114,16 +1123,26 @@ f:SetScript("OnEvent", function(self, event, arg1)
         Session.lastXP, Session.lastMaxXP = UnitXP("player"), UnitXPMax("player")
         OUS.WakeBars()
         OUS.SleepBars()
+
+        if OdysseusDB and OdysseusDB.modules and not OdysseusDB.modules.xpBar then
+            xpBar:Hide()
+            delveBar:Hide()
+        end
+
         OUS.LogDebug("XPBar", "Engine Loaded & Initialized.")
         
     elseif event == "PLAYER_ENTERING_WORLD" or event == "ZONE_CHANGED_NEW_AREA" then
         ApplyBlizzardKiller()
-        TriggerAggressiveDelveCheck()
+        -- Perform an immediate update. This will instantly hide the bar when leaving a delve.
+        OUS.UpdateBar()
+        -- The aggressive check is only needed if the immediate check didn't already show the bar.
+        -- This handles the edge case of entering a delve where the API is slow to update.
+        if not delveBar:IsShown() then TriggerAggressiveDelveCheck() end
         ScanFactionsForPopups(true)
         OUS.WakeBars()
         OUS.SleepBars()
         
-    elseif event == "SCENARIO_UPDATE" or event == "UPDATE_INSTANCE_INFO" then
+    elseif event == "SCENARIO_UPDATE" or event == "UPDATE_INSTANCE_INFO" or event == "PARTY_MEMBER_ENABLE" or event == "GROUP_LEFT" then
         OUS.UpdateBar()
         
     elseif event == "PLAYER_XP_UPDATE" then

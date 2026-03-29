@@ -18,6 +18,19 @@ local currentStartShort = "Unknown"
 
 OUS.isFlightBarUnlocked = false
 
+OUS.flightDefaults = {
+    width = 200,
+    height = 20,
+    scale = 1.0,
+    fontSize = 12,
+    borderSize = 16,
+    borderName = "None",
+    fontName = "Friz Quadrata TT",
+    textureName = "Blizzard",
+    color = {r = 1, g = 0.7, b = 0},
+    showTooltips = true,
+}
+
 local function GetShortName(name)
     if not name then return "Unknown" end
     local shortName = string.match(name, "^([^,]+)")
@@ -360,6 +373,17 @@ f:SetScript("OnEvent", function(self, event, arg1)
     if event == "ADDON_LOADED" and arg1 == addonName then
         OdysseusDB = OdysseusDB or {}
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}
+
+        -- Merge in any missing defaults
+        for k, v in pairs(OUS.flightDefaults) do
+            if OdysseusDB.flightSettings[k] == nil then
+                if type(v) == "table" then
+                    OdysseusDB.flightSettings[k] = OUS.DeepCopyTable(v)
+                else
+                    OdysseusDB.flightSettings[k] = v
+                end
+            end
+        end
         OdysseusDB.flightSettings.times = OdysseusDB.flightSettings.times or {}
         
         if OdysseusDB.flightSettings.pos then
@@ -367,8 +391,21 @@ f:SetScript("OnEvent", function(self, event, arg1)
             timerBar:ClearAllPoints()
             timerBar:SetPoint(p[1], UIParent, p[2], p[3], p[4])
         end
-        if OdysseusDB.flightSettings.color then timerBar:SetStatusBarColor(unpack(OdysseusDB.flightSettings.color)) else timerBar:SetStatusBarColor(1, 0.7, 0) end
-        
+
+        -- Data Migration & Defaulting for color table
+        local c = OdysseusDB.flightSettings.color
+        if not c then
+            -- Fresh install, set default keyed table
+            OdysseusDB.flightSettings.color = {r = 1, g = 0.7, b = 0}
+        elseif c[1] and not c.r then
+            -- Old numeric array format detected, migrate it
+            OdysseusDB.flightSettings.color = {r = c[1], g = c[2], b = c[3]}
+        end
+
+        -- Now we can safely apply the color from the (now guaranteed) keyed table
+        local finalColor = OdysseusDB.flightSettings.color
+        timerBar:SetStatusBarColor(finalColor.r, finalColor.g, finalColor.b)
+
         OUS.LogDebug("Flight", "Database loaded successfully.")
     end
     
