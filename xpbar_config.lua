@@ -291,7 +291,29 @@ function OUS.BuildXPConfigUI()
     resetXPBtn:SetSize(120, 24)
     resetXPBtn:SetPoint("BOTTOMRIGHT", -12, 12)
     resetXPBtn:SetText("Reset Defaults")
-    -- (You can leave your existing reset logic here, just make sure to add OdysseusDB.xpBar.xpTextColor = OUS.DeepCopyTable(OUS.defaults.xpTextColor) inside it later!)
+    resetXPBtn:SetScript("OnClick", function()
+        OdysseusDB.xpBar.xpTemplate = OUS.defaults.xpTemplate
+        OdysseusDB.xpBar.xpColor = OUS.DeepCopyTable(OUS.defaults.xpColor)
+        OdysseusDB.xpBar.xpTextColor = OUS.DeepCopyTable(OUS.defaults.xpTextColor)
+        OdysseusDB.xpBar.restColor = OUS.DeepCopyTable(OUS.defaults.restColor)
+        OdysseusDB.xpBar.showRestIcon = OUS.defaults.showRestIcon
+        OdysseusDB.xpBar.xpBarWidth = OUS.defaults.xpBarWidth
+        OdysseusDB.xpBar.xpBarHeight = OUS.defaults.xpBarHeight
+        OdysseusDB.xpBar.xpBarScale = OUS.defaults.xpBarScale
+
+        xpEditBox:SetText(OUS.defaults.xpTemplate)
+        xpColorBox:SetBackdropColor(OUS.defaults.xpColor.r, OUS.defaults.xpColor.g, OUS.defaults.xpColor.b, 1)
+        xpTextColorBox:SetBackdropColor(OUS.defaults.xpTextColor.r, OUS.defaults.xpTextColor.g, OUS.defaults.xpTextColor.b, 1)
+        restColorBox:SetBackdropColor(OUS.defaults.restColor.r, OUS.defaults.restColor.g, OUS.defaults.restColor.b, 1)
+        restIconCheck:SetChecked(OUS.defaults.showRestIcon)
+        xpWidthSlider:SetValue(OUS.defaults.xpBarWidth)
+        xpWidthBox:SetText(OUS.defaults.xpBarWidth)
+        xpHeightSlider:SetValue(OUS.defaults.xpBarHeight)
+        xpHeightBox:SetText(OUS.defaults.xpBarHeight)
+        xpScaleSlider:SetValue(OUS.defaults.xpBarScale)
+        xpScaleBox:SetText(OUS.defaults.xpBarScale)
+        OUS.LogDebug("XPBar", "Experience tab defaults restored.")
+    end)
 
     -- ==========================================
     -- 6. TAB 3: REPUTATION SETTINGS
@@ -336,9 +358,49 @@ function OUS.BuildXPConfigUI()
     local modBtn = CreateFrame("Button", nil, pages[3], "UIPanelButtonTemplate")
     modBtn:SetSize(120, 24)
     modBtn:SetPoint("TOPLEFT", 12, -250)
-    modBtn:SetText(OdysseusDB.xpBar.repMenuMod or "CTRL")
     modBtn:SetScript("OnClick", function(self) 
-        -- (Keep your existing modifier click logic here!)
+        local modifiers = {"CTRL", "SHIFT", "ALT", "NONE"}
+        local currentMod = self:GetText()
+        local currentIndex = 1
+        for i, v in ipairs(modifiers) do if v == currentMod then currentIndex = i; break end end
+        local nextIndex = (currentIndex % #modifiers) + 1
+        local newMod = modifiers[nextIndex]
+        self:SetText(newMod)
+        OdysseusDB.xpBar.repMenuMod = newMod
+    end)
+
+    local resetRepBtn = CreateFrame("Button", nil, pages[3], "UIPanelButtonTemplate")
+    resetRepBtn:SetSize(120, 24)
+    resetRepBtn:SetPoint("BOTTOMRIGHT", -12, 12)
+    resetRepBtn:SetText("Reset Defaults")
+    resetRepBtn:SetScript("OnClick", function()
+        OdysseusDB.xpBar.repTemplate = OUS.defaults.repTemplate
+        OdysseusDB.xpBar.repTextColor = OUS.DeepCopyTable(OUS.defaults.repTextColor)
+        OdysseusDB.xpBar.repColors = OUS.DeepCopyTable(OUS.defaults.repColors)
+        OdysseusDB.xpBar.toastEnabled = OUS.defaults.toastEnabled
+        OdysseusDB.xpBar.toastSound = OUS.defaults.toastSound
+        OdysseusDB.xpBar.repMenuMod = OUS.defaults.repMenuMod
+
+        repEditBox:SetText(OUS.defaults.repTemplate)
+        repTextColorBox:SetBackdropColor(OUS.defaults.repTextColor.r, OUS.defaults.repTextColor.g, OUS.defaults.repTextColor.b, 1)
+        toastEnableCheck:SetChecked(OUS.defaults.toastEnabled)
+        toastSoundCheck:SetChecked(OUS.defaults.toastSound)
+        modBtn:SetText(OUS.defaults.repMenuMod)
+
+        local c = OUS.defaults.repColors
+        h_box:SetBackdropColor(c.hated.r, c.hated.g, c.hated.b, 1)
+        ho_box:SetBackdropColor(c.hostile.r, c.hostile.g, c.hostile.b, 1)
+        u_box:SetBackdropColor(c.unfriendly.r, c.unfriendly.g, c.unfriendly.b, 1)
+        n_box:SetBackdropColor(c.neutral.r, c.neutral.g, c.neutral.b, 1)
+        f_box:SetBackdropColor(c.friendly.r, c.friendly.g, c.friendly.b, 1)
+        hn_box:SetBackdropColor(c.honored.r, c.honored.g, c.honored.b, 1)
+        r_box:SetBackdropColor(c.revered.r, c.revered.g, c.revered.b, 1)
+        e_box:SetBackdropColor(c.exalted.r, c.exalted.g, c.exalted.b, 1)
+        rn_box:SetBackdropColor(c.renown.r, c.renown.g, c.renown.b, 1)
+        p_box:SetBackdropColor(c.paragon.r, c.paragon.g, c.paragon.b, 1)
+
+        OUS.UpdateBar()
+        OUS.LogDebug("XPBar", "Reputation tab defaults restored.")
     end)
 
     -- ==========================================
@@ -427,21 +489,10 @@ function OUS.BuildXPConfigUI()
     toastEnableCheck:SetChecked(OdysseusDB.xpBar.toastEnabled)
     toastSoundCheck:SetChecked(OdysseusDB.xpBar.toastSound)    
     borderBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.barBorderName or "None"), 1, 25))
-    
+
     xpEditBox:SetText(OdysseusDB.xpBar.xpTemplate or "")
     repEditBox:SetText(OdysseusDB.xpBar.repTemplate or "")
     delveCompEditBox:SetText(OdysseusDB.xpBar.delveCompTemplate or "")
     delveJourEditBox:SetText(OdysseusDB.xpBar.delveJourTemplate or "")
-    
-    local cXP = OdysseusDB.xpBar.xpColor
-    local cRest = OdysseusDB.xpBar.restColor
-    local cRep = OdysseusDB.xpBar.repColor
-    local cDC = OdysseusDB.xpBar.delveCompColor
-    local cDJ = OdysseusDB.xpBar.delveJourColor
-    
-    --if cXP then xpColorBox:SetBackdropColor(cXP.r, cXP.g, cXP.b, 1) end
-    --if cRest then restColorBox:SetBackdropColor(cRest.r, cRest.g, cRest.b, 1) end
-    --if cRep then repColorBox:SetBackdropColor(cRep.r, cRep.g, cRep.b, 1) end
-    --if cDC then delveCompColorBox:SetBackdropColor(cDC.r, cDC.g, cDC.b, 1) end
-    --if cDJ then delveJourColorBox:SetBackdropColor(cDJ.r, cDJ.g, cDJ.b, 1) end
+    modBtn:SetText(OdysseusDB.xpBar.repMenuMod or "CTRL")
 end
