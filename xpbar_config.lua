@@ -126,141 +126,10 @@ function OUS.BuildXPConfigUI()
         return editBox
     end
 
-    local function OpenColorPicker(dbColor, colorBoxFrame, onUpdateFunc)
-        local onUpdate = onUpdateFunc or OUS.UpdateBar
-        ColorPickerFrame:SetupColorPickerAndShow({ 
-            r = dbColor.r, g = dbColor.g, b = dbColor.b, 
-            hasOpacity = false, 
-            swatchFunc = function() 
-                local r, g, b = ColorPickerFrame:GetColorRGB()
-                dbColor.r, dbColor.g, dbColor.b = r, g, b
-                colorBoxFrame:SetBackdropColor(r, g, b, 1)
-                onUpdate() 
-            end, 
-            cancelFunc = function(previousValues) 
-                dbColor.r, dbColor.g, dbColor.b = previousValues.r, previousValues.g, previousValues.b
-                colorBoxFrame:SetBackdropColor(previousValues.r, previousValues.g, previousValues.b, 1)
-                onUpdate() 
-            end 
-        })
-    end
-
-    local function CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef, onUpdateFunc)
-        local box = CreateFrame("Button", nil, parent, "BackdropTemplate")
-        box:SetSize(20, 20) -- Made the box smaller!
-        box:SetPoint("TOPLEFT", xOffset, yOffset)
-        box:SetBackdrop({ 
-            bgFile = "Interface\\ChatFrame\\ChatFrameBackground", 
-            edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 
-        })
-        box:SetBackdropBorderColor(0.8, 0.8, 0.8, 1)
-        
-        local text = box:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-        text:SetPoint("LEFT", box, "RIGHT", 6, 0)
-        text:SetText(labelText)
-        
-        box:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(1, 1, 1, 1) end)
-        box:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(0.8, 0.8, 0.8, 1) end)
-        box:SetScript("OnClick", function(self) OpenColorPicker(colorTableRef, self, onUpdateFunc) end)
-        
-        -- Set initial color
-        box:SetBackdropColor(colorTableRef.r, colorTableRef.g, colorTableRef.b, 1)
-        return box
-    end
-
-    local sliderCounter = 1
-    local function CreatePremiumSlider(parent, titleText, yOffset, dbKey, minVal, maxVal, step, onUpdate)
-        local sliderName = "OdysseusXPSlider" .. sliderCounter
-        sliderCounter = sliderCounter + 1
-        
-        local container = CreateFrame("Frame", nil, parent)
-        container:SetSize(450, 40)
-        container:SetPoint("TOPLEFT", 12, yOffset)
-        
-        local title = container:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-        title:SetPoint("TOPLEFT", 0, 0)
-        title:SetText(titleText)
-        
-        local btnMinus = CreateFrame("Button", nil, container, "UIPanelButtonTemplate")
-        btnMinus:SetSize(20, 20)
-        btnMinus:SetPoint("BOTTOMLEFT", 0, 0)
-        btnMinus:SetText("<")
-        
-        local slider = CreateFrame("Slider", sliderName, container, "OptionsSliderTemplate")
-        slider:SetPoint("LEFT", btnMinus, "RIGHT", 6, 0)
-        slider:SetWidth(250)
-        slider:SetMinMaxValues(minVal, maxVal)
-        slider:SetValueStep(step)
-        slider:SetObeyStepOnDrag(true)
-        
-        _G[slider:GetName() .. "Text"]:SetText("")
-        _G[slider:GetName() .. "Low"]:SetText("")
-        _G[slider:GetName() .. "High"]:SetText("")
-        
-        local btnPlus = CreateFrame("Button", nil, container, "UIPanelButtonTemplate")
-        btnPlus:SetSize(20, 20)
-        btnPlus:SetPoint("LEFT", slider, "RIGHT", 6, 0)
-        btnPlus:SetText(">")
-        
-        local editBg = CreateFrame("Frame", nil, container, "BackdropTemplate")
-        editBg:SetSize(40, 22)
-        editBg:SetPoint("LEFT", btnPlus, "RIGHT", 10, 0)
-        editBg:SetBackdrop({ 
-            bgFile = "Interface\\ChatFrame\\ChatFrameBackground", 
-            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", 
-            tile = false, edgeSize = 12, 
-            insets = { left = 2, right = 2, top = 2, bottom = 2 }
-        })
-        editBg:SetBackdropColor(0.03, 0.02, 0.05, 0.8)
-        
-        local editBox = CreateFrame("EditBox", nil, editBg)
-        editBox:SetFontObject("GameFontHighlightSmall")
-        editBox:SetPoint("TOPLEFT", 4, -2)
-        editBox:SetPoint("BOTTOMRIGHT", -4, 2)
-        editBox:SetAutoFocus(false)
-        editBox:SetJustifyH("CENTER")
-
-        local initVal = OdysseusDB.xpBar[dbKey] or minVal
-        slider:SetValue(initVal)
-        editBox:SetText(initVal)
-
-        btnMinus:SetScript("OnClick", function() slider:SetValue(slider:GetValue() - step) end)
-        btnPlus:SetScript("OnClick", function() slider:SetValue(slider:GetValue() + step) end)
-        
-        editBox:SetScript("OnEscapePressed", function(self) 
-            self:ClearFocus()
-            self:SetText(slider:GetValue()) 
-        end)
-        
-        editBox:SetScript("OnEnterPressed", function(self) 
-            self:ClearFocus()
-            local val = tonumber(self:GetText())
-            if val then 
-                val = math.max(minVal, math.min(maxVal, val))
-                slider:SetValue(val) 
-            else 
-                self:SetText(slider:GetValue()) 
-            end 
-        end)
-        
-        slider:SetScript("OnValueChanged", function(self, value) 
-            local snappedValue 
-            if step < 1 then 
-                snappedValue = math.floor(value * 100 + 0.5) / 100 
-            else 
-                snappedValue = math.floor(value + 0.5) 
-            end
-            OdysseusDB.xpBar[dbKey] = snappedValue
-            editBox:SetText(snappedValue)
-            if onUpdate then onUpdate() end 
-        end)
-        return slider, editBox
-    end
-
     -- ==========================================
     -- 4. TAB 1: GLOBAL SETTINGS
     -- ==========================================
-    local fontSizeSlider, fontSizeBox = CreatePremiumSlider(pages[1], "Global Font Size", -10, "xpFontSize", 8, 32, 1, OUS.ApplyFonts)
+    local fontSizeSlider, fontSizeBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Global Font Size", -10, "xpFontSize", 8, 32, 1, OUS.ApplyFonts)
     
     local fontLbl = pages[1]:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     fontLbl:SetPoint("TOPLEFT", 12, -60)
@@ -311,10 +180,10 @@ function OUS.BuildXPConfigUI()
         OUS.UpdateBar() 
     end)
 
-    local repTimeSlider, repTimeBox = CreatePremiumSlider(pages[1], "Auto-Switch Display Time (Seconds)", -180, "repDisplayTime", 5, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
-    local fadeDelaySlider, fadeDelayBox = CreatePremiumSlider(pages[1], "Auto-Hide Fade Delay (Seconds)", -230, "fadeDelay", 0, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
-    local activeAlphaSlider, activeAlphaBox = CreatePremiumSlider(pages[1], "Active Opacity (%)", -280, "activeAlpha", 10, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)
-    local fadedAlphaSlider, fadedAlphaBox = CreatePremiumSlider(pages[1], "Faded Opacity (%)", -330, "fadedAlpha", 0, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)    
+    local repTimeSlider, repTimeBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Auto-Switch Display Time (Seconds)", -180, "repDisplayTime", 5, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
+    local fadeDelaySlider, fadeDelayBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Auto-Hide Fade Delay (Seconds)", -230, "fadeDelay", 0, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
+    local activeAlphaSlider, activeAlphaBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Active Opacity (%)", -280, "activeAlpha", 10, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)
+    local fadedAlphaSlider, fadedAlphaBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Faded Opacity (%)", -330, "fadedAlpha", 0, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)    
 
     local borderLbl = pages[1]:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     borderLbl:SetPoint("TOPLEFT", 12, -380)
@@ -333,8 +202,8 @@ function OUS.BuildXPConfigUI()
         end
     end)
 
-    local borderColorBox = CreateColorBox(pages[1], "Border Color", 230, -400, OdysseusDB.xpBar.barBorderColor, OUS.ApplyXPBarBorders)
-    local borderSizeSlider, borderSizeBox = CreatePremiumSlider(pages[1], "Bar Border Size", -430, "barBorderSize", 0, 50, 1, function() if OUS.ApplyXPBarBorders then OUS.ApplyXPBarBorders() end end)
+    local borderColorBox = OUS.CreateColorBox(pages[1], "Border Color", 230, -400, OdysseusDB.xpBar.barBorderColor, OUS.ApplyXPBarBorders)
+    local borderSizeSlider, borderSizeBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Bar Border Size", -430, "barBorderSize", 0, 50, 1, function() if OUS.ApplyXPBarBorders then OUS.ApplyXPBarBorders() end end)
 
     local resetGlobalBtn = CreateFrame("Button", nil, pages[1], "UIPanelButtonTemplate")
     resetGlobalBtn:SetSize(120, 24)
@@ -401,10 +270,10 @@ function OUS.BuildXPConfigUI()
     local xpEditBox = CreateTemplateBox(pages[2], "Text Format", -10, "xpTemplate")
     
     -- Row 1 of Colors
-    local xpColorBox = CreateColorBox(pages[2], "Main EXP Bar", 12, -70, OdysseusDB.xpBar.xpColor, OUS.UpdateBar)
-    local xpTextColorBox = CreateColorBox(pages[2], "Text Color", 180, -70, OdysseusDB.xpBar.xpTextColor, OUS.UpdateBar)
+    local xpColorBox = OUS.CreateColorBox(pages[2], "Main EXP Bar", 12, -70, OdysseusDB.xpBar.xpColor, OUS.UpdateBar)
+    local xpTextColorBox = OUS.CreateColorBox(pages[2], "Text Color", 180, -70, OdysseusDB.xpBar.xpTextColor, OUS.UpdateBar)
     -- Row 2 of Colors
-    local restColorBox = CreateColorBox(pages[2], "Rested Bar", 12, -95, OdysseusDB.xpBar.restColor, OUS.UpdateBar)
+    local restColorBox = OUS.CreateColorBox(pages[2], "Rested Bar", 12, -95, OdysseusDB.xpBar.restColor, OUS.UpdateBar)
     
     local restIconCheck = CreateFrame("CheckButton", nil, pages[2], "UICheckButtonTemplate")
     restIconCheck:SetPoint("TOPLEFT", 180, -90)
@@ -414,9 +283,9 @@ function OUS.BuildXPConfigUI()
     restIconCheck:SetChecked(OdysseusDB.xpBar.showRestIcon)
     restIconCheck:SetScript("OnClick", function(self) OdysseusDB.xpBar.showRestIcon = self:GetChecked(); OUS.UpdateBar() end)
     
-    local xpWidthSlider, xpWidthBox = CreatePremiumSlider(pages[2], "Main Bar Width", -135, "xpBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
-    local xpHeightSlider, xpHeightBox = CreatePremiumSlider(pages[2], "Main Bar Height", -185, "xpBarHeight", 10, 100, 1, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
-    local xpScaleSlider, xpScaleBox = CreatePremiumSlider(pages[2], "Main Bar Scale", -235, "xpBarScale", 0.5, 2.0, 0.05, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local xpWidthSlider, xpWidthBox = OUS.CreatePremiumSlider(pages[2], OdysseusDB.xpBar, "Main Bar Width", -135, "xpBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local xpHeightSlider, xpHeightBox = OUS.CreatePremiumSlider(pages[2], OdysseusDB.xpBar, "Main Bar Height", -185, "xpBarHeight", 10, 100, 1, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local xpScaleSlider, xpScaleBox = OUS.CreatePremiumSlider(pages[2], OdysseusDB.xpBar, "Main Bar Scale", -235, "xpBarScale", 0.5, 2.0, 0.05, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
     
     local resetXPBtn = CreateFrame("Button", nil, pages[2], "UIPanelButtonTemplate")
     resetXPBtn:SetSize(120, 24)
@@ -430,21 +299,21 @@ function OUS.BuildXPConfigUI()
     local repEditBox = CreateTemplateBox(pages[3], "Text Format", -10, "repTemplate")
     
     -- Clean 2-Column Grid for Dynamic Reputation Colors
-    local repTextColorBox = CreateColorBox(pages[3], "Rep Text Color", 12, -65, OdysseusDB.xpBar.repTextColor, OUS.UpdateBar)
+    local repTextColorBox = OUS.CreateColorBox(pages[3], "Rep Text Color", 12, -65, OdysseusDB.xpBar.repTextColor, OUS.UpdateBar)
     
     local cGrid = OdysseusDB.xpBar.repColors
-    local h_box = CreateColorBox(pages[3], "Hated", 12, -95, cGrid.hated, OUS.UpdateBar)
-    local ho_box = CreateColorBox(pages[3], "Hostile", 120, -95, cGrid.hostile, OUS.UpdateBar)
-    local u_box = CreateColorBox(pages[3], "Unfriendly", 220, -95, cGrid.unfriendly, OUS.UpdateBar)
+    local h_box = OUS.CreateColorBox(pages[3], "Hated", 12, -95, cGrid.hated, OUS.UpdateBar)
+    local ho_box = OUS.CreateColorBox(pages[3], "Hostile", 120, -95, cGrid.hostile, OUS.UpdateBar)
+    local u_box = OUS.CreateColorBox(pages[3], "Unfriendly", 220, -95, cGrid.unfriendly, OUS.UpdateBar)
     
-    local n_box = CreateColorBox(pages[3], "Neutral", 12, -120, cGrid.neutral, OUS.UpdateBar)
-    local f_box = CreateColorBox(pages[3], "Friendly", 120, -120, cGrid.friendly, OUS.UpdateBar)
-    local hn_box = CreateColorBox(pages[3], "Honored", 220, -120, cGrid.honored, OUS.UpdateBar)
+    local n_box = OUS.CreateColorBox(pages[3], "Neutral", 12, -120, cGrid.neutral, OUS.UpdateBar)
+    local f_box = OUS.CreateColorBox(pages[3], "Friendly", 120, -120, cGrid.friendly, OUS.UpdateBar)
+    local hn_box = OUS.CreateColorBox(pages[3], "Honored", 220, -120, cGrid.honored, OUS.UpdateBar)
     
-    local r_box = CreateColorBox(pages[3], "Revered", 12, -145, cGrid.revered, OUS.UpdateBar)
-    local e_box = CreateColorBox(pages[3], "Exalted", 120, -145, cGrid.exalted, OUS.UpdateBar)
-    local rn_box = CreateColorBox(pages[3], "Renown", 220, -145, cGrid.renown, OUS.UpdateBar)
-    local p_box = CreateColorBox(pages[3], "Paragon", 320, -145, cGrid.paragon, OUS.UpdateBar)
+    local r_box = OUS.CreateColorBox(pages[3], "Revered", 12, -145, cGrid.revered, OUS.UpdateBar)
+    local e_box = OUS.CreateColorBox(pages[3], "Exalted", 120, -145, cGrid.exalted, OUS.UpdateBar)
+    local rn_box = OUS.CreateColorBox(pages[3], "Renown", 220, -145, cGrid.renown, OUS.UpdateBar)
+    local p_box = OUS.CreateColorBox(pages[3], "Paragon", 320, -145, cGrid.paragon, OUS.UpdateBar)
     
     local toastEnableCheck = CreateFrame("CheckButton", nil, pages[3], "UICheckButtonTemplate")
     toastEnableCheck:SetPoint("TOPLEFT", 12, -175)
@@ -478,12 +347,12 @@ function OUS.BuildXPConfigUI()
     local delveCompEditBox = CreateTemplateBox(pages[4], "Companion Text Format", -10, "delveCompTemplate")
     local delveJourEditBox = CreateTemplateBox(pages[4], "Journey Text Format", -65, "delveJourTemplate")
     
-    local delveCompColorBox = CreateColorBox(pages[4], "Companion Color", 12, -120, OdysseusDB.xpBar.delveCompColor, OUS.UpdateDelveBar)
-    local delveJourColorBox = CreateColorBox(pages[4], "Journey Color", 220, -120, OdysseusDB.xpBar.delveJourColor, OUS.UpdateDelveBar)
+    local delveCompColorBox = OUS.CreateColorBox(pages[4], "Companion Color", 12, -120, OdysseusDB.xpBar.delveCompColor, OUS.UpdateDelveBar)
+    local delveJourColorBox = OUS.CreateColorBox(pages[4], "Journey Color", 220, -120, OdysseusDB.xpBar.delveJourColor, OUS.UpdateDelveBar)
     
-    local delveWidthSlider, delveWidthBox = CreatePremiumSlider(pages[4], "Delve Bar Width", -160, "delveBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
-    local delveHeightSlider, delveHeightBox = CreatePremiumSlider(pages[4], "Delve Bar Height", -210, "delveBarHeight", 20, 100, 2, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
-    local delveScaleSlider, delveScaleBox = CreatePremiumSlider(pages[4], "Delve Bar Scale", -260, "delveBarScale", 0.5, 2.0, 0.05, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local delveWidthSlider, delveWidthBox = OUS.CreatePremiumSlider(pages[4], OdysseusDB.xpBar, "Delve Bar Width", -160, "delveBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local delveHeightSlider, delveHeightBox = OUS.CreatePremiumSlider(pages[4], OdysseusDB.xpBar, "Delve Bar Height", -210, "delveBarHeight", 20, 100, 2, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local delveScaleSlider, delveScaleBox = OUS.CreatePremiumSlider(pages[4], OdysseusDB.xpBar, "Delve Bar Scale", -260, "delveBarScale", 0.5, 2.0, 0.05, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
     
     local resetDelveBtn = CreateFrame("Button", nil, pages[4], "UIPanelButtonTemplate")
     resetDelveBtn:SetSize(120, 24)

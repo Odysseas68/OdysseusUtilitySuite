@@ -19,6 +19,14 @@ local fphUpdateTimer = 15
 local currentZone = ""
 local currentSubZone = ""
 
+OUS.fishingDefaults = {
+    autoCloseInactive = true,
+    autoCloseMounted = true,
+    autoCloseDelay = 30,
+    alpha = 0.95,
+    pos = {"RIGHT", "RIGHT", -250, 0}
+}
+
 local sessionData = {
     total = 0,
     catches = {}
@@ -936,14 +944,21 @@ f:SetScript("OnEvent", function(self, event, ...)
             OdysseusDB = OdysseusDB or {}
             OdysseusDB.modules = OdysseusDB.modules or {}
             OdysseusDB.fishingSettings = OdysseusDB.fishingSettings or {}
-            OdysseusDB.fishingSettings.history = OdysseusDB.fishingSettings.history or {}
-            
-            if OdysseusDB.fishingSettings.autoCloseInactive == nil then OdysseusDB.fishingSettings.autoCloseInactive = true end
-            if OdysseusDB.fishingSettings.autoCloseMounted == nil then OdysseusDB.fishingSettings.autoCloseMounted = true end
-            if OdysseusDB.fishingSettings.autoCloseDelay == nil then OdysseusDB.fishingSettings.autoCloseDelay = 30 end
-            if OdysseusDB.fishingSettings.alpha == nil then OdysseusDB.fishingSettings.alpha = 0.95 end
+
+            for k, v in pairs(OUS.fishingDefaults) do
+                if OdysseusDB.fishingSettings[k] == nil then
+                    if type(v) == "table" then
+                        OdysseusDB.fishingSettings[k] = OUS.DeepCopyTable(v)
+                    else
+                        OdysseusDB.fishingSettings[k] = v
+                    end
+                end
+            end
 
             lastCastTime = GetTime() 
+            
+
+
             
             if OdysseusDB.fishingSettings.pos then
                 local p = OdysseusDB.fishingSettings.pos

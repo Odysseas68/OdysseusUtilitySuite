@@ -24,11 +24,55 @@ f:SetScript("OnEvent", function(self, event, arg1)
         if OdysseusDB.modules.flightMaster == nil then OdysseusDB.modules.flightMaster = true end
         if OdysseusDB.modules.fasterLoot == nil then OdysseusDB.modules.fasterLoot = true end
         if OdysseusDB.modules.fishingTracker == nil then OdysseusDB.modules.fishingTracker = true end
+        if OdysseusDB.modules.xpBar == nil then OdysseusDB.modules.xpBar = true end
         
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}
         OdysseusDB.fishingSettings = OdysseusDB.fishingSettings or { history = {} }
     end
 end)
+
+function OUS.DeepCopyTable(src)
+    local dest = {}
+    for k, v in pairs(src) do
+        if type(v) == "table" then 
+            dest[k] = OUS.DeepCopyTable(v) 
+        else 
+            dest[k] = v
+        end
+    end
+    return dest
+end
+
+function OUS.ResetAllSettings()
+    print("|cFF00CCFFOdysseus:|r All settings reset. Reloading UI.")
+
+    -- Reset Modules
+    OdysseusDB.modules = {
+        flightMaster = true,
+        fasterLoot = true,
+        fishingTracker = true,
+        xpBar = true,
+    }
+
+    -- Reset Flight Master
+    if OUS.flightDefaults then
+        OdysseusDB.flightSettings = OUS.DeepCopyTable(OUS.flightDefaults)
+        OdysseusDB.flightSettings.times = {} -- Explicitly wipe flight times
+    end
+
+    -- Reset Fishing Tracker
+    if OUS.fishingDefaults then
+        OdysseusDB.fishingSettings = OUS.DeepCopyTable(OUS.fishingDefaults)
+        OdysseusDB.fishingSettings.history = {} -- Explicitly wipe fishing history
+    end
+
+    -- Reset XP Bar
+    if OUS.defaults then
+        OdysseusDB.xpBar = OUS.DeepCopyTable(OUS.defaults)
+    end
+    
+    C_Timer.After(0.5, ReloadUI)
+end
 
 -- ==========================================
 -- 3. GLOBAL DEBUG ENGINE

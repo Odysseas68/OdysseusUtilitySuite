@@ -437,7 +437,8 @@ function OUS.UpdateBar()
         if C_Reputation and C_Reputation.GetNumFactions then
             for i = 1, C_Reputation.GetNumFactions() do 
                 local data = C_Reputation.GetFactionDataByIndex(i)
-                if data and data.name == Session.lastGainedFactionName and not data.isHeader then 
+                -- FIX: Allow headers, but ONLY if they are modern factions that actually hold reputation!
+                if data and data.name == Session.lastGainedFactionName and not (data.isHeader and not data.isHeaderWithRep) then 
                     targetFactionID = data.factionID
                     break 
                 end 
@@ -1081,6 +1082,12 @@ f:RegisterEvent("CHAT_MSG_COMBAT_FACTION_CHANGE")
 f:RegisterEvent("CHAT_MSG_SYSTEM") 
 
 f:SetScript("OnEvent", function(self, event, arg1)
+    -- ADDON_LOADED must always run to initialize the database and frames.
+    -- All other events will be guarded by the module toggle.
+    if event ~= "ADDON_LOADED" then
+        if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
+    end
+
     if event == "ADDON_LOADED" and arg1 == addonName then
         OdysseusDB = OdysseusDB or {}
         OdysseusDB.xpBar = OdysseusDB.xpBar or {}
@@ -1114,6 +1121,12 @@ f:SetScript("OnEvent", function(self, event, arg1)
         Session.lastXP, Session.lastMaxXP = UnitXP("player"), UnitXPMax("player")
         OUS.WakeBars()
         OUS.SleepBars()
+
+        if OdysseusDB and OdysseusDB.modules and not OdysseusDB.modules.xpBar then
+            xpBar:Hide()
+            delveBar:Hide()
+        end
+
         OUS.LogDebug("XPBar", "Engine Loaded & Initialized.")
         
     elseif event == "PLAYER_ENTERING_WORLD" or event == "ZONE_CHANGED_NEW_AREA" then
@@ -1151,18 +1164,17 @@ f:SetScript("OnEvent", function(self, event, arg1)
         
     elseif event == "UPDATE_FACTION" then
         ScanFactionsForPopups(false)
-        local isMaxLevel = (UnitLevel("player") >= (GetMaxPlayerLevel and GetMaxPlayerLevel() or 80)) or (IsXPUserDisabled and IsXPUserDisabled())
         
-        if not isMaxLevel then 
-            Session.forceRepDisplay = true
-            if Session.repTimer then Session.repTimer:Cancel() end
-            Session.repTimer = C_Timer.NewTimer(OdysseusDB.xpBar.repDisplayTime or 15, function() 
-                Session.forceRepDisplay = false
-                OUS.WakeBars()
-                OUS.UpdateBar()
-                OUS.SleepBars() 
-            end) 
-        end
+        -- FIX: Removed the 'if not isMaxLevel' check!
+        -- Now it will force the rep display to show the newly gained faction at ANY level.
+        Session.forceRepDisplay = true
+        if Session.repTimer then Session.repTimer:Cancel() end
+        Session.repTimer = C_Timer.NewTimer(OdysseusDB.xpBar.repDisplayTime or 15, function() 
+            Session.forceRepDisplay = false
+            OUS.WakeBars()
+            OUS.UpdateBar()
+            OUS.SleepBars() 
+        end) 
         
         OUS.WakeBars()
         OUS.UpdateBar()
@@ -1177,17 +1189,37 @@ f:SetScript("OnEvent", function(self, event, arg1)
         msg = string.gsub(msg, "|r", "")
         msg = string.gsub(msg, "|H.-|h(.-)|h", "%1")
         
-        local faction, amount = string.match(msg, "[Rr]eputation with (.-) increased by (%d+)")
+        -- We explicitly check for Warband first to avoid the regex getting confused
+        local faction, amount = string.match(msg, "Warband's reputation with (.-) increased by (%d+)")
         if not faction then 
-            faction, amount = string.match(msg, "Warband's reputation with (.-) increased by (%d+)") 
+            faction, amount = string.match(msg, "[Rr]eputation with (.-) increased by (%d+)") 
         end
         
         if faction and amount then 
             faction = string.gsub(faction, "[%[%]%.]", "")
             faction = string.gsub(faction, "^%s+", "")
             faction = string.gsub(faction, "%s+$", "")
+            
+            -- Safety catch just in case sessionRep hasn't initialized yet
+            Session.sessionRep = Session.sessionRep or {} 
             Session.sessionRep[faction] = (Session.sessionRep[faction] or 0) + tonumber(amount)
             Session.lastGainedFactionName = faction 
+            
+            -- FIX: Trigger the UI update right here!
+            -- This ensures the bar flips to the new faction the exact millisecond the chat is parsed.
+            Session.forceRepDisplay = true
+            if Session.repTimer then Session.repTimer:Cancel() end
+            Session.repTimer = C_Timer.NewTimer(OdysseusDB.xpBar.repDisplayTime or 15, function() 
+                Session.forceRepDisplay = false
+                OUS.WakeBars()
+                OUS.UpdateBar()
+                OUS.SleepBars() 
+            end)
+            
+            OUS.WakeBars()
+            OUS.UpdateBar()
+            OUS.SleepBars()
+            
             OUS.LogDebug("XPBar", string.format("Rep Gain: %s (+%s)", faction, amount))
         end
         

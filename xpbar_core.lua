@@ -72,18 +72,6 @@ OUS.Session = {
     isTestingDelve = false
 }
 
-function OUS.DeepCopyTable(src)
-    local dest = {}
-    for k, v in pairs(src) do
-        if type(v) == "table" then 
-            dest[k] = OUS.DeepCopyTable(v) 
-        else 
-            dest[k] = v
-        end
-    end
-    return dest
-end
-
 function OUS.FormatLargeNumber(n)
     if not n then return "0" end
     
@@ -311,6 +299,7 @@ end
 SLASH_XPSTATS1 = "/xpstats"
 SLASH_XPSTATS2 = "/ousxp"
 SlashCmdList["XPSTATS"] = function() 
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
     if OUS.statsFrame:IsShown() then 
         OUS.statsFrame:Hide() 
     else 
@@ -321,6 +310,7 @@ end
 
 SLASH_DELVETEST1 = "/delvetest"
 SlashCmdList["DELVETEST"] = function() 
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
     OUS.Session.isTestingDelve = not OUS.Session.isTestingDelve
     if OUS.UpdateBar then OUS.UpdateBar() end
     if OUS.Session.isTestingDelve then 
@@ -334,11 +324,13 @@ end
 
 SLASH_TOASTTEST1 = "/toasttest"
 SlashCmdList["TOASTTEST"] = function() 
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
     OUS.ShowToast("Renown Increased!", "The Midnight Court - Rank 10") 
 end
 
 SLASH_DELVEDEBUG1 = "/delvedebug"
 SlashCmdList["DELVEDEBUG"] = function() 
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
     local inInstance, instanceType = IsInInstance()
     local name, _, difficultyID, _, _, _, _, instanceID = GetInstanceInfo()
     local uiMapID = C_Map.GetBestMapForUnit("player")
