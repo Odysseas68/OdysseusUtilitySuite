@@ -58,6 +58,8 @@ TARGET_FACTIONS = {
     2704, # Naynar's Faction
     2699, # Void Researcher Anomander's Faction
     2770, # Thraxadar's Faction
+    2764, # Prey: Season 1
+    2742, # Delves: Season 1
 
     # === THE WAR WITHIN ===
     2590, # Council of Dornogal
