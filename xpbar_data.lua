@@ -637,6 +637,11 @@ OUS.FactionData = {
         paragonQuestID = 93811,
         rewardNPC = { mapID = 2395, x = 43.4, y = 47.4 },
     },
+    [2764] = {
+        name = "Prey: Season 1",
+        isParagon = false,
+        rewardNPC = { mapID = 0, x = 0.0, y = 0.0 },
+    },
     [2770] = {
         name = "Slayer's Duellum",
         isParagon = true,

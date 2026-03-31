@@ -240,7 +240,7 @@ function OUS.BuildXPConfigUI()
         borderSizeBox:SetText(OUS.defaults.barBorderSize)
         borderColorBox:SetBackdropColor(OUS.defaults.barBorderColor.r, OUS.defaults.barBorderColor.g, OUS.defaults.barBorderColor.b, 1)
         
-        if ApplyBlizzardKiller then ApplyBlizzardKiller() end
+        if OUS.ApplyBlizzardKiller then OUS.ApplyBlizzardKiller() end
         OUS.ApplyFonts()
         if OUS.ApplyXPBarBorders then OUS.ApplyXPBarBorders() end
         OUS.WakeBars()
@@ -469,7 +469,8 @@ function OUS.BuildXPConfigUI()
         "|cFFFFD100REPUTATION & DELVES TAGS:|r\n" ..
         "|cFF00FF00[faction]|r - Name  |  |cFF00FF00[standing]|r - Standing\n" ..
         "|cFF00FF00[curRep]|r - Cur Rep  |  |cFF00FF00[maxRep]|r - Max Rep\n" ..
-        "|cFF00FFFF[compName]|r - Companion Name  |  |cFF00FFFF[pLVL]|r - Comp Lvl\n\n" ..
+        "|cFF00FFFF[compName]|r - Companion Name  |  |cFF00FFFF[pLVL]|r - Comp Lvl\n" ..
+        "|cFF00FFFF[curLVL]|r - Current Journey Level  |  |cFF00FFFF[nextLVL]|r - Next Journey Level\n\n" ..
         "|cFFFFD100MASTER CHAT COMMANDS:|r\n" ..
         "|cFF00FF00/ous|r - Open Main Config\n" ..
         "|cFF00FF00/ous help|r - Show All Commands\n" ..

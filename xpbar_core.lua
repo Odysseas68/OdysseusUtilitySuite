@@ -1,11 +1,8 @@
 -- ==========================================
--- 1. ODYSSEUS UTILITY SUITE: XP & REP CORE
+-- 1. ODYSSEUS UTILITY SUITE: XP & REP ENGINE
 -- ==========================================
 local addonName, OUS = ...
 
--- ==========================================
--- 2. DEFAULTS & SESSION STATE
--- ==========================================
 -- ==========================================
 -- 2. DEFAULTS & SESSION STATE
 -- ==========================================
@@ -13,7 +10,7 @@ OUS.defaults = {
     xpTemplate = "Exp: [curXP]/[maxXP] ([restPC]) :: [curPC]% through [pLVL] lvl :: [needXP] XP left :: [KTL] kills to lvl",
     repTemplate = "Rep: [faction] ([standing]) [curRep]/[maxRep] :: [repPC]%",
     delveCompTemplate = "[compName]: Level [pLVL] - [curXP]/[maxXP]",
-    delveJourTemplate = "Journey: [curRep]/[maxRep]",
+    delveJourTemplate = "Journey: ([curLVL]->[nextLVL])::[curRep]/[maxRep]",
     
     -- Main Experience Colors
     xpColor = {r = 0.6, g = 0.2, b = 0.8},
@@ -44,7 +41,6 @@ OUS.defaults = {
     barBorderSize = 8,
     barBorderColor = {r = 0.6, g = 0.2, b = 0.8},
     repDisplayTime = 15,
-    journeyID = 2640, delveBrannID = 2640, delveValeeraID = 2744,
     autoHide = false, fadeDelay = 5, activeAlpha = 100, fadedAlpha = 0,
     xpBarWidth = 650, xpBarHeight = 25, xpBarScale = 1.0,
     xpBarPos = {p = "TOP", rP = "TOP", x = -56, y = -99},
@@ -53,10 +49,12 @@ OUS.defaults = {
     toastEnabled = true, toastSound = false,
     toastPos = {p = "TOP", rP = "TOP", x = -22, y = -130},
     xpFont = "Friz Quadrata TT", xpFontSize = 15,
-    repMenuMod = "CTRL", favFactions = {}
+    repMenuMod = "CTRL",
+    favFactions = {},
+    lastRepFactionName = nil
 }
 
-OUS.Session = {
+OUS.XPBarSession = OUS.XPBarSession or {
     sessionXP = 0,
     sessionRep = {},
     repCache = { renown = {}, paragon = {} },
@@ -97,7 +95,7 @@ function OUS.FormatLargeNumber(n)
 end
 
 -- ==========================================
--- 3. CREATE VISUAL FRAMES
+-- 3. FRAME CREATION
 -- ==========================================
 -- Main XP Bar
 OUS.xpBarFrame = CreateFrame("Frame", "OdysseusXPBar", UIParent, "BackdropTemplate")
@@ -206,28 +204,101 @@ toast.title:SetText("Renown Increased!")
 toast.subText = toast:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 toast.subText:SetPoint("BOTTOMLEFT", toast.icon, "BOTTOMRIGHT", 10, 2)
 
-local toastAnim = toast:CreateAnimationGroup()
-local fade1 = toastAnim:CreateAnimation("Alpha")
-fade1:SetFromAlpha(0); fade1:SetToAlpha(1); fade1:SetDuration(0.4); fade1:SetOrder(1)
-local wait = toastAnim:CreateAnimation("Alpha")
-wait:SetFromAlpha(1); wait:SetToAlpha(1); wait:SetDuration(4.5); wait:SetOrder(2)
-local fade2 = toastAnim:CreateAnimation("Alpha")
-fade2:SetFromAlpha(1); fade2:SetToAlpha(0); fade2:SetDuration(0.6); fade2:SetOrder(3)
-toastAnim:SetScript("OnFinished", function() toast:Hide() end)
+toast.isHovered = false
+toast.remainingTime = 0
+-- Toast timing (seconds)
+toast.fadeDuration = 0.4
+toast.displayDuration = 5.0
+toast.isFading = false
+
+toast:SetScript("OnEnter", function(self)
+    self.isHovered = true
+end)
+
+toast:SetScript("OnLeave", function(self)
+    self.isHovered = false
+end)
+
+local function StopToastUpdates()
+    toast:SetScript("OnUpdate", nil)
+    toast.isFading = false
+end
+
+local function StartToastFadeOut()
+    if toast.isFading then return end
+    toast.isFading = true
+
+    local startAlpha = toast:GetAlpha()
+    local elapsedTotal = 0
+    local fadeDuration = toast.fadeDuration or 1.2
+
+    toast:SetScript("OnUpdate", function(self, elapsed)
+        if self.isHovered then return end
+
+        elapsedTotal = elapsedTotal + elapsed
+        local progress = math.min(elapsedTotal / fadeDuration, 1)
+        self:SetAlpha(startAlpha * (1 - progress))
+
+        if progress >= 1 then
+            self:SetScript("OnUpdate", nil)
+            self.isFading = false
+            self:Hide()
+        end
+    end)
+end
+
+local function StartToastTimer()
+    StopToastUpdates()
+    toast:SetAlpha(1)
+    toast.remainingTime = toast.displayDuration or 8.0
+
+    toast:SetScript("OnUpdate", function(self, elapsed)
+        if self.isHovered then return end
+
+        self.remainingTime = self.remainingTime - elapsed
+        if self.remainingTime <= 0 then
+            StartToastFadeOut()
+        end
+    end)
+end
 
 function OUS.ShowToast(title, subText, iconPath)
     if not OdysseusDB or not OdysseusDB.xpBar.toastEnabled then return end
+
+    StopToastUpdates()
+
     toast.title:SetText(title)
     toast.subText:SetText(subText)
-    if iconPath then 
-        toast.icon:SetTexture(iconPath) 
-    else 
-        toast.icon:SetTexture("Interface\\Icons\\Achievement_Reputation_01") 
+
+    if iconPath then
+        toast.icon:SetTexture(iconPath)
+    else
+        toast.icon:SetTexture("Interface\\Icons\\Achievement_Reputation_01")
     end
+
     toast:Show()
-    toastAnim:Stop()
-    toastAnim:Play()
-    if OdysseusDB.xpBar.toastSound then PlaySound(44269, "Master") end
+    toast:SetAlpha(0)
+
+    local fadeInElapsed = 0
+    local fadeInDuration = 0.15
+
+    toast:SetScript("OnUpdate", function(self, elapsed)
+        if self.isHovered then return end
+
+        fadeInElapsed = fadeInElapsed + elapsed
+        local progress = math.min(fadeInElapsed / fadeInDuration, 1)
+        self:SetAlpha(progress)
+
+        if progress >= 1 then
+            StartToastTimer()
+        end
+    end)
+
+    if OdysseusDB.xpBar.toastSound then
+        local TOAST_SOUND_ID = 44269
+            PlaySound(TOAST_SOUND_ID, "Master")
+    end
+
     OUS.LogDebug("XPBar", "Triggered Toast Notification: " .. title)
 end
 
@@ -251,6 +322,7 @@ stats:Hide()
 
 stats:SetMovable(true)
 stats:EnableMouse(true)
+
 stats:RegisterForDrag("LeftButton")
 stats:SetScript("OnDragStart", stats.StartMoving)
 stats:SetScript("OnDragStop", stats.StopMovingOrSizing)
@@ -278,10 +350,10 @@ stats.content:SetJustifyV("TOP")
 stats.content:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
 
 function stats:UpdateData()
-    local text = "|cFF00FFFFExperience Gained:|r\n" .. OUS.FormatLargeNumber(OUS.Session.sessionXP) .. " XP\n\n|cFF00FFFFReputation Breakdown:|r\n"
+    local text = "|cFF00FFFFExperience Gained:|r\n" .. OUS.FormatLargeNumber(OUS.XPBarSession.sessionXP) .. " XP\n\n|cFF00FFFFReputation Breakdown:|r\n"
     local hasRep = false
     
-    for faction, amount in pairs(OUS.Session.sessionRep) do 
+    for faction, amount in pairs(OUS.XPBarSession.sessionRep) do 
         hasRep = true
         text = text .. "• " .. faction .. ": |cFF00FF00+" .. amount .. "|r\n" 
     end
@@ -311,9 +383,9 @@ end
 SLASH_DELVETEST1 = "/delvetest"
 SlashCmdList["DELVETEST"] = function() 
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
-    OUS.Session.isTestingDelve = not OUS.Session.isTestingDelve
+    OUS.XPBarSession.isTestingDelve = not OUS.XPBarSession.isTestingDelve
     if OUS.UpdateBar then OUS.UpdateBar() end
-    if OUS.Session.isTestingDelve then 
+    if OUS.XPBarSession.isTestingDelve then 
         print("|cFF00FF00Odysseus:|r Delves UI forced ON.")
         OUS.LogDebug("XPBar", "Test Delve Mode Enabled")
     else 

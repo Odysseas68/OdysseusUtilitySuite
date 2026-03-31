@@ -35,6 +35,8 @@ Fasterloot.lua
 Fishingtracker.lua
 xpbar_core.lua
 xpbar_engine.lua
+xpbar_delves.lua
+xpbar_favorites.lua
 FlightRouting.lua
 
 # ==========================================
