@@ -15,6 +15,7 @@ chatgpt_notes.txt
 # IDE and Editor Folders (Keeps your personal VS Code settings private)
 .vscode/
 .idea/
+Scripts/
 *.sublime-workspace
 *.code-workspace
 

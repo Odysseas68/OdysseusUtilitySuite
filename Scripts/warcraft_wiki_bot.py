@@ -200,6 +200,9 @@ def slugify_for_compare(text: str) -> str:
     text = re.sub(r"[^a-z0-9]+", " ", text)
     return re.sub(r"\s+", " ", text).strip()
 
+def strip_leading_article(text: str) -> str:
+    return re.sub(r"^(the|a|an)\s+", "", text.strip(), flags=re.IGNORECASE)
+
 def escape_output_string(value: str) -> str:
     value = (value or "").replace("\\", "\\\\").replace('"', '\\"').strip()
     return value
@@ -634,9 +637,9 @@ def extract_quartermaster_names_from_wikitext(wikitext: str) -> List[str]:
         return names
 
     field_patterns = [
-        re.compile(r"\|\s*Quartermaster[s]?\s*=\s*(.+)", re.IGNORECASE),
-        re.compile(r"\|\s*Vendor[s]?\s*=\s*(.+)", re.IGNORECASE),
-        re.compile(r"\|\s*Rewards?\s+vendor[s]?\s*=\s*(.+)", re.IGNORECASE),
+        re.compile(r"\|\s*quartermaster[s]?\s*=\s*(.+)", re.IGNORECASE),
+        re.compile(r"\|\s*vendor[s]?\s*=\s*(.+)", re.IGNORECASE),
+        re.compile(r"\|\s*rewards?\s+vendor[s]?\s*=\s*(.+)", re.IGNORECASE),
     ]
 
     seen = set()
@@ -644,11 +647,27 @@ def extract_quartermaster_names_from_wikitext(wikitext: str) -> List[str]:
     for pattern in field_patterns:
         for match in pattern.findall(wikitext):
             field_value = match.strip()
-
-            # Stop at end of line only
             field_value = field_value.split("\n", 1)[0].strip()
 
-            # First, prefer explicit wiki links in the field.
+            # 1) Parse {{NPC||Name|...}} and similar
+            for npc_match in re.findall(r"\{\{\s*NPC\s*\|([^}]*)\}\}", field_value, re.IGNORECASE):
+                parts = [p.strip() for p in npc_match.split("|")]
+                # The NPC name is usually the first non-empty part after optional faction field(s)
+                for part in parts:
+                    if not part:
+                        continue
+                    if "=" in part:
+                        continue
+                    lowered = part.lower()
+                    if lowered in {"alliance", "horde", "neutral", "independent", "friendly", "hostile"}:
+                        continue
+                    key = slugify_for_compare(part)
+                    if key and key not in seen:
+                        names.append(part)
+                        seen.add(key)
+                    break
+
+            # 2) Prefer explicit wiki links
             for raw in re.findall(r"\[\[([^\[\]\n]+)\]\]", field_value):
                 title = raw.split("|", 1)[0].strip()
                 if not title:
@@ -668,15 +687,14 @@ def extract_quartermaster_names_from_wikitext(wikitext: str) -> List[str]:
                     names.append(title)
                     seen.add(key)
 
-            # Fallback: strip wiki/icon templates and try plain text names
+            # 3) Fallback: strip templates and try proper-name text
             plain = re.sub(r"\{\{.*?\}\}", " ", field_value)
             plain = re.sub(r"\[\[([^\]|]+)\|([^\]]+)\]\]", r"\1", plain)
             plain = re.sub(r"\[\[([^\]]+)\]\]", r"\1", plain)
             plain = re.sub(r"<.*?>", " ", plain)
             plain = re.sub(r"\s+", " ", plain).strip()
 
-            # Try proper-name chunks
-            for candidate in re.findall(r"[A-Z][A-Za-z'`.-]+(?:\s+[A-Z][A-Za-z'`.-]+){0,3}", plain):
+            for candidate in re.findall(r"[A-Z][A-Za-z'`.-]+(?:\s+[A-Z][A-Za-z'`.-]+){0,4}", plain):
                 key = slugify_for_compare(candidate)
                 if key and key not in seen:
                     names.append(candidate)
@@ -794,13 +812,17 @@ def score_candidate(
     reasons: List[str] = []
 
     faction_key = slugify_for_compare(faction_name)
+    faction_key_no_article = slugify_for_compare(strip_leading_article(faction_name))
     title_key = slugify_for_compare(page_title)
     snippet_key = slugify_for_compare(snippet)
     wiki_key = slugify_for_compare(wikitext[:4000])
 
     page_class = classify_page_title(page_title)
 
-    if faction_key and faction_key in title_key:
+    if (
+        (faction_key and faction_key in title_key)
+        or (faction_key_no_article and faction_key_no_article in title_key)
+    ):
         score += 25
         reasons.append("title matches faction")
 
@@ -972,80 +994,61 @@ def scrape_waypoint_from_wiki(faction_id: str, faction_name: str) -> Dict[str, o
     evaluated_pages.sort(key=lambda x: int(x["score"]), reverse=True)
     best_direct = evaluated_pages[0]
 
-    # Second pass: if direct pages had no coords, follow explicit quartermaster/vendor
-    # names first, then fall back to generic likely NPC/vendor links.
+        # Second pass: if direct pages had no coords, follow explicit quartermaster/vendor
+    # names only from the single best direct page.
     if not best_direct["coords"]:
         linked_titles_seen = set()
 
-    faction_key = slugify_for_compare(faction_name)
+        base_page = best_direct
+        wikitext = str(base_page.get("wikitext", ""))
+        base_title = str(base_page["title"])
+        html_text = str(base_page.get("html_text", ""))
 
-    related_base_pages = []
-    for page in evaluated_pages:
-        base_title_key = slugify_for_compare(str(page["title"]))
-        base_reasons = " ".join(page.get("reasons", []))
+        preferred_titles = extract_quartermaster_names_from_html(html_text)
+        if not preferred_titles:
+            preferred_titles = extract_quartermaster_names_from_wikitext(wikitext)
 
-        # Keep pages whose title clearly matches the faction,
-        # or pages already scored as mentioning the faction strongly.
-        if faction_key and faction_key in base_title_key:
-            related_base_pages.append(page)
-            continue
+        log("DEBUG", f"{base_title} preferred_titles={preferred_titles}", C_YELLOW)
 
-        if "title matches faction" in base_reasons or "page text mentions faction" in base_reasons:
-            related_base_pages.append(page)
+        filtered_candidate_titles: List[str] = []
 
-        # Fall back to the direct best page only if nothing qualified.
-        if not related_base_pages:
-            related_base_pages = [best_direct]
+        for title in preferred_titles:
+            if title not in filtered_candidate_titles:
+                filtered_candidate_titles.append(title)
 
-        for base_page in related_base_pages[:2]:
-            wikitext = str(base_page.get("wikitext", ""))
-            base_title = str(base_page["title"])
-            html_text = str(base_page.get("html_text", ""))
-
-            preferred_titles = extract_quartermaster_names_from_html(html_text)
-            if not preferred_titles:
-                preferred_titles = extract_quartermaster_names_from_wikitext(wikitext)
-
-            log("DEBUG", f"{base_title} preferred_titles={preferred_titles}", C_YELLOW)
-
+        # Only use generic fallback links if we found no explicit quartermaster/vendor titles.
+        if not filtered_candidate_titles:
             fallback_titles = extract_likely_npc_links_from_wikitext(wikitext, faction_name)
+            faction_key = slugify_for_compare(faction_name)
+            faction_key_no_article = slugify_for_compare(strip_leading_article(faction_name))
 
-            filtered_candidate_titles: List[str] = []
+            for title in fallback_titles:
+                title_key = slugify_for_compare(title)
+                if (
+                    (faction_key and faction_key in title_key)
+                    or (faction_key_no_article and faction_key_no_article in title_key)
+                ):
+                    if title not in filtered_candidate_titles:
+                        filtered_candidate_titles.append(title)
 
-            for title in preferred_titles:
-                if title not in filtered_candidate_titles:
-                    filtered_candidate_titles.append(title)
+        for linked_title in filtered_candidate_titles[:4]:
+            key = linked_title.lower()
+            if key in linked_titles_seen:
+                continue
+            linked_titles_seen.add(key)
 
-            # Only use generic fallback links if they still look directly related to the faction.
-            if not filtered_candidate_titles:
-                fallback_titles = extract_likely_npc_links_from_wikitext(wikitext, faction_name)
-                faction_key = slugify_for_compare(faction_name)
+            result = evaluate_page_candidate(
+                faction_name=faction_name,
+                title=linked_title,
+                snippet="",
+                linked_from_title=base_title,
+            )
+            if result:
+                if linked_title in preferred_titles:
+                    result["score"] = int(result["score"]) + 35
+                    result["reasons"].append("followed explicit quartermaster/vendor field")
 
-                for title in fallback_titles:
-                    title_key = slugify_for_compare(title)
-                    if faction_key and faction_key in title_key:
-                        if title not in filtered_candidate_titles:
-                            filtered_candidate_titles.append(title)
-                
-            for linked_title in filtered_candidate_titles[:4]:
-                key = linked_title.lower()
-                if key in linked_titles_seen:
-                    continue
-                linked_titles_seen.add(key)
-
-                result = evaluate_page_candidate(
-                    faction_name=faction_name,
-                    title=linked_title,
-                    snippet="",
-                    linked_from_title=base_title,
-                )
-                if result:
-                    # Boost pages reached through explicit quartermaster/vendor field.
-                    if linked_title in preferred_titles:
-                        result["score"] = int(result["score"]) + 35
-                        result["reasons"].append("followed explicit quartermaster/vendor field")
-
-                    evaluated_pages.append(result)
+                evaluated_pages.append(result)
 
         evaluated_pages.sort(key=lambda x: int(x["score"]), reverse=True)
         
@@ -1061,24 +1064,28 @@ def scrape_waypoint_from_wiki(faction_id: str, faction_name: str) -> Dict[str, o
     if best["score"] < MIN_CONFIDENCE_TO_WRITE or not best["coords"]:
         reason_text = "; ".join(best["reasons"]) if best["reasons"] else "no details"
 
-        if not best["coords"]:
-            reason_group = "no coordinates after npc-link follow"
-            reason = f"no coordinates ({best['score']})"
-        else:
-            reason_group = "low confidence"
-            reason = f"low confidence ({best['score']})"
+    if not best["coords"]:
+        reason_group = "no coordinates after npc-link follow"
+        reason = f"no coordinates ({best['score']})"
+    else:
+        reason_group = "low confidence"
+        reason = f"low confidence ({best['score']})"
 
-        return {
-            "ok": False,
-            "reason": reason,
-            "reason_group": reason_group,
-            "best_score": best["score"],
-            "best_title": best["title"],
-            "review": (
-                f"{faction_id},{faction_name} -> {best['title']} | "
-                f"score={best['score']} | {reason_text} | {best['url']}"
-            ),
-        }
+    review_note = reason_text
+    if str(best["title"]).strip().lower() != str(faction_name).strip().lower():
+        review_note += " | npc resolved but no fixed coordinates"
+
+    return {
+        "ok": False,
+        "reason": reason,
+        "reason_group": reason_group,
+        "best_score": best["score"],
+        "best_title": best["title"],
+        "review": (
+            f"{faction_id},{faction_name} -> {best['title']} | "
+            f"score={best['score']} | {review_note} | {best['url']}"
+        ),
+    }
 
     map_id, x, y = best["coords"][0]
 
