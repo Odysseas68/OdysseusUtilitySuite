@@ -1,0 +1,209 @@
+{{Infobox race
+| name = Drogbar
+| image = Drogbar concept.jpg
+| type = Medium Humanoid
+| faction = [[Independent]], [[Highmountain Tribe]], [[Twilight's Hammer]]<br/> '''Formerly:'''<br/> [[Necrodark]], [[Black dragonflight]]
+| capital = [[Neltharion's Lair]] ([[Broken Isles]])<br>[[Glimmerogg]] ([[Dragon Isles]])
+| leader = {{NPC||Navarrogg|icon=Navarrogg}} (Broken Isles)<br>{{NPC||Brogg the Beast|icon=Drogbar}} (Dragon Isles)
+| fleader = {{NPC||Dargrul||Dargrul the Underking|icon=Dargrul}}{{KIA}} (Broken Isles)<br>{{NPC||Deathwing||Neltharion the Earth-Warder|icon=Neltharion}}{{KIA}}
+| homeworld = [[Azeroth]]
+| area = [[Highmountain]] (Broken Isles)<br> [[Zaralek Cavern]] (Dragon Isles)
+| mount = {{RaceIcon|Bioworm}} [[Worm]]
+| source = ''[[World of Warcraft: Legion]]''
+| language = [[Drogbar (language)|Drogbar]] (presumed), [[Draconic]],<ref name="Tablets"/> [[Taur-ahe]]
+}}
+[[File:HighmountainARC.jpg|thumb|[[Legion Curator|Highmountain tauren and Drogbar artifacts.]]]]
+
+The '''drogbar''' ({{IPA|/ˈdɹɔɡ.bɑɹ/}} {{respell|DRAWG-bar}}) are a [[shaman]]istic [[humanoid]] [[Race|species]] that dwell underground, mainly found in the infinite caverns deep within [[Highmountain]] on the [[Broken Isles]]<ref name="Zone preview"/> and in [[Zaralek Cavern]] on the [[Dragon Isles]]. Their brutish appearance can hide their cleverness.<ref>[https://www.youtube.com/watch?v=iCPPCssbt-o Blizzcon 2015: World and Content Overview Panel]</ref> Having once been the [[slave]]s of [[Deathwing]] himself, the drogbar have long lived in relative peace with the [[Highmountain tauren]], but shortly after the [[Burning Legion]]'s return the drogbar leader, [[Dargrul]], stole the ancient [[:Hammer of Khaz'goroth]], initiating a war between the two races.
+
+==Background==
+[[Xal'atath]] describes the drogbar as failed [[titan]] experiments.<ref>{{text|whisper|Xal'atath|More of the titans' failed experiments grow [[Highmountain|here]] unchecked. The drogbar prove their failure as creators.}}</ref> The drogbar were once slaves to the [[Black dragonflight|black]] [[Dragon Aspects|Dragon Aspect]] himself, [[Deathwing|Neltharion]] the Earth-Warder, and they were the ones who placed the [[goblin]]-forged [[Adamantine|adamantium]] plates on the Aspect when his body began to fall apart.<ref>[[In Defiance of Deathwing]]</ref> Neltharion also had the drogbar experiment with ways to merge the elements into a [[Elementium|binding ore]]. He believed it would be the ultimate tool in his rise to power. There were at least fifty attempts.<ref name="Tablets">[[Ancient Neltharion Tablets]]</ref> One revolt occurred before the arrival of [[Huln Highmountain]] but was swiftly ended by Neltharion. The revolt's leader, [[The Grey One]], was petrified into a statue as a constant reminder of who the drogbar truly serve.<ref>[[The Grey One]]</ref> When Huln finally arrived and used the [[:Hammer of Khaz'goroth]] to banish Neltharion from the region, the drogbar were freed.
+
+The [[Rivermane tribe]] were the ones to first establish a fragile peace pact between the tauren and the drogbar as a means to survive in relative peace. As part of this agreement, they mutually benefit from one another's resources through trade at designated areas outside drogbar caves. The drogbar provide spell components from inedible plants, rare minerals, gems,<ref name="Zone preview">[https://worldofwarcraft.com/en-us/news/20241588/legion-zone-preview-highmountain Legion Zone Preview: Highmountain]</ref> potent alchemy<ref>[[Ormgul the Pestilent (quest)]]</ref> and other rarities as a trade offering to the tauren, and in return, the tauren bring the drogbar grain, fish, leather goods, and lumber. They make a mutual exchange at these ritual sites, then go back to their respective homelands. It's a symbiotic relationship — they don't like each other, but they need each other.<ref name="Zone preview"/>
+
+The drogbar at one point warred against the followers of the [[vrykul]] warlord [[Warlord Volund|Volund]].<ref>[[Tales of the Hunt#Titanstrike|Tales of the Hunt]]</ref>
+
+However, soon after the [[Burning Legion]]'s arrival, a drogbar leader named [[Dargrul|Dargrul the Underking]] destroyed the unity of the two races and stole the Hammer of Khaz'goroth, a powerful artifact protected by the Highmountain tauren. Using the terrible power of the Hammer, the Underking intends to take control of Highmountain.<ref>[http://us.battle.net/wow/en/legion/#characters Legion: Key Lore Figures]</ref> Not all drogbar work for Dargrul, however. The [[Stonedark clan]] led by [[Navarrogg]], in gratitude to an [[adventurer]] who saved them from the [[Bloodtotem tribe|Bloodtotem tauren]], joined the [[Highmountain Tribe]] instead.<ref>[[Unexpected Allies]]</ref>
+
+There is also at least one group of neutral drogbar that had a settlement in what is now known as the [[Feltotem Caverns]], but after the Bloodtotem became the Feltotem, these drogbar were pushed out by concerted demon and Feltotem attacks.<ref>[[Destroying the Nest]]</ref>  Their current location is unknown.
+
+Drogbar that are part of the [[Twilight's Hammer]] can be found in Highmountain's [[Deep Roads]]. Another Old God-affiliated group of drogbar is the [[Necrodark]].
+
+The Drogbar from Zaralek trade with the [[nerubian]]s of [[Azj-Kahet]] far to the southwest in [[Khaz Algar]].
+
+==Culture==
+Drogbar are not violent by nature, despite their size.<ref>[[Blood Debt]]</ref>
+
+Living in caves, the drogbar make the most of what they have. At least one particular species of [[Fungus|mushroom]] is known to be gathered and prepared for consumption. Rock is used for furniture; tables are an obvious application, while "resting stones" are chairs,<ref name="Margul">[[Margul#Quote]]</ref> and long, rectangular slabs are "sleeping stones". Stones that make different sounds when struck can used for drums, such as "[[Tinkrul|tink rocks]]", "[[Boprul|bop rocks]]" and "[[Clomprul|clomp rocks]]". The drogbar have always been masters at [[jewelcrafting]]. In particular, tribal [[shaman]] would wear heavy, three-stoned necklaces. These necklaces were passed down from master to student.<ref>[[Prizerock Neckband]]</ref>
+
+With their powers over the earth,<ref>[[Stonedark Crystal (quest)]]</ref> the drogbar know how to carve stone into containers such as cups and shallow bowls, to ones with lids. With a channel carved around the outside for a leather strap, lidded containers can be small ones with a plug of wood, to large, stout ones with a matching stone lid fitted into the top. Entire waterwheels made of stone are used as a power source for simple engineering, fed by subterranean waterways that flow into the caves.  Stone conduits suspended from sturdy wooden supports embedded in the walls also partially redirect subterranean water for the peoples' convenient use.<ref>[[Stonedark Grotto]]</ref> Many of these items are most likely crafted by drogbar Stoneshapers, who are also known to calcify the dead bodies of important drogbar to be commemorated as statues.<ref>[[Statue of Liftbrul]]</ref>
+
+While most drogbar appreciate the rough edges of a raw gemstone, others prefer a smoother, rounder jewel. Rather than using standard gemcutting tools, they use a hand-cranked stone device, which tumbles the gems over the course of several weeks. These are typically operated by servants, slaves, or disobedient youngsters.<ref>[[Drogbar Gem-Roller]]</ref>
+
+For some, snail racing (including a racing circuit) is a popular pastime.<ref>Stonedark Grotto, [[Neltharion's Lair]]</ref> Snails are also used as a culinary ingredient at least by the Stonedark (whether they are the same species as the ones used for racing is unknown).<ref>[[Stonedark Snail]]</ref>
+
+There are rumors that the ancient drogbar collected powder from the residue of dragon's breath.<ref>[[Neltharion's Lair: Potent Powder]]</ref>
+
+The Basilisk Bazaar is an event held by the drogbar where they trade, fight and skin their lizard pets.<ref>[[Bitestone Bazaar]]</ref>
+
+===Magic===
+{{stub/Lore-section}}
+The drogbar have a mastery of the earth and creatures that dwell within it.<ref>[[Infestation]]</ref> [[Jale Rivermane]] believes that they began learning strong magic after the theft of the [[:Hammer of Khaz'goroth]].<ref>[[Balance of Elements]]</ref>
+
+===Worms===
+The drogbar have a close kinship with Highmountain's giant [[worm]]s. They use caves such as the [[Rockcrawler Chasm]] to train and breed fledgling rockcrawlers that in time grow in size and strength, morphing into monstrous siege worms that the drogbar ride into battle.<ref>[[Tamer Takedown]]</ref><ref>[[Fledgling Worm Guts]]</ref> The drogbar feed their fledgling worms [[eagle]] eggs so they'll grow strong enough to serve as mounts.<ref>[[Eagle Egg Recovery]]</ref>
+
+An enormous worm called [[Naraxas]], mother of monsters, has been worshipped by the drogbar since the age of Neltharion. Constant sacrifices are made to the creature so she can nurture the generations of horror the drogbar use against their enemies.<ref>[[Adventure Guide]] entry for [[Naraxas]]</ref> During the battle of [[Snowblind Mesa]], the drogbar used spawn of Naraxas to burrow their way to the surface and deploy their troops.<ref>[[Battle Worms]]</ref>
+
+The great worm [[Jorhuttam]] is worshipped by the [[Frostcrag tribe]] of drogbar.<ref>[[Revenge, Served Cold (quest)]]</ref>
+
+===Language===
+{{Main|Drogbar (language)}}
+Not much is known about the drogbar language. One of the more common terms is "brul", apparently an honorific.<ref name="Margul"/><ref>[[Navarrogg#Quotes]]</ref><ref>[[Brulfist Idol]]</ref><ref>[[Damrul the Stronk#Quotes]]</ref>
+
+The drogbar language shares one term with [[Draconic]].
+
+==Notable==
+{| class="darktable sortable zebra"
+!Name!!Role!!Status!!Location
+|-
+|{{NPC|Neutral|Dargrul|icon=Dargrul}}
+|[[Underking]] of the drogbar, wielder of the [[:Hammer of Khaz'goroth]]
+|{{Status|Deceased}}
+|[[Dargrul#Locations|Various]]
+|-
+|{{NPC|Neutral|Navarrogg|icon=Navarrogg}}
+|Leader of the [[Stonedark clan]]
+|{{Status|Alive}}
+|[[Navarrogg#Locations|Various]]
+|-
+|{{NPC|Boss|Ularogg Cragshaper|icon=Drogbar}}
+|Chief advisor to Dargrul, creator of [[Rokmora]]
+|{{Status|Killable}}
+|[[The Stone Market]], [[Neltharion's Lair]]
+|-
+|{{NPC|Neutral|Brick|icon=Drogbar}}
+|Pit master
+|{{Status|Alive}}
+|[[Deep Roads]], [[Highmountain]]
+|-
+|{{NPC|Neutral|Damrul the Stronk|icon=Drogbar}}
+|Member of the Stonedark tribe
+|{{Status|Alive}}
+|[[Stonedark Grotto]], [[Highmountain]]
+|-
+|{{NPC|Combat|Gelmogg|icon=Drogbar|icon2=EarthFury}}
+|Stonecaster who has infiltrated the [[Lifespring Cavern]] to drain its power
+|{{Status|Killable}}
+|[[Lifespring Cavern]], [[Highmountain]]
+|-
+|{{NPC|Neutral|Igrul the Scalebane|icon=Drogbar}}
+|Aided [[Huln Highmountain]] in banishing [[Deathwing]]
+|{{Status|Deceased}}
+|Unknown
+|-
+|{{mob|Tamer Korgrul|icon=Drogbar}}
+|Raises fledgling rockcrawlers into monstrous siege worms
+|{{Status|Killable}}
+|[[Rockcrawler Chasm]], [[Highmountain]]
+|-
+|{{mob|Kubrul|icon=Drogbar}}
+|Stole the hammer of [[Grayheft, Ancient Hammer of the Highmountain Tauren|Grayheft]] from [[Thala Steeltotem]]'s father
+|{{Status|Killable}}
+|[[Deep Roads]], [[Highmountain]]
+|-
+|{{NPC|Neutral|Liftbrul|icon=Drogbar}}
+|Legendary Stonedark weightlifter
+|{{Status|Deceased}}
+|[[Stonedark Grotto]], [[Highmountain]]
+|-
+|{{mob|Ormgul the Pestilent|icon=Drogbar}}
+|Leader of the drogbar attack on the [[Rivermane tribe|Rivermane]] of [[Earthmother's Bounty]]
+|{{Status|Killable}}
+|[[Earthmother's Bounty]], [[Highmountain]]
+|-
+|{{mob|Siegebrul Olgrul|icon=Drogbar}}
+|Leader of the [[Mightstone tribe]]
+|{{Status|Killable}}
+|[[Snowblind Mesa]], [[Highmountain]]
+|-
+|{{mob|Slash Gutspill|icon=Drogbar}}
+|Contender for the [[Aegis of Aggramar]]
+|{{Status|Killable}}
+|[[Valley of the Sword]], [[Stormheim]]
+|-
+|{{mob|Ugrul Skullcleaver|icon=Drogbar}}
+|Leader of the [[Frostcrag tribe]]
+|{{Status|Killable}}
+|[[Highmountain Summit]], [[Highmountain]]
+|-
+|}
+
+==Groups==
+{|class="darktable sortable zebra"
+|- 
+!Name!!Leader(s)!!Location
+|-
+| {{Combat}} [[Bitestone]] || {{RaceIcon|Dargrul}} [[Dargrul]] || [[Bitestone Enclave]], [[Highmountain]] 
+|-
+| {{Neutral}} [[Brick's Bruls]] || {{RaceIcon|Drogbar}} [[Brick]] || [[Deep Roads]], [[Highmountain]] 
+|-
+| {{Combat}} [[Deeprock]] || {{RaceIcon|Drogbar}} [[Tamer Korgrul]] || [[Rockcrawler Chasm]], [[Highmountain]] 
+|-
+| {{Combat}} [[Frostcrag tribe]] || {{RaceIcon|Drogbar}} [[Mountain King (drogbar)|Mountain King]] || [[Highmountain Summit]], [[Highmountain]]
+|-
+| {{Neutral}} [[Glimmerogg]] || {{RaceIcon|Drogbar}} [[Brogg the Beast]] || [[Glimmerogg]], [[Zaralek Cavern]]
+|-
+| {{Combat}} [[Greystone tribe]] || {{RaceIcon|Drogbar}} [[Blargrul the Siegebrul]] || [[Greystone Enclave]], [[Highmountain]]
+|-
+| {{Combat}} [[Mightstone tribe]] || {{RaceIcon|Drogbar}} [[Siegebrul Olgrul]] || [[Highmountain]] & [[Stormheim]]
+|-
+| {{Combat}} [[Necrodark]] || {{RaceIcon|Drogbar}} [[Necrogg the Darkspeaker]] || [[Snowblind Mesa]] & [[Highmountain Summit]], [[Highmountain]]
+|-
+| {{Combat}} [[Slatecrusher]] || {{RaceIcon|Drogbar}} [[Drog Almighty]] || [[Suramar]]
+|-
+| {{Neutral}} [[Stonedark clan]] || {{RaceIcon|Navarrogg}} [[Navarrogg]] || [[Stonedark Grotto]], [[Highmountain]]
+|-
+| {{Combat}} [[Understone tribe]] || {{RaceIcon|Dargrul}} [[Dargrul]] || [[Neltharion's Lair]], [[Highmountain]]
+|}
+
+Some other potential tribe names include: Blightshard, Emberhusk, Rockbait, Rockbound, Stonefist and Stoneclaw.
+
+==Trivia==
+*Drogbar seem to be inspired by ''{{wp|Dungeons & Dragons}}'''s {{wp|Bugbear (Dungeons & Dragons)|bugbears}}. Early drogbar concept art depicted them as bear-like creatures, before evolving into something more akin to D&D's bugbears, and some drogbar image files are labeled as "bugbears".<ref>[https://cdna.artstation.com/p/assets/images/images/003/356/022/4k/christopher-hayes-bugbears.jpg Chris Hayes on ArtStation]</ref><ref>[https://cdna.artstation.com/p/assets/images/images/003/018/392/4k/tyson-murphy-bugbear.jpg Tyson Murphy on ArtStation]</ref><ref>[https://cdnb.artstation.com/p/assets/images/images/009/970/213/4k/cole-eastburn-bugbear1.jpg?1521833769 Cole Eastburn on ArtStation]</ref><ref>[https://www.artstation.com/artwork/gXbk8 Mark Abadier on ArtStation]</ref>
+*Drogbar use the same model skeleton and animations as post-[[Patch 5.2.0|5.2]] [[dire troll]]s and ''[[World of Warcraft: Warlords of Draenor|Warlords of Draenor]]'' [[dire orc]]s.
+
+==Speculation==
+{{Speculation}}
+*Considering the [[Twilight's Hammer]] have access to subterranean tunnels under the [[Great Sea]],<ref>[[Blackrock Caverns#Dungeon Journal]]</ref> it is possible that the cult met the drogbar of [[Highmountain]] that way and enrolled some of them.
+*Since [[Xal'atath]] has implied that the drogbar are a failed titan experiment, they could have evolved from the [[troll]]s.
+**In the canceled ''[[Warcraft Adventures: Lord of the Clans|Warcraft Adventures]]'', [[Deathwing]] was served by trolls which had mottled; grey skin, a concept that was reprised in ''The Sundering'',<ref>''[[The Sundering]]'', chapter 8</ref> a description that might have inspired the existence of the drogbar.
+**One quest calls them "rock trolls".<ref>[[Rock Troll in a Hard Place]]</ref>
+
+==Gallery==
+<gallery>
+File:Drogbar in Highmountain.jpg|A drogbar in the ''Legion'' announcement trailer.
+File:Navarrogg.jpg|
+File:Dargrul.jpg|[[Dargrul|Dargrul the Underking]].
+File:Drogbar1.jpg
+File:Petrifying Totem.jpg|[[Petrifying Totem]]
+</gallery>
+
+;Art
+<gallery>
+File:Drogbar concept 2.jpg|Early drogbar concept art by Mark Abadier.
+File:Drogbar concept 3.jpg|Concept art by [[Christopher Hayes]].
+File:Drogbar concept 4.jpg|Concept art by [[Cole Eastburn]].
+File:Drogbar concept art 1.png|Drogbar concept art.
+File:Drogbar elder concept art.png|Drogbar elder concept art.
+File:Tauren vs drogbar.jpg|Drogbar fighting [[Highmountain tauren]] outside [[Thunder Totem]] in ''[[A Mountain Divided]]''.
+</gallery>
+
+==References==
+{{Reflist}}
+
+{{Drogbar|doc=}}
+{{Azeroth natives}}
+
+[[Category:Drogbar| ]]
+[[Category:Races]]

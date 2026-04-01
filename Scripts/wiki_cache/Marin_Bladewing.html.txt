@@ -1,0 +1,872 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width:21.5em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Alliance" title="Alliance"><img alt="Alliance" src="/images/Alliance_32.png?42e7e3" decoding="async" loading="lazy" width="32" height="32" data-file-width="32" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Marin Bladewing</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Marin_Bladewing_Azsuna.jpg" class="image" title="Image of Marin Bladewing"><img alt="Image of Marin Bladewing" src="/images/thumb/Marin_Bladewing_Azsuna.jpg/153px-Marin_Bladewing_Azsuna.jpg?ac8d9f" decoding="async" loading="lazy" width="153" height="300" data-file-width="441" data-file-height="864" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Title</th><td>
+Warden,<br />Wardens Emissary</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Gender</th><td>
+Female</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race</th><td>
+<a href="/wiki/Night_elf" title="Night elf">Night elf</a>&#160;(Humanoid)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Class</th><td>
+<a href="/wiki/Warden" title="Warden">Warden</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Resource</th><td>
+<span class="rc-energy"><a href="/wiki/Energy" title="Energy">Energy</a></span></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation(s)</th><td>
+<a href="/wiki/Shadow_Wardens" title="Shadow Wardens">Shadow Wardens</a>, <a href="/wiki/The_Wardens" class="mw-redirect" title="The Wardens">The Wardens</a>, <a href="/wiki/Watchers" title="Watchers">Watchers</a>, <a href="/wiki/Guardians_of_Hyjal" title="Guardians of Hyjal">Guardians of Hyjal</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Occupation</th><td>
+<a href="/wiki/Quartermaster" title="Quartermaster">Quartermaster</a> of the Wardens</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Location</th><td>
+<a href="#Locations">Various</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Alive</td></tr></tbody></table>
+<p><b>Marin Bladewing</b> is a <a href="/wiki/Night_elf" title="Night elf">night elf</a> <a href="/wiki/Warden" title="Warden">warden</a> serving under <a href="/wiki/Maiev_Shadowsong" title="Maiev Shadowsong">Maiev Shadowsong</a>. She took part in the <a href="/wiki/Firelands_Invasion" title="Firelands Invasion">Firelands Invasion</a> as part of the <a href="/wiki/Shadow_Wardens" title="Shadow Wardens">Shadow Wardens</a>. She later joined the <a href="/wiki/The_Wardens" class="mw-redirect" title="The Wardens">Wardens</a> in resisting the <a href="/wiki/Third_invasion_of_the_Burning_Legion" title="Third invasion of the Burning Legion">third invasion</a> of the <a href="/wiki/Burning_Legion" title="Burning Legion">Burning Legion</a> from <a href="/wiki/Azsuna" title="Azsuna">Azsuna</a>, under the command of <a href="/wiki/Sira_Moonwarden" title="Sira Moonwarden">Sira Moonwarden</a> and Maiev. At the time of the <a href="/wiki/Fourth_War" title="Fourth War">Fourth War</a>, Marin and her fellow wardens committed themselves to the <a href="/wiki/Alliance" title="Alliance">Alliance</a> cause, and fought alongside their leader in <a href="/wiki/Battle_for_Darkshore" title="Battle for Darkshore">the campaign</a> to drive the <a href="/wiki/Horde" title="Horde">Horde</a> from <a href="/wiki/Darkshore" title="Darkshore">Darkshore</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Background"><span class="tocnumber">1</span> <span class="toctext">Background</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Cataclysm"><span class="tocnumber">1.1</span> <span class="toctext">Cataclysm</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Warlords_of_Draenor"><span class="tocnumber">1.2</span> <span class="toctext">Warlords of Draenor</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Legion"><span class="tocnumber">1.3</span> <span class="toctext">Legion</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Battle_for_Azeroth"><span class="tocnumber">1.4</span> <span class="toctext">Battle for Azeroth</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Dragonflight"><span class="tocnumber">1.5</span> <span class="toctext">Dragonflight</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Locations"><span class="tocnumber">2</span> <span class="toctext">Locations</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Sells"><span class="tocnumber">3</span> <span class="toctext">Sells</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Abilities"><span class="tocnumber">4</span> <span class="toctext">Abilities</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Quests"><span class="tocnumber">5</span> <span class="toctext">Quests</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Quotes"><span class="tocnumber">6</span> <span class="toctext">Quotes</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Trivia"><span class="tocnumber">7</span> <span class="toctext">Trivia</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#Patch_changes"><span class="tocnumber">8</span> <span class="toctext">Patch changes</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Background">Background</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=1" title="Edit section: Background"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Cataclysm">Cataclysm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=2" title="Edit section: Cataclysm"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Cataclysm" title="Cataclysm"><img alt="Cataclysm" src="/images/Cata-Logo-Small.png?cd16d8" decoding="async" loading="lazy" width="39" height="15" style="vertical-align: middle" data-file-width="39" data-file-height="15" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Cataclysm" title="World of Warcraft: Cataclysm">Cataclysm</a></i>.</b></span></p><div style="clear:left;"></div>
+<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="/wiki/File:Marin_Bladewing.jpg" class="image"><img src="/images/thumb/Marin_Bladewing.jpg/240px-Marin_Bladewing.jpg?2ed0d2" decoding="async" loading="lazy" width="240" height="397" class="thumbimage" data-file-width="648" data-file-height="1071" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Marin_Bladewing.jpg" class="internal" title="Enlarge"></a></div>Marin on the <a href="/wiki/Molten_Front" title="Molten Front">Molten Front</a>.</div></div></div>
+<p>Following the <a href="/wiki/Cataclysm_(event)" title="Cataclysm (event)">Cataclysm</a>, Marin originally appeared as a <a href="/wiki/Shadow_Wardens" title="Shadow Wardens">Shadow Warden</a> at the <a href="/wiki/Forlorn_Spire" title="Forlorn Spire">Forlorn Spire</a> in the <a href="/wiki/Molten_Front" title="Molten Front">Molten Front</a>. There, she took part in the <a href="/wiki/Firelands_Invasion" title="Firelands Invasion">campaign</a> against the Fire Lord, <a href="/wiki/Ragnaros" title="Ragnaros">Ragnaros</a>, and his minions, in order to save all of <a href="/wiki/Mount_Hyjal" title="Mount Hyjal">Mount Hyjal</a> from destruction. She was accompanied in this quest by a number of other wardens and <a href="/wiki/Adventurer" title="Adventurer">adventurers</a>, and appeared to be in command of her fellow sisters.<sup id="cite&#95;ref-The&#95;Wardens&#95;are&#95;Watching&#95;1-0" class="reference"><a href="#cite_note-The_Wardens_are_Watching-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> After slaying <a href="/wiki/Fire_elemental" title="Fire elemental">fire elementals</a>, they took the <a href="/wiki/Forlorn_Spire" title="Forlorn Spire">Forlorn Spire</a>, after which she sensed <a href="/wiki/Druids_of_the_Flame" title="Druids of the Flame">Druids of the Flame</a> nearby.<sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> Therefore, she requested to strike at and destroy the druids' <a href="/wiki/Solar_Core?action=edit&amp;redlink=1" class="new" title="Solar Core (page does not exist)" rel="nofollow">Solar Core</a> that had the potential of causing massive damage to Azeroth<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup> and ordered the capture of one of the druids for questioning in order to learn of their plans, and sent a <a href="/wiki/Shadow_Warden" title="Shadow Warden">warden</a> and the adventurer to do it.<sup id="cite&#95;ref-The&#95;Wardens&#95;are&#95;Watching&#95;1-1" class="reference"><a href="#cite_note-The_Wardens_are_Watching-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> Afterward, she asked the adventurer with assisting <a href="/wiki/Shalis_Darkhunter" title="Shalis Darkhunter">Shalis Darkhunter</a> and <a href="/wiki/Theresa_Barkskin" title="Theresa Barkskin">Theresa Barkskin</a> in their mission in the <a href="/wiki/Igneous_Depths" title="Igneous Depths">Igneous Depths</a> and specifically tasked them to disrupt the <a href="/wiki/Druids_of_the_Flame" title="Druids of the Flame">Druids of the Flame</a>'s ritual by destroying their <a href="/wiki/Flame_Protection_Rune?action=edit&amp;redlink=1" class="new" title="Flame Protection Rune (page does not exist)" rel="nofollow">summoning runes</a>.<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<h3><span class="mw-headline" id="Warlords_of_Draenor">Warlords of Draenor</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=3" title="Edit section: Warlords of Draenor"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Warlords_of_Draenor" title="Warlords of Draenor"><img alt="Warlords of Draenor" src="/images/WoD-Logo-Small.png?be5b60" decoding="async" loading="lazy" width="46" height="14" style="vertical-align: middle" data-file-width="46" data-file-height="14" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Warlords_of_Draenor" title="World of Warcraft: Warlords of Draenor">Warlords of Draenor</a></i>.</b></span></p><div style="clear:left;"></div>
+<p>During the <a href="/wiki/War_in_Draenor" title="War in Draenor">war in Draenor</a>, Marin was part of a contingent of <a href="/wiki/Warden" title="Warden">wardens</a> sent by <a href="/wiki/Maiev_Shadowsong" title="Maiev Shadowsong">Maiev Shadowsong</a> to protect <a href="/wiki/Archmage_Khadgar" class="mw-redirect" title="Archmage Khadgar">Archmage Khadgar</a> as he worked against the <a href="/wiki/Burning_Legion" title="Burning Legion">Burning Legion</a> on <a href="/wiki/Alternate_Draenor" class="mw-redirect" title="Alternate Draenor">alternate Draenor</a>. Led by <a href="/wiki/Cordana_Felsong" title="Cordana Felsong">Cordana Felsong</a>, the group was stationed across the continent, with Marin herself being found in <a href="/wiki/Starfall_Outpost" title="Starfall Outpost">Starfall Outpost</a> in <a href="/wiki/Shadowmoon_Valley_(alternate_universe)" title="Shadowmoon Valley (alternate universe)">Shadowmoon Valley</a> and <a href="/wiki/Yrel%27s_Watch" title="Yrel&#39;s Watch">Yrel's Watch</a> in <a href="/wiki/Nagrand_(alternate_universe)" title="Nagrand (alternate universe)">Nagrand</a>.
+</p>
+<h3><span class="mw-headline" id="Legion">Legion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=4" title="Edit section: Legion"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i>.</b></span></p><div style="clear:left;"></div>
+<p>By the time of the <a href="/wiki/Third_invasion_of_the_Burning_Legion" title="Third invasion of the Burning Legion">third invasion</a> of the <a href="/wiki/Burning_Legion" title="Burning Legion">Burning Legion</a>, Marin and her <a href="/wiki/The_Wardens" class="mw-redirect" title="The Wardens">fellow Wardens</a> had reestablished themselves on the <a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a>, where they guarded the <a href="/wiki/Vault_of_the_Wardens" title="Vault of the Wardens">Vault of the Wardens</a> against all threats. The <a href="/wiki/Demon" title="Demon">demons</a>' attack on the facility, aided by <a href="/wiki/Cordana_Felsong" title="Cordana Felsong">Cordana Felsong</a> herself, succeeded in breaching the Vault. Marin would act as <a href="/wiki/Quartermaster" title="Quartermaster">quartermaster</a> for the organization from <a href="/wiki/Wardens%27_Redoubt" title="Wardens&#39; Redoubt">Wardens' Redoubt</a> in <a href="/wiki/Azsuna" title="Azsuna">Azsuna</a>, from which she and her sisters fought desperately to drive back the Legion's forces.
+</p>
+<h3><span class="mw-headline" id="Battle_for_Azeroth">Battle for Azeroth</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=5" title="Edit section: Battle for Azeroth"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="Battle for Azeroth"><img alt="Battle for Azeroth" src="/images/thumb/BattleForAzeroth-Logo-Small.png/40px-BattleForAzeroth-Logo-Small.png?25e36c" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="World of Warcraft: Battle for Azeroth">Battle for Azeroth</a></i>.</b></span></p><div style="clear:left;"></div>
+<div class="thumb tright"><div class="thumbinner" style="width:322px;"><a href="/wiki/File:Wardenlineup_alternate.jpg" class="image"><img src="/images/thumb/Wardenlineup_alternate.jpg/320px-Wardenlineup_alternate.jpg?d8c29a" decoding="async" loading="lazy" width="320" height="205" class="thumbimage" data-file-width="961" data-file-height="615" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Wardenlineup_alternate.jpg" class="internal" title="Enlarge"></a></div>Marin Bladewing and the Wardens in <a href="/wiki/Darkshore" title="Darkshore">Darkshore</a>.</div></div></div>
+<p>Warden Bladewing and her sisters would answer the call of <a href="/wiki/Maiev_Shadowsong" title="Maiev Shadowsong">Maiev Shadowsong</a> and <a href="/wiki/Tyrande_Whisperwind" title="Tyrande Whisperwind">Tyrande Whisperwind</a>, as the <a href="/wiki/Kaldorei" class="mw-redirect" title="Kaldorei">kaldorei</a> prepared to retake <a href="/wiki/Darkshore" title="Darkshore">Darkshore</a> from its <a href="/wiki/Horde" title="Horde">Horde</a> occupiers during the <a href="/wiki/Fourth_War" title="Fourth War">Fourth War</a>. They would venture with Maiev to <a href="/wiki/Bashal%27Aran" title="Bashal&#39;Aran">Bashal'Aran</a>, where they defended High Priestess Tyrande during her ritual to become the <a href="/wiki/Night_Warrior" title="Night Warrior">Night Warrior</a>, and subsequently witnessed her transformation.<sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Later, Marin and her sisters took part in the <a href="/wiki/Battle_for_Darkshore" title="Battle for Darkshore">Battle for Darkshore</a> alongside other <a href="/wiki/Alliance" title="Alliance">Alliance</a> forces.
+</p>
+<h3><span class="mw-headline" id="Dragonflight">Dragonflight</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=6" title="Edit section: Dragonflight"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><span class="icon df-inline"><a href="/wiki/World_of_Warcraft:_Dragonflight" title="Dragonflight"><img alt="Dragonflight" src="/images/thumb/Dragonflight-Icon-Inline.png/48px-Dragonflight-Icon-Inline.png?be4c0e" decoding="async" loading="lazy" width="48" height="17" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Dragonflight" title="World of Warcraft: Dragonflight">Dragonflight</a></i>.</b></span></p><div style="clear:left;"></div>
+<p>Years later, Marin and her fellow wardens attended the gathering at <a href="/wiki/Amirdrassil" title="Amirdrassil">Amirdrassil</a> when it bloomed on the <a href="/wiki/Dragon_Isles" title="Dragon Isles">Dragon Isles</a> after <a href="/wiki/Fyrakk" title="Fyrakk">Fyrakk</a>'s death. Afterward, she can be seen speaking with <a href="/wiki/Arko%27narin_Starshade" title="Arko&#39;narin Starshade">Arko'narin Starshade</a> in <a href="/wiki/Arlithrien_Lodge" title="Arlithrien Lodge">Arlithrien Lodge</a>.
+</p>
+<h2><span class="mw-headline" id="Locations">Locations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=7" title="Edit section: Locations"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable zebra mw-collapsible" style="float: ; min-width:14em">
+<tbody><tr>
+<th colspan="4">Locations
+</th></tr>
+<tr>
+<th>Zone</th>
+<th>Level&#160;range</th>
+<th>Reaction</th>
+<th>Notes
+</th></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Forlorn_Spire" title="Forlorn Spire">Forlorn Spire</a>, <a href="/wiki/Molten_Front" title="Molten Front">Molten Front</a>
+</td>
+<td style="vertical-align: top;">32-35 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">As a <a href="/wiki/Quest_giver" title="Quest giver">quest giver</a> the <a href="/wiki/Firelands_Invasion" title="Firelands Invasion">Firelands Invasion</a> questline.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Starfall_Outpost" title="Starfall Outpost">Starfall Outpost</a>, <a href="/wiki/Shadowmoon_Valley_(alternate_universe)" title="Shadowmoon Valley (alternate universe)">Shadowmoon Valley</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 29.4 26.0"><a href="/wiki/Shadowmoon_Valley_(alternate_universe)" title="Shadowmoon Valley (alternate universe)"><sup>[29.4,&#160;26.0]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-ShadowmoonValleyDR.jpg/300px-WorldMap-ShadowmoonValleyDR.jpg?fb6c54" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:29.4%;top:26.0%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">10-40 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-hostile" title="Hostile">Horde</span></a>
+</td>
+<td style="vertical-align: top;">
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Yrel%27s_Watch" title="Yrel&#39;s Watch">Yrel's Watch</a>, <a href="/wiki/Nagrand_(alternate_universe)" title="Nagrand (alternate universe)">Nagrand</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 62.2 41.6"><a href="/wiki/Nagrand_(alternate_universe)" title="Nagrand (alternate universe)"><sup>[62.2,&#160;41.6]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-NagrandDraenor.jpg/300px-WorldMap-NagrandDraenor.jpg?2e1dd9" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:62.2%;top:41.6%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">35-40 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-hostile" title="Hostile">Horde</span></a>
+</td>
+<td style="vertical-align: top;">
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Wardens%27_Redoubt" title="Wardens&#39; Redoubt">Wardens' Redoubt</a>, <a href="/wiki/Azsuna" title="Azsuna">Azsuna</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 48.2 73.8"><a href="/wiki/Azsuna" title="Azsuna"><sup>[48.2,&#160;73.8]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Azsuna.jpg/300px-WorldMap-Azsuna.jpg?4377a2" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:48.2%;top:73.8%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">10-45 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Bashal%27Aran" title="Bashal&#39;Aran">Bashal'Aran</a>, <a href="/wiki/Battle_for_Darkshore" title="Battle for Darkshore">Battle for Darkshore</a>
+</td>
+<td style="vertical-align: top;">50 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a>
+</td>
+<td style="vertical-align: top;">During <span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50]&#160;</span><a href="/wiki/In_Darkest_Night" title="In Darkest Night"><span class="ajaxttlink questlink">In Darkest Night</span></a></span> and the Alliance instance.
+</td></tr>
+<tr>
+<td style="vertical-align: top;">Bashal'Aran, <a href="/wiki/Darkshore" title="Darkshore">Darkshore</a>
+</td>
+<td style="vertical-align: top;">50 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-hostile" title="Hostile">Horde</span></a>
+</td>
+<td style="vertical-align: top;">When the Alliance controls the zone.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Amirdrassil" title="Amirdrassil">Amirdrassil</a>
+</td>
+<td style="vertical-align: top;">70 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">During the last <a href="/wiki/Guardians_of_the_Dream_campaign" title="Guardians of the Dream campaign">Guardians of the Dream campaign</a> chapter.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Arlithrien_Lodge" title="Arlithrien Lodge">Arlithrien Lodge</a>, Amirdrassil<span class="tttemplatelink coords-link noexcerpt" data-coords="/way 29.0 27.6"><a href="/wiki/Amirdrassil" title="Amirdrassil"><sup>[29.0,&#160;27.6]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Amirdrassil.jpg/300px-WorldMap-Amirdrassil.jpg?79a7fb" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="3840" data-file-height="2560" /><span style="position:absolute;left:29.0%;top:27.6%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">Amirdrassil Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">In the overworld version.</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Sells">Sells</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=8" title="Edit section: Sells"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable zebra">
+<caption><span class="raceicon"></span><a class="mw-selflink selflink"><span style="color:">Marin Bladewing</span></a><br /><span style="">&lt;<a href="/wiki/Wardens_(faction)" title="Wardens (faction)">Wardens</a> Emissary&gt;</span>
+</caption>
+<tbody><tr>
+<th>Rep</th>
+<th>Item</th>
+<th>Cost</th>
+<th>Type</th>
+<th>Other
+</th></tr>
+<tr>
+<th rowspan="4"><a href="/wiki/Honored" class="mw-redirect" title="Honored"><span class="rep-honored" title="Honored">Honored</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Garrison_silverchest.png/16px-Garrison_silverchest.png?98596c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Trapped_Treasure_Chest_Kit" title="Trapped Treasure Chest Kit"><span class="itemlink ajaxttlink qc-rare" title="Trapped Treasure Chest Kit is a rare quality item."><span class="bracket">&#91;</span>Trapped Treasure Chest Kit<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">300<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Toy</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_Reinforced_Headgun_(Rank_3)" title="Schematic: Reinforced Headgun (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Schematic: Reinforced Headgun is a common quality item."><span class="bracket">&#91;</span>Schematic: Reinforced Headgun<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">550<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Engineering schematic</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_Bolt-Action_Headgun_(Rank_3)" title="Schematic: Bolt-Action Headgun (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Schematic: Bolt-Action Headgun is a common quality item."><span class="bracket">&#91;</span>Schematic: Bolt-Action Headgun<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">550<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Engineering schematic</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/70_professions_scroll_02.png/16px-70_professions_scroll_02.png?62a00e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Feathered_Luffa" title="Recipe: Feathered Luffa"><span class="itemlink ajaxttlink qc-common" title="Recipe: Feathered Luffa is a common quality item."><span class="bracket">&#91;</span>Recipe: Feathered Luffa<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">600<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>First Aid recipe</td>
+<td>
+</td></tr>
+<tr>
+<th rowspan="7"><a href="/wiki/Revered" class="mw-redirect" title="Revered"><span class="rep-revered" title="Revered">Revered</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pet_wardenowl.png/16px-Inv_pet_wardenowl.png?d6ccd1" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Fledgling_Warden_Owl" title="Fledgling Warden Owl"><span class="itemlink ajaxttlink qc-rare" title="Fledgling Warden Owl is a rare quality item."><span class="bracket">&#91;</span>Fledgling Warden Owl<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Companion</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_rod_titanium.png/16px-Inv_rod_titanium.png?552de6" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Syxsehnz_Rod" title="Syxsehnz Rod"><span class="itemlink ajaxttlink qc-rare" title="Syxsehnz Rod is a rare quality item."><span class="bracket">&#91;</span>Syxsehnz Rod<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Toy</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_boot_plate_legiondungeon_c_01.png/16px-Inv_boot_plate_legiondungeon_c_01.png?60f315" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Vault_Patroller%27s_Warboots" title="Vault Patroller&#39;s Warboots"><span class="itemlink ajaxttlink qc-rare" title="Vault Patroller&#39;s Warboots is a rare quality item."><span class="bracket">&#91;</span>Vault Patroller's Warboots<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,000<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Plate boots</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Vantus_Rune_Technique:_Star_Augur_Etraeus_(Rank_3)" title="Vantus Rune Technique: Star Augur Etraeus (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Vantus Rune Technique: Star Augur Etraeus is a common quality item."><span class="bracket">&#91;</span>Vantus Rune Technique: Star Augur Etraeus<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Inscription technique</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Vantus_Rune_Technique:_Spellblade_Aluriel_(Rank_3)" title="Vantus Rune Technique: Spellblade Aluriel (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Vantus Rune Technique: Spellblade Aluriel is a common quality item."><span class="bracket">&#91;</span>Vantus Rune Technique: Spellblade Aluriel<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Inscription technique</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Vantus_Rune_Technique:_Cenarius_(Rank_3)" title="Vantus Rune Technique: Cenarius (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Vantus Rune Technique: Cenarius is a common quality item."><span class="bracket">&#91;</span>Vantus Rune Technique: Cenarius<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Inscription technique</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/70_professions_scroll_02.png/16px-70_professions_scroll_02.png?62a00e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Spiced_Falcosaur_Omelet" title="Recipe: Spiced Falcosaur Omelet"><span class="itemlink ajaxttlink qc-common" title="Recipe: Spiced Falcosaur Omelet is a common quality item."><span class="bracket">&#91;</span>Recipe: Spiced Falcosaur Omelet<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1000<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Cooking recipe</td>
+<td>
+</td></tr>
+<tr>
+<th rowspan="6"><a href="/wiki/Exalted" class="mw-redirect" title="Exalted"><span class="rep-exalted" title="Exalted">Exalted</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_legion_faction_warden.png/16px-Inv_legion_faction_warden.png?7a7507" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Boon_of_the_Bloodhunter" title="Boon of the Bloodhunter"><span class="itemlink ajaxttlink qc-rare" title="Boon of the Bloodhunter is a rare quality item."><span class="bracket">&#91;</span>Boon of the Bloodhunter<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">200<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Shoulder enchant</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cape_raidhunter_q_01.png/16px-Inv_cape_raidhunter_q_01.png?533102" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Drape_of_the_Patient_Hunter" title="Drape of the Patient Hunter"><span class="itemlink ajaxttlink qc-epic" title="Drape of the Patient Hunter is an epic quality item."><span class="bracket">&#91;</span>Drape of the Patient Hunter<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">5,000<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Cloak</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_tabard_a_86warden.png/16px-Inv_tabard_a_86warden.png?6b9e2b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Warden%27s_Tabard" title="Warden&#39;s Tabard"><span class="itemlink ajaxttlink qc-rare" title="Warden&#39;s Tabard is a rare quality item."><span class="bracket">&#91;</span>Warden's Tabard<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">300<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Tabard</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Design:_Twisted_Pandemonite_Choker_(Rank_3)" title="Design: Twisted Pandemonite Choker (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Design: Twisted Pandemonite Choker is a common quality item."><span class="bracket">&#91;</span>Design: Twisted Pandemonite Choker<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Jewelcrafting design</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_Sawed-Off_Cranial_Cannon_(Rank_3)" title="Schematic: Sawed-Off Cranial Cannon (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Schematic: Sawed-Off Cranial Cannon is a common quality item."><span class="bracket">&#91;</span>Schematic: Sawed-Off Cranial Cannon<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Engineering schematic</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_Semi-Automagic_Cranial_Cannon_(Rank_3)" title="Schematic: Semi-Automagic Cranial Cannon (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Schematic: Semi-Automatic Cranial Cannon is a common quality item."><span class="bracket">&#91;</span>Schematic: Semi-Automatic Cranial Cannon<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Engineering schematic</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<th rowspan="1"><b>Paragon</b>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_tabard_a_86warden.png/16px-Inv_tabard_a_86warden.png?6b9e2b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Sira%27s_Extra_Cloak" title="Sira&#39;s Extra Cloak"><span class="itemlink ajaxttlink qc-epic" title="Sira&#39;s Extra Cloak is an epic quality item."><span class="bracket">&#91;</span>Sira's Extra Cloak<span class="bracket">&#93;</span></span></a></span></td>
+<td><a href="/wiki/Warden%27s_Supply_Kit" title="Warden&#39;s Supply Kit">Special</a></td>
+<td>Toy</td>
+<td>
+</td></tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Abilities">Abilities</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=9" title="Edit section: Abilities"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="/wiki/File:Marin_Bladewing_in_Darkshore.png" class="image"><img src="/images/thumb/Marin_Bladewing_in_Darkshore.png/240px-Marin_Bladewing_in_Darkshore.png?19c24f" decoding="async" loading="lazy" width="240" height="527" class="thumbimage" data-file-width="427" data-file-height="938" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Marin_Bladewing_in_Darkshore.png" class="internal" title="Enlarge"></a></div>Marin Bladewing in Darkshore.</div></div></div>
+<dl><dt>Molten Front</dt></dl>
+<ul><li><span id="Ability:Drink&#95;Healing&#95;Potion"><img alt="Spell holy heal.png" src="/images/thumb/Spell_holy_heal.png/16px-Spell_holy_heal.png?c83283" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;<a rel="nofollow" class="external text" href="https://www.wowhead.com/spell=97689"><b>Drink Healing Potion</b></a>&#160;&#8212;&#160;Uses a Holy elixir to heal the caster.</span></li>
+<li><span id="Ability:Fan&#95;of&#95;Knives"><img alt="Ability rogue fanofknives.png" src="/images/thumb/Ability_rogue_fanofknives.png/16px-Ability_rogue_fanofknives.png?59d0e0" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;<a rel="nofollow" class="external text" href="https://www.wowhead.com/spell=97667"><b>Fan of Knives</b></a>&#160;&#8212;&#160;Instantly whirl around, releasing a spray of throwing knives at all targets within 15 yards.</span></li>
+<li><span id="Ability:Shadow&#95;Strike"><img alt="Ability poisonarrow.png" src="/images/thumb/Ability_poisonarrow.png/16px-Ability_poisonarrow.png?ff87f8" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;<a rel="nofollow" class="external text" href="https://www.wowhead.com/spell=97676"><b>Shadow Strike</b></a>&#160;&#8212;&#160;Hurls a poisoned dagger which deals large initial damage, and then deals damage over time. The poisoned unit has its movement rate slowed for a short duration.</span></li>
+<li><span id="Ability:Shadowstep"><img alt="Ability rogue shadowstep.png" src="/images/thumb/Ability_rogue_shadowstep.png/16px-Ability_rogue_shadowstep.png?f04a9d" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;<a rel="nofollow" class="external text" href="https://www.wowhead.com/spell=97668"><b>Shadowstep</b></a>&#160;&#8212;&#160;Attempts to step through the shadows and reappear behind your enemy.</span></li></ul>
+<dl><dt>Darkshore</dt></dl>
+<ul><li><span id="Ability:Mortal&#95;Strike"><img alt="Ability warrior savageblow.png" src="/images/thumb/Ability_warrior_savageblow.png/16px-Ability_warrior_savageblow.png?b575c2" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;<a rel="nofollow" class="external text" href="https://www.wowhead.com/spell=19643"><b>Mortal Strike</b></a>&#160;&#8212;&#160;Inflicts 150% weapon damage to an enemy and leaves it wounded, reducing the effectiveness of any healing by 50% for 5 sec.</span></li></ul>
+<h2><span class="mw-headline" id="Quests">Quests</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=10" title="Edit section: Quests"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Cataclysm" title="Cataclysm"><img alt="Cataclysm" src="/images/Cata-Logo-Small.png?cd16d8" decoding="async" loading="lazy" width="39" height="15" style="vertical-align: middle" data-file-width="39" data-file-height="15" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Cataclysm" title="World of Warcraft: Cataclysm">Cataclysm</a></i>.</b></span></p><div style="clear:left;"></div>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[32-35&#32;Daily]&#160;</span><a href="/wiki/The_Forlorn_Spire_(quest)" title="The Forlorn Spire (quest)"><span class="ajaxttlink questlink">The Forlorn Spire</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Repeatableactive" src="/images/thumb/RepeatableGossipActiveIcon.png/16px-RepeatableGossipActiveIcon.png?1e7ae4" decoding="async" loading="lazy" width="16" height="16" data-file-width="26" data-file-height="26" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[32-35&#32;Daily]&#160;</span><a href="/wiki/Enduring_the_Heat" title="Enduring the Heat"><span class="ajaxttlink questlink">Enduring the Heat</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Repeatableavailable" src="/images/thumb/RepeatableGossipAvailableIcon.png/16px-RepeatableGossipAvailableIcon.png?4c1ba3" decoding="async" loading="lazy" width="16" height="16" data-file-width="26" data-file-height="26" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[32-35&#32;Daily]&#160;</span><a href="/wiki/Solar_Core_Destruction" title="Solar Core Destruction"><span class="ajaxttlink questlink">Solar Core Destruction</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Repeatableavailable" src="/images/thumb/RepeatableGossipAvailableIcon.png/16px-RepeatableGossipAvailableIcon.png?4c1ba3" decoding="async" loading="lazy" width="16" height="16" data-file-width="26" data-file-height="26" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Repeatableactive" src="/images/thumb/RepeatableGossipActiveIcon.png/16px-RepeatableGossipActiveIcon.png?1e7ae4" decoding="async" loading="lazy" width="16" height="16" data-file-width="26" data-file-height="26" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[32-35&#32;Daily]&#160;</span><a href="/wiki/The_Wardens_are_Watching" title="The Wardens are Watching"><span class="ajaxttlink questlink">The Wardens are Watching</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Repeatableavailable" src="/images/thumb/RepeatableGossipAvailableIcon.png/16px-RepeatableGossipAvailableIcon.png?4c1ba3" decoding="async" loading="lazy" width="16" height="16" data-file-width="26" data-file-height="26" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Repeatableactive" src="/images/thumb/RepeatableGossipActiveIcon.png/16px-RepeatableGossipActiveIcon.png?1e7ae4" decoding="async" loading="lazy" width="16" height="16" data-file-width="26" data-file-height="26" /></a></li></ul>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i>.</b></span></p><div style="clear:left;"></div>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[45]&#160;</span><a href="/wiki/Paragon_of_the_Wardens" title="Paragon of the Wardens"><span class="ajaxttlink questlink">Paragon of the Wardens</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[45]&#160;</span><a href="/wiki/Supplies_From_the_Wardens" title="Supplies From the Wardens"><span class="ajaxttlink questlink">Supplies From the Wardens</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[45]&#160;</span><a href="/wiki/The_Wardens_(quest)" title="The Wardens (quest)"><span class="ajaxttlink questlink">The Wardens</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<h2><span class="mw-headline" id="Quotes">Quotes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=11" title="Edit section: Quotes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dt>Forlorn Spire gossip</dt></dl>
+<div class="dialogue plainlist">
+<p>Greetings, &lt;class&gt;. The Fire Lord has twisted our former brothers and sisters into avatars of molten fury. Even now, the Druids of the Flame carry out his insane plan to destroy the World Tree. We will not let that happen.
+</p>
+</div>
+<dl><dt>Wardens' Redoubt gossip</dt></dl>
+<div class="dialogue plainlist">
+<p>Do you have the courage to help us defeat the Legion?
+</p><p><img alt="Buy" src="/images/Vendorgossipicon.png?d64fc3" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" />&#160;I want to browse your goods.
+</p>
+</div>
+<dl><dt>Darkshore gossip</dt></dl>
+<div class="dialogue plainlist">
+<p><a href="/wiki/Sira_Moonwarden" title="Sira Moonwarden">Another</a> of our sisters has fallen to darkness. But that will not stop us from our duty.
+</p>
+</div>
+<h2><span class="mw-headline" id="Trivia">Trivia</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=12" title="Edit section: Trivia"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>She is named after one of the <a href="/wiki/Random_hero#Warden" title="Random hero">random wardens</a> of <i><a href="/wiki/Warcraft_III:_The_Frozen_Throne" title="Warcraft III: The Frozen Throne">Warcraft III: The Frozen Throne</a></i>.</li>
+<li>Since <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i>, Marin has been seen wielding the <a href="/wiki/Umbra_Crescent" title="Umbra Crescent">Umbra Crescent</a>; in <i><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="World of Warcraft: Battle for Azeroth">Battle for Azeroth</a></i>, she began duel-wielding two of them.
+<ul><li>As of <i>Legion</i>, Marin has also appeared accompanied by a <a href="/wiki/Sentinel_Owl_(NPC)" title="Sentinel Owl (NPC)">Sentinel Owl</a>.</li></ul></li></ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=13" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_7.0.3" title="Patch 7.0.3">Patch 7.0.3</a> (2016-07-19):</b> Broken Isles appearance added.   <i></i><br /></li>
+<li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Cataclysm" title="Cataclysm"><img alt="Cataclysm" src="/images/Cata-Logo-Small.png?cd16d8" decoding="async" loading="lazy" width="39" height="15" style="vertical-align: middle" data-file-width="39" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_4.2.0" title="Patch 4.2.0">Patch 4.2.0</a> (2011-06-28):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=14" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="font-size:calc(80% + 2.1px);"><div style="margin-top:-0.3em; margin-bottom:0px; height:0px">&#160;</div><div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-The&#95;Wardens&#95;are&#95;Watching-1">^ <sup><a href="#cite_ref-The_Wardens_are_Watching_1-0">a</a></sup> <sup><a href="#cite_ref-The_Wardens_are_Watching_1-1">b</a></sup> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[32-35&#32;Daily]&#160;</span><a href="/wiki/The_Wardens_are_Watching" title="The Wardens are Watching"><span class="ajaxttlink questlink">The Wardens are Watching</span></a></span></span>
+</li>
+<li id="cite&#95;note-2"><a href="#cite_ref-2">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[32-35&#32;Daily]&#160;</span><a href="/wiki/The_Forlorn_Spire_(quest)" title="The Forlorn Spire (quest)"><span class="ajaxttlink questlink">The Forlorn Spire</span></a></span></span>
+</li>
+<li id="cite&#95;note-3"><a href="#cite_ref-3">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[32-35&#32;Daily]&#160;</span><a href="/wiki/Solar_Core_Destruction" title="Solar Core Destruction"><span class="ajaxttlink questlink">Solar Core Destruction</span></a></span></span>
+</li>
+<li id="cite&#95;note-4"><a href="#cite_ref-4">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[32-35&#32;Daily]&#160;</span><a href="/wiki/Enduring_the_Heat" title="Enduring the Heat"><span class="ajaxttlink questlink">Enduring the Heat</span></a></span></span>
+</li>
+<li id="cite&#95;note-5"><a href="#cite_ref-5">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50]&#160;</span><a href="/wiki/In_Darkest_Night" title="In Darkest Night"><span class="ajaxttlink questlink">In Darkest Night</span></a></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Marin_Bladewing?action=edit&amp;section=15" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/search?q=Marin+Bladewing#npcs">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/search?search=Marin+Bladewing#t1:npcs">WoWDB</a></li>
+</ul>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Grand_Alliance" title="Template:Grand Alliance"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Grand_Alliance?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<span class="linkicon"><a href="/wiki/Alliance" title="Alliance"><img alt="Alliance" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Alliance" title="Alliance">Alliance</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><span style="float:left;width:6em;">&#160;</span><div class="" style="font-size:110%;">
+Leadership</div></th></tr><tr style="height:2px;"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/High_King" title="High King">High King</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Anduin_Wrynn" title="Anduin Wrynn">Anduin Wrynn</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Lord Commander</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Turalyon" title="Turalyon">Turalyon</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Leaders</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Council_of_Three_Hammers" title="Council of Three Hammers">Council of Three Hammers</a>
+<ul><li><a href="/wiki/Muradin_Bronzebeard" title="Muradin Bronzebeard">Muradin Bronzebeard</a></li>
+<li><a href="/wiki/Falstad_Wildhammer" title="Falstad Wildhammer">Falstad Wildhammer</a></li>
+<li><a href="/wiki/Moira_Thaurissan" title="Moira Thaurissan">Moira Thaurissan</a></li></ul></li>
+<li><a href="/wiki/Gelbin_Mekkatorque" title="Gelbin Mekkatorque">Gelbin Mekkatorque</a></li>
+<li><a href="/wiki/Shandris_Feathermoon" title="Shandris Feathermoon">Shandris Feathermoon</a></li>
+<li><a href="/wiki/Velen" title="Velen">Velen</a></li>
+<li><a href="/wiki/Tess_Greymane" title="Tess Greymane">Tess Greymane</a></li>
+<li><a href="/wiki/Aysa_Cloudsinger" title="Aysa Cloudsinger">Aysa Cloudsinger</a></li>
+<li><a href="/wiki/Alleria_Windrunner" title="Alleria Windrunner">Alleria Windrunner</a></li>
+<li><a href="/wiki/Magister_Umbric" title="Magister Umbric">Umbric</a></li>
+<li><a href="/wiki/Captain_Fareeya" title="Captain Fareeya">Fareeya</a></li>
+<li><a href="/wiki/Jaina_Proudmoore" title="Jaina Proudmoore">Jaina Proudmoore</a></li>
+<li><a href="/wiki/Scalecommander_Azurathel" title="Scalecommander Azurathel">Azurathel</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><span style="float:left;width:6em;">&#160;</span><div class="" style="font-size:110%;">
+Characters</div></th></tr><tr style="height:2px;"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Current</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Dagran_Thaurissan_II" title="Dagran Thaurissan II">Dagran Thaurissan II</a></li>
+<li><a href="/wiki/Danath_Trollbane" title="Danath Trollbane">Danath Trollbane</a></li>
+<li><a href="/wiki/Darius_Crowley" title="Darius Crowley">Darius Crowley</a></li>
+<li><a href="/wiki/Khadgar" title="Khadgar">Khadgar</a></li>
+<li><a href="/wiki/Kurdran_Wildhammer" title="Kurdran Wildhammer">Kurdran Wildhammer</a></li>
+<li><a href="/wiki/Magni_Bronzebeard" title="Magni Bronzebeard">Magni Bronzebeard</a></li>
+<li><a href="/wiki/Tyrande_Whisperwind" title="Tyrande Whisperwind">Tyrande Whisperwind</a></li>
+<li><a href="/wiki/Malfurion_Stormrage" title="Malfurion Stormrage">Malfurion Stormrage</a></li>
+<li><a href="/wiki/Genn_Greymane" title="Genn Greymane">Genn Greymane</a></li>
+<li><a href="/wiki/Halford_Wyrmbane" title="Halford Wyrmbane">Halford Wyrmbane</a></li>
+<li><a href="/wiki/Sky_Admiral_Rogers" title="Sky Admiral Rogers">Catherine Rogers</a></li>
+<li><a href="/wiki/Gryan_Stoutmantle" title="Gryan Stoutmantle">Gryan Stoutmantle</a></li>
+<li><a href="/wiki/John_J._Keeshan" title="John J. Keeshan">John J. Keeshan</a></li>
+<li><a href="/wiki/Mathias_Shaw" title="Mathias Shaw">Mathias Shaw</a></li>
+<li><a href="/wiki/Tyrathan_Khort" title="Tyrathan Khort">Tyrathan Khort</a></li>
+<li><a href="/wiki/Brann_Bronzebeard" title="Brann Bronzebeard">Brann Bronzebeard</a></li>
+<li><a href="/wiki/Lord_Grayson_Shadowbreaker" title="Lord Grayson Shadowbreaker">Grayson Shadowbreaker</a></li>
+<li><a href="/wiki/Doctor_Gustaf_VanHowzen" title="Doctor Gustaf VanHowzen">Gustaf VanHowzen</a></li>
+<li><a href="/wiki/Vindicator_Boros" title="Vindicator Boros">Vindicator Boros</a></li>
+<li><a href="/wiki/Sarah_Ladimore" title="Sarah Ladimore">Sarah Ladimore</a></li>
+<li><a href="/wiki/Morgan" title="Morgan">Morgan</a></li>
+<li><a href="/wiki/Vanndar_Stormpike" title="Vanndar Stormpike">Vanndar Stormpike</a></li>
+<li><a href="/wiki/Grand_Admiral_Jes-Tereth" title="Grand Admiral Jes-Tereth">Jes-Tereth</a></li>
+<li><a href="/wiki/Elder_Lusshan" title="Elder Lusshan">Lusshan</a></li>
+<li><a href="/wiki/Farseer_Nobundo" title="Farseer Nobundo">Nobundo</a></li>
+<li><a href="/wiki/Vereesa_Windrunner" title="Vereesa Windrunner">Vereesa Windrunner</a></li>
+<li><a href="/wiki/Velog_Icebellow" title="Velog Icebellow">Velog Icebellow</a></li>
+<li><a href="/wiki/Packleader_Ivar_Bloodfang" title="Packleader Ivar Bloodfang">Ivar Bloodfang</a></li>
+<li><a href="/wiki/Archmage_Modera" title="Archmage Modera">Modera</a></li>
+<li><a href="/wiki/Archmage_Vargoth" title="Archmage Vargoth">Vargoth</a></li>
+<li><a href="/wiki/Archmage_Karlain" title="Archmage Karlain">Karlain</a></li>
+<li><a href="/wiki/Archmage_Ansirem_Runeweaver" title="Archmage Ansirem Runeweaver">Ansirem Runeweaver</a></li>
+<li><a href="/wiki/Harrison_Jones" title="Harrison Jones">Harrison Jones</a></li>
+<li><a href="/wiki/Maiev_Shadowsong" title="Maiev Shadowsong">Maiev Shadowsong</a></li>
+<li><a href="/wiki/Thassarian" title="Thassarian">Thassarian</a></li>
+<li><a href="/wiki/High_Explorer_Muninn_Magellas" title="High Explorer Muninn Magellas">Muninn Magellas</a></li>
+<li><a href="/wiki/Thargas_Anvilmar" title="Thargas Anvilmar">Thargas Anvilmar</a></li>
+<li><a href="/wiki/Highlord_Leoric_Von_Zeldig" title="Highlord Leoric Von Zeldig">Highlord Leoric Von Zeldig</a></li>
+<li><a href="/wiki/Nevin_Twistwrench" title="Nevin Twistwrench">Nevin Twistwrench</a></li>
+<li><a href="/wiki/Razak_Ironsides" title="Razak Ironsides">Razak Ironsides</a></li>
+<li><a href="/wiki/Jarod_Shadowsong" title="Jarod Shadowsong">Jarod Shadowsong</a></li>
+<li><a href="/wiki/Ishanah" title="Ishanah">Ishanah</a></li>
+<li><a href="/wiki/Amaan_the_Wise" title="Amaan the Wise">Amaan the Wise</a></li>
+<li><a href="/wiki/Broll_Bearmantle" title="Broll Bearmantle">Broll Bearmantle</a></li>
+<li><a href="/wiki/Lorna_Crowley" title="Lorna Crowley">Lorna Crowley</a></li>
+<li><a href="/wiki/Mordent_Evenshade" title="Mordent Evenshade">Mordent Evenshade</a></li>
+<li><a href="/wiki/Arechron" title="Arechron">Arechron</a></li>
+<li><a href="/wiki/Rivern_Frostwind" title="Rivern Frostwind">Rivern Frostwind</a></li>
+<li><a href="/wiki/Bizmo" title="Bizmo">Bizmo</a></li>
+<li><a href="/wiki/Radulf_Leder" title="Radulf Leder">Radulf Leder</a></li>
+<li><a href="/wiki/Su%27ura_Swiftarrow" title="Su&#39;ura Swiftarrow">Su'ura Swiftarrow</a></li>
+<li><a href="/wiki/Cordressa_Briarbow" title="Cordressa Briarbow">Cordressa Briarbow</a></li>
+<li><a href="/wiki/Commander_Marcus_Johnson" title="Commander Marcus Johnson">Marcus Johnson</a></li>
+<li><a href="/wiki/Magistrate_Henry_Maleb" title="Magistrate Henry Maleb">Henry Maleb</a></li>
+<li><a href="/wiki/Jorad_Mace" title="Jorad Mace">Jorad Mace</a></li>
+<li><a href="/wiki/Weldon_Barov" title="Weldon Barov">Weldon Barov</a></li>
+<li><a href="/wiki/Celestine_of_the_Harvest" title="Celestine of the Harvest">Celestine of the Harvest</a></li>
+<li><a href="/wiki/Grand_Marshal_Tremblade" title="Grand Marshal Tremblade">Julianne Tremblade</a></li>
+<li><a class="mw-selflink selflink">Marin Bladewing</a></li>
+<li><a href="/wiki/Arator_the_Redeemer" class="mw-redirect" title="Arator the Redeemer">Arator Windrunner</a></li>
+<li><a href="/wiki/T%27paartos" title="T&#39;paartos">T'paartos</a></li>
+<li><a href="/wiki/Thisalee_Crow" title="Thisalee Crow">Thisalee Crow</a></li>
+<li><a href="/wiki/Lucille_Waycrest" title="Lucille Waycrest">Lucille Waycrest</a></li>
+<li><a href="/wiki/Brother_Pike" title="Brother Pike">Pike</a></li>
+<li><a href="/wiki/Taelia_Fordragon" title="Taelia Fordragon">Taelia Fordragon</a></li>
+<li><a href="/wiki/Katherine_Proudmoore" title="Katherine Proudmoore">Katherine Proudmoore</a></li>
+<li><a href="/wiki/Brannon_Stormsong" title="Brannon Stormsong">Brannon Stormsong</a></li>
+<li><a href="/wiki/Tandred_Proudmoore" title="Tandred Proudmoore">Tandred Proudmoore</a></li>
+<li><a href="/wiki/Prince_Erazmin" title="Prince Erazmin">Erazmin</a></li>
+<li><a href="/wiki/Arzaal" title="Arzaal">Arzaal</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Former</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Varian_Wrynn" title="Varian Wrynn">Varian Wrynn</a></li>
+<li><a href="/wiki/Taylor" title="Taylor">Taylor</a></li>
+<li><a href="/wiki/Twinbraid" title="Twinbraid">Twinbraid</a></li>
+<li><a href="/wiki/Vindicator_Maraad" title="Vindicator Maraad">Maraad</a></li>
+<li><a href="/wiki/Fandral_Staghelm" title="Fandral Staghelm">Fandral Staghelm</a></li>
+<li><a href="/wiki/Bolvar_Fordragon" title="Bolvar Fordragon">Bolvar Fordragon</a></li>
+<li><a href="/wiki/Archbishop_Benedictus" title="Archbishop Benedictus">Benedictus</a></li>
+<li><a href="/wiki/Marran_Trollbane" title="Marran Trollbane">Marran Trollbane</a></li>
+<li><a href="/wiki/General_Marcus_Jonathan" title="General Marcus Jonathan">Marcus Jonathan</a></li>
+<li><a href="/wiki/Althea_Ebonlocke" title="Althea Ebonlocke">Althea Ebonlocke</a></li>
+<li><a href="/wiki/Iridi" title="Iridi">Iridi</a></li>
+<li><a href="/wiki/Blademaster_Telaamon" title="Blademaster Telaamon">Blademaster Telaamon</a></li>
+<li><a href="/wiki/Kalecgos" title="Kalecgos">Kalecgos</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Alliance_of_Lordaeron" title="Alliance of Lordaeron">Historical</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Daelin_Proudmoore" title="Daelin Proudmoore">Daelin Proudmoore</a></li>
+<li><a href="/wiki/Anduin_Lothar" title="Anduin Lothar">Anduin Lothar</a></li>
+<li><a href="/wiki/Antonidas" title="Antonidas">Antonidas</a></li>
+<li><a href="/wiki/Terenas_Menethil_II" title="Terenas Menethil II">Terenas Menethil II</a></li>
+<li><a href="/wiki/Arthas_Menethil" title="Arthas Menethil">Arthas Menethil</a></li>
+<li><a href="/wiki/Uther_the_Lightbringer" title="Uther the Lightbringer">Uther the Lightbringer</a></li>
+<li><a href="/wiki/Alexandros_Mograine" title="Alexandros Mograine">Alexandros Mograine</a></li>
+<li><a href="/wiki/Othmar_Garithos" title="Othmar Garithos">Othmar Garithos</a></li>
+<li><a href="/wiki/Thoras_Trollbane" title="Thoras Trollbane">Thoras Trollbane</a></li>
+<li><a href="/wiki/Alonsus_Faol" title="Alonsus Faol">Alonsus Faol</a></li>
+<li><a href="/wiki/Anasterian_Sunstrider" title="Anasterian Sunstrider">Anasterian Sunstrider</a></li>
+<li><a href="/wiki/Sylvanas_Windrunner" title="Sylvanas Windrunner">Sylvanas Windrunner</a></li>
+<li><a href="/wiki/Aiden_Perenolde" title="Aiden Perenolde">Aiden Perenolde</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><span style="float:left;width:6em;">&#160;</span><div class="" style="font-size:110%;">
+Races</div></th></tr><tr style="height:2px;"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Core_race" class="mw-redirect" title="Core race">Core</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Human" title="Human">Human</a></li>
+<li><a href="/wiki/Ironforge_dwarf" title="Ironforge dwarf">Dwarf</a></li>
+<li><a href="/wiki/Gnome" title="Gnome">Gnome</a></li>
+<li><a href="/wiki/Night_elf" title="Night elf">Night elf</a></li>
+<li><a href="/wiki/Draenei" title="Draenei">Draenei</a></li>
+<li><a href="/wiki/Worgen" title="Worgen">Worgen</a></li>
+<li><a href="/wiki/Pandaren" title="Pandaren">Pandaren</a></li>
+<li><a href="/wiki/Dracthyr" title="Dracthyr">Dracthyr</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Allied_race" title="Allied race">Allied</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Void_elf" title="Void elf">Void elf</a></li>
+<li><a href="/wiki/Lightforged_draenei" title="Lightforged draenei">Lightforged draenei</a></li>
+<li><a href="/wiki/Dark_Iron_dwarf" title="Dark Iron dwarf">Dark Iron dwarf</a></li>
+<li><a href="/wiki/Kul_Tiran_human" class="mw-redirect" title="Kul Tiran human">Kul Tiran human</a></li>
+<li><a href="/wiki/Mechagon_mechagnome" title="Mechagon mechagnome">Mechagnome</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Other</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Ancient" title="Ancient">Ancient</a></li>
+<li><a href="/wiki/Cenarius%27s_children" class="mw-redirect" title="Cenarius&#39;s children">Cenarion</a></li>
+<li><a href="/wiki/Dwarf" title="Dwarf">Dwarf</a>
+<ul><li><a href="/wiki/Wildhammer_dwarf" title="Wildhammer dwarf">Wildhammer</a></li>
+<li><a href="/wiki/Frostborn" title="Frostborn">Frost</a></li></ul></li>
+<li><a href="/wiki/Eredar" title="Eredar">Eredar</a>
+<ul><li><a href="/wiki/Broken" title="Broken">Broken</a></li>
+<li><a href="/wiki/Man%27ari_eredar" title="Man&#39;ari eredar">Man'ari eredar</a></li></ul></li>
+<li><a href="/wiki/Faerie_dragon" title="Faerie dragon">Faerie dragon</a></li>
+<li><a href="/wiki/Furbolg" title="Furbolg">Furbolg</a></li>
+<li><a href="/wiki/Half-elf" title="Half-elf">Half-elf</a></li>
+<li><a href="/wiki/Highborne" title="Highborne">Highborne</a></li>
+<li><a href="/wiki/High_elf" title="High elf">High elf</a></li>
+<li><a href="/wiki/Jinyu" title="Jinyu">Jinyu</a>
+<ul><li><a href="/wiki/Ankoan" title="Ankoan">Ankoan</a></li></ul></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Animals</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Horse" title="Horse">Horse</a></li>
+<li><a href="/wiki/Gryphon" title="Gryphon">Gryphon</a></li>
+<li><a href="/wiki/Ram" title="Ram">Ram</a></li>
+<li><a href="/wiki/Hippogryph" title="Hippogryph">Hippogryph</a></li>
+<li><a href="/wiki/Saber_cat" class="mw-redirect" title="Saber cat">Saber cat</a></li>
+<li><a href="/wiki/Elekk" title="Elekk">Elekk</a></li>
+<li><a href="/wiki/Talbuk" title="Talbuk">Talbuk</a></li>
+<li><a href="/wiki/Dragon_turtle" title="Dragon turtle">Dragon turtle</a></li>
+<li><a href="/wiki/Hawkstrider" title="Hawkstrider">Hawkstrider</a></li>
+<li><a href="/wiki/Dragonhawk" title="Dragonhawk">Dragonhawk</a></li>
+<li><a href="/wiki/Unicorn" title="Unicorn">Unicorn</a></li>
+<li><a href="/wiki/Core_hound" title="Core hound">Core hound</a></li>
+<li><a href="/wiki/Bear" title="Bear">Bear</a></li>
+<li><a href="/wiki/Giant_eagle" title="Giant eagle">Giant eagle</a></li>
+<li><a href="/wiki/Vorquin" title="Vorquin">Vorquin</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><span style="float:left;width:6em;">&#160;</span><div class="" style="font-size:110%;">
+Cities and towns</div></th></tr><tr style="height:2px;"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Capital" title="Capital">Capital cities</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Stormwind_City" title="Stormwind City">Stormwind City</a></li>
+<li><a href="/wiki/Ironforge" title="Ironforge">Ironforge</a></li>
+<li><a href="/wiki/Bel%27ameth" title="Bel&#39;ameth">Bel'ameth</a></li>
+<li><a href="/wiki/Gnomeregan" title="Gnomeregan">Gnomeregan</a></li>
+<li><i><a href="/wiki/Exodar" title="Exodar">The Exodar</a></i></li>
+<li><a href="/wiki/Gilneas_City" title="Gilneas City">Gilneas City</a></li>
+<li><a href="/wiki/Telogrus_Rift" title="Telogrus Rift">Telogrus Rift</a></li>
+<li><i><a href="/wiki/Vindicaar" title="Vindicaar">The Vindicaar</a></i></li>
+<li><a href="/wiki/Shadowforge_City" title="Shadowforge City">Shadowforge City</a></li>
+<li><a href="/wiki/Boralus" title="Boralus">Boralus</a></li>
+<li><a href="/wiki/Mechagon_City" title="Mechagon City">Mechagon City</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Eastern_Kingdoms" title="Eastern Kingdoms">Eastern Kingdoms</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Aerie_Peak" title="Aerie Peak">Aerie Peak</a></li>
+<li><a href="/wiki/Chillwind_Camp" title="Chillwind Camp">Chillwind Camp</a></li>
+<li><a href="/wiki/Darkshire" title="Darkshire">Darkshire</a></li>
+<li><a href="/wiki/Dragon%27s_Mouth" title="Dragon&#39;s Mouth">Dragon's Mouth</a></li>
+<li><a href="/wiki/Dun_Modr" title="Dun Modr">Dun Modr</a></li>
+<li><a href="/wiki/Eastvale_Logging_Camp" title="Eastvale Logging Camp">Eastvale Logging Camp</a></li>
+<li><a href="/wiki/Farstrider_Lodge" title="Farstrider Lodge">Farstrider Lodge</a></li>
+<li><a href="/wiki/Fort_Livingston" title="Fort Livingston">Fort Livingston</a></li>
+<li><a href="/wiki/Goldshire" title="Goldshire">Goldshire</a></li>
+<li><a href="/wiki/Greenwarden%27s_Grove" title="Greenwarden&#39;s Grove">Greenwarden's Grove</a></li>
+<li><a href="/wiki/Harborage" title="Harborage">Harborage</a></li>
+<li><a href="/wiki/Highbank" title="Highbank">Highbank</a></li>
+<li><a href="/wiki/Kharanos" title="Kharanos">Kharanos</a></li>
+<li><a href="/wiki/Kirthaven" title="Kirthaven">Kirthaven</a></li>
+<li><a href="/wiki/Lakeshire" title="Lakeshire">Lakeshire</a></li>
+<li><a href="/wiki/Marshtide_Watch" title="Marshtide Watch">Marshtide Watch</a></li>
+<li><a href="/wiki/Menethil_Harbor" title="Menethil Harbor">Menethil Harbor</a></li>
+<li><a href="/wiki/Moonbrook" title="Moonbrook">Moonbrook</a></li>
+<li><a href="/wiki/Morgan%27s_Vigil" title="Morgan&#39;s Vigil">Morgan's Vigil</a></li>
+<li><a href="/wiki/New_Tinkertown" title="New Tinkertown">New Tinkertown</a></li>
+<li><a href="/wiki/Quel%27Danil_Lodge" title="Quel&#39;Danil Lodge">Quel'Danil Lodge</a></li>
+<li><a href="/wiki/Refuge_Pointe" title="Refuge Pointe">Refuge Pointe</a></li>
+<li><a href="/wiki/Sentinel_Hill" title="Sentinel Hill">Sentinel Hill</a></li>
+<li><a href="/wiki/Southshore" title="Southshore">Southshore</a></li>
+<li><a href="/wiki/Stromgarde_Keep" title="Stromgarde Keep">Stromgarde Keep</a></li>
+<li><a href="/wiki/Surwich" title="Surwich">Surwich</a></li>
+<li><a href="/wiki/Thelsamar" title="Thelsamar">Thelsamar</a></li>
+<li><a href="/wiki/Victor%27s_Point" title="Victor&#39;s Point">Victor's Point</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Kalimdor" title="Kalimdor">Kalimdor</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Astranaar" title="Astranaar">Astranaar</a></li>
+<li><a href="/wiki/Azure_Watch" title="Azure Watch">Azure Watch</a></li>
+<li><a href="/wiki/Blood_Watch" title="Blood Watch">Blood Watch</a></li>
+<li><a href="/wiki/Farwatcher%27s_Glen" title="Farwatcher&#39;s Glen">Farwatcher's Glen</a></li>
+<li><a href="/wiki/Feathermoon_Stronghold" title="Feathermoon Stronghold">Feathermoon Stronghold</a></li>
+<li><a href="/wiki/Forest_Song" title="Forest Song">Forest Song</a></li>
+<li><a href="/wiki/Fort_Triumph" title="Fort Triumph">Fort Triumph</a></li>
+<li><a href="/wiki/Honor%27s_Stand" title="Honor&#39;s Stand">Honor's Stand</a></li>
+<li><a href="/wiki/Northwatch_Hold" title="Northwatch Hold">Northwatch Hold</a></li>
+<li><a href="/wiki/Talonbranch_Glade" title="Talonbranch Glade">Talonbranch Glade</a></li>
+<li><a href="/wiki/Thal%27darah_Overlook" title="Thal&#39;darah Overlook">Thal'darah Overlook</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Outland" title="Outland">Outland</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Allerian_Stronghold" title="Allerian Stronghold">Allerian Stronghold</a></li>
+<li><a href="/wiki/Honor_Hold" title="Honor Hold">Honor Hold</a></li>
+<li><a href="/wiki/Orebor_Harborage" title="Orebor Harborage">Orebor Harborage</a></li>
+<li><a href="/wiki/Sylvanaar" title="Sylvanaar">Sylvanaar</a></li>
+<li><a href="/wiki/Telaar" title="Telaar">Telaar</a></li>
+<li><a href="/wiki/Toshley%27s_Station" title="Toshley&#39;s Station">Toshley's Station</a></li>
+<li><a href="/wiki/Temple_of_Telhamat" title="Temple of Telhamat">Temple of Telhamat</a></li>
+<li><a href="/wiki/Wildhammer_Stronghold" title="Wildhammer Stronghold">Wildhammer Stronghold</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Northrend" title="Northrend">Northrend</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Amberpine_Lodge" title="Amberpine Lodge">Amberpine Lodge</a></li>
+<li><a href="/wiki/Fizzcrank_Airstrip" title="Fizzcrank Airstrip">Fizzcrank Airstrip</a></li>
+<li><a href="/wiki/Fordragon_Hold" title="Fordragon Hold">Fordragon Hold</a></li>
+<li><a href="/wiki/Fort_Wildervar" title="Fort Wildervar">Fort Wildervar</a></li>
+<li><a href="/wiki/Frosthold" title="Frosthold">Frosthold</a></li>
+<li><a href="/wiki/Valgarde" title="Valgarde">Valgarde</a></li>
+<li><a href="/wiki/Valiance_Keep" title="Valiance Keep">Valiance Keep</a></li>
+<li><a href="/wiki/Westfall_Brigade_Encampment" title="Westfall Brigade Encampment">Westfall Brigade Encampment</a></li>
+<li><a href="/wiki/Westguard_Keep" title="Westguard Keep">Westguard Keep</a></li>
+<li><a href="/wiki/Wintergarde_Keep" title="Wintergarde Keep">Wintergarde Keep</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Pandaria" title="Pandaria">Pandaria</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Incursion" title="Incursion">Incursion</a></li>
+<li><a href="/wiki/Lion%27s_Landing" title="Lion&#39;s Landing">Lion's Landing</a></li>
+<li><a href="/wiki/Paw%27don_Village" title="Paw&#39;don Village">Paw'don Village</a></li>
+<li><a href="/wiki/Pearlfin_Village" title="Pearlfin Village">Pearlfin Village</a></li>
+<li><a href="/wiki/Shrine_of_Seven_Stars" title="Shrine of Seven Stars">Shrine of Seven Stars</a></li>
+<li><a href="/wiki/Westwind_Rest" title="Westwind Rest">Westwind Rest</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Draenor_(alternate_universe)" title="Draenor (alternate universe)">Draenor</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Fort_Wrynn" title="Fort Wrynn">Fort Wrynn</a></li>
+<li><a href="/wiki/Highpass" title="Highpass">Highpass</a></li>
+<li><a href="/wiki/Lion%27s_Watch" title="Lion&#39;s Watch">Lion's Watch</a></li>
+<li><a href="/wiki/Lunarfall" title="Lunarfall">Lunarfall</a></li>
+<li><a href="/wiki/Southport" title="Southport">Southport</a></li>
+<li><a href="/wiki/Stormshield" title="Stormshield">Stormshield</a></li>
+<li><a href="/wiki/Telaari_Station" title="Telaari Station">Telaari Station</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Greywatch" title="Greywatch">Greywatch</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Kul_Tiras" title="Kul Tiras">Kul Tiras</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Anglepoint_Wharf" title="Anglepoint Wharf">Anglepoint Wharf</a></li>
+<li><a href="/wiki/Arom%27s_Stand" title="Arom&#39;s Stand">Arom's Stand</a></li>
+<li><a href="/wiki/Brennadam" title="Brennadam">Brennadam</a></li>
+<li><a href="/wiki/Bridgeport" title="Bridgeport">Bridgeport</a></li>
+<li><a href="/wiki/Deadwash" title="Deadwash">Deadwash</a></li>
+<li><a href="/wiki/Falconhurst" title="Falconhurst">Falconhurst</a></li>
+<li><a href="/wiki/Fallhaven" title="Fallhaven">Fallhaven</a></li>
+<li><a href="/wiki/Fletcher%27s_Hollow" title="Fletcher&#39;s Hollow">Fletcher's Hollow</a></li>
+<li><a href="/wiki/Fort_Daelin" title="Fort Daelin">Fort Daelin</a></li>
+<li><a href="/wiki/Hatherford" title="Hatherford">Hatherford</a></li>
+<li><a href="/wiki/Millstone_Hamlet" title="Millstone Hamlet">Millstone Hamlet</a></li>
+<li><a href="/wiki/Norwington_Estate" title="Norwington Estate">Norwington Estate</a></li>
+<li><a href="/wiki/Sagehold" title="Sagehold">Sagehold</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Zandalar" title="Zandalar">Zandalar</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Fort_Victory" title="Fort Victory">Fort Victory</a></li>
+<li><a href="/wiki/Shatterstone_Harbor" title="Shatterstone Harbor">Shatterstone Harbor</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Dragon_Isles" title="Dragon Isles">Dragon Isles</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Amirdrassil" title="Amirdrassil">Amirdrassil</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Former</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Admiral_Taylor%27s_Garrison" title="Admiral Taylor&#39;s Garrison">Admiral Taylor's Garrison</a></li>
+<li><a href="/wiki/Bashal%27Aran" title="Bashal&#39;Aran">Bashal'Aran</a></li>
+<li><a href="/wiki/Darnassus" title="Darnassus">Darnassus</a></li>
+<li><a href="/wiki/Firebeard%27s_Patrol" title="Firebeard&#39;s Patrol">Firebeard's Patrol</a></li>
+<li><a href="/wiki/Fort_Triumph" title="Fort Triumph">Fort Triumph</a></li>
+<li><a href="/wiki/Hillsbrad_Fields" title="Hillsbrad Fields">Hillsbrad Fields</a></li>
+<li><a href="/wiki/Kirin%27Var_Village" title="Kirin&#39;Var Village">Kirin'Var Village</a></li>
+<li><a href="/wiki/Lor%27danel" title="Lor&#39;danel">Lor'danel</a></li>
+<li><a href="/wiki/Nethergarde_Keep" title="Nethergarde Keep">Nethergarde Keep</a></li>
+<li><a href="/wiki/Stonewatch" title="Stonewatch">Stonewatch</a></li>
+<li><a href="/wiki/Theramore_Isle" title="Theramore Isle">Theramore Isle</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Territories</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Azuremyst_Isles" title="Azuremyst Isles">Azuremyst Isles</a>
+<ul><li><a href="/wiki/Azuremyst_Isle" title="Azuremyst Isle">Azuremyst Isle</a></li>
+<li><a href="/wiki/Bloodmyst_Isle" title="Bloodmyst Isle">Bloodmyst Isle</a></li></ul></li>
+<li><a href="/wiki/Dun_Morogh" title="Dun Morogh">Dun Morogh</a></li>
+<li><a href="/wiki/Duskwood" title="Duskwood">Duskwood</a></li>
+<li><a href="/wiki/Elwynn_Forest" title="Elwynn Forest">Elwynn Forest</a></li>
+<li><a href="/wiki/Gilneas_peninsula" class="mw-redirect" title="Gilneas peninsula">Gilneas</a></li>
+<li><a href="/wiki/Loch_Modan" title="Loch Modan">Loch Modan</a></li>
+<li><a href="/wiki/Redridge_Mountains" title="Redridge Mountains">Redridge Mountains</a></li>
+<li><a href="/wiki/Wetlands" title="Wetlands">Wetlands</a></li>
+<li><a href="/wiki/Westfall" title="Westfall">Westfall</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><span style="float:left;width:6em;">&#160;</span><div class="" style="font-size:110%;">
+<a href="/wiki/Alliance_organizations" title="Alliance organizations">Organizations</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Alliance forces</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/High_Command" title="High Command">Alliance High Command</a></li>
+<li><a href="/wiki/Alliance_army" title="Alliance army">Alliance army</a></li>
+<li><a href="/wiki/Alliance_navy" title="Alliance navy">Alliance navy</a>
+<ul><li><a href="/wiki/Alliance_Naval_Command" title="Alliance Naval Command">Alliance Naval Command</a></li>
+<li><a href="/wiki/Third_Fleet" title="Third Fleet">Third Fleet</a></li>
+<li><a href="/wiki/North_Fleet" title="North Fleet">North Fleet</a></li></ul></li>
+<li><a href="/wiki/Alliance_air_force" title="Alliance air force">Alliance air force</a></li>
+<li><a href="/wiki/Alliance_Vanguard" title="Alliance Vanguard">Alliance Vanguard</a>
+<ul><li><a href="/wiki/Valiance_Expedition" title="Valiance Expedition">Valiance Expedition</a></li></ul></li>
+<li><a href="/wiki/Alliance_Forces_(Warcraft_III)" title="Alliance Forces (Warcraft III)">Alliance Forces</a></li>
+<li><a href="/wiki/7th_Legion" title="7th Legion">7th Legion</a>
+<ul><li><a href="/wiki/7th_Fleet" title="7th Fleet">7th Fleet</a></li></ul></li>
+<li><a href="/wiki/Operation:_Shieldwall" title="Operation: Shieldwall">Operation: Shieldwall</a></li>
+<li><a href="/wiki/Wrynn%27s_Vanguard" title="Wrynn&#39;s Vanguard">Wrynn's Vanguard</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Stormwind_(kingdom)" title="Stormwind (kingdom)">Kingdom of Stormwind</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Court_of_Stormwind" title="Court of Stormwind">Court of Stormwind</a></li>
+<li><a href="/wiki/House_of_Nobles" title="House of Nobles">House of Nobles</a></li>
+<li><a href="/wiki/SI:7" title="SI:7">SI:7</a></li>
+<li><a href="/wiki/Stormwind_Fleet" title="Stormwind Fleet">Stormwind Fleet</a></li>
+<li><a href="/wiki/Stormwind_Army" title="Stormwind Army">Stormwind Army</a>
+<ul><li><a href="/wiki/Stormwind_Guard" title="Stormwind Guard">Stormwind Guard</a></li>
+<li><a href="/wiki/Stormwind_City_Guard" title="Stormwind City Guard">Stormwind City Guard</a>
+<ul><li><a href="/wiki/Stormwind_Harbor_Guards" title="Stormwind Harbor Guards">Stormwind Harbor Guards</a></li></ul></li>
+<li><a href="/wiki/Stormwind_Royal_Guard" title="Stormwind Royal Guard">Stormwind Royal Guard</a></li>
+<li><a href="/wiki/Stormwind_Elite_Aquatic_and_Land_Forces" title="Stormwind Elite Aquatic and Land Forces">Stormwind Elite Aquatic and Land Forces</a></li>
+<li><a href="/wiki/Westfall_Brigade" title="Westfall Brigade">Westfall Brigade</a></li>
+<li><a href="/wiki/Bravo_Company" title="Bravo Company">Bravo Company</a></li></ul></li>
+<li><a href="/wiki/Stormwind_Assassin%27s_Guild" title="Stormwind Assassin&#39;s Guild">Stormwind Assassin's Guild</a></li>
+<li><a href="/wiki/Night_Watch" title="Night Watch">Night Watch</a></li>
+<li><a href="/wiki/Nijel%27s_Point_Guard" title="Nijel&#39;s Point Guard">Nijel's Point Guard</a></li>
+<li><a href="/wiki/Breadbasket_Guild" title="Breadbasket Guild">Breadbasket Guild</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Ironforge_(kingdom)" title="Ironforge (kingdom)">Kingdom of Ironforge</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Senate_of_Ironforge" title="Senate of Ironforge">Senate of Ironforge</a></li>
+<li><a href="/wiki/Wildhammer_clan" title="Wildhammer clan">Wildhammer clan</a></li>
+<li><a href="/wiki/Dark_Iron_clan" title="Dark Iron clan">Dark Iron clan</a>
+<ul><li><a href="/wiki/Forgeguard" title="Forgeguard">Forgeguard</a></li>
+<li><a href="/wiki/Dark_Iron_Demolishers" title="Dark Iron Demolishers">Dark Iron Demolishers</a></li>
+<li><a href="/wiki/Shadowforge_clan" title="Shadowforge clan">Shadowforge clan</a></li></ul></li>
+<li><a href="/wiki/Bronzebeard_clan" title="Bronzebeard clan">Bronzebeard clan</a></li>
+<li><a href="/wiki/Stormpike_clan" title="Stormpike clan">Stormpike clan</a>
+<ul><li><a href="/wiki/Stormpike_Guard" title="Stormpike Guard">Stormpike Guard</a></li></ul></li>
+<li><a href="/wiki/Explorers%27_League" title="Explorers&#39; League">Explorers' League</a>
+<ul><li><a href="/wiki/Bael%27dun" title="Bael&#39;dun">Bael'dun</a></li></ul></li>
+<li><a href="/wiki/Ironforge_Guard" title="Ironforge Guard">Ironforge Guard</a></li>
+<li><a href="/wiki/Ironforge_127th_Paratroopers" title="Ironforge 127th Paratroopers">Ironforge 127th Paratroopers</a></li>
+<li><a href="/wiki/Ironforge_Siege_Brigade" title="Ironforge Siege Brigade">Ironforge Siege Brigade</a></li>
+<li><a href="/wiki/Ironforge_Brigade" title="Ironforge Brigade">Ironforge Brigade</a></li>
+<li><a href="/wiki/Miners%27_League" title="Miners&#39; League">Miners' League</a></li>
+<li><a href="/wiki/Royal_Stonecutters_Union" title="Royal Stonecutters Union">Royal Stonecutters Union</a></li>
+<li><a href="/wiki/Hidden_Circle" title="Hidden Circle">Hidden Circle</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Darnassus_(nation)" title="Darnassus (nation)">Nation of Darnassus</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Darnassian_Army" title="Darnassian Army">Darnassian Army</a>
+<ul><li><a href="/wiki/Sentinels" title="Sentinels">Sentinels</a>
+<ul><li><a href="/wiki/Silverwing_Sentinels" title="Silverwing Sentinels">Silverwing Sentinels</a></li>
+<li><a href="/wiki/Sentinel_spies" title="Sentinel spies">Sentinel spies</a></li></ul></li>
+<li><a href="/wiki/Kaldorei_Fleet" title="Kaldorei Fleet">Kaldorei Fleet</a></li>
+<li><a href="/wiki/Army_of_the_Black_Moon" title="Army of the Black Moon">Army of the Black Moon</a></li>
+<li><a href="/wiki/Darnassian_City_Guard" title="Darnassian City Guard">Darnassian City Guard</a></li></ul></li>
+<li><a href="/wiki/Sisterhood_of_Elune" title="Sisterhood of Elune">Sisterhood of Elune</a></li>
+<li><a href="/wiki/Wintersaber_Trainers" title="Wintersaber Trainers">Wintersaber Trainers</a></li>
+<li><a href="/wiki/Watchers" title="Watchers">Watchers</a></li>
+<li><a href="/wiki/Auberdine_Village_Council" title="Auberdine Village Council">Auberdine Village Council</a></li>
+<li><a href="/wiki/Council_of_the_Forest" title="Council of the Forest">Council of the Forest</a></li>
+<li><a href="/wiki/Circle_of_Ancients" title="Circle of Ancients">Circle of Ancients</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Gnomeregan_(kingdom)" title="Gnomeregan (kingdom)">Kingdom of Gnomeregan</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Gnomeregan_Army" title="Gnomeregan Army">Gnomeregan Army</a>
+<ul><li><a href="/wiki/A.C.E." title="A.C.E.">A.C.E.</a></li>
+<li><a href="/wiki/Gnomish_Elite_Aerial_Rangers" title="Gnomish Elite Aerial Rangers">G.E.A.R.</a></li>
+<li><a href="/wiki/Survivor_Assistance_Facilitation_Expedition" title="Survivor Assistance Facilitation Expedition">S.A.F.E.</a></li>
+<li><a href="/wiki/Gnomeregan_Airmen" title="Gnomeregan Airmen">Gnomeregan Airmen</a></li></ul></li>
+<li><a href="/wiki/Gnomeregan_Covert_Ops" title="Gnomeregan Covert Ops">Gnomeregan Covert Ops</a></li>
+<li><a href="/wiki/Razak%27s_Roughriders" title="Razak&#39;s Roughriders">Razak's Roughriders</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Exodar_(nation)" title="Exodar (nation)">Exodar draenei</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Hand_of_Argus" title="Hand of Argus">Hand of Argus</a>
+<ul><li><a href="/wiki/Triumvirate_of_the_Hand" class="mw-redirect" title="Triumvirate of the Hand">Triumvirate of the Hand</a></li>
+<li><a href="/wiki/Defenders_of_Blood_Watch" title="Defenders of Blood Watch">Defenders of Blood Watch</a></li></ul></li>
+<li><a href="/wiki/Auchenai" title="Auchenai">Auchenai</a></li>
+<li><a href="/wiki/Rangari" title="Rangari">Rangari</a></li>
+<li><a href="/wiki/Artificers" title="Artificers">Artificers</a></li>
+<li><a href="/wiki/Order_of_Light" title="Order of Light">Order of Light</a></li>
+<li><a href="/wiki/Omenai" title="Omenai">Omenai</a></li>
+<li><a href="/wiki/Light%27s_Chosen" title="Light&#39;s Chosen">Light's Chosen</a></li>
+<li><a href="/wiki/Augari" title="Augari">Augari</a></li>
+<li><a href="/wiki/Penitents" title="Penitents">Penitents</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Gilneas_(kingdom)" title="Gilneas (kingdom)">Kingdom of Gilneas</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Gilnean_military" title="Gilnean military">Gilnean military</a>
+<ul><li><a href="/wiki/Gilnean_navy" title="Gilnean navy">Gilnean navy</a></li>
+<li><a href="/wiki/Gilnean_Royal_Guard" title="Gilnean Royal Guard">Gilnean Royal Guard</a></li>
+<li><a href="/wiki/Gilneas_Liberation_Front" title="Gilneas Liberation Front">Gilneas Liberation Front</a>
+<ul><li><a href="/wiki/Refugee_Leadership" title="Refugee Leadership">Refugee Leadership</a></li></ul></li>
+<li><a href="/wiki/Gilneas_Brigade" title="Gilneas Brigade">Gilneas Brigade</a></li></ul></li>
+<li><a href="/wiki/Bloodfang_pack" title="Bloodfang pack">Bloodfang Pack</a></li>
+<li><a href="/wiki/Wolfpack" title="Wolfpack">Wolfpack</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Kul_Tiras_(kingdom)" title="Kul Tiras (kingdom)">Admiralty of Kul Tiras</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Kul_Tiran_fleet" title="Kul Tiran fleet">Kul Tiran fleet</a></li>
+<li><a href="/wiki/House_Proudmoore" title="House Proudmoore">House Proudmoore</a>
+<ul><li><a href="/wiki/Proudmoore_Admiralty" title="Proudmoore Admiralty">Proudmoore Admiralty</a></li>
+<li><a href="/wiki/Proudmoore_Battalion" title="Proudmoore Battalion">Proudmoore Battalion</a></li>
+<li><a href="/wiki/Admiral%27s_Elite_Guard" title="Admiral&#39;s Elite Guard">Admiral's Elite Guard</a></li>
+<li><a href="/wiki/Proudmoore_Guard" title="Proudmoore Guard">Proudmoore Guard</a></li></ul></li>
+<li><a href="/wiki/House_Waycrest" title="House Waycrest">House Waycrest</a>
+<ul><li><a href="/wiki/Waycrest_Guard" title="Waycrest Guard">Waycrest Guard</a></li>
+<li><a href="/wiki/Order_of_Embers" title="Order of Embers">Order of Embers</a></li></ul></li>
+<li><a href="/wiki/Norwington" title="Norwington">Norwington</a></li>
+<li><a href="/wiki/Roughnecks" title="Roughnecks">Roughnecks</a></li>
+<li><a href="/wiki/House_Stormsong" title="House Stormsong">House Stormsong</a>
+<ul><li><a href="/wiki/Tidesages" title="Tidesages">Tidesages</a></li></ul></li>
+<li><a href="/wiki/Boralus_Guard" title="Boralus Guard">Boralus Guard</a></li>
+<li><a href="/wiki/Outriggers" title="Outriggers">Outriggers</a></li>
+<li><a href="/wiki/Storm%27s_Wake" title="Storm&#39;s Wake">Storm's Wake</a>
+<ul><li><a href="/wiki/Tideguard" title="Tideguard">Tideguard</a></li></ul></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Stromgarde_(kingdom)" title="Stromgarde (kingdom)">Kingdom of Stromgarde</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Stromgarde_army" title="Stromgarde army">Stromgarde army</a>
+<ul><li><a href="/wiki/League_of_Arathor" title="League of Arathor">League of Arathor</a></li>
+<li><a href="/wiki/Stromgarde_Militia" title="Stromgarde Militia">Stromgarde Militia</a></li>
+<li><a href="/wiki/Stromgarde_Brigade" title="Stromgarde Brigade">Stromgarde Brigade</a></li></ul></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Other members</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Tushui_Pandaren" title="Tushui Pandaren">Tushui Pandaren</a></li>
+<li><a href="/wiki/Army_of_the_Light" title="Army of the Light">Army of the Light</a></li>
+<li><a href="/wiki/Void_elf" title="Void elf">Void elves</a>
+<ul><li><a href="/wiki/Riftwalkers" title="Riftwalkers">Riftwalkers</a></li></ul></li>
+<li><a href="/wiki/Obsidian_Warders" title="Obsidian Warders">Obsidian Warders</a></li>
+<li><a href="/wiki/Alliance_Trauma" title="Alliance Trauma">Alliance Trauma</a></li>
+<li><a href="/wiki/Church_of_the_Holy_Light" title="Church of the Holy Light">Church of the Holy Light</a>
+<ul><li><a href="/wiki/Brotherhood_of_Northshire" title="Brotherhood of Northshire">Brotherhood of Northshire</a></li>
+<li><a href="/wiki/Knights_of_the_Silver_Hand" title="Knights of the Silver Hand">Knights of the Silver Hand</a></li></ul></li>
+<li><a href="/wiki/Morgan%27s_Militia" title="Morgan&#39;s Militia">Morgan's Militia</a></li>
+<li><a href="/wiki/Highvale" title="Highvale">Highvale</a></li>
+<li><a href="/wiki/Northwatch_Expeditionary_Unit" title="Northwatch Expeditionary Unit">Northwatch Expeditionary Unit</a></li>
+<li><a href="/wiki/Sons_of_Lothar" title="Sons of Lothar">Sons of Lothar</a>
+<ul><li><a href="/wiki/Honor_Hold" title="Honor Hold">Honor Hold</a></li></ul></li>
+<li><a href="/wiki/Kurenai" title="Kurenai">Kurenai</a></li>
+<li><a href="/wiki/Frostborn" title="Frostborn">Frostborn</a></li>
+<li><a href="/wiki/Valiance_Expedition" title="Valiance Expedition">Valiance Expedition</a>
+<ul><li><a href="/wiki/Unit_S" title="Unit S">Unit S</a></li>
+<li><a href="/wiki/Unit_Darkshire" title="Unit Darkshire">Unit Darkshire</a></li>
+<li><a href="/wiki/Unit_Goldshire" title="Unit Goldshire">Unit Goldshire</a></li></ul></li>
+<li><a href="/wiki/Silver_Covenant" title="Silver Covenant">Silver Covenant</a></li>
+<li><a href="/wiki/Kirin_Tor_Offensive" title="Kirin Tor Offensive">Kirin Tor Offensive</a></li>
+<li><a href="/wiki/Shen%27dralar" title="Shen&#39;dralar">Shen'dralar</a> <a href="/wiki/Highborne" title="Highborne">Highborne</a></li>
+<li><a href="/wiki/Tol_Barad" title="Tol Barad">Tol Barad</a>
+<ul><li><a href="/wiki/Baradin%27s_Wardens" title="Baradin&#39;s Wardens">Baradin's Wardens</a></li></ul></li>
+<li><a href="/wiki/Pearlfin_Jinyu" title="Pearlfin Jinyu">Pearlfin Jinyu</a></li>
+<li><a href="/wiki/Bizmo%27s_Brawlpub" title="Bizmo&#39;s Brawlpub">Bizmo's Brawlpub</a></li>
+<li><a href="/wiki/Nethergarde_Keep" title="Nethergarde Keep">Nethergarde</a></li>
+<li><a href="/wiki/Riftrunners" title="Riftrunners">Riftrunners</a></li>
+<li><a href="/wiki/Light%27s_Vengeance_(island_expedition)" title="Light&#39;s Vengeance (island expedition)">Light's Vengeance</a></li>
+<li><a href="/wiki/Auric%27s_Angels" title="Auric&#39;s Angels">Auric's Angels</a></li>
+<li><a href="/wiki/Briona%27s_Buccaneers" title="Briona&#39;s Buccaneers">Briona's Buccaneers</a></li>
+<li><a href="/wiki/Purified" title="Purified">Purified</a></li>
+<li><a href="/wiki/Waveblade_Ankoan" title="Waveblade Ankoan">Waveblade Ankoan</a></li>
+<li><a href="/wiki/Grumbol%27s_Hammers" title="Grumbol&#39;s Hammers">Grumbol's Hammers</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Former members</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Dalaran_(kingdom)" title="Dalaran (kingdom)">Magocracy of Dalaran</a>
+<ul><li><a href="/wiki/Kirin_Tor" title="Kirin Tor">Kirin Tor</a></li></ul></li>
+<li><a href="/wiki/Theramore_(nation)" class="mw-redirect" title="Theramore (nation)">Theramore</a>
+<ul><li><a href="/wiki/Theramore_Guard" title="Theramore Guard">Theramore Guard</a>
+<ul><li><a href="/wiki/Elite_Guard" title="Elite Guard">Elite Guard</a></li></ul></li></ul></li>
+<li><a href="/wiki/Lordaeron_(kingdom)" title="Lordaeron (kingdom)">Kingdom of Lordaeron</a>
+<ul><li><a href="/wiki/Lordaeron_Navy" title="Lordaeron Navy">Lordaeron Navy</a></li>
+<li><a href="/wiki/1st_Legion" title="1st Legion">1st Legion</a></li></ul></li>
+<li><a href="/wiki/Quel%27Thalas_(kingdom)" title="Quel&#39;Thalas (kingdom)">Kingdom of Quel'Thalas</a>
+<ul><li><a href="/wiki/Thalassian_navy" title="Thalassian navy">Thalassian navy</a></li></ul></li>
+<li><a href="/wiki/Alterac_(kingdom)" title="Alterac (kingdom)">Kingdom of Alterac</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Alliance-aligned and allies</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Council_of_Exarchs_(alternate_universe)" title="Council of Exarchs (alternate universe)">Council of Exarchs</a>
+<ul><li><a href="/wiki/Hand_of_the_Prophet" title="Hand of the Prophet">Hand of the Prophet</a></li>
+<li><a href="/wiki/Artificers_(alternate_universe)" title="Artificers (alternate universe)">Artificers</a></li>
+<li><a href="/wiki/Auchenai_(alternate_universe)" title="Auchenai (alternate universe)">Auchenai</a></li>
+<li><a href="/wiki/Rangari_(alternate_universe)" title="Rangari (alternate universe)">Rangari</a></li>
+<li><a href="/wiki/Vindicators_(alternate_universe)" title="Vindicators (alternate universe)">Vindicators</a></li>
+<li><a href="/wiki/Sha%27tari_Defense" title="Sha&#39;tari Defense">Sha'tari Defense</a></li></ul></li>
+<li><a href="/wiki/Stillpine_tribe" title="Stillpine tribe">Stillpine tribe</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Former allies</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Blackmaw_tribe" title="Blackmaw tribe">Blackmaw tribe</a></li>
+<li><a href="/wiki/Blackwood_tribe" title="Blackwood tribe">Blackwood tribe</a></li>
+<li><a href="/wiki/Grimtotem_tribe" title="Grimtotem tribe">Grimtotem tribe</a></li>
+<li><a href="/wiki/Scarlet_renegades" title="Scarlet renegades">Scarlet renegades</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-abovebelow hlist" style=";" colspan="2"><div>
+<ul><li><a href="/wiki/Common_(language)" title="Common (language)">Common</a></li>
+<li><a href="/wiki/Alliance_organizations" title="Alliance organizations">Alliance organizations</a></li>
+<li><a href="/wiki/Technology" title="Technology">Alliance technology</a></li>
+<li><a href="/wiki/Category:Alliance_territories" title="Category:Alliance territories">Alliance territories</a></li></ul></div></td></tr></tbody></table></td></tr></tbody></table>
+
+
+
+<!-- 
+NewPP limit report
+Cached time: 20260322013128
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.355 seconds
+Real time usage: 0.746 seconds
+Preprocessor visited node count: 16097/1000000
+Revision size: 8973/4194304 bytes
+Post‐expand include size: 183823/4194304 bytes
+Template argument size: 102727/4194304 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 6/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3269/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.004/15.000 seconds
+Lua memory usage: 655224/52428800 bytes
+Number of processed Cargo queries: 0
+Time spent processing Cargo queries: 0.000 s (avg. 0.000 s)
+Number of Cargo row insertion attempts: 1
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  243.958      1 -total
+ 23.57%   57.494      1 Template:The_Wardens
+ 21.56%   52.586      6 Template:Navbox
+ 20.43%   49.848     17 Template:Cost
+ 19.79%   48.287      1 Template:Npcbox
+ 17.23%   42.028      1 Template:Infobox
+ 15.44%   37.664      1 Template:Grand_Alliance
+ 11.19%   27.291      9 Template:Level
+ 10.20%   24.872      8 Template:Npclocations
+  6.53%   15.941      1 Template:Reflist
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:290818-0!canonical and timestamp 20260322013128 and revision id 6545274. Rendering was triggered because: edit-page
+ -->
+</div>

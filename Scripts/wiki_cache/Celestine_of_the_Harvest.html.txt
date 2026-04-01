@@ -1,0 +1,612 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><dl><dd><span class="noexcerpt" data-nosnippet=""><i>Not to be confused with <a href="/wiki/Matron_Celestine" title="Matron Celestine">Matron Celestine</a>.</i></span></dd></dl>
+<table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width:21.5em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Alliance" title="Alliance"><img alt="Alliance" src="/images/Alliance_32.png?42e7e3" decoding="async" loading="lazy" width="32" height="32" data-file-width="32" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Celestine of the Harvest</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Celestine_in_Nordrassil.jpg" class="image" title="Image of Celestine of the Harvest"><img alt="Image of Celestine of the Harvest" src="/images/thumb/Celestine_in_Nordrassil.jpg/167px-Celestine_in_Nordrassil.jpg?868341" decoding="async" loading="lazy" width="167" height="300" data-file-width="495" data-file-height="889" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Title</th><td>
+&lt;Druid Trainer&gt;</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Gender</th><td>
+Female</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race</th><td>
+<a href="/wiki/Worgen" title="Worgen">Worgen</a>&#160;(Humanoid)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Class</th><td>
+<a href="/wiki/Druid" title="Druid">Druid</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Resource</th><td>
+<span class="rc-mana"><a href="/wiki/Mana_(game_resource)" title="Mana (game resource)">Mana</a></span></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation(s)</th><td>
+<a href="/wiki/Dream_Wardens" title="Dream Wardens">Dream Wardens</a>, <a href="/wiki/Dreamweavers" title="Dreamweavers">Dreamweavers</a>, <a href="/wiki/Guardians_of_Hyjal" title="Guardians of Hyjal">Guardians of Hyjal</a>, <a href="/wiki/Cenarion_Circle" title="Cenarion Circle">Cenarion Circle</a>, <a href="/wiki/Gilneas_(faction)" title="Gilneas (faction)">Kingdom of Gilneas</a>, <a href="/wiki/Stormwind_(faction)" title="Stormwind (faction)">Stormwind</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Occupation</th><td>
+<a href="/wiki/Druid_trainer" class="mw-redirect" title="Druid trainer">Trainer</a>, <a href="/wiki/Harvest-witch" title="Harvest-witch">Harvest-witch</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Location</th><td>
+<a href="#Locations">Various</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Alive</td></tr></tbody></table>
+<p><b>Celestine of the Harvest</b> is a <a href="/wiki/Worgen" title="Worgen">worgen</a> <a href="/wiki/Druid" title="Druid">druid</a> of <a href="/wiki/Gilneas_(kingdom)" title="Gilneas (kingdom)">Gilneas</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Cataclysm"><span class="tocnumber">1.1</span> <span class="toctext">Cataclysm</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Legion"><span class="tocnumber">1.2</span> <span class="toctext">Legion</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Battle_for_Azeroth"><span class="tocnumber">1.3</span> <span class="toctext">Battle for Azeroth</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Shadowlands"><span class="tocnumber">1.4</span> <span class="toctext">Shadowlands</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Dragonflight"><span class="tocnumber">1.5</span> <span class="toctext">Dragonflight</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Locations"><span class="tocnumber">2</span> <span class="toctext">Locations</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Vendor"><span class="tocnumber">3</span> <span class="toctext">Vendor</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Abilities"><span class="tocnumber">4</span> <span class="toctext">Abilities</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Quests"><span class="tocnumber">5</span> <span class="toctext">Quests</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Legion_2"><span class="tocnumber">5.1</span> <span class="toctext">Legion</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Quotes"><span class="tocnumber">6</span> <span class="toctext">Quotes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Duskhaven"><span class="tocnumber">6.1</span> <span class="toctext">Duskhaven</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Stormwind_City"><span class="tocnumber">6.2</span> <span class="toctext">Stormwind City</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Hallow&#39;s_End"><span class="tocnumber">6.3</span> <span class="toctext">Hallow's End</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Sanctuary_of_Malorne"><span class="tocnumber">6.4</span> <span class="toctext">Sanctuary of Malorne</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Legion_3"><span class="tocnumber">6.5</span> <span class="toctext">Legion</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Dragonflight_2"><span class="tocnumber">6.6</span> <span class="toctext">Dragonflight</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Trivia"><span class="tocnumber">7</span> <span class="toctext">Trivia</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#Patch_changes"><span class="tocnumber">8</span> <span class="toctext">Patch changes</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=1" title="Edit section: History"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="/wiki/File:Celestine.jpg" class="image"><img src="/images/thumb/Celestine.jpg/240px-Celestine.jpg?7ed622" decoding="async" loading="lazy" width="240" height="340" class="thumbimage" data-file-width="519" data-file-height="736" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Celestine.jpg" class="internal" title="Enlarge"></a></div>Celestine's human form.</div></div></div>
+<h3><span class="mw-headline" id="Cataclysm">Cataclysm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=2" title="Edit section: Cataclysm"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Cataclysm" title="Cataclysm"><img alt="Cataclysm" src="/images/Cata-Logo-Small.png?cd16d8" decoding="async" loading="lazy" width="39" height="15" style="vertical-align: middle" data-file-width="39" data-file-height="15" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Cataclysm" title="World of Warcraft: Cataclysm">Cataclysm</a></i>.</b></span></p><div style="clear:left;"></div>
+<p>At the time of the <a href="/wiki/Cataclysm_(event)" title="Cataclysm (event)">Cataclysm</a>, <a href="/wiki/Worgen" title="Worgen">worgen</a> <a href="/wiki/Druid" title="Druid">druid</a> <a href="/wiki/Adventurer" title="Adventurer">adventurers</a> first met her in <a href="/wiki/Gilneas_City_(starting_zone)" class="mw-redirect" title="Gilneas City (starting zone)">Gilneas City</a>, where she instructed them on how to use the spell <span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Spell_nature_rejuvenation.png/16px-Spell_nature_rejuvenation.png?8810f4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#32;</span><a href="/wiki/Rejuvenation" title="Rejuvenation"><span class="abilitylink ajaxttlink"><span class="bracket">&#91;</span>Rejuvenation<span class="bracket">&#93;</span></span></a></span>. At some point, she was afflicted with the <a href="/wiki/Worgen_curse" title="Worgen curse">worgen curse</a> and later moved to <a href="/wiki/Stormwind_City" title="Stormwind City">Stormwind City</a>, residing in a house next to <a href="/wiki/Olivia%27s_Pond" title="Olivia&#39;s Pond">Olivia's Pond</a>. Druid adventurers in Stormwind can visit her to train their skills.
+</p><p>During the <a href="/wiki/Firelands_Invasion" title="Firelands Invasion">Firelands Invasion</a>, Celestine helped patrol the <a href="/wiki/Regrowth_(subzone)" title="Regrowth (subzone)">Regrowth</a> in <a href="/wiki/Mount_Hyjal" title="Mount Hyjal">Mount Hyjal</a>.
+</p><p>During <a href="/wiki/Hallow%27s_End" title="Hallow&#39;s End">Hallow's End</a>, Celestine is standing outside the gates of Stormwind, where she explains the significance of burning the <a href="/wiki/Wickerman" title="Wickerman">Wickerman</a>.
+</p>
+<h3><span class="mw-headline" id="Legion">Legion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=3" title="Edit section: Legion"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i>.</b></span></p><div style="clear:left;"></div>
+<p>During the <a href="/wiki/Third_invasion_of_the_Burning_Legion" title="Third invasion of the Burning Legion">third invasion of the Burning Legion</a>, Celestine worked with <a href="/wiki/Hamuul_Runetotem" title="Hamuul Runetotem">Hamuul Runetotem</a> and <a href="/wiki/Zen%27tabra" title="Zen&#39;tabra">Zen'tabra</a> to battle <a href="/wiki/Destromath" title="Destromath">Destromath</a> at the nearly-destroyed <a href="/wiki/Well_of_Eternity_(Hyjal)" title="Well of Eternity (Hyjal)">Well of Eternity</a> on Hyjal.<sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>When <a href="/wiki/Satyr" title="Satyr">satyr</a> and the <a href="/wiki/Burning_Legion" title="Burning Legion">Burning Legion</a> attacked <a href="/wiki/Val%27sharah" title="Val&#39;sharah">Val'sharah</a>'s <a href="/wiki/Temple_of_Elune_(Val%27sharah)" title="Temple of Elune (Val&#39;sharah)">Temple of Elune</a>, Celestine went there and aided in the defense. She was then recalled by the <a href="/wiki/Dreamgrove" title="Dreamgrove">Dreamgrove</a> to assist with a ritual to commune with <a href="/wiki/Malorne" title="Malorne">Malorne</a> in <a href="/wiki/Nordrassil" title="Nordrassil">Nordrassil</a> on Hyjal.<sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup> Afterward, she was among the druids that entered <a href="/wiki/Malorne%27s_Nightmare" title="Malorne&#39;s Nightmare">Malorne's Nightmare</a>.
+</p>
+<h3><span class="mw-headline" id="Battle_for_Azeroth">Battle for Azeroth</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=4" title="Edit section: Battle for Azeroth"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="Battle for Azeroth"><img alt="Battle for Azeroth" src="/images/thumb/BattleForAzeroth-Logo-Small.png/40px-BattleForAzeroth-Logo-Small.png?25e36c" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="World of Warcraft: Battle for Azeroth">Battle for Azeroth</a></i>.</b></span></p><div style="clear:left;"></div>
+<p>During the <a href="/wiki/Fourth_War" title="Fourth War">Fourth War</a>, Celestine participated in the <a href="/wiki/Battle_for_Darkshore" title="Battle for Darkshore">Battle for Darkshore</a>. In <a href="/wiki/Bashal%27Aran" title="Bashal&#39;Aran">Bashal'Aran</a>, she is seen channeling a spell to <a href="/wiki/Shadebough_(ancient)" title="Shadebough (ancient)">Shadebough</a>. In Stormwind City, she moved out of her house and is standing next to a tree.
+</p>
+<h3><span class="mw-headline" id="Shadowlands">Shadowlands</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=5" title="Edit section: Shadowlands"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><span class="icon sl-inline"><a href="/wiki/World_of_Warcraft:_Shadowlands" title="Shadowlands"><img alt="Shadowlands" src="/images/thumb/Shadowlands-Icon-Inline.png/48px-Shadowlands-Icon-Inline.png?d84a63" decoding="async" loading="lazy" width="48" height="17" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Shadowlands" title="World of Warcraft: Shadowlands">Shadowlands</a></i>.</b></span></p><div style="clear:left;"></div>
+<p>Celestine was present in <a href="/wiki/Bashal%27Aran" title="Bashal&#39;Aran">Bashal'Aran</a> and witnessed Tyrande's speech about the Horde's defeat in <a href="/wiki/Darkshore" title="Darkshore">Darkshore</a>.<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<h3><span class="mw-headline" id="Dragonflight">Dragonflight</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=6" title="Edit section: Dragonflight"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><span class="icon df-inline"><a href="/wiki/World_of_Warcraft:_Dragonflight" title="Dragonflight"><img alt="Dragonflight" src="/images/thumb/Dragonflight-Icon-Inline.png/48px-Dragonflight-Icon-Inline.png?be4c0e" decoding="async" loading="lazy" width="48" height="17" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Dragonflight" title="World of Warcraft: Dragonflight">Dragonflight</a></i>.</b></span></p><div style="clear:left;"></div>
+<div class="thumb tright"><div class="thumbinner" style="width:322px;"><a href="/wiki/File:Celestine_and_Vassandra_-_Reclamation_of_Gilneas.jpg" class="image"><img src="/images/thumb/Celestine_and_Vassandra_-_Reclamation_of_Gilneas.jpg/320px-Celestine_and_Vassandra_-_Reclamation_of_Gilneas.jpg?c19c9d" decoding="async" loading="lazy" width="320" height="213" class="thumbimage" data-file-width="1207" data-file-height="804" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Celestine_and_Vassandra_-_Reclamation_of_Gilneas.jpg" class="internal" title="Enlarge"></a></div>Celestine fighting the <a href="/wiki/Scarlet_Crusade" title="Scarlet Crusade">Scarlet Crusade</a> alongside <a href="/wiki/Vassandra_Stormclaw" title="Vassandra Stormclaw">Vassandra Stormclaw</a>.</div></div></div>
+<p>Following the reappearance of the <a href="/wiki/Dragon_Isles" title="Dragon Isles">Dragon Isles</a>, she traveled to the <a href="/wiki/Shady_Sanctuary" title="Shady Sanctuary">Shady Sanctuary</a> in the <a href="/wiki/Ohn%27ahran_Plains" title="Ohn&#39;ahran Plains">Ohn'ahran Plains</a> and was seen speaking with <a href="/wiki/Lyessa_Bloomwatcher" title="Lyessa Bloomwatcher">Lyessa Bloomwatcher</a>.
+</p><p>She was later amongst those who came to <a href="/wiki/Alexstrasza" title="Alexstrasza">Alexstrasza</a>'s aid when she was attacked by <a href="/wiki/Fyrakk" title="Fyrakk">Fyrakk the Blazing</a>. In the battle that followed, she fought side by side with <a href="/wiki/Moira_Thaurissan" title="Moira Thaurissan">Moira Thaurissan</a> and <a href="/wiki/Genn_Greymane" title="Genn Greymane">Genn Greymane</a> at the <a href="/wiki/Field_of_Flames" title="Field of Flames">Field of Flames</a>.<sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup> Celestine later attended the gathering in <a href="/wiki/Amirdrassil" title="Amirdrassil">Amirdrassil</a> when it bloomed on the <a href="/wiki/Dragon_Isles" title="Dragon Isles">Dragon Isles</a> after Fyrakk's death.
+</p><p>During the <a href="/wiki/Reclamation_of_Gilneas" title="Reclamation of Gilneas">Reclamation of Gilneas</a>, Celestine went with <a href="/wiki/Genn_Greymane" title="Genn Greymane">King Genn Greymane</a> to <a href="/wiki/Aderic%27s_Repose" title="Aderic&#39;s Repose">Aderic's Repose</a> and was sent to tell the <a href="/wiki/Forsaken" title="Forsaken">Forsaken</a> outside the city to wait for their signal.<sup id="cite&#95;ref-6" class="reference"><a href="#cite_note-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup> She was later seen fighting the <a href="/wiki/Scarlet_Crusade" title="Scarlet Crusade">Scarlet Crusade</a> soldiers at <a href="/wiki/Cathedral_Square" title="Cathedral Square">Cathedral Square</a> alongside <a href="/wiki/Vassandra_Stormclaw" title="Vassandra Stormclaw">Vassandra Stormclaw</a>. Afterward, she can be found at <a href="/wiki/Tal%27doren" title="Tal&#39;doren">Tal'doren</a> in the <a href="/wiki/Blackwald" title="Blackwald">Blackwald</a>.
+</p><p>Celestine can also be seen in <a href="/wiki/Belanaar" title="Belanaar">Belanaar</a> speaking with Vassandra.
+</p>
+<h2><span class="mw-headline" id="Locations">Locations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=7" title="Edit section: Locations"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable zebra mw-collapsible" style="float: ; min-width:14em">
+<tbody><tr>
+<th colspan="4">Locations
+</th></tr>
+<tr>
+<th>Zone</th>
+<th>Level&#160;range</th>
+<th>Reaction</th>
+<th>Notes
+</th></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Gilneas_(starting_zone)" title="Gilneas (starting zone)">Gilneas</a>; <a href="/wiki/Gilneas_City" title="Gilneas City">Gilneas City</a>
+</td>
+<td style="vertical-align: top;">1-20
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a>
+</td>
+<td style="vertical-align: top;">As part of the <a href="/wiki/Worgen_starting_experience" title="Worgen starting experience">worgen starting experience</a>.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Stormwind_City" title="Stormwind City">Stormwind City</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 57.6 24.8"><a href="/wiki/Stormwind_City" title="Stormwind City"><sup>[57.6,&#160;24.8]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-StormwindCity.jpg/300px-WorldMap-StormwindCity.jpg?e0b849" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:57.6%;top:24.8%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">1-90
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-hostile" title="Hostile">Horde</span></a>
+</td>
+<td style="vertical-align: top;">
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Sanctuary_of_Malorne" title="Sanctuary of Malorne">Sanctuary of Malorne</a>, <a href="/wiki/Mount_Hyjal" title="Mount Hyjal">Mount Hyjal</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 25.8 62.0"><a href="/wiki/Mount_Hyjal" title="Mount Hyjal"><sup>[25.8,&#160;62.0]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Hyjal.jpg/300px-WorldMap-Hyjal.jpg?26e8d5" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:25.8%;top:62.0%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">35
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">As part of the <a href="/wiki/Firelands_Invasion" title="Firelands Invasion">Firelands Invasion</a>.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Stormwind_Gate" title="Stormwind Gate">Stormwind Gate</a>, <a href="/wiki/Elwynn_Forest" title="Elwynn Forest">Elwynn Forest</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 32.0 50.4"><a href="/wiki/Elwynn_Forest" title="Elwynn Forest"><sup>[32.0,&#160;50.4]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Elwynn.jpg/300px-WorldMap-Elwynn.jpg?b540f1" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:32.0%;top:50.4%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">1-90
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-unfriendly" title="Unfriendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">As part of the <a href="/wiki/Hallow%27s_End" title="Hallow&#39;s End">Hallow's End</a>.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Dreamgrove" title="Dreamgrove">Dreamgrove</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 59.2 45.8"><a href="/wiki/Dreamgrove" title="Dreamgrove"><sup>[59.2,&#160;45.8]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-TheDreamgrove.jpg/300px-WorldMap-TheDreamgrove.jpg?65d254" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:59.2%;top:45.8%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">10-45 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">As part of the <a href="/wiki/Druid_Campaign" class="mw-redirect" title="Druid Campaign">Druid Campaign</a>.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Nordrassil" title="Nordrassil">Nordrassil</a>, Mount Hyjal
+</td>
+<td style="vertical-align: top;">10-45
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">As part of the Druid Campaign quests.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Malorne%27s_Nightmare" title="Malorne&#39;s Nightmare">Malorne's Nightmare</a>
+</td>
+<td style="vertical-align: top;">45
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Battle_for_Darkshore" title="Battle for Darkshore">Battle for Darkshore</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 52.0 55.6"><a href="/wiki/Battle_for_Darkshore" title="Battle for Darkshore"><sup>[52.0,&#160;55.6]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-WarfrontsDarkshoreAlliance.jpg/300px-WorldMap-WarfrontsDarkshoreAlliance.jpg?7a4b67" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:52.0%;top:55.6%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">50 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a>
+</td>
+<td style="vertical-align: top;">During the Alliance version.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Bashal%27Aran" title="Bashal&#39;Aran">Bashal'Aran</a>, <a href="/wiki/Darkshore" title="Darkshore">Darkshore</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 47.6 34.2"><a href="/wiki/Darkshore" title="Darkshore"><sup>[47.6,&#160;34.2]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Darkshore.jpg/300px-WorldMap-Darkshore.jpg?698354" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:47.6%;top:34.2%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">50 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-unfriendly" title="Unfriendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">When the Alliance controls the zone and during <span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50]&#160;</span><a href="/wiki/A_New_Hope" title="A New Hope"><span class="ajaxttlink questlink">A New Hope</span></a></span>.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Shady_Sanctuary" title="Shady Sanctuary">Shady Sanctuary</a> <a href="/wiki/Ohn%27ahran_Plains" title="Ohn&#39;ahran Plains">Ohn'ahran Plains</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 29.4 56.2"><a href="/wiki/Ohn%27ahran_Plains" title="Ohn&#39;ahran Plains"><sup>[29.4,&#160;56.2]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-PlainsofOhnahra.jpg/300px-WorldMap-PlainsofOhnahra.jpg?df5a36" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="3840" data-file-height="2560" /><span style="position:absolute;left:29.4%;top:56.2%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">20-70
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Dragon_Isles" title="Dragon Isles">Dragon Isles</a> zones
+</td>
+<td style="vertical-align: top;">70
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">As part of <a href="/wiki/Dreamsurges" class="mw-redirect" title="Dreamsurges">Dreamsurges</a>.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Field_of_Flames" title="Field of Flames">Field of Flames</a>, <a href="/wiki/Emerald_Dream_(zone)" title="Emerald Dream (zone)">Emerald Dream</a>
+</td>
+<td style="vertical-align: top;">10-80
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Amirdrassil" title="Amirdrassil">Amirdrassil</a>
+</td>
+<td style="vertical-align: top;">70
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Ruins_of_Gilneas" title="Ruins of Gilneas">Ruins of Gilneas</a>; Gilneas City
+</td>
+<td style="vertical-align: top;">70
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;">During and after the <a href="/wiki/Gilneas_Reclamation" class="mw-redirect" title="Gilneas Reclamation">Gilneas Reclamation</a>.
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Belanaar" title="Belanaar">Belanaar</a>, Amirdrassil<span class="tttemplatelink coords-link noexcerpt" data-coords="/way 50.7 18.0"><a href="/wiki/Amirdrassil" title="Amirdrassil"><sup>[50.7,&#160;18.0]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Amirdrassil.jpg/300px-WorldMap-Amirdrassil.jpg?79a7fb" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="3840" data-file-height="2560" /><span style="position:absolute;left:50.7%;top:18.0%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span>
+</td>
+<td style="vertical-align: top;">70 Elite
+</td>
+<td style="vertical-align: top; white-space:nowrap;"><a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a>
+</td>
+<td style="vertical-align: top;"></td></tr></tbody></table>
+<h2><span class="mw-headline" id="Vendor">Vendor</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=8" title="Edit section: Vendor"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Celestine is the quartermaster for the <a href="/wiki/Dreamsurge" title="Dreamsurge">Dreamsurge</a> event added in <a href="/wiki/Patch_10.1.7" title="Patch 10.1.7">patch 10.1.7</a>, found at one of the four original <a href="/wiki/Dragon_Isles" title="Dragon Isles">Dragon Isles</a> zones each week.
+</p>
+<table class="darktable zebra sortable">
+<caption><a class="mw-selflink selflink">Celestine of the Harvest</a> (<a href="/wiki/Dreamsurge" title="Dreamsurge">Dreamsurge</a> quartermaster)
+</caption>
+<tbody><tr>
+<th>Item</th>
+<th>Cost</th>
+<th>Type
+</th></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_eagle2windmount_dark.png/16px-Inv_eagle2windmount_dark.png?fc6ce2" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Duskwing_Ohuna" title="Duskwing Ohuna"><span class="itemlink ajaxttlink qc-epic" title="Duskwing Ohuna is an epic quality item."><span class="bracket">&#91;</span>Duskwing Ohuna<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">1,000 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Flying mount
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_relics_idolofhealth.png/16px-Inv_relics_idolofhealth.png?2a72c2" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreamsurge_Remnant" title="Dreamsurge Remnant"><span class="itemlink ajaxttlink qc-rare" title="Dreamsurge Remnant is a rare quality item."><span class="bracket">&#91;</span>Dreamsurge Remnant<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">500 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Toy, green tint
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pet_diseasedsquirrel.png/16px-Inv_pet_diseasedsquirrel.png?d21fdd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Friendsurge_Defenders" title="Friendsurge Defenders"><span class="itemlink ajaxttlink qc-rare" title="Friendsurge Defenders is a rare quality item."><span class="bracket">&#91;</span>Friendsurge Defenders<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">500 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Toy, non-combat companions
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_makruralava_orange.png/16px-Inv_makruralava_orange.png?3b6056" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Cheddar" title="Cheddar"><span class="itemlink ajaxttlink qc-rare" title="Cheddar is a rare quality item."><span class="bracket">&#91;</span>Cheddar<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">250 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Battle pet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_babyhornswog_red.png/16px-Inv_babyhornswog_red.png?505bf8" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Crimson_Swoglet" title="Crimson Swoglet"><span class="itemlink ajaxttlink qc-rare" title="Crimson Swoglet is a rare quality item."><span class="bracket">&#91;</span>Crimson Swoglet<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">250 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Battle pet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_treasurechest04d.png/16px-Inv_misc_treasurechest04d.png?13ac96" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Weapon" title="Dreambound Weapon"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Weapon is a rare quality item."><span class="bracket">&#91;</span>Dreambound Weapon<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Weapon
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_10_dungeonjewelry_centaur_necklace_1_color2.png/16px-Inv_10_dungeonjewelry_centaur_necklace_1_color2.png?5d20cd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Necklace" title="Dreambound Necklace"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Necklace is a rare quality item."><span class="bracket">&#91;</span>Dreambound Necklace<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Neck
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_10_dungeonjewelry_centaur_ring_2_color5.png/16px-Inv_10_dungeonjewelry_centaur_ring_2_color5.png?9a7ca6" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Ring" title="Dreambound Ring"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Ring is a rare quality item."><span class="bracket">&#91;</span>Dreambound Ring<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Ring
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cloth_outdoorblackdragon_d_01_cape.png/16px-Inv_cloth_outdoorblackdragon_d_01_cape.png?6750b6" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Cloak" title="Dreambound Cloak"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Cloak is a rare quality item."><span class="bracket">&#91;</span>Dreambound Cloak<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Back
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cloth_outdoorblackdragon_d_01_helm.png/16px-Inv_cloth_outdoorblackdragon_d_01_helm.png?42fe14" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Cloth_Helm" title="Dreambound Cloth Helm"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Cloth Helm is a rare quality item."><span class="bracket">&#91;</span>Dreambound Cloth Helm<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Cloth head
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cloth_outdoorblackdragon_d_01_shoulder.png/16px-Inv_cloth_outdoorblackdragon_d_01_shoulder.png?2cc84f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Cloth_Spaulders" title="Dreambound Cloth Spaulders"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Cloth Spaulders is a rare quality item."><span class="bracket">&#91;</span>Dreambound Cloth Spaulders<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Cloth shoulder
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cloth_outdoorblackdragon_d_01_chest.png/16px-Inv_cloth_outdoorblackdragon_d_01_chest.png?2a389e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Cloth_Chestpiece" title="Dreambound Cloth Chestpiece"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Cloth Chestpiece is a rare quality item."><span class="bracket">&#91;</span>Dreambound Cloth Chestpiece<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Cloth chest
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cloth_outdoorblackdragon_d_01_bracer.png/16px-Inv_cloth_outdoorblackdragon_d_01_bracer.png?ff7b2b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Cloth_Bracers" title="Dreambound Cloth Bracers"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Cloth Bracers is a rare quality item."><span class="bracket">&#91;</span>Dreambound Cloth Bracers<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Cloth wrist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cloth_outdoorblackdragon_d_01_glove.png/16px-Inv_cloth_outdoorblackdragon_d_01_glove.png?686532" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Cloth_Gloves" title="Dreambound Cloth Gloves"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Cloth Gloves is a rare quality item."><span class="bracket">&#91;</span>Dreambound Cloth Gloves<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Cloth hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cloth_outdoorblackdragon_d_01_belt.png/16px-Inv_cloth_outdoorblackdragon_d_01_belt.png?cdc6a5" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Cloth_Belt" title="Dreambound Cloth Belt"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Cloth Belt is a rare quality item."><span class="bracket">&#91;</span>Dreambound Cloth Belt<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Cloth waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cloth_outdoorblackdragon_d_01_pant.png/16px-Inv_cloth_outdoorblackdragon_d_01_pant.png?4ec76e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Cloth_Leggings" title="Dreambound Cloth Leggings"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Cloth Leggings is a rare quality item."><span class="bracket">&#91;</span>Dreambound Cloth Leggings<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Cloth legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cloth_outdoorblackdragon_d_01_boot.png/16px-Inv_cloth_outdoorblackdragon_d_01_boot.png?e22e72" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Cloth_Boots" title="Dreambound Cloth Boots"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Cloth Boots is a rare quality item."><span class="bracket">&#91;</span>Dreambound Cloth Boots<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Cloth feet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_leather_outdoorblackdragon_d_01_helm.png/16px-Inv_leather_outdoorblackdragon_d_01_helm.png?fee5fa" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Leather_Helm" title="Dreambound Leather Helm"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Leather Helm is a rare quality item."><span class="bracket">&#91;</span>Dreambound Leather Helm<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Leather head
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_leather_outdoorblackdragon_d_01_shoulder.png/16px-Inv_leather_outdoorblackdragon_d_01_shoulder.png?3a6451" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Leather_Spaulders" title="Dreambound Leather Spaulders"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Leather Spaulders is a rare quality item."><span class="bracket">&#91;</span>Dreambound Leather Spaulders<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Leather shoulder
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_leather_outdoorblackdragon_d_01_chest.png/16px-Inv_leather_outdoorblackdragon_d_01_chest.png?3c44a4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Leather_Chestpiece" title="Dreambound Leather Chestpiece"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Leather Chestpiece is a rare quality item."><span class="bracket">&#91;</span>Dreambound Leather Chestpiece<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Leather chest
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_leather_outdoorblackdragon_d_01_bracer.png/16px-Inv_leather_outdoorblackdragon_d_01_bracer.png?151d0c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Leather_Bracers" title="Dreambound Leather Bracers"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Leather Bracers is a rare quality item."><span class="bracket">&#91;</span>Dreambound Leather Bracers<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Leather wrist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_leather_outdoorblackdragon_d_01_glove.png/16px-Inv_leather_outdoorblackdragon_d_01_glove.png?9c9375" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Leather_Gloves" title="Dreambound Leather Gloves"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Leather Gloves is a rare quality item."><span class="bracket">&#91;</span>Dreambound Leather Gloves<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Leather hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_leather_outdoorblackdragon_d_01_belt.png/16px-Inv_leather_outdoorblackdragon_d_01_belt.png?e0da91" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Leather_Belt" title="Dreambound Leather Belt"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Leather Belt is a rare quality item."><span class="bracket">&#91;</span>Dreambound Leather Belt<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Leather waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_leather_outdoorblackdragon_d_01_pant.png/16px-Inv_leather_outdoorblackdragon_d_01_pant.png?4cb6b0" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Leather_Leggings" title="Dreambound Leather Leggings"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Leather Leggings is a rare quality item."><span class="bracket">&#91;</span>Dreambound Leather Leggings<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Leather legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_leather_outdoorblackdragon_d_01_boot.png/16px-Inv_leather_outdoorblackdragon_d_01_boot.png?77f32d" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Leather_Boots" title="Dreambound Leather Boots"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Leather Boots is a rare quality item."><span class="bracket">&#91;</span>Dreambound Leather Boots<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Leather feet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_mail_outdoorblackdragon_d_01_helm.png/16px-Inv_mail_outdoorblackdragon_d_01_helm.png?91d08b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Mail_Helm" title="Dreambound Mail Helm"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Mail Helm is a rare quality item."><span class="bracket">&#91;</span>Dreambound Mail Helm<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Mail head
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_mail_outdoorblackdragon_d_01_shoulder.png/16px-Inv_mail_outdoorblackdragon_d_01_shoulder.png?e28c92" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Mail_Spaulders" title="Dreambound Mail Spaulders"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Mail Spaulders is a rare quality item."><span class="bracket">&#91;</span>Dreambound Mail Spaulders<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Mail shoulder
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_mail_outdoorblackdragon_d_01_robe.png/16px-Inv_mail_outdoorblackdragon_d_01_robe.png?316db1" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Mail_Chestpiece" title="Dreambound Mail Chestpiece"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Mail Chestpiece is a rare quality item."><span class="bracket">&#91;</span>Dreambound Mail Chestpiece<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Mail chest
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_mail_outdoorblackdragon_d_01_bracer.png/16px-Inv_mail_outdoorblackdragon_d_01_bracer.png?484145" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Mail_Bracers" title="Dreambound Mail Bracers"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Mail Bracers is a rare quality item."><span class="bracket">&#91;</span>Dreambound Mail Bracers<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Mail wrist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_mail_outdoorblackdragon_d_01_glove.png/16px-Inv_mail_outdoorblackdragon_d_01_glove.png?bfc887" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Mail_Gloves" title="Dreambound Mail Gloves"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Mail Gloves is a rare quality item."><span class="bracket">&#91;</span>Dreambound Mail Gloves<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Mail hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_mail_outdoorblackdragon_d_01_belt.png/16px-Inv_mail_outdoorblackdragon_d_01_belt.png?47ecef" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Mail_Belt" title="Dreambound Mail Belt"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Mail Belt is a rare quality item."><span class="bracket">&#91;</span>Dreambound Mail Belt<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Mail waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_mail_outdoorblackdragon_d_01_pant.png/16px-Inv_mail_outdoorblackdragon_d_01_pant.png?f72f6e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Mail_Leggings" title="Dreambound Mail Leggings"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Mail Leggings is a rare quality item."><span class="bracket">&#91;</span>Dreambound Mail Leggings<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Mail legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_mail_outdoorblackdragon_d_01_boot.png/16px-Inv_mail_outdoorblackdragon_d_01_boot.png?759f4b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Mail_Boots" title="Dreambound Mail Boots"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Mail Boots is a rare quality item."><span class="bracket">&#91;</span>Dreambound Mail Boots<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Mail feet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_plate_outdoorblackdragon_d_01_helm.png/16px-Inv_plate_outdoorblackdragon_d_01_helm.png?be1fd2" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Plate_Helm" title="Dreambound Plate Helm"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Plate Helm is a rare quality item."><span class="bracket">&#91;</span>Dreambound Plate Helm<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Plate head
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_plate_outdoorblackdragon_d_01_shoulder.png/16px-Inv_plate_outdoorblackdragon_d_01_shoulder.png?795f87" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Plate_Spaulders" title="Dreambound Plate Spaulders"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Plate Spaulders is a rare quality item."><span class="bracket">&#91;</span>Dreambound Plate Spaulders<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Plate shoulder
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_plate_outdoorblackdragon_d_01_chest.png/16px-Inv_plate_outdoorblackdragon_d_01_chest.png?5a91f7" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Plate_Chestpiece" title="Dreambound Plate Chestpiece"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Plate Chestpiece is a rare quality item."><span class="bracket">&#91;</span>Dreambound Plate Chestpiece<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Plate chest
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_plate_outdoorblackdragon_d_01_bracer.png/16px-Inv_plate_outdoorblackdragon_d_01_bracer.png?1f4e51" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Plate_Bracers" title="Dreambound Plate Bracers"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Plate Bracers is a rare quality item."><span class="bracket">&#91;</span>Dreambound Plate Bracers<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Plate wrist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_plate_outdoorblackdragon_d_01_glove.png/16px-Inv_plate_outdoorblackdragon_d_01_glove.png?69d343" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Plate_Gloves" title="Dreambound Plate Gloves"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Plate Gloves is a rare quality item."><span class="bracket">&#91;</span>Dreambound Plate Gloves<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Plate hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_plate_outdoorblackdragon_d_01_belt.png/16px-Inv_plate_outdoorblackdragon_d_01_belt.png?2276fc" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Plate_Belt" title="Dreambound Plate Belt"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Plate Belt is a rare quality item."><span class="bracket">&#91;</span>Dreambound Plate Belt<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Plate waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_plate_outdoorblackdragon_d_01_pant.png/16px-Inv_plate_outdoorblackdragon_d_01_pant.png?ecb65f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Plate_Leggings" title="Dreambound Plate Leggings"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Plate Leggings is a rare quality item."><span class="bracket">&#91;</span>Dreambound Plate Leggings<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Plate legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_plate_outdoorblackdragon_d_01_boot.png/16px-Inv_plate_outdoorblackdragon_d_01_boot.png?97fbff" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dreambound_Plate_Boots" title="Dreambound Plate Boots"><span class="itemlink ajaxttlink qc-rare" title="Dreambound Plate Boots is a rare quality item."><span class="bracket">&#91;</span>Dreambound Plate Boots<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">100 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Plate feet
+</td></tr>
+<tr>
+<td><a href="/wiki/Moonclasp_Satchel?action=edit&amp;redlink=1" class="new" title="Moonclasp Satchel (page does not exist)" rel="nofollow">Moonclasp Satchel</a></td>
+<td><span class="costitem nobreak ajaxoutertt">500 <a href="/wiki/Dreamsurge_Coalescence" title="Dreamsurge Coalescence"><img alt="Dreamsurge Coalescence" src="/images/thumb/Inv_enchant_duststrange.png/16px-Inv_enchant_duststrange.png?606a73" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Decor
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Abilities">Abilities</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=9" title="Edit section: Abilities"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span id="Ability:Swift&#95;Flight&#95;Form"><img alt="Ability druid flightform.png" src="/images/thumb/Ability_druid_flightform.png/16px-Ability_druid_flightform.png?e2648e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;<a rel="nofollow" class="external text" href="https://www.wowhead.com/spell=100203"><b>Swift Flight Form</b></a>&#160;&#8212;&#160;Shapeshift into flight form, increasing movement speed.</span></li></ul>
+<h2><span class="mw-headline" id="Quests">Quests</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=10" title="Edit section: Quests"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="/wiki/File:Celestine_Worgen.jpg" class="image"><img src="/images/thumb/Celestine_Worgen.jpg/240px-Celestine_Worgen.jpg?be36b9" decoding="async" loading="lazy" width="240" height="407" class="thumbimage" data-file-width="513" data-file-height="869" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Celestine_Worgen.jpg" class="internal" title="Enlarge"></a></div>Celestine's worgen form.</div></div></div>
+<dl><dt>Gilneas</dt></dl>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Worgen_Male.gif" class="image"><img alt="IconSmall Worgen Male.gif" src="/images/thumb/IconSmall_Worgen_Male.gif/15px-IconSmall_Worgen_Male.gif?7f8958" decoding="async" loading="lazy" width="15" height="15" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Worgen_Female.gif" class="image"><img alt="IconSmall Worgen Female.gif" src="/images/thumb/IconSmall_Worgen_Female.gif/15px-IconSmall_Worgen_Female.gif?774b91" decoding="async" loading="lazy" width="15" height="15" data-file-width="64" data-file-height="64" /></a></span>&#160;<img alt="Druid" src="/images/thumb/Ui-charactercreate-classes_druid.png/16px-Ui-charactercreate-classes_druid.png?21ce3a" decoding="async" loading="lazy" title="Druid" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[1-20]&#160;</span><a href="/wiki/The_Winds_Know_Your_Name..._Apparently" title="The Winds Know Your Name... Apparently"><span class="ajaxttlink questlink">The Winds Know Your Name... Apparently</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Worgen_Male.gif" class="image"><img alt="IconSmall Worgen Male.gif" src="/images/thumb/IconSmall_Worgen_Male.gif/15px-IconSmall_Worgen_Male.gif?7f8958" decoding="async" loading="lazy" width="15" height="15" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Worgen_Female.gif" class="image"><img alt="IconSmall Worgen Female.gif" src="/images/thumb/IconSmall_Worgen_Female.gif/15px-IconSmall_Worgen_Female.gif?774b91" decoding="async" loading="lazy" width="15" height="15" data-file-width="64" data-file-height="64" /></a></span>&#160;[1-20]&#160;</span><a href="/wiki/Safety_in_Numbers" title="Safety in Numbers"><span class="ajaxttlink questlink">Safety in Numbers</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><img alt="Removed" src="/images/Icon-delete-black-22x22.png?bbd0c1" decoding="async" loading="lazy" title="Removed" width="22" height="22" data-file-width="22" data-file-height="22" /></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>The subject of this section was removed from <i><a href="/wiki/World_of_Warcraft" title="World of Warcraft">World of Warcraft</a></i>&#160;in <a href="/wiki/Patch_5.0.4" title="Patch 5.0.4">patch 5.0.4</a>.</b></span></p><div style="clear:left;"></div>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<img alt="Druid" src="/images/thumb/Ui-charactercreate-classes_druid.png/16px-Ui-charactercreate-classes_druid.png?21ce3a" decoding="async" loading="lazy" title="Druid" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[2]&#160;</span><a href="/wiki/A_Rejuvenating_Touch" title="A Rejuvenating Touch"><span class="ajaxttlink questlink">A Rejuvenating Touch</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/File:Icon-delete-black-22x22.png" class="image" title="Removed from game"><img alt="Removed from game" src="/images/Icon-delete-black-22x22.png?bbd0c1" decoding="async" loading="lazy" width="22" height="22" data-file-width="22" data-file-height="22" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>The subject of this section was removed from <i><a href="/wiki/World_of_Warcraft" title="World of Warcraft">World of Warcraft</a></i>&#160;in <a href="/wiki/Patch_7.0.3" title="Patch 7.0.3">patch 7.0.3</a>.</b></span></p><div style="clear:left;"></div>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Worgen_Male.gif" class="image"><img alt="IconSmall Worgen Male.gif" src="/images/thumb/IconSmall_Worgen_Male.gif/15px-IconSmall_Worgen_Male.gif?7f8958" decoding="async" loading="lazy" width="15" height="15" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Worgen_Female.gif" class="image"><img alt="IconSmall Worgen Female.gif" src="/images/thumb/IconSmall_Worgen_Female.gif/15px-IconSmall_Worgen_Female.gif?774b91" decoding="async" loading="lazy" width="15" height="15" data-file-width="64" data-file-height="64" /></a></span>&#160;<img alt="Druid" src="/images/thumb/Ui-charactercreate-classes_druid.png/16px-Ui-charactercreate-classes_druid.png?21ce3a" decoding="async" loading="lazy" title="Druid" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[2]&#160;</span><a href="/wiki/Moonfire_(worgen)" title="Moonfire (worgen)"><span class="ajaxttlink questlink">Moonfire</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<dl><dt>Stormwind City</dt></dl>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<img alt="Druid" src="/images/thumb/Ui-charactercreate-classes_druid.png/16px-Ui-charactercreate-classes_druid.png?21ce3a" decoding="async" loading="lazy" title="Druid" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[8-30]&#160;</span><a href="/wiki/An_Invitation_from_Moonglade" title="An Invitation from Moonglade"><span class="ajaxttlink questlink">An Invitation from Moonglade</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Both_15.png?e25508" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<img alt="Druid" src="/images/thumb/Ui-charactercreate-classes_druid.png/16px-Ui-charactercreate-classes_druid.png?21ce3a" decoding="async" loading="lazy" title="Druid" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[20-30]&#160;</span><a href="/wiki/Moonglade_Calls" title="Moonglade Calls"><span class="ajaxttlink questlink">Moonglade Calls</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<dl><dt>Hallow's End</dt></dl>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-90]&#160;</span><a href="/wiki/A_Season_for_Celebration_(Alliance)" title="A Season for Celebration (Alliance)"><span class="ajaxttlink questlink">A Season for Celebration</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-90&#32;Daily]&#160;</span><a href="/wiki/A_Time_to_Gain" title="A Time to Gain"><span class="ajaxttlink questlink">A Time to Gain</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<dl><dt>Battle for Darkshore</dt></dl>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50]&#160;</span><a href="/wiki/Druids_of_Gloomtide" title="Druids of Gloomtide"><span class="ajaxttlink questlink">Druids of Gloomtide</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<h3><span class="mw-headline" id="Legion_2">Legion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=11" title="Edit section: Legion"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i>.</b></span></p><div style="clear:left;"></div>
+<p>Celestine is one of the primary <a href="/wiki/World_quest" title="World quest">world quest</a> givers for the <a href="/wiki/Dreamweavers" title="Dreamweavers">Dreamweavers</a> in <a href="/wiki/Val%27sharah" title="Val&#39;sharah">Val'sharah</a>.
+</p>
+<h2><span class="mw-headline" id="Quotes">Quotes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=12" title="Edit section: Quotes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Duskhaven">Duskhaven</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=13" title="Edit section: Duskhaven"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dt>To druids</dt></dl>
+<p>The worgen will pass. We shall pass.
+</p><p>Only the earth and her secrets will remain. Are you willing to learn, &lt;name&gt;?
+</p>
+<h3><span class="mw-headline" id="Stormwind_City">Stormwind City</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=14" title="Edit section: Stormwind City"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dt>To druids</dt></dl>
+<p>A beautiful city, is it not? As was <a href="/wiki/Gilneas_City" title="Gilneas City">Gilneas</a>, in its time.
+</p><p>But such things pass, as shall we. Only the earth and her secrets will remain.
+</p><p>Are you willing to learn, &lt;name&gt;?
+</p><p><img alt="Gossip" src="/images/Gossipgossipicon.png?a6d689" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" />&#160;I have come to learn the form of the Nightwing raven.
+</p>
+<dl><dd>Alert and clever, the raven has many lessons to teach if one is willing to listen. Take this form with the raven's blessing, druid, and learn.</dd></dl>
+<dl><dd><img alt="Gossip" src="/images/Gossipgossipicon.png?a6d689" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" />&#160;&lt;You bow your head and accept the blessing.&gt; <i>(This will teach the <a href="/wiki/Nightwing_Raven" class="mw-redirect" title="Nightwing Raven">Nightwing Raven</a> <span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Ability_druid_flightform.png/16px-Ability_druid_flightform.png?e2648e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#32;</span><a href="/wiki/Flight_Form" title="Flight Form"><span class="abilitylink ajaxttlink"><span class="bracket">&#91;</span>Flight Form<span class="bracket">&#93;</span></span></a></span> variant.)</i></dd></dl>
+<dl><dt>To non-druids</dt></dl>
+<p>You are not initiated in the old ways. There is nothing I can teach you, child.
+</p>
+<h3><span id="Hallow.27s_End"></span><span class="mw-headline" id="Hallow's_End">Hallow's End</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=15" title="Edit section: Hallow&#039;s End"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dt>Gossip</dt></dl>
+<div class="dialogue plainlist">
+<p>Welcome to the <a href="/wiki/Wickerman_Festival" title="Wickerman Festival">Wickerman Festival</a>, &lt;class&gt;!
+</p><p>On the observance of Hallow's End, we burn a <a href="/wiki/Wickerman" title="Wickerman">Wickerman</a> to represent a cleansing of the self. As the woods sigh and shed their leaves, we too must undergo a catharsis. Fears, sorrows, regrets: by throwing a branch into the blaze, you can <a href="/wiki/Unburdened" title="Unburdened">relieve yourself</a> of any burden you would not bear into winter.
+</p><p>Please, grab a branch from the bonfire and join the celebration!
+</p>
+</div>
+<dl><dt>10 minutes before the Wickerman Festival event</dt>
+<dd><span class="text-yell">The Wickerman festivities will begin in ten minutes! Please join us just outside the gates of Stormwind City and celebrate Hallow's End!</span></dd></dl>
+<h3><span class="mw-headline" id="Sanctuary_of_Malorne">Sanctuary of Malorne</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=16" title="Edit section: Sanctuary of Malorne"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dt>Non-worgen gossip</dt></dl>
+<div class="dialogue plainlist">
+<p>You come to join the fight, &lt;class&gt;?
+</p>
+</div>
+<dl><dt>Worgen druid gossip</dt></dl>
+<div class="dialogue plainlist">
+<p>&lt;Name&gt;, I am not surprised to see you here. I always thought you were my brightest pupil. I am honored to fight alongside you, my friend.
+</p>
+</div>
+<dl><dt>While out on patrol in the Regrowth, dialogue will trigger when engaging fire elementals</dt>
+<dd></dd></dl>
+<ul><li><span class="text-say">What big teeth I have? Why thank you.</span></li>
+<li><span class="text-say">I've sharpened my claws just for this moment.</span></li></ul>
+<h3><span class="mw-headline" id="Legion_3">Legion</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=17" title="Edit section: Legion"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i>.</b></span></p><div style="clear:left;"></div>
+<dl><dt>Greeting</dt></dl>
+<ul><li>How may I help you?</li>
+<li>Always respect the wilds.</li>
+<li>It is nice to see you.</li>
+<li>The forests spoke of your coming.</li></ul>
+<dl><dt>Pissed</dt></dl>
+<ul><li>I do enjoy these long chats.</li>
+<li>Why don't you ever call?</li>
+<li>Or perhaps I should put the kettle on?</li>
+<li>Tea's ready!</li></ul>
+<dl><dt>Farewell</dt></dl>
+<ul><li>Do not abandon our ways.</li>
+<li>We will rebuild.</li>
+<li>Take care.</li>
+<li>Farewell.</li></ul>
+<h3><span class="mw-headline" id="Dragonflight_2">Dragonflight</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=18" title="Edit section: Dragonflight"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><span class="icon df-inline"><a href="/wiki/World_of_Warcraft:_Dragonflight" title="Dragonflight"><img alt="Dragonflight" src="/images/thumb/Dragonflight-Icon-Inline.png/48px-Dragonflight-Icon-Inline.png?be4c0e" decoding="async" loading="lazy" width="48" height="17" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Dragonflight" title="World of Warcraft: Dragonflight">Dragonflight</a></i>.</b></span></p><div style="clear:left;"></div>
+<dl><dt>The Blackwald</dt></dl>
+<div class="dialogue plainlist">
+<p>It's been some time since I stepped foot in the Blackwald. Tal'doren seems to have survived as well as it could.
+</p><p>I've heard many a story of this place from the kaldorei. History goes as deep as the tree's roots, here.
+</p><p>Still--it needs help much as any other tree. I intend to keep it thriving.
+</p>
+</div>
+<h2><span class="mw-headline" id="Trivia">Trivia</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=19" title="Edit section: Trivia"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>With the release of <a href="/wiki/Patch_7.3.5" title="Patch 7.3.5">patch 7.3.5</a> and the <a href="/wiki/Stormwind_Embassy" title="Stormwind Embassy">Stormwind Embassy</a>, she was moved underground, rendering her unavailable but still targetable via /tar. Guards still refer to her at her old location.
+<ul><li>She was later moved back overground, although guards still refer to her cottage despite her now being outdoors.</li></ul></li>
+<li>Prior to patch 4.0.6, her worgen form was bugged and had the wrong female worgen texture applied to it.</li>
+<li>In Stormwind, she was in human form by day and in worgen form by night, like the worgen in the pre-<i>Cataclysm</i> <a href="/wiki/Pyrewood_Village" title="Pyrewood Village">Pyrewood Village</a>.</li>
+<li>Celestine is voiced by <a href="/wiki/Lauren_Tom" title="Lauren Tom">Lauren Tom</a> in <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i>.</li></ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=20" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><span class="icon sl-inline"><a href="/wiki/World_of_Warcraft:_Shadowlands" title="Shadowlands"><img alt="Shadowlands" src="/images/thumb/Shadowlands-Icon-Inline.png/48px-Shadowlands-Icon-Inline.png?d84a63" decoding="async" loading="lazy" width="48" height="17" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span></span> <b><a href="/wiki/Patch_9.1.5" title="Patch 9.1.5">Patch 9.1.5</a> (2021-11-02):</b> Now teaches druids the <a href="/wiki/Nightwing_Raven" class="mw-redirect" title="Nightwing Raven">Nightwing Raven</a> <span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Ability_druid_flightform.png/16px-Ability_druid_flightform.png?e2648e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#32;</span><a href="/wiki/Flight_Form" title="Flight Form"><span class="abilitylink ajaxttlink"><span class="bracket">&#91;</span>Flight Form<span class="bracket">&#93;</span></span></a></span> variant.   <i></i><br /></li>
+<li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Warlords_of_Draenor" title="Warlords of Draenor"><img alt="Warlords of Draenor" src="/images/WoD-Logo-Small.png?be5b60" decoding="async" loading="lazy" width="46" height="14" style="vertical-align: middle" data-file-width="46" data-file-height="14" /></a></span> <b><a rel="nofollow" class="external text" href="https://worldofwarcraft.com/en-us/news/16370024/">Hotfix</a> (2014-10-17):</b> <span class="text-blizz">Celestine of the Harvest again stands where intended at Olivia's Pond in Stormwind.</span> <i></i><br /></li>
+<li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Cataclysm" title="Cataclysm"><img alt="Cataclysm" src="/images/Cata-Logo-Small.png?cd16d8" decoding="async" loading="lazy" width="39" height="15" style="vertical-align: middle" data-file-width="39" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_4.2.2" title="Patch 4.2.2">Patch 4.2.2</a> (2011-08-30):</b> Added as new quest giver for <a href="/wiki/Hallow%27s_End" title="Hallow&#39;s End">Hallow's End</a>.   <i></i><br /></li>
+<li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Cataclysm" title="Cataclysm"><img alt="Cataclysm" src="/images/Cata-Logo-Small.png?cd16d8" decoding="async" loading="lazy" width="39" height="15" style="vertical-align: middle" data-file-width="39" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_4.0.6" title="Patch 4.0.6">Patch 4.0.6</a> (2011-02-08):</b> Model fixed. No longer wears a hood.   <i></i><br /></li>
+<li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Cataclysm" title="Cataclysm"><img alt="Cataclysm" src="/images/Cata-Logo-Small.png?cd16d8" decoding="async" loading="lazy" width="39" height="15" style="vertical-align: middle" data-file-width="39" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_4.0.3a" title="Patch 4.0.3a">Patch 4.0.3a</a> (2010-11-23):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=21" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="font-size:calc(80% + 2.1px);"><div style="margin-top:-0.3em; margin-bottom:0px; height:0px">&#160;</div><div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-1"><a href="#cite_ref-1">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<img alt="Druid" src="/images/thumb/Ui-charactercreate-classes_druid.png/16px-Ui-charactercreate-classes_druid.png?21ce3a" decoding="async" loading="lazy" title="Druid" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[10-45]&#160;</span><a href="/wiki/Cleansing_the_Mother_Tree" title="Cleansing the Mother Tree"><span class="ajaxttlink questlink">Cleansing the Mother Tree</span></a></span></span>
+</li>
+<li id="cite&#95;note-2"><a href="#cite_ref-2">^</a> <span class="reference-text"><span class="nobreak"><span class="questlong-prefix linkicon"><img alt="Campaign" src="/images/thumb/ClassHallMission_Quest.png/16px-ClassHallMission_Quest.png?4893a4" decoding="async" loading="lazy" title="Campaign" width="16" height="16" data-file-width="66" data-file-height="66" />&#160;</span><a href="/wiki/Gathering_the_Dreamweavers:_Celestine_of_the_Harvest" title="Gathering the Dreamweavers: Celestine of the Harvest"><span class="ajaxttlink questlink">Gathering the Dreamweavers: Celestine of the Harvest</span></a></span></span>
+</li>
+<li id="cite&#95;note-3"><a href="#cite_ref-3">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<img alt="Druid" src="/images/thumb/Ui-charactercreate-classes_druid.png/16px-Ui-charactercreate-classes_druid.png?21ce3a" decoding="async" loading="lazy" title="Druid" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[45]&#160;</span><a href="/wiki/Communing_With_Malorne" title="Communing With Malorne"><span class="ajaxttlink questlink">Communing With Malorne</span></a></span></span>
+</li>
+<li id="cite&#95;note-4"><a href="#cite_ref-4">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="A" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50]&#160;</span><a href="/wiki/A_New_Hope" title="A New Hope"><span class="ajaxttlink questlink">A New Hope</span></a></span></span>
+</li>
+<li id="cite&#95;note-5"><a href="#cite_ref-5">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-80]&#160;</span><a href="/wiki/The_Age_of_Mortals" title="The Age of Mortals"><span class="ajaxttlink questlink">The Age of Mortals</span></a></span></span>
+</li>
+<li id="cite&#95;note-6"><a href="#cite_ref-6">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[70]&#160;</span><a href="/wiki/Knee-High" title="Knee-High"><span class="ajaxttlink questlink">Knee-High</span></a></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Celestine_of_the_Harvest?action=edit&amp;section=22" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/search?q=Celestine+of+the+Harvest#npcs">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/search?search=Celestine+of+the+Harvest#t1:npcs">WoWDB</a></li>
+</ul>
+
+
+
+<!-- 
+NewPP limit report
+Cached time: 20260331133405
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.297 seconds
+Real time usage: 0.882 seconds
+Preprocessor visited node count: 9029/1000000
+Revision size: 11822/4194304 bytes
+Post‐expand include size: 99010/4194304 bytes
+Template argument size: 26497/4194304 bytes
+Highest expansion depth: 18/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3944/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.008/15.000 seconds
+Lua memory usage: 1029583/52428800 bytes
+Number of processed Cargo queries: 0
+Time spent processing Cargo queries: 0.000 s (avg. 0.000 s)
+Number of Cargo row insertion attempts: 1
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  409.277      1 -total
+ 30.40%  124.426      1 Template:Npcbox
+ 28.44%  116.398     16 Template:Level
+ 26.66%  109.133      1 Template:Infobox
+ 20.53%   84.010     15 Template:Npclocations
+ 12.58%   51.476      1 Template:Dreamsurge_items
+  8.42%   34.458     42 Template:Costitem
+  6.36%   26.041      1 Template:Reflist
+  5.57%   22.787      7 Template:Section
+  4.04%   16.551      1 Template:Hotfix
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:192122-0!canonical and timestamp 20260331133404 and revision id 6517475. Rendering was triggered because: RefreshLinksJob
+ -->
+</div>

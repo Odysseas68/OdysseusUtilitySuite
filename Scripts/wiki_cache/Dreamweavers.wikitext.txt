@@ -1,0 +1,65 @@
+{{Stub/Lore}}
+{{Redirect|The Dreamweavers|The emissary quest|The Dreamweavers (quest)}}
+{{Distinguish|Dreamweaver}}
+{{Infobox faction
+|name = Dreamweavers
+|faction = Neutral
+|races = {{Race|NightElf}}<br/> {{Race|Dryad}}<br/> {{Race|Keeper of the grove}}<br/> {{Race|Ancient}}<br/> {{Race|Worgen}}<br/> {{RaceIcon|FaerieDragon}} [[Faerie dragon]]<br/> {{Race|GreenDragonflight}}
+|base = [[Dreamgrove]], [[Lorlathil]]
+|affiliation = [[Cenarion Circle]]
+|theater = [[Val'sharah]], [[Broken Isles]]
+|leader = {{NPC||Rensar Greathoof||icon=NightElf Male}}
+|leaders = {{NPC||Celestine of the Harvest||icon=Human Female|icon2=Worgen Female}}<br/> {{Npc||Koda Steelclaw|icon=NightElf Female}}
+|fleaders = {{Npc||Elothir|icon=AncientofLore}}{{KIA}}<br/> {{Npc||Thaon Moonclaw|icon=NightElf Male}}{{KIA}}
+|quartermaster = {{RaceIcon|Night Elf|Female}} [[Sylvia Hartshorn]]
+|rewards =
+|status = Active
+}}
+{{QuoteWiki|Do you know of "alara'shinu," [[druid]]? It means finding beauty in imperfection. Those who live by this philosophy understand the transience of [[nature]], accept the cycle of life and death, and derive joy from this truth. To understand nature is to understand the great cycle of all things. A blooming flower will someday return to the earth to fuel new seeds. The [[sun]] sets each day, to rise again and give new life. Our order is dedicated to understanding and preserving the continuation of this pattern.|[[Archdruid]] [[Rensar Greathoof]]}}
+
+The '''Dreamweavers''' (or the '''Druids of Val'sharah''')<ref>[[The Dreamweavers (quest)]]</ref><ref name="Dreamgrove">[[To The Dreamgrove]]</ref> are one of the factions that heroes can acquire reputation with for toys and gear in ''[[World of Warcraft: Legion|Legion]]''. Powerful druids in Val'sharah, they grew under [[Cenarius]]'s tutelage before and after the [[Great Sundering]]. Their knowledge of druidism is ancient and unparalleled.<ref>[[The Dreamway]]</ref>
+
+According to [[Khadgar]], mighty [[Shaladrassil]] was grown from a sprout taken from [[G'Hanir]] in a time before the Sundering. The tree is noted as so ancient, it stood at the center of [[Val'sharah]] and druidic culture since the very first [[Night elf|night elves]] reached for the [[Emerald Dream]]. From this, the Dreamweavers were formed, an order so ancient they beheld as Shaladrassil bound itself to the Emerald Dream and towered over the land for eons.<ref name="Codex 165">{{Ref WoWCodex|165}}</ref> This, coupled with [[Rensar Greathoof]]'s commentary,<ref name="Rensar">[[Rensar Greathoof#Quotes]]</ref> means that the Dreamweavers were the first druidic order on Azeroth.
+
+During the [[Legion Assaults]], they lend their [[hippogryph]]s to assist the adventurers.
+
+==Faction description==
+''The [[druid]]s and their allies in [[Val'sharah]] have guarded the [[Emerald Dream]] since time immemorial.''
+
+==Rewards==
+{{Dreamweavers}}
+
+==Quests==
+...
+
+==Trivia==
+*As the members of the druidic order of the [[Dreamgrove]] remember the creation of the World Tree [[Shaladrassil]],<ref name="Rensar"/> they precede the creation of the [[Cenarion Circle]]. With ''[[The Dragonflight Codex]]'' specifying that the Dreamweavers were the first druidic order,<ref name="Codex 165"/> this means that those who event were some of the very first druids on Azeroth.
+*In early ''Legion'' alpha, this faction had the placeholder name '''Druids of Val'sharah''' with the following flavor text: "The druids of Val'sharah like plants, particularly green ones." This name is still used during [[The Dreamweavers (quest)]] and [[To The Dreamgrove]], so it isn't exclusive to the alpha.
+
+==Speculation==
+{{Speculation}}
+They could be a sub-organization of the [[Cenarion Circle]] as the [[Dreamgrove]] is both the Cenarion Circle class order hall and the Dreamweavers residence.<ref name="Dreamgrove" /><ref>[[Soul of the Archdruid]]'s description</ref> But as the Cenarion Circle moved the bulk of its forces to the Dreamgrove only during the third invasion of the Burning Legion this may not be the case.
+
+It is possible the Dreamweavers initially existed as a loose and isolated prototype of the Cenarion Circle, possibly as an offshoot of the Keepers and initially consisting of Cenarius-tutored druids from [[Val'sharah]], but later expanded to combine their ranks with that of Kalimdor's [[Cenarion Circle]] after it was founded by [[Malfurion]], due to their largely overlapping responsibilities and spheres of influence. Again, although Malfurion appears to know most of the major druids in the Dreamweavers and apparently even mentored some of them, the extent of direct contact between the night elves of Kalimdor and those of the [[Broken Isles]] during the Long Vigil remains largely unclear.
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class="darktable"
+! Faction
+! Paragon
+|-
+| {{Elinks-faction|1883}}
+| {{Elinks-faction|2088}}
+|}
+
+{{Factions|legion}}
+{{Druids}}
+
+[[Category:Dreamweavers| ‎]]
+[[Category:Dreamgrove]]
+[[Category:Druid organizations]]

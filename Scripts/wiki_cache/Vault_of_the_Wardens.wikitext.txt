@@ -1,0 +1,452 @@
+{{Infobox instance
+|name=Vault of the Wardens
+|aka=VotW
+|ss=Vault of the Wardens loading screen.jpg
+|caption=
+|loc=[[Azsuna]]
+|race= {{race|Demon}}<br>{{RaceIcon|NightElfDemonHunter|Male}}{{RaceIcon|NightElfDemonHunter|Female}}{{RaceIcon|BloodElfDemonHunter|Male}}{{RaceIcon|BloodElfDemonHunter|Female}} [[Demon hunter]]s<br>{{race|NightElf}}<br>{{race|Naga}}<br>{{race|Satyr}}<br>{{RaceIcon|ChaosOrc|Male}} {{RaceIcon|ChaosOrc|Female}} [[Fel orc]]s <br>{{race|Mogu}}<br>{{RaceIcon|MoltenGiant}} [[Molten giant]]s
+|boss={{RaceIcon|Cordana}} [[Cordana Felsong (tactics)|Cordana Felsong]]
+|type=Dungeon
+|level=110
+|players=5
+|crossfaction=1
+|bosses={{Vault of the Wardens}}
+}}
+
+The '''Vault of the Wardens''' is the [[Warden]] maximum security facility holding among the greatest threats to [[Azeroth]], which once included the body of [[Illidan Stormrage]], his [[Illidari]] [[demon hunter]]s, and other terrifying monsters.<ref>{{ref web|url=http://www.mmo-champion.com/content/5071-Legion-is-the-next-World-of-Warcraft-expansion!|title=Legion is the next World of Warcraft expansion!|publisher=MMO-Champion|accessdate=2015-08-13}}</ref><ref>[https://web.archive.org/web/20171030140915/https://worldofwarcraft.com/en-us/news/20228131 Legion Dungeon Previews: Vault of the Wardens & Assault on Violet Hold]</ref> The door to the Vault is opened by the [[Darnassian]] phrase "Anu'dorini Talah",<ref>[[Return to the Black Temple]]</ref> which translates to "Let my will be known."<ref name="loretweet1">[https://twitter.com/Loreology/status/465903699592626176 Loreology on Twitter]</ref>
+
+The Vault is replete with magical safeguards,<ref name="Startup">[[Vault of the Wardens: Startup Sequence (quest)]]</ref> and [[Containment Crystal|powerful containment crystals]] are used to encase each prisoner in their cell.<ref>[[Vault of the Wardens: Borrowing Without Asking]]</ref> Aside from the demon hunters once imprisoned in the [[Illidari Ward]], the most powerful prisoners of the Vault are sealed in the vaults of the [[Demon Ward]].<ref>[[Frozen in Time]]</ref> Being posted there was once considered prestigious.<ref>[[Ceremonial Warden Glaive]]</ref>
+
+==Adventure Guide==
+''This secret Warden facility was carved into the mountainside deep in [[Azsuna]], and sealed with magical wards both to keep intruders out, and to ensure that the terrors locked within could never escape. Many of the most dangerous foes the Wardens have encountered was locked away within the Vault, but in the aftermath of Cordana's betrayal and the Legion's attack, those creatures now roam the halls freely.''
+
+==Background==
+===After the Sundering===
+[[File:Vault of the Wardens.jpg|thumb|The Vault of the Wardens in {{g|legion}}.]]
+Ten thousand years ago, right after the [[War of the Ancients]],<ref>[[Adventure Guide]]'s description for [[Illysanna Ravencrest (tactics)|Illysanna Ravencrest]]</ref> the secret Vault of the Wardens facility was carved into the mountainside deep on the [[Isle of the Watchers]] in [[Azsuna]], and sealed with magical wards both to keep intruders out, and to ensure that the terrors locked within could never escape. Over the following millennia, most of the most dangerous foes the [[Watchers]] have encountered was locked away within the Vault.<ref>[[Adventure Guide]]'s description for the Vault of the Wardens</ref> Among their prisoners, [[Ash'Golm]] was one of [[Ragnaros]]' lieutenants who burned a violent scar across the forests of [[Kalimdor]] before the [[Warden]]s finally managed to bind him. Unable to fully destroy him, they locked him in a prison of ice.<ref>[[Adventure Guide]]'s description for [[Ash'Golm]]</ref> When the Wardens discovered that the [[demon]]ic [[beholder]]'s magical emissions could be reflected back to their source, to debilitating effect, they used this knowledge to ensnare [[Glazer]], and crafted a special prison of mirrors to contain its power.<ref>[[Adventure Guide]]'s description for [[Glazer]]</ref>
+
+At some point, the [[overfiend]] [[Immolanth]] led a [[Burning Legion|Legion]] army that conquered and eventually ruled a distant nexus world, until the Wardens somehow managed to imprison him in the [[Vault of Law]].<ref>[[Forged in Fire]]</ref>
+
+===Fall of the Betrayer===
+{{Legion-section}}
+Following [[Illidan Stormrage]]'s defeat at the [[Black Temple]] in 27 [[ADP]], [[Maiev Shadowsong]] returned to the summit right after, now accompanied by several wardens, to encase the Betrayer's corpse in the Vault of the Wardens so that his dark, lingering soul could suffer the rest of eternal sentence, as justice to be forever served. She also imprisoned his surviving [[Illidari]], vowing never to allow the [[fel]]-touched [[demon hunter]]s to roam free ever again,<ref>[http://eu.battle.net/wow/en/legion/#characters Legion - Characters]</ref><ref>[[Return to the Black Temple]]</ref> and secured the [[:Sargerite Keystone]] within the Vault.<ref>[[Strange Bedfellows]]</ref>
+
+===The Tomb of Sargeras===
+{{Novel-section}}
+Anticipating that {{Au|Gul'dan}} would come for [[Illidan Stormrage]]'s body, Maiev ordered her [[Watchers]] to rally at the [[Vault of the Betrayer]], ready to relocate all that is inside. After the [[orc]] [[warlock]] managed to open the way for the [[Burning Legion]] at the [[Tomb of Sargeras]], Maiev veered north to fortify the Vault of the Wardens, while [[Archmage]] [[Khadgar]] attempted to draw the [[demon]]s away to buy her time.<ref>''[[The Tomb of Sargeras]]''</ref>
+
+===Legion===
+{{Legion-section}}
+[[File:DemonWard1.jpg|thumb|The [[Demon Ward]] invaded by the [[Burning Legion]].]]
+At the outset of the [[third invasion of the Burning Legion]] in 32 [[ADP]], {{Au|Gul'dan}} and the [[Burning Legion]] targeted the Vault with the aid of the traitor [[Cordana Felsong]]. With no other choice, Maiev freed the [[Illidari]] [[demon hunter]]s who had languished in her prison for years. Together, they fought off the [[demon]]s led by [[Bastillax]]<ref>[[Between Us and Freedom]]</ref> from the prison complex, but failed to prevent Gul'dan and Cordana from retrieving the corpse of [[Illidan Stormrage]].<ref>[[Stop Gul'dan!]]</ref> During the assault, the Legion killed most of the wardens,<ref>[[Maiev Shadowsong]] gossip text during demon hunter questline: ''"The Burning Legion has overrun the vault and most of my wardens are dead. That's why I'm setting you free. No one kills demons like you, <name>."''</ref> and their leader Maiev Shadowsong was imprisoned in [[Black Rook Hold]].<ref>[[Deal With It Personally]]</ref>
+
+In the aftermath, the survivors were determined to rebuild their prison and hunt down the terrifying beasts that were let loose when it fell.<ref>[[Wardens (faction)|The Wardens]]' Faction description</ref> Since their ranks have been decimated by the Legion,<ref name="Grim">[[Vault of the Wardens: A Grim Matter]]</ref> the [[Watchers]] set up [[Watchers' Aerie]] and [[Wardens' Redoubt]] outside the prison, and then tasked [[adventurer]]s to hunt down prisoners who have escaped across the [[Broken Isles]].<ref>[[:Category:The Wardens quests|Warden quests]]</ref> In spite of their shared hatred, the Illidari also agreed to cooperate with the Wardens, tracking down some of the more powerful creatures that escaped from the Vault, in exchange for information to locate the keystone.<ref>[[Working With the Wardens]]</ref>
+
+[[Inquisitor Tormentorum]] arrived in the aftermath of the initial assault, drifting through the Vault's halls, with his gaze piercing the shadows in search of some vital secret.<ref>[[Adventure Guide]]'s description for [[Inquisitor Tormentorum]]</ref>
+
+When the [[class order]] leaders entered the Vault,<ref>[[Vault of the Wardens: Into the Vault of the Wardens]]</ref> [[Sira Moonwarden]] tasked them to recover the [[Moonblade|moonglaives]] of their fallen sisters, as they needed all the arms they could gather.<ref name="Grim"/> She also asked them to complete the start-up sequence to restore power in the [[Vault of Mirrors]], in order to keep the prison complex's containment functioning until they could retake it.<ref name="Startup"/> The Dark Warden Cordana was eventually slain in the [[Vault of the Betrayer]] to retrieve [[:Sargerite Keystone]] from her corpse.<ref>[[Vault of the Wardens: Vault Break-In]]</ref> Following her death, the [[Adventurer|Deathlord]] of the [[Knights of the Ebon Blade]] came here to claim her [[Eye of the Warden|eye]] and use several prisoners' parts to help create [[Rottgut]],<ref>[[Vault of the Wardens: A Masterpiece of Flesh]]</ref> while the First of the [[Black Harvest]] was sent by [[Kira Iresoul]] to collect [[Felsworn Heart|Cordana's heart]] to empower the [[Bloodstone (quest item)|Bloodstone]].<ref>[[Vault of the Wardens: Matters of the Heart]]</ref>
+
+===Exploring Azeroth===
+{{Novel-section}}
+By the Year 42 [[ADP]], the threats within the Vault of the Wardens had been contained by the Watchers, and the wards were holding at full power. During her travel across the [[Broken Isles]], [[Thalyssra|First Arcanist Thalyssra]] of the [[Suramar (kingdom)|kingdom of Suramar]] managed to convince the wardens that she had a reasonable interest in knowing what was happening in a place filled with such dangerous prisoners.<ref>''[[Exploring Azeroth: Islands and Isles]]'', pg. 19</ref>
+
+==Maps and subregions==
+===Maps===
+<gallery>
+VZ-Vault of the Wardens.jpg
+VZ-Vault of the Wardens-s1.jpg
+VZ-Vault of the Wardens-s2.jpg
+</gallery>
+
+===Subregions===
+{| class="darktable hlist"
+|
+*[[Chamber of Night]]
+*[[Demon Ward|The Demon Ward]]
+*[[Fallen Passage]]
+*[[Illidari Ward]]
+*[[Vault of Silence]]
+*[[Tomb of the Penitent]]
+*[[Vault of Ice]]
+*[[Vault of Law]]
+*[[Vault of Mirrors]]
+*[[Vault of the Betrayer]]
+*[[Warden's Court|The Warden's Court]]
+|}
+
+<gallery mode="packed">
+File:Chamber of Night.jpg|[[Chamber of Night]]
+File:DemonWard.jpg|[[Demon Ward]]
+File:Fallen Passage.jpg|[[Fallen Passage]]
+File:IllidariWard.jpg|[[Illidari Ward]]
+File:VaultofSilence.jpg|[[Vault of Silence]]
+File:TombofthePenitent.jpg|[[Tomb of the Penitent]]
+File:VaultofIce.jpg|[[Vault of Ice]]
+File:VaultofLaw.jpg|[[Vault of Law]]
+File:VaultofMirrors1.jpg|[[Vault of Mirrors]]
+File:WardensCourt5.jpg|[[Warden's Court]]
+</gallery>
+
+==Quests==
+;Regular quests
+*[[Vault of the Wardens: Into the Vault of the Wardens]]
+*[[Fel-Ravaged Tome]]
+*[[Vault of the Wardens: Borrowing Without Asking]]
+
+;Class quests
+*[[Vault of the Wardens: Matters of the Heart]]
+*[[Vault of the Wardens: A Masterpiece of Flesh]]
+*[[Vault of the Wardens: Vault Break-In]]
+
+;Profession quests
+*[[Vault of the Wardens: Demon's Bile]]
+*[[Vault of the Wardens: Bendy Glass Tubes]]
+
+;World quests
+*[[Vault of the Wardens: A Grim Matter]]
+*[[Vault of the Wardens: How'd He Get Up There?]]
+*[[Vault of the Wardens: Startup Sequence]]
+
+==Denizens==
+{| class="darktable zebra"
+|-
+! Bosses || Monsters || NPCs || <abbr title="Only present on days when the corresponding world quest is available.">World quest</abbr>
+|- valign=top
+! colspan=4 | The Warden's Court
+|- valign=top
+|
+;[[Chamber of Night]]
+|
+*{{NPC|Combat|Shadow Hunter (Vault of the Wardens)||Shadow Hunter|icon=BloodElfDemonHunter Female}}
+*{{NPC|Combat|Felsworn Infester|icon=Satyr}}
+*{{NPC|Combat|Immoliant Fury|icon=Wrathguard2}}
+*{{NPC|Combat|Glayvianna Soulrender|icon=NightElfDemonHunter Female}}
+*{{NPC|Combat|Viletongue Belcher|icon=Wyrmtongue}}
+*{{NPC|Combat|Felsworn Myrmidon|icon=Naga Male}}
+*{{NPC|Combat|Fel-Infused Fury|icon=NightElfDemonHunter Male}}
+|
+|
+|- valign=top
+|
+;[[Warden's Court|The Warden's Court]]
+*{{NPC|Boss|Tirathon Saltheril|icon=BloodElfDemonHunter Male}}
+**{{NPC|Combat|Fel Fury|icon=UnboundFel}}
+|
+*{{NPC|Combat|Felsworn Infester|icon=Satyr}}
+*{{NPC|Combat|Felsworn Myrmidon|icon=Naga Male}}
+*{{NPC|Combat|Blazing Imp|icon=Imp}}
+*{{NPC|Combat|Foul Mother|icon=ImpMother}}
+|
+*{{NPC|Neutral|Drelanim Whisperwind|Warden|icon=Warden2}}
+|
+|- valign=top
+|
+;[[Demon Ward|The Demon Ward (Upper)]]
+|
+|
+|
+*{{NPC|Combat|Frenzied Animus|icon=BloodGolem}}<small> <Vortex, Arcane Enchanted,</small><br><small>Dampening, Mortar, Lightning Enchanted></small>
+|- valign=top
+! colspan=4 | Vault of the Wardens
+|- valign=top
+|
+;[[Demon Ward|The Demon Ward (Lower)]]
+*{{NPC|Boss|Inquisitor Tormentorum|icon=Inquisitor}}
+**{{NPC|Combat|Tormenting Orb|icon=GuardianEye}}
+**{{NPC|Combat|Felguard Annihilator (Vault of the Wardens)||Felguard Annihilator|icon=Felguard}}
+**{{NPC|Combat|Shadowmoon Technician (Vault of the Wardens)||Shadowmoon Technician|icon=ChaosOrc Male}}
+**{{NPC|Combat|Shadowmoon Warlock (Vault of the Wardens)||Shadowmoon Warlock|icon=ChaosOrc Male}}
+**{{NPC|Combat|Enormous Stone Quilen (Vault of the Wardens)||Enormous Stone Quilen|icon=Quilen}}
+**{{NPC|Combat|Mogu'shan Secret-Keeper (Vault of the Wardens)||Mogu'shan Secret-Keeper|icon=Mogu Male}}
+**{{NPC|Combat|Deranged Mindflayer|icon=FacelessShadoweaver}}
+**{{NPC|Combat|Void-Touched Juggernaut|icon=FacelessGeneral}}
+**{{NPC|Combat|Faceless Voidcaster|icon=FacelessoftheDeep}}
+**{{NPC|Combat|Lingering Corruption (Vault of the Wardens)||Lingering Corruption|icon=ShaLesser}}
+|
+*{{NPC|Combat|Malignant Defiler|icon=Felstalker}}
+*{{NPC|Combat|Fel Scorcher|icon=Felstalker}}
+*{{NPC|Combat|Blade Dancer Illianna|icon=Shivarra}}
+*{{NPC|Combat|Dreadlord Mendacius|icon=Dreadlord2}}
+**{{NPC|Combat|Grimguard|icon=Felguard}}
+*{{NPC|Combat|Grimhorn the Enslaver|icon=Jailer}}
+|
+|
+|- valign=top
+|
+;[[Vault of Ice]]
+*{{NPC|Boss|Ash'golm|icon=MoltenGiant}}
+**{{NPC|Combat|Living Ember (Vault of the Wardens)||Living Ember|icon=Fire}}
+|
+*{{NPC|Combat|Tirathon Saltheril (specter)|Specter|Tirathon Saltheril|icon=BloodElfDemonHunter Male|icon2=Wraith}}
+*{{NPC|Combat|Inquisitor Tormentorum (specter)||Inquisitor Tormentorum|icon=Inquisitor|icon2=Wraith}}
+|
+|
+|- valign=top
+|
+;[[Vault of Mirrors]]
+*{{NPC|Boss|Glazer|icon=Beholder}}
+**{{NPC|Combat|Overloaded Lens|icon=Unknown}}
+|
+*{{NPC|Combat|Cordana Felsong (specter)|Specter|Cordana Felsong|icon=Cordana|icon2=Wraith}}
+*{{NPC|Combat|Inquisitor Tormentorum (specter)||Inquisitor Tormentorum|icon=Inquisitor|icon2=Wraith}}
+|
+*{{NPC|Neutral|Lens|icon=Unknown}}
+|
+|- valign=top
+|
+;[[Vault of Law]]
+|
+*{{NPC|Combat|Grimoira|Devourer of Entrails|icon=ImpMother}}
+|
+|
+|- valign=top
+! colspan=4 | Vault of the Betrayer
+|- valign=top
+|
+;[[Tomb of the Penitent]]
+|
+*{{NPC|Combat|Aranasi Broodmother|icon=Aranasi}}
+*{{NPC|Combat|Barbed Spiderling|icon=AranasiSpider}}
+*{{NPC|Combat|Spirit of Vengeance (Vault of the Wardens)||Spirit of Vengeance|icon=Warden2}}
+|
+|
+|- valign=top
+|
+;[[Vault of the Betrayer]]
+*{{NPC|Boss|Cordana Felsong (tactics)|Dark Warden|Cordana Felsong|icon=Cordana}}
+**{{NPC|Combat|Avatar of Shadow|icon=Cordana}}
+**{{NPC|Combat|Avatar of Vengeance (Vault of the Wardens)||Avatar of Vengeance|icon=Cordana}}
+***{{NPC|Combat|Spirit of Vengeance (Vault of the Wardens)||Spirit of Vengeance|icon=Warden2}}
+|
+|
+*{{NPC|Neutral|Drelanim Whisperwind|Warden|icon=Warden2}}
+|
+|}
+
+==Loot==
+{| class="darktable zebra sortable"
+!Boss
+!Item
+!Type
+
+|-
+|class="rowtitle" rowspan="11" |{{NPC||Tirathon Saltheril}}
+|{{Versions/RaidLoot|Metamorphosis Spark|no-rf=|mythic=1}}
+|Fel Artifact Relic
+|-
+|{{Versions/RaidLoot|Hood of Indignation|no-rf=|mythic=1}}
+|Cloth helmet
+|-
+|{{Versions/RaidLoot|Mortar Guard Shoulderplates|no-rf=|mythic=1}}
+|Plate shoulders
+|-
+|{{Versions/RaidLoot|Mardum Chain Vest|no-rf=|mythic=1}}
+|Mail chest
+|-
+|{{Versions/RaidLoot|Netherwhisper Wristguard|no-rf=|mythic=1}}
+|Cloth bracers
+|-
+|{{Versions/RaidLoot|Portalguard Wristguard|no-rf=|mythic=1}}
+|Plate bracers
+|-
+|{{Versions/RaidLoot|Glaivemaster's Studded Grips|no-rf=|mythic=1}}
+|Leather gloves
+|-
+|{{Versions/RaidLoot|Felbat Leather Boots|no-rf=|mythic=1}}
+|Leather boots
+|-
+|{{Versions/RaidLoot|Striders of Furious Flight|no-rf=|mythic=1}}
+|Mail boots
+|-
+|{{Versions/RaidLoot|Seal of Saltheril|no-rf=|mythic=1}}
+|Ring
+|-
+|{{Versions/RaidLoot|Tirathon's Betrayal|no-rf=|mythic=1}}
+|Agility DPS trinket
+
+|-
+|class="rowtitle" rowspan="8" |{{NPC||Inquisitor Tormentorum}}
+|{{Versions/RaidLoot|Prisoner's Wail|no-rf=|mythic=1}}
+|Blood Artifact Relic
+|-
+|{{Versions/RaidLoot|Soulsap Shackles|no-rf=|mythic=1}}
+|Iron Artifact Relic
+|-
+|{{Versions/RaidLoot|Hood of the Blind Executioner|no-rf=|mythic=1}}
+|Leather helmet
+|-
+|{{Versions/RaidLoot|Amice of Cruel Laughter|no-rf=|mythic=1}}
+|Cloth shoulders
+|-
+|{{Versions/RaidLoot|Drape of Vile Misfortune|no-rf=|mythic=1}}
+|Cloak
+|-
+|{{Versions/RaidLoot|Blood-Spattered Gauntlets|no-rf=|mythic=1}}
+|Plate gloves
+|-
+|{{Versions/RaidLoot|Leggings of Biting Links|no-rf=|mythic=1}}
+|Mail leggings
+|-
+|{{Versions/RaidLoot|Orb of Torment|no-rf=|mythic=1}}
+|Tank trinket
+
+|-
+|class="rowtitle" rowspan="12" |{{NPC||Ash'Golm}}
+|{{Versions/RaidLoot|Flashfrozen Ember|no-rf=|mythic=1}}
+|Frost Artifact Relic
+|-
+|{{Versions/RaidLoot|Molten Giant's Eye|no-rf=|mythic=1}}
+|Fire Artifact Relic
+|-
+|{{Versions/RaidLoot|Crown of Ash|no-rf=|mythic=1}}
+|Plate helmet
+|-
+|{{Versions/RaidLoot|Lavadrip Pendant|no-rf=|mythic=1}}
+|Necklace
+|-
+|{{Versions/RaidLoot|Charskin Mantle|no-rf=|mythic=1}}
+|Leather shoulders
+|-
+|{{Versions/RaidLoot|Flameheart Vestment|no-rf=|mythic=1}}
+|Cloth chest
+|-
+|{{Versions/RaidLoot|Flame Juggler's Armbands|no-rf=|mythic=1}}
+|Leather bracers
+|-
+|{{Versions/RaidLoot|Lavabreaker Gauntlets|no-rf=|mythic=1}}
+|Mail gloves
+|-
+|{{Versions/RaidLoot|Magmacrusher Girdle|no-rf=|mythic=1}}
+|Plate belt
+|-
+|{{Versions/RaidLoot|Permafrost Waistband|no-rf=|mythic=1}}
+|Mail belt
+|-
+|{{Versions/RaidLoot|Leggings of the Third Degree|no-rf=|mythic=1}}
+|Cloth leggings
+|-
+|{{Versions/RaidLoot|Faulty Countermeasure|no-rf=|mythic=1}}
+|Melee DPS trinket
+
+|-
+|class="rowtitle" rowspan="8" |{{NPC||Glazer}}
+|{{Versions/RaidLoot|Pulsing Prism|no-rf=|mythic=1}}
+|Arcane Artifact Relic
+|-
+|{{Versions/RaidLoot|Collar of Blindsight|no-rf=|mythic=1}}
+|Mail helmet
+|-
+|{{Versions/RaidLoot|Pendant of the Watchful Eye|no-rf=|mythic=1}}
+|Necklace
+|-
+|{{Versions/RaidLoot|Polished Jade Chestguard|no-rf=|mythic=1}}
+|Plate chest
+|-
+|{{Versions/RaidLoot|Glove of Unseen Evil|no-rf=|mythic=1}}
+|Cloth gloves
+|-
+|{{Versions/RaidLoot|Girdle of Lidless Sight|no-rf=|mythic=1}}
+|Leather belt
+|-
+|{{Versions/RaidLoot|Ring of Minute Mirrors|no-rf=|mythic=1}}
+|Ring
+|-
+|{{Versions/RaidLoot|Concave Reflecting Lens|no-rf=|mythic=1}}
+|Healer trinket
+
+|-
+|class="rowtitle" rowspan="17" |{{NPC||Cordana Felsong (tactics)||Cordana Felsong}}
+|{{Versions/RaidLoot|Elune's Light|no-rf=|mythic=1}}
+|Holy Artifact Relic
+|-
+|{{Versions/RaidLoot|Moonglaive Dervish|no-rf=|mythic=1}}
+|Storm Artifact Relic
+|-
+|{{Versions/RaidLoot|Shade of the Vault|no-rf=|mythic=1}}
+|Shadow Artifact Relic
+|-
+|{{Versions/RaidLoot|Netherwhisper Hood|no-rf=|mythic=1}}
+|Cloth helmet
+|-
+|{{Versions/RaidLoot|Shoulderguards of Shunned Duty|no-rf=|mythic=1}}
+|Mail shoulders
+|-
+|{{Versions/RaidLoot|Cloak of Enthralling Darkness|no-rf=|mythic=1}}
+|Cloak
+|-
+|{{Versions/RaidLoot|Chestguard of Insidious Desire|no-rf=|mythic=1}}
+|Leather chest
+|-
+|{{Versions/RaidLoot|Bracers of Twisted Revelation|no-rf=|mythic=1}}
+|Mail bracers
+|-
+|{{Versions/RaidLoot|Felbat Leather Gloves|no-rf=|mythic=1}}
+|Leather gloves
+|-
+|{{Versions/RaidLoot|Portalguard Gauntlets|no-rf=|mythic=1}}
+|Plate gloves
+|-
+|{{Versions/RaidLoot|Waistband of Spiritual Doom|no-rf=|mythic=1}}
+|Cloth belt
+|-
+|{{Versions/RaidLoot|Legguards of Illusory Burdens|no-rf=|mythic=1}}
+|Plate leggings
+|-
+|{{Versions/RaidLoot|Warden's Martial Greaves|no-rf=|mythic=1}}
+|Leather leggings
+|-
+|{{Versions/RaidLoot|Mardum Chain Boots|no-rf=|mythic=1}}
+|Mail boots
+|-
+|{{Versions/RaidLoot|Pathfinders of Dark Omens|no-rf=|mythic=1}}
+|Plate boots
+|-
+|{{Versions/RaidLoot|Shadewalker Footwraps|no-rf=|mythic=1}}
+|Cloth boots
+|-
+|{{Versions/RaidLoot|Moonlit Prism|no-rf=|mythic=1}}
+|Ranged DPS trinket
+|}
+
+==Achievements==
+*[[Vault of the Wardens (achievement)]]
+*[[Heroic: Vault of the Wardens]]
+*[[Mythic: Vault of the Wardens]]
+*[[Mythic: Vault of the Wardens Guild Run]]
+*[[A Specter, Illuminated]]
+*[[I Ain't Even Cold]]
+*[[Who's Afraid of the Dark?]]
+
+==Notes and trivia==
+*The cinematic teaser for ''Legion'' takes place in the Vault.
+*The reputation tab for [[Wardens (faction)|The Wardens]] implies that ''all'' [[rare mob]]s on the Broken Isles escaped from here, corroborated by their hosting of the world quests to kill them.<ref>[[:Category:The Wardens quests|Warden quests]]</ref>
+
+==Gallery==
+<gallery>
+File:Vault of the Wardens - owl statue.png|Statue
+File:Warden Tower Entrance by Chris Deboda.jpg|Entrance concept
+</gallery>
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class=darktable
+! Vault of the Wardens !! Demon hunter starting zone
+|-
+|{{Elinks-zone|7787}}
+|{{Elinks-zone|7814}}
+|}
+
+{{Vault of the Wardens subzones}}
+{{Azsuna}}
+{{Dungeons|Legion}}
+
+[[Category:Vault of the Wardens| ]]
+[[Category:Dungeons]]
+[[Category:Legion]]
+[[Category:Prisons]]
+[[Category:Watchers]]

@@ -1,0 +1,543 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><dl><dd><span class="noexcerpt" data-nosnippet=""><i>Not to be confused with <a href="/wiki/Aszune" title="Aszune">Aszune</a>.</i></span></dd></dl>
+<table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_32.png?ae6e60" decoding="async" loading="lazy" width="18" height="32" data-file-width="18" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Azsuna</span></span></span></th></tr><tr class="mid-header"><th colspan="2" style="text-align:center;">Level: 10-45<br />Battle Pet Level: 25</th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:WoW_7.0Zones_Azsuna_EM_008.png" class="image"><img alt="WoW 7.0Zones Azsuna EM 008.png" src="/images/thumb/WoW_7.0Zones_Azsuna_EM_008.png/260px-WoW_7.0Zones_Azsuna_EM_008.png?46acd4" decoding="async" loading="lazy" width="260" height="163" data-file-width="1920" data-file-height="1200" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Capital(s)</th><td>
+<span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Ruins_of_Nar%27thalas" title="Ruins of Nar&#39;thalas">Ruins of Nar'thalas</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Races</th><td>
+<span class="linkicon raceicon RaceLink"><a href="/wiki/Naga" title="Naga"><img alt="Naga" src="/images/thumb/IconSmall_Naga_Male.gif/16px-IconSmall_Naga_Male.gif?429227" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Naga" title="Naga"><img alt="Naga" src="/images/thumb/IconSmall_Naga_Female.gif/16px-IconSmall_Naga_Female.gif?876ddd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Naga" title="Naga">Naga</a><br />  <span class="linkicon raceicon RaceLink"><a href="/wiki/Demon" title="Demon"><img alt="Demon" src="/images/thumb/IconSmall_Doomguard.gif/16px-IconSmall_Doomguard.gif?d6119f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Demon" title="Demon"><img alt="Demon" src="/images/thumb/IconSmall_Felguard.gif/16px-IconSmall_Felguard.gif?4a008b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Demon" title="Demon"><img alt="Demon" src="/images/thumb/IconSmall_Wrathguard.gif/16px-IconSmall_Wrathguard.gif?e62bab" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Demon" title="Demon"><img alt="Demon" src="/images/thumb/IconSmall_Imp.gif/16px-IconSmall_Imp.gif?2109cc" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Demon" title="Demon">Demon</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Night_elf" title="Night elf"><img alt="Night elf" src="/images/thumb/IconSmall_NightElf_Male.gif/16px-IconSmall_NightElf_Male.gif?289027" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Night_elf" title="Night elf"><img alt="Night elf" src="/images/thumb/IconSmall_NightElf_Female.gif/16px-IconSmall_NightElf_Female.gif?8b2b20" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Night_elf" title="Night elf">Night elf</a><br /> <span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Nightfallen_Male.gif" class="image"><img alt="IconSmall Nightfallen Male.gif" src="/images/thumb/IconSmall_Nightfallen_Male.gif/16px-IconSmall_Nightfallen_Male.gif?87ae88" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Nightfallen_Female.gif" class="image"><img alt="IconSmall Nightfallen Female.gif" src="/images/thumb/IconSmall_Nightfallen_Female.gif/16px-IconSmall_Nightfallen_Female.gif?2d7180" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Nightfallen" title="Nightfallen">Nightfallen</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Blood_elf" title="Blood elf"><img alt="Blood elf" src="/images/thumb/IconSmall_BloodElf_Male.png/16px-IconSmall_BloodElf_Male.png?215d28" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Blood_elf" title="Blood elf"><img alt="Blood elf" src="/images/thumb/IconSmall_BloodElf_Female.png/16px-IconSmall_BloodElf_Female.png?681eed" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Blood_elf" title="Blood elf">Blood elf</a><br /> <span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Gilgoblin_Male.gif" class="image"><img alt="IconSmall Gilgoblin Male.gif" src="/images/thumb/IconSmall_Gilgoblin_Male.gif/16px-IconSmall_Gilgoblin_Male.gif?c96646" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Gilblin" class="mw-redirect" title="Gilblin">Gilblin</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Makrura" title="Makrura"><img alt="Makrura" src="/images/thumb/IconSmall_Makrura.gif/16px-IconSmall_Makrura.gif?b45bf4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Makrura" title="Makrura">Makrura</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Murloc" title="Murloc"><img alt="Murloc" src="/images/thumb/IconSmall_Murloc_Male.gif/16px-IconSmall_Murloc_Male.gif?85395b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Murloc" title="Murloc">Murloc</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Blue_dragon" title="Blue dragon"><img alt="Blue dragon" src="/images/thumb/IconSmall_DragonBlue2.gif/16px-IconSmall_DragonBlue2.gif?252edb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Blue_dragon" title="Blue dragon">Blue dragon</a><br /> <span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Skrog.gif" class="image"><img alt="IconSmall Skrog.gif" src="/images/thumb/IconSmall_Skrog.gif/16px-IconSmall_Skrog.gif?6b72f1" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Sea_giant" title="Sea giant">Sea giant</a><br /> <span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Withered.gif" class="image"><img alt="IconSmall Withered.gif" src="/images/thumb/IconSmall_Withered.gif/16px-IconSmall_Withered.gif?4f4c15" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Withered" title="Withered">Withered</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Ruler(s)</th><td>
+<span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Farondis.gif" class="image"><img alt="IconSmall Farondis.gif" src="/images/thumb/IconSmall_Farondis.gif/16px-IconSmall_Farondis.gif?ff8061" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Prince_Farondis" title="Prince Farondis">Prince Farondis</a><br /> <span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Maiev.gif" class="image"><img alt="IconSmall Maiev.gif" src="/images/thumb/IconSmall_Maiev.gif/16px-IconSmall_Maiev.gif?af9e97" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Maiev_Shadowsong" title="Maiev Shadowsong">Maiev Shadowsong</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Major settlements</th><td>
+<span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Dalaran" title="Dalaran">Dalaran</a><br /> <span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Temple_of_a_Thousand_Lights" title="Temple of a Thousand Lights">Temple of a Thousand Lights</a><br /> <span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Vault_of_the_Wardens" title="Vault of the Wardens">Vault of the Wardens</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Minor settlements</th><td>
+<span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Shackle%27s_Den" title="Shackle&#39;s Den">Shackle's Den</a><br /> <span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Azurewing_Repose" title="Azurewing Repose">Azurewing Repose</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation</th><td>
+<a href="/wiki/Court_of_Farondis" title="Court of Farondis">Court of Farondis</a>, <a href="/wiki/The_Wardens" class="mw-redirect" title="The Wardens">The Wardens</a>, <a href="/wiki/Azurewing" title="Azurewing">Azurewing</a>, <a href="/wiki/Nazjatar_Empire" title="Nazjatar Empire">Nazjatar Empire</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Location</th><td>
+Southwestern <a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">PvP status</th><td>
+<a href="/wiki/Contested_territory" title="Contested territory">Contested territory</a></td></tr></tbody></table>
+<dl><dd><i>Azsuna was once a gem of the night elf empire. Now much of it lies in ruins, a home for vengeful elven spirits and hidden enclaves of blue dragons. What remains of this haunted land has come under threat from conflict among Azeroth's defenders, an army of serpentine naga, and the Burning Legion.</i><sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup></dd></dl>
+<p><b>Azsuna</b> (<a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" class="extiw" title="wikipedia:International Phonetic Alphabet"><span title="Representation in the International Phonetic Alphabet (IPA)" class="IPA">/æzˈsuːnə/</span></a> <i><a href="https://en.wikipedia.org/wiki/Help:Pronunciation_respelling_key" class="extiw" title="wikipedia:Help:Pronunciation respelling key"><span title="English Pronunciation Respelling" class="IPA">az-SOO-nə</span></a></i>) is an island<sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> and <a href="/wiki/Zone" title="Zone">zone</a> in the southwestern part of the <a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a>. It holds the ruins of the <a href="/wiki/Night_elf" title="Night elf">night elf</a> civlization that existed before the <a href="/wiki/Great_Sundering" title="Great Sundering">Great Sundering</a>.<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup> The ghosts of ancient night elves roam this area, along with remnants of the <a href="/wiki/Blue_dragonflight" title="Blue dragonflight">blue dragonflight</a>. The <a href="/wiki/Nightfallen" title="Nightfallen">Nightfallen</a> maintain a presence here. Azsuna was not destroyed in the Great Sundering, but was actually devastated several years before that by <a href="/wiki/Queen_Azshara" title="Queen Azshara">Queen Azshara</a> herself.<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>This is where one of the <a href="/wiki/Pillars_of_Creation" title="Pillars of Creation">Pillars of Creation</a>, the <span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_enchantedpearl.png/16px-Inv_misc_enchantedpearl.png?3dc5d1" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Tidestone_of_Golganneth" title="Tidestone of Golganneth"><span class="itemlink ajaxttlink qc-common" title="Tidestone of Golganneth is a common quality item."><span class="bracket">&#91;</span>Tidestone of Golganneth<span class="bracket">&#93;</span></span></a></span>, was contested by the <a href="/wiki/Hero" title="Hero">heroes</a> of <a href="/wiki/Azeroth" title="Azeroth">Azeroth</a> and the minions of Azshara.<sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Geography"><span class="tocnumber">2</span> <span class="toctext">Geography</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Maps_and_subregions"><span class="tocnumber">2.1</span> <span class="toctext">Maps and subregions</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Instances"><span class="tocnumber">2.2</span> <span class="toctext">Instances</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Travel_hubs"><span class="tocnumber">2.3</span> <span class="toctext">Travel hubs</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Adjacent_regions"><span class="tocnumber">2.4</span> <span class="toctext">Adjacent regions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Notable_characters"><span class="tocnumber">3</span> <span class="toctext">Notable characters</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Quests"><span class="tocnumber">4</span> <span class="toctext">Quests</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Resources"><span class="tocnumber">5</span> <span class="toctext">Resources</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Wild_creatures"><span class="tocnumber">6</span> <span class="toctext">Wild creatures</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Wild_creatures_2"><span class="tocnumber">6.1</span> <span class="toctext">Wild creatures</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Notes_and_trivia"><span class="tocnumber">7</span> <span class="toctext">Notes and trivia</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#Gallery"><span class="tocnumber">8</span> <span class="toctext">Gallery</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#Patch_changes"><span class="tocnumber">9</span> <span class="toctext">Patch changes</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#References"><span class="tocnumber">10</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#External_links"><span class="tocnumber">11</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=1" title="Edit section: History"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Azsuna was originally populated by more than ten thousand elves.<sup id="cite&#95;ref-6" class="reference"><a href="#cite_note-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup>
+</p><p><a href="/wiki/Queen_Azshara" title="Queen Azshara">Queen Azshara</a>'s pact with the demon lord <a href="/wiki/Sargeras" title="Sargeras">Sargeras</a> went mostly uncontested by her subjects. One of the few that dared to defy her was <a href="/wiki/Prince_Farondis" title="Prince Farondis">Prince Farondis</a>.
+</p><p>As one of the queen's trusted advisors, Farondis was in regular contact with the <a href="/wiki/Highborne" title="Highborne">Highborne</a> of <a href="/wiki/Zin-Azshari" title="Zin-Azshari">Zin-Azshari</a>, but his palace in Azsuna was several leagues away from the elven capital. As such, he was able to witness Sargeras' influence on the Highborne court without falling sway to the Legion lord's temptation.
+</p><p>Farondis' plan was bold, but simple: destroy the <a href="/wiki/Well_of_Eternity" title="Well of Eternity">Well of Eternity</a> in Zin-Azshari. Doing so would close the portal to Sargeras' realm and stem the tide of evil before it even started. In order to accomplish this task, he would use the power of an artifact stored deep within <a href="/wiki/Nar%27thalas_Academy" title="Nar&#39;thalas Academy">Nar'thalas Academy</a>: the <span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_enchantedpearl.png/16px-Inv_misc_enchantedpearl.png?3dc5d1" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Tidestone_of_Golganneth" title="Tidestone of Golganneth"><span class="itemlink ajaxttlink qc-common" title="Tidestone of Golganneth is a common quality item."><span class="bracket">&#91;</span>Tidestone of Golganneth<span class="bracket">&#93;</span></span></a></span>. 
+</p><p>Unfortunately, the queen's influence in Farondis' palace was already deep-seated. <a href="/wiki/Vandros" class="mw-redirect" title="Vandros">Vandros</a>, a young noble in Farondis' court, caught word of Farondis' plans to defy the Queen, and reported the insurrection to Queen Azshara herself.
+</p><p>Azshara wasted no time in punishing Farondis and his people. In a frightening display of arcane power, she destroyed the Tidestone of Golganneth, and in doing so, released a wave of dark energy over all of Azsuna and its inhabitants.
+</p><p>Since that day, the elves of Azsuna have been unable to experience the release of death, and their spirits wander the land indefinitely.<sup id="cite&#95;ref-7" class="reference"><a href="#cite_note-7"><span class="cite-bracket">&#91;</span>7<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>At some point during the <a href="/wiki/Third_invasion_of_the_Burning_Legion" title="Third invasion of the Burning Legion">invasion</a>, the <a href="/wiki/Knights_of_the_Silver_Hand" title="Knights of the Silver Hand">Order of the Silver Hand</a> sent their troops into the region after discovering a small <a href="/wiki/Demon" title="Demon">demon</a> force in the east, and hearing rumors that they report directly to <a href="/wiki/Balnazzar" title="Balnazzar">Balnazzar</a>. However, they were lead by <a href="/wiki/Pitlord_Argamemm" title="Pitlord Argamemm">Pitlord Argamemm</a> who was killed by the paladins.<sup id="cite&#95;ref-8" class="reference"><a href="#cite_note-8"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<h2><span class="mw-headline" id="Geography">Geography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=2" title="Edit section: Geography"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Maps_and_subregions">Maps and subregions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=3" title="Edit section: Maps and subregions"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tleft"><div class="thumbinner" style="width:322px;"><a href="/wiki/File:WorldMap-Azsuna.jpg" class="image"><img src="/images/thumb/WorldMap-Azsuna.jpg/320px-WorldMap-Azsuna.jpg?4377a2" decoding="async" loading="lazy" width="320" height="213" class="thumbimage" data-file-width="1002" data-file-height="668" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:WorldMap-Azsuna.jpg" class="internal" title="Enlarge"></a></div>Map of Azsuna.</div></div></div>
+<table class="darktable hlist">
+
+<tbody><tr>
+<td>
+<ul><li><a href="/wiki/Abandoned_Crossroads" title="Abandoned Crossroads">The Abandoned Crossroads</a></li>
+<li><a href="/wiki/Alluvanon%27s_Delta" title="Alluvanon&#39;s Delta">Alluvanon's Delta</a></li>
+<li><a href="/wiki/Azurewing_Repose" title="Azurewing Repose">Azurewing Repose</a>
+<ul><li><a href="/wiki/Leyhollow" title="Leyhollow">Leyhollow</a></li></ul></li>
+<li><a href="/wiki/Azurewing_Whelplands" title="Azurewing Whelplands">Azurewing Whelplands</a>
+<ul><li><a href="/wiki/Runas%27s_Hovel" title="Runas&#39;s Hovel">Runas's Hovel</a></li></ul></li>
+<li><a href="/wiki/Challiane%27s_Terrace" title="Challiane&#39;s Terrace">Challiane's Terrace</a></li>
+<li><a href="/wiki/Dead_Man%27s_Bay" title="Dead Man&#39;s Bay">Dead Man's Bay</a></li>
+<li><a href="/wiki/El%27dranil_Peak" title="El&#39;dranil Peak">El'dranil Peak</a></li>
+<li><a href="/wiki/El%27dranil_Shallows" title="El&#39;dranil Shallows">El'dranil Shallows</a>
+<ul><li><a href="/wiki/Eye_of_Azshara" title="Eye of Azshara">Eye of Azshara</a></li>
+<li><a href="/wiki/Gangamesh%27s_Den" title="Gangamesh&#39;s Den">Gangamesh's Den</a></li>
+<li><a href="/wiki/Hatecoil_Slave_Pen" title="Hatecoil Slave Pen">Hatecoil Slave Pen</a></li>
+<li><a href="/wiki/Hatecoil_Warcamp" title="Hatecoil Warcamp">Hatecoil Warcamp</a>
+<ul><li><a href="/wiki/Eksis%27_Lair" title="Eksis&#39; Lair">Eksis' Lair</a></li></ul></li></ul></li>
+<li><a href="/wiki/Empyrean_Society_Enclave" title="Empyrean Society Enclave">The Empyrean Society Enclave</a>
+<ul><li><a href="/wiki/Empyrean_Society_Headquarters" title="Empyrean Society Headquarters">Empyrean Society Headquarters</a></li></ul></li>
+<li><a href="/wiki/Faronaar" title="Faronaar">Faronaar</a>
+<ul><li><a href="/wiki/Altar_of_End_Times" title="Altar of End Times">Altar of End Times</a>
+<ul><li><a href="/wiki/Den_of_Fiends" title="Den of Fiends">Den of Fiends</a></li>
+<li><a href="/wiki/Pit_of_Malinoth" title="Pit of Malinoth">Pit of Malinoth</a></li></ul></li>
+<li><a href="/wiki/Burning_Gate" title="Burning Gate">The Burning Gate</a></li>
+<li><a href="/wiki/Felbeast_Dens" title="Felbeast Dens">Felbeast Dens</a></li>
+<li><a href="/wiki/Felfire_Cavern" title="Felfire Cavern">Felfire Cavern</a></li>
+<li><a href="/wiki/Felsurge_Nest" title="Felsurge Nest">Felsurge Nest</a></li>
+<li><a href="/wiki/Felwatch_Point" title="Felwatch Point">Felwatch Point</a></li>
+<li><a href="/wiki/Fiendish_Vault" title="Fiendish Vault">Fiendish Vault</a></li>
+<li><a href="/wiki/Illidari_Perch" title="Illidari Perch">Illidari Perch</a></li>
+<li><a href="/wiki/Legion_Camp:_Chaos" title="Legion Camp: Chaos">Legion Camp: Chaos</a></li>
+<li><a href="/wiki/Legion_Camp:_Ruin" title="Legion Camp: Ruin">Legion Camp: Ruin</a></li>
+<li><a href="/wiki/Pits_of_Despair" title="Pits of Despair">Pits of Despair</a></li>
+<li><a href="/wiki/Soul_Engine:_Apocalypse" title="Soul Engine: Apocalypse">Soul Engine: Apocalypse</a></li>
+<li><a href="/wiki/Soulrender" title="Soulrender">The Soulrender</a></li>
+<li><a href="/wiki/Traitor%27s_Overlook" title="Traitor&#39;s Overlook">Traitor's Overlook</a></li>
+<li><a href="/wiki/Trickster%27s_Cut" title="Trickster&#39;s Cut">Trickster's Cut</a></li>
+<li><a href="/wiki/Vanquish_Point" title="Vanquish Point">Vanquish Point</a></li></ul></li>
+<li><a href="/wiki/Faronaar_Front" title="Faronaar Front">Faronaar Front</a></li>
+<li><a href="/wiki/Farondale" title="Farondale">Farondale</a></li>
+<li><a href="/wiki/Felblaze_Ingress" title="Felblaze Ingress">Felblaze Ingress</a></li>
+<li><a href="/wiki/Forever_Rise" title="Forever Rise">Forever Rise</a></li>
+<li><a href="/wiki/Garden_of_Elune" title="Garden of Elune">Garden of Elune</a></li>
+<li><a href="/wiki/Greenway" title="Greenway">The Greenway</a>
+<ul><li><a href="/wiki/Lyndras%27_Exile" title="Lyndras&#39; Exile">Lyndras' Exile</a></li></ul></li>
+<li><a href="/wiki/Grey_Shoals" title="Grey Shoals">Grey Shoals</a></li>
+<li><a href="/wiki/Illidari_Stand" title="Illidari Stand">Illidari Stand</a></li>
+<li><a href="/wiki/Isle_of_the_Watchers" title="Isle of the Watchers">Isle of the Watchers</a>
+<ul><li><a href="/wiki/Vault_of_the_Wardens" title="Vault of the Wardens">Vault of the Wardens</a></li>
+<li><a href="/wiki/Wardens%27_Redoubt" title="Wardens&#39; Redoubt">Wardens' Redoubt</a></li>
+<li><a href="/wiki/Watchers%27_Aerie" title="Watchers&#39; Aerie">Watchers' Aerie</a></li></ul></li>
+<li><a href="/wiki/Ley-Ruins_of_Zarkhenar" title="Ley-Ruins of Zarkhenar">Ley-Ruins of Zarkhenar</a></li>
+<li><a href="/wiki/Lithduin_Reef" title="Lithduin Reef">Lithduin Reef</a></li>
+<li><a href="/wiki/Llothien" title="Llothien">Llothien</a></li>
+<li><a href="/wiki/Llothien_Highlands" title="Llothien Highlands">Llothien Highlands</a></li>
+<li><a href="/wiki/Lost_Orchard" title="Lost Orchard">The Lost Orchard</a></li>
+<li><a href="/wiki/Mak%27rana" title="Mak&#39;rana">Mak'rana</a></li>
+<li><a href="/wiki/Nor%27Danil_Wellspring" title="Nor&#39;Danil Wellspring">Nor'Danil Wellspring</a></li>
+<li><a href="/wiki/Oceanus_Cove" title="Oceanus Cove">Oceanus Cove</a></li>
+<li><a href="/wiki/Old_Coast_Path" title="Old Coast Path">Old Coast Path</a></li>
+<li><a href="/wiki/Olivian_Veil" title="Olivian Veil">Olivian Veil</a>
+<ul><li><a href="/wiki/Gloombound_Barrow" title="Gloombound Barrow">Gloombound Barrow</a></li></ul></li>
+<li><a href="/wiki/Paledoom%27s_Overlook" title="Paledoom&#39;s Overlook">Paledoom's Overlook</a></li>
+<li><i><a href="/wiki/The_Queen%27s_Reprisal" title="The Queen&#39;s Reprisal">Queen's Reprisal</a></i></li>
+<li><a href="/wiki/Rhut%27van_Divide" title="Rhut&#39;van Divide">Rhut'van Divide</a></li>
+<li><a href="/wiki/Rhut%27van_Passage" title="Rhut&#39;van Passage">Rhut'van Passage</a></li>
+<li><a href="/wiki/Rhut%27van_Peak" title="Rhut&#39;van Peak">Rhut'van Peak</a></li>
+<li><a href="/wiki/Ruined_Sanctum" title="Ruined Sanctum">The Ruined Sanctum</a></li>
+<li><a href="/wiki/Ruins_of_Nar%27thalas" title="Ruins of Nar&#39;thalas">Ruins of Nar'thalas</a>
+<ul><li><a href="/wiki/Crumbled_Palace" title="Crumbled Palace">Crumbled Palace</a></li>
+<li><a href="/wiki/Drowned_Gardens" title="Drowned Gardens">Drowned Gardens</a></li>
+<li><a href="/wiki/Nar%27thalas_Academy" title="Nar&#39;thalas Academy">Nar'thalas Academy</a>
+<ul><li><a href="/wiki/Hall_of_Antiquities" title="Hall of Antiquities">Hall of Antiquities</a></li>
+<li><a href="/wiki/Hall_of_Arcane_Learning" title="Hall of Arcane Learning">Hall of Arcane Learning</a></li></ul></li>
+<li><a href="/wiki/Royal_Pond" title="Royal Pond">The Royal Pond</a></li></ul></li>
+<li><a href="/wiki/Seabreak_Isle" title="Seabreak Isle">Seabreak Isle</a></li>
+<li><a href="/wiki/Shackle%27s_Den" title="Shackle&#39;s Den">Shackle's Den</a></li>
+<li><a href="/wiki/Shipwreck_Arena" title="Shipwreck Arena">Shipwreck Arena</a></li>
+<li><a href="/wiki/Temple_of_a_Thousand_Lights" title="Temple of a Thousand Lights">Temple of a Thousand Lights</a></li>
+<li><a href="/wiki/Tidal_Marsh" title="Tidal Marsh">The Tidal Marsh</a>
+<ul><li><a href="/wiki/Lair_of_the_Deposed" title="Lair of the Deposed">Lair of the Deposed</a></li></ul></li>
+<li><a href="/wiki/Timeworn_Strand" title="Timeworn Strand">Timeworn Strand</a></li></ul>
+</td></tr></tbody></table>
+<div style="clear: left;"></div>
+<h3><span class="mw-headline" id="Instances">Instances</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=4" title="Edit section: Instances"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="darktable zebra">
+<tbody><tr>
+<th>Instance name
+</th>
+<th>Level range
+</th>
+<th>Group size
+</th></tr>
+<tr>
+<td><a href="/wiki/Instance_portal" title="Instance portal"><img alt="Instance portal" src="/images/Instance_portal_purple.png?b4b816" decoding="async" loading="lazy" width="20" height="20" data-file-width="20" data-file-height="20" /></a>&#160;<a href="/wiki/Eye_of_Azshara_(instance)" title="Eye of Azshara (instance)">Eye of Azshara</a></td>
+<td>100-110
+</td>
+<td>5
+</td></tr>
+<tr>
+<td><a href="/wiki/Instance_portal" title="Instance portal"><img alt="Instance portal" src="/images/Instance_portal_purple.png?b4b816" decoding="async" loading="lazy" width="20" height="20" data-file-width="20" data-file-height="20" /></a>&#160;<a href="/wiki/Vault_of_the_Wardens" title="Vault of the Wardens">Vault of the Wardens</a></td>
+<td>100-110
+</td>
+<td>5
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Travel_hubs">Travel hubs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=5" title="Edit section: Travel hubs"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dt><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> Flight paths from <a href="/wiki/Illidari_Stand" title="Illidari Stand">Illidari Stand</a></dt>
+<dt><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> Flight paths from <a href="/wiki/Illidari_Perch" title="Illidari Perch">Illidari Perch</a></dt>
+<dt><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> Flight paths from <a href="/wiki/Azurewing_Repose" title="Azurewing Repose">Azurewing Repose</a></dt>
+<dt><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> Flight paths from <a href="/wiki/Challiane%27s_Terrace" title="Challiane&#39;s Terrace">Challiane's Terrace</a></dt>
+<dt><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> Flight paths from <a href="/wiki/Felblaze_Ingress" title="Felblaze Ingress">Felblaze Ingress</a></dt>
+<dt><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> Flight paths from <a href="/wiki/Shackle%27s_Den" title="Shackle&#39;s Den">Shackle's Den</a></dt>
+<dt><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> Flight paths from <a href="/wiki/Wardens%27_Redoubt" title="Wardens&#39; Redoubt">Warden's Redoubt</a></dt>
+<dt><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> Flight paths from <a href="/wiki/Watchers%27_Aerie" title="Watchers&#39; Aerie">Watchers' Aerie</a></dt>
+<dt><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> Flight paths from <a href="/wiki/Eye_of_Azshara" title="Eye of Azshara">Eye of Azshara</a></dt></dl>
+<h3><span class="mw-headline" id="Adjacent_regions">Adjacent regions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=6" title="Edit section: Adjacent regions"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="darktable zebra">
+
+<tbody><tr>
+<th>Zone Name</th>
+<th>Faction</th>
+<th>Level Range</th>
+<th>Direction</th>
+<th>Access
+</th></tr>
+<tr>
+<td><a href="/wiki/Val%27sharah" title="Val&#39;sharah">Val'sharah</a></td>
+<td><span class="linkicon"><a href="/wiki/Alliance" title="Alliance"><img alt="Alliance" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span><span class="linkicon"><a href="/wiki/Horde" title="Horde"><img alt="Horde" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span></td>
+<td>100-110 (scaled)</td>
+<td>North</td>
+<td>By foot or by flight path
+</td></tr>
+<tr>
+<td><a href="/wiki/Suramar" title="Suramar">Suramar</a></td>
+<td><span class="linkicon"><a href="/wiki/Alliance" title="Alliance"><img alt="Alliance" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span><span class="linkicon"><a href="/wiki/Horde" title="Horde"><img alt="Horde" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span></td>
+<td>110</td>
+<td>Northeast</td>
+<td>By foot or by flight path
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Notable_characters">Notable characters</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=7" title="Edit section: Notable characters"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><span class="noexcerpt" data-nosnippet=""><i>Main article: <a href="/wiki/Azsuna_NPCs" title="Azsuna NPCs">Azsuna NPCs</a></i></span></dd></dl>
+<ul><li><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Farondis.gif/16px-IconSmall_Farondis.gif?ff8061" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Prince_Farondis" title="Prince Farondis"><span style="color:">Prince Farondis</span></a></li>
+<li><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Senegos.gif/16px-IconSmall_Senegos.gif?f7bdfb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Senegos" title="Senegos"><span style="color:">Senegos</span></a></li>
+<li><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_NightElfDemonHunter_Female.gif/16px-IconSmall_NightElfDemonHunter_Female.gif?14ccc4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Kor%27vas_Bloodthorn" title="Kor&#39;vas Bloodthorn"><span style="color:">Kor'vas Bloodthorn</span></a></li>
+<li><span class=""><a href="/wiki/Combat" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Athissa.gif/16px-IconSmall_Athissa.gif?e6ede8" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Tidemistress_Athissa" class="mw-redirect" title="Tidemistress Athissa"><span style="color:">Tidemistress Athissa</span></a></li>
+<li><span class=""><a href="/wiki/Combat" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Cordana.gif/16px-IconSmall_Cordana.gif?354871" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Cordana_Felsong" title="Cordana Felsong"><span style="color:">Cordana Felsong</span></a></li></ul>
+<h2><span class="mw-headline" id="Quests">Quests</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=8" title="Edit section: Quests"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><span class="noexcerpt" data-nosnippet=""><i>Main article: <a href="/wiki/Azsuna_storyline" title="Azsuna storyline">Azsuna storyline</a></i></span></dd></dl>
+<h2><span class="mw-headline" id="Resources">Resources</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=9" title="Edit section: Resources"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="t-columns" style="column-count:2; column-width:18em; max-width:auto">
+<ul><li>Cloth
+<ul><li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_tailoring_70_silkweave.png/16px-Inv_tailoring_70_silkweave.png?76f805" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Shal%27dorei_Silk" title="Shal&#39;dorei Silk"><span class="itemlink ajaxttlink qc-common" title="Shal&#39;dorei Silk is a common quality item."><span class="bracket">&#91;</span>Shal'dorei Silk<span class="bracket">&#93;</span></span></a></span></li></ul></li>
+<li>Herbalism
+<ul><li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_herbalism_70_aethril.png/16px-Inv_herbalism_70_aethril.png?6fe6cc" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Aethril" title="Aethril"><span class="itemlink ajaxttlink qc-common" title="Aethril is a common quality item."><span class="bracket">&#91;</span>Aethril<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_herbalism_70_yserallineseed.png/16px-Inv_herbalism_70_yserallineseed.png?d59062" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Yseralline_Seed" title="Yseralline Seed"><span class="itemlink ajaxttlink qc-common" title="Yseralline Seed is a common quality item."><span class="bracket">&#91;</span>Yseralline Seed<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_herbalism_70_felwort.png/16px-Inv_herbalism_70_felwort.png?457a4f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Felwort" title="Felwort"><span class="itemlink ajaxttlink qc-uncommon" title="Felwort is an uncommon quality item."><span class="bracket">&#91;</span>Felwort<span class="bracket">&#93;</span></span></a></span></li></ul></li>
+<li>Skinning
+<ul><li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_leatherstonehide.png/16px-Inv_misc_leatherstonehide.png?c7e0d7" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Stonehide_Leather" title="Stonehide Leather"><span class="itemlink ajaxttlink qc-common" title="Stonehide Leather is a common quality item."><span class="bracket">&#91;</span>Stonehide Leather<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_leatherstormscale.png/16px-Inv_misc_leatherstormscale.png?fe0b13" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Stormscale" title="Stormscale"><span class="itemlink ajaxttlink qc-common" title="Stormscale is a common quality item."><span class="bracket">&#91;</span>Stormscale<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_bone_08.png/16px-Inv_misc_bone_08.png?b269db" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Unbroken_Tooth" title="Unbroken Tooth"><span class="itemlink ajaxttlink qc-common" title="Unbroken Tooth is a common quality item."><span class="bracket">&#91;</span>Unbroken Tooth<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_wailingbone.png/16px-Inv_misc_wailingbone.png?50a21c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Unbroken_Claw" title="Unbroken Claw"><span class="itemlink ajaxttlink qc-common" title="Unbroken Claw is a common quality item."><span class="bracket">&#91;</span>Unbroken Claw<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_leatherfelhide.png/16px-Inv_misc_leatherfelhide.png?b844c4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Felhide" title="Felhide"><span class="itemlink ajaxttlink qc-uncommon" title="Felhide is an uncommon quality item."><span class="bracket">&#91;</span>Felhide<span class="bracket">&#93;</span></span></a></span></li></ul></li>
+<li>Mining
+<ul><li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_leystone.png/16px-Inv_leystone.png?75de77" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Leystone_Ore" title="Leystone Ore"><span class="itemlink ajaxttlink qc-common" title="Leystone Ore is a common quality item."><span class="bracket">&#91;</span>Leystone Ore<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_felslate.png/16px-Inv_felslate.png?c91526" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Felslate" title="Felslate"><span class="itemlink ajaxttlink qc-common" title="Felslate is a common quality item."><span class="bracket">&#91;</span>Felslate<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_infernalbrimstone.png/16px-Inv_infernalbrimstone.png?bf776f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Infernal_Brimstone" title="Infernal Brimstone"><span class="itemlink ajaxttlink qc-uncommon" title="Infernal Brimstone is an uncommon quality item."><span class="bracket">&#91;</span>Infernal Brimstone<span class="bracket">&#93;</span></span></a></span></li></ul></li>
+<li>Fishing
+<ul><li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_fish_48.png/16px-Inv_misc_fish_48.png?fb2baa" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Silver_Mackerel" title="Silver Mackerel"><span class="itemlink ajaxttlink qc-common" title="Silver Mackerel is a common quality item."><span class="bracket">&#91;</span>Silver Mackerel<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_fish_blackbarracudablue.png/16px-Inv_fish_blackbarracudablue.png?d5a65c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Black_Barracuda" title="Black Barracuda"><span class="itemlink ajaxttlink qc-common" title="Black Barracuda is a common quality item."><span class="bracket">&#91;</span>Black Barracuda<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_fish_cursedqueenfishgreen.png/16px-Inv_fish_cursedqueenfishgreen.png?ce90fd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Cursed_Queenfish" title="Cursed Queenfish"><span class="itemlink ajaxttlink qc-common" title="Cursed Queenfish is a common quality item."><span class="bracket">&#91;</span>Cursed Queenfish<span class="bracket">&#93;</span></span></a></span></li></ul></li></ul>
+</div>
+<h2><span class="mw-headline" id="Wild_creatures">Wild creatures</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=10" title="Edit section: Wild creatures"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="t-columns" style="column-count:2; column-width:18em; max-width:auto">
+<ul><li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Bear.gif" class="image"><img alt="IconSmall Bear.gif" src="/images/thumb/IconSmall_Bear.gif/16px-IconSmall_Bear.gif?1e9ef3" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Bear" title="Bear">Bears</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Crab.gif" class="image"><img alt="IconSmall Crab.gif" src="/images/thumb/IconSmall_Crab.gif/16px-IconSmall_Crab.gif?da0692" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Crab" title="Crab">Crabs</a></li>
+<li>Fish
+<ul><li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Grouper.gif" class="image"><img alt="IconSmall Grouper.gif" src="/images/thumb/IconSmall_Grouper.gif/16px-IconSmall_Grouper.gif?ecd504" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Grouper" title="Grouper">Groupers</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Puffer.gif" class="image"><img alt="IconSmall Puffer.gif" src="/images/thumb/IconSmall_Puffer.gif/16px-IconSmall_Puffer.gif?c09308" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Puffer_fish" title="Puffer fish">Puffer fish</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Ray2.gif" class="image"><img alt="IconSmall Ray2.gif" src="/images/thumb/IconSmall_Ray2.gif/16px-IconSmall_Ray2.gif?50a045" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Ray" title="Ray">Rays</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Seahorse.gif" class="image"><img alt="IconSmall Seahorse.gif" src="/images/thumb/IconSmall_Seahorse.gif/16px-IconSmall_Seahorse.gif?6a5758" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Seahorse" title="Seahorse">Seahorses</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Shark.gif" class="image"><img alt="IconSmall Shark.gif" src="/images/thumb/IconSmall_Shark.gif/16px-IconSmall_Shark.gif?b10892" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Shark" title="Shark">Sharks</a></li></ul></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Eagle.gif" class="image"><img alt="IconSmall Eagle.gif" src="/images/thumb/IconSmall_Eagle.gif/16px-IconSmall_Eagle.gif?7bd322" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Eagle" title="Eagle">Eagles</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Frog.gif" class="image"><img alt="IconSmall Frog.gif" src="/images/thumb/IconSmall_Frog.gif/16px-IconSmall_Frog.gif?f843b8" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Frog" title="Frog">Frogs</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Fox.gif" class="image"><img alt="IconSmall Fox.gif" src="/images/thumb/IconSmall_Fox.gif/16px-IconSmall_Fox.gif?ec099c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Fox" title="Fox">Foxes</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Seagull.gif" class="image"><img alt="IconSmall Seagull.gif" src="/images/thumb/IconSmall_Seagull.gif/16px-IconSmall_Seagull.gif?36a241" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Gull" class="mw-redirect" title="Gull">Gulls</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Hippogryph.gif" class="image"><img alt="IconSmall Hippogryph.gif" src="/images/thumb/IconSmall_Hippogryph.gif/16px-IconSmall_Hippogryph.gif?25e0ac" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Hippogryph" title="Hippogryph">Hippogryphs</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Hydra2.gif" class="image"><img alt="IconSmall Hydra2.gif" src="/images/thumb/IconSmall_Hydra2.gif/16px-IconSmall_Hydra2.gif?179521" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Hydra" title="Hydra">Hydras</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_LionSeal.gif" class="image"><img alt="IconSmall LionSeal.gif" src="/images/thumb/IconSmall_LionSeal.gif/16px-IconSmall_LionSeal.gif?2282b2" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Lion_seal" title="Lion seal">Lion seals</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_ManaWyrm.gif" class="image"><img alt="IconSmall ManaWyrm.gif" src="/images/thumb/IconSmall_ManaWyrm.gif/16px-IconSmall_ManaWyrm.gif?f1b3b5" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Mana_wyrm" title="Mana wyrm">Mana wyrms</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Owl2.gif" class="image"><img alt="IconSmall Owl2.gif" src="/images/thumb/IconSmall_Owl2.gif/16px-IconSmall_Owl2.gif?99c7c3" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Owl" title="Owl">Owls</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Gyreworm.gif" class="image"><img alt="IconSmall Gyreworm.gif" src="/images/thumb/IconSmall_Gyreworm.gif/16px-IconSmall_Gyreworm.gif?52d053" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Gyreworm" title="Gyreworm">Gyreworms</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_ShaleSpider.gif" class="image"><img alt="IconSmall ShaleSpider.gif" src="/images/thumb/IconSmall_ShaleSpider.gif/16px-IconSmall_ShaleSpider.gif?ed8fd0" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Shale_spider" title="Shale spider">Shale spiders</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Spider.gif" class="image"><img alt="IconSmall Spider.gif" src="/images/thumb/IconSmall_Spider.gif/16px-IconSmall_Spider.gif?2606d8" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Spider" title="Spider">Spiders</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Snail.gif" class="image"><img alt="IconSmall Snail.gif" src="/images/thumb/IconSmall_Snail.gif/16px-IconSmall_Snail.gif?eb4668" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Snail" title="Snail">Snails</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Turtle.gif" class="image"><img alt="IconSmall Turtle.gif" src="/images/thumb/IconSmall_Turtle.gif/16px-IconSmall_Turtle.gif?91092f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Turtle" title="Turtle">Turtles</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Unicorn2.gif" class="image"><img alt="IconSmall Unicorn2.gif" src="/images/thumb/IconSmall_Unicorn2.gif/16px-IconSmall_Unicorn2.gif?8d85fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Unicorn" title="Unicorn">Unicorns</a></li></ul>
+</div>
+<h3><span class="mw-headline" id="Wild_creatures_2">Wild creatures</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=11" title="Edit section: Wild creatures"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="t-columns" style="column-count:2; column-width:18em; max-width:auto">
+<ul><li><a href="/wiki/Albatross_Chick" title="Albatross Chick">Albatross Chick</a></li>
+<li><a href="/wiki/Coastal_Sandpiper" title="Coastal Sandpiper">Coastal Sandpiper</a></li>
+<li><a href="/wiki/Eldritch_Manafiend" title="Eldritch Manafiend">Eldritch Manafiend</a></li>
+<li><a href="/wiki/Erudite_Manafiend" title="Erudite Manafiend">Erudite Manafiend</a></li>
+<li><a href="/wiki/Felspider" title="Felspider">Felspider</a></li>
+<li><a href="/wiki/Fledgling_Kingfeather" title="Fledgling Kingfeather">Fledgling Kingfeather</a></li>
+<li><a href="/wiki/Fledgling_Oliveback" title="Fledgling Oliveback">Fledgling Oliveback</a></li>
+<li><a href="/wiki/Olivetail_Hare" title="Olivetail Hare">Olivetail Hare</a></li>
+<li><a href="/wiki/Squirky" title="Squirky">Squirky</a></li></ul>
+</div>
+<h2><span class="mw-headline" id="Notes_and_trivia">Notes and trivia</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=12" title="Edit section: Notes and trivia"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Some quests seem to name it "Aszuna".<sup id="cite&#95;ref-9" class="reference"><a href="#cite_note-9"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-10" class="reference"><a href="#cite_note-10"><span class="cite-bracket">&#91;</span>10<span class="cite-bracket">&#93;</span></a></sup></li>
+<li>The <a href="/wiki/Eye_of_Azshara" title="Eye of Azshara">Eye of Azshara</a> island was originally called "Aszuna Isle".<sup id="cite&#95;ref-11" class="reference"><a href="#cite_note-11"><span class="cite-bracket">&#91;</span>11<span class="cite-bracket">&#93;</span></a></sup></li>
+<li>In the Legion World Panel during <a href="/wiki/BlizzCon_2015" title="BlizzCon 2015">BlizzCon 2015</a>, the devs mentioned that Azsuna had a "Greek isle theme, with stylized olive and cypress trees".</li></ul>
+<h2><span class="mw-headline" id="Gallery">Gallery</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=13" title="Edit section: Gallery"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:37.5px auto;"><a href="/wiki/File:WoW_7.0Zones_Azsuna_EM_002.png" class="image"><img alt="WoW 7.0Zones Azsuna EM 002.png" src="/images/thumb/WoW_7.0Zones_Azsuna_EM_002.png/120px-WoW_7.0Zones_Azsuna_EM_002.png?5176cc" decoding="async" loading="lazy" width="120" height="75" data-file-width="1920" data-file-height="1200" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:37.5px auto;"><a href="/wiki/File:WoW_7.0Zones_Azsuna_EM_006.png" class="image"><img alt="WoW 7.0Zones Azsuna EM 006.png" src="/images/thumb/WoW_7.0Zones_Azsuna_EM_006.png/120px-WoW_7.0Zones_Azsuna_EM_006.png?19674e" decoding="async" loading="lazy" width="120" height="75" data-file-width="1920" data-file-height="1200" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:37.5px auto;"><a href="/wiki/File:WoW_7.0Zones_Azsuna_EM_012.png" class="image"><img alt="WoW 7.0Zones Azsuna EM 012.png" src="/images/thumb/WoW_7.0Zones_Azsuna_EM_012.png/120px-WoW_7.0Zones_Azsuna_EM_012.png?b6b84a" decoding="async" loading="lazy" width="120" height="75" data-file-width="1920" data-file-height="1200" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Azsuna_BlizzCon_2015_concept_art_layout.jpg" class="image" title="Concept art of Azsuna."><img alt="Concept art of Azsuna." src="/images/thumb/Azsuna_BlizzCon_2015_concept_art_layout.jpg/120px-Azsuna_BlizzCon_2015_concept_art_layout.jpg?cdc3c4" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext">Concept art of Azsuna.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Legion_zone_concept_9.jpg" class="image" title="Concept art of Azsuna.[12]"><img alt="Concept art of Azsuna.[12]" src="/images/thumb/Legion_zone_concept_9.jpg/120px-Legion_zone_concept_9.jpg?ab40de" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext">Concept art of Azsuna.<sup id="cite&#95;ref-12" class="reference"><a href="#cite_note-12"><span class="cite-bracket">&#91;</span>12<span class="cite-bracket">&#93;</span></a></sup></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Legion_zone_concept_10.jpg" class="image" title="Concept art of Azsuna.[13]"><img alt="Concept art of Azsuna.[13]" src="/images/thumb/Legion_zone_concept_10.jpg/120px-Legion_zone_concept_10.jpg?8ddf13" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext">Concept art of Azsuna.<sup id="cite&#95;ref-13" class="reference"><a href="#cite_note-13"><span class="cite-bracket">&#91;</span>13<span class="cite-bracket">&#93;</span></a></sup></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Azsuna_inland_concept_art_layout.jpg" class="image" title="Concept art of inland Azsuna."><img alt="Concept art of inland Azsuna." src="/images/thumb/Azsuna_inland_concept_art_layout.jpg/120px-Azsuna_inland_concept_art_layout.jpg?43078c" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext">Concept art of inland Azsuna.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Azsuna_shores_concept_art_1.jpg" class="image"><img alt="Azsuna shores concept art 1.jpg" src="/images/thumb/Azsuna_shores_concept_art_1.jpg/120px-Azsuna_shores_concept_art_1.jpg?6e8ba1" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Azsuna_shores_concept_art_2.jpg" class="image"><img alt="Azsuna shores concept art 2.jpg" src="/images/thumb/Azsuna_shores_concept_art_2.jpg/120px-Azsuna_shores_concept_art_2.jpg?b711f0" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="/wiki/File:Azsuna_shores_concept_art_3.jpg" class="image"><img alt="Azsuna shores concept art 3.jpg" src="/images/thumb/Azsuna_shores_concept_art_3.jpg/96px-Azsuna_shores_concept_art_3.jpg?e97aa5" decoding="async" loading="lazy" width="96" height="120" data-file-width="2400" data-file-height="3000" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="/wiki/File:Azsuna_shores_concept_art_4.jpg" class="image"><img alt="Azsuna shores concept art 4.jpg" src="/images/thumb/Azsuna_shores_concept_art_4.jpg/96px-Azsuna_shores_concept_art_4.jpg?287416" decoding="async" loading="lazy" width="96" height="120" data-file-width="2400" data-file-height="3000" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Azsuna_lagoon_concept_art_1.jpg" class="image"><img alt="Azsuna lagoon concept art 1.jpg" src="/images/thumb/Azsuna_lagoon_concept_art_1.jpg/120px-Azsuna_lagoon_concept_art_1.jpg?7412ec" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Azsuna_lagoon_concept_art_2.jpg" class="image"><img alt="Azsuna lagoon concept art 2.jpg" src="/images/thumb/Azsuna_lagoon_concept_art_2.jpg/120px-Azsuna_lagoon_concept_art_2.jpg?b39605" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Azsuna_flora_concept_art.jpg" class="image"><img alt="Azsuna flora concept art.jpg" src="/images/thumb/Azsuna_flora_concept_art.jpg/120px-Azsuna_flora_concept_art.jpg?5fce59" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Azsuna_elevation_concept_art.jpg" class="image"><img alt="Azsuna elevation concept art.jpg" src="/images/thumb/Azsuna_elevation_concept_art.jpg/120px-Azsuna_elevation_concept_art.jpg?9f44cb" decoding="async" loading="lazy" width="120" height="68" data-file-width="3200" data-file-height="1800" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=14" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_7.0.3" title="Patch 7.0.3">Patch 7.0.3</a> (2016-07-19):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=15" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="font-size:calc(80% + 2.1px);"><div style="margin-top:-0.3em; margin-bottom:0px; height:0px">&#160;</div><div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite&#95;note-1"><a href="#cite_ref-1">^</a> <span class="reference-text"><i><a href="/wiki/The_Art_of_World_of_Warcraft:_Legion" title="The Art of World of Warcraft: Legion">The Art of World of Warcraft: Legion</a></i>, pg. 47</span>
+</li>
+<li id="cite&#95;note-2"><a href="#cite_ref-2">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Down_to_Azsuna" title="Down to Azsuna"><span class="ajaxttlink questlink">Down to Azsuna</span></a></span></span>
+</li>
+<li id="cite&#95;note-3"><a href="#cite_ref-3">^</a> <span class="reference-text"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20171030131220/https://worldofwarcraft.com/en-us/news/20245588">Legion Zone Preview: Azsuna</a></span>
+</li>
+<li id="cite&#95;note-4"><a href="#cite_ref-4">^</a> <span class="reference-text">BlizzCon 2015</span>
+</li>
+<li id="cite&#95;note-5"><a href="#cite_ref-5">^</a> <span class="reference-text">2015-08-08, <a rel="nofollow" class="external text" href="http://warcraft.blizzplanet.com/blog/comments/gamescom-2015-world-of-warcraft-legion-story-and-setting-transcript">GamesCom 2015 World of Warcraft: Legion Story and Setting Transcript</a>. <i>Blizzplanet</i>, retrieved on 2015-08-22</span>
+</li>
+<li id="cite&#95;note-6"><a href="#cite_ref-6">^</a> <span class="reference-text"><a href="/wiki/Trailing_the_Tidestone#Notes" title="Trailing the Tidestone">Trailing the Tidestone#Notes</a></span>
+</li>
+<li id="cite&#95;note-7"><a href="#cite_ref-7">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Children_of_Nar%27thalas" title="Children of Nar&#39;thalas"><span class="ajaxttlink questlink">Children of Nar'thalas</span></a></span></span>
+</li>
+<li id="cite&#95;note-8"><a href="#cite_ref-8">^</a> <span class="reference-text"><span class="nobreak"><span class="questlong-prefix linkicon"><img alt="Campaign" src="/images/thumb/ClassHallMission_Quest.png/16px-ClassHallMission_Quest.png?4893a4" decoding="async" loading="lazy" title="Campaign" width="16" height="16" data-file-width="66" data-file-height="66" />&#160;</span><a href="/wiki/The_Highlord%27s_Command:_Nemesis" title="The Highlord&#39;s Command: Nemesis"><span class="ajaxttlink questlink">The Highlord's Command: Nemesis</span></a></span></span>
+</li>
+<li id="cite&#95;note-9"><a href="#cite_ref-9">^</a> <span class="reference-text"><span class="nobreak"><span class="questlong-prefix linkicon"><img alt="Generic" src="/images/thumb/ClassHallMission_Generic.png/16px-ClassHallMission_Generic.png?7516c9" decoding="async" loading="lazy" title="Generic" width="16" height="16" data-file-width="66" data-file-height="66" />&#160;</span><a href="/wiki/Slippery_Scales" title="Slippery Scales"><span class="ajaxttlink questlink">Slippery Scales</span></a></span></span>
+</li>
+<li id="cite&#95;note-10"><a href="#cite_ref-10">^</a> <span class="reference-text"><span class="nobreak"><span class="questlong-prefix linkicon"><img alt="Generic" src="/images/thumb/ClassHallMission_Generic.png/16px-ClassHallMission_Generic.png?7516c9" decoding="async" loading="lazy" title="Generic" width="16" height="16" data-file-width="66" data-file-height="66" />&#160;</span><a href="/wiki/Seeker_of_Secrets" title="Seeker of Secrets"><span class="ajaxttlink questlink">Seeker of Secrets</span></a></span></span>
+</li>
+<li id="cite&#95;note-11"><a href="#cite_ref-11">^</a> <span class="reference-text"><a href="/wiki/File:Eye_of_Azshara_Design_Document.jpg" title="File:Eye of Azshara Design Document.jpg">File:Eye of Azshara Design Document.jpg</a></span>
+</li>
+<li id="cite&#95;note-12"><a href="#cite_ref-12">^</a> <span class="reference-text"><i><a href="/wiki/The_Art_of_World_of_Warcraft:_Legion" title="The Art of World of Warcraft: Legion">The Art of World of Warcraft: Legion</a></i>, pg. 46 and 53</span>
+</li>
+<li id="cite&#95;note-13"><a href="#cite_ref-13">^</a> <span class="reference-text"><i><a href="/wiki/The_Art_of_World_of_Warcraft:_Legion" title="The Art of World of Warcraft: Legion">The Art of World of Warcraft: Legion</a></i>, pg. 50</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Azsuna?action=edit&amp;section=16" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable">
+<tbody><tr>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/zone=7334">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/zones/7334">WoWDB</a></li>
+
+<li class="wago"><a rel="nofollow" class="external text" href="https://wago.tools/db2/AreaTable?filter%5BID%5D=exact%3A7334">Wago</a></li>
+
+</ul>
+</td>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/zone=8000">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/zones/8000">WoWDB</a></li>
+
+<li class="wago"><a rel="nofollow" class="external text" href="https://wago.tools/db2/AreaTable?filter%5BID%5D=exact%3A8000">Wago</a></li>
+
+</ul>
+</td>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/zone=8625">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/zones/8625">WoWDB</a></li>
+
+<li class="wago"><a rel="nofollow" class="external text" href="https://wago.tools/db2/AreaTable?filter%5BID%5D=exact%3A8625">Wago</a></li>
+
+</ul>
+</td></tr></tbody></table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="4"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Azsuna" title="Template:Azsuna"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Azsuna?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<a href="/wiki/Subzone" title="Subzone">Subzones</a> of <a class="mw-selflink selflink">Azsuna</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-image" style="width:0%;padding:0px 2px 0px 0px;" rowspan="1"><div>
+<a href="/wiki/File:Neutral_32.png" class="image" title="Azsuna is a contested territory"><img alt="Azsuna is a contested territory" src="/images/Neutral_32.png?ae6e60" decoding="async" loading="lazy" width="18" height="32" data-file-width="18" data-file-height="32" /></a></div></td><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Abandoned_Crossroads" title="Abandoned Crossroads">The Abandoned Crossroads</a></li>
+<li><a href="/wiki/Alluvanon%27s_Delta" title="Alluvanon&#39;s Delta">Alluvanon's Delta</a></li>
+<li><a href="/wiki/Azurewing_Repose" title="Azurewing Repose">Azurewing Repose</a>
+<ul><li><a href="/wiki/Leyhollow" title="Leyhollow">Leyhollow</a></li></ul></li>
+<li><a href="/wiki/Azurewing_Whelplands" title="Azurewing Whelplands">Azurewing Whelplands</a>
+<ul><li><a href="/wiki/Runas%27s_Hovel" title="Runas&#39;s Hovel">Runas's Hovel</a></li></ul></li>
+<li><a href="/wiki/Challiane%27s_Terrace" title="Challiane&#39;s Terrace">Challiane's Terrace</a></li>
+<li><a href="/wiki/Dead_Man%27s_Bay" title="Dead Man&#39;s Bay">Dead Man's Bay</a></li>
+<li><a href="/wiki/El%27dranil_Peak" title="El&#39;dranil Peak">El'dranil Peak</a></li>
+<li><a href="/wiki/El%27dranil_Shallows" title="El&#39;dranil Shallows">El'dranil Shallows</a>
+<ul><li><a href="/wiki/Eye_of_Azshara" title="Eye of Azshara">Eye of Azshara</a></li>
+<li><a href="/wiki/Gangamesh%27s_Den" title="Gangamesh&#39;s Den">Gangamesh's Den</a></li>
+<li><a href="/wiki/Hatecoil_Slave_Pen" title="Hatecoil Slave Pen">Hatecoil Slave Pen</a></li>
+<li><a href="/wiki/Hatecoil_Warcamp" title="Hatecoil Warcamp">Hatecoil Warcamp</a>
+<ul><li><a href="/wiki/Eksis%27_Lair" title="Eksis&#39; Lair">Eksis' Lair</a></li></ul></li></ul></li>
+<li><a href="/wiki/Empyrean_Society_Enclave" title="Empyrean Society Enclave">The Empyrean Society Enclave</a>
+<ul><li><a href="/wiki/Empyrean_Society_Headquarters" title="Empyrean Society Headquarters">Empyrean Society Headquarters</a></li></ul></li>
+<li><a href="/wiki/Faronaar" title="Faronaar">Faronaar</a>
+<ul><li><a href="/wiki/Altar_of_End_Times" title="Altar of End Times">Altar of End Times</a>
+<ul><li><a href="/wiki/Den_of_Fiends" title="Den of Fiends">Den of Fiends</a></li>
+<li><a href="/wiki/Pit_of_Malinoth" title="Pit of Malinoth">Pit of Malinoth</a></li></ul></li>
+<li><a href="/wiki/Burning_Gate" title="Burning Gate">The Burning Gate</a></li>
+<li><a href="/wiki/Felbeast_Dens" title="Felbeast Dens">Felbeast Dens</a></li>
+<li><a href="/wiki/Felfire_Cavern" title="Felfire Cavern">Felfire Cavern</a></li>
+<li><a href="/wiki/Felsurge_Nest" title="Felsurge Nest">Felsurge Nest</a></li>
+<li><a href="/wiki/Felwatch_Point" title="Felwatch Point">Felwatch Point</a></li>
+<li><a href="/wiki/Fiendish_Vault" title="Fiendish Vault">Fiendish Vault</a></li>
+<li><a href="/wiki/Illidari_Perch" title="Illidari Perch">Illidari Perch</a></li>
+<li><a href="/wiki/Legion_Camp:_Chaos" title="Legion Camp: Chaos">Legion Camp: Chaos</a></li>
+<li><a href="/wiki/Legion_Camp:_Ruin" title="Legion Camp: Ruin">Legion Camp: Ruin</a></li>
+<li><a href="/wiki/Pits_of_Despair" title="Pits of Despair">Pits of Despair</a></li>
+<li><a href="/wiki/Soul_Engine:_Apocalypse" title="Soul Engine: Apocalypse">Soul Engine: Apocalypse</a></li>
+<li><a href="/wiki/Soulrender" title="Soulrender">The Soulrender</a></li>
+<li><a href="/wiki/Traitor%27s_Overlook" title="Traitor&#39;s Overlook">Traitor's Overlook</a></li>
+<li><a href="/wiki/Trickster%27s_Cut" title="Trickster&#39;s Cut">Trickster's Cut</a></li>
+<li><a href="/wiki/Vanquish_Point" title="Vanquish Point">Vanquish Point</a></li></ul></li>
+<li><a href="/wiki/Faronaar_Front" title="Faronaar Front">Faronaar Front</a></li>
+<li><a href="/wiki/Farondale" title="Farondale">Farondale</a></li>
+<li><a href="/wiki/Felblaze_Ingress" title="Felblaze Ingress">Felblaze Ingress</a></li>
+<li><a href="/wiki/Forever_Rise" title="Forever Rise">Forever Rise</a></li>
+<li><a href="/wiki/Garden_of_Elune" title="Garden of Elune">Garden of Elune</a></li>
+<li><a href="/wiki/Greenway" title="Greenway">The Greenway</a>
+<ul><li><a href="/wiki/Lyndras%27_Exile" title="Lyndras&#39; Exile">Lyndras' Exile</a></li></ul></li>
+<li><a href="/wiki/Grey_Shoals" title="Grey Shoals">Grey Shoals</a></li>
+<li><a href="/wiki/Illidari_Stand" title="Illidari Stand">Illidari Stand</a></li>
+<li><a href="/wiki/Isle_of_the_Watchers" title="Isle of the Watchers">Isle of the Watchers</a>
+<ul><li><a href="/wiki/Vault_of_the_Wardens" title="Vault of the Wardens">Vault of the Wardens</a></li>
+<li><a href="/wiki/Wardens%27_Redoubt" title="Wardens&#39; Redoubt">Wardens' Redoubt</a></li>
+<li><a href="/wiki/Watchers%27_Aerie" title="Watchers&#39; Aerie">Watchers' Aerie</a></li></ul></li>
+<li><a href="/wiki/Ley-Ruins_of_Zarkhenar" title="Ley-Ruins of Zarkhenar">Ley-Ruins of Zarkhenar</a>
+<ul><li><a href="/wiki/Zarkhenar_Temple" title="Zarkhenar Temple">Zarkhenar Temple</a></li></ul></li>
+<li><a href="/wiki/Lithduin_Reef" title="Lithduin Reef">Lithduin Reef</a></li>
+<li><a href="/wiki/Llothien" title="Llothien">Llothien</a></li>
+<li><a href="/wiki/Llothien_Highlands" title="Llothien Highlands">Llothien Highlands</a></li>
+<li><a href="/wiki/Lost_Orchard" title="Lost Orchard">The Lost Orchard</a></li>
+<li><a href="/wiki/Mak%27rana" title="Mak&#39;rana">Mak'rana</a></li>
+<li><a href="/wiki/Nor%27Danil_Wellspring" title="Nor&#39;Danil Wellspring">Nor'Danil Wellspring</a></li>
+<li><a href="/wiki/Oceanus_Cove" title="Oceanus Cove">Oceanus Cove</a></li>
+<li><a href="/wiki/Old_Coast_Path" title="Old Coast Path">Old Coast Path</a></li>
+<li><a href="/wiki/Olivian_Veil" title="Olivian Veil">Olivian Veil</a>
+<ul><li><a href="/wiki/Gloombound_Barrow" title="Gloombound Barrow">Gloombound Barrow</a></li></ul></li>
+<li><a href="/wiki/Paledoom%27s_Overlook" title="Paledoom&#39;s Overlook">Paledoom's Overlook</a></li>
+<li><i><a href="/wiki/The_Queen%27s_Reprisal" title="The Queen&#39;s Reprisal">Queen's Reprisal</a></i></li>
+<li><a href="/wiki/Rhut%27van_Divide" title="Rhut&#39;van Divide">Rhut'van Divide</a></li>
+<li><a href="/wiki/Rhut%27van_Passage" title="Rhut&#39;van Passage">Rhut'van Passage</a></li>
+<li><a href="/wiki/Rhut%27van_Peak" title="Rhut&#39;van Peak">Rhut'van Peak</a></li>
+<li><a href="/wiki/Ruined_Sanctum" title="Ruined Sanctum">The Ruined Sanctum</a></li>
+<li><a href="/wiki/Ruins_of_Nar%27thalas" title="Ruins of Nar&#39;thalas">Ruins of Nar'thalas</a>
+<ul><li><a href="/wiki/Crumbled_Palace" title="Crumbled Palace">Crumbled Palace</a></li>
+<li><a href="/wiki/Drowned_Gardens" title="Drowned Gardens">Drowned Gardens</a></li>
+<li><a href="/wiki/Nar%27thalas_Academy" title="Nar&#39;thalas Academy">Nar'thalas Academy</a>
+<ul><li><a href="/wiki/Hall_of_Antiquities" title="Hall of Antiquities">Hall of Antiquities</a></li>
+<li><a href="/wiki/Hall_of_Arcane_Learning" title="Hall of Arcane Learning">Hall of Arcane Learning</a></li></ul></li>
+<li><a href="/wiki/Royal_Pond" title="Royal Pond">The Royal Pond</a></li></ul></li>
+<li><a href="/wiki/Seabreak_Isle" title="Seabreak Isle">Seabreak Isle</a></li>
+<li><a href="/wiki/Shackle%27s_Den" title="Shackle&#39;s Den">Shackle's Den</a></li>
+<li><a href="/wiki/Shipwreck_Arena" title="Shipwreck Arena">Shipwreck Arena</a></li>
+<li><a href="/wiki/Temple_of_a_Thousand_Lights" title="Temple of a Thousand Lights">Temple of a Thousand Lights</a></li>
+<li><a href="/wiki/Tidal_Marsh" title="Tidal Marsh">The Tidal Marsh</a>
+<ul><li><a href="/wiki/Lair_of_the_Deposed" title="Lair of the Deposed">Lair of the Deposed</a></li></ul></li>
+<li><a href="/wiki/Timeworn_Strand" title="Timeworn Strand">Timeworn Strand</a></li></ul>
+</div></td><td class="navbox-image" style="width:0%;padding:0px 0px 0px 2px;" rowspan="1"><div class="metadata">
+<a href="/wiki/File:WorldMap-Azsuna.jpg" class="image" title="Map of Azsuna"><img alt="Map of Azsuna" src="/images/thumb/WorldMap-Azsuna.jpg/120px-WorldMap-Azsuna.jpg?4377a2" decoding="async" loading="lazy" width="120" height="80" data-file-width="1002" data-file-height="668" /></a></div></td></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-abovebelow" style=";" colspan="4"><div>
+<a href="/wiki/Category:Azsuna" title="Category:Azsuna">Azsuna category</a></div></td></tr></tbody></table></td></tr></tbody></table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="4"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Broken_Isles" title="Template:Broken Isles"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Broken_Isles?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<a href="/wiki/Zone" title="Zone">Regions</a> of the <a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-image" style="width:0%;padding:0px 2px 0px 0px;" rowspan="1"><div>
+<a href="/wiki/File:Neutral_32.png" class="image" title="Broken Isles is an in-game continent"><img alt="Broken Isles is an in-game continent" src="/images/Neutral_32.png?ae6e60" decoding="async" loading="lazy" width="18" height="32" data-file-width="18" data-file-height="32" /></a></div></td><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a class="mw-selflink selflink">Azsuna</a></li>
+<li><a href="/wiki/Broken_Shore" title="Broken Shore">The Broken Shore</a>
+<ul><li><span class="linkicon"><a href="/wiki/Death_knight" title="DeathKnight"><img alt="DeathKnight" src="/images/thumb/ClassIcon_deathknight.png/16px-ClassIcon_deathknight.png?ae254d" decoding="async" loading="lazy" width="16" height="16" style="vertical-align: middle" data-file-width="100" data-file-height="100" /></a></span> <a href="/wiki/Acherus:_The_Ebon_Hold" title="Acherus: The Ebon Hold">Acherus: The Ebon Hold</a></li></ul></li>
+<li><a href="/wiki/Dalaran" title="Dalaran">Dalaran</a>
+<ul><li><span class="linkicon"><a href="/wiki/Mage" title="Mage"><img alt="Mage" src="/images/thumb/ClassIcon_mage.png/16px-ClassIcon_mage.png?2574d1" decoding="async" loading="lazy" width="16" height="16" style="vertical-align: middle" data-file-width="100" data-file-height="100" /></a></span> <a href="/wiki/Hall_of_the_Guardian" title="Hall of the Guardian">Hall of the Guardian</a></li>
+<li><span class="linkicon"><a href="/wiki/Rogue" title="Rogue"><img alt="Rogue" src="/images/thumb/ClassIcon_rogue.png/16px-ClassIcon_rogue.png?3cfde1" decoding="async" loading="lazy" width="16" height="16" style="vertical-align: middle" data-file-width="100" data-file-height="100" /></a></span> <a href="/wiki/Hall_of_Shadows" title="Hall of Shadows">Hall of Shadows</a></li></ul></li>
+<li><a href="/wiki/Eye_of_Azshara" title="Eye of Azshara">Eye of Azshara</a></li>
+<li><a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+<ul><li><a href="/wiki/Thunder_Totem" title="Thunder Totem">Thunder Totem</a></li>
+<li><span class="linkicon"><a href="/wiki/Hunter" title="Hunter"><img alt="Hunter" src="/images/thumb/ClassIcon_hunter.png/16px-ClassIcon_hunter.png?45616d" decoding="async" loading="lazy" width="16" height="16" style="vertical-align: middle" data-file-width="100" data-file-height="100" /></a></span> <a href="/wiki/Trueshot_Lodge" title="Trueshot Lodge">Trueshot Lodge</a></li></ul></li>
+<li><a href="/wiki/Stormheim" title="Stormheim">Stormheim</a>
+<ul><li><a href="/wiki/Halls_of_Valor" title="Halls of Valor">Halls of Valor</a>
+<ul><li><span class="linkicon"><a href="/wiki/Warrior" title="Warrior"><img alt="Warrior" src="/images/thumb/ClassIcon_warrior.png/16px-ClassIcon_warrior.png?2c4dad" decoding="async" loading="lazy" width="16" height="16" style="vertical-align: middle" data-file-width="100" data-file-height="100" /></a></span> <a href="/wiki/Skyhold" title="Skyhold">Skyhold</a></li></ul></li>
+<li><a href="/wiki/Helheim" title="Helheim">Helheim</a></li></ul></li>
+<li><a href="/wiki/Suramar" title="Suramar">Suramar</a>
+<ul><li><a href="/wiki/Suramar_City" title="Suramar City">Suramar City</a>
+<ul><li><a href="/wiki/Nighthold" title="Nighthold">The Nighthold</a></li></ul></li></ul></li>
+<li><a href="/wiki/Val%27sharah" title="Val&#39;sharah">Val'sharah</a>
+<ul><li><span class="linkicon"><a href="/wiki/Druid" title="Druid"><img alt="Druid" src="/images/thumb/ClassIcon_druid.png/16px-ClassIcon_druid.png?a3333f" decoding="async" loading="lazy" width="16" height="16" style="vertical-align: middle" data-file-width="100" data-file-height="100" /></a></span> <a href="/wiki/Dreamgrove" title="Dreamgrove">The Dreamgrove</a></li></ul></li></ul>
+</div></td><td class="navbox-image" style="width:0%;padding:0px 0px 0px 2px;" rowspan="1"><div class="metadata">
+<a href="/wiki/File:WorldMap-BrokenIsles.jpg" class="image" title="Map of the Broken Isles"><img alt="Map of the Broken Isles" src="/images/thumb/WorldMap-BrokenIsles.jpg/120px-WorldMap-BrokenIsles.jpg?8dee13" decoding="async" loading="lazy" width="120" height="80" data-file-width="1002" data-file-height="668" /></a></div></td></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-abovebelow" style=";" colspan="4"><div>
+<a href="/wiki/Category:Broken_Isles" title="Category:Broken Isles">Broken Isles category</a></div></td></tr></tbody></table></td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20260330102252
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.267 seconds
+Real time usage: 0.687 seconds
+Preprocessor visited node count: 4315/1000000
+Revision size: 10880/4194304 bytes
+Post‐expand include size: 62322/4194304 bytes
+Template argument size: 20200/4194304 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 15105/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.012/15.000 seconds
+Lua memory usage: 1821215/52428800 bytes
+Number of processed Cargo queries: 0
+Time spent processing Cargo queries: 0.000 s (avg. 0.000 s)
+Number of Cargo row insertion attempts: 1
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  234.603      1 -total
+ 33.83%   79.376      1 Template:Infobox_zone
+ 32.15%   75.431      1 Template:Infobox
+ 14.71%   34.509      1 Template:Reflist
+ 10.26%   24.081      7 Template:Race
+  9.40%   22.064      2 Template:Navbox
+  7.19%   16.876      1 Template:Azsuna
+  6.15%   14.427      5 Template:NPC
+  4.72%   11.080      1 Template:Broken_Isles
+  4.65%   10.898      3 Template:Columns
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:409249-0!canonical and timestamp 20260330102252 and revision id 6650231. Rendering was triggered because: RefreshLinksJob
+ -->
+</div>

@@ -1,0 +1,59 @@
+{{#data:Settip
+|name=Deathlord's Battleplate
+|piececount=8
+|pieces=
+*[[Deathlord's Chestguard]]
+*[[Deathlord's Greatboots]]
+*[[Deathlord's Gauntlets]]
+*[[Deathlord's Helm]]
+*[[Deathlord's Legguards]]
+*[[Deathlord's Mantle]]
+*[[Deathlord's Girdle]]
+*[[Deathlord's Bracers]]
+|armor=3,593
+|class=Death Knight
+|stamina=8,989
+|strength=5,993
+|mastery=2654
+|crit=2383
+|haste=1891
+|versatility=602
+|bonus=(2) Set: Increases your out-of-combat regeneration in outdoor Broken Isles zones.<br />(4) Set: While you are below 35% health you take 50% reduced damage in outdoor Broken Isles zones.<br />(6) Set: Strength increased by 500.<br />(8) Set: Spending a Rune has a chance to increase your Mastery by 2000 for 12 sec.
+|categories=[[Category:Death knight set items]]
+}}
+<!--[[File:Deathlord's Battlegear.jpg|thumb]]-->
+'''Deathlord's Battlegear''' is the [[Class Hall]] set for [[Death Knights]].  Visually it's a recolor of {{mop-inline}}[[Golden Chest of the Lich Lord|Lich Lord Armor]], and is meant as an entry level set as [[Tier 19]] is item level 850 in normal mode. A Full set can be seen standing behind [[Quartermaster Ozorg]].
+
+== Source ==
+{{Class Hall set|Death Knight}}
+
+Additional Vendor:
+*{{RaceIcon|Nightfallen|Female}} [[First Arcanist Thalyssra]] (Gloves and Shoulders only)
+
+== Items ==
+{{lootbox|Deathlord's Battlegear
+|Deathlord's Chestguard
+|Deathlord's Greatboots
+|Deathlord's Gauntlets
+|Deathlord's Helm
+|Deathlord's Legguards
+|Deathlord's Mantle
+|Deathlord's Girdle
+|Deathlord's Bracers
+}}
+
+== Notes ==
+*All pieces are available from your Quartermaster for repurchase if you happen to get rid of them at some point, for the cost of {{cost|500}}.
+*Shoulder and Gloves are affected by reputation discount when bought from [[First Arcanist Thalyssra]].
+*Earning all 8 pieces of your Class Order Hall set rewards you with [[A Classy Outfit]].
+*Every item can be upgraded to item level {{text|epic|840}} with the help of [[Deathlord's Lesser Armor Kit]], [[Deathlord's Armor Kit]] and [[Deathlord's Greater Armor Kit]]
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==External links==
+{{Elinks-set|1269}}
+
+{{Death knight sets}}
+
+[[Category:Class Hall sets]]

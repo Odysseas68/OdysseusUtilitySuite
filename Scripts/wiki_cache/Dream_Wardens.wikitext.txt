@@ -1,0 +1,122 @@
+{{Infobox faction
+|name=Dream Wardens
+|image=MajorFactionsIcons-DreamWardens.png
+|caption=
+|leader= {{RaceIcon|Alexstrasza2}}{{RaceIcon|NozdormuDragon2}}{{RaceIcon|Kalecgos2}}{{RaceIcon|Merithra}}{{RaceIcon|Ebyssian}}{{RaceIcon|ProtoWater}} [[Dragon Aspects]]
+|leaders={{RaceIcon|Cenarius}}{{RaceIcon|Aviana}}{{RaceIcon|Goldrinn}} [[Wild God]]<br> {{NPC||Tyrande Whisperwind||icon=TyrandeNight}}
+|races={{RaceIcon|DragonRed2}}{{RaceIcon|DragonBronze2}}{{RaceIcon|DragonBlue2}}{{RaceIcon|DragonGreen2}}{{RaceIcon|DragonBlack2}} [[Dragon]]<br>{{RaceIcon|DrakonidRed2}}{{RaceIcon|DrakonidBronze2}}{{RaceIcon|DrakonidBlue2}}{{RaceIcon|DrakonidGreen2}}{{RaceIcon|DrakonidBlack2}} [[Drakonid]]<br>{{RaceIcon|SpawnRed2|Male}}{{RaceIcon|SpawnBronze2|Male}}{{RaceIcon|SpawnBlue2|Male}}{{RaceIcon|SpawnGreen2|Male}}{{RaceIcon|SpawnBlack2|Male}} [[Dragonspawn]]<br> {{RaceIcon|DragonNether}} [[Nether dragon]]<br> {{RaceIcon|Thorignir}} [[Storm dragon]]<br> {{RaceIcon|ProtoAlbino}} [[Proto-dragon]]<br> {{Race|Dryad}}<br> {{Race|Frost nymph}}<br> {{Race|Keeper of the grove}}<br> {{Race|Ancient}}<br> {{Race|Treant}}<br> {{RaceIcon|FaerieDragon}} [[Faerie dragon]]<br> {{RaceIcon|Runebear}} [[Runebear]]<br>{{Race|Wildkin}}<br> {{Race|Centaur}}<br> {{Race|Tuskarr}}<br> {{FactionIcon|Both|small}} Various mortal races
+|affiliation=[[Cenarion Circle]], [[Valdrakken Accord]], [[Ancient Guardian]]
+|capital=[[Central Encampment]]
+|base=
+|theater=[[Amirdrassil]], [[Emerald Dream (zone)|Emerald Dream]]
+|quartermaster={{RaceIcon|NightElf Female}}[[Moon Priestess Lasara]]
+|rewards=[[Dreambound Augment Rune]]
+|status=Active
+}}
+
+'''Dream Wardens''' is the sixth and final Major Faction of ''[[World of Warcraft: Dragonflight]]''.
+
+==Faction description==
+:A coalition of various races ready to defend the Emerald Dream against any and all threats.
+
+==Reputation sources==
+There are numerous methods of gaining reputation with the Dream Wardens:
+*[[Guardians of the Dream campaign]] chapters (2500 per chapter)
+*World quests (50 each)
+*[[A Worthy Ally: Dream Wardens]] (500)
+*[[Superbloom]] (1000 for first of the week)
+*One-time treasures (200 each)
+*Six rare-elites: [[Envoy of Winter]], [[Firebrand Fystia]], [[Greedy Gessie]], [[Reefbreaker Moruud]], [[Nuoberon]], [[Raszageth's Last Breath]] (50 each)
+*One-off quests (250-1500 rep each)
+
+==Rewards==
+===Renown levels===
+#Standing with the Dream
+#Dreaming of Riches
+#[[Small Dreamseed]]
+#Blooming Proficiency I, [[Whelpling's Dreaming Crest (quest)]] (15), [[Flightstones]] (75)
+#In Touch with Nature ([[Emerald Reawakening]])
+#Drakewatcher Manuscripts I ([[Flourishing Whimsydrake: Back Fins]], [[Flourishing Whimsydrake: Ridged Brow]], [[Flourishing Whimsydrake: Underbite Snout]])
+#Nature's Regalia I (ilvl 441 Veteran 1/8 gloves)
+#Blooming Proficiency II, [[Drake's Dreaming Crest (quest)]] (15), Flightstones (75)
+#[[Plump Dreamseed]]
+#In Your Dreams ([[The Tabard of Your Dreams]]: [[Dream Wardens Tabard]]), Essence of a Worthy Ally I (+100% renown on alts below rank 10)
+#Touching Grass, Bountiful Pets
+#Blooming Proficiency III, Drake's Dreaming Crest (15), Flightstones (75)
+#Drakewatcher Manuscripts II ([[Flourishing Whimsydrake: Long Snout]], [[Flourishing Whimsydrake: Neck Fins]], [[Flourishing Whimsydrake: Horns]])
+#Nature's Regalia II (ilvl 454 Champion 1/8 helms)
+#A Friend in the Dream ([[Spruce]], [[Juniper]]), Flightstones (75)
+#Blooming Expertise, Keeper's Visage ([[Ensemble: Elegant Green Dragon Outerwear]]), Proper Cultivation (tool transmogs)
+#Riding Through Fields of Green ([[Reins of the Lunar Dreamstag]], [[Reins of the Suntouched Dreamstag]]), [[Gigantic Dreamseed]]
+#Attuned with Nature, Bountiful Mounts, [[Dreambound Augment Rune]]
+#Drake's Dreaming Crest (15), Flourishing Whimsydrake Scales ([[Flourishing Whimsydrake: Night Scales]], [[Flourishing Whimsydrake: Sunset Scales]]), Flightstones (75)
+#A Heroic Reward ([[The Dream Thanks You]]: [[Enchanted Wyrm's Dreaming Crest]]), Through the Starry Skies (Dream Defender title), Essence of a Worthy Ally II (+100% rep below renown 20, +200% below renown 10 on alts), Dreamseeds
+
+===Quartermaster rewards===
+{{Dream Wardens renown rewards}}
+
+==Collectables==
+===Mounts===
+*[[Dream Infusion]] (Renown 5)
+**[[Delugen]] ([[ottuk]] mounts)
+**[[Imagiwing]] ([[shalewing]] mounts)
+**[[Mammyth]] ([[magmammoth]] mounts)
+**[[Salatrancer]] ([[salamanther]] mounts)
+**[[Stargrazer]] ([[dreamstag]] mounts)
+**[[Talont]] ([[dreamtalon]] mounts)
+*Riding Through Fields of Green (Renown 17)
+**[[Reins of the Lunar Dreamstag]]
+**[[Reins of the Suntouched Dreamstag]]
+*[[Seedbloom]] purchases (Renown 18)
+**[[Reins of the Blossoming Dreamstag]]
+**[[Reins of the Evening Sun Dreamsaber]]
+**[[Reins of the Morning Flourish Dreamsaber]]
+**[[Reins of the Rekindled Dreamstag]]
+**[[Reins of the Snowfluff Dreamtalon]]
+**[[Reins of the Springtide Dreamtalon]]
+
+===Pets===
+*[[Dream Infusion]] (Renown 5)
+**[[Rithro]] and [[Snorr]] ([[Mean Green Infusion Machine]])
+**[[Dreamborne Scarab]] (Primal Beetle)
+**[[Dreamhoof]] (Dream Fawn)
+**[[Drowsey]] (Rock Snail)
+**[[Memorie]] ([[Fol'ya]])
+**[[Reverie]] ([[Duckling]])
+**[[Somnolet]] ([[Pineshrew]])
+*[[Seedbloom]] purchases (Renown 11)
+**[[Dustite]]
+**[[Elmer]]
+**[[Napps]]
+**[[Seedle]]
+**[[Snoots]]
+**[[Snoozles]]
+*Friends in the Dream purchases (Renown 15)
+**[[Juniper (companion)]]
+**[[Spruce]]
+
+===Appearances===
+*[[Seedbloom]] purchases
+**See [[Sylvia Whisperbloom]]
+*Keeper's Visage (Renown 16)
+**[[Ensemble: Elegant Green Dragon Outerwear]]
+*Proper Cultivation (Renown 16)
+**[[Caretaker's Trowel]] (dagger)
+**[[Cultivator's Watering Can]] (off-hand frill)
+**[[Elderwood Cane]] (staff)
+**[[Ranger's Longbow]] (bow)
+**[[Survivalist's Shovel]] (one-hand sword)
+
+==Patch changes==
+*{{Patch 11.0.0|note=Now considered as a [[Warband Reputation]].}}
+*{{Patch 10.2.0|note=Added.}}
+
+==External links==
+{{elinks-faction|2574}}
+
+{{factions|df}}
+
+[[Category:Dragonflight]]
+[[Category:Factions]]
+[[Category:Dream Wardens| ]]
+[[Category:Warband reputation]]

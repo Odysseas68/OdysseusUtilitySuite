@@ -1,0 +1,413 @@
+{{Redirect|The Valarjar|The emissary quest|The Valarjar (quest)}}
+{{Infobox faction
+| name = Valarjar
+| image = Banner in Skyhold.jpg
+| faction = Neutral
+| leader = {{NPC||Odyn|icon=Odyn}}<br/> {{NPC||Adventurer||The Battlelord||icon=Adventurer}}
+| leaders = {{NPC||Eyir|icon=Eyir}}<br/> {{NPC||Hymdall|icon=Hymdall}}
+| fleaders = {{NPC||Helya|icon=Valkier}}
+| races = {{RaceIcon|Valarjar}} [[Iron vrykul|Valarjar]]<br/> {{RaceIcon|Valkier}} [[Val'kyr]]<br/> {{Race|Vrykul}}<br/> {{RaceIcon|Thorignir}} [[Storm dragon]]
+| character = [[Warrior]], [[Shieldmaiden]], [[Priest]]
+| capital = {{ClassIcon|Warrior}} [[Halls of Valor]]
+| capitals = [[Valdisdall]], [[Aalgen Point]]
+| base = [[Skyhold]]
+| theater = [[Azeroth]]
+| ftheater = [[Niskara]], [[Argus]]
+| language = [[Vrykul (language)|Vrykul]], [[Common (language)|Common]]
+| members = [[Valkyra]] ([[Tideskorn]])
+| affiliation = [[Pantheon|Pantheon of Order]], [[Armies of Legionfall]], [[Independent]]
+| quartermaster = {{NPC||Valdemar Stormseeker|icon=Vrykul Male}}<br/> {{NPC||Quartermaster Durnolf|icon=Vrykul Male}}
+| status = Active
+}}
+{{QuoteWiki|A valorous sacrifice! But it is not yet your time...|[[Danica the Reclaimer]]}}
+
+The '''Valarjar''', the "warriors of the storm",<ref>[[The Legend of Odyn]], "The Sealing of the Halls of Valor"</ref> are an army of ascended [[vrykul]] who serve [[Keeper]] [[Odyn]] in the [[Halls of Valor]]. Chosen by the All-Father, the strongest vrykul have their spirits lifted to the Halls by the [[Val'kyr]] where they fight eternal, shiny and gold,<ref>[[Horn of Valor]]</ref> protecting [[Azeroth]] from all threats.<ref>[[Soul of the Battlelord]]</ref> The Valarjar can be given either mighty, golden Stormforged bodies, or become Val'kyr themselves with power over life and death. According to the [[Bronzebeard]] brothers, the All-Father follows the [[Light]], with the Val'kyr [[shieldmaiden]]s in his army being referred to as warriors of the Light.<ref>''[[World of Warcraft: Exploring Azeroth: Northrend]]'', pg. 132</ref>
+
+This army was originally created as an equivalent to the [[Dragon Aspects]], who Odyn judged unworthy for the task of protecting Azeroth, until the Val'kyr queen [[Helya]] cursed him and his army to be trapped within the Halls of Valor for ages. During the [[Burning Legion]]'s [[Third invasion of the Burning Legion|third invasion]] of Azeroth, the spell that kept them imprisoned was lifted with Helya's recent death, freeing Odyn and his golden warriors for good. From a section of the Halls named [[Skyhold]], which served as their [[Order Halls|order hall]], the Valarjar fought alongside the other [[Class Order|orders]] under the lead of the [[Adventurer|Battlelord]], the champion of the All-Father.
+
+The [[Helarjar]] are the [[kvaldir]] equivalent to the Valarjar, loyal to Helya.
+
+==History==
+===Creation===
+{{Main|The Legend of Odyn}}
+[[File:Odyn Prime Designate by Alex Stone.jpg|thumb|left|upright=0.8|[[Keeper]] [[Odyn]], the All-Father.]]
+
+Serving as Prime Designate over a relatively young [[Azeroth]], the [[titan keeper]] [[Odyn]] often walked the world disguised as a variety of beings, in order to observe his charge. In particular, Odyn was drawn to the mighty [[vrykul]], whom he admired for their courage and tenacity, and would mingle among them.<ref>[[The Legend of Odyn]], "The Wanderer and the Serpent"</ref>After witnessing their battle with the serpent [[Ysildar]], Odyn became further sure of his view that they were a fearless race gifted with nobility and valor. When the other Keepers decided to ask the [[Pantheon of Order]] to empower the [[Dragon Aspects]] for their heroism against [[Galakrond]], Odyn was vehemently against it, stating that only [[titan-forged]] could be trusted to defend Azeroth, as he did not trust the [[proto-dragon]]s. Despite his protests, the Dragon Aspects were given their duty, and so Odyn relinquished his position of Prime Designate,<ref name="Ulduar's Oath">[[Ulduar's Oath]]</ref> seeking instead to create his own elite army, one of steadfast and valiant stature, and saw the vrykul to be the most desirable candidate for his army.<ref>''[[Exploring Azeroth: Northrend]]'', pg. 155</ref>
+
+Under Odyn's command, the [[Titanic watcher]] [[Helya]] raised a section of [[Ulduar]] into the skies, transforming it into a new seat of power known as the [[Halls of Valor]], which he intended to populate with his new army. The All-Father then told the vrykul that those who died a worthy death in battle would have their spirits brought to the Halls and given new immortal bodies infused with the power of the storm to fight as his Valarjar, which Odyn thought would be better defenders than the [[dragon]]s. In order to retrieve the spirits of the deceased, Odyn needed vrykul to volunteer to become [[Val'kyr]], inspired by the [[kyrian]] he saw in the [[Shadowlands]] after he had sacrificed his eye to [[Mueh'zala]].<ref>[https://sagamer.co.za/2020/05/28/a-deep-dive-into-bastion-the-shadowlands-realm-of-selflessness-and-greater-purpose A deep dive into Bastion, the Shadowlands realm of selflessness and greater purpose]</ref>
+
+[[File:Sunborne Val'kyr art.jpg|thumb|upright=0.9|The [[Val'kyr]] of Odyn have a mission to retrieve the [[soul]]s of the worthy dead to become Valarjar.]]
+Since no one was willing to make this sacrifice, the All-Father decided he would need to create his servants by force. However, Helya protested against the turning of her fellow titan-forged into Val'kyr, threatening to bring the Halls of Valor back down on Azeroth. Instead, her disobedience was seen as a threat, and she was ultimately transformed into the first Val'kyr and ordered to begin ferrying vrykul souls from the Shadowlands, as well as transform other unwilling vrykul into Val'kyr.<ref>{{Ref WoWCV1|47|48}}</ref> Odyn would later lie to his followers that Helya's transformation had been due to her own arrogance: he claimed that during their argument, she had reached out for the power of the Shadowlands and subsequently gotten sucked into the realm, destroying her body and transforming her into a twisted wraith before he managed to pull her out and that she had subsequently apologized and begged him to make her a Val'kyr.<ref>[[The Legend of Odyn]], "First of the Val'kyr"</ref><ref>[[The Legend of Odyn]], "The Sealing of the Halls of Valor"</ref>
+
+At some point, it seems that Odyn still saw fit to uplift some dragons to serve in his army. These [[storm dragon]]s, "born of the gods",<ref>[[Will of the Thorignir]]</ref> are known as the [[Thorignir]]. Imbued with the power of the storms and led by [[Thrymjaris]], they swore fealty to the titan keeper. They are of great importance, as protectors of [[Stormheim]], presiding over the Trial of Will to determine the worth of those who seek the [[:Aegis of Aggramar]],<ref>[[Where Dragons Rule]]</ref> and helping to prevent the unworthy from entering the Halls of Valor.<ref>[[Hymdall]] boss fight</ref>
+
+Though all had gone according to Odyn's design, Helya nursed resentment against him for thousands of years, until the day [[Loken]], a Keeper manipulated by the [[Old God]] [[Yogg-Saron]], convinced her to turn against him. She used the same magic that had been used to lock the [[Elemental Plane]] to seal Odyn and his Valarjar army inside the Halls of Valor, and then decided to take vrykul souls in her new realm [[Helheim]]. The imprisonment of the Valarjar would last for thousands of years, during which Helya would be replaced by [[Eyir]] as the leader of the Val'kyr.<ref>{{Ref WoWCV1|59}}</ref>
+
+Shortly after Helya sealed the Halls of Valor, she was found and attacked by [[Ingvar]], one of the few Valarjar who had been outside the Halls at the time. Ingvar almost managed to kill Helya with his weapons, the [[Warswords of the Valarjar]], but Helya overpowered and destroyed him, subsequently keeping the warswords as a memento of her victory over Odyn.<ref name="Warswords">[[Saga of the Valarjar#Warswords of the Valarjar|Saga of the Valajar: Warswords of the Valarjar]]</ref>
+
+===Legion===
+{{legion-section}}
+{{QuoteWiki|In the clouds high above Stormheim, the titanic keeper Odyn has called the greatest vrykul warriors on Azeroth to be his Valarjar. Amidst feasting halls and hunting grounds, these ascended vrykul test themselves and prepare for the great war that is to come.|[[Halls of Valor#Adventure Guide|Adventure Guide entry for the Halls of Valor]]}}
+[[File:Halls of Valor.jpg|thumb|upright=1.1|left|[[Skyhold]], in the heavens of [[Azeroth]].]]
+Though Odyn and the Valarjar remained largely confined to the [[Halls of Valor]] for millennia, many heroic vrykul souls chosen by Odyn continued to be collected by his Val'kyr and taken to the floating fortress above [[Stormheim]], which granted the region a special significance for the vrykul people. Odyn himself was also still able to roam the outside world as an observer, favoring a disguise as the sage [[Havi]]. Among the vrykul of the [[Broken Isles]] in particular, the legend of the Valarjar remained quite alive and widespread, and many sought a worthy death in combat to join the ranks of the formidable Valarjar. They worshiped Odyn as a deity, and though native to [[Northrend]], many vrykul would make the voyage to the [[Broken Isles]] over the years and gravitated towards Stormheim.<ref>''[[The Art of World of Warcraft: Legion]]'', pg. 84</ref>
+
+At the time of the [[Burning Legion]]'s [[Third invasion of the Burning Legion|third invasion]] of [[Azeroth]], Odyn took interest in the arrival of mortal forces to battle the [[demon]]s, observing their initial [[Battle for the Broken Shore|setback]] on the [[Broken Shore]]. Later, he would pick a specific mortal [[warrior]] to act as his new champion, granting them overall command of the Valarjar themselves.<ref name="Odyn and the Valarjar">[[Odyn and the Valarjar]]</ref> This warrior, who became known as the Battlelord, was saved from death while fighting the Legion, and though taken to the Halls of Valor at Odyn's behest, was freely able to leave the complex at will.<ref>[[Return to the Broken Shore]]</ref>
+
+[[File:Warswords of the Valarjar.jpg|thumb|upright=0.9|The [[Warswords of the Valarjar]].]]
+Eager to join in the war against the demonic invaders, Odyn used the Battlelord as his tool to direct the Valarjar. An area of the Halls known as [[Skyhold]] became an [[Order Halls|order hall]] for the many mortal warriors involved in the war, and the resources of the Valarjar were once more used against the enemies of Azeroth. The All-Father also helped the Battlelord in acquiring one of the most powerful [[Artifact|weapons]] in existence to better fight the Legion, including the [[Warswords of the Valarjar]], the [[:Scale of the Earth-Warder]], and [[:Strom'kar, the Warbreaker]].<ref>[[Weapons of Legend (warrior)]]</ref>
+
+Using the [[Scouting Map|Eye of Odyn]] to see events across the Broken Isles and beyond, the Valarjar waged a limited war against the Legion, striking in key areas. At the same time, the Battlelord continued their own campaign.<ref>[[Thus Begins the War]]</ref> In [[Stormheim]], the Valarjar vrykul were found at [[Valdisdall]], their headquarters for much of their operations against the Legion and the [[Helarjar]].
+
+Though Odyn influenced events in [[Stormheim]] when it was attacked by the [[Felskorn]] and demons, the Valarjar were unable to play an active role. However, mortal [[Adventurer|heroes]] would eventually travel into the [[Halls of Valor]] itself to pursue [[God-King Skovald]] and the [[:Aegis of Aggramar]]. There, Odyn determined to test these champions and set the Valarjar and other denizens of the Halls to besting them. The mortals eventually succeeded in facing down all the challenges the Valarjar could pose, confronting and defeating both the God-King and Odyn himself, and thus securing the Aegis.<ref>[[Halls of Valor: Securing the Aegis]]</ref>
+
+Later, Odyn would discover that Helya had developed a way of turning even the souls of Stormforged Valarjar into her twisted [[kvaldir]]. Outraged, he would rally a force of [[Adventurer|champions]] and, having tested them himself personally, he sent them into [[Helheim]] with the goal of vanquishing Helya. They would battle through waves of the Sea-Witch's minions before confronting her. After a desperate fight, they were successful in killing Helya, and in doing so freed Odyn and the Valarjar from their millennia-long containment.<ref>[[Trial of Valor]]</ref>
+
+After finally slaying Helya, the Valarjar recovered her [[Helya's Horn|horn]], and though unredeemable, Odyn had the Battlelord use it to put the kvaldir to good use against key Legion targets around the Broken Isles.<ref name="Helya's Horn">[[Helya's Horn (quest)]]</ref>
+
+====Warrior Campaign====
+{{Main|Valarjar Campaign}}
+[[File:Valarjar.jpg|thumb|left|Odyn and his Valarjar in the [[Hall of Glory]].]]
+Over time, more preparations were made for the coming war. The Battlelord recruited [[Captain Hjalmar Stahlstrom]] to oversee the training of new [[Valarjar Aspirants|Aspirants]],<ref name="Captain">[[Captain Stahlstrom (quest)]]</ref> while [[Einar the Runecaster]] was brought on board to expand the powers of Skyhold.<ref name="Troops in the Field">[[Troops in the Field (warrior quest)]]</ref> With these advancements, the Valarjar became significantly more disciplined and organized, taking on the form of a truly formidable army.<ref>[[Einar the Runecaster (quest)]]</ref>
+
+To further strengthen their forces, a plan was made to unite the [[titan-forged]] of [[Ulduar]] using the [[Gjallarhorn]], which the [[Keeper]]s were oathbound to answer its call, as it would signal that the end times were upon [[Azeroth]].<ref>[[The Call of Battle]]</ref> With the aid of [[Hymdall]], the Battlelord marched on [[Highmountain Summit]] seeking the great worm [[Jorhuttam]], and would ultimately vanquish it in a fierce battle, claiming the artifact from its corpse.<ref>[[Jorhuttam (quest)]]</ref> The Valarjar later gained the aid of the [[Valkyra]] in the form of [[Savyn Valorborn]], who rallied the most worthy [[shieldmaiden]]s in Odyn's name.<ref name="Recruiting">[[Recruiting Shieldmaidens]]</ref>
+
+At some point, the Valkyra were under attack by [[Runemaster Skomjorn]] and his [[Felskorn]] vrykul, until they received help from the Valarjar to crush those who've betrayed Odyn.<ref>[[Aiding the Valkyra]]</ref> Meanwhile, the Valarjar saved a group of mighty warriors loyal to Odyn who had been captured and forced by [[sea giant]]s to fight in their underground pit in [[Azsuna]].<ref>[[Enslaved by Sea Giants]]</ref> When they learned that powerful armaments were lost when the great ship [[Vaesska]] sank at sea in [[Vashj'ir]], the Battlelord sent his troops to retrieve them, fighting [[Wavemistress S'revess]] and her [[naga]] in the process.<ref>[[Lost at Sea]]</ref>
+
+At the same time, Odyn turned his attention once more to [[Helya]] and her [[Helarjar]], dispatching the Battlelord into the [[Maw of Souls]] to deliver a decisive victory against the Sea-Witch. Though she would survive the battle, Helya suffered a significant defeat at the hands of the Valarjar, leaving them enough room to fight off the Legion first.<ref>[[Maw of Souls: Message to Helya]]</ref> During the assault, the Battlelord managed to struck down [[Ymiron]] and convinced the All-Father that forcing the fallen vrykul king into his service for the rest of time would be a perfectly suited punishment for his crimes.<ref>[[Maw of Souls: Ymiron's Broken Blade]]</ref>
+
+When they finally used the Gjallarhorn, the Valarjar discovered that Ulduar had been overrun by the Legion. The Battlelord departed immediately with Valarjar in tow for the titanic fortress and cut their way through the demonic invaders. Both [[Thorim]] and [[Hodir]] were eventually rescued, though the latter ended up getting trapped through one of the invaders' portals to the world of [[Niskara]]. After Thorim pledged himself and his titan-forged to the Valarjar, they devised a plan to save Hodir.<ref name="Ulduar's Oath"/> After an attack on [[Felblaze Ingress]], Hymdall opened a portal to let their forces invade the demonic world.<ref>[[Capturing the Gateway]]</ref> During the course of the battle, Thorim and the Battlelord located Hodir and slew his captor [[Lady Ran'zara]], freeing him from the [[fel]] corruption.<ref>[[The Fate of Hodir]]</ref> Having achieved victory on Niskara, Hodir pledged himself to the Valarjar's cause,<ref>[[Champion: Hodir]]</ref> while Odyn rewarded his Battlelord with more power for their [[artifact]] weapon.<ref>[[A Hero's Weapon (warrior)]]</ref>
+
+During the [[Battle for the Exodar|Battle for the ''Exodar'']], [[Finna Bjornsdottir]] and [[Ragnvald Drakeborn]] helped the Battlelord in repelling [[High General Rakeesh]] and the Legion forces out of the [[draenei]] capital.<ref>[[Bringer of the Light]]</ref>
+
+====Legionfall====
+[[File:Valarjar Deliverence Point.jpg|thumb|The Valarjar forces on the [[Broken Shore]].]]
+After {{Au|Gul'dan}} was defeated in the [[Nighthold]], and the [[Pillars of Creation]] were reunited to stop the [[Felstorm]], Odyn (as Havi) attended a meeting in [[Dalaran]] to represent the Valarjar with the other orders, where they planned their next move. All would watch as the [[demon lord]] [[Kil'jaeden]] launched his new attack from the [[Tomb of Sargeras]].<ref>[https://www.youtube.com/watch?v=ixtWdYkJbdE World of Warcraft: Legion - Patch 7.2 – The Tomb of Sargeras Trailer]</ref> A new faction was subsequently formed, known as the [[Armies of Legionfall]], in which all orders pooled their forces and waged war on the Broken Shore, based from [[Deliverance Point]]. The Valarjar themselves would also establish an outpost at [[Aalgen Point]], closer to the Tomb of Sargeras. Odyn and the Valarjar personally dealt with a remnant [[Felskorn]] presence at [[Felrage Strand]].<ref>[[Judgment of Odyn]]</ref>
+
+During the [[Assault on Stormheim]], the [[Gates of Valor]] were targeted by [[Lord Commander Alexius]] following a successful feint at [[Shield's Rest]]. The [[Man'ari]]'s [[Legion Command Ship|command ship]] heavily bombarded the gates, as mortal champions fought on to board the vessel and desperately drive back the attack. The death of Alexius in the subsequent battle marked the failure of the overall assault, and Odyn himself delivered the final blow by plunging his spear into the command ship, destroying it.<ref>[[Battle for Stormheim]]</ref>
+
+A token Valarjar presence was also sent aboard the ''[[Vindicaar]]'' during the [[Argus Campaign]], which the Battlelord would play a major role in alongside the heroes of Azeroth.
+
+===Battle for Azeroth===
+{{Bfa-section}}
+According to [[Valdemar Stormseeker]], Odyn had heard about the Azerothian heroes' search for [[Azerite]], and his vrykul forces have gathered what they could during the [[Fourth War]].<ref>[[Ring of the Reefs (quest)]]</ref>
+
+===Shadowlands===
+{{sl-section}}
+[[File:Focusing the Eye.jpg|thumb|The Val'kyr of Odyn fighting the [[Eye of the Jailer]] at the [[Terminus Platform]], in the [[Maw]].]]
+During the [[war against the Jailer]], several of Odyn's Val'kyr began to go missing, and even those sent to find them did not return. When an [[adventurer]] in the [[Maw]] found and freed [[Danica the Reclaimer]], they returned to the Halls of Valor and revealed to Odyn that [[Helya]] was still alive and corrupting his Val'kyr into [[Mawsworn]] with the eye that he gave up long ago, now the [[Eye of the Jailer]].<ref>[[A Hate-Hate Relationship]]</ref>
+
+Furious, Odyn declared that this "insult" could not stand and ordered the heroes to create an instrument, the [[Ilskahorn]], with which they would lure his Eye to battle,<ref>[[Fury Given Voice]]</ref> and to recruit a group of worthy Val'kyr to accompany Danica in battle.<ref>[[The Chosen Few]]</ref> After the heroes and Val'kyr managed to defeat the Eye, and forced it to flee back to its master's side in [[Torghast, Tower of the Damned|Torghast]],<ref>[[Focusing the Eye]]</ref> both Odyn and the Maw Walkers' allies rejoiced, emboldening their continued advance against [[Zovaal|Zovaal the Jailer]].<ref>[[Good News, Everyone!]]</ref>
+
+===Dragonflight===
+{{Df-section}}
+Believing that the problems of [[dragon]]s were nothing to him, Odyn ordered the [[Thorignir]] [[storm dragon]]s not to answer the call to the [[Dragon Isles]]. Upon realizing this, the [[Primal Incarnate]] [[Vyranoth]] headed off to confront him, with [[Wrathion]] and the [[adventurer|champions]] by her side.<ref>[[The Thorignir]]</ref> In the [[Halls of Valor]], they fought [[Hymdall]] and the Valarjar forces, while Vyranoth convinced many storm dragons to stand aside on the way to the All-Father, and [[Eyir]] herself as well. When they reached the [[Great Mead Hall]], an enraged Odyn attacked the group after being called a coward, which ended with Vyranoth sealing him in ice.<ref>[[Dragon Keeping]]</ref> The Incarnate of Ice then convinced the Thorignir to look past their "oath" to Odyn and join the [[Valdrakken Accord]] on the Dragon Isles.<ref>[[Dragon Keeping]]</ref>
+
+===Exploring Azeroth===
+{{Novel-section}}
+During their trip around the various [[Exploring Azeroth: Islands and Isles|islands of Azeroth]], [[Thalyssra]] and [[Lor'themar Theron]] visited the [[Gates of Valor]] to assess the state of the vrykul's military. There, Thalyssra requested to speak with Keeper Odyn, however, the [[Val'kyr]] informed her that the All-Father would only see those he deemed worthy in battle. Seeing as she had no interest in fighting to see him, the First Arcanist declined.<ref>''[[Exploring Azeroth: Islands and Isles]]'' pg. 49</ref>
+
+==Organization==
+[[File:Arena of Glory.jpg|thumb|The [[Arena of Glory]] in Skyhold.]]
+The [[Skyhold]], a portion of the [[Halls of Valor]] located high up in the clouds above [[Stormheim]], serves as the headquarters of the Valarjar since the [[Third invasion of the Burning Legion|third invasion]] of [[Azeroth]]. Among its wings, the [[Forge of Odyn]] is where the mightiest weapons of the valarjar are crafted by [[Master Smith Helgar]], the greatest smith in the Halls,<ref name="Odyn and the Valarjar"/> who had been operating for longer than many races have existed.<ref>[[The Forge of Odyn]]</ref> The [[Arena of Glory]] is a combat ring where warriors vie for supremacy in epic combat and test their skills against one another, presided over by the [[Val'kyr]].<ref name="Odyn and the Valarjar"/> Finally, the [[Great Mead Hall]] is the legendary home of the Valarjar, it is a placed used as a living quarters for their armies, where important ceremonies are often conducted, as well as the seat of power for [[Odyn]] the All-Father himself.<ref name="Odyn and the Valarjar"/>
+
+When asked what the Valarjar meant to them, the Battlelord replied among the following:
+*Strength - Skyhold is more than just the seat of Odyn, or the feasting hall of the honored dead. It is the home of the Valarjar, the warriors of the storm. It is where they tend to their fury and gather their strength, waiting for the call to strike down the enemies of Azeroth from above.
+*Glory - Skyhold is a place of learning, where the lessons of the glorious dead can be taught to others, skills can be honed, and weaponry mastered. When the Valarjar answer the call to battle, they do not see enemies-- only more glorious dead to join their ranks and share their deeds in Odyn's Hall.
+*Leadership - The feasting hall of the Valarjar is where those warriors who gave everything can remember what they died protecting. They draw our strength in remembering what they fight for, until they once again answer the call to lead the living in defense of that which is worth dying for.<ref>[[Order from Chaos]]</ref>
+
+===Leadership===
+The Valarjar is under the leadership of both the [[Keeper]] [[Odyn]] and the [[Adventurer|Battlelord]], a [[warrior]] [[Adventurer|champion]] chosen by the All-Father himself, who was then unable to leave the [[Halls of Valor]]. Once they proved their worth and ability to lead, they were named the Battlelord and put in command of one of the greatest armies in existence.<ref>[[Champions of Skyhold]]</ref>
+
+===Membership===
+[[File:Scouting Map warrior.jpg|thumb|upright|left|The Valarjar's [[Scouting Map|scouting map]].]]
+The ranks of the Valarjar are mostly made up of ascended [[vrykul]]s and [[val'kyr]]. Among their recruiters, [[Captain Hjalmar Stahlstrom]] worked to whip new Valarjar aspirants into shape, instilling in them a sense of both valor and discipline.<ref name="Captain"/> The powerful [[Savyn Valorborn]] later joined the Halls to bolster the Valarjar numbers with some of the most valorous vrykul [[shieldmaiden]]s.<ref name="Recruiting"/>
+
+Other races were later recruited as allies in their war against the [[demon]]s. After [[Helya]] was defeated, the Valarjar recovered her [[Helya's Horn|horn]] and blow it to force the [[Kvaldir]] to obey and fight against the [[Burning Legion]].<ref>[[Kvaldir on Call]]</ref><ref name="Helya's Horn"/> Meanwhile, the Battlelord saved both [[Darius Crowley]] and [[Eitrigg]] along their troops from the [[Felrage]] [[naga]] on the [[Broken Shore]].<ref>[[Missing in Action: Lord Darius Crowley]]</ref><ref>[[Missing in Action: Eitrigg]]</ref> After they defeated their foes, both the [[Alliance]] and [[Horde]] commanders eventually pledged themselves to the cause of the Valarjar, giving them access to troops from the [[7th Legion]] and [[Kor'kron]] on the battlefield.<ref>[[Champion: Lord Darius Crowley]]</ref><ref>[[Champion: Eitrigg]]</ref>
+
+In order to devise their strategies and enact their special operations on the [[Broken Isles]], the Valarjar use a [[Scouting Map|scouting map]] named the "Eye of Odyn", a powerful scrying and communication device which can see all of [[Azeroth]].<ref name="Odyn and the Valarjar"/><ref>[[The Eye of Odyn]]</ref> [[Skyseer Ghrent]] is the vrykul who help the Battlelord manage the Valarjar forces from the Halls let them know of any opportunities or emergencies that crop up from the Eye.<ref>[[Skyseer Ghrent#Quotes|Skyseer Ghrent's gossip]]</ref>
+
+On the battlefield, the Valarjar deploy [[Valarjar Aspirants]], [[Stormforged Valarjar]], [[Shieldmaiden Warband]]s, and [[Valkyra Shieldmaidens]], along with [[7th Legion Shock Force]]s and [[Kor'kron Shock Force]]s.<ref>[[Class Hall followers]]</ref>
+
+[[Fjornson Stonecarver]] is in charge of learning more about the [[artifact]]s' lore and power,<ref>[[Knowledge is Power (warrior)]]</ref> and record the information into the ''[[Saga of the Valarjar]]''.<ref>[[Furthering Knowledge (warrior)]]</ref>
+
+[[Einar the Runecaster]] was recruited so he could use his powerful runes to advance the power of the Valarjar and make them even stronger.<ref name="Troops in the Field"/>
+
+==Members==
+[[File:Hymdall Skyhold.jpg|thumb|[[Hymdall]], the Gatekeeper of the [[Halls of Valor]].]]
+{| class="darktable zebra"
+|-
+! Name !! Role(s) !! Status !! Location
+|-
+|{{NPC||Odyn|icon=Odyn}}
+|Leader
+|{{Status|Alive}}
+|[[Odyn#Locations|Various]]
+|-
+|{{NPC||Adventurer||The Battlelord|icon=Adventurer}}
+|Commander, second to Odyn
+|{{Status|Alive}}
+|[[Azeroth]]
+|-
+|{{NPC||Eyir|icon=Eyir}}
+|Leader of the [[Val'kyr]]
+|{{Status|Alive}}
+|[[Eyir#Locations|Various]]
+|-
+|{{NPC||Hymdall|icon=Hymdall}}
+|Gatekeeper of the Halls of Valor
+|{{Status|Alive}}
+|[[Hymdall#Locations|Various]]
+|-
+|{{NPC||Hyrja|icon=Valkier}}
+|Chosen champion of Eyir
+|{{Status|Alive}}
+|[[Halls of Valor]], [[Stormheim]]
+|-
+|{{NPC||Master Smith Helgar|icon=Valarjar}}
+|[[Smith|Blacksmith]]
+|{{Status|Alive}}
+|[[Halls of Valor]], [[Stormheim]]
+|-
+|{{NPC||Skyseer Ghrent|icon=Vrykul Male}}
+|Caretaker of the [[Scouting Map|Eye of Odyn]] and coordinator
+|{{Status|Alive}}
+|[[Halls of Valor]], [[Stormheim]]
+|-
+|{{NPC||Aerylia|icon=Valkier}}
+|Stormflight Master
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Quartermaster Durnolf|icon=Vrykul Male}}
+|Quartermaster and blacksmith
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Savyn Valorborn|icon=Valkier}}
+|Valkyra Recruiter
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Haklang Ulfsson|icon=Vrykul Male}}
+|Armaments Requisitioner
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Matilda Skoptidottir|icon=Valkier}}
+|[[:Horn of War]] crafter
+|{{Status|Alive}}
+|[[Halls of Valor]], [[Stormheim]]
+|-
+|{{NPC||Weaponmaster Asvard|icon=Valarjar}}
+|Warrior Trainer
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Fjornson Stonecarver|icon=Vrykul Male}}
+|Keeper of Legends
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Einar the Runecaster|icon=Vrykul Male}}
+|Class Hall Upgrades
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Finna Bjornsdottir|icon=Vrykul Female}}
+|Champion of the Valarjar
+|{{Status|Alive}}
+|[[Finna Bjornsdottir#Locations|Various]]
+|-
+|{{NPC||Ragnvald Drakeborn|icon=Vrykul Male}}
+|Champion of the Valarjar
+|{{Status|Alive}}
+|[[Ragnvald Drakeborn#Locations|Various]]
+|-
+|{{NPC||Magnar Icebreaker|icon=Vrykul Male}}
+|Ancient vrykul king
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Hruthnir|icon=Valarjar}}
+|Son of [[Magnar Icebreaker]] 
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Svergan Stormcloak|icon=Vrykul Male}}
+|Champion of the Valarjar
+|{{Status|Alive}}
+|[[Skyhold]], [[Halls of Valor]]
+|-
+|{{NPC||Danica the Reclaimer|icon=Valkier}}
+|Val'kyr of Odyn
+|{{Status|Alive}}
+|[[Valdisdall]], [[Stormheim]]
+|-
+|{{NPC||Olmyr the Enlightened||Olmyr|icon=Vrykul Male}}
+|Ritualist
+|{{Status|Deceased}}
+|[[Halls of Valor]], [[Stormheim]]
+|-
+|{{NPC||Solsten|icon=Vrykul Male}}
+|Ritualist
+|{{Status|Deceased}}
+|[[Halls of Valor]], [[Stormheim]]
+|-
+|{{NPC||Hillevi the Scalekeeper|icon=Vrykul Female}}
+|Flightmaster
+|{{Status|Alive}}
+|[[Stormheim]]
+|-
+|{{NPC||Brulf the Heavy|icon=Vrykul Male}}
+|Blacksmith
+|{{Status|Alive}}
+|[[Valdisdall]], [[Stormheim]]
+|-
+|{{NPC||Garhal the Scalekeeper|icon=Vrykul Male}}
+|Flightmaster
+|{{Status|Alive}}
+|[[Valdisdall]], [[Stormheim]]
+|-
+|{{NPC||Riala the Hearthwatcher|icon=Vrykul Female}}
+|Innkeeper
+|{{Status|Alive}}
+|[[Valdisdall]], [[Stormheim]]
+|-
+|{{NPC||Valdemar Stormseeker|icon=Vrykul Male}}
+|Emissary
+|{{Status|Alive}}
+|[[Valdisdall]], [[Stormheim]]
+|-
+|{{NPC||Visser the Scalekeeper|icon=Vrykul Female}}
+|Flightmaster
+|{{Status|Alive}}
+|[[Shield's Rest]], [[Stormheim]]
+|-
+|{{NPC||Shieldmaiden Iounn|icon=Vrykul Female}}
+|Shieldmaiden
+|{{Status|Alive}}
+|[[Stormheim]]
+|-
+|{{NPC||Fergus the Mighty|icon=IronVrykulOld}}
+|[[Smith|Blacksmith]]
+|{{Status|Alive}}
+|[[Aalgen Point]], [[Broken Shore]]
+|}
+
+;Allies 
+''The following fought as part of the Valarjar during the [[Third invasion of the Burning Legion|war]] on the [[Broken Isles]], but are not members of the faction.''
+
+{| class="darktable zebra"
+|-
+! Name !! Note !! Status !! Location
+|-
+|{{NPC||Thorim|icon=Thorim}}
+|Son of [[Odyn]] and [[Keeper]] of [[Ulduar]]
+|{{Status|Alive}}
+|[[Thorim#Locations|Various]]
+|-
+|{{NPC||Hodir|icon=Hodir}}
+|Keeper of Ulduar
+|{{Status|Alive}}
+|[[Hodir#Locations|Various]]
+|-
+|{{NPC||Dvalen Ironrune|icon=IronDwarf}}
+|Former guardian of [[Ulduar]]
+|{{Status|Alive}}
+|[[Dvalen Ironrune#Locations|Various]]
+|-
+|{{NPC||Darius Crowley|icon=Crowley}}
+|[[Gilnean]] leader and [[Alliance]] champion
+|{{Status|Alive}}
+|[[Darius Crowley#Locations|Various]]
+|-
+|{{NPC||Eitrigg|icon=Eitrigg}}
+|[[Orc]] commander and [[Horde]] champion
+|{{Status|Alive}}
+|[[Eitrigg#Locations|Various]]
+|-
+|{{NPC||King Ymiron|icon=Ymiron}}
+|Former [[vrykul]] king, enslaved in death by Odyn
+|{{Status|Alive}}
+|[[King Ymiron#Locations|Various]]
+|}
+
+;Chroniclers
+*{{RaceIcon|Vrykul Male}} [[Brynjar]]
+*{{RaceIcon|Vrykul Male}} [[Kormyr Sylfverhan]]
+*{{RaceIcon|Vrykul Male}} [[Yrvar Isilmar]]
+*{{RaceIcon|Vrykul Male}} [[Rysa Hjafmir]]
+*{{RaceIcon|Vrykul Male}} [[Halsvir Fjinnsonn]]
+
+===Types===
+{{columns|2|
+*{{NPC||Val'kyr Stormbreaker|icon=Valkier}}
+*{{NPC||Val'kyr of Odyn|icon=Valkier}}
+*{{NPC||Valkyra Guardian|icon=Vrykul Female}}
+*{{NPC||Valkyra Shieldmaiden|icon=Vrykul Female}}
+*{{NPC||Tamed Stormwing Drake|icon=Thorignir}}
+*{{NPC||Stormforged Valarjar|icon=Valarjar}}
+*{{NPC||Valarjar Spear-Sister|icon=Vrykul Female}}
+*{{NPC||Valarjar Champion|icon=Vrykul Male}}
+*{{NPC||Valarjar Warsinger|icon=Vrykul Male}}
+*{{NPC||Valarjar Runecarver|icon=Vrykul Male}}
+*{{NPC||Valarjar Aspirant|icon=Valarjar}}
+*{{NPC||Shieldmaiden (NPC)||Shieldmaiden|icon=Vrykul Female}}
+*{{NPC||Priestess of Eyir|icon=Vrykul Female}}
+}}
+
+==Reputation==
+===Faction description===
+''These are the chosen warriors of [[Odyn]], sworn to his service in life and death.''
+
+===Rewards===
+{{Valarjar}}
+
+==Notes and trivia==
+*The [[Ymirjar]], chosen ascendant vrykul of the [[Lich King]], are very similar to the Valarjar, implying that the Lich King created a darker version of the vrykul religion to suit his own ends.
+*The title of the order leader was originally going to be "Skylord". It was changed to "Battlelord" during alpha.
+*During development, their placeholder reputation faction name was '''Vry'kul of Stormheim'''. An instance of them being referred to as such was left behind.<ref>[[The Valarjar (quest)]]</ref>
+*[[Cairne Bloodhoof]] might have been originally intended to be a Valarjar's sub-leader, according to [[New Recruit (warrior)]], which had similar variants given by the other class halls' sub-leaders.
+
+==Gallery==
+;Fan art
+<gallery>
+File:Trail of Odin.jpg|"Trail of Odin" by Qichao Wang
+File:Storm vrykul concept art.png|Storm vrykul concept art.
+</gallery>
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==See also==
+*[[Saga of the Valarjar]]
+*[[Ensemble: Battlewraps of the Honored Valarjar]]
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class="darktable"
+! Faction
+! Paragon
+|-
+| {{Elinks-faction|1948}}
+| {{Elinks-faction|2086}}
+|}
+
+{{Order Halls}}
+{{Vrykul}}
+{{Titans}}
+{{Factions|legion}}
+
+[[Category:Valarjar| ]]
+[[Category:Vrykul organizations]]
+[[Category:Warrior organizations]]
+[[Category:Titans]]
+[[Category:Order]]
+[[Category:Light]]
+[[Category:Class Orders]]
+[[Category:Factions]]
+[[Category:Legion]]
+[[Category:Skyhold]]
+[[Category:Armies of Legionfall]]

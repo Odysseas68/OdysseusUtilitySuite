@@ -1,0 +1,103 @@
+{{Stub/Lore}}
+{{About|the faction|the introductory quest|Armies of Legionfall (quest)|the emissary quest|Armies of Legionfall (emissary)|the achievement|Armies of Legionfall (achievement)}}
+{{Infobox faction
+| name = Armies of Legionfall
+| image = Armies of Legionfall Banner.jpg
+| faction = Neutral
+| leader = {{RaceIcon|Adventurer}} [[Adventurer|Order leaders]]
+| leaders = {{NPC||Illidan Stormrage|icon=Illidan}}<br/> {{NPC||Khadgar|icon=Khadgar}}<br/> {{NPC||Velen|icon=Velen}}<br/> {{NPC||Maiev Shadowsong|icon=Maiev}}
+| races = {{Race|Blood elf}}<br/> {{Race|Draenei}}<br/> {{Race|IronforgeDwarf|[[Ironforge Dwarf|Dwarf]]}}<br/> {{Race|Forsaken}}<br/> {{Race|Goblin}}<br/> {{Race|Gnome}}<br/> {{Race|Human}}<br/> {{Race|NightElf}}<br/> {{Race|Orc}}<br/> {{Race|Pandaren}}<br/> {{Race|Tauren}}<br/> {{Race|Troll}}<br/> {{Race|Worgen}}<br/> {{Race|Broken}}<br/> {{Race|DarkIronDwarf}}<br/> {{Race|Demon}}<br/> {{Race|Elemental}}<br/> {{Race|Ethereal}}<br/> {{Race|HighElf}}<br/> {{Race|Iron vrykul}}<br/> {{Race|Murloc}}<br/> {{Race|Naga}}<br/> {{Race|Tol'vir}}<br/> {{Race|Treant}}<br/> {{Race|Scourge|notext}} [[Undead]]<br/> {{Race|Vrykul}}<br/> {{Race|WildhammerDwarf}}
+| base = [[Deliverance Point]]
+| theater = [[Broken Shore]], [[Argus]]
+| affiliation = [[Independent]]
+| currency = [[Nethershard]]
+| quartermaster = {{RaceIcon|Human Female}} [[Warmage Kath'leen]]
+| rewards =
+| status = Unknown (presumed disbanded)<br/>  Active {{legion-inline}}
+| tabard = Legionfall Tabard.jpg
+}}
+
+The '''Armies of Legionfall'''<ref>[[Armies of Legionfall (quest)]]</ref> are a coalition of all [[Class Order|orders]] united to defeat the [[Burning Legion]] at the [[Tomb of Sargeras]]. Their base of operations, [[Deliverance Point]], is located south-west of the island of [[Thal'dranath]].
+
+In addition to the orders, the Armies of Legionfall are also allied with the [[Court of Farondis]], the [[Azurewing]], the [[Nightfallen (faction)|Nightfallen]], the [[Highmountain Tribe]],<ref>[[Get Them Up]]</ref> and the [[Wardens]], as evidenced by their assistance to the [[Adventurer|Legionfall Commander]].
+
+Following the end of the [[third invasion of the Burning Legion]] and the [[Argus Campaign]], it is unknown if the Armies of Legionfall remains active, however, it is most probably that they dissolved after reaching their goals.
+
+==Faction description==
+''The coalition of [[class order|orders]] dedicated to defeating the Legion at the Tomb of Sargeras and [[Broken Shore]].''
+
+==Members==
+<ul class="side-by-side">
+<li>
+===Orders===
+*{{ClassIcon|Druid}} [[Cenarion Circle]]
+*{{ClassIcon|Priest}} [[Conclave|The Conclave]]
+*{{ClassIcon|Warlock}} [[Council of the Black Harvest]]
+*{{ClassIcon|Shaman}} [[Earthen Ring]]
+*{{ClassIcon|DemonHunter}} [[Illidari|The Illidari]]
+*{{ClassIcon|DeathKnight}} [[Knights of the Ebon Blade]]
+*{{ClassIcon|Paladin}} [[Knights of the Silver Hand]]
+*{{ClassIcon|Monk}} [[Order of the Broken Temple]]
+*{{ClassIcon|Mage}} [[Tirisgarde]]
+*{{ClassIcon|Rogue}} [[Uncrowned|The Uncrowned]]
+*{{ClassIcon|Hunter}} [[Unseen Path]]
+*{{ClassIcon|Warrior}} [[Valarjar]]
+
+<li>
+===Troops===
+*{{Race|Pandaren|notext}} {{Race|Human|notext}} {{Race|Draenei|notext}} {{Race|Blood Elf|notext}} {{Race|Orc|notext}} {{Race|Dwarf|notext}} {{Race|Worgen|notext}} [[Legionfall Defender]]
+*{{Race|Worgen|notext}} [[Legionfall Enforcer]]
+*{{RaceIcon|Worgen|Male}} {{Race|JungleTroll|notext}} {{Race|Goblin|notext}} {{Race|Gnome|notext}} [[Legionfall Field Priest]]
+*{{Race|Human|notext}} {{Race|Orc|notext}} {{Race|Dwarf|notext}} [[Legionfall Laborer]]
+*{{Race|Tauren|notext}} {{Race|Goblin|notext}} {{Race|Gnome|notext}} {{Race|Jungle Troll|notext}} {{Race|Human|notext}} {{Race|Draenei|notext}} [[Legionfall Mender]]
+*{{Race|Goblin|notext}} {{Race|Jungle Troll|notext}} {{Race|Human|notext}} {{Race|Night Elf|notext}} [[Legionfall Scout]]
+*{{Race|Blood Elf|notext}} {{Race|Dwarf|notext}} {{Race|Goblin|notext}} {{Race|Forsaken|notext}} {{Race|Gnome|notext}} {{Race|Human|notext}} {{Race|Pandaren|notext}} [[Legionfall Sentry]]
+*{{Race|Forsaken|notext}} {{Race|Orc|notext}} {{Race|Human|notext}} {{Race|Night Elf|notext}} {{Race|Draenei|notext}} {{Race|Blood Elf|notext}} [[Legionfall Soldier]]
+*{{RaceIcon|Human|Male}} [[Legionfall Supplier]]
+<li>
+
+===Notable characters===
+*{{NPC||Illidan Stormrage|icon=Illidan}}
+*{{NPC||Khadgar|icon=Khadgar}}
+*{{NPC||Velen|icon=Velen}}
+*{{NPC||Maiev Shadowsong|icon=Maiev}}
+*{{NPC||Warmage Kath'leen|icon=Human Female}}
+</ul>
+
+==Notes and trivia==
+[[File:Legionfall champions.jpg|thumb|[[Khadgar]] and [[Velen]] with the champions of the orders]]
+*The [[Class Order|order]]s armies are accompanied by [[Khadgar|Archmage Khadgar]] and the [[mage]]s of the [[Kirin Tor]], [[Maiev Shadowsong]] and her [[The Wardens|Wardens]], [[Prophet Velen]], and [[Illidan Stormrage]].
+*The Armies of Legionfall's banner features, from left to right and top to bottom, the crests of the [[Valarjar]], [[Ebon Blade]], [[Earthen Ring]], [[Order of the Broken Temple]], [[Unseen Path]], [[Tirisgarde]], [[Illidari]], [[Silver Hand]], [[Black Harvest]], [[Cenarion Circle]], [[Conclave]], and the [[The Uncrowned|Uncrowned]].
+*During the initial meeting of the Armies of Legionfall, several important delegates from the class orders met at [[Krasus' Landing]] with [[Archmage Khadgar]] and [[Prophet Velen]] to discuss [[Gul'dan (alternate universe)|Gul'dan's]] [[Nighthold|failure]], the [[Pillars of Creation]], and [[Kil'jaeden]]. These included:
+**[[Alonsus Faol]] representing the [[Conclave]].
+**[[Emmarel Shadewarden]] representing the [[Unseen Path]].
+**[[Ritssyn Flamescowl]] representing the [[Council of the Black Harvest]].
+**[[Havi]] representing the [[Valarjar]].
+**[[Iron-Body Ponshu]] representing the [[Order of the Broken Temple]].
+**[[Kor'vas Bloodthorn]] representing the [[Illidari]].
+**[[Lady Liadrin]] representing the [[Knights of the Silver Hand]] (although it appears that [[Gryan Stoutmantle]] is present in the cinematic).
+**[[Farseer Nobundo]] representing the [[Earthen Ring]].
+**[[Meryl Felstorm]] representing the [[Tirisgarde]].
+**[[Darion Mograine]] representing the [[Knights of the Ebon Blade]].
+**[[Rensar Greathoof]] representing the [[Cenarion Circle]].
+**[[Lord Jorach Ravenholdt]] representing the [[Uncrowned]].
+
+==Patch changes==
+*{{Patch 7.2.0|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class="darktable"
+! Faction
+! Paragon
+|-
+| {{Elinks-faction|2045}}
+| {{Elinks-faction|2091}}
+|}
+
+{{Factions|Legion}}
+
+[[Category:Armies of Legionfall| ]]
+[[Category:Organizations]]

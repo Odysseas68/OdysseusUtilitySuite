@@ -1,0 +1,292 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width:21.5em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Horde" title="Horde"><img alt="Horde" src="/images/Horde_32.png?db3bd7" decoding="async" loading="lazy" width="32" height="32" data-file-width="32" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Provisioner Lija</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Provisioner_Lija.jpg" class="image" title="Image of Provisioner Lija"><img alt="Image of Provisioner Lija" src="/images/thumb/Provisioner_Lija.jpg/138px-Provisioner_Lija.jpg?97374b" decoding="async" loading="lazy" width="138" height="300" data-file-width="300" data-file-height="650" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Title</th><td>
+&lt;Talanji's Expedition Emissary&gt;</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Gender</th><td>
+Female</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race</th><td>
+<a href="/wiki/Zandalari_troll" title="Zandalari troll">Zandalari troll</a>&#160;(Humanoid)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Level</th><td>
+20-60 Elite</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Reaction</th><td>
+<a href="/wiki/Alliance" title="Alliance"><span class="rep-unfriendly" title="Unfriendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation(s)</th><td>
+<a href="/wiki/Talanji%27s_Expedition" title="Talanji&#39;s Expedition">Talanji's Expedition</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Location</th><td>
+<a href="/wiki/Zul%27jan_Ruins" title="Zul&#39;jan Ruins">Zul'jan Ruins</a>, <a href="/wiki/Nazmir" title="Nazmir">Nazmir</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 39.0 79.4"><a href="/wiki/Nazmir" title="Nazmir"><sup>[39.0,&#160;79.4]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Nazmir.jpg/300px-WorldMap-Nazmir.jpg?69fe46" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="3840" data-file-height="2560" /><span style="position:absolute;left:39.0%;top:79.4%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Alive</td></tr></tbody></table>
+<p><b>Provisioner Lija</b> is a <a href="/wiki/Zandalari_troll" title="Zandalari troll">Zandalari troll</a> located at <a href="/wiki/Zul%27jan_Ruins" title="Zul&#39;jan Ruins">Zul'jan Ruins</a> of <a href="/wiki/Nazmir" title="Nazmir">Nazmir</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Sells"><span class="tocnumber">1</span> <span class="toctext">Sells</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Quests"><span class="tocnumber">2</span> <span class="toctext">Quests</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Quotes"><span class="tocnumber">3</span> <span class="toctext">Quotes</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Patch_changes"><span class="tocnumber">4</span> <span class="toctext">Patch changes</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Sells">Sells</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Provisioner_Lija?action=edit&amp;section=1" title="Edit section: Sells"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable zebra">
+<caption><span class="raceicon"></span><a class="mw-selflink selflink"><span style="color:">Provisioner Lija</span></a><br /><span style="">&lt;<a href="/wiki/Talanji%27s_Expedition" title="Talanji&#39;s Expedition">Talanji's Expedition</a> Emissary&gt;</span>
+</caption>
+<tbody><tr>
+<th>Rep</th>
+<th>Item</th>
+<th>Cost</th>
+<th>Type
+</th></tr>
+<tr>
+<th rowspan="1">
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_drink_07.png/16px-Inv_drink_07.png?5a9bb4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Refreshing_Spring_Water" title="Refreshing Spring Water"><span class="itemlink ajaxttlink qc-common" title="Refreshing Spring Water is a common quality item."><span class="bracket">&#91;</span>Refreshing Spring Water<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">25<span><a href="/wiki/Money#Types_of_coins" title="c"><img alt="c" src="/images/thumb/Copper.png/14px-Copper.png?269161" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Consumable
+</td></tr>
+<tr>
+<th rowspan="3"><a href="/wiki/Honored" class="mw-redirect" title="Honored"><span class="rep-honored" title="Honored">Honored</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cape_plate_zandalardungeon_c_01.png/16px-Inv_cape_plate_zandalardungeon_c_01.png?9c5980" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Drape_of_the_Blood_Purge" title="Drape of the Blood Purge"><span class="itemlink ajaxttlink qc-rare" title="Drape of the Blood Purge is a rare quality item."><span class="bracket">&#91;</span>Drape of the Blood Purge<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1100<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Back
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll2star.png/16px-Inv_recipe_70_scroll2star.png?2db659" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_AZ3-R1-T3_Bionic_Bifocals" title="Schematic: AZ3-R1-T3 Bionic Bifocals"><span class="itemlink ajaxttlink qc-common" title="Schematic: AZ3-R1-T3 Bionic Bifocals is a common quality item."><span class="bracket">&#91;</span>Schematic: AZ3-R1-T3 Bionic Bifocals<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1100<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Schematic
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll2star.png/16px-Inv_recipe_70_scroll2star.png?2db659" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Contract:_Talanji%27s_Expedition" title="Recipe: Contract: Talanji&#39;s Expedition"><span class="itemlink ajaxttlink qc-common" title="Recipe: Contract: Talanji&#39;s Expedition is a common quality item."><span class="bracket">&#91;</span>Recipe: Contract: Talanji's Expedition<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1100<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<th rowspan="21"><a href="/wiki/Revered" class="mw-redirect" title="Revered"><span class="rep-revered" title="Revered">Revered</span></a>
+</th></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pant_cloth_zandalardungeon_c_01.png/16px-Inv_pant_cloth_zandalardungeon_c_01.png?7107b7" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Swamp_Medic%27s_Leggings" title="Swamp Medic&#39;s Leggings"><span class="itemlink ajaxttlink qc-epic" title="Swamp Medic&#39;s Leggings is an epic quality item."><span class="bracket">&#91;</span>Swamp Medic's Leggings<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_boot_leather_zandalardungeon_c_01.png/16px-Inv_boot_leather_zandalardungeon_c_01.png?bbcb66" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Swampstalker_Footpads" title="Swampstalker Footpads"><span class="itemlink ajaxttlink qc-epic" title="Swampstalker Footpads is an epic quality item."><span class="bracket">&#91;</span>Swampstalker Footpads<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Feet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_glove_mail_zandalardungeon_c_01.png/16px-Inv_glove_mail_zandalardungeon_c_01.png?16fddf" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Grips_of_the_Swamp_Hunter" title="Grips of the Swamp Hunter"><span class="itemlink ajaxttlink qc-epic" title="Grips of the Swamp Hunter is an epic quality item."><span class="bracket">&#91;</span>Grips of the Swamp Hunter<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_glove_plate_zandalardungeon_c_01.png/16px-Inv_glove_plate_zandalardungeon_c_01.png?57779e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Gloomplate_Gauntlets" title="Gloomplate Gauntlets"><span class="itemlink ajaxttlink qc-epic" title="Gloomplate Gauntlets is an epic quality item."><span class="bracket">&#91;</span>Gloomplate Gauntlets<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_glove_cloth_zandalardungeon_c_01.png/16px-Inv_glove_cloth_zandalardungeon_c_01.png?86f3f8" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Swamp_Medic%27s_Gloves" title="Swamp Medic&#39;s Gloves"><span class="itemlink ajaxttlink qc-epic" title="Swamp Medic&#39;s Gloves is an epic quality item."><span class="bracket">&#91;</span>Swamp Medic's Gloves<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pant_leather_zandalardungeon_c_01.png/16px-Inv_pant_leather_zandalardungeon_c_01.png?cc1425" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Swampstalker_Leggings" title="Swampstalker Leggings"><span class="itemlink ajaxttlink qc-epic" title="Swampstalker Leggings is an epic quality item."><span class="bracket">&#91;</span>Swampstalker Leggings<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_bracer_mail_zandalardungeon_c_01.png/16px-Inv_bracer_mail_zandalardungeon_c_01.png?b4a9f8" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Bracers_of_the_Swamp_Hunter" title="Bracers of the Swamp Hunter"><span class="itemlink ajaxttlink qc-epic" title="Bracers of the Swamp Hunter is an epic quality item."><span class="bracket">&#91;</span>Bracers of the Swamp Hunter<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Wrist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_belt_plate_zandalardungeon_c_01.png/16px-Inv_belt_plate_zandalardungeon_c_01.png?506b1b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Gloomplate_Girdle" title="Gloomplate Girdle"><span class="itemlink ajaxttlink qc-epic" title="Gloomplate Girdle is an epic quality item."><span class="bracket">&#91;</span>Gloomplate Girdle<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Potion_of_Bursting_Blood" title="Recipe: Potion of Bursting Blood"><span class="itemlink ajaxttlink qc-common" title="Recipe: Potion of Bursting Blood is a common quality item."><span class="bracket">&#91;</span>Recipe: Potion of Bursting Blood<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Flask_of_the_Vast_Horizon" title="Recipe: Flask of the Vast Horizon"><span class="itemlink ajaxttlink qc-common" title="Recipe: Flask of the Vast Horizon is a common quality item."><span class="bracket">&#91;</span>Recipe: Flask of the Vast Horizon<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Coastal_Mana_Potion" title="Recipe: Coastal Mana Potion"><span class="itemlink ajaxttlink qc-common" title="Recipe: Coastal Mana Potion is a common quality item."><span class="bracket">&#91;</span>Recipe: Coastal Mana Potion<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<td><a href="/wiki/Formula:_Enchant_Ring_-_Pact_of_Mastery?action=edit&amp;redlink=1" class="new" title="Formula: Enchant Ring - Pact of Mastery (page does not exist)" rel="nofollow">Formula: Enchant Ring - Pact of Mastery</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Formula
+</td></tr>
+<tr>
+<td><a href="/wiki/Formula:_Enchant_Weapon_-_Siphoning?action=edit&amp;redlink=1" class="new" title="Formula: Enchant Weapon - Siphoning (page does not exist)" rel="nofollow">Formula: Enchant Weapon - Siphoning</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Formula
+</td></tr>
+<tr>
+<td><a href="/wiki/Formula:_Enchant_Weapon_-_Masterful_Navigation?action=edit&amp;redlink=1" class="new" title="Formula: Enchant Weapon - Masterful Navigation (page does not exist)" rel="nofollow">Formula: Enchant Weapon - Masterful Navigation</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Formula
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll2star.png/16px-Inv_recipe_70_scroll2star.png?2db659" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_AZ3-R1-T3_Bionic_Bifocals" title="Schematic: AZ3-R1-T3 Bionic Bifocals"><span class="itemlink ajaxttlink qc-common" title="Schematic: AZ3-R1-T3 Bionic Bifocals is a common quality item."><span class="bracket">&#91;</span>Schematic: AZ3-R1-T3 Bionic Bifocals<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Schematic
+</td></tr>
+<tr>
+<td><a href="/wiki/Design:_Tidal_Amethyst_Loop?action=edit&amp;redlink=1" class="new" title="Design: Tidal Amethyst Loop (page does not exist)" rel="nofollow">Design: Tidal Amethyst Loop</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Design
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Pattern:_Mistscale_Knuckles" title="Pattern: Mistscale Knuckles"><span class="itemlink ajaxttlink qc-common" title="Pattern: Mistscale Knuckles is a common quality item."><span class="bracket">&#91;</span>Pattern: Mistscale Knuckles<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Pattern:_Hardened_Tempest_Knuckles" title="Pattern: Hardened Tempest Knuckles"><span class="itemlink ajaxttlink qc-common" title="Pattern: Hardened Tempest Knuckles is a common quality item."><span class="bracket">&#91;</span>Pattern: Hardened Tempest Knuckles<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Battle_Potion_of_Intellect" title="Recipe: Battle Potion of Intellect"><span class="itemlink ajaxttlink qc-common" title="Recipe: Battle Potion of Intellect is a common quality item."><span class="bracket">&#91;</span>Recipe: Battle Potion of Intellect<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Ivn_toadloamount.png/16px-Ivn_toadloamount.png?d98af5" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Tragg_the_Curious" title="Tragg the Curious"><span class="itemlink ajaxttlink qc-uncommon" title="Tragg the Curious is an uncommon quality item."><span class="bracket">&#91;</span>Tragg the Curious<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="costitem nobreak ajaxoutertt">75 <a href="/wiki/Polished_Pet_Charm" title="Polished Pet Charm"><img alt="Polished Pet Charm" src="/images/thumb/Inv_currency_petbattle.png/16px-Inv_currency_petbattle.png?1a663a" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Companion
+</td></tr>
+<tr>
+<th rowspan="10"><a href="/wiki/Exalted" class="mw-redirect" title="Exalted"><span class="rep-exalted" title="Exalted">Exalted</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_glove_cloth_zandalardungeon_c_01.png/16px-Inv_glove_cloth_zandalardungeon_c_01.png?86f3f8" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Zo%27bal_Spirit_Gloves" title="Zo&#39;bal Spirit Gloves"><span class="itemlink ajaxttlink qc-epic" title="Zo&#39;bal Spirit Gloves is an epic quality item."><span class="bracket">&#91;</span>Zo'bal Spirit Gloves<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pant_leather_zandalardungeon_c_01.png/16px-Inv_pant_leather_zandalardungeon_c_01.png?cc1425" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Hir%27eek_Hide_Leggings" title="Hir&#39;eek Hide Leggings"><span class="itemlink ajaxttlink qc-epic" title="Hir&#39;eek Hide Leggings is an epic quality item."><span class="bracket">&#91;</span>Hir'eek Hide Leggings<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_belt_mail_zandalardungeon_c_01.png/16px-Inv_belt_mail_zandalardungeon_c_01.png?27798f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Torga_Scale_Girdle" title="Torga Scale Girdle"><span class="itemlink ajaxttlink qc-epic" title="Torga Scale Girdle is an epic quality item."><span class="bracket">&#91;</span>Torga Scale Girdle<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_boot_plate_zandalardungeon_c_01.png/16px-Inv_boot_plate_zandalardungeon_c_01.png?3df04b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Zul%27jan_Camp_Stalkers" title="Zul&#39;jan Camp Stalkers"><span class="itemlink ajaxttlink qc-epic" title="Zul&#39;jan Camp Stalkers is an epic quality item."><span class="bracket">&#91;</span>Zul'jan Camp Stalkers<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Feet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_belt_cloth_zandalardungeon_c_01.png/16px-Inv_belt_cloth_zandalardungeon_c_01.png?8c3dc4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Zo%27bal_Spirit_Sash" title="Zo&#39;bal Spirit Sash"><span class="itemlink ajaxttlink qc-epic" title="Zo&#39;bal Spirit Sash is an epic quality item."><span class="bracket">&#91;</span>Zo'bal Spirit Sash<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_bracer_leather_zandalardungeon_c_01.png/16px-Inv_bracer_leather_zandalardungeon_c_01.png?2c9330" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Hir%27eek_Hide_Cuffs" title="Hir&#39;eek Hide Cuffs"><span class="itemlink ajaxttlink qc-epic" title="Hir&#39;eek Hide Cuffs is an epic quality item."><span class="bracket">&#91;</span>Hir'eek Hide Cuffs<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Wrist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_boot_mail_zandalardungeon_c_01.png/16px-Inv_boot_mail_zandalardungeon_c_01.png?483d9c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Torga_Scale_Boots" title="Torga Scale Boots"><span class="itemlink ajaxttlink qc-epic" title="Torga Scale Boots is an epic quality item."><span class="bracket">&#91;</span>Torga Scale Boots<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Feet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_glove_plate_zandalardungeon_c_01.png/16px-Inv_glove_plate_zandalardungeon_c_01.png?57779e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Zul%27jan_Camp_Gauntlets" title="Zul&#39;jan Camp Gauntlets"><span class="itemlink ajaxttlink qc-epic" title="Zul&#39;jan Camp Gauntlets is an epic quality item."><span class="bracket">&#91;</span>Zul'jan Camp Gauntlets<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Ability_mount_bloodtick_purple.png/16px-Ability_mount_bloodtick_purple.png?c3cb30" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Reins_of_the_Expedition_Bloodswarmer" title="Reins of the Expedition Bloodswarmer"><span class="itemlink ajaxttlink qc-epic" title="Reins of the Expedition Bloodswarmer is an epic quality item."><span class="bracket">&#91;</span>Reins of the Expedition Bloodswarmer<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">12,500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Mount
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_tabard_talanjisexpedition.png/16px-Inv_tabard_talanjisexpedition.png?8c1179" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Talanji%27s_Expedition_Tabard" title="Talanji&#39;s Expedition Tabard"><span class="itemlink ajaxttlink qc-rare" title="Talanji&#39;s Expedition Tabard is a rare quality item."><span class="bracket">&#91;</span>Talanji's Expedition Tabard<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">625<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Tabard
+</td></tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Quests">Quests</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Provisioner_Lija?action=edit&amp;section=2" title="Edit section: Quests"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-50]&#160;</span><a href="/wiki/Romp_in_the_Swamp" title="Romp in the Swamp"><span class="ajaxttlink questlink">Romp in the Swamp</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50]&#160;</span><a href="/wiki/Supplies_from_Talanji%27s_Expedition" title="Supplies from Talanji&#39;s Expedition"><span class="ajaxttlink questlink">Supplies from Talanji's Expedition</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Supplies_Needed:_Slimy_Mackerel_(Horde)" title="Supplies Needed: Slimy Mackerel (Horde)"><span class="ajaxttlink questlink">Supplies Needed: Slimy Mackerel</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50]&#160;</span><a href="/wiki/Talanji%27s_Expedition_(quest)" title="Talanji&#39;s Expedition (quest)"><span class="ajaxttlink questlink">Talanji's Expedition</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Battle_Flag:_Phalanx_Defense_(Horde)" title="Work Order: Battle Flag: Phalanx Defense (Horde)"><span class="ajaxttlink questlink">Work Order: Battle Flag: Phalanx Defense</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Calcified_Bone_(Horde)" title="Work Order: Calcified Bone (Horde)"><span class="ajaxttlink questlink">Work Order: Calcified Bone</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Contract:_Talanji%27s_Expedition" title="Work Order: Contract: Talanji&#39;s Expedition"><span class="ajaxttlink questlink">Work Order: Contract: Talanji's Expedition</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Deep_Sea_Satin_(Horde)" title="Work Order: Deep Sea Satin (Horde)"><span class="ajaxttlink questlink">Work Order: Deep Sea Satin</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Drums_of_the_Maelstrom_(Horde)" title="Work Order: Drums of the Maelstrom (Horde)"><span class="ajaxttlink questlink">Work Order: Drums of the Maelstrom</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Enchant_Weapon_-_Coastal_Surge_(Horde)" title="Work Order: Enchant Weapon - Coastal Surge (Horde)"><span class="ajaxttlink questlink">Work Order: Enchant Weapon - Coastal Surge</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Enchant_Weapon_-_Torrent_of_Elements_(Horde)" title="Work Order: Enchant Weapon - Torrent of Elements (Horde)"><span class="ajaxttlink questlink">Work Order: Enchant Weapon - Torrent of Elements</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Kubiline_(Horde)" title="Work Order: Kubiline (Horde)"><span class="ajaxttlink questlink">Work Order: Kubiline</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Monelite_Ore_(Horde)" title="Work Order: Monelite Ore (Horde)"><span class="ajaxttlink questlink">Work Order: Monelite Ore</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Sea_Mist_Potion_(Horde)" title="Work Order: Sea Mist Potion (Horde)"><span class="ajaxttlink questlink">Work Order: Sea Mist Potion</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Sea_Stalk_(Horde)" title="Work Order: Sea Stalk (Horde)"><span class="ajaxttlink questlink">Work Order: Sea Stalk</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Shimmerscale_(Horde)" title="Work Order: Shimmerscale (Horde)"><span class="ajaxttlink questlink">Work Order: Shimmerscale</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Siren%27s_Pollen_(Horde)" title="Work Order: Siren&#39;s Pollen (Horde)"><span class="ajaxttlink questlink">Work Order: Siren's Pollen</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_Solstone_(Horde)" title="Work Order: Solstone (Horde)"><span class="ajaxttlink questlink">Work Order: Solstone</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li>
+<li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[50WQ]&#160;</span><a href="/wiki/Work_Order:_XA-1000_Surface_Skimmer_(Horde)" title="Work Order: XA-1000 Surface Skimmer (Horde)"><span class="ajaxttlink questlink">Work Order: XA-1000 Surface Skimmer</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/File:Icon-delete-black-22x22.png" class="image" title="Removed from game"><img alt="Removed from game" src="/images/Icon-delete-black-22x22.png?bbd0c1" decoding="async" loading="lazy" width="22" height="22" data-file-width="22" data-file-height="22" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;">The subject of this section did not make it out of the <a href="/wiki/Beta" title="Beta">beta</a> stages.</span></p><div style="clear:left;"></div>
+<ul><li><a href="/wiki/Work_Order:_Aromatic_Pollen?action=edit&amp;redlink=1" class="new" title="Work Order: Aromatic Pollen (page does not exist)" rel="nofollow">Work Order: Aromatic Pollen</a> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<h2><span class="mw-headline" id="Quotes">Quotes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Provisioner_Lija?action=edit&amp;section=3" title="Edit section: Quotes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dt>Gossip</dt></dl>
+<div class="dialogue plainlist">
+<p>We don't have much in de way of supplies, but I can spare you a few things. If you help us out, I can probably see about getting you some of de good stuff.
+</p><p><img alt="Buy" src="/images/Vendorgossipicon.png?d64fc3" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" />&#160;Let me browse your goods.
+</p>
+</div>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Provisioner_Lija?action=edit&amp;section=4" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><span class="icon tww-inline"><a href="/wiki/World_of_Warcraft:_The_War_Within" title="The War Within"><img alt="The War Within" src="/images/thumb/TheWarWithin-Petopia-Logo.png/40px-TheWarWithin-Petopia-Logo.png?c7c8d5" decoding="async" loading="lazy" width="40" height="22" style="vertical-align: middle" data-file-width="100" data-file-height="54" /></a></span></span> <b><a href="/wiki/Patch_11.2.7" title="Patch 11.2.7">Patch 11.2.7</a> (2025-12-02):</b> Now also sells housing decor.   <i></i><br /></li>
+<li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="Battle for Azeroth"><img alt="Battle for Azeroth" src="/images/thumb/BattleForAzeroth-Logo-Small.png/40px-BattleForAzeroth-Logo-Small.png?25e36c" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span> <b><a href="/wiki/Patch_8.0.1" title="Patch 8.0.1">Patch 8.0.1</a> (2018-07-17):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Provisioner_Lija?action=edit&amp;section=5" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/npc=135459">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/npcs/135459">WoWDB</a></li>
+
+
+
+</ul>
+<!-- 
+NewPP limit report
+Cached time: 20260322013155
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.272 seconds
+Real time usage: 0.726 seconds
+Preprocessor visited node count: 14019/1000000
+Revision size: 2782/4194304 bytes
+Post‐expand include size: 45179/4194304 bytes
+Template argument size: 3125/4194304 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 2/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.005/15.000 seconds
+Lua memory usage: 655227/52428800 bytes
+Number of processed Cargo queries: 0
+Time spent processing Cargo queries: 0.000 s (avg. 0.000 s)
+Number of Cargo row insertion attempts: 1
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  293.848      1 -total
+ 62.45%  183.512      1 Template:Talanji&#039;s_Expedition
+ 49.63%  145.834     33 Template:Cost
+ 29.36%   86.276      1 Template:Npcbox
+ 26.20%   76.978      1 Template:Infobox
+  4.00%   11.760      1 Template:Level
+  3.91%   11.500      1 Template:Costitem
+  2.26%    6.637      1 Template:Aggro
+  1.89%    5.553      1 Template:Co
+  1.66%    4.866      1 Template:FactionIcon
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:293027-0!canonical and timestamp 20260322013155 and revision id 6642935. Rendering was triggered because: edit-page
+ -->
+</div>

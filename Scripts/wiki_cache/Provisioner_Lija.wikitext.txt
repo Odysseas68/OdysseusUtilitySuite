@@ -1,0 +1,80 @@
+{{Npcbox
+| name = Provisioner Lija
+| image = Provisioner Lija.jpg
+| title = Talanji's Expedition Emissary
+| gender = Female
+| level = Nazmir
+| type = Elite
+| faction = Horde
+| aggro = {{Aggro|-2|1}}
+| race = Zandalari troll
+| creature = Humanoid
+| repfaction = Talanji's Expedition
+| location = [[Zul'jan Ruins]], [[Nazmir]]{{Co|39.0|79.4|Nazmir}}
+| status = Alive
+}}
+
+'''Provisioner Lija''' is a [[Zandalari troll]] located at [[Zul'jan Ruins]] of [[Nazmir]].
+
+==Sells==
+{{Talanji's Expedition}}
+
+==Quests==
+*[[Romp in the Swamp]] {{questfinish}}
+*[[Supplies from Talanji's Expedition]] {{questfinish}}
+*[[Supplies Needed: Slimy Mackerel (Horde)]] {{queststartfinish}}
+*[[Talanji's Expedition (quest)]] {{questfinish}}
+*[[Work Order: Battle Flag: Phalanx Defense (Horde)]] {{queststartfinish}}
+*[[Work Order: Calcified Bone (Horde)]] {{queststartfinish}}
+*[[Work Order: Contract: Talanji's Expedition]] {{queststartfinish}}
+*[[Work Order: Deep Sea Satin (Horde)]] {{queststartfinish}}
+*[[Work Order: Drums of the Maelstrom (Horde)]] {{queststartfinish}}
+*[[Work Order: Enchant Weapon - Coastal Surge (Horde)]] {{queststartfinish}}
+*[[Work Order: Enchant Weapon - Torrent of Elements (Horde)]] {{queststartfinish}}
+*[[Work Order: Kubiline (Horde)]] {{queststartfinish}}
+*[[Work Order: Monelite Ore (Horde)]] {{queststartfinish}}
+*[[Work Order: Sea Mist Potion (Horde)]] {{queststartfinish}}
+*[[Work Order: Sea Stalk (Horde)]] {{queststartfinish}}
+*[[Work Order: Shimmerscale (Horde)]] {{queststartfinish}}
+*[[Work Order: Siren's Pollen (Horde)]] {{queststartfinish}}
+*[[Work Order: Solstone (Horde)]] {{queststartfinish}}
+*[[Work Order: XA-1000 Surface Skimmer (Horde)]] {{queststartfinish}}
+
+{{Rfb-section}}
+*[[Work Order: Aromatic Pollen]] {{questfinish}}
+
+==Quotes==
+;Gossip
+{{Dialogue|
+We don't have much in de way of supplies, but I can spare you a few things. If you help us out, I can probably see about getting you some of de good stuff.
+
+{{Buy|Let me browse your goods.}}
+}}
+
+==Patch changes==
+*{{Patch 11.2.7|note=Now also sells housing decor.}}
+*{{Patch 8.0.1|note=Added.}}
+
+==External links==
+{{Elinks-NPC|135459}}
+
+{{DEFAULTSORT:Lija}}
+[[Category:Zandalari troll characters]]
+[[Category:Emissaries]]
+[[Category:Provisioners]]
+[[Category:Faction quartermasters]]
+[[Category:Alchemy recipe vendors]]
+[[Category:Armor vendors]]
+[[Category:Companion vendors]]
+[[Category:Housing decor vendors]]
+[[Category:Enchanting formula vendors]]
+[[Category:Engineering schematic vendors]]
+[[Category:Drink vendors]]
+[[Category:Inscription technique vendors]]
+[[Category:Jewelcrafting design vendors]]
+[[Category:Leatherworking pattern vendors]]
+[[Category:Mount vendors]]
+[[Category:Tabard vendors]]
+[[Category:Talanji's Expedition]]
+[[Category:Quest givers]]
+[[Category:Nazmir NPCs]]

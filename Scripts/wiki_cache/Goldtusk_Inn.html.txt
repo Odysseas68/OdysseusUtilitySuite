@@ -1,0 +1,221 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Horde" title="Horde"><img alt="Horde" src="/images/Horde_32.png?db3bd7" decoding="async" loading="lazy" width="32" height="32" data-file-width="32" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Goldtusk Inn</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Goldtusk_Inn_entrance.jpg" class="image"><img alt="Goldtusk Inn entrance.jpg" src="/images/thumb/Goldtusk_Inn_entrance.jpg/260px-Goldtusk_Inn_entrance.jpg?5b1e12" decoding="async" loading="lazy" width="260" height="165" data-file-width="1473" data-file-height="937" /></a></td></tr><tr><td colspan="2" style="text-align:center;">
+The inn's exterior as it initially appears.</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Type</th><td>
+<a href="/wiki/Inn" title="Inn">Inn</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Leader(s)</th><td>
+<span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Zandalari_Male.gif" class="image"><img alt="IconSmall Zandalari Male.gif" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Rhan%27ka" title="Rhan&#39;ka">Rhan'ka</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race(s)</th><td>
+<span class="linkicon raceicon RaceLink"><a href="/wiki/Zandalari_troll" title="Zandalari troll"><img alt="Zandalari troll" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Zandalari_troll" title="Zandalari troll"><img alt="Zandalari troll" src="/images/thumb/IconSmall_Zandalari_Female.gif/16px-IconSmall_Zandalari_Female.gif?3f392f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Zandalari_troll" title="Zandalari troll">Zandalari troll</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation(s)</th><td>
+<a href="/wiki/Goldtusk_Gang" title="Goldtusk Gang">Goldtusk Gang</a>, <a href="/wiki/Voldunai" title="Voldunai">Voldunai</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Location</th><td>
+<a href="/wiki/Whistlebloom_Oasis" title="Whistlebloom Oasis">Whistlebloom Oasis</a>, <a href="/wiki/Vol%27dun" title="Vol&#39;dun">Vol'dun</a><span class="tttemplatelink coords-link noexcerpt" data-coords="/way 43.4 60.2"><a href="/wiki/Vol%27dun" title="Vol&#39;dun"><sup>[43.4,&#160;60.2]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Voldun.jpg/300px-WorldMap-Voldun.jpg?aca058" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="3840" data-file-height="2560" /><span style="position:absolute;left:43.4%;top:60.2%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Active</td></tr><tr><th colspan="2" style="text-align:center;"><b>Characteristics</b></th></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Facilities</th><td>
+<p><img alt="Yes" src="/images/Done.gif?c241b5" decoding="async" loading="lazy" title="Yes" width="14" height="14" data-file-width="14" data-file-height="14" /> Inn &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img alt="Yes" src="/images/Done.gif?c241b5" decoding="async" loading="lazy" title="Yes" width="14" height="14" data-file-width="14" data-file-height="14" /> Mailbox
+</p><p><img alt="Yes" src="/images/Done.gif?c241b5" decoding="async" loading="lazy" title="Yes" width="14" height="14" data-file-width="14" data-file-height="14" /> Stables 
+</p><p><img alt="Yes" src="/images/Done.gif?c241b5" decoding="async" loading="lazy" title="Yes" width="14" height="14" data-file-width="14" data-file-height="14" /> Anvil &amp; Forge
+</p>
+<img alt="No" src="/images/Undone.gif?be5f44" decoding="async" loading="lazy" title="No" width="14" height="14" data-file-width="14" data-file-height="14" /> Bank &#160;&#160;&#160;&#160;&#160;&#160;<img alt="No" src="/images/Undone.gif?be5f44" decoding="async" loading="lazy" title="No" width="14" height="14" data-file-width="14" data-file-height="14" /> Auctions</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Travel</th><td>
+<img alt="Yes" src="/images/Done.gif?c241b5" decoding="async" loading="lazy" title="Yes" width="14" height="14" data-file-width="14" data-file-height="14" /> Flight Master(s)<br /><img alt="No" src="/images/Undone.gif?be5f44" decoding="async" loading="lazy" title="No" width="14" height="14" data-file-width="14" data-file-height="14" /> Mass-transit<br /><img alt="No" src="/images/Undone.gif?be5f44" decoding="async" loading="lazy" title="No" width="14" height="14" data-file-width="14" data-file-height="14" /> Portal(s)</td></tr></tbody></table>
+<p>The <b>Goldtusk Inn</b> is an <a href="/wiki/Inn" title="Inn">inn</a> owned by <a href="/wiki/Rhan%27ka" title="Rhan&#39;ka">Rhan'ka</a><sup id="cite&#95;ref-Gozda&#39;kun&#95;1-0" class="reference"><a href="#cite_note-Gozda&#39;kun-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> and staffed by the <a href="/wiki/Goldtusk_Gang" title="Goldtusk Gang">Goldtusk Gang</a><sup id="cite&#95;ref-Gozda&#39;kun&#95;1-1" class="reference"><a href="#cite_note-Gozda&#39;kun-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-Meet&#95;2-0" class="reference"><a href="#cite_note-Meet-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> inside a cave on the northeast side of <a href="/wiki/Whistlebloom_Oasis" title="Whistlebloom Oasis">Whistlebloom Oasis</a> in <a href="/wiki/Vol%27dun" title="Vol&#39;dun">Vol'dun</a>. According to Rhan'ka, "All exiles are welcome to rest at de Goldtusk Inn, de only luxury lodge in dese harsh dunes".<sup id="cite&#95;ref-Meet&#95;2-1" class="reference"><a href="#cite_note-Meet-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> Guests at the inn need to earn their keep. The inn offers several excursion activities and packages, such as the "Warlord Package" (which is required for access to excursions to <a href="/wiki/Dead_Man%27s_Pass" title="Dead Man&#39;s Pass">Dead Man's Pass</a>), the "Scorpid King Package" (unlimited all-day access to Rhan'ka's famous <a href="/wiki/Scorpid" title="Scorpid">scorpid</a> blood drinks),<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup> and the "Giant Deadly Unstoppable Killer Cobra Experience" (an activity which challenges guests to travel to the dunes north of the inn and try not to be killed by <a href="/wiki/Sevriss" title="Sevriss">Sevriss</a>).<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>When <a href="/wiki/Adventurer" title="Adventurer">adventurers</a> first arrive at the inn, it offers no commodities and the visitors are only able to see the seemingly insane Rhan'ka talking to skulls.<sup id="cite&#95;ref-Meet&#95;2-2" class="reference"><a href="#cite_note-Meet-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> After Rhan'ka sends the adventurers to <a href="/wiki/Dead_Man%27s_Pass" title="Dead Man&#39;s Pass">Dead Man's Pass</a>, <a href="/wiki/Farraki_tribe" title="Farraki tribe">Sandfury</a> raiders led by <a href="/wiki/Gozda%27kun_the_Slaver" title="Gozda&#39;kun the Slaver">Gozda'kun the Slaver</a> thrash the inn and kidnap the Goldtusk Gang (leading Rhan'ka to officially ban the tribe from the inn).<sup id="cite&#95;ref-Gozda&#39;kun&#95;1-2" class="reference"><a href="#cite_note-Gozda&#39;kun-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup> After adventurers rescue the skulls, Rhan'ka conducts a ritual to initiate them into the Goldtusk Gang and allow them to see what the gang sees, revealing that most of the Goldtusk Gang members are actually ghosts that were previously invisible.<sup id="cite&#95;ref-6" class="reference"><a href="#cite_note-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup> After adventurers help the various gang members with tasks around the inn — specifically by helping <a href="/wiki/Man%27zul" title="Man&#39;zul">Man'zul</a> create and plant a "gold tusk" above the inn's entrance,<sup id="cite&#95;ref-7" class="reference"><a href="#cite_note-7"><span class="cite-bracket">&#91;</span>7<span class="cite-bracket">&#93;</span></a></sup> clearing the oasis of predators for <a href="/wiki/Volni" title="Volni">Volni</a>,<sup id="cite&#95;ref-8" class="reference"><a href="#cite_note-8"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup> and gathering fruit for <a href="/wiki/Zulsan" title="Zulsan">Zulsan</a>'s all-you-can-eat breakfast buffet<sup id="cite&#95;ref-9" class="reference"><a href="#cite_note-9"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup> — the place receives its first guest in the form of the injured <a href="/wiki/Bladeguard_Tarkaj" title="Bladeguard Tarkaj">Bladeguard Tarkaj</a>, who is offered food, drink, bandages, and bedding by the adventurer. Afterward, Rhan'ka declares that the inn is officially open.<sup id="cite&#95;ref-10" class="reference"><a href="#cite_note-10"><span class="cite-bracket">&#91;</span>10<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Inhabitants"><span class="tocnumber">1</span> <span class="toctext">Inhabitants</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Notes"><span class="tocnumber">2</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Gallery"><span class="tocnumber">3</span> <span class="toctext">Gallery</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Patch_changes"><span class="tocnumber">4</span> <span class="toctext">Patch changes</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Inhabitants">Inhabitants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Goldtusk_Inn?action=edit&amp;section=1" title="Edit section: Inhabitants"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Rhan%27ka" title="Rhan&#39;ka"><span style="color:">Rhan'ka</span></a></li></ul>
+<dl><dt>After questline</dt></dl>
+<ul><li><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Bladeguard_Tarkaj" title="Bladeguard Tarkaj"><span style="color:">Bladeguard Tarkaj</span></a></li>
+<li><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Zandalari_Female.gif/16px-IconSmall_Zandalari_Female.gif?3f392f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Grenja" title="Grenja"><span style="color:">Grenja</span></a>&#160;<small>&lt;Repairs&gt;</small></li>
+<li><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Man%27zul" title="Man&#39;zul"><span style="color:">Man'zul</span></a>&#160;<small>&lt;Stable Master&gt;</small></li>
+<li><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Rhan%27ka" title="Rhan&#39;ka"><span style="color:">Rhan'ka</span></a>&#160;<small>&lt;Innkeeper&gt;</small></li>
+<li><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Zulsan" title="Zulsan"><span style="color:">Zulsan</span></a></li>
+<li><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Zandalari_Female.gif/16px-IconSmall_Zandalari_Female.gif?3f392f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Volni" title="Volni"><span style="color:">Volni</span></a>&#160;<small>&lt;Flight Master&gt;</small></li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Goldtusk_Inn?action=edit&amp;section=2" title="Edit section: Notes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>The inn contains an interactable <a href="/wiki/Drum_(Vol%27dun)?action=edit&amp;redlink=1" class="new" title="Drum (Vol&#39;dun) (page does not exist)" rel="nofollow">Drum</a> and a Cooking Cauldron in which Rhan'ka hides during part of the questline.</li>
+<li>The commodities at the inn are not initially available and instead have to be unlocked through quests. Volni's flight path unlocks after <span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/The_Best_Kill_is_Overkill" title="The Best Kill is Overkill"><span class="ajaxttlink questlink">The Best Kill is Overkill</span></a></span>, and Grenja, Man'zul, and Rhan'ka only offer their services after completion of <span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/A_Goldtusk_Greeting" title="A Goldtusk Greeting"><span class="ajaxttlink questlink">A Goldtusk Greeting</span></a></span>. A Goldtusk Greeting also adds an <a href="/wiki/Anvil" title="Anvil">anvil</a>, <a href="/wiki/Forge" title="Forge">forge</a>, and <a href="/wiki/Mailbox" class="mw-redirect" title="Mailbox">Goldtusk Inn Mailbox</a> outside the inn's entrance.</li></ul>
+<h2><span class="mw-headline" id="Gallery">Gallery</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Goldtusk_Inn?action=edit&amp;section=3" title="Edit section: Gallery"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Goldtusk_Inn.jpg" class="image" title="The inn&#39;s interior as it initially appears."><img alt="The inn&#39;s interior as it initially appears." src="/images/thumb/Goldtusk_Inn.jpg/120px-Goldtusk_Inn.jpg?a10996" decoding="async" loading="lazy" width="120" height="68" data-file-width="1920" data-file-height="1080" /></a></div></div>
+			<div class="gallerytext">The inn's interior as it initially appears.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Goldtusk_Inn_2.jpg" class="image" title="After being raided by the Sandfury."><img alt="After being raided by the Sandfury." src="/images/thumb/Goldtusk_Inn_2.jpg/120px-Goldtusk_Inn_2.jpg?6a9df6" decoding="async" loading="lazy" width="120" height="68" data-file-width="1920" data-file-height="1080" /></a></div></div>
+			<div class="gallerytext">After being raided by the Sandfury.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Goldtusk_Inn_3.jpg" class="image" title="After completion of A Goldtusk Greeting."><img alt="After completion of A Goldtusk Greeting." src="/images/thumb/Goldtusk_Inn_3.jpg/120px-Goldtusk_Inn_3.jpg?4c2f03" decoding="async" loading="lazy" width="120" height="68" data-file-width="1920" data-file-height="1080" /></a></div></div>
+			<div class="gallerytext">After completion of A Goldtusk Greeting.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:47.5px auto;"><a href="/wiki/File:Goldtusk_Inn_entrance_2.jpg" class="image" title="The inn&#39;s exterior with an anvil, forge, and mailbox after A Goldtusk Greeting, as well as Man&#39;zul&#39;s &quot;gold tusk&quot; above the entrance."><img alt="The inn&#39;s exterior with an anvil, forge, and mailbox after A Goldtusk Greeting, as well as Man&#39;zul&#39;s &quot;gold tusk&quot; above the entrance." src="/images/thumb/Goldtusk_Inn_entrance_2.jpg/120px-Goldtusk_Inn_entrance_2.jpg?6e30b1" decoding="async" loading="lazy" width="120" height="55" data-file-width="1897" data-file-height="870" /></a></div></div>
+			<div class="gallerytext">The inn's exterior with an anvil, forge, and mailbox after A Goldtusk Greeting, as well as Man'zul's "<a href="/wiki/Creative_Marketing" title="Creative Marketing">gold tusk</a>" above the entrance.</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Goldtusk_Inn?action=edit&amp;section=4" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="Battle for Azeroth"><img alt="Battle for Azeroth" src="/images/thumb/BattleForAzeroth-Logo-Small.png/40px-BattleForAzeroth-Logo-Small.png?25e36c" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span> <b><a href="/wiki/Patch_8.0.1" title="Patch 8.0.1">Patch 8.0.1</a> (2018-07-17):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Goldtusk_Inn?action=edit&amp;section=5" title="Edit section: See also"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_food_legion_heartyfeast.png/16px-Inv_misc_food_legion_heartyfeast.png?9b1378" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Goldtusk_Inn_Breakfast_Buffet" title="Goldtusk Inn Breakfast Buffet"><span class="itemlink ajaxttlink qc-rare" title="Goldtusk Inn Breakfast Buffet is a rare quality item."><span class="bracket">&#91;</span>Goldtusk Inn Breakfast Buffet<span class="bracket">&#93;</span></span></a></span></li>
+<li><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_herb_jadetealeaf.png/16px-Inv_misc_herb_jadetealeaf.png?e639a9" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Goldtusk_Inn_Coupon" title="Goldtusk Inn Coupon"><span class="itemlink ajaxttlink qc-common" title="Goldtusk Inn Coupon is a common quality item."><span class="bracket">&#91;</span>Goldtusk Inn Coupon<span class="bracket">&#93;</span></span></a></span></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Goldtusk_Inn?action=edit&amp;section=6" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist references-column-count references-column-count-2" style="column-count:2;column-width:30em;font-size:calc(80% + 2.1px);"><div style="margin-top:-0.3em; margin-bottom:0px; height:0px">&#160;</div><div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-Gozda&#39;kun-1">^ <sup><a href="#cite_ref-Gozda&#39;kun_1-0">a</a></sup> <sup><a href="#cite_ref-Gozda&#39;kun_1-1">b</a></sup> <sup><a href="#cite_ref-Gozda&#39;kun_1-2">c</a></sup> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/Gozda%27kun_the_Slaver_(quest)" title="Gozda&#39;kun the Slaver (quest)"><span class="ajaxttlink questlink">Gozda'kun the Slaver</span></a></span></span>
+</li>
+<li id="cite&#95;note-Meet-2">^ <sup><a href="#cite_ref-Meet_2-0">a</a></sup> <sup><a href="#cite_ref-Meet_2-1">b</a></sup> <sup><a href="#cite_ref-Meet_2-2">c</a></sup> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/Meet_the_Goldtusk_Gang" title="Meet the Goldtusk Gang"><span class="ajaxttlink questlink">Meet the Goldtusk Gang</span></a></span></span>
+</li>
+<li id="cite&#95;note-3"><a href="#cite_ref-3">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/Dirty_Work_for_Dirty_Drinks" title="Dirty Work for Dirty Drinks"><span class="ajaxttlink questlink">Dirty Work for Dirty Drinks</span></a></span></span>
+</li>
+<li id="cite&#95;note-4"><a href="#cite_ref-4">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60G3]&#160;</span><a href="/wiki/WANTED:_Cobra_Excursion_Participants" title="WANTED: Cobra Excursion Participants"><span class="ajaxttlink questlink">WANTED: Cobra Excursion Participants</span></a></span></span>
+</li>
+<li id="cite&#95;note-5"><a href="#cite_ref-5">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/The_Great_Cranium_Caper" title="The Great Cranium Caper"><span class="ajaxttlink questlink">The Great Cranium Caper</span></a></span></span>
+</li>
+<li id="cite&#95;note-6"><a href="#cite_ref-6">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/Powerful_Spirits" title="Powerful Spirits"><span class="ajaxttlink questlink">Powerful Spirits</span></a></span></span>
+</li>
+<li id="cite&#95;note-7"><a href="#cite_ref-7">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/Creative_Marketing" title="Creative Marketing"><span class="ajaxttlink questlink">Creative Marketing</span></a></span></span>
+</li>
+<li id="cite&#95;note-8"><a href="#cite_ref-8">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/The_Best_Kill_is_Overkill" title="The Best Kill is Overkill"><span class="ajaxttlink questlink">The Best Kill is Overkill</span></a></span></span>
+</li>
+<li id="cite&#95;note-9"><a href="#cite_ref-9">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/Restocking_the_Buffet" title="Restocking the Buffet"><span class="ajaxttlink questlink">Restocking the Buffet</span></a></span></span>
+</li>
+<li id="cite&#95;note-10"><a href="#cite_ref-10">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[30-60]&#160;</span><a href="/wiki/A_Goldtusk_Greeting" title="A Goldtusk Greeting"><span class="ajaxttlink questlink">A Goldtusk Greeting</span></a></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Goldtusk_Inn?action=edit&amp;section=7" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/zone=8958">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/zones/8958">WoWDB</a></li>
+
+<li class="wago"><a rel="nofollow" class="external text" href="https://wago.tools/db2/AreaTable?filter%5BID%5D=exact%3A8958">Wago</a></li>
+
+</ul>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="4"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Vol%27dun" title="Template:Vol&#39;dun"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Vol%27dun?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<a href="/wiki/Subzone" title="Subzone">Subzones</a> of <a href="/wiki/Vol%27dun" title="Vol&#39;dun">Vol'dun</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-image" style="width:0%;padding:0px 2px 0px 0px;" rowspan="1"><div>
+<a href="/wiki/File:Neutral_32.png" class="image" title="Vol&#39;dun is a contested territory"><img alt="Vol&#39;dun is a contested territory" src="/images/Neutral_32.png?ae6e60" decoding="async" loading="lazy" width="18" height="32" data-file-width="18" data-file-height="32" /></a></div></td><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Abandoned_Burrows" title="Abandoned Burrows">Abandoned Burrows</a>
+<ul><li><a href="/wiki/Shrouded_Hollow" title="Shrouded Hollow">Shrouded Hollow</a></li></ul></li>
+<li><a href="/wiki/Arid_Basin" title="Arid Basin">Arid Basin</a>
+<ul><li><a href="/wiki/Snarlfang_Den" title="Snarlfang Den">Snarlfang Den</a></li></ul></li>
+<li><a href="/wiki/Ashvane_Encampment" title="Ashvane Encampment">Ashvane Encampment</a>
+<ul><li><a href="/wiki/Redrock_Harbor" title="Redrock Harbor">Redrock Harbor</a>
+<ul><li><i><a href="/wiki/Siren%27s_Call" title="Siren&#39;s Call">The Siren's Call</a></i></li></ul></li>
+<li><a href="/wiki/Redrock_Mines" title="Redrock Mines">Redrock Mines</a></li></ul></li>
+<li><a href="/wiki/Atul%27Aman" title="Atul&#39;Aman">Atul'Aman</a>
+<ul><li><a href="/wiki/Abandoned_Passage" title="Abandoned Passage">Abandoned Passage</a></li>
+<li><a href="/wiki/Blood_Font" title="Blood Font">The Blood Font</a></li>
+<li><a href="/wiki/Fetid_Crypt" title="Fetid Crypt">Fetid Crypt</a></li>
+<li><a href="/wiki/Sandfury_Hideout" title="Sandfury Hideout">Sandfury Hideout</a></li></ul></li>
+<li><a href="/wiki/Blistering_Wastes" title="Blistering Wastes">The Blistering Wastes</a></li>
+<li><a href="/wiki/Bone_Pit" title="Bone Pit">The Bone Pit</a></li>
+<li><a href="/wiki/Bonepicker_Summit" title="Bonepicker Summit">Bonepicker Summit</a></li>
+<li><a href="/wiki/Bonetrail_Gulch" title="Bonetrail Gulch">Bonetrail Gulch</a></li>
+<li><a href="/wiki/Bouldered_Bluffs" title="Bouldered Bluffs">Bouldered Bluffs</a></li>
+<li><a href="/wiki/Brine_Basin" title="Brine Basin">The Brine Basin</a>
+<ul><li><a href="/wiki/Serpent%27s_Maw" title="Serpent&#39;s Maw">The Serpent's Maw</a></li></ul></li>
+<li><a href="/wiki/Camp_Lastwind" title="Camp Lastwind">Camp Lastwind</a></li>
+<li><a href="/wiki/Court_of_Zak%27rajan" title="Court of Zak&#39;rajan">Court of Zak'rajan</a></li>
+<li><a href="/wiki/Cracked_Coast" title="Cracked Coast">The Cracked Coast</a>
+<ul><li><a href="/wiki/Carapace_Ridge" title="Carapace Ridge">Carapace Ridge</a></li>
+<li><a href="/wiki/Scalefang_Outpost" title="Scalefang Outpost">Scalefang Outpost</a></li></ul></li>
+<li><a href="/wiki/Crackling_Ridge" title="Crackling Ridge">Crackling Ridge</a>
+<ul><li><a href="/wiki/Rakjan%27s_Peak" title="Rakjan&#39;s Peak">Rakjan's Peak</a></li></ul></li>
+<li><a href="/wiki/Darkwood_Shoal" title="Darkwood Shoal">Darkwood Shoal</a></li>
+<li><a href="/wiki/Dead_Man%27s_Pass" title="Dead Man&#39;s Pass">Dead Man's Pass</a></li>
+<li><a href="/wiki/Deadwood_Cove" title="Deadwood Cove">Deadwood Cove</a></li>
+<li><a href="/wiki/Eastern_Dunes" title="Eastern Dunes">Eastern Dunes</a></li>
+<li><a href="/wiki/Exiles%27_Enclave" title="Exiles&#39; Enclave">Exiles' Enclave</a>
+<ul><li><a href="/wiki/Tongo%27s_Hideout" title="Tongo&#39;s Hideout">Tongo's Hideout</a></li></ul></li>
+<li><a href="/wiki/Forgotten_Marsh" title="Forgotten Marsh">The Forgotten Marsh</a></li>
+<li><a href="/wiki/Forward_Camp" title="Forward Camp">Forward Camp</a></li>
+<li><a href="/wiki/Four_Stingers" title="Four Stingers">The Four Stingers</a></li>
+<li><a href="/wiki/Golden_Isle" title="Golden Isle">The Golden Isle</a></li>
+<li><a href="/wiki/Heyman%27s_Hideaway" title="Heyman&#39;s Hideaway">Heyman's Hideaway</a></li>
+<li><a href="/wiki/Port_of_Zem%27lan" title="Port of Zem&#39;lan">Port of Zem'lan</a></li>
+<li><a href="/wiki/Prickly_Grove" title="Prickly Grove">The Prickly Grove</a>
+<ul><li><a href="/wiki/Vulpera_Hideaway" title="Vulpera Hideaway">Vulpera Hideaway</a></li></ul></li>
+<li><a href="/wiki/Prisoners%27_Pass" title="Prisoners&#39; Pass">Prisoners' Pass</a></li>
+<li><a href="/wiki/Redrock_Lowlands" title="Redrock Lowlands">Redrock Lowlands</a>
+<ul><li><a href="/wiki/Randall%27s_Refuge" title="Randall&#39;s Refuge">Randall's Refuge</a></li></ul></li>
+<li><a href="/wiki/Redrock_Mesa" title="Redrock Mesa">Redrock Mesa</a>
+<ul><li><a href="/wiki/Eternal_Spring" title="Eternal Spring">The Eternal Spring</a></li>
+<li><a href="/wiki/Redrock_Cavern" title="Redrock Cavern">Redrock Cavern</a></li>
+<li><a href="/wiki/Temple_of_Akunda" title="Temple of Akunda">Temple of Akunda</a></li></ul></li>
+<li><a href="/wiki/Redsilt_Wash" title="Redsilt Wash">Redsilt Wash</a></li>
+<li><a href="/wiki/Scorched_Sands_Arena" title="Scorched Sands Arena">Scorched Sands Arena</a>
+<ul><li><a href="/wiki/Scorched_Sands_Outpost" title="Scorched Sands Outpost">Scorched Sands Outpost</a></li></ul></li>
+<li><a href="/wiki/Shatterstone_Harbor" title="Shatterstone Harbor">Shatterstone Harbor</a></li>
+<li><a href="/wiki/Shrouded_Shore" title="Shrouded Shore">Shrouded Shore</a></li>
+<li><a href="/wiki/Skycallers%27_Spire" title="Skycallers&#39; Spire">Skycallers' Spire</a>
+<ul><li><a href="/wiki/Sacred_Sands" title="Sacred Sands">The Sacred Sands</a></li>
+<li><a href="/wiki/Temple_of_Sethraliss" title="Temple of Sethraliss">Temple of Sethraliss</a></li>
+<li><a href="/wiki/Thundering_Terrace" title="Thundering Terrace">Thundering Terrace</a></li></ul></li>
+<li><a href="/wiki/Slithering_Gulch" title="Slithering Gulch">Slithering Gulch</a>
+<ul><li><a href="/wiki/Conqueror%27s_Path" title="Conqueror&#39;s Path">Conqueror's Path</a>
+<ul><li><a href="/wiki/Vorrik%27s_Sanctum" title="Vorrik&#39;s Sanctum">Vorrik's Sanctum</a></li></ul></li>
+<li><a href="/wiki/Crater_of_Conquerors" title="Crater of Conquerors">Crater of Conquerors</a></li>
+<li><a href="/wiki/Feeding_Pits_(Vol%27dun)" title="Feeding Pits (Vol&#39;dun)">Feeding Pits</a></li>
+<li><a href="/wiki/Vulture%27s_Nest" title="Vulture&#39;s Nest">Vulture's Nest</a></li></ul></li>
+<li><a href="/wiki/South_Seas" title="South Seas">South Seas</a></li>
+<li><a href="/wiki/Temple_Incursion" title="Temple Incursion">Temple Incursion</a></li>
+<li><a href="/wiki/Terrace_of_the_Devoted" title="Terrace of the Devoted">Terrace of the Devoted</a>
+<ul><li><a href="/wiki/Sanctuary_of_the_Devoted" title="Sanctuary of the Devoted">Sanctuary of the Devoted</a></li></ul></li>
+<li><a href="/wiki/Tortaka_Refuge" title="Tortaka Refuge">Tortaka Refuge</a></li>
+<li><a href="/wiki/Valley_of_Sorrows" title="Valley of Sorrows">Valley of Sorrows</a>
+<ul><li><a href="/wiki/Forgotten_Hollow" title="Forgotten Hollow">Forgotten Hollow</a></li></ul></li>
+<li><a href="/wiki/Verdant_Plateau" title="Verdant Plateau">Verdant Plateau</a></li>
+<li><a href="/wiki/Whispering_Crag" title="Whispering Crag">The Whispering Crag</a>
+<ul><li><a href="/wiki/Temple_of_Kimbul" title="Temple of Kimbul">Temple of Kimbul</a></li>
+<li><a href="/wiki/Terrace_of_the_Fang" title="Terrace of the Fang">Terrace of the Fang</a></li></ul></li>
+<li><a href="/wiki/Whistlebloom_Oasis" title="Whistlebloom Oasis">Whistlebloom Oasis</a>
+<ul><li><a class="mw-selflink selflink">Goldtusk Inn</a></li></ul></li>
+<li><a href="/wiki/Windswept_Pass" title="Windswept Pass">Windswept Pass</a>
+<ul><li><a href="/wiki/Bwoljin%27s_Fall" title="Bwoljin&#39;s Fall">Bwoljin's Fall</a></li></ul></li>
+<li><a href="/wiki/Withering_Gulch" title="Withering Gulch">Withering Gulch</a></li>
+<li><a href="/wiki/Zul%27Ahjin" title="Zul&#39;Ahjin">Zul'Ahjin</a></li>
+<li><a href="/wiki/Zul%27Toa" title="Zul&#39;Toa">Zul'Toa</a></li></ul>
+</div></td><td class="navbox-image" style="width:0%;padding:0px 0px 0px 2px;" rowspan="1"><div class="metadata">
+<a href="/wiki/File:WorldMap-Voldun.jpg" class="image" title="Map of Vol&#39;dun"><img alt="Map of Vol&#39;dun" src="/images/thumb/WorldMap-Voldun.jpg/120px-WorldMap-Voldun.jpg?aca058" decoding="async" loading="lazy" width="120" height="80" data-file-width="3840" data-file-height="2560" /></a></div></td></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-abovebelow" style=";" colspan="4"><div>
+<a href="/wiki/Category:Vol%27dun" title="Category:Vol&#39;dun">Vol'dun category</a></div></td></tr></tbody></table></td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20260324081532
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.090 seconds
+Real time usage: 0.192 seconds
+Preprocessor visited node count: 1989/1000000
+Revision size: 4434/4194304 bytes
+Post‐expand include size: 31803/4194304 bytes
+Template argument size: 8578/4194304 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 9446/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.007/15.000 seconds
+Lua memory usage: 1397683/52428800 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  102.286      1 -total
+ 45.58%   46.623      1 Template:Infobox_town
+ 42.84%   43.815      1 Template:Infobox
+ 16.67%   17.048      1 Template:Reflist
+ 11.17%   11.425      1 Template:Vol&#039;dun
+  9.43%    9.644      1 Template:Navbox
+  9.06%    9.270      1 Template:Race
+  8.58%    8.775      7 Template:NPC
+  4.87%    4.978      1 Template:Patch_8.0.1
+  4.47%    4.573      7 Template:Text
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:156843-0!canonical and timestamp 20260324081532 and revision id 6187611. Rendering was triggered because: RefreshLinksJob
+ -->
+</div>

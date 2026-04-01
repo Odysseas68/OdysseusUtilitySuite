@@ -1,0 +1,148 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table style="" class="plainlinks ambox ambox-orange">
+<tbody><tr>
+<td class="ambox-image"><a href="/wiki/File:Achievement_zone_brokenshore.png" class="image"><img alt="Achievement zone brokenshore.png" src="/images/thumb/Achievement_zone_brokenshore.png/48px-Achievement_zone_brokenshore.png?63b67c" decoding="async" loading="lazy" width="48" height="48" data-file-width="64" data-file-height="64" /></a></td>
+<td class="ambox-text"><b>This article falls within the scope of the Legion subzone project.</b>
+<div class="amsmalltext">
+<ul><li>This subzone was added in <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i>, but contains little to no information or screenshots.</li>
+<li>This article may need an intro and/or categories such as <a href="/wiki/Category:Territories" title="Category:Territories">racial territories</a>, <a href="/wiki/Category:Villages" title="Category:Villages">villages</a>, <a href="/wiki/Category:Quest_hubs" title="Category:Quest hubs">quest hubs</a>.</li></ul>
+</div></td></tr></tbody></table>
+<div class="thumb tright"><div class="thumbinner" style="width:322px;"><a href="/wiki/File:Crumbled_Palace.jpg" class="image"><img src="/images/thumb/Crumbled_Palace.jpg/320px-Crumbled_Palace.jpg?cf0c0f" decoding="async" loading="lazy" width="320" height="180" class="thumbimage" data-file-width="1920" data-file-height="1080" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Crumbled_Palace.jpg" class="internal" title="Enlarge"></a></div>Crumbled Palace.</div></div></div>
+<p><b>Crumbled Palace</b> is a subzone found in <a href="/wiki/Azsuna" title="Azsuna">Azsuna</a>.<span class="tttemplatelink coords-link noexcerpt" data-coords="/way 47 40"><a href="/wiki/Azsuna" title="Azsuna"><sup>[47,&#160;40]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Azsuna.jpg/300px-WorldMap-Azsuna.jpg?4377a2" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="1002" data-file-height="668" /><span style="position:absolute;left:47%;top:40%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span> It is the home of <a href="/wiki/Prince_Farondis" title="Prince Farondis">Prince Farondis</a> and the main hub of the <a href="/wiki/Court_of_Farondis" title="Court of Farondis">Court of Farondis</a>.
+</p><p>There is no flight path, but <a href="/wiki/Illidari_Stand" title="Illidari Stand">Illidari Stand</a> is <a href="/wiki/Patch_7.1.0_(undocumented_changes)#World_Environment" title="Patch 7.1.0 (undocumented changes)">right down the hill</a>. There are also skinning and archeology camps nearby.
+</p>
+<h2><span class="mw-headline" id="Trivia">Trivia</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Crumbled_Palace?action=edit&amp;section=1" title="Edit section: Trivia"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<a href="/wiki/Jewelcrafting" title="Jewelcrafting"><img alt="Jewelcrafting" src="/images/thumb/ProfIcons_jewelcrafting.png/15px-ProfIcons_jewelcrafting.png?9acd4b" decoding="async" loading="lazy" width="15" height="15" style="vertical-align: middle" data-file-width="130" data-file-height="130" /></a>&#160;[10-45]&#160;</span><a href="/wiki/A_Familiar_Ring_to_It" title="A Familiar Ring to It"><span class="ajaxttlink questlink">A Familiar Ring to It</span></a></span> refers to it as the Crumbling Palace which might be a remnant from beta.</li></ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Crumbled_Palace?action=edit&amp;section=2" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_7.0.3" title="Patch 7.0.3">Patch 7.0.3</a> (2016-07-19):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Crumbled_Palace?action=edit&amp;section=3" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/zone=7355">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/zones/7355">WoWDB</a></li>
+
+<li class="wago"><a rel="nofollow" class="external text" href="https://wago.tools/db2/AreaTable?filter%5BID%5D=exact%3A7355">Wago</a></li>
+
+</ul>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="4"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Azsuna" title="Template:Azsuna"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Azsuna?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<a href="/wiki/Subzone" title="Subzone">Subzones</a> of <a href="/wiki/Azsuna" title="Azsuna">Azsuna</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-image" style="width:0%;padding:0px 2px 0px 0px;" rowspan="1"><div>
+<a href="/wiki/File:Neutral_32.png" class="image" title="Azsuna is a contested territory"><img alt="Azsuna is a contested territory" src="/images/Neutral_32.png?ae6e60" decoding="async" loading="lazy" width="18" height="32" data-file-width="18" data-file-height="32" /></a></div></td><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Abandoned_Crossroads" title="Abandoned Crossroads">The Abandoned Crossroads</a></li>
+<li><a href="/wiki/Alluvanon%27s_Delta" title="Alluvanon&#39;s Delta">Alluvanon's Delta</a></li>
+<li><a href="/wiki/Azurewing_Repose" title="Azurewing Repose">Azurewing Repose</a>
+<ul><li><a href="/wiki/Leyhollow" title="Leyhollow">Leyhollow</a></li></ul></li>
+<li><a href="/wiki/Azurewing_Whelplands" title="Azurewing Whelplands">Azurewing Whelplands</a>
+<ul><li><a href="/wiki/Runas%27s_Hovel" title="Runas&#39;s Hovel">Runas's Hovel</a></li></ul></li>
+<li><a href="/wiki/Challiane%27s_Terrace" title="Challiane&#39;s Terrace">Challiane's Terrace</a></li>
+<li><a href="/wiki/Dead_Man%27s_Bay" title="Dead Man&#39;s Bay">Dead Man's Bay</a></li>
+<li><a href="/wiki/El%27dranil_Peak" title="El&#39;dranil Peak">El'dranil Peak</a></li>
+<li><a href="/wiki/El%27dranil_Shallows" title="El&#39;dranil Shallows">El'dranil Shallows</a>
+<ul><li><a href="/wiki/Eye_of_Azshara" title="Eye of Azshara">Eye of Azshara</a></li>
+<li><a href="/wiki/Gangamesh%27s_Den" title="Gangamesh&#39;s Den">Gangamesh's Den</a></li>
+<li><a href="/wiki/Hatecoil_Slave_Pen" title="Hatecoil Slave Pen">Hatecoil Slave Pen</a></li>
+<li><a href="/wiki/Hatecoil_Warcamp" title="Hatecoil Warcamp">Hatecoil Warcamp</a>
+<ul><li><a href="/wiki/Eksis%27_Lair" title="Eksis&#39; Lair">Eksis' Lair</a></li></ul></li></ul></li>
+<li><a href="/wiki/Empyrean_Society_Enclave" title="Empyrean Society Enclave">The Empyrean Society Enclave</a>
+<ul><li><a href="/wiki/Empyrean_Society_Headquarters" title="Empyrean Society Headquarters">Empyrean Society Headquarters</a></li></ul></li>
+<li><a href="/wiki/Faronaar" title="Faronaar">Faronaar</a>
+<ul><li><a href="/wiki/Altar_of_End_Times" title="Altar of End Times">Altar of End Times</a>
+<ul><li><a href="/wiki/Den_of_Fiends" title="Den of Fiends">Den of Fiends</a></li>
+<li><a href="/wiki/Pit_of_Malinoth" title="Pit of Malinoth">Pit of Malinoth</a></li></ul></li>
+<li><a href="/wiki/Burning_Gate" title="Burning Gate">The Burning Gate</a></li>
+<li><a href="/wiki/Felbeast_Dens" title="Felbeast Dens">Felbeast Dens</a></li>
+<li><a href="/wiki/Felfire_Cavern" title="Felfire Cavern">Felfire Cavern</a></li>
+<li><a href="/wiki/Felsurge_Nest" title="Felsurge Nest">Felsurge Nest</a></li>
+<li><a href="/wiki/Felwatch_Point" title="Felwatch Point">Felwatch Point</a></li>
+<li><a href="/wiki/Fiendish_Vault" title="Fiendish Vault">Fiendish Vault</a></li>
+<li><a href="/wiki/Illidari_Perch" title="Illidari Perch">Illidari Perch</a></li>
+<li><a href="/wiki/Legion_Camp:_Chaos" title="Legion Camp: Chaos">Legion Camp: Chaos</a></li>
+<li><a href="/wiki/Legion_Camp:_Ruin" title="Legion Camp: Ruin">Legion Camp: Ruin</a></li>
+<li><a href="/wiki/Pits_of_Despair" title="Pits of Despair">Pits of Despair</a></li>
+<li><a href="/wiki/Soul_Engine:_Apocalypse" title="Soul Engine: Apocalypse">Soul Engine: Apocalypse</a></li>
+<li><a href="/wiki/Soulrender" title="Soulrender">The Soulrender</a></li>
+<li><a href="/wiki/Traitor%27s_Overlook" title="Traitor&#39;s Overlook">Traitor's Overlook</a></li>
+<li><a href="/wiki/Trickster%27s_Cut" title="Trickster&#39;s Cut">Trickster's Cut</a></li>
+<li><a href="/wiki/Vanquish_Point" title="Vanquish Point">Vanquish Point</a></li></ul></li>
+<li><a href="/wiki/Faronaar_Front" title="Faronaar Front">Faronaar Front</a></li>
+<li><a href="/wiki/Farondale" title="Farondale">Farondale</a></li>
+<li><a href="/wiki/Felblaze_Ingress" title="Felblaze Ingress">Felblaze Ingress</a></li>
+<li><a href="/wiki/Forever_Rise" title="Forever Rise">Forever Rise</a></li>
+<li><a href="/wiki/Garden_of_Elune" title="Garden of Elune">Garden of Elune</a></li>
+<li><a href="/wiki/Greenway" title="Greenway">The Greenway</a>
+<ul><li><a href="/wiki/Lyndras%27_Exile" title="Lyndras&#39; Exile">Lyndras' Exile</a></li></ul></li>
+<li><a href="/wiki/Grey_Shoals" title="Grey Shoals">Grey Shoals</a></li>
+<li><a href="/wiki/Illidari_Stand" title="Illidari Stand">Illidari Stand</a></li>
+<li><a href="/wiki/Isle_of_the_Watchers" title="Isle of the Watchers">Isle of the Watchers</a>
+<ul><li><a href="/wiki/Vault_of_the_Wardens" title="Vault of the Wardens">Vault of the Wardens</a></li>
+<li><a href="/wiki/Wardens%27_Redoubt" title="Wardens&#39; Redoubt">Wardens' Redoubt</a></li>
+<li><a href="/wiki/Watchers%27_Aerie" title="Watchers&#39; Aerie">Watchers' Aerie</a></li></ul></li>
+<li><a href="/wiki/Ley-Ruins_of_Zarkhenar" title="Ley-Ruins of Zarkhenar">Ley-Ruins of Zarkhenar</a>
+<ul><li><a href="/wiki/Zarkhenar_Temple" title="Zarkhenar Temple">Zarkhenar Temple</a></li></ul></li>
+<li><a href="/wiki/Lithduin_Reef" title="Lithduin Reef">Lithduin Reef</a></li>
+<li><a href="/wiki/Llothien" title="Llothien">Llothien</a></li>
+<li><a href="/wiki/Llothien_Highlands" title="Llothien Highlands">Llothien Highlands</a></li>
+<li><a href="/wiki/Lost_Orchard" title="Lost Orchard">The Lost Orchard</a></li>
+<li><a href="/wiki/Mak%27rana" title="Mak&#39;rana">Mak'rana</a></li>
+<li><a href="/wiki/Nor%27Danil_Wellspring" title="Nor&#39;Danil Wellspring">Nor'Danil Wellspring</a></li>
+<li><a href="/wiki/Oceanus_Cove" title="Oceanus Cove">Oceanus Cove</a></li>
+<li><a href="/wiki/Old_Coast_Path" title="Old Coast Path">Old Coast Path</a></li>
+<li><a href="/wiki/Olivian_Veil" title="Olivian Veil">Olivian Veil</a>
+<ul><li><a href="/wiki/Gloombound_Barrow" title="Gloombound Barrow">Gloombound Barrow</a></li></ul></li>
+<li><a href="/wiki/Paledoom%27s_Overlook" title="Paledoom&#39;s Overlook">Paledoom's Overlook</a></li>
+<li><i><a href="/wiki/The_Queen%27s_Reprisal" title="The Queen&#39;s Reprisal">Queen's Reprisal</a></i></li>
+<li><a href="/wiki/Rhut%27van_Divide" title="Rhut&#39;van Divide">Rhut'van Divide</a></li>
+<li><a href="/wiki/Rhut%27van_Passage" title="Rhut&#39;van Passage">Rhut'van Passage</a></li>
+<li><a href="/wiki/Rhut%27van_Peak" title="Rhut&#39;van Peak">Rhut'van Peak</a></li>
+<li><a href="/wiki/Ruined_Sanctum" title="Ruined Sanctum">The Ruined Sanctum</a></li>
+<li><a href="/wiki/Ruins_of_Nar%27thalas" title="Ruins of Nar&#39;thalas">Ruins of Nar'thalas</a>
+<ul><li><a class="mw-selflink selflink">Crumbled Palace</a></li>
+<li><a href="/wiki/Drowned_Gardens" title="Drowned Gardens">Drowned Gardens</a></li>
+<li><a href="/wiki/Nar%27thalas_Academy" title="Nar&#39;thalas Academy">Nar'thalas Academy</a>
+<ul><li><a href="/wiki/Hall_of_Antiquities" title="Hall of Antiquities">Hall of Antiquities</a></li>
+<li><a href="/wiki/Hall_of_Arcane_Learning" title="Hall of Arcane Learning">Hall of Arcane Learning</a></li></ul></li>
+<li><a href="/wiki/Royal_Pond" title="Royal Pond">The Royal Pond</a></li></ul></li>
+<li><a href="/wiki/Seabreak_Isle" title="Seabreak Isle">Seabreak Isle</a></li>
+<li><a href="/wiki/Shackle%27s_Den" title="Shackle&#39;s Den">Shackle's Den</a></li>
+<li><a href="/wiki/Shipwreck_Arena" title="Shipwreck Arena">Shipwreck Arena</a></li>
+<li><a href="/wiki/Temple_of_a_Thousand_Lights" title="Temple of a Thousand Lights">Temple of a Thousand Lights</a></li>
+<li><a href="/wiki/Tidal_Marsh" title="Tidal Marsh">The Tidal Marsh</a>
+<ul><li><a href="/wiki/Lair_of_the_Deposed" title="Lair of the Deposed">Lair of the Deposed</a></li></ul></li>
+<li><a href="/wiki/Timeworn_Strand" title="Timeworn Strand">Timeworn Strand</a></li></ul>
+</div></td><td class="navbox-image" style="width:0%;padding:0px 0px 0px 2px;" rowspan="1"><div class="metadata">
+<a href="/wiki/File:WorldMap-Azsuna.jpg" class="image" title="Map of Azsuna"><img alt="Map of Azsuna" src="/images/thumb/WorldMap-Azsuna.jpg/120px-WorldMap-Azsuna.jpg?4377a2" decoding="async" loading="lazy" width="120" height="80" data-file-width="1002" data-file-height="668" /></a></div></td></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-abovebelow" style=";" colspan="4"><div>
+<a href="/wiki/Category:Azsuna" title="Category:Azsuna">Azsuna category</a></div></td></tr></tbody></table></td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20260319184005
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: []
+CPU time usage: 0.111 seconds
+Real time usage: 0.269 seconds
+Preprocessor visited node count: 703/1000000
+Revision size: 734/4194304 bytes
+Post‐expand include size: 18420/4194304 bytes
+Template argument size: 7660/4194304 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.003/15.000 seconds
+Lua memory usage: 580272/52428800 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  100.326      1 -total
+ 42.85%   42.986      1 Template:Stub/Location
+ 39.55%   39.682      1 Template:Stub/Box
+ 26.99%   27.073      1 Template:Azsuna
+ 26.77%   26.855      1 Template:Amdiv
+ 24.77%   24.848      1 Template:Navbox
+  9.52%    9.549      1 Template:Patch_7.0.3
+  8.26%    8.282      1 Template:Navbar
+  8.14%    8.168      1 Template:Subzone_project
+  7.51%    7.539      1 Template:Elinks-zone
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:248668-0!canonical and timestamp 20260319184005 and revision id 5732735. Rendering was triggered because: RefreshLinksJob
+ -->
+</div>

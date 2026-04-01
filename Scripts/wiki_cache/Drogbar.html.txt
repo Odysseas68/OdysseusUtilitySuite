@@ -1,0 +1,570 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width: 25em;;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;">Drogbar</th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Drogbar_concept.jpg" class="image"><img alt="Drogbar concept.jpg" src="/images/thumb/Drogbar_concept.jpg/200px-Drogbar_concept.jpg?742050" decoding="async" loading="lazy" width="200" height="178" data-file-width="1920" data-file-height="1706" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Classification</th><td>
+Medium Humanoid</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Faction/Affiliation</th><td>
+<a href="/wiki/Independent" title="Independent">Independent</a>, <a href="/wiki/Highmountain_Tribe" title="Highmountain Tribe">Highmountain Tribe</a>, <a href="/wiki/Twilight%27s_Hammer" title="Twilight&#39;s Hammer">Twilight's Hammer</a><br /> <b>Formerly:</b><br /> <a href="/wiki/Necrodark" title="Necrodark">Necrodark</a>, <a href="/wiki/Black_dragonflight" title="Black dragonflight">Black dragonflight</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Racial capital</th><td>
+<a href="/wiki/Neltharion%27s_Lair" title="Neltharion&#39;s Lair">Neltharion's Lair</a> (<a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a>)<br /><a href="/wiki/Glimmerogg" title="Glimmerogg">Glimmerogg</a> (<a href="/wiki/Dragon_Isles" title="Dragon Isles">Dragon Isles</a>)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Racial leader(s)</th><td>
+<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Navarrogg.gif/16px-IconSmall_Navarrogg.gif?221c61" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Navarrogg" title="Navarrogg"><span style="color:">Navarrogg</span></a> (Broken Isles)<br /><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Brogg_the_Beast" title="Brogg the Beast"><span style="color:">Brogg the Beast</span></a> (Dragon Isles)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">&#160;&#160;Formerly</th><td>
+<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Dargrul.gif/16px-IconSmall_Dargrul.gif?d5baf9" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dargrul" title="Dargrul"><span style="color:">Dargrul the Underking</span></a><sup>&#160;†</sup> (Broken Isles)<br /><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Neltharion.gif/16px-IconSmall_Neltharion.gif?3a62f6" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Deathwing" title="Deathwing"><span style="color:">Neltharion the Earth-Warder</span></a><sup>&#160;†</sup></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Racial mount</th><td>
+<span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Bioworm.gif" class="image"><img alt="IconSmall Bioworm.gif" src="/images/thumb/IconSmall_Bioworm.gif/16px-IconSmall_Bioworm.gif?b2f108" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Worm" title="Worm">Worm</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Homeworld</th><td>
+<a href="/wiki/Azeroth" title="Azeroth">Azeroth</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Area(s)</th><td>
+<a href="/wiki/Highmountain" title="Highmountain">Highmountain</a> (Broken Isles)<br /> <a href="/wiki/Zaralek_Cavern" title="Zaralek Cavern">Zaralek Cavern</a> (Dragon Isles)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Language(s)</th><td>
+<a href="/wiki/Drogbar_(language)" title="Drogbar (language)">Drogbar</a> (presumed), <a href="/wiki/Draconic" title="Draconic">Draconic</a>,<sup id="cite&#95;ref-Tablets&#95;1-0" class="reference"><a href="#cite_note-Tablets-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> <a href="/wiki/Taur-ahe" title="Taur-ahe">Taur-ahe</a></td></tr><tr><th colspan="2" style="text-align:center;"><b>Sources</b>: <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">World of Warcraft: Legion</a></i></th></tr></tbody></table>
+<div class="thumb tright"><div class="thumbinner" style="width:322px;"><a href="/wiki/File:HighmountainARC.jpg" class="image"><img src="/images/thumb/HighmountainARC.jpg/320px-HighmountainARC.jpg?e52f05" decoding="async" loading="lazy" width="320" height="428" class="thumbimage" data-file-width="724" data-file-height="968" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:HighmountainARC.jpg" class="internal" title="Enlarge"></a></div><a href="/wiki/Legion_Curator" title="Legion Curator">Highmountain tauren and Drogbar artifacts.</a></div></div></div>
+<p>The <b>drogbar</b> (<a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" class="extiw" title="wikipedia:International Phonetic Alphabet"><span title="Representation in the International Phonetic Alphabet (IPA)" class="IPA">/ˈdɹɔɡ.bɑɹ/</span></a> <i><a href="https://en.wikipedia.org/wiki/Help:Pronunciation_respelling_key" class="extiw" title="wikipedia:Help:Pronunciation respelling key"><span title="English Pronunciation Respelling" class="IPA">DRAWG-bar</span></a></i>) are a <a href="/wiki/Shaman" title="Shaman">shamanistic</a> <a href="/wiki/Humanoid" title="Humanoid">humanoid</a> <a href="/wiki/Race" title="Race">species</a> that dwell underground, mainly found in the infinite caverns deep within <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a> on the <a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a><sup id="cite&#95;ref-Zone&#95;preview&#95;2-0" class="reference"><a href="#cite_note-Zone_preview-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> and in <a href="/wiki/Zaralek_Cavern" title="Zaralek Cavern">Zaralek Cavern</a> on the <a href="/wiki/Dragon_Isles" title="Dragon Isles">Dragon Isles</a>. Their brutish appearance can hide their cleverness.<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup> Having once been the <a href="/wiki/Slave" class="mw-redirect" title="Slave">slaves</a> of <a href="/wiki/Deathwing" title="Deathwing">Deathwing</a> himself, the drogbar have long lived in relative peace with the <a href="/wiki/Highmountain_tauren" title="Highmountain tauren">Highmountain tauren</a>, but shortly after the <a href="/wiki/Burning_Legion" title="Burning Legion">Burning Legion</a>'s return the drogbar leader, <a href="/wiki/Dargrul" title="Dargrul">Dargrul</a>, stole the ancient <a href="/wiki/Hammer_of_Khaz%27goroth" title="Hammer of Khaz&#39;goroth">Hammer of Khaz'goroth</a>, initiating a war between the two races.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Background"><span class="tocnumber">1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Culture"><span class="tocnumber">2</span> <span class="toctext">Culture</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Magic"><span class="tocnumber">2.1</span> <span class="toctext">Magic</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Worms"><span class="tocnumber">2.2</span> <span class="toctext">Worms</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Language"><span class="tocnumber">2.3</span> <span class="toctext">Language</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Notable"><span class="tocnumber">3</span> <span class="toctext">Notable</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Groups"><span class="tocnumber">4</span> <span class="toctext">Groups</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Trivia"><span class="tocnumber">5</span> <span class="toctext">Trivia</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Speculation"><span class="tocnumber">6</span> <span class="toctext">Speculation</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Gallery"><span class="tocnumber">7</span> <span class="toctext">Gallery</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Background">Background</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=1" title="Edit section: Background"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="/wiki/Xal%27atath" title="Xal&#39;atath">Xal'atath</a> describes the drogbar as failed <a href="/wiki/Titan" title="Titan">titan</a> experiments.<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup> The drogbar were once slaves to the <a href="/wiki/Black_dragonflight" title="Black dragonflight">black</a> <a href="/wiki/Dragon_Aspects" title="Dragon Aspects">Dragon Aspect</a> himself, <a href="/wiki/Deathwing" title="Deathwing">Neltharion</a> the Earth-Warder, and they were the ones who placed the <a href="/wiki/Goblin" title="Goblin">goblin</a>-forged <a href="/wiki/Adamantine" title="Adamantine">adamantium</a> plates on the Aspect when his body began to fall apart.<sup id="cite&#95;ref-5" class="reference"><a href="#cite_note-5"><span class="cite-bracket">&#91;</span>5<span class="cite-bracket">&#93;</span></a></sup> Neltharion also had the drogbar experiment with ways to merge the elements into a <a href="/wiki/Elementium" title="Elementium">binding ore</a>. He believed it would be the ultimate tool in his rise to power. There were at least fifty attempts.<sup id="cite&#95;ref-Tablets&#95;1-1" class="reference"><a href="#cite_note-Tablets-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> One revolt occurred before the arrival of <a href="/wiki/Huln_Highmountain" title="Huln Highmountain">Huln Highmountain</a> but was swiftly ended by Neltharion. The revolt's leader, <a href="/wiki/The_Grey_One" title="The Grey One">The Grey One</a>, was petrified into a statue as a constant reminder of who the drogbar truly serve.<sup id="cite&#95;ref-6" class="reference"><a href="#cite_note-6"><span class="cite-bracket">&#91;</span>6<span class="cite-bracket">&#93;</span></a></sup> When Huln finally arrived and used the <a href="/wiki/Hammer_of_Khaz%27goroth" title="Hammer of Khaz&#39;goroth">Hammer of Khaz'goroth</a> to banish Neltharion from the region, the drogbar were freed.
+</p><p>The <a href="/wiki/Rivermane_tribe" title="Rivermane tribe">Rivermane tribe</a> were the ones to first establish a fragile peace pact between the tauren and the drogbar as a means to survive in relative peace. As part of this agreement, they mutually benefit from one another's resources through trade at designated areas outside drogbar caves. The drogbar provide spell components from inedible plants, rare minerals, gems,<sup id="cite&#95;ref-Zone&#95;preview&#95;2-1" class="reference"><a href="#cite_note-Zone_preview-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup> potent alchemy<sup id="cite&#95;ref-7" class="reference"><a href="#cite_note-7"><span class="cite-bracket">&#91;</span>7<span class="cite-bracket">&#93;</span></a></sup> and other rarities as a trade offering to the tauren, and in return, the tauren bring the drogbar grain, fish, leather goods, and lumber. They make a mutual exchange at these ritual sites, then go back to their respective homelands. It's a symbiotic relationship — they don't like each other, but they need each other.<sup id="cite&#95;ref-Zone&#95;preview&#95;2-2" class="reference"><a href="#cite_note-Zone_preview-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>The drogbar at one point warred against the followers of the <a href="/wiki/Vrykul" title="Vrykul">vrykul</a> warlord <a href="/wiki/Warlord_Volund" title="Warlord Volund">Volund</a>.<sup id="cite&#95;ref-8" class="reference"><a href="#cite_note-8"><span class="cite-bracket">&#91;</span>8<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>However, soon after the <a href="/wiki/Burning_Legion" title="Burning Legion">Burning Legion</a>'s arrival, a drogbar leader named <a href="/wiki/Dargrul" title="Dargrul">Dargrul the Underking</a> destroyed the unity of the two races and stole the Hammer of Khaz'goroth, a powerful artifact protected by the Highmountain tauren. Using the terrible power of the Hammer, the Underking intends to take control of Highmountain.<sup id="cite&#95;ref-9" class="reference"><a href="#cite_note-9"><span class="cite-bracket">&#91;</span>9<span class="cite-bracket">&#93;</span></a></sup> Not all drogbar work for Dargrul, however. The <a href="/wiki/Stonedark_clan" title="Stonedark clan">Stonedark clan</a> led by <a href="/wiki/Navarrogg" title="Navarrogg">Navarrogg</a>, in gratitude to an <a href="/wiki/Adventurer" title="Adventurer">adventurer</a> who saved them from the <a href="/wiki/Bloodtotem_tribe" title="Bloodtotem tribe">Bloodtotem tauren</a>, joined the <a href="/wiki/Highmountain_Tribe" title="Highmountain Tribe">Highmountain Tribe</a> instead.<sup id="cite&#95;ref-10" class="reference"><a href="#cite_note-10"><span class="cite-bracket">&#91;</span>10<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>There is also at least one group of neutral drogbar that had a settlement in what is now known as the <a href="/wiki/Feltotem_Caverns" title="Feltotem Caverns">Feltotem Caverns</a>, but after the Bloodtotem became the Feltotem, these drogbar were pushed out by concerted demon and Feltotem attacks.<sup id="cite&#95;ref-11" class="reference"><a href="#cite_note-11"><span class="cite-bracket">&#91;</span>11<span class="cite-bracket">&#93;</span></a></sup>  Their current location is unknown.
+</p><p>Drogbar that are part of the <a href="/wiki/Twilight%27s_Hammer" title="Twilight&#39;s Hammer">Twilight's Hammer</a> can be found in Highmountain's <a href="/wiki/Deep_Roads" title="Deep Roads">Deep Roads</a>. Another Old God-affiliated group of drogbar is the <a href="/wiki/Necrodark" title="Necrodark">Necrodark</a>.
+</p><p>The Drogbar from Zaralek trade with the <a href="/wiki/Nerubian" title="Nerubian">nerubians</a> of <a href="/wiki/Azj-Kahet" title="Azj-Kahet">Azj-Kahet</a> far to the southwest in <a href="/wiki/Khaz_Algar" title="Khaz Algar">Khaz Algar</a>.
+</p>
+<h2><span class="mw-headline" id="Culture">Culture</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=2" title="Edit section: Culture"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Drogbar are not violent by nature, despite their size.<sup id="cite&#95;ref-12" class="reference"><a href="#cite_note-12"><span class="cite-bracket">&#91;</span>12<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Living in caves, the drogbar make the most of what they have. At least one particular species of <a href="/wiki/Fungus" title="Fungus">mushroom</a> is known to be gathered and prepared for consumption. Rock is used for furniture; tables are an obvious application, while "resting stones" are chairs,<sup id="cite&#95;ref-Margul&#95;13-0" class="reference"><a href="#cite_note-Margul-13"><span class="cite-bracket">&#91;</span>13<span class="cite-bracket">&#93;</span></a></sup> and long, rectangular slabs are "sleeping stones". Stones that make different sounds when struck can used for drums, such as "<a href="/wiki/Tinkrul" title="Tinkrul">tink rocks</a>", "<a href="/wiki/Boprul" title="Boprul">bop rocks</a>" and "<a href="/wiki/Clomprul" title="Clomprul">clomp rocks</a>". The drogbar have always been masters at <a href="/wiki/Jewelcrafting" title="Jewelcrafting">jewelcrafting</a>. In particular, tribal <a href="/wiki/Shaman" title="Shaman">shaman</a> would wear heavy, three-stoned necklaces. These necklaces were passed down from master to student.<sup id="cite&#95;ref-14" class="reference"><a href="#cite_note-14"><span class="cite-bracket">&#91;</span>14<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>With their powers over the earth,<sup id="cite&#95;ref-15" class="reference"><a href="#cite_note-15"><span class="cite-bracket">&#91;</span>15<span class="cite-bracket">&#93;</span></a></sup> the drogbar know how to carve stone into containers such as cups and shallow bowls, to ones with lids. With a channel carved around the outside for a leather strap, lidded containers can be small ones with a plug of wood, to large, stout ones with a matching stone lid fitted into the top. Entire waterwheels made of stone are used as a power source for simple engineering, fed by subterranean waterways that flow into the caves.  Stone conduits suspended from sturdy wooden supports embedded in the walls also partially redirect subterranean water for the peoples' convenient use.<sup id="cite&#95;ref-16" class="reference"><a href="#cite_note-16"><span class="cite-bracket">&#91;</span>16<span class="cite-bracket">&#93;</span></a></sup> Many of these items are most likely crafted by drogbar Stoneshapers, who are also known to calcify the dead bodies of important drogbar to be commemorated as statues.<sup id="cite&#95;ref-17" class="reference"><a href="#cite_note-17"><span class="cite-bracket">&#91;</span>17<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>While most drogbar appreciate the rough edges of a raw gemstone, others prefer a smoother, rounder jewel. Rather than using standard gemcutting tools, they use a hand-cranked stone device, which tumbles the gems over the course of several weeks. These are typically operated by servants, slaves, or disobedient youngsters.<sup id="cite&#95;ref-18" class="reference"><a href="#cite_note-18"><span class="cite-bracket">&#91;</span>18<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>For some, snail racing (including a racing circuit) is a popular pastime.<sup id="cite&#95;ref-19" class="reference"><a href="#cite_note-19"><span class="cite-bracket">&#91;</span>19<span class="cite-bracket">&#93;</span></a></sup> Snails are also used as a culinary ingredient at least by the Stonedark (whether they are the same species as the ones used for racing is unknown).<sup id="cite&#95;ref-20" class="reference"><a href="#cite_note-20"><span class="cite-bracket">&#91;</span>20<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>There are rumors that the ancient drogbar collected powder from the residue of dragon's breath.<sup id="cite&#95;ref-21" class="reference"><a href="#cite_note-21"><span class="cite-bracket">&#91;</span>21<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>The Basilisk Bazaar is an event held by the drogbar where they trade, fight and skin their lizard pets.<sup id="cite&#95;ref-22" class="reference"><a href="#cite_note-22"><span class="cite-bracket">&#91;</span>22<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<h3><span class="mw-headline" id="Magic">Magic</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=3" title="Edit section: Magic"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<table style="" class="plainlinks ambox ambox-tiny ambox-orange nomobile">
+<tbody><tr>
+<td class="ambox-image"><a href="/wiki/File:Stub.png" class="image"><img alt="" src="/images/thumb/Stub.png/17px-Stub.png?fdeef6" decoding="async" loading="lazy" width="17" height="20" data-file-width="44" data-file-height="52" /></a></td>
+<td class="ambox-text">This section is <b>a <a href="/wiki/Lore" title="Lore">lore</a> stub</b>.
+</td></tr></tbody></table>
+<p>The drogbar have a mastery of the earth and creatures that dwell within it.<sup id="cite&#95;ref-23" class="reference"><a href="#cite_note-23"><span class="cite-bracket">&#91;</span>23<span class="cite-bracket">&#93;</span></a></sup> <a href="/wiki/Jale_Rivermane" title="Jale Rivermane">Jale Rivermane</a> believes that they began learning strong magic after the theft of the <a href="/wiki/Hammer_of_Khaz%27goroth" title="Hammer of Khaz&#39;goroth">Hammer of Khaz'goroth</a>.<sup id="cite&#95;ref-24" class="reference"><a href="#cite_note-24"><span class="cite-bracket">&#91;</span>24<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<h3><span class="mw-headline" id="Worms">Worms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=4" title="Edit section: Worms"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The drogbar have a close kinship with Highmountain's giant <a href="/wiki/Worm" title="Worm">worms</a>. They use caves such as the <a href="/wiki/Rockcrawler_Chasm" title="Rockcrawler Chasm">Rockcrawler Chasm</a> to train and breed fledgling rockcrawlers that in time grow in size and strength, morphing into monstrous siege worms that the drogbar ride into battle.<sup id="cite&#95;ref-25" class="reference"><a href="#cite_note-25"><span class="cite-bracket">&#91;</span>25<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-26" class="reference"><a href="#cite_note-26"><span class="cite-bracket">&#91;</span>26<span class="cite-bracket">&#93;</span></a></sup> The drogbar feed their fledgling worms <a href="/wiki/Eagle" title="Eagle">eagle</a> eggs so they'll grow strong enough to serve as mounts.<sup id="cite&#95;ref-27" class="reference"><a href="#cite_note-27"><span class="cite-bracket">&#91;</span>27<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>An enormous worm called <a href="/wiki/Naraxas" title="Naraxas">Naraxas</a>, mother of monsters, has been worshipped by the drogbar since the age of Neltharion. Constant sacrifices are made to the creature so she can nurture the generations of horror the drogbar use against their enemies.<sup id="cite&#95;ref-28" class="reference"><a href="#cite_note-28"><span class="cite-bracket">&#91;</span>28<span class="cite-bracket">&#93;</span></a></sup> During the battle of <a href="/wiki/Snowblind_Mesa" title="Snowblind Mesa">Snowblind Mesa</a>, the drogbar used spawn of Naraxas to burrow their way to the surface and deploy their troops.<sup id="cite&#95;ref-29" class="reference"><a href="#cite_note-29"><span class="cite-bracket">&#91;</span>29<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>The great worm <a href="/wiki/Jorhuttam" title="Jorhuttam">Jorhuttam</a> is worshipped by the <a href="/wiki/Frostcrag_tribe" title="Frostcrag tribe">Frostcrag tribe</a> of drogbar.<sup id="cite&#95;ref-30" class="reference"><a href="#cite_note-30"><span class="cite-bracket">&#91;</span>30<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<h3><span class="mw-headline" id="Language">Language</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=5" title="Edit section: Language"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><span class="noexcerpt" data-nosnippet=""><i>Main article: <a href="/wiki/Drogbar_(language)" title="Drogbar (language)">Drogbar (language)</a></i></span></dd></dl>
+<p>Not much is known about the drogbar language. One of the more common terms is "brul", apparently an honorific.<sup id="cite&#95;ref-Margul&#95;13-1" class="reference"><a href="#cite_note-Margul-13"><span class="cite-bracket">&#91;</span>13<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-31" class="reference"><a href="#cite_note-31"><span class="cite-bracket">&#91;</span>31<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-32" class="reference"><a href="#cite_note-32"><span class="cite-bracket">&#91;</span>32<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-33" class="reference"><a href="#cite_note-33"><span class="cite-bracket">&#91;</span>33<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>The drogbar language shares one term with <a href="/wiki/Draconic" title="Draconic">Draconic</a>.
+</p>
+<h2><span class="mw-headline" id="Notable">Notable</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=6" title="Edit section: Notable"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable sortable zebra">
+<tbody><tr>
+<th>Name</th>
+<th>Role</th>
+<th>Status</th>
+<th>Location
+</th></tr>
+<tr>
+<td><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Dargrul.gif/16px-IconSmall_Dargrul.gif?d5baf9" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dargrul" title="Dargrul"><span style="color:">Dargrul</span></a>
+</td>
+<td><a href="/wiki/Underking" title="Underking">Underking</a> of the drogbar, wielder of the <a href="/wiki/Hammer_of_Khaz%27goroth" title="Hammer of Khaz&#39;goroth">Hammer of Khaz'goroth</a>
+</td>
+<td><span style="color:red">Deceased</span>
+</td>
+<td><a href="/wiki/Dargrul#Locations" title="Dargrul">Various</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Navarrogg.gif/16px-IconSmall_Navarrogg.gif?221c61" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Navarrogg" title="Navarrogg"><span style="color:">Navarrogg</span></a>
+</td>
+<td>Leader of the <a href="/wiki/Stonedark_clan" title="Stonedark clan">Stonedark clan</a>
+</td>
+<td><span style="color:limegreen">Alive</span>
+</td>
+<td><a href="/wiki/Navarrogg#Locations" title="Navarrogg">Various</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Boss"><img alt="Boss" src="/images/Boss_15.png?889d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Ularogg_Cragshaper" title="Ularogg Cragshaper"><span style="color:">Ularogg Cragshaper</span></a>
+</td>
+<td>Chief advisor to Dargrul, creator of <a href="/wiki/Rokmora" title="Rokmora">Rokmora</a>
+</td>
+<td><span style="color:darkorange">Killable</span>
+</td>
+<td><a href="/wiki/The_Stone_Market?action=edit&amp;redlink=1" class="new" title="The Stone Market (page does not exist)" rel="nofollow">The Stone Market</a>, <a href="/wiki/Neltharion%27s_Lair" title="Neltharion&#39;s Lair">Neltharion's Lair</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Brick" title="Brick"><span style="color:">Brick</span></a>
+</td>
+<td>Pit master
+</td>
+<td><span style="color:limegreen">Alive</span>
+</td>
+<td><a href="/wiki/Deep_Roads" title="Deep Roads">Deep Roads</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Damrul_the_Stronk" title="Damrul the Stronk"><span style="color:">Damrul the Stronk</span></a>
+</td>
+<td>Member of the Stonedark tribe
+</td>
+<td><span style="color:limegreen">Alive</span>
+</td>
+<td><a href="/wiki/Stonedark_Grotto" title="Stonedark Grotto">Stonedark Grotto</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /><img alt="" src="/images/thumb/IconSmall_EarthFury.gif/16px-IconSmall_EarthFury.gif?ab3a94" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Gelmogg" title="Gelmogg"><span style="color:">Gelmogg</span></a>
+</td>
+<td>Stonecaster who has infiltrated the <a href="/wiki/Lifespring_Cavern" title="Lifespring Cavern">Lifespring Cavern</a> to drain its power
+</td>
+<td><span style="color:darkorange">Killable</span>
+</td>
+<td><a href="/wiki/Lifespring_Cavern" title="Lifespring Cavern">Lifespring Cavern</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Igrul_the_Scalebane" title="Igrul the Scalebane"><span style="color:">Igrul the Scalebane</span></a>
+</td>
+<td>Aided <a href="/wiki/Huln_Highmountain" title="Huln Highmountain">Huln Highmountain</a> in banishing <a href="/wiki/Deathwing" title="Deathwing">Deathwing</a>
+</td>
+<td><span style="color:red">Deceased</span>
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Tamer_Korgrul" title="Tamer Korgrul"><span style="color:">Tamer Korgrul</span></a>
+</td>
+<td>Raises fledgling rockcrawlers into monstrous siege worms
+</td>
+<td><span style="color:darkorange">Killable</span>
+</td>
+<td><a href="/wiki/Rockcrawler_Chasm" title="Rockcrawler Chasm">Rockcrawler Chasm</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Kubrul" title="Kubrul"><span style="color:">Kubrul</span></a>
+</td>
+<td>Stole the hammer of <a href="/wiki/Grayheft,_Ancient_Hammer_of_the_Highmountain_Tauren" title="Grayheft, Ancient Hammer of the Highmountain Tauren">Grayheft</a> from <a href="/wiki/Thala_Steeltotem" title="Thala Steeltotem">Thala Steeltotem</a>'s father
+</td>
+<td><span style="color:darkorange">Killable</span>
+</td>
+<td><a href="/wiki/Deep_Roads" title="Deep Roads">Deep Roads</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Liftbrul" title="Liftbrul"><span style="color:">Liftbrul</span></a>
+</td>
+<td>Legendary Stonedark weightlifter
+</td>
+<td><span style="color:red">Deceased</span>
+</td>
+<td><a href="/wiki/Stonedark_Grotto" title="Stonedark Grotto">Stonedark Grotto</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Ormgul_the_Pestilent" title="Ormgul the Pestilent"><span style="color:">Ormgul the Pestilent</span></a>
+</td>
+<td>Leader of the drogbar attack on the <a href="/wiki/Rivermane_tribe" title="Rivermane tribe">Rivermane</a> of <a href="/wiki/Earthmother%27s_Bounty" title="Earthmother&#39;s Bounty">Earthmother's Bounty</a>
+</td>
+<td><span style="color:darkorange">Killable</span>
+</td>
+<td><a href="/wiki/Earthmother%27s_Bounty" title="Earthmother&#39;s Bounty">Earthmother's Bounty</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Siegebrul_Olgrul" title="Siegebrul Olgrul"><span style="color:">Siegebrul Olgrul</span></a>
+</td>
+<td>Leader of the <a href="/wiki/Mightstone_tribe" title="Mightstone tribe">Mightstone tribe</a>
+</td>
+<td><span style="color:darkorange">Killable</span>
+</td>
+<td><a href="/wiki/Snowblind_Mesa" title="Snowblind Mesa">Snowblind Mesa</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Slash_Gutspill" title="Slash Gutspill"><span style="color:">Slash Gutspill</span></a>
+</td>
+<td>Contender for the <span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Ability_paladin_shieldofthetemplar.png/16px-Ability_paladin_shieldofthetemplar.png?f1eafd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Aegis_of_Aggramar" title="Aegis of Aggramar"><span class="itemlink ajaxttlink qc-common" title="Aegis of Aggramar is a common quality item."><span class="bracket">&#91;</span>Aegis of Aggramar<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td><span style="color:darkorange">Killable</span>
+</td>
+<td><a href="/wiki/Valley_of_the_Sword" title="Valley of the Sword">Valley of the Sword</a>, <a href="/wiki/Stormheim" title="Stormheim">Stormheim</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span>&#160;<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Ugrul_Skullcleaver" title="Ugrul Skullcleaver"><span style="color:">Ugrul Skullcleaver</span></a>
+</td>
+<td>Leader of the <a href="/wiki/Frostcrag_tribe" title="Frostcrag tribe">Frostcrag tribe</a>
+</td>
+<td><span style="color:darkorange">Killable</span>
+</td>
+<td><a href="/wiki/Highmountain_Summit" title="Highmountain Summit">Highmountain Summit</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Groups">Groups</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=7" title="Edit section: Groups"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable sortable zebra">
+
+<tbody><tr>
+<th>Name</th>
+<th>Leader(s)</th>
+<th>Location
+</th></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Bitestone" title="Bitestone">Bitestone</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Dargrul.gif" class="image"><img alt="IconSmall Dargrul.gif" src="/images/thumb/IconSmall_Dargrul.gif/16px-IconSmall_Dargrul.gif?d5baf9" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Dargrul" title="Dargrul">Dargrul</a></td>
+<td><a href="/wiki/Bitestone_Enclave" title="Bitestone Enclave">Bitestone Enclave</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Brick%27s_Bruls" title="Brick&#39;s Bruls">Brick's Bruls</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Drogbar.gif" class="image"><img alt="IconSmall Drogbar.gif" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Brick" title="Brick">Brick</a></td>
+<td><a href="/wiki/Deep_Roads" title="Deep Roads">Deep Roads</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Deeprock" title="Deeprock">Deeprock</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Drogbar.gif" class="image"><img alt="IconSmall Drogbar.gif" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Tamer_Korgrul" title="Tamer Korgrul">Tamer Korgrul</a></td>
+<td><a href="/wiki/Rockcrawler_Chasm" title="Rockcrawler Chasm">Rockcrawler Chasm</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Frostcrag_tribe" title="Frostcrag tribe">Frostcrag tribe</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Drogbar.gif" class="image"><img alt="IconSmall Drogbar.gif" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Mountain_King_(drogbar)" title="Mountain King (drogbar)">Mountain King</a></td>
+<td><a href="/wiki/Highmountain_Summit" title="Highmountain Summit">Highmountain Summit</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Glimmerogg" title="Glimmerogg">Glimmerogg</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Drogbar.gif" class="image"><img alt="IconSmall Drogbar.gif" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Brogg_the_Beast" title="Brogg the Beast">Brogg the Beast</a></td>
+<td><a href="/wiki/Glimmerogg" title="Glimmerogg">Glimmerogg</a>, <a href="/wiki/Zaralek_Cavern" title="Zaralek Cavern">Zaralek Cavern</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Greystone_tribe" title="Greystone tribe">Greystone tribe</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Drogbar.gif" class="image"><img alt="IconSmall Drogbar.gif" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Blargrul_the_Siegebrul" title="Blargrul the Siegebrul">Blargrul the Siegebrul</a></td>
+<td><a href="/wiki/Greystone_Enclave" title="Greystone Enclave">Greystone Enclave</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Mightstone_tribe" title="Mightstone tribe">Mightstone tribe</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Drogbar.gif" class="image"><img alt="IconSmall Drogbar.gif" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Siegebrul_Olgrul" title="Siegebrul Olgrul">Siegebrul Olgrul</a></td>
+<td><a href="/wiki/Highmountain" title="Highmountain">Highmountain</a> &amp; <a href="/wiki/Stormheim" title="Stormheim">Stormheim</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Necrodark" title="Necrodark">Necrodark</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Drogbar.gif" class="image"><img alt="IconSmall Drogbar.gif" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Necrogg_the_Darkspeaker" title="Necrogg the Darkspeaker">Necrogg the Darkspeaker</a></td>
+<td><a href="/wiki/Snowblind_Mesa" title="Snowblind Mesa">Snowblind Mesa</a> &amp; <a href="/wiki/Highmountain_Summit" title="Highmountain Summit">Highmountain Summit</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Slatecrusher" title="Slatecrusher">Slatecrusher</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Drogbar.gif" class="image"><img alt="IconSmall Drogbar.gif" src="/images/thumb/IconSmall_Drogbar.gif/16px-IconSmall_Drogbar.gif?ba22fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Drog_Almighty" title="Drog Almighty">Drog Almighty</a></td>
+<td><a href="/wiki/Suramar" title="Suramar">Suramar</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Stonedark_clan" title="Stonedark clan">Stonedark clan</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Navarrogg.gif" class="image"><img alt="IconSmall Navarrogg.gif" src="/images/thumb/IconSmall_Navarrogg.gif/16px-IconSmall_Navarrogg.gif?221c61" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Navarrogg" title="Navarrogg">Navarrogg</a></td>
+<td><a href="/wiki/Stonedark_Grotto" title="Stonedark Grotto">Stonedark Grotto</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr>
+<tr>
+<td><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_15.png?4c58f7" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Understone_tribe" title="Understone tribe">Understone tribe</a></td>
+<td><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Dargrul.gif" class="image"><img alt="IconSmall Dargrul.gif" src="/images/thumb/IconSmall_Dargrul.gif/16px-IconSmall_Dargrul.gif?d5baf9" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Dargrul" title="Dargrul">Dargrul</a></td>
+<td><a href="/wiki/Neltharion%27s_Lair" title="Neltharion&#39;s Lair">Neltharion's Lair</a>, <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a>
+</td></tr></tbody></table>
+<p>Some other potential tribe names include: Blightshard, Emberhusk, Rockbait, Rockbound, Stonefist and Stoneclaw.
+</p>
+<h2><span class="mw-headline" id="Trivia">Trivia</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=8" title="Edit section: Trivia"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Drogbar seem to be inspired by <i><a href="https://en.wikipedia.org/wiki/Dungeons_%26_Dragons" class="extiw" title="wikipedia:Dungeons &amp; Dragons">Dungeons &amp; Dragons</a>'</i>s <a href="https://en.wikipedia.org/wiki/Bugbear_(Dungeons_%26_Dragons)" class="extiw" title="wikipedia:Bugbear (Dungeons &amp; Dragons)">bugbears</a>. Early drogbar concept art depicted them as bear-like creatures, before evolving into something more akin to D&amp;D's bugbears, and some drogbar image files are labeled as "bugbears".<sup id="cite&#95;ref-34" class="reference"><a href="#cite_note-34"><span class="cite-bracket">&#91;</span>34<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-35" class="reference"><a href="#cite_note-35"><span class="cite-bracket">&#91;</span>35<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-36" class="reference"><a href="#cite_note-36"><span class="cite-bracket">&#91;</span>36<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-37" class="reference"><a href="#cite_note-37"><span class="cite-bracket">&#91;</span>37<span class="cite-bracket">&#93;</span></a></sup></li>
+<li>Drogbar use the same model skeleton and animations as post-<a href="/wiki/Patch_5.2.0" title="Patch 5.2.0">5.2</a> <a href="/wiki/Dire_troll" title="Dire troll">dire trolls</a> and <i><a href="/wiki/World_of_Warcraft:_Warlords_of_Draenor" title="World of Warcraft: Warlords of Draenor">Warlords of Draenor</a></i> <a href="/wiki/Dire_orc" title="Dire orc">dire orcs</a>.</li></ul>
+<h2><span class="mw-headline" id="Speculation">Speculation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=9" title="Edit section: Speculation"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table style="background: transparent;">
+
+<tbody><tr>
+<td><a href="/wiki/File:Questionmark-medium.png" class="image"><img alt="Questionmark-medium.png" src="/images/Questionmark-medium.png?4f580e" decoding="async" loading="lazy" width="41" height="55" data-file-width="41" data-file-height="55" /></a>
+</td>
+<td valign="top"><div style="border-top: 1px solid #808080; border-bottom: 1px solid #808080; padding: 1ex 1em; margin-top: 0.3ex; max-width: 34em;"><small style="line-height: 120%;">This article or section includes speculation, observations or opinions possibly supported by lore or by Blizzard officials. <b>It should not be taken as representing official lore.</b></small></div>
+</td></tr></tbody></table>
+<ul><li>Considering the <a href="/wiki/Twilight%27s_Hammer" title="Twilight&#39;s Hammer">Twilight's Hammer</a> have access to subterranean tunnels under the <a href="/wiki/Great_Sea" title="Great Sea">Great Sea</a>,<sup id="cite&#95;ref-38" class="reference"><a href="#cite_note-38"><span class="cite-bracket">&#91;</span>38<span class="cite-bracket">&#93;</span></a></sup> it is possible that the cult met the drogbar of <a href="/wiki/Highmountain" title="Highmountain">Highmountain</a> that way and enrolled some of them.</li>
+<li>Since <a href="/wiki/Xal%27atath" title="Xal&#39;atath">Xal'atath</a> has implied that the drogbar are a failed titan experiment, they could have evolved from the <a href="/wiki/Troll" title="Troll">trolls</a>.
+<ul><li>In the canceled <i><a href="/wiki/Warcraft_Adventures:_Lord_of_the_Clans" title="Warcraft Adventures: Lord of the Clans">Warcraft Adventures</a></i>, <a href="/wiki/Deathwing" title="Deathwing">Deathwing</a> was served by trolls which had mottled; grey skin, a concept that was reprised in <i>The Sundering</i>,<sup id="cite&#95;ref-39" class="reference"><a href="#cite_note-39"><span class="cite-bracket">&#91;</span>39<span class="cite-bracket">&#93;</span></a></sup> a description that might have inspired the existence of the drogbar.</li>
+<li>One quest calls them "rock trolls".<sup id="cite&#95;ref-40" class="reference"><a href="#cite_note-40"><span class="cite-bracket">&#91;</span>40<span class="cite-bracket">&#93;</span></a></sup></li></ul></li></ul>
+<h2><span class="mw-headline" id="Gallery">Gallery</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=10" title="Edit section: Gallery"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:26.5px auto;"><a href="/wiki/File:Drogbar_in_Highmountain.jpg" class="image" title="A drogbar in the Legion announcement trailer."><img alt="A drogbar in the Legion announcement trailer." src="/images/thumb/Drogbar_in_Highmountain.jpg/120px-Drogbar_in_Highmountain.jpg?7109be" decoding="async" loading="lazy" width="120" height="97" data-file-width="637" data-file-height="516" /></a></div></div>
+			<div class="gallerytext">A drogbar in the <i>Legion</i> announcement trailer.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="/wiki/File:Navarrogg.jpg" class="image"><img alt="Navarrogg.jpg" src="/images/thumb/Navarrogg.jpg/112px-Navarrogg.jpg?e95fc7" decoding="async" loading="lazy" width="112" height="120" data-file-width="922" data-file-height="988" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="/wiki/File:Dargrul.jpg" class="image" title="Dargrul the Underking."><img alt="Dargrul the Underking." src="/images/thumb/Dargrul.jpg/92px-Dargrul.jpg?960ce5" decoding="async" loading="lazy" width="92" height="120" data-file-width="542" data-file-height="704" /></a></div></div>
+			<div class="gallerytext"><a href="/wiki/Dargrul" title="Dargrul">Dargrul the Underking</a>.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Drogbar1.jpg" class="image"><img alt="Drogbar1.jpg" src="/images/thumb/Drogbar1.jpg/120px-Drogbar1.jpg?d0a9ff" decoding="async" loading="lazy" width="120" height="68" data-file-width="3840" data-file-height="2160" /></a></div></div>
+			<div class="gallerytext"></div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="/wiki/File:Petrifying_Totem.jpg" class="image" title="Petrifying Totem"><img alt="Petrifying Totem" src="/images/thumb/Petrifying_Totem.jpg/82px-Petrifying_Totem.jpg?ef80c5" decoding="async" loading="lazy" width="82" height="120" data-file-width="687" data-file-height="1000" /></a></div></div>
+			<div class="gallerytext"><a href="/wiki/Petrifying_Totem" title="Petrifying Totem">Petrifying Totem</a></div>
+		</div></li>
+</ul>
+<dl><dt>Art</dt></dl>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:41px auto;"><a href="/wiki/File:Drogbar_concept_2.jpg" class="image" title="Early drogbar concept art by Mark Abadier."><img alt="Early drogbar concept art by Mark Abadier." src="/images/thumb/Drogbar_concept_2.jpg/120px-Drogbar_concept_2.jpg?909def" decoding="async" loading="lazy" width="120" height="68" data-file-width="1920" data-file-height="1080" /></a></div></div>
+			<div class="gallerytext">Early drogbar concept art by Mark Abadier.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:26px auto;"><a href="/wiki/File:Drogbar_concept_3.jpg" class="image" title="Concept art by Christopher Hayes."><img alt="Concept art by Christopher Hayes." src="/images/thumb/Drogbar_concept_3.jpg/120px-Drogbar_concept_3.jpg?a24934" decoding="async" loading="lazy" width="120" height="98" data-file-width="1920" data-file-height="1569" /></a></div></div>
+			<div class="gallerytext">Concept art by <a href="/wiki/Christopher_Hayes" title="Christopher Hayes">Christopher Hayes</a>.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:23.5px auto;"><a href="/wiki/File:Drogbar_concept_4.jpg" class="image" title="Concept art by Cole Eastburn."><img alt="Concept art by Cole Eastburn." src="/images/thumb/Drogbar_concept_4.jpg/120px-Drogbar_concept_4.jpg?eecbf5" decoding="async" loading="lazy" width="120" height="103" data-file-width="1920" data-file-height="1651" /></a></div></div>
+			<div class="gallerytext">Concept art by <a href="/wiki/Cole_Eastburn" title="Cole Eastburn">Cole Eastburn</a>.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="/wiki/File:Drogbar_concept_art_1.png" class="image" title="Drogbar concept art."><img alt="Drogbar concept art." src="/images/thumb/Drogbar_concept_art_1.png/97px-Drogbar_concept_art_1.png?a230a7" decoding="async" loading="lazy" width="97" height="120" data-file-width="1142" data-file-height="1418" /></a></div></div>
+			<div class="gallerytext">Drogbar concept art.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="/wiki/File:Drogbar_elder_concept_art.png" class="image" title="Drogbar elder concept art."><img alt="Drogbar elder concept art." src="/images/thumb/Drogbar_elder_concept_art.png/86px-Drogbar_elder_concept_art.png?6f03e2" decoding="async" loading="lazy" width="86" height="120" data-file-width="316" data-file-height="440" /></a></div></div>
+			<div class="gallerytext">Drogbar elder concept art.</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:37px auto;"><a href="/wiki/File:Tauren_vs_drogbar.jpg" class="image" title="Drogbar fighting Highmountain tauren outside Thunder Totem in A Mountain Divided."><img alt="Drogbar fighting Highmountain tauren outside Thunder Totem in A Mountain Divided." src="/images/thumb/Tauren_vs_drogbar.jpg/120px-Tauren_vs_drogbar.jpg?b8d05e" decoding="async" loading="lazy" width="120" height="76" data-file-width="1108" data-file-height="700" /></a></div></div>
+			<div class="gallerytext">Drogbar fighting <a href="/wiki/Highmountain_tauren" title="Highmountain tauren">Highmountain tauren</a> outside <a href="/wiki/Thunder_Totem" title="Thunder Totem">Thunder Totem</a> in <i><a href="/wiki/A_Mountain_Divided" class="mw-redirect" title="A Mountain Divided">A Mountain Divided</a></i>.</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Drogbar?action=edit&amp;section=11" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="font-size:calc(80% + 2.1px);"><div style="margin-top:-0.3em; margin-bottom:0px; height:0px">&#160;</div><div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite&#95;note-Tablets-1">^ <sup><a href="#cite_ref-Tablets_1-0">a</a></sup> <sup><a href="#cite_ref-Tablets_1-1">b</a></sup> <span class="reference-text"><a href="/wiki/Ancient_Neltharion_Tablets" title="Ancient Neltharion Tablets">Ancient Neltharion Tablets</a></span>
+</li>
+<li id="cite&#95;note-Zone&#95;preview-2">^ <sup><a href="#cite_ref-Zone_preview_2-0">a</a></sup> <sup><a href="#cite_ref-Zone_preview_2-1">b</a></sup> <sup><a href="#cite_ref-Zone_preview_2-2">c</a></sup> <span class="reference-text"><a rel="nofollow" class="external text" href="https://worldofwarcraft.com/en-us/news/20241588/legion-zone-preview-highmountain">Legion Zone Preview: Highmountain</a></span>
+</li>
+<li id="cite&#95;note-3"><a href="#cite_ref-3">^</a> <span class="reference-text"><a rel="nofollow" class="external text" href="https://www.youtube.com/watch?v=iCPPCssbt-o">Blizzcon 2015: World and Content Overview Panel</a></span>
+</li>
+<li id="cite&#95;note-4"><a href="#cite_ref-4">^</a> <span class="reference-text"><span class="text-whisper"><b>Xal'atath&#160;whispers:</b> More of the titans' failed experiments grow <a href="/wiki/Highmountain" title="Highmountain">here</a> unchecked. The drogbar prove their failure as creators.</span></span>
+</li>
+<li id="cite&#95;note-5"><a href="#cite_ref-5">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/In_Defiance_of_Deathwing" title="In Defiance of Deathwing"><span class="ajaxttlink questlink">In Defiance of Deathwing</span></a></span></span>
+</li>
+<li id="cite&#95;note-6"><a href="#cite_ref-6">^</a> <span class="reference-text"><a href="/wiki/The_Grey_One" title="The Grey One">The Grey One</a></span>
+</li>
+<li id="cite&#95;note-7"><a href="#cite_ref-7">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Ormgul_the_Pestilent_(quest)" title="Ormgul the Pestilent (quest)"><span class="ajaxttlink questlink">Ormgul the Pestilent</span></a></span></span>
+</li>
+<li id="cite&#95;note-8"><a href="#cite_ref-8">^</a> <span class="reference-text"><a href="/wiki/Tales_of_the_Hunt#Titanstrike" title="Tales of the Hunt">Tales of the Hunt</a></span>
+</li>
+<li id="cite&#95;note-9"><a href="#cite_ref-9">^</a> <span class="reference-text"><a rel="nofollow" class="external text" href="http://us.battle.net/wow/en/legion/#characters">Legion: Key Lore Figures</a></span>
+</li>
+<li id="cite&#95;note-10"><a href="#cite_ref-10">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Unexpected_Allies" title="Unexpected Allies"><span class="ajaxttlink questlink">Unexpected Allies</span></a></span></span>
+</li>
+<li id="cite&#95;note-11"><a href="#cite_ref-11">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[45]&#160;</span><a href="/wiki/Destroying_the_Nest" title="Destroying the Nest"><span class="ajaxttlink questlink">Destroying the Nest</span></a></span></span>
+</li>
+<li id="cite&#95;note-12"><a href="#cite_ref-12">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Blood_Debt" title="Blood Debt"><span class="ajaxttlink questlink">Blood Debt</span></a></span></span>
+</li>
+<li id="cite&#95;note-Margul-13">^ <sup><a href="#cite_ref-Margul_13-0">a</a></sup> <sup><a href="#cite_ref-Margul_13-1">b</a></sup> <span class="reference-text"><a href="/wiki/Margul#Quote" title="Margul">Margul#Quote</a></span>
+</li>
+<li id="cite&#95;note-14"><a href="#cite_ref-14">^</a> <span class="reference-text"><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_archaeology_70_prizerockneckband.png/16px-Inv_archaeology_70_prizerockneckband.png?1f5b53" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Prizerock_Neckband" title="Prizerock Neckband"><span class="itemlink ajaxttlink qc-epic" title="Prizerock Neckband is an epic quality item."><span class="bracket">&#91;</span>Prizerock Neckband<span class="bracket">&#93;</span></span></a></span></span>
+</li>
+<li id="cite&#95;note-15"><a href="#cite_ref-15">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Stonedark_Crystal_(quest)" title="Stonedark Crystal (quest)"><span class="ajaxttlink questlink">Stonedark Crystal</span></a></span></span>
+</li>
+<li id="cite&#95;note-16"><a href="#cite_ref-16">^</a> <span class="reference-text"><a href="/wiki/Stonedark_Grotto" title="Stonedark Grotto">Stonedark Grotto</a></span>
+</li>
+<li id="cite&#95;note-17"><a href="#cite_ref-17">^</a> <span class="reference-text"><a href="/wiki/Statue_of_Liftbrul" title="Statue of Liftbrul">Statue of Liftbrul</a></span>
+</li>
+<li id="cite&#95;note-18"><a href="#cite_ref-18">^</a> <span class="reference-text"><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_archaeology_70_tauren_drogbargemroller.png/16px-Inv_archaeology_70_tauren_drogbargemroller.png?43648b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Drogbar_Gem-Roller" title="Drogbar Gem-Roller"><span class="itemlink ajaxttlink qc-common" title="Drogbar Gem-Roller is a common quality item."><span class="bracket">&#91;</span>Drogbar Gem-Roller<span class="bracket">&#93;</span></span></a></span></span>
+</li>
+<li id="cite&#95;note-19"><a href="#cite_ref-19">^</a> <span class="reference-text">Stonedark Grotto, <a href="/wiki/Neltharion%27s_Lair" title="Neltharion&#39;s Lair">Neltharion's Lair</a></span>
+</li>
+<li id="cite&#95;note-20"><a href="#cite_ref-20">^</a> <span class="reference-text"><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_food_legion_stonedarksnail.png/16px-Inv_misc_food_legion_stonedarksnail.png?183f24" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Stonedark_Snail" title="Stonedark Snail"><span class="itemlink ajaxttlink qc-common" title="Stonedark Snail is a common quality item."><span class="bracket">&#91;</span>Stonedark Snail<span class="bracket">&#93;</span></span></a></span></span>
+</li>
+<li id="cite&#95;note-21"><a href="#cite_ref-21">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<a href="/wiki/Alchemy" title="Alchemy"><img alt="Alchemy" src="/images/thumb/ProfIcons_alchemy.png/15px-ProfIcons_alchemy.png?198c42" decoding="async" loading="lazy" width="15" height="15" style="vertical-align: middle" data-file-width="130" data-file-height="130" /></a>&#160;[10-45D]&#160;</span><a href="/wiki/Neltharion%27s_Lair:_Potent_Powder" title="Neltharion&#39;s Lair: Potent Powder"><span class="ajaxttlink questlink">Neltharion's Lair: Potent Powder</span></a></span></span>
+</li>
+<li id="cite&#95;note-22"><a href="#cite_ref-22">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[45WQ]&#160;</span><a href="/wiki/Bitestone_Bazaar" title="Bitestone Bazaar"><span class="ajaxttlink questlink">Bitestone Bazaar</span></a></span></span>
+</li>
+<li id="cite&#95;note-23"><a href="#cite_ref-23">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Infestation" title="Infestation"><span class="ajaxttlink questlink">Infestation</span></a></span></span>
+</li>
+<li id="cite&#95;note-24"><a href="#cite_ref-24">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Balance_of_Elements" title="Balance of Elements"><span class="ajaxttlink questlink">Balance of Elements</span></a></span></span>
+</li>
+<li id="cite&#95;note-25"><a href="#cite_ref-25">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Tamer_Takedown" title="Tamer Takedown"><span class="ajaxttlink questlink">Tamer Takedown</span></a></span></span>
+</li>
+<li id="cite&#95;note-26"><a href="#cite_ref-26">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Fledgling_Worm_Guts" title="Fledgling Worm Guts"><span class="ajaxttlink questlink">Fledgling Worm Guts</span></a></span></span>
+</li>
+<li id="cite&#95;note-27"><a href="#cite_ref-27">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Eagle_Egg_Recovery" title="Eagle Egg Recovery"><span class="ajaxttlink questlink">Eagle Egg Recovery</span></a></span></span>
+</li>
+<li id="cite&#95;note-28"><a href="#cite_ref-28">^</a> <span class="reference-text"><a href="/wiki/Adventure_Guide" title="Adventure Guide">Adventure Guide</a> entry for <a href="/wiki/Naraxas" title="Naraxas">Naraxas</a></span>
+</li>
+<li id="cite&#95;note-29"><a href="#cite_ref-29">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Battle_Worms" title="Battle Worms"><span class="ajaxttlink questlink">Battle Worms</span></a></span></span>
+</li>
+<li id="cite&#95;note-30"><a href="#cite_ref-30">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<img alt="Warrior" src="/images/thumb/Ui-charactercreate-classes_warrior.png/16px-Ui-charactercreate-classes_warrior.png?c63406" decoding="async" loading="lazy" title="Warrior" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[10-45]&#160;</span><a href="/wiki/Revenge,_Served_Cold_(quest)" title="Revenge, Served Cold (quest)"><span class="ajaxttlink questlink">Revenge, Served Cold</span></a></span></span>
+</li>
+<li id="cite&#95;note-31"><a href="#cite_ref-31">^</a> <span class="reference-text"><a href="/wiki/Navarrogg#Quotes" title="Navarrogg">Navarrogg#Quotes</a></span>
+</li>
+<li id="cite&#95;note-32"><a href="#cite_ref-32">^</a> <span class="reference-text"><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Misc_drogbartotem02.png/16px-Misc_drogbartotem02.png?102298" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Brulfist_Idol" title="Brulfist Idol"><span class="itemlink ajaxttlink qc-rare" title="Brulfist Idol is a rare quality item."><span class="bracket">&#91;</span>Brulfist Idol<span class="bracket">&#93;</span></span></a></span></span>
+</li>
+<li id="cite&#95;note-33"><a href="#cite_ref-33">^</a> <span class="reference-text"><a href="/wiki/Damrul_the_Stronk#Quotes" title="Damrul the Stronk">Damrul the Stronk#Quotes</a></span>
+</li>
+<li id="cite&#95;note-34"><a href="#cite_ref-34">^</a> <span class="reference-text"><a rel="nofollow" class="external text" href="https://cdna.artstation.com/p/assets/images/images/003/356/022/4k/christopher-hayes-bugbears.jpg">Chris Hayes on ArtStation</a></span>
+</li>
+<li id="cite&#95;note-35"><a href="#cite_ref-35">^</a> <span class="reference-text"><a rel="nofollow" class="external text" href="https://cdna.artstation.com/p/assets/images/images/003/018/392/4k/tyson-murphy-bugbear.jpg">Tyson Murphy on ArtStation</a></span>
+</li>
+<li id="cite&#95;note-36"><a href="#cite_ref-36">^</a> <span class="reference-text"><a rel="nofollow" class="external text" href="https://cdnb.artstation.com/p/assets/images/images/009/970/213/4k/cole-eastburn-bugbear1.jpg?1521833769">Cole Eastburn on ArtStation</a></span>
+</li>
+<li id="cite&#95;note-37"><a href="#cite_ref-37">^</a> <span class="reference-text"><a rel="nofollow" class="external text" href="https://www.artstation.com/artwork/gXbk8">Mark Abadier on ArtStation</a></span>
+</li>
+<li id="cite&#95;note-38"><a href="#cite_ref-38">^</a> <span class="reference-text"><a href="/wiki/Blackrock_Caverns#Dungeon_Journal" title="Blackrock Caverns">Blackrock Caverns#Dungeon Journal</a></span>
+</li>
+<li id="cite&#95;note-39"><a href="#cite_ref-39">^</a> <span class="reference-text"><i><a href="/wiki/The_Sundering" title="The Sundering">The Sundering</a></i>, chapter 8</span>
+</li>
+<li id="cite&#95;note-40"><a href="#cite_ref-40">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[10-45]&#160;</span><a href="/wiki/Rock_Troll_in_a_Hard_Place" title="Rock Troll in a Hard Place"><span class="ajaxttlink questlink">Rock Troll in a Hard Place</span></a></span></span>
+</li>
+</ol></div></div>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Drogbar" title="Template:Drogbar"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Drogbar?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<a class="mw-selflink selflink">Drogbar</a> <a href="/wiki/Category:Drogbar_tribes" title="Category:Drogbar tribes">tribes</a> and groups</div></th></tr><tr style="height:2px;"><td></td></tr><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Bitestone" title="Bitestone">Bitestone</a></li>
+<li><a href="/wiki/Brick%27s_Bruls" title="Brick&#39;s Bruls">Brick's Bruls‎</a></li>
+<li><a href="/wiki/Deeprock" title="Deeprock">Deeprock</a></li>
+<li><a href="/wiki/Frostcrag_tribe" title="Frostcrag tribe">Frostcrag</a></li>
+<li><a href="/wiki/Glimmerogg" title="Glimmerogg">Glimmerogg</a></li>
+<li><a href="/wiki/Greystone_tribe" title="Greystone tribe">Greystone</a></li>
+<li><a href="/wiki/Mightstone_tribe" title="Mightstone tribe">Mightstone</a></li>
+<li><a href="/wiki/Necrodark" title="Necrodark">Necrodark</a></li>
+<li><a href="/wiki/Slatecrusher" title="Slatecrusher">Slatecrusher</a></li>
+<li><a href="/wiki/Stonedark_clan" title="Stonedark clan">Stonedark</a></li>
+<li><a href="/wiki/Understone_tribe" title="Understone tribe">Understone</a></li></ul>
+</div></td></tr></tbody></table></td></tr></tbody></table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Azeroth_natives" title="Template:Azeroth natives"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Azeroth_natives?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+Sapient <a href="/wiki/Race" title="Race">species</a> native to <a href="/wiki/Azeroth" title="Azeroth">Azeroth</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Ancient_guardian" class="mw-redirect" title="Ancient guardian">Ancient guardian</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Cenarius#Children" title="Cenarius">Cenarian</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Dryad" title="Dryad">Dryad</a>
+<ul><li><a href="/wiki/Crystal_dryad" title="Crystal dryad">Crystal dryad</a></li>
+<li><a href="/wiki/Forest_nymph" title="Forest nymph">Forest nymph</a></li>
+<li><a href="/wiki/Frost_nymph" title="Frost nymph">Frost nymph</a></li></ul></li>
+<li><a href="/wiki/Keeper_of_the_grove" title="Keeper of the grove">Keeper of the grove</a>
+<ul><li><a href="/wiki/Centaur" title="Centaur">Centaur</a></li></ul></li>
+<li><a href="/wiki/Magnataur" title="Magnataur">Magnataur</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Other</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Harpy" title="Harpy">Harpy</a></li>
+<li><a href="/wiki/Jalgar" title="Jalgar">Jalgar</a>
+<ul><li><a href="/wiki/Furbolg" title="Furbolg">Furbolg</a></li></ul></li>
+<li><a href="/wiki/Quilboar" title="Quilboar">Quilboar</a>
+<ul><li><a href="/wiki/Quilboar_brute" title="Quilboar brute">Quilboar brute</a></li></ul></li>
+<li><a href="/wiki/Worgen" title="Worgen">Worgen</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Troll/Elf</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Troll" title="Troll">Troll</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Dark_troll" title="Dark troll">Dark troll</a></li>
+<li><a href="/wiki/Dire_troll" title="Dire troll">Dire troll</a></li>
+<li><a href="/wiki/Forest_troll" title="Forest troll">Forest troll</a></li>
+<li><a href="/wiki/Ice_troll" title="Ice troll">Ice troll</a></li>
+<li><a href="/wiki/Jungle_troll" title="Jungle troll">Jungle troll</a>
+<ul><li><a href="/wiki/Sand_troll" title="Sand troll">Sand troll</a></li></ul></li>
+<li><a href="/wiki/Zandalari_troll" title="Zandalari troll">Zandalari troll</a>
+<ul><li><a href="/wiki/Blood_troll" title="Blood troll">Blood troll</a></li></ul></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="/wiki/Elf" title="Elf">Elf</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Night_elf" title="Night elf">Night elf</a>
+<ul><li><a href="/wiki/Satyr" title="Satyr">Satyr</a></li>
+<li><a href="/wiki/Crystal_satyr" title="Crystal satyr">Crystal satyr</a></li>
+<li><a href="/wiki/Naga" title="Naga">Naga</a>
+<ul><li><a href="/wiki/Naga_brute" title="Naga brute">Brute</a></li>
+<li><a href="/wiki/Naga_centaur" title="Naga centaur">Centaur</a></li>
+<li><a href="/wiki/Naga_lord" title="Naga lord">Lord</a></li>
+<li><a href="/wiki/Naga_elite" title="Naga elite">Elite</a></li></ul></li></ul></li>
+<li><a href="/wiki/High_elf" title="High elf">High elf</a>/<a href="/wiki/Blood_elf" title="Blood elf">Blood elf</a>
+<ul><li><a href="/wiki/Felblood_elf" title="Felblood elf">Felblood</a></li>
+<li><a href="/wiki/Void_elf" title="Void elf">Void elf</a></li>
+<li><a href="/wiki/Wretched" title="Wretched">Wretched</a></li></ul></li>
+<li><a href="/wiki/Nightborne" title="Nightborne">Nightborne</a>
+<ul><li><a href="/wiki/Nightfallen" title="Nightfallen">Nightfallen</a>
+<ul><li><a href="/wiki/Withered" title="Withered">Withered</a></li></ul></li>
+<li><a href="/wiki/Fal%27dorei" title="Fal&#39;dorei">Fal'dorei</a></li></ul></li>
+<li><a href="/wiki/Darkfallen" title="Darkfallen">Darkfallen</a></li>
+<li><a href="/wiki/Arathi" title="Arathi">Arathi</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Other</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Deepwalker" title="Deepwalker">Deepwalker</a></li>
+<li><a href="/wiki/Dragonkin" title="Dragonkin">Dragonkin</a></li>
+<li><a class="mw-selflink selflink">Drogbar</a></li>
+<li><a href="/wiki/Ettin" title="Ettin">Ettin</a></li>
+<li><a href="/wiki/Fungarian" title="Fungarian">Fungarian</a></li>
+<li><a href="/wiki/Gnoll" title="Gnoll">Gnoll</a></li>
+<li><a href="/wiki/Grell" title="Grell">Grell</a></li>
+<li><a href="/wiki/Haranir" title="Haranir">Haranir</a></li>
+<li><a href="/wiki/Hozen" title="Hozen">Hozen</a></li>
+<li><a href="/wiki/Makrura" title="Makrura">Makrura</a></li>
+<li><a href="/wiki/Mermaid" title="Mermaid">Mermaid</a></li>
+<li><a href="/wiki/Mistlurker" title="Mistlurker">Mistlurker</a></li>
+<li><a href="/wiki/Niffen" title="Niffen">Niffen</a></li>
+<li><a href="/wiki/Pandaren" title="Pandaren">Pandaren</a></li>
+<li><a href="/wiki/Pixie" title="Pixie">Pixie</a></li>
+<li><a href="/wiki/Ranishu" title="Ranishu">Ranishu</a></li>
+<li><a href="/wiki/Saurok" title="Saurok">Saurok</a></li>
+<li><a href="/wiki/Sethrak" title="Sethrak">Sethrak</a></li>
+<li><a href="/wiki/Siren" title="Siren">Siren</a></li>
+<li><a href="/wiki/Sprite" title="Sprite">Sprite</a></li>
+<li><a href="/wiki/Titan-forged" title="Titan-forged">Titan-forged</a></li>
+<li><a href="/wiki/Tortollan" title="Tortollan">Tortollan</a></li>
+<li><a href="/wiki/Tuskarr" title="Tuskarr">Tuskarr</a></li>
+<li><a href="/wiki/Virmen" title="Virmen">Virmen</a></li>
+<li><a href="/wiki/Vulpera" title="Vulpera">Vulpera</a></li>
+<li><a href="/wiki/Wildkin" title="Wildkin">Wildkin</a></li>
+<li><a href="/wiki/Wolvar" title="Wolvar">Wolvar</a></li>
+<li><a href="/wiki/Yaungol" title="Yaungol">Yaungol</a>
+<ul><li><a href="/wiki/Taunka" title="Taunka">Taunka</a></li>
+<li><a href="/wiki/Tauren" title="Tauren">Tauren</a>
+<ul><li><a href="/wiki/Highmountain_tauren" title="Highmountain tauren">Highmountain</a></li></ul></li></ul></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Goblin/Pygmy</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Goblin" title="Goblin">Goblin</a>
+<ul><li><a href="/wiki/Hobgoblin" title="Hobgoblin">Hobgoblin</a></li>
+<li><a href="/wiki/Gilgoblin" title="Gilgoblin">Gilgoblin</a></li></ul></li>
+<li><a href="/wiki/Pygmy" title="Pygmy">Pygmy</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Gorloc</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Gorloc" title="Gorloc">Gorloc</a></li>
+<li><a href="/wiki/Jinyu" title="Jinyu">Jinyu</a>
+<ul><li><a href="/wiki/Ankoan" title="Ankoan">Ankoan</a>
+<ul><li><a href="/wiki/Kobyss" title="Kobyss">Kobyss</a></li></ul></li></ul></li>
+<li><a href="/wiki/Murloc" title="Murloc">Murloc</a>
+<ul><li><a href="/wiki/Deep_sea_murloc" title="Deep sea murloc">Deep sea</a></li>
+<li><a href="/wiki/Mur%27gul" title="Mur&#39;gul">Mur'gul</a></li>
+<li><a href="/wiki/Mutant_murloc" title="Mutant murloc">Mutant</a></li>
+<li><a href="/wiki/Murhulk" title="Murhulk">Murhulk</a></li></ul></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Unknown relation</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Jungle_stalker" title="Jungle stalker">Jungle stalker</a></li>
+<li><a href="/wiki/Yeti" title="Yeti">Yeti</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-abovebelow" style=";" colspan="2"><div>
+This is a sub-template of <a href="/wiki/Template:Sapient_Species" title="Template:Sapient Species">Sapient Species</a></div></td></tr></tbody></table></td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20260320075336
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.373 seconds
+Real time usage: 0.576 seconds
+Preprocessor visited node count: 6863/1000000
+Revision size: 16057/4194304 bytes
+Post‐expand include size: 64207/4194304 bytes
+Template argument size: 24422/4194304 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 26222/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.007/15.000 seconds
+Lua memory usage: 659330/52428800 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  250.986      1 -total
+ 26.25%   65.895      1 Template:Reflist
+ 19.10%   47.945      1 Template:Infobox_race
+ 17.41%   43.698      1 Template:Infobox
+ 12.81%   32.150      5 Template:Navbox
+ 12.11%   30.392     18 Template:NPC
+  7.76%   19.474      1 Template:Drogbar
+  7.11%   17.855     33 Template:Text
+  4.98%   12.511      1 Template:Azeroth_natives
+  4.40%   11.035      6 Template:Mob
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:156530-0!canonical and timestamp 20260320075336 and revision id 6653105. Rendering was triggered because: page_view
+ -->
+</div>

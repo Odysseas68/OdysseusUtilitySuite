@@ -1,0 +1,332 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width:21.5em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_32.png?ae6e60" decoding="async" loading="lazy" width="18" height="32" data-file-width="18" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Warmage Kath'leen</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Warmage_Kath%27leen.jpg" class="image" title="Image of Warmage Kath&#39;leen"><img alt="Image of Warmage Kath&#39;leen" src="/images/thumb/Warmage_Kath%27leen.jpg/132px-Warmage_Kath%27leen.jpg?5ba66a" decoding="async" loading="lazy" width="132" height="300" data-file-width="291" data-file-height="661" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Title</th><td>
+&lt;Legionfall Artificer&gt;</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Gender</th><td>
+Female</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race</th><td>
+<a href="/wiki/Human" title="Human">Human</a>&#160;(Humanoid)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Class</th><td>
+<a href="/wiki/Mage" title="Mage">Mage</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Resource</th><td>
+<span class="rc-mana"><a href="/wiki/Mana_(game_resource)" title="Mana (game resource)">Mana</a></span></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Reaction</th><td>
+<a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation(s)</th><td>
+<a href="/wiki/Kirin_Tor" title="Kirin Tor">Kirin Tor</a>, <a href="/wiki/Dalaran_(kingdom)" title="Dalaran (kingdom)">Magocracy of Dalaran</a>, <a href="/wiki/Armies_of_Legionfall" title="Armies of Legionfall">Armies of Legionfall</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Occupation</th><td>
+<a href="/wiki/Warmage" title="Warmage">Warmage</a>, <a href="/wiki/Artificer" title="Artificer">Artificer</a>, <a href="/wiki/Merchant" title="Merchant">Merchant</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Location</th><td>
+<a href="#Locations">Various</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Unknown</td></tr></tbody></table>
+<p><b>Warmage Kath'leen</b> is a <a href="/wiki/Human" title="Human">human</a> located near the <a href="/wiki/Violet_Citadel" title="Violet Citadel">Violet Citadel</a> in <a href="/wiki/Dalaran" title="Dalaran">Dalaran</a>. She can provide directions for various locations in the <a href="/wiki/Dalaran" title="Dalaran">Dalaran</a>.
+</p><p>It is currently unknown if she survived Dalaran's destruction.
+</p>
+<div style="clear:left;"></div><p><span style="display:inline-block; min-width: 32px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <span class="greybar" style="font-size: 0.85em; padding: 0 0.2em;"><b>This section concerns content related to <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i>.</b></span></p><div style="clear:left;"></div>
+<p>With the invasion of the <a href="/wiki/Burning_Legion" title="Burning Legion">Burning Legion</a>, she joined the effort of the <a href="/wiki/Armies_of_Legionfall" title="Armies of Legionfall">Armies of Legionfall</a> as one of their artificers.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Locations"><span class="tocnumber">1</span> <span class="toctext">Locations</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Quests"><span class="tocnumber">2</span> <span class="toctext">Quests</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Vendor"><span class="tocnumber">3</span> <span class="toctext">Vendor</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Quotes"><span class="tocnumber">4</span> <span class="toctext">Quotes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Deliverance_Point,_Broken_Shore"><span class="tocnumber">4.1</span> <span class="toctext">Deliverance Point, Broken Shore</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Patch_changes"><span class="tocnumber">6</span> <span class="toctext">Patch changes</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Locations">Locations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Warmage_Kath%27leen?action=edit&amp;section=1" title="Edit section: Locations"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable" style="float: ; width: 35em; margin: 0 0 20px 10px">
+
+<tbody><tr>
+<th style="text-align: center; padding: 5px; font-size: 110%;" colspan="3">Notable appearances
+</th></tr>
+<tr>
+<th>Location</th>
+<th>Level range</th>
+<th>Health range
+</th></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Dalaran" title="Dalaran">Dalaran</a> <a href="/wiki/World_of_Warcraft:_Wrath_of_the_Lich_King" title="Wrath of the Lich King"><img alt="Wrath of the Lich King" src="/images/Wrath-Logo-Small.png?6705fd" decoding="async" loading="lazy" width="36" height="19" style="vertical-align: middle" data-file-width="36" data-file-height="19" /></a>
+</td>
+<td>80
+</td>
+<td>10,080
+</td></tr>
+<tr class="alt">
+<td style="vertical-align: top;"><a href="/wiki/Dalaran" title="Dalaran">Dalaran</a> <a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a>
+</td>
+<td>105
+</td>
+<td>611,763
+</td></tr>
+<tr>
+<td style="vertical-align: top;"><a href="/wiki/Deliverance_Point" title="Deliverance Point">Deliverance Point</a>
+</td>
+<td>110
+</td>
+<td>1,039,267
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tbody></table>
+<h2><span class="mw-headline" id="Quests">Quests</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Warmage_Kath%27leen?action=edit&amp;section=2" title="Edit section: Quests"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[45]&#160;</span><a href="/wiki/The_Shadow_of_the_Sentinax" title="The Shadow of the Sentinax"><span class="ajaxttlink questlink">The Shadow of the Sentinax</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<h2><span class="mw-headline" id="Vendor">Vendor</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Warmage_Kath%27leen?action=edit&amp;section=3" title="Edit section: Vendor"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:322px;"><a href="/wiki/File:Warmage_Kath%27leen_Deliverance_Point.jpg" class="image"><img src="/images/thumb/Warmage_Kath%27leen_Deliverance_Point.jpg/320px-Warmage_Kath%27leen_Deliverance_Point.jpg?46aecd" decoding="async" loading="lazy" width="320" height="585" class="thumbimage" data-file-width="411" data-file-height="751" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Warmage_Kath%27leen_Deliverance_Point.jpg" class="internal" title="Enlarge"></a></div>Kath'leen at Deliverance Point.</div></div></div>
+<p><span class="noexcerpt"><a href="/wiki/Durability#Repairing_items" title="Durability"><img alt="Pointer repair on.png" src="/images/thumb/Pointer_repair_on.png/22px-Pointer_repair_on.png?11995e" decoding="async" loading="lazy" width="22" height="22" style="vertical-align: middle" data-file-width="130" data-file-height="130" /></a> This vendor offers a repair service.</span>
+</p>
+<table class="darktable zebra">
+<caption><a class="mw-selflink selflink">Warmage Kath'leen</a><br /><span style="">&lt;Legionfall Artificer&gt;</span>
+</caption>
+<tbody><tr>
+<th>Item</th>
+<th>Cost</th>
+<th>Type
+</th></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_alchemy_71_potion4.png/16px-Inv_alchemy_71_potion4.png?2f1a5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Nethershard_Essence" title="Nethershard Essence"><span class="itemlink ajaxttlink qc-legendary" title="Nethershard Essence is a legendary quality item."><span class="bracket">&#91;</span>Nethershard Essence<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">8000 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Reagent
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Spell_warlock_demonicportal_purple.png/16px-Spell_warlock_demonicportal_purple.png?e3e86b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Nether_Portal_Disruptor" title="Nether Portal Disruptor"><span class="itemlink ajaxttlink qc-uncommon" title="Nether Portal Disruptor is an uncommon quality item."><span class="bracket">&#91;</span>Nether Portal Disruptor<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">250 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Usable
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Achievement_faction_legionfall.png/16px-Achievement_faction_legionfall.png?7ccab0" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Legionfall_Banner" title="Legionfall Banner"><span class="itemlink ajaxttlink qc-rare" title="Legionfall Banner is a rare quality item."><span class="bracket">&#91;</span>Legionfall Banner<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">4000 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Usable
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Spell_priest_voidsear.png/16px-Spell_priest_voidsear.png?67aaa4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Cauterizing_Void_Shard" title="Cauterizing Void Shard"><span class="itemlink ajaxttlink qc-rare" title="Cauterizing Void Shard is a rare quality item."><span class="bracket">&#91;</span>Cauterizing Void Shard<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">5000 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Usable
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_rod_enchantedfelsteel.png/16px-Inv_rod_enchantedfelsteel.png?a0e224" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Repurposed_Fel_Focuser" title="Repurposed Fel Focuser"><span class="itemlink ajaxttlink qc-rare" title="Repurposed Fel Focuser is a rare quality item."><span class="bracket">&#91;</span>Repurposed Fel Focuser<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">7500 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Enhancement
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Spell_warlock_demonicportal_green.png/16px-Spell_warlock_demonicportal_green.png?2e9c64" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Legion_Pocket_Portal" title="Legion Pocket Portal"><span class="itemlink ajaxttlink qc-rare" title="Legion Pocket Portal is a rare quality item."><span class="bracket">&#91;</span>Legion Pocket Portal<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">7500 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Toy
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_tabard_a_92legionfall.png/16px-Inv_tabard_a_92legionfall.png?438704" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Legionfall_Tabard" title="Legionfall Tabard"><span class="itemlink ajaxttlink qc-rare" title="Legionfall Tabard is a rare quality item."><span class="bracket">&#91;</span>Legionfall Tabard<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">10000 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Tabard
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Ability_felarakkoa_focusedblast.png/16px-Ability_felarakkoa_focusedblast.png?5c7d06" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Legion_Invasion_Simulator" title="Legion Invasion Simulator"><span class="itemlink ajaxttlink qc-rare" title="Legion Invasion Simulator is a rare quality item."><span class="bracket">&#91;</span>Legion Invasion Simulator<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">25000 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Toy
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_helmet_187v1.png/16px-Inv_helmet_187v1.png?95d5a2" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Hood" title="Dauntless Hood"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Hood is a rare quality item."><span class="bracket">&#91;</span>Dauntless Hood<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Head
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_shoulder_141.png/16px-Inv_shoulder_141.png?15b19c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Spaulders" title="Dauntless Spaulders"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Spaulders is a rare quality item."><span class="bracket">&#91;</span>Dauntless Spaulders<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Shoulder
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_chest_mail_10.png/16px-Inv_chest_mail_10.png?255e45" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Tunic" title="Dauntless Tunic"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Tunic is a rare quality item."><span class="bracket">&#91;</span>Dauntless Tunic<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Chest
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pants_leather_29a.png/16px-Inv_pants_leather_29a.png?99d49d" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Leggings" title="Dauntless Leggings"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Leggings is a rare quality item."><span class="bracket">&#91;</span>Dauntless Leggings<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_belt_89.png/16px-Inv_belt_89.png?9a3b64" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Girdle" title="Dauntless Girdle"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Girdle is a rare quality item."><span class="bracket">&#91;</span>Dauntless Girdle<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_plate_draenorquest90_b_01glove.png/16px-Inv_plate_draenorquest90_b_01glove.png?4f4734" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Gauntlets" title="Dauntless Gauntlets"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Gauntlets is a rare quality item."><span class="bracket">&#91;</span>Dauntless Gauntlets<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_boots_leather_03b.png/16px-Inv_boots_leather_03b.png?ecb597" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Treads" title="Dauntless Treads"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Treads is a rare quality item."><span class="bracket">&#91;</span>Dauntless Treads<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Feet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_bracer_plate_twilighthammer_c_01.png/16px-Inv_bracer_plate_twilighthammer_c_01.png?750ef2" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Bracers" title="Dauntless Bracers"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Bracers is a rare quality item."><span class="bracket">&#91;</span>Dauntless Bracers<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Wrist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cape_draenorraid_c_01_green.png/16px-Inv_cape_draenorraid_c_01_green.png?ebbf93" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Cloak" title="Dauntless Cloak"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Cloak is a rare quality item."><span class="bracket">&#91;</span>Dauntless Cloak<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Back
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_7_0raid_necklace_09b.png/16px-Inv_7_0raid_necklace_09b.png?9a13ac" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Choker" title="Dauntless Choker"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Choker is a rare quality item."><span class="bracket">&#91;</span>Dauntless Choker<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Neck
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_70_quest_ring9a.png/16px-Inv_70_quest_ring9a.png?cf253f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Ring" title="Dauntless Ring"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Ring is a rare quality item."><span class="bracket">&#91;</span>Dauntless Ring<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Finger
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_6_2raid_trinket_3a.png/16px-Inv_6_2raid_trinket_3a.png?907e7d" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dauntless_Trinket" title="Dauntless Trinket"><span class="itemlink ajaxttlink qc-rare" title="Dauntless Trinket is a rare quality item."><span class="bracket">&#91;</span>Dauntless Trinket<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Trinket
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_chest_plate_dungeonplate_c_04.png/16px-Inv_chest_plate_dungeonplate_c_04.png?2a4ac0" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Relinquished_Armor_Set" title="Relinquished Armor Set"><span class="itemlink ajaxttlink qc-rare" title="Relinquished Armor Set is a rare quality item."><span class="bracket">&#91;</span>Relinquished Armor Set<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">400 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Usable
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_hammer_1h_silverhand_b_01.png/16px-Inv_hammer_1h_silverhand_b_01.png?395953" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Arsenal:_Armaments_of_the_Silver_Hand" title="Arsenal: Armaments of the Silver Hand"><span class="itemlink ajaxttlink qc-epic" title="Arsenal: Armaments of the Silver Hand is an epic quality item."><span class="bracket">&#91;</span>Arsenal: Armaments of the Silver Hand<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">1000 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Appearance
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_sword_2h_ebonblade_b_01_green.png/16px-Inv_sword_2h_ebonblade_b_01_green.png?c3ebf4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Arsenal:_Armaments_of_the_Ebon_Blade" title="Arsenal: Armaments of the Ebon Blade"><span class="itemlink ajaxttlink qc-epic" title="Arsenal: Armaments of the Ebon Blade is an epic quality item."><span class="bracket">&#91;</span>Arsenal: Armaments of the Ebon Blade<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">2000 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Appearance
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_scroll_03.png/16px-Inv_scroll_03.png?9e9a8b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Technique:_Glyph_of_Wrathguard" title="Technique: Glyph of Wrathguard"><span class="itemlink ajaxttlink qc-common" title="Technique: Glyph of Wrathguard is a common quality item."><span class="bracket">&#91;</span>Technique: Glyph of Wrathguard<span class="bracket">&#93;</span></span></a></span>
+</td>
+<td align="center"><span class="nobreak ajaxoutertt">2500 <a href="/wiki/Nethershard" title="Nethershard"><img alt="Nethershard" src="/images/thumb/Inv_datacrystal01.png/16px-Inv_datacrystal01.png?465534" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span></td>
+<td>Recipe
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Quotes">Quotes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Warmage_Kath%27leen?action=edit&amp;section=4" title="Edit section: Quotes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span id="Deliverance_Point.2C_Broken_Shore"></span><span class="mw-headline" id="Deliverance_Point,_Broken_Shore">Deliverance Point, Broken Shore</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Warmage_Kath%27leen?action=edit&amp;section=5" title="Edit section: Deliverance Point, Broken Shore"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dt>Gossip</dt></dl>
+<div class="dialogue plainlist">
+<p>&lt;Class title&gt;, see something you like?
+</p>
+<dl><dd><img alt="Buy" src="/images/Vendorgossipicon.png?d64fc3" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" />&#160;I would like to buy from you.</dd></dl>
+</div>
+<dl><dt>Patch 7.3.0</dt></dl>
+<div class="dialogue plainlist">
+<p><img alt="Gossip" src="/images/Gossipgossipicon.png?a6d689" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" />&#160;Where did <a href="/wiki/Thaumaturge_Vashreen" title="Thaumaturge Vashreen">Thaumaturge Vashreen</a> go with the Relinquished items?
+</p>
+<dl><dd>Vashreen? He mentioned something about procuring new items and relocating to the <a href="/wiki/Vindicaar" title="Vindicaar">Vindicaar</a> on <a href="/wiki/Argus" title="Argus">Argus</a>.</dd></dl>
+</div>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Warmage_Kath%27leen?action=edit&amp;section=6" title="Edit section: Notes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>She has the same model as <a href="/wiki/Warmage_Watkins" title="Warmage Watkins">Warmage Watkins</a>.</li></ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Warmage_Kath%27leen?action=edit&amp;section=7" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_7.2.0" title="Patch 7.2.0">Patch 7.2.0</a> (2017-03-28):</b> Added to <a href="/wiki/Broken_Shore" title="Broken Shore">Broken Shore</a> as Armies of Legionfall vendor.   <i></i><br /></li>
+<li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_7.0.3" title="Patch 7.0.3">Patch 7.0.3</a> (2016-07-19):</b> Added in the <i><a href="/wiki/Legion" class="mw-redirect" title="Legion">Legion</a></i> version of <a href="/wiki/Dalaran" title="Dalaran">Dalaran</a>.   <i></i><br /></li>
+<li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Wrath_of_the_Lich_King" title="Wrath of the Lich King"><img alt="Wrath of the Lich King" src="/images/Wrath-Logo-Small.png?6705fd" decoding="async" loading="lazy" width="36" height="19" style="vertical-align: middle" data-file-width="36" data-file-height="19" /></a></span> <b><a href="/wiki/Patch_3.0.2" title="Patch 3.0.2">Patch 3.0.2</a> (2008-10-14):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Warmage_Kath%27leen?action=edit&amp;section=8" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable">
+
+<tbody><tr>
+<th>Northrend</th>
+<th>The Broken Isles</th>
+<th>Deliverance Point
+</th></tr>
+<tr>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/npc=32723">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/npcs/32723">WoWDB</a></li>
+
+
+
+</ul>
+</td>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/npc=96772">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/npcs/96772">WoWDB</a></li>
+
+
+
+</ul>
+</td>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/npc=120898">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/npcs/120898">WoWDB</a></li>
+
+
+
+</ul>
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20260322014107
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.174 seconds
+Real time usage: 0.410 seconds
+Preprocessor visited node count: 11393/1000000
+Revision size: 4326/4194304 bytes
+Post‐expand include size: 30456/4194304 bytes
+Template argument size: 3570/4194304 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.004/15.000 seconds
+Lua memory usage: 655234/52428800 bytes
+Number of processed Cargo queries: 0
+Time spent processing Cargo queries: 0.000 s (avg. 0.000 s)
+Number of Cargo row insertion attempts: 1
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  180.704      1 -total
+ 51.62%   93.287     24 Template:Cost
+ 17.99%   32.512      1 Template:Npcbox
+ 14.58%   26.348      1 Template:Infobox
+  8.71%   15.745      2 Template:Dialogue
+  6.39%   11.546      2 Template:Trim
+  3.67%    6.628      1 Template:Npchealth
+  3.61%    6.516      1 Template:Patch_7.2.0
+  3.55%    6.423      1 Template:Legion-section
+  3.54%    6.392      1 Template:Level
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:365259-0!canonical and timestamp 20260322014106 and revision id 6672310. Rendering was triggered because: edit-page
+ -->
+</div>

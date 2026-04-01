@@ -1,0 +1,54 @@
+{{Infobox town
+| name          = Plunder Harbor
+| ss            = Plunder Harbor.jpg
+| faction       = Horde
+| type          = Harbor
+| race          = {{Race|Human}}<br/>{{Race|Orc}}<br/>{{Race|JungleTroll}}<br/>{{Race|Forsaken}}<br/>{{Race|Goblin}}<br/>{{Race|HighmountainTauren}}
+| leader = {{NPC||Owings||Captain Owings|icon=KulTiran Female}}
+| fleader = {{NPC||Captain Rhenik|icon=KulTiran Male}}{{KIA}}
+| language      = [[Common (language) |Common]], [[Orcish (language)|Orcish]]
+| affiliation   = [[Fogsail Freebooters]], [[Horde]], [[Honorbound]] (allied)
+| loc           = Eastern [[Tiragarde Sound]] {{co|81|51|Tiragarde Sound}}
+|travel       = Yes
+| flightpath  = Yes
+| status = Active 
+}}__NOTOC__
+[[File:Plunder Harbor cave.jpg|thumb|Horde members in the cave.]]
+[[File:Siege of Plunder Harbor.jpg|thumb|The Proudmoore fleet attacking.]]
+
+'''Plunder Harbor''' is a town in eastern [[Tiragarde Sound]] under the control of the [[Fogsail Freebooters]]. The [[Maiden's Lament]] inn is located here.
+
+During the [[Fourth War]], the Fogsail Freebooters allowed the [[Honorbound]] [[Horde]] to use the harbor as a safe foothold in Kul Tiras after they helped [[Owings]] pull a mutiny on the previous captain [[Captain Rhenik|Rhenik]] for wanting to sell the crew out to the [[Ashvane Trading Company]].<ref>[[I'm the Captain Now]]</ref> The Horde's actions led to the Proudmoore fleet attacking the harbor, sending the ''[[Siren's Daughter]]'' and ''[[Valorous Rose]]'' battleships to get [[Derek Proudmoore]]'s body back.
+
+==NPCs==
+*{{NPC||Owings||Captain Owings|icon=KulTiran Female}}
+*{{NPC||First Mate Malone|icon=KulTiran Male}}
+*{{RaceIcon|Human|Female}} [[Boatswain Taryn]]
+*{{RaceIcon|Human|Male}} [[Boatswain Mace]]
+*{{RaceIcon|KulTiran|Female}} [[Owings]]
+*{{RaceIcon|Human|Male}} [[Navigator Swink]]
+*{{RaceIcon|Human|Male}} [[Quartermaster Killian]]
+*{{RaceIcon|Highmountain Female}} [[Tallelah Clearpath]]
+*{{RaceIcon|Orc Male}} [[Skrash]]
+*{{RaceIcon|Goblin Male}} [[Tinny Jimmy]]
+
+;Unnamed
+*{{RaceIcon|Human|Male}}{{RaceIcon|Human|Female}}{{RaceIcon|KulTiran|Male}}{{RaceIcon|KulTiran|Female}} [[Fogsail Cannoneer]]
+*{{RaceIcon|Human|Male}}{{RaceIcon|Human|Female}}{{RaceIcon|KulTiran|Male}}{{RaceIcon|KulTiran|Female}} [[Fogsail Mutineer]]
+*{{RaceIcon|Human|Male}}{{RaceIcon|Human|Female}}{{RaceIcon|KulTiran|Male}}{{RaceIcon|KulTiran|Female}} [[Fogsail Pirate]]
+*{{RaceIcon|Human|Male}}{{RaceIcon|Human|Female}} [[Fogsail Rower]]
+*{{Race|JungleTroll|}} [[Darkspear Hunter]]
+*{{RaceIcon|Highmountain Male}} [[Horde Warbringer (War Campaign)|Horde Warbringer]]
+
+==Patch changes==
+*{{Patch 8.0.1|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Elinks-zone|9694}}
+
+{{Tiragarde Sound}}
+
+[[Category:Harbors]]

@@ -1,0 +1,93 @@
+{{Infobox town
+| name = Vulpera Hideaway
+| ss = Vulpera Hideaway.jpg
+| faction = Horde
+| type = Capital; [[Camp]]<ref>[[A Meal for Birds]]</ref><ref>[[Rudo#Quotes]]</ref>
+| race = {{Race|Vulpera}}
+| leader = {{NPC||Kiro|icon=Kiro}} 
+| affiliation = [[Voldunai]], [[Horde]]
+| loc = Eastern [[Vol'dun]]{{Coords|57|49.2|Vol'dun}}
+| facilities = Yes
+ | inn = Yes
+ | mailbox = Yes
+ | stables = Yes
+ | anvil = Yes
+| travel = Yes
+ | flightpath = Yes
+| status = Active
+}}
+
+The '''Vulpera Hideaway''' is the main settlement of the [[Voldunai]] [[vulpera]], nestled in the cliffs of eastern [[Vol'dun]].
+
+==History==
+===Battle for Azeroth===
+{{Bfa-section}}
+After the destruction of the [[Abandoned Burrows]], the [[Voldunai]] [[vulpera]] fled to what would become the Vulpera Hideaway.<ref>[[An Explosive Exit]]</ref> The refuge was not intended as a permanent one, as the vulpera caravans were ready to leave at moment's notice should the hideaway be discovered by the [[Faithless]] [[sethrak]].<ref>[[Nisha#Quotes]]</ref><ref>[[An Explosive Exit]]</ref> Aided by adventurers from the [[Horde]], [[Kiro]] rallied numerous vulpera to this region as a safehaven, serving as the main base for the Voldunai.<ref>[[Aided Escape]]</ref><ref>[[Missing Business]]</ref>
+
+From here, [[Nisha]] and Kiro devised a plan to strike back at the Faithless for their crimes against their people, working with the Horde and the Zandalari that they had found, such as [[Bladeguard Kaja]] and [[Rakera]].<ref>[[Secrets in the Sand]]</ref>
+
+Following the downfall of the Faithless and the winding down of the [[Fourth War]], the vulpera joined the Horde. Vulpera heroes who proved their worth to the Horde and in the name of their people were called back to the Hideaway and granted special equipment by [[Hagashi]]. It was put together by Kiro and the rest of the Voldunai in appreciation for their hard work.<ref>[[Heritage of the Vulpera (quest)]]</ref>
+
+===Exploring Azeroth===
+{{Novel-section}}
+In Year 42 [[ADP]], the vulpera transformed the camp into more permanent residences.<ref>''[[Exploring Azeroth: Islands and Isles]]'', pg. 76</ref>
+
+==Travel connections==
+===Flight===
+;{{Horde}} [[Temple of Akunda]] in Vol'dun
+;{{Horde}} [[Vorrik's Sanctum]] in Vol'dun
+
+==Inhabitants==
+{{Columns|2|
+;Quest givers
+*{{NPC||Bladeguard Kaja|icon=Zandalari Female}}
+*{{NPC||Kiro|icon=Kiro}}
+*{{NPC||Meerah|icon=Vulpera Female}}
+*{{NPC||Nisha|icon=Vulpera Female}} (after [[An Explosive Exit]])
+
+;Vendors and services
+*{{NPC||Hagashi|Innkeeper|icon=Vulpera Male}}
+*{{NPC||Hoarder Jena|Voldunai Emissary|icon=Vulpera Female}}
+*{{NPC||Keeyo|Master Pet Tamer|icon=Vulpera Male}}
+*{{NPC||Narishi|Flight Master|icon=Vulpera Male}}
+*{{NPC||Raka|Scavenged Goods & Repairs|icon=Vulpera Male}}
+*{{NPC||Teego|Stable Master|icon=Vulpera Male}}
+
+;Other characters
+*{{NPC||Dolly|icon=Alpaca}}
+*{{NPC||Dot (alpaca)||Dot|icon=Alpaca}}
+*{{NPC||Hakasi|icon=Vulpera Male}} (after [[Aided Escape]])
+*{{NPC||Hilda (vulpera)||Hilda|icon=Vulpera Female}}
+*{{NPC||Jeni|icon=Vulpera Female}}
+**{{NPC||Teel|icon=Ferret}}
+*{{NPC||Kipp|icon=Vulpera Male}} (after [[Aided Escape]])
+*{{NPC||Rudo|icon=BabyVulpera}} (after [[The Fall of Emperor Korthek]])
+*{{NPC||Torra|icon=BabyVulpera}}
+**{{NPC||Nala (ferret)||Nala|icon=Ferret}}
+*{{NPC||Vivi|icon=Vulpera Female}} (after [[Missing Business]])
+**{{NPC||Coda|icon=Ferret}} (after [[Missing Business]])
+
+;Unnamed
+*{{NPC||Trained Buzzard|icon=CarrionBird}}
+*{{NPC||Trained Duskmane|icon=Hyena}}
+*{{NPC||Vulpera Guardian|icon=Vulpera Male|icon2=Vulpera Female}}
+}}
+
+==Patch changes==
+*{{Hotfix|date=2018-08-24|link=https://worldofwarcraft.com/en-us/news/21973195#1|note=Members of the Alliance can no longer rest at the [[Temple of Akunda]] or Vulpera Hideaway.}}
+*{{Patch 8.0.1|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Elinks-zone|8854}}
+
+{{Vol'dun}}
+{{New Horde}}
+{{Capital}}
+
+[[Category:Camps]]
+[[Category:Voldunai]]
+[[Category:Vulpera territories]]
+[[Category:Horde quest hubs]]

@@ -1,0 +1,1451 @@
+{{About||its predecessor|Old Horde|other uses|Horde (disambiguation)|and|New Horde}}
+{{Infobox Horde}}
+{{QuoteWiki|The proud nations of the Horde are loosely joined in an alliance of convenience against a hostile world that would see them destroyed. Focused, ferocious and sometimes monstrous, the Horde values strength and honor, but struggles to keep aggression in check. Join the Horde and fight to build a world where their people can live free.|Horde in-game's description}}
+
+The '''Horde''' (also called the '''New Horde''' or '''Thrall's Horde''') is one of the two major political [[faction]]s of the mortal races in [[Azeroth]], its counterpart being the [[Alliance]] which the Horde has traditionally been at war with. Driven by unity,<ref name="Playable races">{{Ref web|url=https://worldofwarcraft.com/en-us/game/races|title=Playable Races|author={{Blizz|Blizzard Entertainment}}|archiveurl=https://web.archive.org/web/20190421150954/https://worldofwarcraft.com/en-us/game/races|archivedate=2019-04-21}}</ref> the Horde consists of a coalition of disparate races and cultures loosely joined in an alliance of convenience against a hostile world that would see them destroyed.<ref name="Pandaren faction selection">[https://wow.gamepedia.com/File:Horde-alliance_pandaren.jpg Pandaren Faction Selection]</ref><ref>''[[Ultimate Visual Guide]]'', pg. 112</ref> A faction led by off-worlders and composed of outsiders, the Horde has survived the obstacles of Azeroth by bonding together, fighting as family, comrades, or even uneasy allies.<ref>''[[Beginnings & Ends]]''</ref> Focused, ferocious, and sometimes monstrous, the Horde values strength and honor<ref name="Pandaren faction selection"/> and is relentlessly opposed to any who threaten the ideals of freedom and hope,<ref name="Playable races"/> but struggles to keep aggression in check.<ref name="Pandaren faction selection"/>
+
+During [[Garrosh Hellscream]]'s reign, the faction was plunged into a state of civil war, divided between Hellscream's pan-orc government he referred to as the "[[True Horde]]" and the [[Darkspear Rebellion]], comprised of the remaining Horde races, as well as [[orc]]s that have decided to oppose Garrosh, under leadership of [[Vol'jin]]. After the [[Siege of Orgrimmar]] upon the defeat of Garrosh, [[Vol'jin]] was chosen as the new [[Warchief]] of the Horde with every leader supporting the choice, even [[Thrall]] himself. This also marks the first time, when the Warchief's position was held by a person that isn't an orc, signifying a sense of unity between all the member races of the faction, in Vol'jin's own words - ''The Horde is a family''. Following the disastrous [[Battle for Broken Shore]] at the start of the [[third invasion of the Burning Legion]], [[Sylvanas Windrunner]] was named the new Warchief by a dying Vol'jin, who with his last breath said she must step out of the shadows to lead.
+
+The Horde has throughout the ''Warcraft'' story remained the only force that can match up to the Alliance. These two factions have warred several times with their predecessors ([[Old Horde]], [[Alliance of Lordaeron]]) having clashed together in the [[First War|First]], [[Second War|Second]], and [[Third War]]s. In the [[Fourth War]], the last major conflict as of ''[[Battle for Azeroth]]'', the controversial acts by the Horde [[Warchief]] [[Sylvanas Windrunner]] eventually caused a Horde rebellion led by [[Varok Saurfang]]. This led to a temporary unity between the two factions when Varok asked [[Anduin Wrynn]], High King of the Alliance, for aid in assaulting [[Orgrimmar]] to end both the reign of Sylvanas and the enmity between the Horde and Alliance.<ref name="Negotiation" /> Ultimately, the rebellion caused the Horde to lose its top leadership when Sylvanas [[Reckoning|killed Varok and abandoned the Horde]]. With his death and her abandonment, the Fourth War was considered over, and the Horde discarded the position of Warchief ruling the Horde in favor of a [[Horde Council|council style leadership]], while the two factions began talks of peace, though many surmise it may not last or cannot forgive the atrocities of the past.<ref name="Warchief of the Horde (quest)">[[Warchief of the Horde (quest)]]</ref><ref>[[The Price of Peace]]</ref> Currently the Horde and Alliance are in an "uneasy armistice".<ref>{{Ref web|url=https://www.wowhead.com/news=296035/world-of-warcraft-group-interview-recap-torghast-level-squish-flying-pathfinder|title=World of Warcraft Group Interview Recap - Torghast, Level Squish, Flying & Pathfinder|author=Anshlun|publisher=Wowhead|date=2019/11/04|accessdate=2019-11-07}}</ref>
+
+The Horde is one of the two factions that player characters belong to―the [[Alliance]] being the other―as determined by a given character's [[race]] (with the exception of [[Pandaren (playable)|Pandaren]] which can be both). Besides race, being a member of the Horde or Alliance affects gameplay through what [[settlement]]s, [[NPC]]s, [[quest]]s, [[reputation|reputation factions]] and in some cases [[item]]s and [[encounter]]s the player may access. Faction mechanics also prevent Horde and Alliance players from [[language|talking]] with each other or making [[group]]s together, and most [[PvP]] gameplay involves Horde players fighting against Alliance players. The divide between the Horde and Alliance—in regard to gameplay mechanics, story elements, and sometimes in social aspects like [[faction pride]]—acts as the core element of the ''[[World of Warcraft]]'' experience.
+
+{{OTOC|450|243}}
+
+==Descriptions==
+{{Stub-section}}
+*''The indomitable Horde is driven by unity. They are fervent keepers of freedom and hope, relentlessly opposed to any who threaten these ideals, including the stringent Alliance.''<ref>[https://worldofwarcraft.blizzard.com/en-us/game/races Playable Races of World of Warcraft]</ref> ''The Horde fights for honor and freedom, surviving in a world that questions their unity and strength.''<ref>[https://worldofwarcraft.blizzard.com/en-us/start Overview: Who Will You Become?]</ref>
+*''The Horde is made up of orcs, forsaken, tauren, trolls, blood elves, and most recently, goblins. Misunderstood and cast aside, these diverse and powerful races strive to overcome their differences and unite as one in order to win freedom for their people and prosper in a land that has come to hate them. In the Horde, action and strength are valued above diplomacy, and its leaders earn respect by the blade, wasting no time with politics. The brutality of the Horde's champions is focused, giving a voice to those who fight for survival.''<ref>''Darkmoon Faire Cataclysm Promotion: Fortune card''</ref>
+
+;Classic
+{{wow-section}}
+*''Four races comprise the Horde: the brutal orcs, the shadowy undead, the spiritual tauren, and the quick-witted trolls. Beset by enemies on all sides, these outcasts have forged a union they hope will ensure their mutual survival.'' (in-game)
+
+*''A coalition of outcasts who have forged a union in the flames of survival, the Horde values action and strength, committed to enduring in an unforgiving land that would see it extinguished.''<ref>[https://worldofwarcraft.com/en-us/news/23317716/taking-your-first-steps-in-world-of-warcraft-classic Taking Your First Steps in World of Warcraft Classic]</ref>
+
+==History==
+[[File:HordeLogo.png|thumb|The modern Horde symbol.]]
+:''See also: [[Old Horde]], [[Dark Horde]], [[Fel Horde]], [[Iron Horde]] and [[True Horde]]''
+In the past, the Horde referred to the orcs and their battle thralls from both [[Draenor]] and Azeroth, such as trolls and ogres. Following its utter defeat at the end of the [[Second War]], the Horde's dark power was broken, allowing Thrall to awaken the dormant spirituality of his people and free them from the [[Burning Legion]]'s control. 
+
+During the events of the [[Third War]], Thrall has made lasting bonds with the tauren chief [[Cairne Bloodhoof]] and the troll shadow hunter [[Vol'jin]] of the Darkspear tribe. The ties between the three races are very close, as both share many similar cultural views. With the help of the tauren, both the orcs and the tribe of trolls have established a place for themselves in [[Kalimdor]]. During the [[invasion of Durotar]], [[Vol'jin]] and [[Rexxar]] unexpectedly had been presented with an opportunity to bring the [[Stonemaul clan]] into the Horde and seized on it.<ref>{{ref game |title=Warcraft III |expansion=[[The Frozen Throne]] |campaign=[[The Founding of Durotar]] |mission=[[Old Hatreds]]}}</ref>
+
+The present Horde is mostly about surviving in a land that has come to hate them. The orcs are hated because, much like the Forsaken, they were manipulated by corrupt forces that channeled their aggression on unsuspecting foes, thus leaving behind a legacy of brutality and domination. In fact, many races of the Horde have a history of being unscrupulous. Though redeemed and trying to make amends or simply trying to survive, they are not forgiven nor trusted by many members of the [[Alliance]] who believe them to be their old selves still.<ref>{{ref game |title=Warcraft III |expansion=[[The Frozen Throne]] |campaign=[[The Founding of Durotar]] |mission=[[A Blaze of Glory]] Map: Theramore Isle |zone= |npc=Admiral Proudmoore |quote=Can your blood atone for genocide, orc? Your Horde killed countless innocents with its rampage across Stormwind and Lordaeron. Do you really think you can just sweep all that away and cast aside your guilt so easily? No, your kind will never change, and I will never stop fighting you. |quest= }}</ref> The [[troll]]s, [[tauren]] and their other allies are the ones who understood them, and so they are hated for that.
+
+===World of Warcraft===
+{{wow-section}}
+After carving out a functional empire of their own and with growing numbers by the day, the [[Forsaken]] knew that the next step to realizing their vengeance upon [[Arthas Menethil]] was to secure their place in the world. In time, their leader [[Sylvanas Windrunner]] looked for allies, and to that end she sent ambassadors to both the [[Alliance]] and the Horde. While emissaries to [[Stormwind City]] never returned, [[Hamuul Runetotem|Archdruid Hamuul Runetotem]] believed that Forsaken could be redeemed and spiritually revived. Thus he brought the Forsaken ambassadors to meet with [[Cairne Bloodhoof]], high chieftain of the [[tauren]] tribes, and Cairne agreed that the undead should be given a chance to thrive.<ref>{{Ref WoWCV3|113}}</ref> Thus, the tauren convinced Warchief Thrall, despite his misgivings, to forge an alliance of convenience between the Forsaken and the Horde. This alliance of convenience has granted the Horde a better footing in the mostly [[Alliance]] controlled [[Eastern Kingdoms]], and in turn, with the Horde's protection, and even the assistance of the [[Argent Dawn]],<ref>[http://web.archive.org/web/20160305013704/http://us.battle.net/wow/en/game/race/undead Races of World of Warcraft - Forsaken]</ref> the Forsaken were able to keep their holdings in Lordaeron.
+
+Meanwhile, word of the new Horde and its noble goals soon reached the [[Revantusk tribe]], who immediately dispatched its speediest runners to make contact with the orcs. Though initially wary, Thrall came to see that the Revantusk trolls were unique among forest trolls in a fundamental way. The Revantusk tribe had never had much in the way of the fighters or resources, and so it had instead decided to specialize in the trickier art of negotiation. By the time they spoke with Thrall, the Revantusks had acquired a reputation for trustworthiness that was well deserved. The trolls were impressed by Thrall and his dream. Even so, they remembered the recklessness and corruption of the first Horde. Thus, the Revantusks declined to rejoin the Horde, but they did agree to a pact of friendship and mutual assistance.<ref>[[Troll Compendium/Forest Troll Tribes#Revantusk Tribe|Troll Compendium: Revantusk Tribe]]</ref>
+
+In time, old animosity between the Horde and Alliance arose once more which resulted in open conflict on several [[battleground|battlefields]], keeping relations between the Horde and Alliance in a state of cold war.
+
+Despite the political quarreling between the Horde and Alliance, Thrall does wish to establish true peace between the two factions. However, the Alliance still remembers the [[Old Horde]]'s association with the [[Burning Legion]]. To differentiate his New Horde from its predecessor's dark legacy, Thrall sanctioned [[Keldran]]'s campaign against the [[Burning Blade clan|Burning Blade]]<ref>[[Alliance Relations (2)]]</ref><ref>[[Alliance Relations (3)]]</ref><ref>[[The Burning of Spirits]]</ref> and the demon infestation in [[Desolace]].<ref>[[Befouled by Satyr]]</ref> With such a grand display of hostility against the Burning Legion's agents, Keldran and Thrall hoped the Alliance would see the new Horde's sincerity and prevent a war caused by misunderstandings.<ref>[[Alliance Relations (4)]]</ref> Thrall also sought to send a strike team to liberate [[Moira Thaurissan]] from the Dark Irons to strengthen relations in the [[Eastern Kingdoms]],<ref>[[The Eastern Kingdoms]]</ref> though it was ultimately Alliance forces who entered the Blackrock Depths and killed [[Dagran Thaurissan]], the Emperor of the Dark Irons.<ref>''[[The Shattering: Prelude to Cataclysm]]'', pg. 106</ref>
+
+When Moira covertly sent her spies with word about [[Dark Horde]]'s alliance with the [[black dragonflight]], it reached Thrall who assembled the mightiest of his Horde warriors to claim the heads of [[Dal'Rend]] and of Deathwing's son, [[Nefarian]].<ref>{{Ref WoWCodex|107}}</ref><ref>{{Ref WoWCV3|121}}</ref> The Horde later received word from the [[Zandalari]] that the [[Atal'ai]] and their leader, [[Jin'do the Hexxer]], sought to summon [[Hakkar the Soulflayer]]. Thus a large Horde strike force invaded [[Zul'Gurub]], and though they killed the priests and Jin'do they were too late to stop Hakkar's summoning. Manifesting as a force of death and insanity, Hakkar poisoned the blood of the Horde's champions and tried to drag their thoughts into absolute madness. Yet it was Hakkar's own power that proved to be his undoing. In desperation, the Horde forces allowed themselves to be poisoned, and then let Hakkar feed on their corrupted blood. In his frenzied state, with every thought filled with the urge to consume blood, Hakkar paid little heed to the tactics of his seemingly harmless enemies. He was unaware of the poison entering his veins until it was too late, and in the end Hakkar was consumed by his own dark magic.<ref>{{Ref WoWCodex|123}}</ref>
+
+At the time of the [[Ahn'Qiraj War]], Thrall quickly came to an unprecedented agreement with [[Bolvar Fordragon|Regent Lord Bolvar Fordragon]]. Both the Horde and the Alliance would combine the might of their armies, as the [[Might of Kalimdor]], in order to strike back against the threat of the [[Old God]] [[C'Thun]] and its [[qiraji]] at [[Ahn'Qiraj]].<ref>{{Ref WoWCV3|125}}</ref><ref>[[The Horde Needs Tin Bars!]]</ref>
+
+===The Burning Crusade===
+{{Bc-section}}
+The [[blood elves]] needed allies, and they would no longer find them among the humans, dwarves, gnomes, and night elves. Kael'thas' alliance with [[Lady Vashj]] and [[Illidan Stormrage]] had soured relations between Quel'Thalas and the Alliance, and the kingdom's secession during Anasterian's rule still left bitter memories; the Alliance had no interest in fighting for Quel'Thalas,<ref name="WCE_BE">[[The Warcraft Encyclopedia/Blood Elves]]</ref> to the point that their [[Prospector Anvilward|ambassador]] was actively working with several [[Sentinel spies|night elven spies]] to sabotage the blood elves' arcane sanctums.
+
+The blood elves were offered support from an unlikely source: the [[Forsaken]], under the former ranger-general [[Sylvanas Windrunner]]. Though initially skeptical of a trick, the blood elves allowed the Forsaken to assist them in terms of manpower in the [[Ghostlands]]. Through the Forsaken, Lor'themar was introduced to the wider Horde. Rumors circulated that some lingering part of her still sympathized with Quel'Thalas and its hardships. Other stories hinted that Sylvanas had ulterior motives. Whatever the truth, she arranged for Warchief [[Thrall]] and High Chieftain [[Cairne Bloodhoof]] to convene with Lor'themar and discuss such a possibility. Despite the elves' history of bitter warfare with the orcs, Lor'themar was receptive to the idea. He knew this Horde was different than the one that had ravaged Quel'Thalas in years past. He was also painfully aware that time was running out for his kingdom and his prince. The Horde's leaders also saw great promise in Lor'themar's people and considered it an act of honor to offer another race facing extinction their support. Thrall and Cairne extended the hand of peace, and Lor'themar accepted.<ref>{{Ref WoWCV3|150}}</ref>
+
+During the [[Invasion of Outland]] the orcs came in contact with [[Mag'har (faction)|uncorrupted orcs]]. While the Mag'har joined the Horde, the Horde warred with the [[fel orc]] clans of the [[Fel Horde]] and ultimately killed [[Warchief]] [[Kargath Bladefist]].<ref>{{Ref WoWCV3|153}}</ref>
+
+Many blood elves didn't want to believe the rumors that Kael'thas had pledged himself to the Burning Legion. But when they arrived at the Netherstorm, they saw the truth with their own eyes. These blood elves sent word back to Lor'themar Theron and other high-ranking elves in Quel'Thalas, who with a heavy heart came to the consensus that Kael'thas was lost and had to be vanquished. And so, the Horde officially declared war on Kael'thas. Horde champions ultimately stormed [[Tempest Keep]] and defeated the maddened prince.<ref>{{Ref WoWCV3|156|157}}</ref>
+
+===Wrath of the Lich King===
+{{wotlk-section}}
+At the beginning of the [[war against the Lich King]], the [[Scourge Invasion]] sent the Alliance and the Horde into a righteous fury, and both factions mobilized their armies to bring war to the [[Lich King]]'s doorstep in [[Northrend]]. [[Warchief]] [[Thrall]] commanded [[Garrosh Hellscream]] and [[Varok Saurfang]] to led the [[Warsong Offensive]] against the [[Scourge]]. Upon arriving to [[Northrend]], the Horde gained the allegiance of the [[Taunka]], kin to the [[Tauren]]. As the war progressed, Varok was wary of the resurfacing bloodlust of the orcs, due to its employment in Hellscream's savage but successful tactics.
+
+Following the [[Battle of Angrathar the Wrathgate]], Horde forces mobilized to [[Battle for the Undercity|reclaim]] the [[Undercity]] from [[Varimathras]] and his forces. In the aftermath, King [[Varian Wrynn]], who decided to use the opportunity to reclaim Lordaeron for the Alliance, [[Alliance-Horde war|declared war]] on the Horde. Furthermore, the credibility of the Forsaken in the eyes of the wider Horde had also suffered and Thrall dispatched a legion of a legion of [[Kor'kron Guard]] led by {{NPC||Bragor Bloodfist}} to occupy the Undercity, guarding it from threats outside, and from any that may remain within following The Battle for the Undercity.
+
+===Cataclysm===
+{{cata-section}}
+As of the [[Cataclysm (event)|Cataclysm]], Thrall was forced to step down from Warchief to help deal with the elemental turmoil. In his placed he named [[Garrosh Hellscream]] acting [[Warchief]]<ref>''[[The Shattering: Prelude to Cataclysm]]''</ref> of the Horde. This caused signs of internal strife among the Horde leaders, which saw [[Cairne Bloodhoof]] challenge Garrosh to an honorable duel, [[Vol'jin]] making a veiled death threat against him, while [[Sylvanas Windrunner]] came into conflict with him on both an ethical and a tactical level - the use of [[Val'kyr]] to raise new soldiers, and the [[Forsaken Blight]] as a weapon.
+
+While the senior leadership clashed, the Horde bolstered its ranks with the [[Bilgewater Cartel]] led by [[Trade Prince Gallywix]] joining after the events of the [[Lost Isles]], the Revantusk tribe becoming official members with them openly supporting the Horde, and the [[Dragonmaw clan]] being brought back into the Horde by Hellscream personally.
+
+===Mists of Pandaria===
+{{mop-section}}
+By the time the [[Mists of Pandaria|mists concealing Pandaria dissipated]], cracks within the Horde started to emerge. The war had intensified with the surprise mana-bombing of [[Theramore Isle]] on Garrosh's orders, the actions of which Baine Bloodhoof and Vol'jin openly disapproved of.<ref name="ToW">''[[Jaina Proudmoore: Tides of War]]''</ref> In response, Garrosh ordered the [[Kor'kron]] to suppress any potential dissent, going as far as subjugating the Darkspear trolls on their own territory.<ref>[[The Horde Is Family]]</ref><ref>[[De-Subjugation]]</ref> When welcoming [[Ji Firepaw]] and the [[Huojin Pandaren]] into the Horde, Warchief Hellscream makes it clear that the [[Tushui Pandaren]] that joined the [[Alliance]] are now their enemies and that he not tolerate any lingering ties across enemy lines.<ref>[[The Horde Way]]</ref>
+
+Horde leaders were weary of Garrosh's attempts to harness the [[sha]] for his own ends,<ref>[[A Gathering Storm]]</ref> and the blood elves became increasingly discontented with Garrosh treating them as expendable in his attempts to do so.<ref>[[Get My Results!]]</ref><ref>[[What's in the Box?]]</ref> The exposure of Sunreaver agents taking orders from Garrosh eventually led to the Sunreavers' expulsion from Dalaran, stoking further recriminations from the blood elf leadership towards Garrosh.<ref>[[One Last Grasp]]</ref>
+
+After the [[Lei Shen|Thunder King]]'s death the [[Darkspear Rebellion]] began in earnest and Horde leader after Horde leader joined it. When at last even Gallywix and the Bilgewater Cartel joined the Rebellion due to Garrosh refusing to pay them for excavating the [[Heart of Y'Shaarj]],<ref>[[Dark Heart of Pandaria]]</ref> Garrosh re-organized his orc forces into the [[True Horde]] and, with the power of Y'Shaarj, began a genocidal campaign to conquer Azeroth, subjugate all non-orcish life, and brutally crush all who oppose him. Garrosh and the True Horde were defeated in the ensuing conflict by the Horde rebels and Alliance forces, and ultimately [[Vol'jin]] was declared Warchief of the Horde.<ref>[[Siege of Orgrimmar (instance)|Siege of Orgrimmar]]</ref>
+
+===Warlords of Draenor===
+{{wod-section}}
+Following the events of [[Siege of Orgrimmar]], [[Garrosh Hellscream]] was imprisoned to be tried in [[Pandaria]]. Before the trial could conclude, aided by [[Kairozdormu|an ally]] who could manipulate the timelines, Garrosh escaped to {{Au|Draenor|Draenor of the past}}, and prevented the orcs from ever drinking the blood of [[Mannoroth]], creating an untainted [[Iron Horde]] under the leadership of {{Au|Grommash Hellscream}}. Under Vol'jin's command, the Horde would engage against the forces of the [[Iron Horde]] and later the [[Burning Legion]] on {{Au|Draenor}}.
+
+===Legion===
+{{legion-section}}
+During the [[Battle for Broken Shore]] the Horde and Alliance worked together to prevent the [[Burning Legion]] from securing the [[Broken Shore]] as a staging ground for their invasion.<ref>[[The Battle for Broken Shore (quest)]]</ref> Both armies would be pushed back, [[Varian|King Varian Wrynn]] slain, and Vol'jin mortally wounded. In Vol'jin's dying moments he named [[Sylvanas Windrunner]] the new Warchief of the Horde and faced with combating the armies of the Burning Legion and the hostility of the Alliance the Horde moved forward to combat the armies of the Burning Legion.
+
+The forces of Azeroth ultimately succeed in defeating the Burning Legion during the [[third invasion of the Burning Legion]], and the Horde soon after gained the allegiance of the [[Highmountain tauren|Highmountain tauren tribes]] of [[Highmountain]] and the [[nightborne]] of [[Suramar]].
+
+===Battle for Azeroth===
+{{bfa-section}}
+At [[Warchief]] [[Sylvanas Windrunner]]'s command, the Horde began the [[War of the Thorns]] with the goal of conquering [[Teldrassil]] itself. However after the Horde conquered [[Darkshore]], the Banshee Queen gave the order for Teldrassil to be burned.<ref>''[[A Good War]]''</ref> This triggered the [[Fourth War]], as the Alliance avenged Teldrassil's destruction by unleashing [[Battle for Lordaeron|an all-out siege on Lordaeron Keep]], defeating most of the Horde forces stationed there. However, Sylvanas managed to [[New Plague|blight]] the ruins, preventing the Alliance from establishing it as their stronghold in the region.
+
+After liberating [[Princess Talanji]] and [[Prophet Zul]] from the [[Stormwind Stockade]], [[Rastakhan|King Rastakhan]] allowed the Horde to establish themselves on [[Zandalar]].<ref>[[Rastakhan (quest)]]</ref> While the Horde worked to aid the Zandalari and sway them to their cause, [[Eitrigg]] and the [[Adventurer|Speaker of the Horde]] were able to get the {{Au|Mag'har|Mag'har clans of Draenor}} to join the Horde. In the aftermath of the [[Battle of Dazar'alor]], the Horde's efforts proved fruitful as the [[Zandalari Empire]] joined the Horde, as its equals.
+
+As the war progressed, the Horde split between Sylvanas loyalists and Varok Saurfang's revolutionaries. Before the two armies could clash at Orgrimmar, Varok Saurfang, recognizing Sylvanas's loyalists as his brothers and sisters in the Horde and unwilling to spill more Horde blood, challenged Sylvanas to [[Mak'gora]]. During the duel, Saurfang was able to get Sylvanas to admit that she considered the Horde nothing, which caused the Warchief to swiftly kill him and abandoned the Horde altogether.<ref>''[[Reckoning]]''</ref> In the aftermath of Saurfang's death and Sylvanas's betrayal, the Horde rallied together once more, with her former loyalists defecting to his revolution. Following these events, the Horde and the Alliance have entered into an armistice with one another.
+
+Sometime later, the [[Voldunai]] [[vulpera]] of [[Vol'dun]] led by [[Kiro]] joined the Horde.
+
+In the aftermath of [[N'Zoth]]'s death and the end of the [[Fourth War]], the leaders of the Horde received the terms for an armistice from the [[Alliance|Grand Alliance]], putting the [[Fourth War]] on hold indefinitely, if not permanently. With that matter settled, [[Lor'themar Theron]] addressed the absence of a [[Warchief]]. Despite support for Thrall to take the mantle on again, he refused, citing that he had promised Varok Saurfang he would not take on the role once more. Instead, he brought up the idea of the Warchief being necessary, instead bringing in the belief that a change was needed for the Horde's leadership. Thus the [[Horde Council]], a conglomerate of leaders who would represent their people's interests, was created to lead the Horde,<ref name="Warchief of the Horde (quest)"/> who rejoiced at the announcement of the council.<ref>{{Ref WoWCV4|171}}</ref>
+
+===Shadowlands===
+{{sl-section}}
+Sometime after the formation of the Horde Council, the armies of the Horde rallied together and defeated the [[Widow's Bite]] and [[Banshee loyalists]] that were causing unrest within [[Zandalar]].<ref>''[[Shadows Rising]]''</ref> After Sylvanas defeated [[Bolvar Fordragon]] and shattered the [[Helm of Domination]], the Horde united with the [[Argent Crusade]] in order to combat the [[Scourge]] forces that were attacking [[Durotar]],the [[Northern Barrens]], and [[Icecrown]].<ref>[[Death Rising]]</ref> Soon after the deaths of [[Herald Dalora]] and [[Nathanos Blightcaller]], the leaderships of both the Horde and Alliance grouped with Bolvar and the [[Knights of the Ebon Blade]] and decided to send their [[Adventurer|champions]] to enter the [[Shadowlands]] in order rescue the recently captured [[Thrall]], [[Baine Bloodhoof]], [[Anduin Wrynn]], and [[Jaina Proudmoore]].<ref>[[Through the Shattered Sky]]</ref> Subsequently, the Horde joined the [[war against the Jailer]], during which they successfully rescued Thrall, Baine, and Jaina. Furthermore, each champion personally joined one of the four main [[Covenant]]s of the [[Shadowlands]] and aided them in their conflicts. The Horde, Alliance, and the Covenant forces were ultimately victorious, with [[Zovaal]] being killed within the [[Sepulcher of the First Ones]].
+
+===Dragonflight===
+{{df-section}}
+After Zovaal's defeat, the truce between the Alliance and Horde continued to hold. When the [[Dragon Isles]] were re-revealed to Azeroth, both factions sent a [[Dragonscale Expedition|joint expedition]] to investigate.<ref>2022-04-20, [https://www.ign.com/videos/world-of-warcraft-developers-break-down-the-new-dragonflight-expansion World of Warcraft Developers Break Down the New Dragonflight Expansion]. ''IGN'', retrieved on 2022-04-24</ref> During this time, the Horde gained the allegiance of the [[Dark Talons]], a group of [[Dracthyr]], following their awakening on the [[Forbidden Reach]] and joined the Aspects in their [[war against the Primalists]]. Following the war's conclusion with the death of [[Fyrakk]], members of the Horde were amongst those that attended the celebratory party on [[Amirdrassil]]. In a historic move, [[Tyrande Whisperwind]], allowed for [[Hamuul Runetotem]], [[Bashana Runetotem]], and Horde [[adventurer|champions]] entry into [[Bel'ameth]], the new night elven capital, in recognition of the Horde's aid in ensuring that Amirdrassil successfully bloomed unto Azeroth.
+
+Horde forces later aided [[Tess Greymane]] and her people in reclaiming [[Gilneas]] from the [[Scarlet Crusade]], while Horde champions aided in the defense of the [[Telogrus Rift]] against [[Xal'atath]] and her forces.
+
+===The War Within===
+{{Tww-section}}
+[[File:Horde forces Khaz Algar.jpg|thumb|The Horde forces landing on the [[Isle of Dorn]].]]
+When [[Dalaran]] came under attack by [[Xal'atath]] and the [[nerubian]]s of [[Azj-Kahet (kingdom)|Azj-Kahet]], Horde forces aided in the defense of the city and its evacuation. Following Dalaran's destruction above the [[Isle of Dorn]], the survivors found themselves fighting against a nerubian ambush on the [[Tranquil Strand]].<ref>[[Violent Impact]]</ref> After [[Queensguard Zirix]] and his forces were driven off, they received sanctuary in [[Dornogal]].<ref>[[They Come from Below]]</ref> As Horde champions worked to unite the [[earthen]], [[Thrall]] departed for [[Orgrimmar]] to gather Horde reinforcements for the conflict against the Harbinger.<ref>[[Impossible Odds]]</ref>
+
+Ten days after the fall of Dalaran, [[Proudmoore Keep]] in [[Boralus]] hosted a joint meeting between several Alliance and Horde leaders who answered the call of Thrall and [[Jaina Proudmoore]]. There, they helped organize the strike force that would be sent to Khaz Algar.<ref>''[[Heartlands]]'', Chapter 1 - Summit at Boralus</ref>
+
+Following the arrival of the Horde fleet, they were permitted to establish an [[Horde Embassy (Dornogal)|embassy]] within Dornogal.<ref>[[Embassies and Envoys]]</ref> Even as the Horde and Alliance united to train the earthen for the battle ahead, [[Overlord Geya'rah|tension]] and [[Turalyon|friction]] remained between them.<ref>[[Ground Pounders]]</ref> Horde forces were among those who arrived to aid the [[Arathi]] when the [[nerubian]]s of [[Azj-Kahet]] launched an all-out assault on [[Hallowfall]].<ref>[[Cutting Off the Legs]]</ref>
+
+In time, the earthen were invited to join both the Horde and the Alliance.<ref>[[For the Horde (earthen)]]</ref><ref>[[For the Alliance (earthen)]]</ref> While some earthen chose the Horde, the [[Council of Dornogal]] appointed [[Olbarig]] and [[Harmot]] as ambassadors to represent their people.
+
+Horde champions later joined [[Trade Prince]] [[Monte Gazlowe]] and his allies as they ventured into [[Undermine]]. Following the death of [[Renzik "The Shiv"]],<ref>[[End of the Day]]</ref> they rallied the [[Cartels of Undermine]] into open revolt against [[Jastor Gallywix]] and his [[Darkfuse Enforcement]].<ref>[[Under Fire]]</ref> Gallywix was ultimately slain,<ref>[[Liberation of Undermine: The House Loses]]</ref> and Gazlowe and the other cartel leaders came together to build a new future for Undermine.<ref>[[Cashing the Check]]</ref>
+
+The [[Red Dawn]] sought control of the [[Arathi Highlands]] and attempted to pit the Horde and Alliance forces of [[Hammerfall]] and [[Stromgarde (kingdom)|Stromgarde]] against one another.<ref>[[False Flag]]</ref> After [[Danath Trollbane|King Danath Trollbane]] was captured by the Red Dawn, Horde adventurers accompanied [[Overlord Geya'rah]] and [[Eitrigg]] to [[Ar'gorok]] to rescue him.<ref>[[The Search for Danath]]</ref> Afterwards, they made their way to Stromgarde and thwarted the Red Dawn's efforts, and they were ultimately exiled from the region.<ref>[[Rise of the Red Dawn (quest)]]</ref>
+
+When [[Locus-Walker]] learned of a plot by the [[Shadowguard]] to resurrect [[Dimensius]], he recruited Horde champions to help halt the return of the All-Devouring.<ref>[[A Shadowy Invitation]]</ref> Under Locus-Walker's direction, they formed an alliance with Xal'atath while battling the Shadowguard.<ref>[[The Shadowguard Shattered]]</ref> They were ultimately successful in defeating the All-Devouring, who became trapped within the [[Dark Heart]]. In the aftermath, Xal'atath claimed the artifact and departed,<ref>[[Manaforge Omega: Dimensius Looms]]</ref> while the [[Worldsoul]] of [[K'aresh]] was saved.<ref>[[A Song for Our Future]]</ref>
+
+===Midnight===
+{{Mn-section}}
+When the [[Twilight's Hammer]] reemerged as the [[Twilight's Blade]], they infiltrated Orgrimmar and attempted to recruit members out of the [[Cleft of Shadow]], until they were stopped by [[Grand Magister Rommath]].<ref>[[Avoiding Blame (Horde)]]</ref> The grand magister then entered into a temporary alliance with the [[Void elf|void elves]] to stop the cult at the [[Twilight Highlands]].<ref>[[The Twilight Highlands]]</ref>
+
+As [[Xal'atath]] and the [[Devouring Host]] laid siege to the [[Sunwell]], the Horde, [[Alliance]], and the [[Vanguard of the Light]] united to defend the Sunwell.<ref>[[Midnight (quest)]]</ref> After the Devouring Host was pushed back,<ref>[[Light's Last Stand]]</ref> the Alliance and Vanguard was granted access to [[Silvermoon City]].<ref>[[Diplomacy (quest)]]</ref> Though they did not have access to the whole city, with the guards of the [[Royal Exchange]] allowing only Horde forces entry.<ref>[[Paved in Ash (Horde)]]</ref>
+
+After the [[Hara'ti]] [[haranir]] joined the war effort against [[Xal'atath]],<ref>[[The War Beyond the Roots]]</ref> individual haranir pledged themselves to the Horde,<ref>[[Stranger in a New Land]]</ref> while [[Envoy Ir'ayi]] represented [[Harandar]] in [[Orgrimmar]].
+
+While the armistice between the Horde and Alliance held, members who opposed the armistice aligned with two rival [[Domanaar]] to engage in conflict with one another on the sly, with the Horde siding with [[Ziadan]].<ref>[[Ziadan]]</ref>
+
+==Organization==
+[[File:The Horde by Veli Nystrom.jpg|thumb|The armies of the Horde.]]
+Orgrimmar is the capital of the Horde, and the [[Warchief]] of the Horde once stood as the undisputed leader. During the time of the warchief, they held dominion over the entire Horde,<ref>''[[World of Warcraft]]'' [[World of Warcraft: Game Manual|manual]], pg. 182</ref> maintained the faction and was able to declare war for the entire Horde, taking any precaution to ensure the stability and security of the Horde's member states, and had the final say in the induction of new Horde members. The Warchief often made use of [[Warchief's Command Board|Command Boards]] to order able-bodied citizens to join the war efforts of the Horde in different areas of [[Azeroth]].
+
+All members of the Horde have to swear a [[Blood Oath of the Horde|blood oath]] to join the faction and previously were obligated to follow the warchief's commands and support the warchief in war if the warchief calls upon them for aid. When it was active, the position of warchief could be attained by having the previous warchief chose a successor or challenging the current warchief to a [[Mak'gora]]: a prearranged duel with deadly weapons between two people following a formal procedure in the presence of witnesses and traditionally fought until one party yields or is killed, usually to settle a quarrel involving a point of honor. Above all else, the title warchief was granted to those who display strength and decisive action. The final warchief was [[Sylvanas Windrunner]], who was challenged for the position by [[Varok Saurfang]] and abandoned the Horde after defeating him.
+
+Each race within the Horde pledges a leader to represent them on the Horde's council, which has come to replace the warchief position. These representatives are typically the leaders of their people, though [[Lilian Voss]] was appointed as representative for the [[Forsaken]]<ref name="Warchief of the Horde (quest)"/> as they assessed their leadership crisis. The council members have the abilities of the previous warchief position, able to induct races into the Horde, deny them, as well as address leadership gaps for other factions within the Horde; such as [[Thrall]] appointing [[Monte Gazlowe]] to take over the position of Trade Prince of the Bilgewater Cartel.
+
+Equal in size, the Horde also has its complexities, much like the Alliance. The core seven races of the Horde are the [[orc]]s, [[Darkspear tribe|Darkspear]] [[Jungle troll|troll]]s, [[tauren]], [[Forsaken|undead]], [[Blood elf|blood elves]], [[goblin]]s,  and [[Huojin Pandaren|Huojin]] [[pandaren]]. This roster expanded in the periods leading up to, and during, the [[Fourth War]], which saw the [[nightborne]], [[Mag'har orc]]s of alternate {{Au|Draenor}}, the [[Highmountain tauren]], the [[Zandalari troll]]s, and [[vulpera]] join their ranks.
+
+The overall Horde military include the [[Horde Army]], the [[Horde air force]], and the [[Horde navy]] as the armed forces it can deploy worldwide.
+
+The Horde also has countless allies and smaller factions among the races of Azeroth that have joined them: the [[Revantusk tribe|Revantusk]] [[forest troll]]s of the [[Hinterlands]], the [[Stonemaul clan|Stonemaul]] [[ogre]]s and various individuals like the [[Mok'Nathal]] [[beastmaster]] [[Rexxar]], the [[taunka]] of [[Northrend]], and the [[hozen]] of [[Pandaria]] to name a few.
+
+===Culture===
+Before the tauren and trolls joined the Horde, the Horde was also called the Orcish Horde.<ref>[[Exodus of the Horde]]</ref>
+Although the Horde is a coalition of diverse races with different cultures, agendas, and values, one thing remains constant within the Horde: respect is earned by the blade.
+
+The Horde makes no compromises when it comes to excellence,<ref>[http://www.jinx.com/p/world_of_warcraft_horde_premium_hoodie.html?catid=&s=clothing,outerwear,warcraft World of Warcraft Horde Premium Hoodie]</ref> and the power and ferocity of their warriors is legendary.<ref>[http://www.jinx.com/p/world_of_warcraft_horde_track_jacket.html?catid=&s=clothing,outerwear,warcraft World of Warcraft Horde Track Jacket]</ref> Misunderstood by many as evil, the Horde possesses a strong code of honor and strict laws for disobedience.<ref>[http://www.jinx.com/p/world_of_warcraft_mists_of_pandaria_horde_faction_logo_premium_tee.html?catid=&s=clothing,tshirt,warcraft World of Warcraft Mists of Pandaria Horde Faction Logo Premium Tee]</ref>
+
+Despite their somewhat monstrous appearance, the majority of the Horde is not evil; much like the Alliance, it is comprised of diverse factions and individuals who possess a wide range of values and virtues. Even so, there is one expectation that must be met when joining the Horde: regardless of gender or station, all are expected to pull their own weight and give their talents for the betterment of the Horde.<ref>[[The Horde Way]]</ref> When weakness is a liability to the future of the Horde, it is the duty of the strong to usurp control from the incompetent and redeem the Horde. ''Lok'tar ogar! Victory or death'' - it is these words that bind one to the Horde. For they are the most sacred and fundamental of truths to any warrior of the Horde.<ref>[[Blood Oath of the Horde (quest)]]</ref> For the Horde, failure is not an option.
+
+Culturally, orcs and tauren believe in redemption more than most other races on Azeroth and are willing to give almost anyone a chance, regardless of reputation. The Revantusk seem to have even accepted, (if not at least tolerate) their ancient enemy the blood elves. Largely because of these beliefs, a number of mortal races and many diverse factions can be found in service to the Horde.
+
+===Leadership===
+{{Seealso|Old Horde#Leadership}}
+The Horde has traditionally been led by a [[Warchief]]; a singular leader who possesses the ultimate say over the decisions that impact the Horde as a faction. This warchief is the top general, politician and ultimate supreme leader of the Horde. While other leaders still possess power over their own nations and have even been shown to defy the warchief in the past, the ability to rally and lead the Horde as a whole is a privilege that the warchief alone possesses and is able to distribute under their power. This position was abolished in favor of the [[Horde Council]] following [[Sylvanas Windrunner]]'s tenure as warchief. This was done as the Warchief held a dark legacy<ref name="Negotiation">[[Battle for Azeroth in-game cinematics|''Battle for Azeroth'' in-game cinematics]], The Negotiation</ref> that needed to end after Sylvanas' abuse of the position.<ref name="Warchief of the Horde (quest)"/>
+
+As the exact phrasing used in the position's abolition was 'in a time of peace', it is unknown if the position will be used again if war should return.
+
+[[File:SoO Horde Leaders.jpg|thumb|[[Vol'jin]] as the new Warchief of the Horde, shortly after the end of the [[Siege of Orgrimmar]].]]
+[[File:Horde Council.jpg|thumb|The [[Horde Council]], founded after the [[Fourth War]].]]
+
+;Horde
+{{RaceIcon|Thrall}} [[Thrall|Warchief Thrall]] {{WC3-inline}} - {{wotlk-inline}}<br/>
+{{RaceIcon|Garrosh}} [[Garrosh Hellscream|Warchief Garrosh Hellscream]]{{KIA}} {{cata-inline}} - {{mop-inline}}<br/>
+{{RaceIcon|Vol'jin}} [[Vol'jin|Warchief Vol'jin]]{{KIA}} {{mop-inline}} - {{legion-inline}}<br/>
+{{RaceIcon|Sylvanas}} [[Sylvanas Windrunner|Warchief Sylvanas Windrunner]] {{legion-inline}} - {{Bfa-inline}}<br/>
+{{Horde}} [[Horde Council]] {{Bfa-inline}}
+
+;Orc clans
+{{RaceIcon|Thrall}} [[Thrall|Warchief Thrall]] {{WC3-inline}} - {{wotlk-inline}}<br/>
+{{RaceIcon|Garrosh}} [[Garrosh Hellscream|Warchief Garrosh Hellscream]]{{KIA}} {{cata-inline}} - {{mop-inline}}<br/>
+{{RaceIcon|Varok}} [[Varok Saurfang|High Overlord Varok Saurfang]]{{KIA}} {{legion-inline}} - {{bfa-inline}}<br/>
+{{RaceIcon|Thrall2}} [[Thrall|Chieftain Thrall]] {{bfa-inline}}
+
+;The Forsaken
+{{RaceIcon|Sylvanas}} [[Sylvanas Windrunner|Queen Sylvanas Windrunner]] {{WC3FT-inline}} - {{legion-inline}}<br/>
+{{Race|Undead|notext}} [[Desolate Council]]{{KIA}} / {{RaceIcon|Sylvanas}} [[Sylvanas Windrunner|Queen Sylvanas Windrunner]] {{novel-inline}}<br/>
+{{RaceIcon|Sylvanas}} [[Sylvanas Windrunner|Queen Sylvanas Windrunner]] {{bfa-inline}}<br/>
+{{RaceIcon|Voss}} [[Lilian Voss|Representative Lilian Voss]] {{bfa-inline}} - {{Sl-inline}}<br/>
+{{RaceIcon|Calia}} {{RaceIcon|Voss}} {{RaceIcon|Undead|Male}} {{RaceIcon|Undead|Male}} {{RaceIcon|UndeadElf Female}} [[Desolate Council|The Desolate Council]] {{Sl-inline}}
+
+;Thunder Bluff tauren tribes
+{{RaceIcon|Cairne}} [[Cairne Bloodhoof|High Chieftain Cairne Bloodhoof]]{{KIA}} {{WC3-inline}} - {{wotlk-inline}}<br/>
+{{RaceIcon|Baine}} [[Baine Bloodhoof|High Chieftain Baine Bloodhoof]] {{cata-inline}}
+
+;Darkspear tribe
+{{RaceIcon|Vol'jin}} [[Vol'jin|Chieftain Vol'jin]]{{KIA}} {{WC3FT-inline}} - {{legion-inline}}<br/>
+{{RaceIcon|Rokhan}} [[Rokhan|Chieftain Rokhan]] {{bfa-inline}}
+
+;Kingdom of Quel'Thalas
+{{RaceIcon|Kael'thas}} [[Kael'thas Sunstrider|Prince Kael'thas Sunstrider]]{{KIA}} / {{RaceIcon|Lor'themar}} [[Lor'themar Theron|Regent Lord Lor'themar Theron]] {{WC3FT-inline}} - {{bc-inline}}<br>
+{{RaceIcon|Lor'themar}} [[Lor'themar Theron|Regent Lord Lor'themar Theron]] {{bc-inline}}
+
+;Bilgewater Cartel
+{{RaceIcon|Gallywix}} [[Jastor Gallywix|Trade Prince Jastor Gallywix]] {{cata-inline}} - {{bfa-inline}}<br/>
+{{RaceIcon|Gazlowe}} [[Monte Gazlowe|Trade Prince Monte Gazlowe]] {{bfa-inline}}
+
+;Huojin Pandaren
+{{RaceIcon|Ji}} [[Ji Firepaw|Master Ji Firepaw]] {{mop-inline}}
+
+;Kingdom of Suramar
+{{RaceIcon|Thalyssra}} [[First Arcanist Thalyssra]] {{bfa-inline}}
+
+;Highmountain Tribe
+{{RaceIcon|Mayla}} [[Mayla Highmountain|High Chieftain Mayla Highmountain]] {{bfa-inline}}
+
+;Mag'har clans
+{{RaceIcon|Geya'rah}} [[Geya'rah|Overlord Geya'rah]] {{bfa-inline}}
+
+;Zandalari Empire
+{{RaceIcon|Talanji}} [[Talanji|Queen Talanji]] {{bfa-inline}}
+
+;Voldunai vulpera
+{{RaceIcon|Kiro}} [[Kiro]] {{bfa-inline}}
+
+'''Dark Talons''' 
+
+{{RaceIcon|Cindrethresh}}{{RaceIcon|Cindrethresh2}} [[Scalecommander Cindrethresh]] {{Df-inline}}
+
+{{Horde leaders}}
+
+<gallery>
+File:Thrall 9.1.png|[[Thrall]],<br/> Leader of [[Durotar (nation)|Durotar]]
+File:Baine Bloodhoof (Dazar'alor).jpg|[[Baine Bloodhoof]],<br/> [[Chieftain|High Chieftain]] of [[Thunder Bluff]]
+File:Rokhan (heritage).jpg|[[Rokhan]],<br/> [[Chieftain]] of the [[Darkspear tribe|Darkspear]]
+File:Desolate Council.jpg|The [[Desolate Council]],<br/> Governing body of the [[Forsaken]]
+File:Theron in Rise of Azshara.png|[[Lor'themar Theron]],<br/> Regent Lord of [[Quel'Thalas (kingdom)|Quel'Thalas]]
+File:Gazlowe TWW.jpg|[[Monte Gazlowe]],<br/> [[Trade Prince]] of the [[Bilgewater Cartel]]
+File:Ji Firepaw.jpg|[[Ji Firepaw]],<br/> Master of the [[Huojin Pandaren|Huojin]]
+File:First Arcanist Thalyssra Cured.jpg|[[Thalyssra]],<br/> First Arcanist of [[Suramar (kingdom)|Suramar]]
+File:Mayla.jpg|[[Mayla Highmountain]],<br/> [[Chieftain|High Chieftain]] of the [[Highmountain Tribe]]
+File:Geya'rah Orgrimmar.jpg|[[Geya'rah]],<br/> Overlord of the {{Au|Mag'har|Mag'har Clans}}
+File:Talanji.jpg|[[Talanji]],<br/> Queen of the [[Zandalari Empire]]
+File:Kiro.jpg|[[Kiro]],<br/> [[Caravan]] leader of the [[Voldunai]] [[vulpera]]
+File:Scalecommander Cindrethresh.png|[[Cindrethresh]], Scalecommander of the [[Dark Talons]]
+</gallery>
+
+==Membership==
+[[File:Orgrimmar Hero's War Banner.jpg|thumb|upright|[[Orgrimmar Hero's War Banner]]]]
+{{QuoteWiki|I'll tell ya what de Horde is. De Horde that me an' [[Thrall]] built. It be a family. When de whole world try ta put us down, da family come an' pick us back up.|[[Vol'jin|Warchief Vol'jin]]<ref>''[[Vol'jin: Shadows of the Horde]]''</ref>}}
+
+The alliances which comprised the Horde in earlier times were never restored following their defeat in the [[Second War]]. Instead, the orcs forged new alliances that reflected their rediscovered [[shaman]]istic heritage, including the [[tauren]] and the [[Darkspear tribe|Darkspear]] [[Jungle troll|trolls]]. Even their pact with the undead [[Forsaken]] was based on compassion and a genuine desire to help the restless undead of [[Lordaeron]].
+
+The Horde in [[Kalimdor]], which acts as the bulk of the Horde's forces, serve under the [[Warchief]]'s leadership. They include most of the [[orc]]s, the tauren, the Darkspear trolls, the [[goblin]]s of the [[Bilgewater Cartel]], the [[Huojin Pandaren]], and a number of less prominent races within the Horde - such as the [[Stonemaul clan|Stonemaul]] [[ogre]]s. The Horde in the [[Eastern Kingdoms]], comprising of the [[Forsaken]] and the [[Blood elf|blood elves]], act with more independence from the Kalimdor Horde but ultimately answers to the warchief out of necessity for the Horde's support. Following the [[third invasion of the Burning Legion]], [[Allied race|new allies]] of the [[Broken Isles]] join to the Horde, the [[Nightborne]] of [[Suramar City|Suramar]] and the [[Highmountain Tribe]]. These races all see the Horde differently. Some see it as an instrument of vengeance, hellbent to carve out a future for its people. Others see it as a refuge for those who need shelter, a commonwealth of the downtrodden, built for mutual support. While some view it as an alliance of convenience, a confederacy of unlikely partners free to pursue their own agendas.<ref>[[The Measure of a Leader (Horde)]]</ref> Whatever their motivations, they are united to claim Kalimdor and the Eastern Kingdoms for themselves in order to secure key provisions and supplies needed to support their people, and forcibly remove Alliance incursions from their own lands. This Horde is the result of the actions in ''[[Warcraft III: Reign of Chaos]]''.
+
+====[[File:Orgrimmar.png|30px|Orgrimmar]] [[Durotar (nation)|Nation of Durotar]]====
+[[File:Orc Crest.png|thumb|upright|[[Icon of Battle]]]]
+{{Race|Orc}}s - The surviving [[orc]]s of Azeroth's [[First War|First]], [[Second War|Second]] and [[Third War|Third]] Wars, who were released by [[Thrall]] from the [[Internment camps]] of [[Lordaeron]] and led by him to form their new destiny in [[Kalimdor]] while attempting to re-embrace their once honorable, shamanistic ways and fight the corruption of [[Fel|demonic]] [[magic]]. They founded their capital of [[Orgrimmar]] in [[Durotar]], previously led by High Overlord [[Varok Saurfang]]. Their culture is split mostly between the orcs' warrior spirit and their shamanistic roots, which has recently wrought on a conflict between the younger and older generations. Dedicated to carving out an existence in a world that has come to largely revile them, the orcs have recently turned their attention to reinvigorated conquests. [[Ashenvale]] and [[Stonetalon]] were among their first targets, and ultimately Warchief Hellscream intended to unite the entirety of [[Azeroth]] under a single banner.<ref>[[Call of Duty (quest)]]</ref> His campaign resulted in Garrosh's dethroning as Warchief.
+*Led by {{RaceIcon|Thrall2}} [[Thrall|Chieftain Thrall]].
+*[[Kor'kron]] - The elite fighting force of the Horde, once serving as the personal bodyguards of the Warchief and enforcers of their command, they now answer to the [[Horde Council]]. They can be considered the Horde's closest counterpart to the [[Alliance]]'s [[7th Legion]].
+**Led by {{RaceIcon|Orc|Male}} [[Talgar|General Talgar]]
+
+The orcs in the Horde are from the following clans:
+*[[Frostwolf clan]] - The '''Frostwolf clan''' is an [[orc]] clan that originally dwelled in the southwestern parts of [[Frostfire Ridge]]. Named for their close kinship with Frostfire's native [[Frost wolf|frost wolves]], the clan placed great value in the noble ideals of family and community and sought to live in harmony with the land. After crossing the Dark Portal many years ago, they are one of the few orcish clans left in the Eastern Kingdoms, the Frostwolf settled in the hidden [[Alterac Mountains]] after their exile by Gul'dan. However, the [[Stormpike]] dwarves later arrived to search for artifacts causing conflict between the two in [[Alterac Valley]]. The Frostwolf clan derived its symbol and name from its kinship with [[Frostfire Ridge]]'s native frost wolves, whom the orcs hunted alongside, befriended, and even tamed as companions
+**Led by {{RaceIcon|Drek'Thar}} [[Farseer]] [[Drek'Thar]], the elder [[shaman]] and [[seer]] of the [[Frostwolf clan]], who served as [[Thrall]]'s tutor many years ago.
+
+*[[Warsong clan]] - A powerful warrior clan native to [[Nagrand]] that battle the [[night elf|night elves]] for dominance over [[Ashenvale]].
+**Led by {{RaceIcon|Orc|Female}}[[Gorgonna]]
+***[[Warsong Outriders]] – Following the Third War, those of the Warsong clan who invaded Ashenvale and began deforestation have not ceased their operation and have come into direct conflict with the [[Silverwing Sentinels]].
+****Led by {{RaceIcon|Orc|Male}} [[Gargok]].
+
+*[[Blackrock clan]] - Many Blackrock orcs joined with Thrall under [[Orgrim]] and when he freed them from the internment camps. Notable individuals are [[Eitrigg]] and [[Varok Saurfang]]. Furthermore, the former Warchief [[Garrosh Hellscream]] granted the Blackrock clan of the [[Dark Horde]] led by Rend amnesty and recruited a formidable amount of them into the ranks of the Horde.
+**Led by {{RaceIcon|Eitrigg}} [[Eitrigg]]
+
+*[[Bleeding Hollow clan]] - The clan returned to Draenor after the Second War, but as it was torn apart, some members crossed safely into Azeroth at the same time as the Warsong clan. They were captured and later rescued from the internment camps, and now they serve the new Horde. Additionally they have a notable presence in the [[Mag'har (faction)|Mag'har]].
+**Led by: {{RaceIcon|OrcBrown Male}} [[Jorin Deadeye]].
+
+*{{RaceIcon|Dragonmaw|Male}}{{RaceIcon|Dragonmaw|Female}} [[Dragonmaw clan]] - The Dragonmaw residing in the [[Twilight Highlands]] joined the new Horde during the [[Cataclysm (event)|Cataclysm]].<ref>[[Negotiations Terminated]]</ref>
+**Led by {{RaceIcon|Gorfax}} [[Gorfax Angerfang]].
+
+*[[Shadowmoon clan]] - Scouts and peons are seen serving the New Horde at [[Shadowmoon Village]].
+
+*[[Burning Blade clan]] - The [[blademaster]]s were once part of the Burning Blade, although the clan consumed itself in the throes of demonic corruption, these few swordsmen are still part of the Horde.
+
+*[[Rageroar clan]] - A newly created clan that was assaulting Northwatch hold. It was almost destroyed at the end of the Alliance questline.<ref>[[Silencing Rageroar]]</ref> Later joined the Horde army in the Razing of Northwatch.<ref name="ToW" />
+**Led by {{RaceIcon|Orc|Male}} [[Karga Rageroar]].
+
+*[[Shattered Hand clan|Shattered Hand]] - The Azerothian part of the clan have joined Thrall and serve as the Horde's guild of assassins admitting other races like trolls into the organization.
+**Led by {{RaceIcon|Orc|Female}} [[Thega Graveblade]].
+
+*{{RaceIcon|DireOrc}} [[Dire orc]] - A small number of these mutated orcs are found in the ranks of the main timeline orc nation, such as [[Ariok]], [[Korm Bonegrind]] and a few others.
+
+====[[File:Darkspear.png|30px|Darkspear tribe]] [[Darkspear tribe]]====
+[[File:Troll Crest.png|thumb|upright|[[Icon of Shadows]]]]
+{{Race|Jungle Troll}}s - The jungle trolls of the [[Darkspear Islands]] in the [[Great Sea]] have a very savage and dark history studying voodoo arts and worshiping the [[loa]], however after Thrall had saved their tribe from extinction, [[Vol'jin]] son of [[Sen'jin]] pledged his tribe to the Horde and founded a new home on the [[Darkspear Isle]] of the [[Echo Isles]] off the coast of [[Durotar]]. Some trolls have now begun to study shamanism and more recently druidism, some of these trolls even mix shamanism with voodoo arts, most of the members of the tribe have or are attempting to give up the ways of cannibalism and the other traits of their race's darker history. After retaking much of their territory from the [[Kul Tiras (kingdom)|Kul Tiras]] marines and the treacherous [[Zalazane]], the Darkspear have been invited to join a revitalized troll empire under the [[Zandalari]]'s leadership - though Vol'jin declined this offer.
+*Led by: {{RaceIcon|Rokhan}} [[Rokhan|Chieftain Rokhan]].
+*[[Atal-Mhuto]] - are the elite [[shadow hunter]] military group of the [[Darkspear tribe|Darkspear trolls]].<ref>[[Break the Godbreaker]]</ref>
+
+*[[Ravasaur Trainers]] - They were a faction of trolls in [[Un'Goro Crater]], part of an elite group of [[raptor]] riders that provided their mounts to members of the Horde who prove themselves able to survive the creature's poison.
+
+====[[File:Thunder Bluff.png|30px|Thunder Bluff]] [[United tauren tribes|United tauren tribes of Thunder Bluff]]====
+[[File:Tauren Crest.png|thumb|upright|[[Icon of the Earth Mother]]]]
+{{Race|Tauren}} - The noble tauren of Kalimdor are a race that had hunted the lands of central Kalimdor for generations; however, when Thrall and his orcs had arrived onto the lands of Kalimdor they had already been driven near extinction by the marauding [[centaur]] that rampaged through their lands. Under the leadership of High Chieftain [[Cairne Bloodhoof]] and the young [[Warchief]] [[Thrall]], the tauren managed to drive back most of the centaur, and find a permanent home in [[Thunder Bluff]]. Since then, Cairne has pledged his people to the Horde, offering the orcs spiritual guidance and aid. After Cairne's death, [[Baine Bloodhoof]] has arisen to take his father's place and lead the tauren into a brighter future. With the recent Alliance incursion into the [[Barrens]], the tauren have created a [[Great Gate|mighty gate]] to protect their homeland of [[Mulgore]].
+*Led by {{RaceIcon|Baine}} [[Chieftain|High Chieftain]] [[Baine Bloodhoof]].
+
+*[[Sunwalker]]s - Tauren paladins who take their power from [[An'she]], the sun.
+**Led by {{NPC||Aponi Brightmane||icon=Tauren Female}}.
+
+*[[Seers]] - Tauren priests who take their power from [[An'she]], the sun.
+**Created by {{NPC||Tahu Sagewind||icon=Tauren Male}}.
+
+The Tauren of the Horde come from various tribes:
+
+*[[Bloodhoof tribe]] - The first tauren tribe to side with the Horde, they are led by [[Baine Bloodhoof]] in the wake of {{NPC||Cairne Bloodhoof||his father's}} death at the hands of [[Magatha Grimtotem]].
+**Led by {{NPC||Baine Bloodhoof||icon=Baine}}.
+
+*[[Ragetotem tribe]] - Proud [[warrior]]s and the fiercest of [[Thunder Bluff]].
+
+*[[Dawnstrider tribe]] - Experienced enchanters and skilled shaman.
+
+*[[Runetotem tribe]] - These tauren have recently discovered the ways of the [[druid]]ism.
+**Led by {{NPC||Hamuul Runetotem||icon=Hamuul}}.
+
+*[[Highmountain tribe (Legends)|Highmountain tribe]] - A tribe with several notable members who fought (and still fight) against the Burning Legion.
+**Led by {{NPC||Sulamm||icon=Tauren Male}} and/or {{NPC||Ornamm||icon=Tauren Male}}.
+
+*[[Skychaser tribe]] - The spiritual leaders of the tauren. They were nearly wiped out during the [[Grimtotem]] coup to take over [[Thunder Bluff]].
+*[[Thunderhorn tribe]] - Most of the Thunderhorn tribe are hunters, the greatest among the tauren.
+
+*[[Cloudsong tribe]] – They picked up the role of spiritual leaders of the tauren shaman after the Skychaser tribe was nearly wiped out. 
+
+*[[Eagletalon tribe]] – This tribe hunts harpies in Mulgore.
+
+*[[Mistrunner tribe]] – The Mistrunners are dedicated to the druidic path and seeks to heal the earth and ease the suffering of the Earthmother.
+
+*[[Stonehoof tribe]] – The Stonehoof are the most talented smiths among the tauren.
+**Led by: Unknown
+
+*[[Wildmane tribe]] – This tribe has largely joined the Runetotem in seeking the ways of the druid.
+
+*[[Winterhoof tribe]] – The Winterhoof tribe represents some of the greatest herbalists and alchemists the tauren have to offer.
+
+*[[Stonespire tribe]] - A tauren tribe that lived in the [[Southern Barrens]]. Most were killed by the forces of [[Bael'dun Keep]] but there are a few survivors.
+
+*[[Cliffwalker tribe]] - A tribe based in [[Cliffwalker Post]] with strong ties to [[druidism]].
+**Led by {{NPC||High Chieftain Cliffwalker||icon=Tauren Male}}.
+
+*[[Dawnchaser tribe]] - A tribe of Horde [[tauren]] from [[Thunder Bluff]] that have come to [[Pandaria]]. One of their main outposts in Pandaria is located in the [[Krasarang Wilds]] at [[Thunder Cleft]].
+**Led by {{NPC||Sunwalker Dezco||Chieftain Dezco||icon=Tauren Male}}.
+
+*{{RaceIcon|Grimtotem Male}}{{RaceIcon|Grimtotem Female}} [[Grimtotem tribe]] - The Grimtotem tauren who survived the battle at [[Thunder Bluff]], chose to follow [[Jevan Grimtotem]] and join the Horde.
+**Led by {{RaceIcon|Grimtotem|Male}} [[Jevan Grimtotem]]. Formerly led by {{RaceIcon|Magatha}} [[Magatha Grimtotem]].
+
+====[[File:Undercity.png|30px|Forsaken]] [[Forsaken|The Forsaken]]====
+[[File:Forsaken Crest.png|thumb|upright|[[Icon of Torment]]]]
+{{Race|Forsaken}} - The Horde of the [[Eastern Kingdoms]] was initially next to non-existent, with only the [[Frostwolf]] orcs and other smaller forces in operation around the continent. In recent years, however, the Horde's presence has been bolstered by the inclusion of the [[Forsaken]] of [[Eastern Kingdoms]] and the [[Blood elf|blood elves]] of [[Quel'Thalas (kingdom)|Quel'Thalas]]. While considered members of the Horde, their bonds with the western Horde are perhaps not on the same level as the orcs, trolls, and tauren.
+
+The Forsaken were once part of the [[Scourge]], forced into mindless servitude under the [[Lich King]]. After the Lich King's grip began to weaken, the [[banshee]] queen [[Sylvanas Windrunner]] broke free from his will, and went on to both free and rally other undead beings to join her own empire of undeath, dubbed the "Forsaken." Under Lady Sylvanas' leadership, the Forsaken used any means necessary to conquer the fallen kingdom and remove both the [[dreadlords]] and other foes threatening their dominion. After expelling the Scourge from the capital city and massacring the last remaining holdouts of the [[Alliance]], they took over the [[Ruins of Lordaeron|catacombs of the former capital]] in [[Tirisfal Glades]], founding a capital of their own called the [[Undercity]].
+
+With the backing of the [[tauren]], Thrall warily accepted the Forsaken into the Horde, though this alliance of convenience has been tested - great betrayal at the hands of [[Grand Apothecary Putress]] has put the Forsaken on a tight leash, made tighter by [[Garrosh|his successor's]] less lenient stance on their modus operandi. Following [[Vol'jin]]'s ascension to Warchief and especially once [[Sylvanas Windrunner]] took the reins of power, this increased scrutiny has all but evaporated. The group also consists of other undead creatures, such as [[abomination]]s.
+*Led by {{RaceIcon|Calia}}{{RaceIcon|Voss}} {{RaceIcon|Undead|Male}} {{RaceIcon|Undead|Male}}{{RaceIcon|UndeadElf Female}} the [[Desolate Council]].
+
+*[[Royal Apothecary Society]] - A faction of Forsaken alchemists trying to create a [[new plague]] to wipe out the [[Scourge]] and, perhaps, humanity.<ref>''[[Arthas: Rise of the Lich King]]'', pg. 247</ref>
+**Led by {{RaceIcon|Undead|Male}} [[Master Apothecary Faranell]]. Formerly led by {{RaceIcon|Putress}} [[Grand Apothecary Putress]].
+**{{RaceIcon|LeperGnome Male}} [[Leper gnome]] - A few leper gnomes had sworn fealty to Sylvanas and continue after her betrayal to act as assistants to the apothecaries.
+
+*[[Queensguard]] - An army formerly led by Warchief Sylvanas in the [[Broken Isles]]. They are located in [[Highmountain]], [[Val'sharah]], and [[Stormheim]] and consist primarily of the Forsaken.
+**Formerly Led by {{RaceIcon|Sylvanas}} [[Sylvanas Windrunner]].
+
+*[[Deathguard]] - The bulk of the Forsaken military force. They are mostly stationed in the [[Tirisfal Glades]], [[Silverpine Forest]], and the [[Hillsbrad Foothills]], as well as Forsaken outposts in [[Northrend]]. 
+**[[Dreadguard]] - The elite soldiers of Forsaken military. They guard strategically important areas in [[Lordaeron]].
+
+*[[Defilers]] – A force of Forsaken sent to gather the resources of [[Arathi Basin]], found themselves fighting a vicious war with the [[League of Arathor]], humans who are native to the [[Arathi Highlands]] who in turn are fighting to gather resources for the Alliance.
+**Led by {{RaceIcon|Undead|Female}} [[The Black Bride]].
+
+*[[Hand of Vengeance]] - A group of Forsaken forces that have been sent to Northrend by Sylvanas Windrunner to bring Undercity's vengeance upon the Lich King. Their method is the delivery of the latest strain of their deadly Plague.
+**Led by {{RaceIcon|Undead|Male}} [[High Executor Anselm|Anselm]], {{RaceIcon|Undead|Male}} [[High Executor Wroth|Wroth]] and {{RaceIcon|Undead|Male}} [[Chief Plaguebringer Harris|Harris]].
+
+*[[Cult of the Forgotten Shadow]] - The official Forsaken religion. There is no official leader but some minor characters have a major influence over it.
+
+*[[Deathstalkers]] - The Forsaken military faction of [[assassin]]s and [[rogue]]s.
+**[[Shadowstalkers]] - The most elite [[assassin]]s from ranks of the Forsaken. They were sent to [[Northrend]] to help [[Horde Expedition]].
+**Led by {{RaceIcon|Undead|Male}} [[Deathstalker Commander Belmont]]
+*[[Executor]]s - Military leaders of Forsaken army and overseers over their towns.
+**Led by {{RaceIcon|Undead|Male}} [[Grand Executor Mortuus]] (presumed)
+
+The Forsaken employ various different types of undead.
+*{{RaceIcon|Skeleton}}{{RaceIcon|SkeletalOrc}} [[Skeleton]] - Forsaken necromancers are known to summon skeletons to battle.
+*{{Race|UndeadElf|notext}}{{RaceIcon|BloodElfDeathKnight Male}}{{RaceIcon|BloodElfDeathKnight Female}} [[Darkfallen]] - Various former [[High elf|high elven]] citizens continue to serve the Forsaken after the Banshee Queen's betrayal.
+*{{RaceIcon|Banshee}} [[Banshee]] - {{npc||Sylvanas Windrunner||Sylvanas}} had many [[banshee]] allies and is known as the banshee queen.
+*{{RaceIcon|Abomination}} [[Abomination]] - The Forsaken keep a large amount of [[abomination]]s in their service.
+*{{RaceIcon|Ghoul}} [[Ghoul]] - Sylvanas used ghouls in conquering the [[Ruins of Lordaeron]].
+*{{RaceIcon|Zombie}} [[Zombie]] - The Forsaken have zombies within their ranks such as [[Algernon]] and [[Boyle]].
+*{{RaceIcon|Wraith}} [[Wraith]] - [[Ophelia Montague]] was a banker in the Undercity, and during the Fourth War wraiths that haunted [[Dun Garok]] were enslaved by the Forsaken.
+*{{RaceIcon|Gargoyle}} [[Gargoyle]] - The Forsaken were seen employing gargoyles in their [[Battle for Darkshore|fight]] against the [[Night elf|night elves]] in [[Darkshore]].<ref>[[Gargoyle (Darkshore)]]</ref>
+*{{RaceIcon|Geist}} [[Geist]] - The Forsaken were seen employing geist in their [[Battle for Darkshore|fight]] against the [[Night elf|night elves]] in [[Darkshore]].
+*{{RaceIcon|UndeadNightElf|Male}}{{RaceIcon|UndeadNightElf|Female}}{{RaceIcon|DarkWarden}} [[Night elf|Undead night elf]] - These former night elves chose to accept rebirth at the hands of the Val'kyr.<ref name="Dark Range Round-Up">[[Dark Ranger Round-Up]]</ref>
+*{{RaceIcon|FleshBeast}} [[Mutated abomination]] - The Forsaken used one, [[Gorerot]], in the [[invasion of Gilneas]]<ref>[[Invasion of Gilneas]]</ref>
+*{{RaceIcon|PlagueEruptor}} [[Plague eruptor|Plague Eruptor]] - The Forsaken are seen employing them during [[Faction Assault on Tiragarde Sound|Faction Assaults on Tiragarde Sound.]]<ref>[[Faction Assault on Tiragarde Sound]]</ref><ref>[[Blight and Sound]]</ref>
+
+===={{bc-inline}} [[File:Silvermoon.png|30px|Kingdom of Quel'Thalas]] [[Quel'Thalas (kingdom)|Kingdom of Quel'Thalas]]====
+[[File:Icon of Blood.png|thumb|upright|[[Icon of Blood]]]]
+{{Race|BloodElf}} - The [[sin'dorei]] of [[Quel'Thalas (kingdom)|Quel'Thalas]] preside over the other major kingdom of the Eastern Horde from their capital of [[Silvermoon City]] in [[Eversong Woods (Burning Crusade)|Eversong Woods]]. After the [[Scourge invasion of Quel'Thalas]] essentially culled the [[High elf|high elven]] race during the Third War, with over 90% of their people killed, the remaining 10% vowed to avenge the destruction of their once-great nation and dubbed themselves the "blood elves" in honor of their fallen brethren. The blood elves worked tirelessly to reclaim their homeland from lingering [[Scourge]] and the ever-vengeful [[Amani tribe]], with the volatile new powers the [[magisters]] advocated, the kingdom of Quel'Thalas was offered aid from an unlikely source - the Forsaken, whose queen, [[Lady]] Sylvanas Windrunner, a former [[Ranger-general of Silvermoon]] who had lost her life during the Scourge invasion. With their assistance, the blood elves were able to fend off the lingering Scourge in the kingdom and were able to enter the Horde as an equal nation of its own.
+
+Quel'Thalas suffered another dark hour in recent years when its twisted scion [[Kael'thas Sunstrider]] attacked his homeland in a mad bid to usher the [[Burning Legion]]'s master into Azeroth. He was put to death for this on [[Isle of Quel'Danas|Quel'Danas]], and [[Lor'themar Theron]] has thus become the sole leader of the blood elven people. With the [[Sunwell]] restored and the monumental betrayal of their prince behind them, a bright future now lies ahead for the blood elves of Quel'Thalas.<ref>http://us.battle.net/wow/en/game/race/blood-elf</ref> Following the [[Battle for Lordaeron]], they are one of the final bastions of Horde power left within the Eastern Kingdoms.
+*Led by {{RaceIcon|Lor'themar}} [[Lor'themar Theron|Regent Lord Lor'themar Theron]].
+
+*[[Magisters]] - The primary [[magic]] users of Quel'Thalas.
+**Led by {{RaceIcon|Rommath}} [[Grand Magister Rommath]].
+
+*[[Farstriders]] - The ancient order of [[Thalassian]] rangers. Now blood elves, they are dedicated to safeguarding their homeland from any and all threats, near and far while maintaining the old, nature-revering ways of their people.
+**Led by {{RaceIcon|Halduron}} [[Ranger-general of Silvermoon|Ranger-general]] [[Halduron Brightwing]].
+
+*[[Blood Knights]] - Silvermoon's order of blood elf paladins formed after the capture of the [[Naaru]] [[M'uru]] at [[Tempest Keep]]. Once, they drained power from the Naaru but, after the events at the [[Sunwell Plateau]] during the [[invasion of Outland]], the Naaru's spark transformed the [[Sunwell]] into a font of Holy Light from which these paladins could draw power.
+**Led by {{RaceIcon|Liadrin}} [[Lady Liadrin]].
+**The [[Sunsworn]] - A military force of blood elves on {{Au|Draenor}}. Headed by the Blood Knights, they have combined forces with [[Farstriders|rangers]] and [[Magisters|magi]] and based themselves in [[Talador]]. They have also deployed the blood elves' recently-acquired [[blood golem]] technology.
+
+*[[Thalassian navy]] - The maritime military force of the blood elves. Currently a part of the [[Horde navy]].
+**Led by {{RaceIcon|Lor'themar}} [[Lor'themar Theron|Regent Lord Lor'themar Theron]].
+
+*The [[Sunreavers]] - A faction of blood elves who represented the Horde in [[Dalaran]]. Named after their leader, the Sunreavers sought to have the blood elves admitted as members of the [[Kirin Tor]], and joined the [[Horde Expedition]] in [[Northrend]]. They were eventually [[Purge of Dalaran|forced to leave the city]] some time later after [[Jaina Proudmoore]] came into power.
+**Led by {{RaceIcon|Aethas}} [[Aethas Sunreaver]]
+**The [[Sunreaver Onslaught]] - The Sunreaver Onslaught is the Horde reputation faction introduced in [[Patch 5.2]]. It is personally led by [[Lor'themar Theron]], Regent Lord of Quel'Thalas, and bears the namesake of the [[Sunreavers]]. 
+***Led by {{RaceIcon|Lor'themar}} [[Lor'themar Theron]]
+
+*The [[Sunfury]] - A ruthless blood elven military force once under the command of [[Prince]] [[Kael'thas]]. Many have since returned home to Quel'Thalas, following the betrayal of their prince for the [[Burning Legion]].<ref>''[[In the Shadow of the Sun]]''</ref>
+
+*The [[Reliquary]] - A group of examiners and archaeologists out to give the Horde a monopoly on magical artifacts.
+**Led by {{RaceIcon|BloodElf|Male}} [[Tae'thelan Bloodwatcher]].
+
+*The [[Blood Hawks]] - The guards of Eversong Woods.
+**Led by {{RaceIcon|BloodElf Male}} [[Aeldon Sunbrand]].
+*They also have holdings in the [[Ghostlands]], alongside the Forsaken and an encampment in [[Hellfire Peninsula]] in Outland, to support blood elf pilgrims traveling through the [[Dark Portal]] from Azeroth. The [[Reliquary]] has a number of blood elven camps in and adjacent to the [[Badlands]], [[Tanaris]], and the [[Blasted Lands]].
+
+{{RaceIcon|BloodElfDemonHunter Male}} {{RaceIcon|BloodElfDemonHunter Female}} [[Demon hunter]]s from the [[Illidari]] - Although the vast majority appeared to be relatively unaligned, several have joined the Horde as of the [[Fourth War]], fighting alongside Horde forces in [[Arathi Basin]], including [[Celaryn the Frenzied]] and [[Sylareon Silverblade]]. [[Elthyn Da'rai]] and [[Adept Yad M'Sivart]] apparently led the Illidari delegation to the Horde, establishing a camp at the [[Orgrimmar Skyway]].<ref>[[A Weapon of the Horde]]</ref>
+
+===={{cata-inline}} [[File:Bilgewater Cartel.png|30px|Bilgewater Cartel]] [[Bilgewater Cartel]]====
+[[File:Goblin-Icon.png|thumb|upright|[[Icon of Kezan]]]]
+{{Race|Goblin}}s - The cunning [[Bilgewater Cartel]] [[goblin]]s from [[Kezan]], one of the most (if not the most) powerful goblin cartels that dominates trade in the south seas, have recently joined the Horde. After [[Deathwing]] assaulted Kezan and the goblins were forced to flee, their first escape ships were attacked by an Alliance fleet in the [[Battle of the Lost Isles]]. With a common enemy, the goblins assisted the captive former Warchief [[Thrall]] in breaking his bonds and obliterating the Alliance on the [[Lost Isles]]. Their future was tested when their leader, the angered [[Trade Prince Gallywix]], attempted to defeat Thrall and take over [[Azshara]] for himself, though this ultimately ended in failure. Thrall mercifully allowed him to retain his position as [[Trade Prince]], and thus the Bilgewater goblins were accepted into the Horde, founding [[Bilgewater Harbor]] in the heavily-reshaped Azshara and the [[Goblin Slums]] of [[Orgrimmar]] led by [[Boss Mida]]
+*Led by {{RaceIcon|Gazlowe}} [[Trade Prince]] [[Monte Gazlowe]].
+
+*[[Bilgewater Battalion]] - The new army and defense force of the [[Bilgewater Cartel]] of [[goblin]]s created after the cartel pledged allegiance to the Horde. 
+**Led by {{RaceIcon|Goblin|Male}} [[Uncle Bedlam]].
+
+*[[Gob Squad]] - The Gob Squad is an elite goblin squadron working for the Bilgewater Cartel. 
+**Led by {{RaceIcon|Goblin|Male}} [[Patch (goblin)|Patch]].
+
+*{{RaceIcon|Hobgoblin}} [[Hobgoblin]]s - Huge chemically altered goblins have come with the goblins. In-game goblins can summon them to access the [[bank]].
+
+===={{mop-inline}} [[File:Huojin.png|30px|Huojin Pandaren]] [[Huojin Pandaren]]====
+[[File:Pandaren Crest.png|thumb|upright|[[Icon of Pandaria]]]]
+{{RaceIcon|Pandaren2|Male}}{{RaceIcon|Pandaren2|Female}} [[Pandaren]] - These pandaren who hail from the [[Wandering Isle]] follow the path of the [[Huojin]], a philosophy among the pandaren that inaction is the greatest injustice, and that there is no shame in defending one's homes and loved ones regardless of cost. Those pandaren who follow the path of Huojin are allies of the [[Horde]], and are represented and led by the intrepid [[Ji Firepaw]], a staunch adherent of this philosophy.<ref name="mmo-c press tour 19 march">{{ref web|url=http://www.mmo-champion.com/content/2687-Mists-of-Pandaria-Press-Tour|date=2012-03-19|title=Mists of Pandaria Press Tour|accessdate=2012-03-19|publisher=MMO-Champion}}</ref>
+
+The Huojin are quick to act and quicker to fight for what they believe in. Impulsive and practical, they feel that the ends can justify the means.<ref name="mmo-c press tour 19 march" /> These followers now integrated into the Horde community and have a small base of operations in Orgrimmar's Valley of Honor.
+*Led by {{RaceIcon|Ji}} [[Ji Firepaw|Master Ji Firepaw]]
+
+===={{bfa-inline}} [[File:Nightborne Crest.png|30px|Kingdom of Suramar]] [[Suramar (kingdom)|Kingdom of Suramar]]====
+[[File:Nightborne Crest.png|thumb|upright|The nightborne crest]]
+{{Race|Nightborne}} - The [[shal'dorei]] are a powerful and mystical race of [[Elf|night elves]] who live in [[Suramar City]] in [[Suramar]]. Since the city was first separated from the rest of the world over 10,000 years ago, isolated behind a protective barrier, they have evolved by the [[Nightwell]] into an arcane-enhanced version of their former selves, and in the process, grew increasingly dependent upon its arcane magic. To protect this font of power, the leaders of the nightborne struck a bargain with the Burning Legion that plunged their kingdom into civil war. After fighting for freedom from their demonic masters, the nightborne seek allies to help them reclaim their place in the world.
+
+After the death of [[Elisande|Grand Magistrix Elisande]] and the end of the [[third invasion of the Burning Legion]], the shal'dorei wished to rejoin the world. After a harsh exchange between [[Thalyssra]] and [[Tyrande Whisperwind]], and an offer of mutual friendship from [[Lady Liadrin]], the shal'dorei leader decided that it would be best to ally with the Horde, who share ideals similar to those of the nightborne.<ref>[[Thalyssra's Estate]]</ref>
+*Led by {{RaceIcon|Thalyssra}} [[First Arcanist Thalyssra]].
+
+*The [[Duskwatch]] - The primary body responsible for maintaining law and order in the city of [[Suramar City|Suramar]]. Boasting a wide array of skilled mages and warriors alike, the Duskwatch represents the bulk of [[Nightborne]] armed forces.
+**Led by {{RaceIcon|Thalyssra}} [[First Arcanist Thalyssra]] and secondarily by {{RaceIcon|Nightborne Female}} [[Victoire|First Blade Victoire]].
+
+===={{bfa-inline}} [[File:Highmountain Tauren Crest.png|30px|Highmountain Tribe]] [[Highmountain Tribe|Highmountain tauren tribes]]====
+[[File:Highmountain Tauren Crest.png|thumb|upright|The Highmountain tauren crest]]
+{{Race|Highmountain}} - The Highmountain tauren are found in the region of [[Highmountain]] on the [[Broken Isles]] in their capital of [[Thunder Totem]]. Divided into four tribes ([[Highmountain Tribe|Highmountain]], [[Rivermane tribe|Rivermane]], [[Skyhorn tribe|Skyhorn]] and [[Bloodtotem tribe|Bloodtotem]]), they are the direct descendants of the tauren led by [[Huln Highmountain]] who assisted the [[Kaldorei Resistance]] during the [[War of the Ancients]].<ref name="BlizzCon">[https://www.youtube.com/watch?v=iCPPCssbt-o Blizzcon 2015: World and Content Overview Panel] (around 41:25)</ref> During the war, Huln received a blessing from [[Cenarius]], so that his people would forever have the demigod's favor, granting them the [[Horns of Eche'ro]]: [[moose]]-like antlers.<ref name="Stormrage">[[Huln's War - Stormrage]]</ref> The Highmountain tauren honor the spirits of earth, river, and sky. 
+*Led by {{RaceIcon|Mayla}} [[Mayla Highmountain|High Chieftain Mayla Highmountain]].
+
+*[[Highmountain Tribe]] - The dominant tribe of the Highmountain tauren of the Broken Isles, they are led by [[Mayla Highmountain]].
+**Led by {{RaceIcon|Mayla}} [[Mayla Highmountain]].
+
+*[[Rivermane tribe]] - They are a highly peaceful and diplomatic tribe, focused on fishing, agriculture, and [[shaman]]ism. In exchange for protection and equipment, they provide the other tribes with food and healing.<ref name="Ormgul">[[Ormgul the Pestilent (quest)]]</ref>
+**Led by {{RaceIcon|Jale}}  [[Jale Rivermane]]
+
+*[[Skyhorn tribe]] - A proud people, the Skyhorn sports some of the greatest pathfinders and hunters Azeroth has ever known.
+**Led by {{RaceIcon|Lasan}} [[Lasan Skyhorn]].
+
+*[[Bloodtotem tribe]] - During [[third invasion of the Burning Legion]] the Bloodtotem pledged their allegiance to the [[Burning Legion]] and became Fel Totem. However, in the aftermath of the Legion's defeat on Argus, Bloodtotem who rejected to serve the Legion have emerged and rejoined their people at [[Thunder Totem]].
+**Led by: Unknown
+
+===={{bfa-inline}} [[File:Mag'har crest.png|30px|Mag'har Clans]] {{Au|Mag'har|Mag'har Clans}}====
+[[File:Mag'har crest.png|thumb|upright|The Mag'har crest]]
+{{Race|Mag'har|notext}}{{RaceIcon|OrcGray|Male}}{{RaceIcon|OrcGray|Female}} [[Mag'har orc]] - The Mag'har are a noble race with a [[shaman]]istic tradition cultivating a mighty tribal society that was centered around survival, regulating themselves through ritualized combat and personal honor. For untold generations, the orc clans of Draenor battled one another in endless war, but when {{Au|Gul'dan}} offered them [[Blood-curse|the blood of his demonic masters]], the disparate tribes of Mag'har — the orcish word for "uncorrupted" — refused the dark bargain and banded together to drive out the [[Burning Legion]], after their victory, the clans stood united as one tribe under the leadership of {{Au|Grommash Hellscream}}.
+
+After their escape from {{Au|Draenor}} and their {{Au|Grommash Hellscream|Warchief's}} sacrifice against the fanatical crusade of the [[Lightbound]], the clans pledged their loyalty to the Horde. 
+
+Amid the armistice at the end of the [[Fourth War]], the Mag'har Clans were granted [[Hammerfall]] in the [[Arathi Highlands]] as a place for their people to make a fresh start on Azeroth.
+
+*Led by {{RaceIcon|Geya'rah}} [[Overlord Geya'rah]].
+
+*{{Au|Blackrock clan}} - A disciplined, organized, and militaristic clan who boast expert smiths and metalworkers. Well-armored, they utilize brute strength and weaponry to destroy their foes.
+**Led by: Unknown
+
+*{{Au|Bleeding Hollow clan}} - A fanatical and crude clan who fight with a berserker fury and gain the boon of prophecy from their elders, who sacrifice an eye to see into the future. 
+**Led by: Unknown
+
+*{{Au|Burning Blade clan}} - A powerful clan known for their deadly [[blademaster]]s.
+**Led by: Unknown
+
+*[[Frostwolf Orcs|Frostwolf clan]] - A strong, close-knit clan renowned for their prowess as one-on-one combatants and their bond with wolves only adds to their strength, though their numbers remain smaller than most clans. The clan spends much of their time in Frostfire Ridge, they migrate to Nagrand with the seasons.
+**Led by: {{RaceIcon|Geya'rah}} [[Overlord Geya'rah]]
+
+*[[Laughing Skull Orcs|Laughing Skull clan]] - Known for their violent and bloodthirsty nature, these orcs take great pride in their clan identity. In an attempt to avoid extinction from the [[Iron Horde]], the Laughing Skulls have allied with the Frostwolves and the Horde.
+**Led by {{RaceIcon|Dragonmaw Female}} [[Kaz the Shrieker]] (presumed)
+
+*{{Au|Shadowmoon clan}} - A highly spiritual clan, they have always spoken the language of the stars and the earth.
+**Led by: Unknown
+
+*{{Au|Shattered Hand clan}} - They are sadistic warriors who maim their bodies, perhaps in a show of solidarity or perhaps because they simply enjoy the pain.
+**Led by: Unknown
+
+*{{Au|Thunderlord clan}} - The clan is known for their excellent [[hunters]], who are specialized in hunting down (and even taming) [[rylak]]s and other beasts, and even [[gronn]] and [[magnaron]].
+**Led by: Unknown
+
+*{{Au|Warsong clan}} - A warlike orcish clan, their war cries inspire their allies and strike fear into all those who dare get in their way.
+**Led by: Unknown
+
+*{{RaceIcon|Ogre2 Male}}{{RaceIcon|OgreEye}} {{Au|Stonemaul clan}} - This clan of [[ogre]]s was subdued by the Mag'har to further strengthen their forces
+**Led by: Unknown
+
+*{{RaceIcon|Gronn}} [[Gronn]] - The Mag'har have managed to subjugate and strapping great cannons to their backs using harnesses engineered in such a way that the gronn hardly notice the weight and can fire the cannons at will.
+
+*{{RaceIcon|Gronnling}} [[Gronnling]] - The Mag'har have managed to subjugate them to strengthen their army.
+
+*{{RaceIcon|Ogron}} [[Ogron]] - The Mag'har have managed to subjugate them to strengthen the might of their army.
+
+*{{RaceIcon|Goren}} [[Goren]] - The Mag'har have managed to subjugate them to strengthen their army and fight in the defense of Zuldadar.
+
+*{{RaceIcon|SavageWolf}} [[Dire wolf]] - These wolves are preferred by the Mag'har for their ferocity, loyalty, and for something to snuggle on those cool winter nights.
+
+*{{RaceIcon|Clefthoof2}} [[Clefthoof]] - The Mag'har bred clefthooves not only as sturdy pack animals but also powerful instruments of war.
+
+===={{bfa-inline}} [[File:Zandalari crest.png|30px|Zandalari Empire]] [[Zandalari Empire]]====
+[[File:Zandalari crest.png|thumb|upright|The Zandalari crest]]
+{{Race|Zandalari}}- The Zandalari trolls in [[Dazar'alor]] of [[Zuldazar]] are a powerful and superstitious tribe descended from the first troll tribes, they settled on the highest peaks of this mountain range populated with [[Wild God|loa]], where they built crude shrines that eventually became the massive temple city of [[Zuldazar]]. These trolls are scholarly and value knowledge; they preserve troll history but are also deeply steeped in ritual and superstition. They are also masters of war and strategy, having led the trolls in many battles before, and having for many millennia tamed massive [[dinosaur]]s.<ref name="Chronicle">{{Ref WoWCV1}}</ref> Currently they possess one of the most formidable fleets in the known world, using it in their work to further the goals of troll society as a whole. But as enemies encroach upon the borders of Zuldazar, unrest within the king's council threatens to topple the empire.
+*Led by {{RaceIcon|Talanji}} [[Talanji|Queen Talanji]].
+
+*[[Zanchuli Council]] - The council advises the ruler of the [[Zandalari Empire]], and ensures their every command is executed upon.
+**Led by: Unknown
+
+*[[Zandalari army]] - The army has been an integral part of the survival of the empire throughout the many events following the [[Cataclysm (event)|Cataclysm]].
+**Led by {{RaceIcon|Talanji}} [[Talanji|Queen Talanji]] and secondarily by {{RaceIcon|Zandalari Female}} [[Rakera|General Rakera]].
+
+*[[Golden Fleet]] - Is the maritime military force of the [[Zandalari Empire]].
+**Led by {{RaceIcon|Talanji}} [[Talanji|Queen Talanji]].
+
+*[[Talanji's Expedition]] - An expeditionary force of Zandalari led by Princess Talanji into [[Nazmir]] enable to find a way to stop the blood troll threat. They are aided by Horde forces in the form of Darkspear led by [[Rokhan]] and the [[Gob Squad]].
+**Led by {{RaceIcon|Talanji}} [[Princess Talanji]]
+**[[File:IconSmall BloodTick.gif|18x18px]] [[Blood tick]] - Talanji's Expedition re-trained blood ticks to serve as [[Reins of the Expedition Bloodswarmer|mounts]].<ref>[[Reins of the Expedition Bloodswarmer]]</ref>
+
+*{{RaceIcon|DireZandalari}} [[Dire troll]] - Among the military of [[Zandalar]] are the elite dire trolls. These trolls are warriors who have perfected their arts, traded portions of their lives for the dark gift of brutal strength, and serve Zandalar as her greatest weapons of war.
+
+*{{Race|Zandalari|notext}} [[Scorched Sands tribe]] - A group of [[Zandalari troll]] outcasts that once made their home within [[Vol'dun]]. The tribe sought only to live in peace, but due to being constantly harassed by the thugs of [[Mojambo]] they turned to the Horde. At an unknown point in time, their exile was ended and they were welcomed back into their homes by Talanji.<ref>''[[Exploring Azeroth: Islands and Isles]]'' pg. 76</ref>
+**Led by {{RaceIcon|Zandalari|Male}} [[Razgaji]].
+
+===={{bfa-inline}} [[File:Vulpera crest.png|30px|Voldunai]] [[Voldunai|Voldunai vulpera]]====
+[[File:Vulpera crest.png|thumb|upright|The Voldunai crest]]
+{{Race|Vulpera}} - The vulpera in [[Vol'dun]] are a keen and intelligent race of nomadic scavengers capable of turning what they find into opportunities to thrive.<ref name="Visitor's Guide">{{Ref web|url=https://worldofwarcraft.com/en-us/news/22010731/|title=Battle for Azeroth: Vol’dun Visitor’s Guide - WoW|author={{Blizz|Blizzard Entertainment}}|date=2018-08-06|accessdate=2018-08-07}}</ref> They travel in [[caravan]]s, scavenging for supplies, trading where they can,<ref>[[Answering Their Attacks]]</ref> and spreading information they pick up along the way.<ref name="Visitor's Guide"/> Dwelling in [[Vol'dun]], the vulpera can't afford to waste resources. Over time, they have learned to take anything that looks even remotely useful and be creative using what they have,<ref>[[Ranishu Are Resources]]</ref> and they have learned to recognize value wherever it hides in the desert.<ref>[[The Strongest Rope in Vol'dun]]</ref> Eager to join the ranks of the Horde, their caravans have departed from the dunes in search of adventure.
+*Led by {{RaceIcon|Kiro}} [[Kiro]].
+
+===={{df-inline}} [[Dark Talons|Dark Talons weyrn]]====
+[[File:Dracthyr Crest.png|thumb|upright|The Dracthyr crest]]
+{{Race|Dracthyr}} - Where the enemies of the [[Deathwing|Earth-Warder]] tread, the Dark Talons shall harrow their skies, crush their will, and topple their leaders, denying the [[black dragonflight]]'s enemies solace in walls and borders. For every talon in their ranks, they strike down ten of their foes from behind. This weyrn, currently under the authority of the [[Scalecommander Cindrethresh]], trained to be the elite force that shall be feared by all enemies of the black dragonflight.<ref>[[Edict: Dark Talons]]</ref>
+*Led by {{RaceIcon|Cindrethresh}}{{RaceIcon|Cindrethresh2}} [[Scalecommander Cindrethresh]].
+
+==={{Tww-inline}}[[Awakened (earthen)|Awakened]] [[earthen]]===
+[[File:Earthen Crest.png|thumb|upright|The Earthen crest]]
+{{Race|Earthen}} - The titan-forged earthen once toiled under the edicts of the titans to shape Azeroth itself. The earthen of [[Khaz Algar]], aided by the efforts of outsiders, were revitalized by the [[Hall of Awakening]] after it was restored by [[Magni Bronzebeard]].<ref>[[Into the Machine]]</ref> These earthen who have awoken from the Hall have found themselves imbued the magic of the Worldsoul itself and have been given new freedoms that were never available to them.<ref>[[Azerite Surge]]</ref><ref>[[Who am I?]]</ref> They now pledge service to the Alliance or Horde to learn more about Azeroth for their people.<ref>[[Whoever You Want to Be]]</ref><ref>[[For the Alliance (earthen)]]</ref><ref>[[For the Horde (earthen)]]</ref> Unlike other races, the Awakened earthen are still neutral (as part of the [[Dornogal (nation)|nation of Dornogal]]), allowing them to individually pledge their allegiances as they see fit. Stormguard [[Olbarig]] and Geomender [[Harmot]] serve as two of the primary emissaries for the earthen to the Horde in the city of Orgrimmar.
+*Led by the {{RaceIcon|Merrix}}{{RaceIcon|Adelgonn}}{{RaceIcon|Brinthe}}{{RaceIcon|Lufsela}} [[Council of Dornogal]]
+
+==Horde forces==
+While a huge portion of the Horde's military power consists of representatives from the faction's member states, there are also several examples of organizations within the Horde which do not belong to any of the member states and instead of answering to a particular racial leader, they are organized by the leader of the Horde, the Warchief, and their advisors. However, while these organizations are not tied directly to any of the member states, the sub-organizations within them are often sent by one of the member states.
+
+{{Horde}} [[Horde Army]] - The collective land-based military force of the various members of the Horde.
+*Led by {{Horde}} [[Horde Council|The Horde Council]]
+
+{{Horde}} [[Horde navy]] - The collective maritime military force of the various members of the Horde. 
+*Led by {{Horde}} [[Horde Council|The Horde Council]]
+**[[Dredge Fleet]]
+**[[Forsaken navy|Forsaken Fleet]]
+**[[Golden Fleet]]
+**[[Gorok's Sea Dogs]]
+**[[Greenbelly's Raiders]]
+**[[Hellscream warfleet]]
+**''[[Thalassian navy]]''
+**[[Warchief's fleet]]
+**[[Windrunner Fleet]]
+
+{{Horde}} [[Horde air force]] - The collective aerial military force of the various members of the Horde.
+*Led by {{Horde}} [[Horde Council|The Horde Council]]
+
+{{Horde}} [[Thrallmar]] - The Horde expeditionary forces to [[Outland]], who quickly found many native allies. Consist of all the Horde races. The expedition's settlements are scattered all over Outland's zones, except Nagrand and Netherstorm.
+*Led by {{RaceIcon|Nazgrel}} [[Nazgrel]].
+
+{{Horde}} [[Horde Expedition]] - The military umbrella organization overseeing the Horde forces that have established themselves throughout Northrend, formerly unified under [[Garrosh Hellscream]] who had been chosen to lead the expedition by the Warchief.
+*[[Warsong Offensive]] - The main forces of the Horde in Northrend. It is named after the clan, but not a part of it.
+**Led by: Unknown.
+**[[Kor'kron Guard]] - the elite fighting forces of the Warsong Offensive in Northrend.
+*{{Race|Forsaken|notext}} [[Hand of Vengeance]] - A group of Forsaken forces that have been sent to Northrend by Sylvanas Windrunner to bring Undercity's vengeance upon the Lich King. Their method is the delivery of the latest strain of their deadly Plague.
+**Led by {{RaceIcon|Undead|Male}} [[High Executor Anselm|Anselm]], {{RaceIcon|Undead|Male}} [[High Executor Wroth|Wroth]] and {{RaceIcon|MadScientist}} [[Chief Plaguebringer Harris|Harris]].
+*{{Race|Taunka|notext}} [[The Taunka]] - Ancient relatives of the tauren, were thought to be lost until re-discovered by [[Garrosh Hellscream]] and his orc forces upon their arrival to Northrend. They are welcomed into the Horde soon after [[Roanauk Icemist|their leader]] is [[All Hail Roanauk!|rescued]].
+**Led by {{RaceIcon|Taunka|Male}} [[Roanauk Icemist]]
+*{{Race|BloodElf|notext}} [[Sunreavers]] - Former blood elven members of the [[Kirin Tor]], named for their leader, [[Aethas Sunreaver]]. The Horde, traditionally barred from [[Dalaran]], was allowed entry into the city due to the Sunreaver's efforts. However, they were, later, [[Purge of Dalaran|expelled]] from the city. Now they fight as a part of the [[Sunreaver Onslaught]] to strengthen the might of [[Quel'Thalas (kingdom)|Quel'Thalas]].
+**Led by {{RaceIcon|Aethas}} [[Aethas Sunreaver]]
+
+[[File:Defender of Draenor - Horde - Monument.png|thumb|The Horde crest garrison [[Monuments|monument]].]]
+
+{{Horde}} [[Krom'gar]] - An army named after it's leader, Krom'gar, given by Garrosh Hellscream with the intention to conquer the [[Stonetalon Mountains]]. Following the end of the questline, it is implied the army is dissolved entirely.
+*Previously led by {{RaceIcon|Orc Male}} [[Overlord Krom'gar]]
+
+{{Race|Orc|notext}} [[Hellscream's Reach]] - An elite Horde regiment comprised solely of veterans of multiple tours of duty. Handpicked by [[Garrosh]] himself, he has commanded them to take complete control of [[Tol Barad]]. 
+*Led by {{RaceIcon|Garrosh}} [[Garrosh Hellscream]] until his [[Siege of Orgrimmar|deposal]]. Current leader unknown.
+
+{{Horde}} [[Dominance Offensive]] - The major Horde force for the Pandaria campaign.
+*Led by {{NPC||Garrosh Hellscream|icon=Garrosh}} until his [[Siege of Orgrimmar|deposal]]. Current leader unknown.
+
+{{Horde}} [[Vol'jin's Spear]] - Horde forces in [[Ashran]], stationed at [[Warspear]].
+*Led by {{RaceIcon|Troll|Male}} [[High Warlord Volrath]].
+
+{{Horde}} [[Vol'jin's Headhunters]] - Horde forces in [[Tanaan Jungle]], stationed at [[Vol'mar]].
+
+{{Horde}} [[Honorbound]] - Special force of the Horde army tasked with disrupting Alliance operations within Kul Tiras.
+*Led by {{RaceIcon|Nathanos}} [[Nathanos Blightcaller]] until he [[Banshee loyalists|joined]] Sylvanas in [[Most Loyal|abandoning]] the Horde. Current leader unknown. 
+
+===Other members and allies===
+{{Race|Ogre mage|notext}}{{Race|Ogre|notext}} [[Stonemaul clan]] - This [[faction]] joined the Horde after [[Rexxar]] bested [[Kor'gall]] in a duel for the leadership of the [[clan]]. After, Rexxar disappeared into the Barren wilderness and made the ogre [[Mok'Morokk]] the leader of the clan. Although Mok'Morokk fell prey to temptations of power after [[Rexxar]]'s departure and so the [[Stonemaul Village]], actual former capital of the [[clan]], was raided by [[Onyxia]]'s brood. Mok’Morokk led the clan to [[Brackenwall Village]], current capital, where he ruled unquestioned until an unknown challenger drove him out.
+*Currently many support {{RaceIcon|Ogre Male}} [[Tharg]] as a new leader.
+
+{{Race|Ogre mage|notext}}{{Race|Ogre|notext}} [[Dunemaul clan]] - Shortly after the shattering the Dunemaul band joined the Horde due to the efforts of [[Megs Dreadshredder]] and the Dunemaul "Emissary" who are stationed at the [[Dunemaul Recruitment Camp]].
+*Organized by {{RaceIcon|Goblin|Female}} [[Megs Dreadshredder]].
+
+{{Race|ForestTroll|notext}}{{Race|DireTroll|notext}} [[Revantusk tribe]] - Situated in the [[Hinterlands]], this tribe was allied with the [[Old Horde]] and still was loyal to their allies even after the Second War. The moment they heard about the creation of the new Horde this tribe once again allied themself with the Horde. At [[Elder Torntusk]]'s return, the Revantusk have joined the Horde as full members.
+*Led by {{RaceIcon|ForestTroll|Female}} [[Primal Torntusk]] and her husband {{RaceIcon|ForestTroll|Male}} [[Elder Torntusk]].
+
+{{Race|Jungle Troll|notext}} [[Shatterspear tribe]] - Personally recruited by Garrosh Hellscream to fight against the [[Night elf|night elves]].<ref>[[Disturbing Connections]]</ref> Mostly situated in the [[Shatterspear Village]]. After they helped the Horde during the [[War of the Thorns]], the tribe was attacked in retaliation by the night elf forces. They are rebuilding the village since the end of the [[Fourth War]], in hopes that the tribe can ever answer the Horde's call.<ref>''[[World of Warcraft: Exploring Azeroth: Kalimdor]]'', pg. 38</ref>
+*Led by: {{RaceIcon|JungleTroll|Male}} [[Ohseso]].
+
+{{Race|Mag'har|notext}} [[Mag'har (faction)|The Mag'har]] of [[Outland]] - [[Mag'har orc]]s are orcs from various clans that escaped corruption and remained in Outland throughout all three wars.
+*Led by {{RaceIcon|Geyah}} [[Greatmother Geyah]]. Secondary leadership include {{RaceIcon|OrcBrown|Male}} [[Jorin Deadeye]].
+
+{{Race|Taunka|notext}} [[The Taunka]] - Ancient relatives of the tauren, were thought to be lost until re-discovered by [[Garrosh Hellscream]] and his orc forces upon their arrival to Northrend. They are welcomed into the Horde soon after [[Roanauk Icemist|their leader]] is [[All Hail Roanauk!|rescued]].
+*Led by {{NPC||Roanauk Icemist|icon=Taunka Male}}.
+
+{{RaceIcon|Hozen}} [[Grookin tribe]] - A faction of hozen that has made their home in the [[Jade Forest]] and was in constant war against the [[Jinyu]]. They find themselves allied with the Horde after the Horde gains their favor by rescuing some of their members, sating their appetite for fish, and killing some of their most fearsome enemies. Armed and equipped by the Horde, this tribe of hozen are recruited to fight the Horde's war against the [[Alliance]].<ref>[[Instant Messaging]]</ref>
+*Led by {{NPC||Chief Kah Kah|icon=Hozen}}.
+
+{{RaceIcon|Hozen}} [[Slingtail tribe]] - A smaller tribe of hozen that lives in the southern [[Jade Forest]] and was recruited into the Horde together with the [[Grookin tribe]].<ref>[[Let Them Burn]]</ref>
+*Led by {{NPC||Chief Gukgut|icon=Hozen}}.
+
+{{RaceIcon|Pandaren2|Male}}{{RaceIcon|Pandaren2|Female}} [[Eastwind Rest]] - After being aided in retaking their town, the pandaren of Eastwind Rest have joined the Horde.<ref>[[Pandaren Prisoners (Horde)]]</ref>
+*Led by {{RaceIcon|Pandaren2|Male}} [[Elder Shiao]] and {{RaceIcon|Pandaren2|Male}} [[Farmhand Ko]].
+
+{{Race|Gilgoblin|notext}}{{RaceIcon|Skrog}}{{RaceIcon|Makrura}}{{RaceIcon|Murloc}} [[Unshackled]] - A faction of former [[naga]] [[Slavery|slaves]] found in [[Nazjatar]]. An oppressed group consisting of [[gilgoblin]]s, [[makrura]], [[murloc]]s, and [[sea giant]]s, these [[refugee]]s have banded together to rise up and seize their freedom. When Horde forces arrive in Nazjatar, they ally with the Unshackled against the naga while the [[Alliance]] befriends the [[Waveblade Ankoan]]. [[Unshackled Mercenaries]] are gilgoblins that are [[War Campaign followers|troops]] that participate in various [[War Campaign missions]].
+*Led by {{NPC||Neri Sharpfin|icon=Gilgoblin Female}}.
+*{{RaceIcon|Murloc}} [[Tidelost]] - A small tribe of murlocs that was forced out of their home and became refugees.
+**Led by Unknown
+
+{{Race|Centaur}} - During the unification of the centaur under the rule of [[Aratas]], a single member of their race, [[Dorthar]], has joined the ranks of the Horde and helped his new allies to defeat the centaur.
+
+'''Although not officially part of the Horde, the following groups have allied themselves with the Horde:'''<br/>
+*{{Race|Mok'nathal}} {{RaceIcon|Mok'Nathal|Male}}{{RaceIcon|Mok'Nathal|Female}} [[Mok'nathal|Mok'Nathal clan]]- This clan of hunters and beastmasters was discovered by [[Rexxar]] during his activities in [[Outland]]. After being impressed by Horde adventurers, they agree to aid the Horde.
+**Led by {{RaceIcon|Leoroxx}} [[Leoroxx]].
+
+*{{Race|Jungle Troll|notext}} [[Jellyneck's tribe]] - Another, seemingly [[jungle troll]], aids the Horde in the Twilight Highlands; oddly, they are native to the region.<ref>[[Kor'kron Drop]]</ref>
+**Led by {{RaceIcon|Troll|Male}} [[Jon-Jon Jellyneck]].
+
+*{{RaceIcon|Pandaren2|Male}}{{RaceIcon|Pandaren2|Female}} [[Honeydew Village]] - Though not officially aligned with the Horde, the residents of Honeydew Village appear to be affiliated with the Horde and grant Horde members sanctuary in their village.
+**Led by {{RaceIcon|Pandaren2|Male}} [[Mayor Honeydew]].
+
+*{{Race|Zandalari|notext}} [[Voldunai|Zandalari Exiles]] - These exiles from the [[Zandalari Empire]] use their knowledge of the sands to thrive where others would wither and die.  
+
+*{{Race|Human|notext}}{{Race|KulTiran|notext}} [[Fogsail Freebooters]] - A [[pirate]] group found in [[Kul Tiras]]. They allow the Horde to use their base of [[Plunder Harbor]] as a foothold on the island after the Horde helped [[Owings]] pull a mutiny on the previous captain [[Captain Rhenik|Rhenik]] for wanting to sell the crew out to the [[Ashvane Trading Company]].<ref>[[I'm the Captain Now]]</ref>
+**Led by {{RaceIcon|KulTiran|Female}} [[Owings|Captain Owings]].
+
+*{{RaceIcon|Ghost}} [[Unyielding]] - During the [[invasion of Outland]] emmiseries sent by the [[Forsaken]] tried to negotiate an alliance with the undead ghosts in [[Expedition Armory]],<ref>[[Make Them Listen]]</ref> and after multiple failed attempts they managed to ally with some of the ghosts that were still sane. Together they fought against the [[Fel Horde]].<ref>[[Honor the Fallen]]</ref>
+**Led by {{RaceIcon|Cultist|Male}} [[Commander Hogarth]].
+
+*{{Race|Quilboar|}}[[Freewind Post|Freewind Post quilboar]] - A group of quilboar under the leadership of Shagtusk united with the tauren of [[Freewind Post]] in order to fight together against the threat of the Grimtotem tribe and the local [[Harpy|harpies]]. Their alliance is fragile and [[Elmarine]] tries to help keep the peace between the two groups.<ref>''[[Traveler: The Spiral Path]]'', pg. 152</ref>
+**Led by {{RaceIcon|Quilboar|Female}} [[Shagtusk]].
+
+*{{RaceIcon|SkeletalTroll}} [[Skeletal troll|Jamboya's pirates]] - During the Fourth War a group of cursed undead trolls that once were part of [[Pirate-King Zem'lan]]s crew mutinied against their tyrannical leader, and allied themselves with the Horde to do so.<ref>[[Escaping Zem'lan]]</ref> And using the gold they took from their former leader they bought a ship and sailed the seas again,<ref>[[Omi#Quotes]]</ref> while still trying to find a permanent way to get rid of Zem'lan.<ref>[[Trading Post#Orgrimmar]]</ref>
+**Led by {{RaceIcon|SkeletalTroll}} [[First Mate Jamboya|Captain Jamboya]].
+
+*{{Race|Goblin|notext}} [[Steamwheedle Cartel]] - While the Steamwheedle Cartel will not openly declare for the Horde,<ref>[[Steamwheedle Alliance (Horde)]]</ref> they provide the Horde with various services, such as their [[zeppelin]] network,<ref>[[Zeppelin#Zeppelin routes]]</ref> construction,<ref>{{ref game |title= Warcraft III|expansion= [[The Frozen Throne]]|campaign= [[The Founding of Durotar]] |zone= [[Orgrimmar Tunnels]], [[Durotar]]|npc=Gazlowe |quest= Quest: Seal the Tunnel}}</ref><ref>[[My Very Own Fortress]]</ref> and even smuggling operations during a war.<ref>[[Steamwheedle Alliance (Alliance)]]</ref> Even the first goblin death knights that joined the Horde came from the Steamwheedle Cartel.<ref>[[A Special Surprise]]</ref> And after the Fourth War, Noggenfogger even agreed to align himself and his cartel closer to the [[Bilgewater Cartel]] in order to improve the goblin's way of doing business.<ref>''[[The Goblin Way]]''</ref>
+**Led by {{RaceIcon|Noggenfogger}} [[Marin Noggenfogger|Trade Prince Marin Noggenfogger]].
+
+====Subjugated====
+These factions listed are not full members of the Horde but subjugated servants.
+*{{Race|Kobold|notext}} [[Boulderslide]] - They were enslaved by [[Subjugator Devo]] in order to fight the Grimtotem tribe.<ref>[[Reinforcements...]]</ref><ref>[[Kobold Fury!]]</ref>
+**Led by {{RaceIcon|BloodElf|Male}} [[Subjugator Devo]].
+*{{RaceIcon|Ettin}} [[Ettin]] - Both the Forsaken and the Horde at large have managed to subjugate and utilize some of the ettins to haul their wagons through [[Silverpine Forest]] and other regions.<ref>[[Donk]], [[Gadoon]], [[Horde Coffin Hauler]], [[Horde Hauler]], and [[Subdued Forest Ettin]]</ref>
+*{{RaceIcon|DragonBlack2}}{{RaceIcon|DrakeBlack2}}{{RaceIcon|WhelpBlack2}} [[Black dragon]]s - The Dragonmaw have enslaved members of the [[Black Dragonflight]] to serve them as mounts.<ref>[[Subjugated Drake]], [[Halthar's Drake]], [[Torth]], [[Gloomwing]], and [[Dragonmaw Black Drake]]</ref>
+**Led by {{RaceIcon|Zaela}} [[Warlord Zaela]].
+*{{Race|Magnataur}} - Garrosh domesticated many by holding their young hostage.<ref>''[[Wolfheart]]'' and [[Frozengore]]</ref>
+*{{Race|Gronn}} - During the reign of Garrosh, the Horde subjugated several gronns of [[Outland]].<ref>[[Oggax]]</ref>
+*{{RaceIcon|Leviathan}} [[Kraken]] - Garrosh used eight krakens to defend [[Bladefist Bay]] from an Alliance naval assault.<ref name="ToW" />
+*{{Race|Wendigo}} - During the [[Fourth War]] the Horde enslaved at least one wendigo.<ref>[[Muk'luk]]</ref>
+*{{Race|LeperGnome}} and {{Race|Gnome}} - Blood elven warlocks enslaved a group of leper gnomes and forced them to work in a tailor shop.<ref>[[Leper Gnome Laborer]]</ref> While other members of the Horde enslaved regular gnomes for other menial tasks such as smithing.<ref>[[Captured Gnome]], [[Skrotee]] and [[Brote]]</ref>
+
+===Former members and allies===
+{{Seealso|Old Horde#Members and allies}}
+
+{{RaceIcon|OgreMage}}{{Race|Ogre|notext}} [[Dreadmaul]] - After losing [[Dreadmaul Hold]], a portion of the [[Dreadmaul tribe]] have become slaves to the conquering Horde forces, while another portion of the clan fights to reclaim their former home.<ref>[[Futile Pride]]</ref> Some still remain and continue to fight the Horde for their home. They have managed to break free by allying themselves with the [[Iron Horde]].<ref>[[Lunatic Lieutenants]]</ref>
+*Led at the time by {{RaceIcon|Orc|Female}} [[Okrilla]].
+
+{{Race|Worgen|notext}} [[Wolf Cult]] - Some time after the death of [[Arugal]], Ralaar and his followers allied themselves with the [[Forsaken]] in order to infect more humans of [[Gilneas]] with the [[worgen curse]] and to recover the [[Scythe of Elune]], however during the confrontation with Gilnean and [[Night elf|night elven]] forces it was revealed that the scythe was recovered by [[Belysra Starbreeze]] and Ralaar was killed by the spirit of [[Arvell]]. After the death of their leader, what remained of the cult went into hiding, abandoning their Forsaken allies.<ref>[[Curse of the Worgen]]</ref>
+*Led by {{RaceIcon|Worgen|Male}} [[Ralaar Fangfire]].
+
+{{RaceIcon|OgreMage}}{{Race|Ogre|notext}} The [[Dustbelcher]] band - These ogres were hired to assist the Horde in obtaining the [[Sign of the Earth]] so that they could release and kill [[Blacklash]] and [[Hematus]], but Tho'grun betrayed them and stole the Sign for himself.<ref>[[Broken Alliances (1)]]</ref>
+*Led by: {{NPC||Boss Tho'grun|icon=Ogre_Male}}.
+
+{{Race|ForestTroll|notext}} [[Witherbark tribe]] - Joined the Horde sometime after the Third War, but betrayed [[Thrall]], bringing on the wrath of the Darkspear tribe.<ref>[[Grim Message]]</ref>
+*Led by an unknown leader.
+
+{{Race|Goblin|notext}} [[Venture Company]] - During the Fourth War, the company struck a deal with [[Trade Prince Jastor Gallywix]] of the [[Bilgewater Cartel]], who, despite his reservations, negotiated the agreement on behalf of [[Warchief Sylvanas Windrunner]]. The deal would have the Venture Co. refine Azerite for the Horde in its war against the Alliance. However, after betraying the Horde and stealing the [[:Ironfoe]] from the [[Dark Iron clan]], champions of both of the Horde and Alliance attacked their holdings on [[MOTHERLODE!!|Kezan]].<ref>[[The MOTHERLODE!!: Raw Deal]]</ref><ref>{{Ref WoWCV4|148}}</ref> with Mogul Razdunk himself being blown up by Gallywix.<ref>''[[The Goblin Way]]''</ref>
+*Led by {{NPC||Mogul Razdunk|icon=Goblin Male}}.
+
+{{Race|Centaur|notext}} [[Magram clan]] - They allied with the Horde during Year 25 to suppress the other centaur clans and kill [[Theradras]].<ref>{{Ref WoWCV3}}</ref>
+*Led by {{RaceIcon|CentaurKhan}} [[Khan Jehn]].
+
+{{Race|San'layn}} - This group of San'layn entered into an agreement with [[Warchief]] [[Sylvanas Windrunner]] during the [[Fourth War]], in which they would have a home within the Horde as long as they proved themselves and respected the hierarchy of authority within the Horde.<ref>[[Meeting of the Minds]]</ref> They were ultimately defeated and their leader killed by the [[Alliance]].<ref>[[Target: Blood Prince Dreven]]</ref>
+*Led at the time by {{RaceIcon|San'layn|Prince}} [[Blood Prince Dreven]].
+
+{{RaceIcon|Val'kyr}} [[Val'kyr]] - Following the death of the [[Lich King]], many [[Val'kyr]] swore fealty to Sylvanas and raised slain enemies as Forsaken. Ultimately loyal and bound to Sylvanas, the Val'kyr followed their mistress following her betrayal of the Forsaken and the Horde at large.<ref>[[The Nine]]</ref>
+*Led by {{RaceIcon|Sylvanas}} [[Sylvanas Windrunner]].
+
+==Bases of operations==
+<!-- Please only add important bases (cities, towns, forts, villages, ports) -->
+
+{{Stub-section}}
+{{col-begin}}
+{{col|2}}
+'''Capital cities'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Orgrimmar]]
+|Northern [[Durotar]]
+|{{status|Active}}
+|-
+|[[Darkspear Isle]]
+|Central [[Echo Isles]]
+|{{status|Active}}
+|-
+|[[Thunder Bluff]]
+|Northern [[Mulgore]]
+|{{status|Active}}
+|-
+|[[Undercity]]
+|Southern [[Tirisfal Glades]]
+|{{text|red|Plagued}}
+|-
+|[[Silvermoon City]]
+|Northern [[Eversong Woods (Burning Crusade)|Eversong Woods]]
+|{{status|Active}}
+|-
+|[[Bilgewater Harbor]]
+|Central [[Azshara]]
+|{{status|Active}}
+|-
+|[[Suramar City]]
+|Southern [[Suramar]]
+|{{status|Active}}
+|-
+|[[Thunder Totem]]
+|Central [[Highmountain]]
+|{{status|Active}}
+|-
+|[[Dazar'alor]]
+|Central [[Zuldazar]]
+|{{status|Active}}
+|-
+|[[Vulpera Hideaway]]
+|Eastern [[Vol'dun]]
+|{{Status|Active}}
+|-
+|[[Hammerfall]]
+|Northeastern [[Arathi Highlands]]
+|{{status|Active}}
+|-
+|}
+
+'''[[Kalimdor]]'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Bloodhoof Village]]
+|Central [[Mulgore]]
+|{{status|Active}}
+|-
+|[[Bloodvenom Post]]
+|Central Western [[Felwood]]
+|{{status|Destroyed}}
+|-
+|[[Irontree Clearing]]
+|Northern [[Felwood]]
+|{{status|Active}}
+|-
+|[[Brackenwall Village]]
+|Northwestern [[Dustwallow Marsh]]
+|{{status|Active}}
+|-
+|[[Stonemaul Village]]
+|[[Dustwallow Marsh]]
+|{{status|Destroyed}}
+|-
+|[[Camp Mojache]]
+|Eastern [[Feralas]]
+|{{status|Active}}
+|-
+|[[Camp Taurajo]]
+|Central [[Southern Barrens]]
+|{{status|Destroyed}}
+|-
+|[[Crossroads]]
+|[[Northern Barrens]]
+|{{status|Active}}
+|-
+|[[Desolation Hold]]
+|[[Southern Barrens]]
+|{{status|Active}}
+|-
+|[[Krom'gar Fortress]]
+|[[Stonetalon Mountains]]
+|{{status|Active}}
+|-
+|[[Razor Hill]]
+|Central [[Durotar]]
+|{{status|Active}}
+|-
+|[[Sen'jin Village]]
+|Southern [[Durotar]]
+|{{status|Active}}
+|-
+|[[Shadowprey Village]]
+|Southern [[Desolace]]
+|{{status|Active}}
+|-
+|[[Southwind Village]]
+|Eastern [[Silithus]]
+|{{status|Active}}
+|-
+|[[Splintertree Post]]
+|Eastern [[Ashenvale]]
+|{{status|Active}}
+|-
+|[[Stonemaul Hold]]
+|Western [[Feralas]]
+|{{status|Active}}
+|-
+|[[Sun Rock Retreat]]
+|Central [[Stonetalon Mountains]]
+|{{status|Active}}
+|-
+|[[Westreach Summit]]
+|Northwestern [[Thousand Needles]]
+|{{status|Active}}
+|-
+|[[Dunemaul Compound]]
+|[[Tanaris]]
+|{{status|Active}}
+|-
+|[[Zoram'gar Outpost]]
+|Northwest [[Ashenvale]]
+|{{status|Active}}
+|-
+|[[Shatterspear Vale]]
+|Northeastern [[Darkshore]]
+|{{status|Active}}
+|-
+|[[Shatterspear War Camp]]
+|North [[Darkshore]]
+|{{status|Active}}
+|-
+|[[Kor'gar]]
+|Southeastern [[Darkshore]]
+|{{status|Active}}
+|-
+|}
+
+'''[[Eastern Kingdoms]]'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Andorhal]]
+|[[Western Plaguelands]]
+|{{status|Active}}
+|-
+|[[Ar'gorok]]
+|Northwestern [[Arathi Highlands]]
+|{{status|Destroyed}}
+|-
+|[[Brill]]
+|Central [[Tirisfal Glades]]
+|{{status|Active}}
+|-
+|[[Dragonmaw Port]]
+|Eastern [[Twilight Highlands]]
+|{{status|Active}}
+|-
+|[[Bloodgulch]]
+|Central [[Twilight Highlands]]
+|{{status|Active}}
+|-
+|[[Krazzworks|The Krazzworks]]
+|Northeastern [[Twilight Highlands]]
+|{{status|Active}}
+|-
+|[[Sunstrider Isle]]
+|Northwestern [[Eversong Woods (Burning Crusade)|Eversong Woods]]
+|{{status|Active}}
+|-
+|[[Frostwolf Keep]]
+|[[Alterac Valley]]
+|{{Status|Active}}
+|-
+|[[Ruins of Alterac]]
+|Central-western [[Alterac Mountains]]
+|{{Status|Active}}
+|-
+|[[Grom'Gol]]
+|[[Northern Stranglethorn]]
+|{{status|Active}}
+|-
+|[[Bambala]]
+|[[Northern Stranglethorn]]
+|{{status|Active}}
+|-
+|[[Hardwrench Hideaway]]
+|[[Cape of Stranglethorn]]
+|{{status|Active}}
+|-
+|[[Go'Shek Farm]]
+|Eastern [[Arathi Highlands]]
+|{{status|Active}}
+|-
+|[[New Kargath]]
+|Northwestern [[Badlands]]
+|{{status|Active}}
+|-
+|[[Okril'lon Hold]]
+|Northwestern [[Blasted Lands]]
+|{{text|yellow|Captured}}
+|-
+|[[Revantusk Village]]
+|Southeastern [[Hinterlands]]
+|{{status|Active}}
+|-
+|[[Jintha'Alor]]
+|Southern [[Hinterlands]]
+|{{status|Active}}
+|-
+|[[Sepulcher]]
+|Central [[Silverpine Forest]]
+|{{status|Active}}
+|-
+|[[Fenris Keep]]
+|Eastern [[Silverpine Forest]]
+|{{status|Active}}
+|-
+|[[Sunwell]]
+|Central [[Isle of Quel'Danas]]
+|{{status|Active}}
+|-
+|[[Sun's Reach]]
+|Northern [[Isle of Quel'Danas]]
+|{{status|Active}}
+|-
+|[[Tarren Mill]]
+|Northern [[Hillsbrad Foothills]]
+|{{status|Active}}
+|-
+|[[Sludge Fields]]
+|Western [[Hillsbrad Foothills]]
+|{{status|Active}}
+|-
+|[[Dun Garok]]
+|Southeastern [[Hillsbrad Foothills]]
+|{{status|Active}}
+|-
+|[[Tranquillien]]
+|[[Ghostlands]]
+|{{status|Active}}
+|-
+|}
+
+'''[[Outland]]'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Thrallmar]]
+|[[Hellfire Peninsula]]
+|{{status|Active}}
+|-
+|[[Falcon Watch]]
+|Western [[Hellfire Peninsula]]
+|{{status|Active}}
+|-
+|[[Mag'har Post]]
+|Northwestern [[Hellfire Peninsula]]
+|{{status|Active}}
+|-
+|[[Garadar]]
+|Northern [[Nagrand]]
+|{{status|Active}}
+|-
+|[[Mok'Nathal Village]]
+|Eastern [[Blade's Edge Mountains]]
+|{{status|Active}}
+|-
+|[[Shadowmoon Village]]
+|[[Shadowmoon Valley]]
+|{{status|Active}}
+|-
+|[[Stonebreaker Hold]]
+|Central [[Terokkar Forest]]
+|{{status|Active}}
+|-
+|[[Thunderlord Stronghold]]
+|[[Blade's Edge Mountains]]
+|{{status|Active}}
+|-
+|[[Zabra'jin]]
+|Western [[Zangarmarsh]]
+|{{status|Active}}
+|-
+|[[Swamprat Post]]
+|Northeastern [[Zangarmarsh]]
+|{{status|Active}}
+|-
+|}
+
+{{col|2}}
+
+'''[[Northrend]]'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Agmar's Hammer]]
+|Western [[Dragonblight]]
+|{{status|Active}}
+|-
+|[[Icemist Village]]
+|Western [[Dragonblight]]
+|{{text|yellow|Captured}}
+|-
+|[[Kor'kron Vanguard]]
+|northern [[Dragonblight]]
+|{{status|Active}}
+|-
+|[[Camp Tunka'lo]]
+|Eastern [[Storm Peaks]]
+|{{status|Active}}
+|-
+|[[Conquest Hold]]
+|Western [[Grizzly Hills]]
+|{{status|Active}}
+|-
+|[[Camp Oneqwah]]
+|Eastern [[Grizzly Hills]]
+|{{status|Active}}
+|-
+|[[New Agamand]]
+|Southern [[Howling Fjord]]
+|{{status|Active}}
+|-
+|[[Halgrind]]
+|Southern [[Howling Fjord]]
+|{{text|red|Plagued}}
+|-
+|[[Taunka'le Village]]
+|[[Borean Tundra]]
+|{{text|yellow|Captured}}
+|-
+|[[Vengeance Landing]]
+|Eastern [[Howling Fjord]]
+|{{status|Active}}
+|-
+|[[Venomspite]]
+|Eastern [[Dragonblight]]
+|{{status|Active}}
+|-
+|[[Warsong Hold]]
+|Southern [[Borean Tundra]]
+|{{status|Active}}
+|-
+|[[Garrosh's Landing]]
+|Western [[Borean Tundra]]
+|{{text|yellow|Captured}}
+|-
+|}
+
+'''[[Pandaria]]'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Domination Point]]
+|Southwestern [[Krasarang Wilds]]
+|{{status|Active}}
+|-
+|[[Eastwind Rest]]
+|Southeast [[Kun-Lai Summit]]
+|{{status|Active}}
+|-
+|[[Serpent's Spine Horde Tower]]
+|Southwest [[Kun-Lai Summit]]
+|{{status|Active}}
+|-
+|[[Strongarm Airstrip]]
+|Northern [[Jade Forest]]
+|{{text|red|Abandoned}}
+|-
+|[[Grookin Hill]]
+|Western [[Jade Forest]]
+|{{status|Active}}
+|-
+|[[Camp Nooka Nooka]]
+|Northwest [[Jade Forest]]
+|{{status|Active}}
+|-
+|[[Garrosh'ar Point]]
+|Southern [[Jade Forest]]
+|{{status|Destroyed}}
+|-
+|[[Twinspire Keep]]
+|Southwestern [[Jade Forest]]
+|{{text|red|Abandoned}}
+|-
+|[[Shrine of Two Moons]]
+|Northeastern [[Vale of Eternal Blossoms]]
+|{{status|Active}}
+|-
+|[[Thunder Cleft]]
+|Eastern [[Krasarang Wilds]]
+|{{status|Active}}
+|-
+|[[Dawnseeker Promontory]]
+|Northwestern [[Isle of Thunder]]
+|{{status|Active}}
+|-
+|}
+
+'''{{Au|Draenor}}'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Axefall]]
+|[[Spires of Arak]]
+|{{status|Unknown}}
+|-
+|[[Beastwatch]]
+|Southern [[Gorgrond]]
+|{{status|Unknown}}
+|-
+|[[Broken Horn Village]]
+|Northern [[Gorgrond]]
+|{{status|Unknown}}
+|-
+|[[Frostwall]]
+|[[Frostfire Ridge]]
+|{{text|red|Abandoned}}
+|-
+|[[Bladespire Citadel]]
+|Western [[Frostfire Ridge]]
+|{{status|Unknown}}
+|-
+|[[Riverside Post]]
+|Western {{Au|Nagrand}}
+|{{status|Unknown}}
+|-
+|[[Sunsworn Camp]]
+|Southeastern [[Talador]]
+|{{status|Unknown}}
+|-
+|[[Vol'jin's Pride]]
+|Northeastern [[Talador]]
+|{{status|Unknown}}
+|-
+|[[Vol'mar]]
+|Eastern [[Tanaan Jungle]]
+|{{status|Unknown}}
+|-
+|[[Warspear]]
+|Northern [[Ashran]]
+|{{status|Unknown}}
+|-
+|[[Wor'var]]
+|Eastern {{Au|Nagrand}}
+|{{status|Unknown}}
+|-
+|}
+
+'''[[Broken Isles]]'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Dreadwake's Landing]]
+|[[Stormheim]]
+|{{status|Active}}
+|-
+|[[Nighthold]]
+|[[Suramar Bay]]
+|{{status|Active}}
+|-
+|[[Shal'Aran]]
+|Central [[Suramar]]
+|{{status|Active}}
+|-
+|[[Skyhorn]]
+|[[Highmountain]]
+|{{status|Active}}
+|-
+|[[Riverbend]]
+|[[Highmountain]]
+|{{status|Active}}
+|-
+|[[Ironhorn Enclave]]
+|Southern [[Highmountain]]
+|{{status|Active}}
+|-
+|}
+
+'''[[Zandalar]]'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Port of Zandalar]]
+|Southern [[Zuldazar]]
+|{{status|Active}}
+|-
+|[[Warbeast Kraal]]
+|[[Zuldazar]]
+|{{Status|Active}}
+|-
+|[[Zeb'ahari]]
+|Eastern [[Zuldazar]]
+|{{Status|Active}}
+|-
+|[[Village in the Vines]]
+|[[Zuldazar]]
+|{{Status|Active}}
+|-
+|[[Mugambala]]
+|[[Zuldazar]]
+|{{Status|Active}}
+|-
+|[[Atal'Dazar]]
+|[[Zuldazar]]
+|{{Status|Active}}
+|-
+|[[Warport Rastari]]
+|Southern [[Zuldazar]]
+|{{Status|Active}}
+|-
+|[[Isle of Fangs]]
+|Southern [[Zuldazar]]
+|{{Status|Active}}
+|-
+|[[Tusk Isle]]
+|Southern [[Zuldazar]]
+|{{Status|Active}}
+|-
+|[[Blood Gate]]
+|Northern [[Zuldazar]]
+|{{Status|Active}}
+|-
+|[[Zul'jan Ruins]]
+|[[Nazmir]]
+|{{Status|Active}}
+|-
+|[[Zo'bal Ruins]]
+|[[Nazmir]]
+|{{Status|Active}}
+|-
+|[[Abandoned Burrows]]
+|Northeastern [[Vol'dun]]
+|{{Status|Active}}
+|-
+|}
+
+'''[[Kul Tiras]]'''
+{|class="darktable sortable"
+|- 
+!Base of operations!!Location!!Status
+|-
+|[[Diretusk Hollow]]
+|[[Stormsong Valley]]
+|{{status|Unknown}}
+|-
+|[[Hillcrest Pasture]]
+|[[Stormsong Valley]]
+|{{status|Unknown}}
+|-
+|[[Ironmaul Overlook]]
+|[[Stormsong Valley]]
+|{{status|Unknown}}
+|-
+|[[Krazzlefrazz Outpost]]
+|[[Drustvar]]
+|{{status|Unknown}}
+|-
+|[[Mudfisher Cove]]
+|[[Drustvar]]
+|{{status|Unknown}}
+|-
+|[[Stonetusk Watch]]
+|[[Stormsong Valley]]
+|{{status|Unknown}}
+|-
+|[[Seawatch Point]]
+|Northern [[Stormsong Valley]]
+|{{status|Unknown}}
+|-
+|[[Swiftwind Post]]
+|[[Drustvar]]
+|{{status|Unknown}}
+|-
+|[[Timberfell Outpost]]
+|[[Stormsong Valley]]
+|{{status|Unknown}}
+|-
+|[[Warfang Hold]]
+|Northern [[Stormsong Valley]]
+|{{text|red|Abandoned}}
+|-
+|[[Windfall Cavern]]
+|[[Stormsong Valley]]
+|{{status|Unknown}}
+|-
+|[[Wolf's Den]]
+|[[Tiragarde Sound]]
+|{{status|Unknown}}
+|-
+|[[Plunder Harbor]]
+|[[Tiragarde Sound]]
+|{{status|Active}}
+|-
+|}
+
+{{col-end}}
+
+===Capital cities===
+<gallery>
+File:Orgrimmar3.jpg|[[Orgrimmar]]
+File:BfALordaeron Ruins 2.jpg|[[Ruins of Lordaeron]]
+File:Thunder Bluff in the distance.jpg|[[Thunder Bluff]]
+File:Darkspear Isle.jpg|[[Darkspear Isle]]
+File:Silvermoon City Midnight.jpg|[[Silvermoon City]]
+File:Azshara - Bilgewater Harbor - Overhead.jpg|[[Bilgewater Harbor]] 
+File:Suramar Cinematic.jpg|[[Suramar City]]
+File:Thunder Totem Day.jpg|[[Thunder Totem]]
+File:Dazar'alor.jpg|[[Dazar'alor]]
+File:Vulpera Hideaway.jpg|[[Vulpera Hideaway]]
+File:HammerfallBfA.jpg|[[Hammerfall]]
+</gallery>
+
+==In the RPG==
+{{RPG-section}}
+===History of the Horde===
+{{Seealso|Old Horde#In the RPG}}
+[[File:Horderaces.jpg|thumb|The playable Horde races in the RPG.]]
+
+Many orcs slipped through the portal to Azeroth before Khadgar's forces set up their defensive perimeter; among them was [[Grom Hellscream]], who brought a large chunk of the [[Warsong Clan]] through the portal. The Warsong Clan became a nuisance for the humans, who had placed most of the remaining orcs in internment camps rather than simply slaughtering them.
+
+During this time, the family of one of Lord [[Aedelas Blackmoore]]'s servants raised Thrall for the first few years of his life. These fleeting years were more kind to Thrall than the next score; the young daughter of the servant's family befriended him and treated him as a younger brother. Her name was [[Taretha]], and she was the closest thing to family that Thrall ever had. Sadly, Thrall was torn away from the servant family as soon as he was old enough to begin his scholastic training, and even that was brief; he was taught the basics of how to read before his military training would begin. Blackmoore intended to use Thrall as a gladiator at first but later developed a much darker plan to give himself power over the Alliance.
+
+As the young Thrall trained, Grom Hellscream fought his guerilla war, and Doomhammer escaped from [[Terenas Menethil II]]. Doomhammer did not immediately join the rebel clans; rather, he became a hermit and spent his days in contemplation. Such was the way of many warriors who were not ready to give up the fight, but neither did they have the strength left to rally the fragments of the Horde.
+
+Thrall's arena matches grew more brutal as time went on, and he eventually fled with help from his human "sister." He first sought the internment camps, getting captured and observing them from the inside, but finding it amazingly simple to escape. The orcs had fallen into a pitiful state of apathy; few resisted capture. Thrall investigated, eventually seeking out the legendary Grom Hellscream. After proving himself to Grom, Thrall learned that the orcs were in withdrawal; they had grown dependant on the demonic magics wrought by Gul'dan and his servants. Grom also told Thrall about the young orc's rightful clan, the Frostwolves; and Thrall sought them out, vowing to return and work with the mighty chieftain when he could.
+
+Thrall nearly died of the cold trying to reach the Frostwolves, and they concealed their surprise at being reunited with the heir to their chieftain. The Frostwolves, now led by the shaman [[Drek'Thar]], tested Thrall before accepting him into the clan. After he proved himself, he trained as a shaman. One day, a [[Orgrim Doomhammer|cloaked warrior]] wandered into the camp, and the Frostwolves offered him hospitality. Thrall thought the warrior was insulting him and his clan, and he challenged the traveler; the other orcs gasped as the wanderer threw off his cloak to reveal black plate and a massive hammer. Thrall, unaware who he faced, defeated the wanderer in a brief duel; the warrior then laughed and revealed himself to be Orgrim Doomhammer, the Horde's warchief. He made the mighty Thrall his second, and together they planned to assault the human camps and show their brothers how to fight again. Thrall reunited with Grom, and the three mighty warriors led the orcs in reclaiming the prisoners of war. Blackmoore hounded Thrall at every turn until finally Thrall turned his growing Horde toward Blackmoore's forces at [[Durnholde Keep]] and crushed him. Orgrim Doomhammer fell in the fighting, and Thrall took his place as Warchief of the Horde.<ref>''[[Horde Player's Guide]]'', pg. 173, 175</ref>
+
+[[File:Gromhellscreamandcenarius.JPG|thumb|Grommash after killing Cenarius.]]
+The Horde avoided conflict with the Alliance as much as possible for a time, sacking only the prisoner camps, until a mysterious visitor — the prophet Medivh — visited Thrall and told him that his people would find a home in the west, on the forgotten continent of [[Kalimdor]]. He made his offer to many, hoping to bring enough strength to Kalimdor to protect the [[World Tree]] when the [[Burning Legion]] arrived. Thrall was one of few who heeded Medivh's warnings, and he took the majority of the Horde across the sea, meeting with the [[Darkspear]] trolls and allying with them on the way.
+
+When Thrall reached Kalimdor, the orcs encountered the shamanistic [[tauren]], led by [[Cairne Bloodhoof]]. The two races allied, since the tauren were in need of aid against the [[centaur]], and the orcs needed friends and guides in this foreign land. They found that their people were similar, but the tauren had fortunately not lost so many to the study of dark magic. After aiding the tauren against the centaur, Thrall and Grom split up for a short time while Grom's clan went to gather supplies in [[Ashenvale Forest]]. When the orcs took their axes to the ancient trees, the [[Night elf|night elves]] responded, seeing it as an attack on nature. Hellscream fought a downhill battle against the elves, but just as the last of his troops were about to be defeated, a familiar figure entered the scene — [[Mannoroth the Destructor]]. Mannoroth secretly offered Hellscream a chance to regain his former fury and power — enough for his people to defeat the elves, and their [[demigod]], [[Cenarius]] — if Grom was willing to drink from a well tainted with Mannoroth's blood. Grom knew the price of his actions, but he was not willing to lose in battle. He, and his troops, drank from the fel-tainted water and were imbued with demonic strength. They slew Cenarius and many elves in their berserker rage. After the battle, Mannoroth revealed himself to Grom and asserted his dominance.
+
+[[File:Mannarothbattle.JPG|thumb|Thrall and Grom about to attack Mannoroth.]]
+As Grom succumbed to the will of the Burning Legion, Medivh visited Thrall again. Thrall's orcs united with [[Jaina Proudmoore]]'s human forces at Medivh's request, and together they captured Grom's spirit and freed him from his demonic taint. Thrall and Grom then went alone to seek their vengeance against Mannoroth. The two defeated the pit lord, but Grom suffered a mortal wound after saving Thrall's life. Thrall grieved for his friend, whom he had seen as a brother, but he knew that the orc's sacrifice had not been in vain.
+
+As the Burning Legion and the [[Scourge]] took more of Kalimdor, the orcs and humans allied with the night elves, and together the three forces stood at [[Mount Hyjal]], fighting the fury of [[Archimonde]], lord of the Burning Legion. It was there that Archimonde fell, though at the cost of many lives from every race. The Legion retreated in the aftermath, and for a brief time, there was peace.<ref>''[[Horde Player's Guide]]'', pg. 175, 176</ref>
+
+Thrall founded the city of Orgrimmar, named after Orgrim Doomhammer, in the valleys of Durotar, named after his noble father Durotan. Jaina of the humans and Malfurion of the night elves allowed the Horde to live in peace, and tauren constructed on their own city for the first time — Thunder Bluff in Mulgore. It was not long before tensions rose again, however.
+
+Admiral Daelin Proudmoore, one of the leaders of the Alliance in the Second War, came to find his daughter Jaina. In spite of her protests, he launched assault after assault on the orcs, until Jaina was forced to aid the Horde against her father. Thrall honored her sacrifice by sparing those loyal to her within her city of Theramore, but the battle proved to many that lasting peace between the Alliance and the Horde was impossible.<ref name="ReferenceB">''[[Horde Player's Guide]]'', pg. 176</ref> More and more battles sprung up in spite of the efforts of both leaders to keep diplomatic relations strong. [[Battlegrounds]] erupted threatening to plunge both sides closer to all-out war. And so, things grew worse and worse.
+
+Back in [[Lordaeron]], [[Sylvanas Windrunner]], a [[banshee]] and former ranger general of [[Quel'Thalas (kingdom)|Quel'Thalas]], broke free of [[Arthas]]'s control and created her own [[undead]] faction — the [[Forsaken]]. As the situation in Kalimdor grew bloodier, Sylvanas offered an alliance to Thrall, which he grudgingly accepted. The introduction of the undead to the Horde infuriated the Alliance further; while Jaina still did her best to stop the fighting, the humans in Stormwind took action against the Horde again, and the situation deteriorated. More recently, Thrall has been in communication with the [[Revantusk tribe|Revantusk]] forest trolls, who agreed to a tentative alliance with the Horde.<ref name="ReferenceB"/> The Revantusk tribe is now loosely allied with the Horde. While not members of the Horde, they are its friends.<ref>''[[Horde Player's Guide]]'', pg. 10</ref>
+
+==Notes and trivia==
+*Until [[Thrall]] came to power and reformed it, females were not considered equals to males in the Horde.<ref>[[Crossroads Conscription]]</ref> Similarly, [[peon]]s were badly treated by their peers.
+*[[Warlock]]s in the ranks of the Horde are considered as [[Heretic|pariahs]], and must operate in the shadows of polite society to practice their dark arts within hidden enclaves, so that they can escape the prejudice of the public. However, during and following the [[war against the Lich King]], they only started to be respected as powerful assets on the battlefronts.<ref>[[Visiting Warlock#Quotes]]</ref>
+*As of ''[[World of Warcraft: Battle for Azeroth]]'', the Horde has fractured into [[World of Warcraft: Mists of Pandaria|civil]] [[Darkspear Rebellion|war]] [[Horde War Campaign|twice within]] ''World of Warcraft'''s lifetime.
+*With the defection of [[Sylvanas Windrunner]] and the deaths of [[Cairne Bloodhoof]] and [[Vol'jin]], Thrall is the only Horde racial leader from [[World of Warcraft|vanilla]] to be both alive and still aligned with the Horde.
+*The [[Blood Horde]] is a version of the Horde that exists in the [[Warlands]], an [[alternate timeline]] of [[Azeroth]] where the [[Alliance]] destroyed the [[Undead Scourge]] and pursued the orcs to [[Kalimdor]] to exterminate them.
+*When asked if the Horde symbol was "a crude drawing shared by the [[Draenor]] orc spiritual leaders based on their visions of [[K'ure]] inside [[Oshu'gun]] that was passed down for centuries and eventually chosen because it represented all orcs and not one clan" or "just some cool tribal [thing]", [[Chris Metzen]] amusingly answered "Uhhhh... in my mind - it's A. Yeah. That. It's always been that cool and well thought out!....."<ref>{{tw|https://web.archive.org/web/20210218213840/https://twitter.com/ChrisMetzen/status/1151181306455216128|2019-07-16|Chris Metzen|Uhhhh... in my mind - it’s A. Yeah. That. It’s always been that cool and well thought out!.....}}</ref>
+*Early in the game's development, when Metzen was still writing ''[[Warcraft III]]'', the Horde was going to be the "evil faction" instead of the underdog/antihero faction.<ref>https://web.archive.org/web/20210304081940/https://www.reddit.com/r/classicwow/comments/9fb2bo/john_staats_ama_author_of_the_world_of_warcraft/ "Early on, the Horde was definitely considered the “evil” faction. [...] But then, there was the epiphany that some people were into playing evil races/factions. Whereas a LOT more people wanted to play as these "evil races (Forsaken not included) but as the good guys (Thrall’s Orcs during WCIII)."</ref>
+*As of ''[[World of Warcraft: Battle for Azeroth]]'' three of the Horde's playable races had time frames in which they officially didn't have a leader.
+**The orcs went leaderless from the [[Darkspear Rebellion]] and the [[Siege of Orgrimmar]] in which they rejected and aided in the defeat of [[Garrosh Hellscream]] up until ''[[World of Warcraft: Legion]]'' revealed [[Varok Saurfang]] as their new leader.
+**The trolls went without a racial leader after Vol'jin's death in the [[Battle for Broken Shore]] up until [[Warchief of the Horde (quest)]], which established [[Rokhan]] as their new Chieftain.
+**The orcs and undead were leaderless following the death of Saurfang and the defection of Sylvanas in the ''[[Reckoning]]'' up until [[Warchief of the Horde (quest)]] revealed that Thrall and [[Lilian Voss]], respectively, become the orc and forsaken leaders.
+
+==Speculation==
+{{Speculation}}
+* The Horde military ranks of [[Legionnaire (rank)|Legionnaire]] and [[Centurion (rank)|Centurion]] may have come from the historical traditions of the [[Gorian Empire]], who use Roman references.
+* While there is no in-universe explanation for the Horde symbol's origin aside from the above mentioned Naaru speculation with Metzen, the symbol does resemble a reversed version of one of the symbols of the Gorian Empire, used above the [[Throne of the Imperator#/media/file:Gorian_throne.png|Throne of the Imperator]].
+
+==Gallery==
+<gallery>
+File:AllianceVSHordeWC3.jpg|[[Grunt]], [[shaman]], [[headhunter]]s, [[tauren warrior]]s, and [[raider]]s fighting together in the Third War.
+File:A Blaze of Glory - Horde assembled.jpg|The united Horde ready to attack [[Theramore Isle|Theramore]] during the [[invasion of Durotar]].
+File:Horde-alliance pandaren.jpg|The Horde as seen by the [[pandaren]]
+File:HordeLogo.jpg|Horde logo from the [[World of Warcraft 5 Year Anniversary: BattleCry]]
+File:Horde Victory by Raneman.jpg|"Horde Victory" by [[Glenn Rane]].
+File:Horde Casualty by Raneman.jpg|"Horde Casualty" by Glenn Rane.
+File:For the Horde! HS.jpg|{{HS|For the Horde!}} in ''Hearthstone''.
+File:Horde banner.jpg|Horde [[banner]] during the first Azerothian [[Kosh'harg]] in [[Razor Hill]].
+File:Power of the Horde HS.jpg|{{HS|Power of the Horde}}
+</gallery>
+
+==See also==
+*[[Alliance-Horde war]]
+*{{RPG-inline}} [[Horde technology]]
+
+==References==
+{{Reflist}}
+
+{{New Horde}}
+{{Factions|classic}}
+{{Orcs}}
+
+[[Category:Horde| ]]
+[[Category:Horde Player's Guide]]
+[[Category:World of Warcraft: The Roleplaying Game]]
+[[Category:Warcraft: The Roleplaying Game]]
+[[Category:Alliance & Horde Compendium]]
+[[Category:Manual of Monsters]]
+[[Category:Monster Guide]]
+[[Category:Lands of Conflict]]
+[[Category:Lands of Mystery]]
+[[Category:More Magic and Mayhem]]

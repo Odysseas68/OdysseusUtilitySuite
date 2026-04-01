@@ -1,0 +1,3 @@
+# Automatically scraped waypoints from Warcraft Wiki
+# Format is scraper.py-compatible. Do not edit spacing inside the dict keys.
+

@@ -1,0 +1,72 @@
+{{Infobox faction
+| name = Court of Farondis
+| image = Crumbled Palace.jpg
+| caption = The [[Crumbled Palace]] in [[Azsuna]].
+| faction = Neutral
+| leader = {{NPC||Prince Farondis|icon=Farondis}}
+| races = {{Race|Nightelf}}
+| capital = [[Crumbled Palace]], [[Ruins of Nar'thalas]]
+| theater = [[Azsuna]]; [[Val'sharah]], [[Broken Isles]]
+| affiliation = [[Independent]]
+| faffiliation = [[Highborne]], [[Kaldorei Empire]]
+| members = [[Nightwatchers]]
+| quartermaster = {{NPC||Veridis Fallon|icon=NightElf Male}}
+| status = Active
+| tabard =
+}}
+
+The '''Court of Farondis''' are a [[Organization|group]] of [[Night elf|night elven]] [[ghost]]s cursed by the destruction of the [[:Tidestone of Golganneth]] in [[Azsuna]].
+
+They are one of the factions [[Adventurer|heroes]] can acquire reputation for in order to purchase certain toys and gear in ''[[World of Warcraft: Legion|Legion]]''.
+
+==Background==
+{{Stub/Lore-section}} <!-- +summary of their Legion questlines -->
+===War of the Ancients===
+When [[Prince Farondis]] turned against [[Queen Azshara]] during the [[War of the Ancients]], he tried to use the [[:Tidestone of Golganneth]] to destroy the [[Well of Eternity]] in [[Zin-Azshari]]. Doing so would close the [[Burning Legion]]'s portal and stop the invasion. Unfortunately, there was a loyal noble to Azshara in his court, [[Vandros]], who gave word to her. In a frightening display of [[arcane]] power Azshara remotely destroyed the Tidestone, releasing a wave of dark energy over all of [[Azsuna]]<ref>[[Ancient Highborne Tome]]</ref> that shattered the region and cursed its citizens to live on as [[ghost]]s.
+
+===Legion===
+{{Legion-section}}
+In time, the Court have come to hate [[Prince Farondis]] for incurring the wrath of [[Queen Azshara]]. By the time of the [[third invasion of the Burning Legion]] in 33 [[ADP]], however, upon learning that the [[naga]] invasion led by [[Tidemistress Athissa]] was sent by Queen Azshara herself, they forgave him for trying to do the very thing that he did before a second time. The Court, aided by the [[adventurer]]s, fought against the [[Hatecoil]] naga and led the defense of Azsuna during the Legion's [[Assault on Azsuna|assault]].
+
+[[Magister Garuhod]] eventually managed to break free of the curse through a special brew. After this, the members of the Court continued trying to replicate his methods in the hopes of finding a cure for themselves.<ref>[[A Cleansing Cocktail]]</ref><ref>[[Mixology Mix-up]]</ref>
+
+===Battle for Azeroth===
+{{Bfa-section}}
+Around the time of the [[Fourth War]] in 33 ADP, several [[Nar'thalas Mage|Nar'thalas magi]] traveled to [[Stormwind City]] to provid portal services to the [[Crumbled Palace]] in the [[Wizard's Sanctum]]. Stormwind guards refer to them as their allies.
+
+===Exploring Azeroth===
+{{Novel-section}}
+In Year 42 ADP, [[Thalyssra]] reported that the ghosts were happier with Farondis redeemed. Several [[nightborne]] [[scholar]]s began working on finding a way to break the curse laid by Azshara.<ref>''[[Exploring Azeroth: Islands and Isles]]'', pg. 18</ref>
+
+==Faction description==
+''The ghostly Court of Farondis and its allies continue the fight against an onslaught of invaders on the cursed island of [[Azsuna]].''
+
+==Rewards==
+{{Court of Farondis}}
+
+==Notes==
+*The [[Nightwatchers]] were the guards of the court.
+*While their tabard depicts a crown on a watery background, they use a shredded version of the flag used throughout Suramar on their remaining buildings.
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class="darktable"
+! Faction
+! Paragon
+|-
+| {{Elinks-faction|1900}}
+| {{Elinks-faction|2087}}
+|}
+
+{{Factions|legion}}
+
+[[Category:Court of Farondis| ]]
+[[Category:Night elf organizations]]
+[[Category:Undead organizations]]
+[[Category:Factions]]
+[[Category:Azsuna]]

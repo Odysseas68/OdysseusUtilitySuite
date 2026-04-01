@@ -1,0 +1,29 @@
+{{Stub/Quest}}
+{{Questbox
+ | id = 54626
+ | name = Paragon of the Honorbound
+ | category = Zuldazar
+ | faction = Horde
+ | level = {{level|bfa-max}}
+ | levelreq = {{level|bfa-max}}
+ | start = Automatic
+ | end = [[Ransa Greyfeather]]
+ | shareable = No
+ }}
+
+==Objectives==
+Speak with [[Ransa Greyfeather]] in the [[Port of Zandalar]] for your reward.
+
+==Description==
+Commanders of the [[Honorbound]] forces have requested your presence. They wish to reward you for your exceptional efforts.
+
+==Completion==
+<Class order title>, thanks to your efforts against the [[Alliance]], our forces have been able to secure additional resources from the battlefield.
+
+The more you continue to dominate the battlefield the more resources our forces can spare.
+
+==Patch changes==
+*{{Patch 8.1.0|note=Added.}}
+
+==External links==
+{{Elinks-quest|54626}}

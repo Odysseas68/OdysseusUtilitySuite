@@ -1,0 +1,184 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Horde" title="Horde"><img alt="Horde" src="/images/Horde_32.png?db3bd7" decoding="async" loading="lazy" width="32" height="32" data-file-width="32" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Plunder Harbor</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Plunder_Harbor.jpg" class="image"><img alt="Plunder Harbor.jpg" src="/images/thumb/Plunder_Harbor.jpg/260px-Plunder_Harbor.jpg?8bea3c" decoding="async" loading="lazy" width="260" height="146" data-file-width="2560" data-file-height="1440" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Type</th><td>
+Harbor</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Leader(s)</th><td>
+<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_KulTiran_Female.gif/16px-IconSmall_KulTiran_Female.gif?d85227" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Owings" title="Owings"><span style="color:">Captain Owings</span></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">&#160;&#160;Formerly</th><td>
+<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_KulTiran_Male.gif/16px-IconSmall_KulTiran_Male.gif?bbdefd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Captain_Rhenik" title="Captain Rhenik"><span style="color:">Captain Rhenik</span></a><sup>&#160;†</sup></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race(s)</th><td>
+<span class="linkicon raceicon RaceLink"><a href="/wiki/Human" title="Human"><img alt="Human" src="/images/thumb/IconSmall_Human_Male.gif/16px-IconSmall_Human_Male.gif?f38ee4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Human" title="Human"><img alt="Human" src="/images/thumb/IconSmall_Human_Female.gif/16px-IconSmall_Human_Female.gif?4582db" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Human" title="Human">Human</a><br /><span class="linkicon raceicon RaceLink"><a href="/wiki/Orc" title="Orc"><img alt="Orc" src="/images/thumb/IconSmall_Orc_Male.gif/16px-IconSmall_Orc_Male.gif?f251d1" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Orc" title="Orc"><img alt="Orc" src="/images/thumb/IconSmall_Orc_Female.gif/16px-IconSmall_Orc_Female.gif?575305" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Orc" title="Orc">Orc</a><br /><span class="linkicon raceicon RaceLink"><a href="/wiki/Jungle_troll" title="Jungle troll"><img alt="Jungle troll" src="/images/thumb/IconSmall_Troll_Male.gif/16px-IconSmall_Troll_Male.gif?7580a0" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Jungle_troll" title="Jungle troll"><img alt="Jungle troll" src="/images/thumb/IconSmall_Troll_Female.gif/16px-IconSmall_Troll_Female.gif?9723e4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Jungle_troll" title="Jungle troll">Jungle troll</a><br /><span class="linkicon raceicon RaceLink"><a href="/wiki/Forsaken" title="Forsaken"><img alt="Forsaken" src="/images/thumb/IconSmall_Undead_Male.gif/16px-IconSmall_Undead_Male.gif?6cfd1d" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Forsaken" title="Forsaken"><img alt="Forsaken" src="/images/thumb/IconSmall_Undead_Female.gif/16px-IconSmall_Undead_Female.gif?6e00fb" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Forsaken" title="Forsaken">Forsaken</a><br /><span class="linkicon raceicon RaceLink"><a href="/wiki/Goblin" title="Goblin"><img alt="Goblin" src="/images/thumb/IconSmall_Goblin_Male.gif/16px-IconSmall_Goblin_Male.gif?274386" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Goblin" title="Goblin"><img alt="Goblin" src="/images/thumb/IconSmall_Goblin_Female.gif/16px-IconSmall_Goblin_Female.gif?9787be" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Goblin" title="Goblin">Goblin</a><br /><span class="linkicon raceicon RaceLink"><a href="/wiki/Highmountain_tauren" title="Highmountain tauren"><img alt="Highmountain tauren" src="/images/thumb/IconSmall_Highmountain_Male.gif/16px-IconSmall_Highmountain_Male.gif?bff9a3" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Highmountain_tauren" title="Highmountain tauren"><img alt="Highmountain tauren" src="/images/thumb/IconSmall_Highmountain_Female.gif/16px-IconSmall_Highmountain_Female.gif?a3985a" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Highmountain_tauren" title="Highmountain tauren">Highmountain tauren</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Language(s)</th><td>
+<a href="/wiki/Common_(language)" title="Common (language)">Common</a>, <a href="/wiki/Orcish_(language)" title="Orcish (language)">Orcish</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation(s)</th><td>
+<a href="/wiki/Fogsail_Freebooters" title="Fogsail Freebooters">Fogsail Freebooters</a>, <a href="/wiki/Horde" title="Horde">Horde</a>, <a href="/wiki/Honorbound" title="Honorbound">Honorbound</a> (allied)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Location</th><td>
+Eastern <a href="/wiki/Tiragarde_Sound" title="Tiragarde Sound">Tiragarde Sound</a> <span class="tttemplatelink coords-link noexcerpt" data-coords="/way 81 51"><a href="/wiki/Tiragarde_Sound" title="Tiragarde Sound"><sup>[81,&#160;51]</sup></a></span><span style="display:none;"><span class="ZoneMap" style="position:relative;width:300px;height:200px;display:block"><img alt="" src="/images/thumb/WorldMap-Tiragarde.jpg/300px-WorldMap-Tiragarde.jpg?6eda25" decoding="async" loading="lazy" width="300" height="200" class="notpageimage" data-file-width="3840" data-file-height="2560" /><span style="position:absolute;left:81%;top:51%;line-height:0;margin:-5.5px"><img alt="" src="/images/Blip.png?e1e66a" decoding="async" loading="lazy" width="11" height="11" class="notpageimage" data-file-width="11" data-file-height="11" /></span></span></span></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Active</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Travel</th><td>
+<img alt="Yes" src="/images/Done.gif?c241b5" decoding="async" loading="lazy" title="Yes" width="14" height="14" data-file-width="14" data-file-height="14" /> Flight Master(s)<br /><img alt="No" src="/images/Undone.gif?be5f44" decoding="async" loading="lazy" title="No" width="14" height="14" data-file-width="14" data-file-height="14" /> Mass-transit<br /><img alt="No" src="/images/Undone.gif?be5f44" decoding="async" loading="lazy" title="No" width="14" height="14" data-file-width="14" data-file-height="14" /> Portal(s)</td></tr></tbody></table>
+<div class="thumb tright"><div class="thumbinner" style="width:322px;"><a href="/wiki/File:Plunder_Harbor_cave.jpg" class="image"><img src="/images/thumb/Plunder_Harbor_cave.jpg/320px-Plunder_Harbor_cave.jpg?92dc93" decoding="async" loading="lazy" width="320" height="114" class="thumbimage" data-file-width="2830" data-file-height="1011" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Plunder_Harbor_cave.jpg" class="internal" title="Enlarge"></a></div>Horde members in the cave.</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:322px;"><a href="/wiki/File:Siege_of_Plunder_Harbor.jpg" class="image"><img src="/images/thumb/Siege_of_Plunder_Harbor.jpg/320px-Siege_of_Plunder_Harbor.jpg?c9c914" decoding="async" loading="lazy" width="320" height="172" class="thumbimage" data-file-width="2560" data-file-height="1377" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Siege_of_Plunder_Harbor.jpg" class="internal" title="Enlarge"></a></div>The Proudmoore fleet attacking.</div></div></div>
+<p><b>Plunder Harbor</b> is a town in eastern <a href="/wiki/Tiragarde_Sound" title="Tiragarde Sound">Tiragarde Sound</a> under the control of the <a href="/wiki/Fogsail_Freebooters" title="Fogsail Freebooters">Fogsail Freebooters</a>. The <a href="/wiki/Maiden%27s_Lament" title="Maiden&#39;s Lament">Maiden's Lament</a> inn is located here.
+</p><p>During the <a href="/wiki/Fourth_War" title="Fourth War">Fourth War</a>, the Fogsail Freebooters allowed the <a href="/wiki/Honorbound" title="Honorbound">Honorbound</a> <a href="/wiki/Horde" title="Horde">Horde</a> to use the harbor as a safe foothold in Kul Tiras after they helped <a href="/wiki/Owings" title="Owings">Owings</a> pull a mutiny on the previous captain <a href="/wiki/Captain_Rhenik" title="Captain Rhenik">Rhenik</a> for wanting to sell the crew out to the <a href="/wiki/Ashvane_Trading_Company" title="Ashvane Trading Company">Ashvane Trading Company</a>.<sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> The Horde's actions led to the Proudmoore fleet attacking the harbor, sending the <i><a href="/wiki/Siren%27s_Daughter" title="Siren&#39;s Daughter">Siren's Daughter</a></i> and <i><a href="/wiki/Valorous_Rose" title="Valorous Rose">Valorous Rose</a></i> battleships to get <a href="/wiki/Derek_Proudmoore" title="Derek Proudmoore">Derek Proudmoore</a>'s body back.
+</p>
+<h2><span class="mw-headline" id="NPCs">NPCs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Plunder_Harbor?action=edit&amp;section=1" title="Edit section: NPCs"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_KulTiran_Female.gif/16px-IconSmall_KulTiran_Female.gif?d85227" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Owings" title="Owings"><span style="color:">Captain Owings</span></a></li>
+<li><span class="raceicon"><img alt="" src="/images/thumb/IconSmall_KulTiran_Male.gif/16px-IconSmall_KulTiran_Male.gif?bbdefd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/First_Mate_Malone" title="First Mate Malone"><span style="color:">First Mate Malone</span></a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Female.gif" class="image"><img alt="IconSmall Human Female.gif" src="/images/thumb/IconSmall_Human_Female.gif/16px-IconSmall_Human_Female.gif?4582db" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Boatswain_Taryn" title="Boatswain Taryn">Boatswain Taryn</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Male.gif" class="image"><img alt="IconSmall Human Male.gif" src="/images/thumb/IconSmall_Human_Male.gif/16px-IconSmall_Human_Male.gif?f38ee4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Boatswain_Mace" title="Boatswain Mace">Boatswain Mace</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_KulTiran_Female.gif" class="image"><img alt="IconSmall KulTiran Female.gif" src="/images/thumb/IconSmall_KulTiran_Female.gif/16px-IconSmall_KulTiran_Female.gif?d85227" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Owings" title="Owings">Owings</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Male.gif" class="image"><img alt="IconSmall Human Male.gif" src="/images/thumb/IconSmall_Human_Male.gif/16px-IconSmall_Human_Male.gif?f38ee4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Navigator_Swink" title="Navigator Swink">Navigator Swink</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Male.gif" class="image"><img alt="IconSmall Human Male.gif" src="/images/thumb/IconSmall_Human_Male.gif/16px-IconSmall_Human_Male.gif?f38ee4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Quartermaster_Killian" title="Quartermaster Killian">Quartermaster Killian</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Highmountain_Female.gif" class="image"><img alt="IconSmall Highmountain Female.gif" src="/images/thumb/IconSmall_Highmountain_Female.gif/16px-IconSmall_Highmountain_Female.gif?a3985a" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Tallelah_Clearpath" title="Tallelah Clearpath">Tallelah Clearpath</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Orc_Male.gif" class="image"><img alt="IconSmall Orc Male.gif" src="/images/thumb/IconSmall_Orc_Male.gif/16px-IconSmall_Orc_Male.gif?f251d1" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Skrash" title="Skrash">Skrash</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Goblin_Male.gif" class="image"><img alt="IconSmall Goblin Male.gif" src="/images/thumb/IconSmall_Goblin_Male.gif/16px-IconSmall_Goblin_Male.gif?274386" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Tinny_Jimmy" title="Tinny Jimmy">Tinny Jimmy</a></li></ul>
+<dl><dt>Unnamed</dt></dl>
+<ul><li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Male.gif" class="image"><img alt="IconSmall Human Male.gif" src="/images/thumb/IconSmall_Human_Male.gif/16px-IconSmall_Human_Male.gif?f38ee4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Female.gif" class="image"><img alt="IconSmall Human Female.gif" src="/images/thumb/IconSmall_Human_Female.gif/16px-IconSmall_Human_Female.gif?4582db" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_KulTiran_Male.gif" class="image"><img alt="IconSmall KulTiran Male.gif" src="/images/thumb/IconSmall_KulTiran_Male.gif/16px-IconSmall_KulTiran_Male.gif?bbdefd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_KulTiran_Female.gif" class="image"><img alt="IconSmall KulTiran Female.gif" src="/images/thumb/IconSmall_KulTiran_Female.gif/16px-IconSmall_KulTiran_Female.gif?d85227" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Fogsail_Cannoneer" title="Fogsail Cannoneer">Fogsail Cannoneer</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Male.gif" class="image"><img alt="IconSmall Human Male.gif" src="/images/thumb/IconSmall_Human_Male.gif/16px-IconSmall_Human_Male.gif?f38ee4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Female.gif" class="image"><img alt="IconSmall Human Female.gif" src="/images/thumb/IconSmall_Human_Female.gif/16px-IconSmall_Human_Female.gif?4582db" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_KulTiran_Male.gif" class="image"><img alt="IconSmall KulTiran Male.gif" src="/images/thumb/IconSmall_KulTiran_Male.gif/16px-IconSmall_KulTiran_Male.gif?bbdefd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_KulTiran_Female.gif" class="image"><img alt="IconSmall KulTiran Female.gif" src="/images/thumb/IconSmall_KulTiran_Female.gif/16px-IconSmall_KulTiran_Female.gif?d85227" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Fogsail_Mutineer" title="Fogsail Mutineer">Fogsail Mutineer</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Male.gif" class="image"><img alt="IconSmall Human Male.gif" src="/images/thumb/IconSmall_Human_Male.gif/16px-IconSmall_Human_Male.gif?f38ee4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Female.gif" class="image"><img alt="IconSmall Human Female.gif" src="/images/thumb/IconSmall_Human_Female.gif/16px-IconSmall_Human_Female.gif?4582db" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_KulTiran_Male.gif" class="image"><img alt="IconSmall KulTiran Male.gif" src="/images/thumb/IconSmall_KulTiran_Male.gif/16px-IconSmall_KulTiran_Male.gif?bbdefd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_KulTiran_Female.gif" class="image"><img alt="IconSmall KulTiran Female.gif" src="/images/thumb/IconSmall_KulTiran_Female.gif/16px-IconSmall_KulTiran_Female.gif?d85227" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Fogsail_Pirate" title="Fogsail Pirate">Fogsail Pirate</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Male.gif" class="image"><img alt="IconSmall Human Male.gif" src="/images/thumb/IconSmall_Human_Male.gif/16px-IconSmall_Human_Male.gif?f38ee4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Human_Female.gif" class="image"><img alt="IconSmall Human Female.gif" src="/images/thumb/IconSmall_Human_Female.gif/16px-IconSmall_Human_Female.gif?4582db" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Fogsail_Rower" title="Fogsail Rower">Fogsail Rower</a></li>
+<li><span class="linkicon raceicon RaceLink"><a href="/wiki/Jungle_troll" title="Jungle troll"><img alt="Jungle troll" src="/images/thumb/IconSmall_Troll_Male.gif/16px-IconSmall_Troll_Male.gif?7580a0" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Jungle_troll" title="Jungle troll"><img alt="Jungle troll" src="/images/thumb/IconSmall_Troll_Female.gif/16px-IconSmall_Troll_Female.gif?9723e4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160; <a href="/wiki/Darkspear_Hunter" title="Darkspear Hunter">Darkspear Hunter</a></li>
+<li><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Highmountain_Male.gif" class="image"><img alt="IconSmall Highmountain Male.gif" src="/images/thumb/IconSmall_Highmountain_Male.gif/16px-IconSmall_Highmountain_Male.gif?bff9a3" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Horde_Warbringer_(War_Campaign)" title="Horde Warbringer (War Campaign)">Horde Warbringer</a></li></ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Plunder_Harbor?action=edit&amp;section=2" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="Battle for Azeroth"><img alt="Battle for Azeroth" src="/images/thumb/BattleForAzeroth-Logo-Small.png/40px-BattleForAzeroth-Logo-Small.png?25e36c" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span> <b><a href="/wiki/Patch_8.0.1" title="Patch 8.0.1">Patch 8.0.1</a> (2018-07-17):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Plunder_Harbor?action=edit&amp;section=3" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="font-size:calc(80% + 2.1px);"><div style="margin-top:-0.3em; margin-bottom:0px; height:0px">&#160;</div><div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-1"><a href="#cite_ref-1">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="H" src="/images/Horde_15.png?c852a8" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[35-60]&#160;</span><a href="/wiki/I%27m_the_Captain_Now" title="I&#39;m the Captain Now"><span class="ajaxttlink questlink">I'm the Captain Now</span></a></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Plunder_Harbor?action=edit&amp;section=4" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/zone=9694">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/zones/9694">WoWDB</a></li>
+
+<li class="wago"><a rel="nofollow" class="external text" href="https://wago.tools/db2/AreaTable?filter%5BID%5D=exact%3A9694">Wago</a></li>
+
+</ul>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="4"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Tiragarde_Sound" title="Template:Tiragarde Sound"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Tiragarde_Sound?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<a href="/wiki/Subzone" title="Subzone">Subzones</a> of <a href="/wiki/Tiragarde_Sound" title="Tiragarde Sound">Tiragarde Sound</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-image" style="width:0%;padding:0px 2px 0px 0px;" rowspan="5"><div>
+<a href="/wiki/File:WorldMap-PrisonDungeon.jpg" class="image" title="Map of Tol Dagor"><img alt="Map of Tol Dagor" src="/images/thumb/WorldMap-PrisonDungeon.jpg/120px-WorldMap-PrisonDungeon.jpg?fdad36" decoding="async" loading="lazy" width="120" height="80" data-file-width="1002" data-file-height="668" /></a></div></td><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Abandoned_Junkheap" title="Abandoned Junkheap">Abandoned Junkheap</a>
+<ul><li><a href="/wiki/Forgotten_Vault" title="Forgotten Vault">Forgotten Vault</a></li></ul></li>
+<li><a href="/wiki/Algerson_Lumber_Yard" title="Algerson Lumber Yard">Algerson Lumber Yard</a></li>
+<li><a href="/wiki/Anglepoint_Wharf" title="Anglepoint Wharf">Anglepoint Wharf</a>
+<ul><li><a href="/wiki/Anglepoint_Packing_District" title="Anglepoint Packing District">Anglepoint Packing District</a></li></ul></li>
+<li><a href="/wiki/Ashvane_Foundry" title="Ashvane Foundry">Ashvane Foundry</a></li>
+<li><a href="/wiki/Blushwater_Brook" title="Blushwater Brook">Blushwater Brook</a></li>
+<li><a href="/wiki/Bridgeport" title="Bridgeport">Bridgeport</a></li>
+<li><span class="linkicon"><a href="/wiki/Alliance" title="Alliance"><img alt="Alliance" src="/images/Alliance_15.png?165d42" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" /></a></span> <a href="/wiki/Boralus" title="Boralus">Boralus</a></li>
+<li><a href="/wiki/Clearspring_Pass" title="Clearspring Pass">Clearspring Pass</a>
+<ul><li><a href="/wiki/Kennings_Lodge" title="Kennings Lodge">Kennings Lodge</a></li></ul></li>
+<li><a href="/wiki/Deathmist_Hills" title="Deathmist Hills">Deathmist Hills</a></li>
+<li><a href="/wiki/Driftwood_Shore" title="Driftwood Shore">Driftwood Shore</a></li>
+<li><a href="/wiki/Eastpoint_Station" title="Eastpoint Station">Eastpoint Station</a></li>
+<li><a href="/wiki/Evergreen_Grove" title="Evergreen Grove">Evergreen Grove</a></li>
+<li><a href="/wiki/Fernwood_Ridge" title="Fernwood Ridge">Fernwood Ridge</a></li>
+<li><a href="/wiki/Fizzsprings_Resort" title="Fizzsprings Resort">Fizzsprings Resort</a></li>
+<li><a href="/wiki/Fogcliff_Strand" title="Fogcliff Strand">Fogcliff Strand</a>
+<ul><li><a href="/wiki/Amora_Grotto" title="Amora Grotto">Amora Grotto</a></li></ul></li>
+<li><a href="/wiki/Foxhollow_Woods" title="Foxhollow Woods">Foxhollow Woods</a>
+<ul><li><a href="/wiki/Splinterbark_Roost" title="Splinterbark Roost">Splinterbark Roost</a></li></ul></li>
+<li><a href="/wiki/Freehold" title="Freehold">Freehold</a>
+<ul><li><a href="/wiki/Dead_Man%27s_Tale" title="Dead Man&#39;s Tale">Dead Man's Tale</a></li>
+<li><a href="/wiki/Ring_of_Booty_(subzone)" title="Ring of Booty (subzone)">Ring of Booty</a></li></ul></li>
+<li><a href="/wiki/Greystone_Relief" title="Greystone Relief">Greystone Relief</a>
+<ul><li><a href="/wiki/Greystone_Keep" title="Greystone Keep">Greystone Keep</a></li>
+<li><a href="/wiki/Greystone_Ruins" title="Greystone Ruins">Greystone Ruins</a></li></ul></li>
+<li><a href="/wiki/Gol_Thovas" title="Gol Thovas">Gol Thovas</a></li>
+<li><a href="/wiki/Hatherford" title="Hatherford">Hatherford</a>
+<ul><li><a href="/wiki/Tide%27s_Inn" title="Tide&#39;s Inn">Tide's Inn</a></li></ul></li>
+<li><a href="/wiki/Horde_Airship" title="Horde Airship">Horde Airship</a></li>
+<li><a href="/wiki/Krakenbane_Cove" title="Krakenbane Cove">Krakenbane Cove</a>
+<ul><li><a href="/wiki/Outrigger_Post" title="Outrigger Post">Outrigger Post</a></li></ul></li>
+<li><a href="/wiki/Mistfall_Cleft" title="Mistfall Cleft">Mistfall Cleft</a></li>
+<li><a href="/wiki/Norwington_Estate" title="Norwington Estate">Norwington Estate</a>
+<ul><li><a href="/wiki/Norwington_Inn" title="Norwington Inn">Norwington Inn</a></li></ul></li>
+<li><a href="/wiki/Old_Drust_Road" title="Old Drust Road">Old Drust Road</a></li>
+<li><a class="mw-selflink selflink">Plunder Harbor</a></li>
+<li><a href="/wiki/Rockskip_Falls" title="Rockskip Falls">Rockskip Falls</a></li>
+<li><a href="/wiki/Stagheart_Wash" title="Stagheart Wash">Stagheart Wash</a></li>
+<li><a href="/wiki/Thovas_Base-Camp" title="Thovas Base-Camp">Thovas Base-Camp</a></li>
+<li><a href="/wiki/Timberfell_Outpost" title="Timberfell Outpost">Timberfell Outpost</a></li>
+<li><a href="/wiki/Umber_Shore" title="Umber Shore">Umber Shore</a>
+<ul><li><a href="/wiki/Placid_Spring" title="Placid Spring">The Placid Spring</a></li>
+<li><a href="/wiki/Southwind_Station" title="Southwind Station">Southwind Station</a></li>
+<li><a href="/wiki/Wanderer%27s_Cove" title="Wanderer&#39;s Cove">Wanderer's Cove</a></li></ul></li>
+<li><a href="/wiki/Vigil_Hill" title="Vigil Hill">Vigil Hill</a>
+<ul><li><a href="/wiki/Daelin%27s_Gate" title="Daelin&#39;s Gate">Daelin's Gate</a></li>
+<li><a href="/wiki/Stonefist_Watch" title="Stonefist Watch">Stonefist Watch</a></li></ul></li>
+<li><a href="/wiki/Wailing_Tideway" title="Wailing Tideway">The Wailing Tideway</a>
+<ul><li><a href="/wiki/Castaway_Point" title="Castaway Point">Castaway Point</a></li></ul></li>
+<li><a href="/wiki/Waning_Glacier" title="Waning Glacier">Waning Glacier</a>
+<ul><li><a href="/wiki/Longdrop_Hot_Springs" title="Longdrop Hot Springs">Longdrop Hot Springs</a></li>
+<li><a href="/wiki/Whompus%27_Lair" title="Whompus&#39; Lair">Whompus' Lair</a></li></ul></li>
+<li><a href="/wiki/Westwind_Weald" title="Westwind Weald">Westwind Weald</a>
+<ul><li><a href="/wiki/Dewscale_Grotto" title="Dewscale Grotto">Dewscale Grotto</a></li>
+<li><a href="/wiki/Roughneck_Camp" title="Roughneck Camp">Roughneck Camp</a></li></ul></li>
+<li><a href="/wiki/Whale%27s_Belly" title="Whale&#39;s Belly">The Whale's Belly</a></li>
+<li><a href="/wiki/Winterdeep_Basin" title="Winterdeep Basin">Winterdeep Basin</a>
+<ul><li><a href="/wiki/Winterchill_Mine" title="Winterchill Mine">Winterchill Mine</a></li>
+<li><a href="/wiki/Winterdeep_Mining_Camp" title="Winterdeep Mining Camp">Winterdeep Mining Camp</a>
+<ul><li><a href="/wiki/Winterdeep_Mine" title="Winterdeep Mine">Winterdeep Mine</a></li></ul></li></ul></li>
+<li><a href="/wiki/Wolf%27s_Den" title="Wolf&#39;s Den">Wolf's Den</a></li></ul>
+</div></td><td class="navbox-image" style="width:0%;padding:0px 0px 0px 2px;" rowspan="5"><div class="metadata">
+<a href="/wiki/File:WorldMap-Tiragarde.jpg" class="image" title="Map of Tiragarde Sound"><img alt="Map of Tiragarde Sound" src="/images/thumb/WorldMap-Tiragarde.jpg/120px-WorldMap-Tiragarde.jpg?6eda25" decoding="async" loading="lazy" width="120" height="80" data-file-width="3840" data-file-height="2560" /></a></div></td></tr><tr style="height:2px"><td></td></tr><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Tol_Dagor" title="Tol Dagor">Tol Dagor</a>  — <a href="/wiki/Brig" title="Brig">The Brig</a></li>
+<li><a href="/wiki/Detention_Block_(Tol_Dagor)" title="Detention Block (Tol Dagor)">Detention Block</a></li>
+<li><a href="/wiki/Drain_(Tol_Dagor)" title="Drain (Tol Dagor)">The Drain</a></li>
+<li><a href="/wiki/Officer_Quarters" title="Officer Quarters">Officer Quarters</a></li>
+<li><a href="/wiki/Overseer%27s_Redoubt" title="Overseer&#39;s Redoubt">Overseer's Redoubt</a></li>
+<li><a href="/wiki/Overseer%27s_Summit" title="Overseer&#39;s Summit">Overseer's Summit</a></li>
+<li><a href="/wiki/Sodden_Depths" title="Sodden Depths">Sodden Depths</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Undisplayed_location" class="mw-redirect" title="Undisplayed location">Undisplayed locations</a> — <a href="/wiki/Anglepoint_Distribution_Center" title="Anglepoint Distribution Center">Anglepoint Distribution Center</a></li>
+<li><a href="/wiki/Anglepoint_Processing_Depot" title="Anglepoint Processing Depot">Anglepoint Processing Depot</a></li>
+<li><a href="/wiki/Blacktooth%27s_Grin" title="Blacktooth&#39;s Grin">Blacktooth's Grin</a></li>
+<li><a href="/wiki/Cutwater_Cabin" title="Cutwater Cabin">Cutwater Cabin</a></li>
+<li><a href="/wiki/%22Free%22_Forge" title="&quot;Free&quot; Forge">"Free" Forge</a></li>
+<li><a href="/wiki/Gallop_-_At_Lord_Norwingtons" title="Gallop - At Lord Norwingtons">Gallop - At Lord Norwingtons</a></li>
+<li><a href="/wiki/Hands_on_Deck" title="Hands on Deck">Hands on Deck</a></li>
+<li><a href="/wiki/Kelp_-_Bed_and_Breakfast" title="Kelp - Bed and Breakfast">The Kelp - Bed and Breakfast</a></li>
+<li><a href="/wiki/Parrley_Pub" title="Parrley Pub">Parrley Pub</a></li>
+<li><a href="/wiki/Maiden%27s_Lament" title="Maiden&#39;s Lament">The Maiden's Lament</a></li>
+<li><a href="/wiki/North_Sound_Ferry?action=edit&amp;redlink=1" class="new" title="North Sound Ferry (page does not exist)" rel="nofollow">North Sound Ferry</a></li>
+<li><i><a href="/wiki/The_Maiden%27s_Virtue" title="The Maiden&#39;s Virtue">The Maiden's Virtue</a></i></li>
+<li><a href="/wiki/Rockskip_Woodlands" title="Rockskip Woodlands">Rockskip Woodlands</a></li>
+<li><a href="/wiki/Rodrigo%27s_Rides" title="Rodrigo&#39;s Rides">Rodrigo's Rides</a></li>
+<li><a href="/wiki/Shelter_Storm_Inn" title="Shelter Storm Inn">Shelter Storm Inn</a></li>
+<li><a href="/wiki/Shuck_%27n_Cuts_-_Seaside_Smokery" title="Shuck &#39;n Cuts - Seaside Smokery">Shuck 'n Cuts - Seaside Smokery</a></li>
+<li><a href="/wiki/Snowpelt_Den" title="Snowpelt Den">Snowpelt Den</a></li>
+<li><a href="/wiki/Stealthy_Vagrant" title="Stealthy Vagrant">Stealthy Vagrant</a></li>
+<li><a href="/wiki/Stranded_Rats" title="Stranded Rats">Stranded Rats</a></li>
+<li><a href="/wiki/Two_Spans_Tavern" title="Two Spans Tavern">Two Spans Tavern</a></li></ul>
+</div></td></tr><tr style="height:2px;"><td></td></tr><tr><td class="navbox-abovebelow" style=";" colspan="4"><div>
+<a href="/wiki/Category:Tiragarde_Sound" title="Category:Tiragarde Sound">Tiragarde Sound category</a></div></td></tr></tbody></table></td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20260401192533
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [no‐toc]
+CPU time usage: 0.231 seconds
+Real time usage: 0.374 seconds
+Preprocessor visited node count: 2211/1000000
+Revision size: 2743/4194304 bytes
+Post‐expand include size: 36477/4194304 bytes
+Template argument size: 15949/4194304 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 611/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.018/15.000 seconds
+Lua memory usage: 1813211/52428800 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  124.947      1 -total
+ 55.13%   68.879      1 Template:Infobox_town
+ 52.79%   65.955      1 Template:Infobox
+ 17.06%   21.316      1 Template:Tiragarde_Sound
+ 15.64%   19.547      7 Template:Race
+ 14.82%   18.516      1 Template:Navbox
+  7.42%    9.271      4 Template:NPC
+  6.38%    7.967      1 Template:Reflist
+  5.66%    7.076      1 Template:Patch_8.0.1
+  5.50%    6.867     23 Template:RaceIcon
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:398022-0!canonical and timestamp 20260401192533 and revision id 6208649. Rendering was triggered because: api-parse
+ -->
+</div>

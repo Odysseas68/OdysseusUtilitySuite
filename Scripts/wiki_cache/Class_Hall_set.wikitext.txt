@@ -1,0 +1,68 @@
+The '''Class Hall set''' is a type of armor set that was acquired from completing content in the ''[[World of Warcraft: Legion]]'' expansion.
+
+== Sets ==
+
+{| class="darktable"
+|-
+! Class !! Set
+|-
+|{{ClassIcon|Death Knight|Small}} '''[[Death Knight]]'''  || [[Deathlord's Battleplate]]
+|-
+|{{ClassIcon|Demon Hunter|Small}} '''[[Demon Hunter]]'''  || [[Battlegear of the Shattered Abyss]]
+|-
+|{{ClassIcon|Druid|Small}} '''[[Druid]]'''  || [[Dreamgrove Raiment]]
+|- 
+|{{ClassIcon|Hunter|Small}} '''[[Hunter]]'''  || [[Guise of the Unseen Path]]
+|-
+|{{ClassIcon|Mage|Small}} '''[[Mage]]'''    || [[Vesture of Tirisgarde]]
+|-
+|{{ClassIcon|Monk|Small}} '''[[Monk]]'''    || [[Grandmaster's Finery]]
+|- 
+|{{ClassIcon|Paladin|Small}} '''[[Paladin]]''' || [[Battleplate of the Silver Hand]]
+|-
+|{{ClassIcon|Priest|Small}} '''[[Priest]]'''  || [[Regalia of the High Priest]]
+|- 
+|{{ClassIcon|Rogue|Small}} '''[[Rogue]]'''   || [[Battlegear of the Uncrowned]]
+|-
+|{{ClassIcon|Shaman|Small}} '''[[Shaman]]'''  || [[Raiment of the Farseer]]
+|- 
+|{{ClassIcon|Warlock|Small}} '''[[Warlock]]''' || [[Vestments of the Black Harvest]]
+|-
+|{{ClassIcon|Warrior|Small}} '''[[Warrior]]''' || [[Battlelord's Plate]]
+|}
+
+== Acquisition ==
+All pieces of this set can be purchased from the [[Order Hall]]'s quartermaster.
+
+{| class="darktable"
+|-
+! Slot !! Requirement !! Item Level
+|-
+|Head || Reach Level 110. || 810
+|-
+|Wrist || Recruit 6 Champions for your Class Hall. || 810
+|-
+|Hands || Reach Honored with [[Nightfallen (faction)|The Nightfallen]]. || 820
+|-
+|Legs || Defeat the final boss of 8 different Legion dungeons. || 820
+|-
+|Chest || Complete your Class Order Campaign. || 830
+|-
+|Feet || Reach Revered with 2 [[Broken Isles]] reputations. || 840
+|-
+|Waist || Reach Level 110. || 840
+|-
+|Shoulder || Reach Exalted with The Nightfallen. || 840
+|}
+
+The gloves and shoulder armor can also be purchased from [[First Arcanist Thalyssra]] at [[Shal'Aran]] in [[Suramar]], who sells them with a [[Nightfallen (faction)|Nightfallen]] reputation discount.
+
+==Patch changes==
+*{{Patch 8.0.1|note=The belt now requires reaching level 110 instead of 100,000 [[Artifact Power]].}}
+*{{Patch 7.0.3|note=Added.}}
+
+{{Armor sets|Other}}
+
+[[Category:Class sets]]
+[[Category:Armor item sets| Class Hall]]
+[[Category:Class Hall sets| ]]

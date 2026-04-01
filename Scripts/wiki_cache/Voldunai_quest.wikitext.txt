@@ -1,0 +1,49 @@
+{{Stub/Quest|Rewards}}
+{{Questbox
+ | id = 50603
+ | name = Voldunai
+ | category = Vol'dun
+ | faction = Horde
+ | level = {{level|bfa-max}}
+ | levelreq = {{level|bfa-max}}
+ | type = Emissary Quest
+ | start = Automatic
+ | end = [[Hoarder Jena]]
+ | rewards = [[Azerite Armor Cache]]<br />[[Zandalari Weapons Cache]]<br />[[Voldunai Equipment Cache]]<br />400x / 600x [[Azerite (resource)]]<br />200x [[War Resources]]
+ | reputation = +1500 [[Voldunai]]
+ | shareable = No
+}}
+
+==Objectives==
+Complete 4 [[Voldunai]] world quests.
+*Complete 4 world quests in [[Vol'dun]]
+
+==Description==
+Assist the Voldunai by completing 4 world quests.
+
+==Rewards==
+You will receive:
+* +1500 reputation with [[Voldunai]]
+
+{{itembox|You will receive:|Azerite Armor Cache
+|Zandalari Weapons Cache
+|Voldunai Equipment Cache
+}}
+
+*400x / 600x [[Azerite (resource)]]
+*200x [[War Resources]]
+
+==Progress==
+Return to me when you have finished aiding the Voldunai, <name>.
+
+==Completion==
+The Voldunai thank you.
+
+==Patch changes==
+*{{Patch 8.0.1|note=Added.}}
+
+==External links==
+{{Elinks-quest|50603}}
+
+[[Category:Voldunai quests]]
+[[Category:Emissary quests]]

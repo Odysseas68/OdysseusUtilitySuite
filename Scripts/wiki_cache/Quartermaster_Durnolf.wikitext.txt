@@ -1,0 +1,59 @@
+{{Npcbox
+ | name = Quartermaster Durnolf
+ | image = Quartermaster Durnolf.png
+ | faction = Neutral
+ | level = legion
+ | character = [[Warrior]]
+ | race = Vrykul
+ | creature = Humanoid
+ | aggro = {{Aggro|1|1}}
+ | affiliation = [[Valarjar]]
+ | gender = Male
+ | occupation = Vendor
+ | location = [[Skyhold]]
+ | status = Alive
+}}
+
+'''Quartermaster Durnolf''' is a [[vrykul]] located in [[Skyhold]].
+
+==Sells==
+{{Itembox|
+|Battlelord's Armor Kit|c1={{Cost|||}}
+|Battlelord's Chestplate|c2={{Cost|500||}}
+|Battlelord's Gauntlets|c3={{Cost|500||}}
+|Battlelord's Girdle|c4={{Cost|500||}}
+|Battlelord's Greater Armor Kit|c5={{Cost|||}}
+|Battlelord's Greathelm|c6={{Cost|500||}}
+|Battlelord's Legplates|c7={{Cost|500||}}
+|Battlelord's Lesser Armor Kit|c8={{Cost|||}}
+|Battlelord's Pauldrons|c9={{Cost|500||}}
+|Battlelord's Warboots|c10={{Cost|500||}}
+|Battlelord's Wristguards|c11={{Cost|500||}}
+|Blood of Sargeras|c12={{Cost|||}}
+|Champion's Salute|c13={{Cost|||}}
+|Skyhold Bulwark|c14={{Cost|100||}}
+|Skyhold Claymore|c15={{Cost|100||}}
+|Skyhold Quickblade|c16={{Cost|100||}}
+}}
+
+==Quests==
+*[[Axe and You Shall Receive]] {{queststartfinish}}
+
+==Quotes==
+*{{Text|say|<Name>! I have goods for you! Come!}}
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==External links==
+{{Elinks-NPC|112392}}
+
+{{DEFAULTSORT:Durnolf}}
+[[Category:Vrykul characters]]
+[[Category:Warrior characters]]
+[[Category:Armor vendors]]
+[[Category:Weapon vendors]]
+[[Category:Quartermasters]]
+[[Category:Valarjar]]
+[[Category:Quest givers]]
+[[Category:Skyhold NPCs]]

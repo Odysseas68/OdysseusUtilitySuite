@@ -1,0 +1,21 @@
+{{Subzone project|Legion}}{{Stub/Location}}
+[[File:Crumbled Palace.jpg|thumb|Crumbled Palace.]]
+
+'''Crumbled Palace''' is a subzone found in [[Azsuna]].{{coords|47|40|Azsuna}} It is the home of [[Prince Farondis]] and the main hub of the [[Court of Farondis]].
+
+There is no flight path, but [[Illidari Stand]] is [[Patch_7.1.0_(undocumented_changes)#World_Environment|right down the hill]]. There are also skinning and archeology camps nearby.
+
+==Trivia==
+*[[A Familiar Ring to It]] refers to it as the Crumbling Palace which might be a remnant from beta.
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==External links==
+{{Elinks-zone|7355}}
+
+{{Azsuna}}
+
+[[Category:Elven ruins]]
+[[Category:Palaces]]
+[[Category:Court of Farondis]]

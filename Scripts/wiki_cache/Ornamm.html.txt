@@ -1,0 +1,58 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width:21.5em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Horde" title="Horde"><img alt="Horde" src="/images/Horde_32.png?db3bd7" decoding="async" loading="lazy" width="32" height="32" data-file-width="32" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Ornamm</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Ornamm.jpg" class="image" title="Image of Ornamm"><img alt="Image of Ornamm" src="/images/thumb/Ornamm.jpg/200px-Ornamm.jpg?2c4d70" decoding="async" loading="lazy" width="200" height="169" data-file-width="308" data-file-height="261" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Gender</th><td>
+Male</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race</th><td>
+<a href="/wiki/Tauren" title="Tauren">Tauren</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Class</th><td>
+<a href="/wiki/Warrior" title="Warrior">Warrior</a> (presumed)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation(s)</th><td>
+<a href="/wiki/Highmountain_tribe_(Legends)" title="Highmountain tribe (Legends)">Highmountain tribe</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Occupation</th><td>
+Presumed leader of the warriors of the Highmountain tribe</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Alive</td></tr></tbody></table>
+<div class="pseudo-ambox noexcerpt"><div class="pseudo-ambox-content"><div class="pseudo-ambox-image"><a href="/wiki/Comics" title="Comics"><img alt="WoW Comic logo.png" src="/images/thumb/WoW_Comic_logo.png/150px-WoW_Comic_logo.png?2999e5" decoding="async" loading="lazy" width="150" height="81" data-file-width="600" data-file-height="325" /></a></div><div class="pseudo-ambox-description"><small>This article contains <a href="/wiki/Lore" title="Lore">lore</a> taken from the <i>Warcraft</i> <a href="/wiki/Manga" title="Manga">manga</a> or <a href="/wiki/Comics" title="Comics">comics</a>.</small></div></div></div>
+<p><b>Ornamm</b> is a <a href="/wiki/Tauren" title="Tauren">tauren</a> from the <a href="/wiki/Highmountain_tribe_(Legends)" title="Highmountain tribe (Legends)">Highmountain tribe</a> that tried to kill the <a href="/wiki/Undead" title="Undead">undead</a> tauren <a href="/wiki/Trag_Highmountain" title="Trag Highmountain">Trag Highmountain</a>.<sup id="cite&#95;ref-fallen&#95;1-0" class="reference"><a href="#cite_note-fallen-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<h2><span class="mw-headline" id="Biography">Biography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Ornamm?action=edit&amp;section=1" title="Edit section: Biography"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>When <a href="/wiki/Sulamm" title="Sulamm">Sulamm</a> put Trag in a state of trance at the <a href="/wiki/Henge_of_the_Earth_Mother" title="Henge of the Earth Mother">Henge of the Earth Mother</a>, Ornamm and his fellow tauren arrived to kill Trag. As he was in trance, he didn't realize about Ornamm's trap and was thrown to a fire. However Trag managed to awaken and defeated the party, however he didn't kill anyone and just took the weapon of Ornamm.<sup id="cite&#95;ref-fallen&#95;1-1" class="reference"><a href="#cite_note-fallen-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Ornamm?action=edit&amp;section=2" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="font-size:calc(80% + 2.1px);"><div style="margin-top:-0.3em; margin-bottom:0px; height:0px">&#160;</div><div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-fallen-1">^ <sup><a href="#cite_ref-fallen_1-0">a</a></sup> <sup><a href="#cite_ref-fallen_1-1">b</a></sup> <span class="reference-text"><i><a href="/wiki/Warcraft:_Legends_Volume_1" class="mw-redirect" title="Warcraft: Legends Volume 1">Warcraft: Legends Volume 1</a></i>, <a href="/wiki/Fallen" title="Fallen">Fallen</a></span>
+</li>
+</ol></div></div>
+<!-- 
+NewPP limit report
+Cached time: 20260328013254
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: []
+CPU time usage: 0.033 seconds
+Real time usage: 0.077 seconds
+Preprocessor visited node count: 1538/1000000
+Revision size: 1022/4194304 bytes
+Post‐expand include size: 5765/4194304 bytes
+Template argument size: 422/4194304 bytes
+Highest expansion depth: 10/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 633/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.003/15.000 seconds
+Lua memory usage: 659434/52428800 bytes
+Number of processed Cargo queries: 0
+Time spent processing Cargo queries: 0.000 s (avg. 0.000 s)
+Number of Cargo row insertion attempts: 1
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   49.237      1 -total
+ 66.45%   32.718      1 Template:Npcbox
+ 56.13%   27.635      1 Template:Infobox
+ 21.97%   10.819      1 Template:Reflist
+ 18.42%    9.069      1 Template:Level
+  8.68%    4.276      1 Template:Comic
+  4.99%    2.459      1 Template:FactionIcon
+  2.78%    1.368      1 Template:PseudoAmbox
+  2.67%    1.313      1 Template:OldContentCheck
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:552986-0!canonical and timestamp 20260328013254 and revision id 6644217. Rendering was triggered because: RefreshLinksJob
+ -->
+</div>

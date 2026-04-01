@@ -1,0 +1,34 @@
+{{Questbox
+|id=54460
+|name=Supplies from Talanji's Expedition
+|category=Nazmir
+|faction=Horde
+ | level = {{level|bfa-max}}
+ | levelreq = {{level|bfa-max}}
+|type=Emissary Quest
+|start=Automatic
+|end=[[Provisioner Lija]]
+|rewards=[[Talanji's Expedition Supplies]]
+|shareable=No
+}}
+
+==Objectives==
+Speak with [[Provisioner Lija]] at the [[Zul'jan Ruins]] for your reward. 
+
+==Completion==
+Thanks mon, de expedition appreciates all de help you've given us.
+
+Take dese supplies as a token of our thanks, and a promise of more to come, if you continue to help us.
+
+==Rewards==
+{{itembox|You will receive:
+|Talanji's Expedition Supplies
+}}
+
+==Patch changes==
+* {{Patch 8.1.0|note=Added.}}
+
+==External links==
+{{Elinks-quest|54460}}
+
+[[Category:Emissary quests]]

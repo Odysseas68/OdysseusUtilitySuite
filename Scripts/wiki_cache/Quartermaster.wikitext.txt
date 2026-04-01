@@ -1,0 +1,782 @@
+{{Ood}}
+{{tocright}}
+The term '''quartermaster''' has a number of meanings in ''World of Warcraft'', mainly associated with ''faction quartermasters''.  These are [[NPC]]s who will sell items to players that have accumulated a sufficient [[reputation]] level with a particular [[faction]].  They also sell [[championing]] tabards, which allow the player to gain reputation with a faction in level-relevant dungeons. Many vendors added in ''[[World of Warcraft: Cataclysm]]'', and accepting [[currencies]] other than gold, are also called quartermasters.
+
+The term quartermaster has been increasingly used since ''[[The Burning Crusade]]'' expansion when each of the dungeon reputation factions had an NPC identified by name as the quartermaster.  The term is commonly applied retroactively to classic vendors who served a similar purpose.
+
+Typically the items available at {{rep|Exalted}} are of a high quality, and may include rare cosmetic rewards such as [[Mounts]] or [[Companions]], or unique [[profession]] recipes.
+
+== List of quartermasters ==
+{{Stub-section}}
+{{wow-section}}
+Various [[faction]]s offer items usable only by [[character]]s who have sufficient [[reputation]] with the faction.
+
+===Faction capitals===
+====Horde====
+{| class="darktable zebra"
+|-
+! Faction
+! Quartermaster
+! Location
+|-
+! [[Orgrimmar (faction)|Orgrimmar]] 
+| {{NPC|Horde|Stone Guard Nargol|icon=Orc Male}}
+| [[Orgrimmar Skyway]], [[Orgrimmar]]{{Coords|50.0|56.0|Orgrimmar}}
+|-
+! [[Darkspear Trolls]]
+| {{NPC|Horde|Champion Uru'zin|icon=Troll Male}}
+| [[Orgrimmar Skyway]], [[Orgrimmar]]{{Coords|50.0|56.0|Orgrimmar}}
+|-
+! [[Bilgewater Cartel]]
+| {{NPC|Horde|Frizzo Villamar|icon=Goblin Female}}
+| [[Orgrimmar Skyway]], [[Orgrimmar]]{{Coords|50.0|56.0|Orgrimmar}}
+|-
+! [[Huojin Pandaren]]
+| {{NPC|Horde|Disciple Jusi|icon=Pandaren Male}}
+| [[Valley of Honor]], [[Orgrimmar]]{{Coords|68|40|Orgrimmar}}
+|-
+! [[Thunder Bluff (faction)|Thunder Bluff]]
+| {{NPC|Horde|Brave Tuho|icon=Tauren Male}}
+| [[Thunder Bluff]], next to Flight Master {{coords|46.6|50.0|Thunder Bluff}}
+|-
+! [[Undercity (faction)|Undercity]]
+| {{NPC|Horde|Captain Donald Adams|icon=Undead Male}}
+| [[Undercity]], near Flight Master {{coords|63.6|48.6|Undercity}}
+|-
+! [[Silvermoon City (faction)|Silvermoon City]]
+| {{NPC|Horde|Magistrix Nizara|icon=BloodElf Female}}
+| [[Eversong Woods (Burning Crusade)|Eversong Woods]], next to Flight Master {{co|54.2|50.8|Eversong Woods (Burning Crusade)}}
+|-
+|}
+
+====Alliance====
+{| class="darktable zebra"
+|-
+! Faction
+! Quartermaster
+! Location
+|-
+! [[Stormwind (faction)|Stormwind]]
+| {{NPC|Alliance|Captain Lancy Revshon|icon=Human Female}}
+| [[Trade District]], [[Stormwind]]{{Coords|67.7|72.9|Stormwind City}}
+|-
+! [[Tushui Pandaren]]
+| {{NPC|Alliance|Adherent Hanjun|icon=Pandaren Male}}
+| [[Eastern Earthshrine]], [[Stormwind City]]{{Coords|67.9|17.1|Stormwind City}}
+|-
+! [[Ironforge (faction)|Ironforge]]
+| {{NPC|Alliance|Captain Stonehelm|icon=Dwarf Male}}
+| [[The Great Forge]], [[Ironforge]]{{Coords|55.5|47.2|Ironforge}}
+|-
+! [[Gnomeregan (faction)|Gnomeregan]]
+| {{NPC|Alliance|Master Tinker Trini|icon=Gnome Female}}
+| [[The Great Forge]], [[Ironforge]]{{Coords|55.5|47.2|Ironforge}}
+|-
+! [[Darnassus (faction)|Darnassus]]
+| {{NPC|Alliance|Moon Priestess Lasara|icon=NightElf Female}}
+| [[The Temple Gardens]], [[Darnassus]]{{Coords|36.5|48.6|Darnassus}}
+|-
+! [[Gilneas (faction)|Gilneas]]
+| {{NPC|Alliance|Lord Candren|icon=Human Male}}
+| [[The Temple Gardens]], [[Darnassus]]{{Coords|37.0|47.8|Darnassus}}
+|-
+! [[Exodar (faction)|Exodar]]
+| {{NPC|Alliance|Kadu|icon=Draenei Male}}
+| [[Seat of the Naaru]], [[Exodar]]{{Coords|54.9|36.8|Exodar}}
+|-
+|}
+
+===Battle for Azeroth===
+{| class="darktable zebra"
+|-
+!Faction
+!Quartermaster
+!Location
+|-
+!rowspan=2 |{{Alliance}} [[7th Legion (faction)|7th Legion]] vs.<br/>{{Horde}} [[Honorbound]]
+|{{NPC|Alliance|Vindicator Jaelaana|icon=Lightforged Female}}
+|[[Boralus Harbor]]
+|-
+|{{NPC|Horde|Ransa Greyfeather|icon=Highmountain Female}}
+|[[Port of Zandalar]], [[Dazar'alor]]
+|-
+![[Champions of Azeroth]]
+|{{NPC|Neutral|Magni Bronzebeard|icon=Magni2}}
+|[[Magni's Encampment]], [[Silithus]]
+|-
+![[Honeyback Hive]]
+|{{NPC|Alliance|Barry|icon=KulTiran Male}}
+|[[Mariner's Strand]], [[Stormsong Valley]]
+|-
+![[Order of Embers]]
+|{{NPC|Alliance|Quartermaster Alcorn|icon=KulTiran Male}}
+|[[Arom's Stand]], [[Drustvar]]
+|-
+![[Proudmoore Admiralty]]
+|{{NPC|Alliance|Provisioner Fray|icon=KulTiran Female}}
+|[[Tradewinds Market]], [[Boralus]]
+|-
+![[Rajani]]
+|{{NPC|Neutral|Zhang Ku|icon=Mogu Male}}
+|[[Silent Sanctuary]], [[Vale of Eternal Blossoms]]
+|-
+![[Rustbolt Resistance]]
+|{{NPC|Neutral|Stolen Royal Vendorbot|icon=Gnomebot}}
+|[[Rustbolt]], [[Mechagon Island]]
+|-
+![[Storm's Wake]]
+|{{NPC|Alliance|Sister Lilyana|icon=Human Female}}
+|[[Brennadam]], [[Stormsong Valley]]
+|-
+![[Talanji's Expedition]]
+|{{NPC|Horde|Provisioner Lija|icon=Zandalari Female}}
+|[[Zul'jan Ruins]], [[Nazmir]]
+|-
+![[Tortollan Seekers]]
+|{{NPC|Neutral|Collector Kojo|icon=Tortollan}}
+|[[Seekers' Vista]], [[Stormsong Valley]] and [[Scaletrader Post]], [[Zuldazar]]
+|-
+![[Uldum Accord]]
+|{{NPC|Neutral|Provisioner Qorra|icon=Human Female}}
+|[[Ramkahen]], [[Uldum]]
+|-
+![[Unshackled]]
+|{{NPC|Horde|Atolia Seapearl|icon=Gilgoblin Female}}
+|[[Newhome]], [[Nazjatar]]
+|-
+![[Voldunai]]
+|{{NPC|Horde|Hoarder Jena|icon=Vulpera Female}}
+|[[Vulpera Hideaway]], [[Vol'dun]]
+|-
+![[Waveblade Ankoan]]
+|{{NPC|Alliance|Speaker Utia|icon=Ankoan}}
+|[[Mezzamere]], [[Nazjatar]]
+|-
+![[Zandalari Empire (faction)|Zandalari Empire]]
+|{{NPC|Horde|Natal'hakata|icon=Zandalari Male}}
+|[[Great Seal]], [[Dazar'alor]]
+|-
+|}
+
+===Legion===
+{| class="darktable zebra"
+|-
+!Faction
+!Quartermaster
+!Location
+|-
+![[Argussian Reach]]
+|{{NPC|Neutral|Toraan the Revered|icon=Broken2 Male}}
+|[[Vindicaar]], [[Antoran Wastes]]
+|-
+![[Armies of Legionfall]]
+|{{NPC|Neutral|Warmage Kath'leen|icon=Human Female}}
+|[[Deliverance Point]], [[Broken Shore]]
+|-
+![[Army of the Light]]
+|{{NPC|Neutral|Vindicator Jaelaana|icon=Lightforged Female}}
+|[[Vindicaar]], [[Antoran Wastes]]
+|-
+![[Court of Farondis]]
+|{{NPC|Neutral|Veridis Fallon|icon=NightElf Male}}
+|[[Crumbled Palace]], [[Azsuna]]
+|-
+![[Dreamweavers]]
+|{{NPC|Neutral|Sylvia Hartshorn|icon=NightElf Female}}
+|[[Lorlathil]], [[Val'sharah]]
+|-
+![[Highmountain Tribe]]
+|{{NPC|Neutral|Ransa Greyfeather|icon=Highmountain Female}}
+|[[Thunder Totem]]
+|-
+![[Nightfallen (faction)|Nightfallen]]
+|{{NPC|Neutral|First Arcanist Thalyssra|icon=Thalyssra}}
+|[[Shal'Aran]], [[Suramar]]
+|-
+![[Talon's Vengeance]]
+|{{NPC|Neutral|Trinket (NPC)||Trinket|icon=GilneanRaven}}
+|[[Sylvan Falls]], [[Highmountain]]
+|-
+![[Valarjar]]
+|{{NPC|Neutral|Valdemar Stormseeker|icon=Vrykul Male}}
+|[[Valdisdall]], [[Stormheim]]
+|-
+![[The Wardens|Wardens]]
+|{{NPC|Neutral|Marin Bladewing|icon=Warden2}}
+|[[Wardens' Redoubt]], [[Azsuna]]
+|-
+|}
+
+===Warlords of Draenor===
+{| class="darktable zebra"
+|-
+!Faction
+!Quartermaster
+!Location
+|-
+!rowspan=2 |[[Arakkoa Outcasts]]
+|{{NPC|Neutral|Shadow-Sage Brakoss|icon=Arakkoa2}}
+|[[Town Hall (Stormshield)|Town Hall]], [[Stormshield]]
+|-
+|{{NPC|Neutral|Ravenspeaker Skeega|icon=Arakkoa2}}
+|[[Warspear Hold]], [[Warspear]]
+|-
+!{{Au|Council of Exarchs}}
+|{{NPC|Alliance|Vindicator Nuurem|icon=Draenei Male}}
+|[[Town Hall (Stormshield)|Town Hall]], [[Stormshield]]
+|-
+![[Frostwolf Orcs]]
+|{{NPC|Horde|Beska Redtusk|icon=Mag'har Female}}
+|[[Warspear Hold]], [[Warspear]]
+|-
+![[Hand of the Prophet]]
+|{{NPC|Alliance|Vindicator Krethos|icon=Draenei Male}}
+|[[Lion's Den]], [[Tanaan Jungle]]
+|-
+![[Laughing Skull Orcs]]
+|{{NPC|Horde|Kil'rip|icon=OrcGray Male}}
+|[[Frostwall]] after building a level 2 [[Trading Post (garrison)|Trading Post]]
+|-
+![[Order of the Awakened]]
+|{{NPC|Neutral|Dawn-Seeker Krisek|icon=HighArakkoa}}
+|[[Lion's Watch]] and [[Vol'mar]], [[Tanaan Jungle]]
+|-
+![[Saberstalkers]]
+|{{NPC|Neutral|Z'tenga the Walker|icon=ZandalarTroll Male}}
+|North of [[Fang'rila]], [[Tanaan Jungle]]
+|-
+![[Sha'tari Defense]]
+|{{NPC|Alliance|Maaria|icon=Draenei Female}}
+|[[Lunarfall]] after building a level 2 [[Trading Post (garrison)|Trading Post]]
+|-
+!rowspan=3 |[[Steamwheedle Preservation Society]]
+|{{NPC|Alliance|Gazrix Gearlock|icon=Goblin Male}}
+|[[Town Hall (Stormshield)|Town Hall]], [[Stormshield]]
+|-
+|{{NPC|Neutral|Kwilax Fuseshiv|icon=Goblin Male}}
+|[[Ruins of Na'gwa]], {{Au|Nagrand}}
+|-
+|{{NPC|Horde|Mimi Wizzlebub|icon=Goblin Female}}
+|[[Warspear Hold]], [[Warspear]]
+|-
+![[Vol'jin's Headhunters]]
+|{{NPC|Horde|Shadow Hunter Denjai|icon=Troll Male}}
+|[[Vol'mar Hold]], [[Tanaan Jungle]]
+|-
+|}
+
+===Mists of Pandaria===
+{| class="darktable zebra"
+|-
+! Faction
+! Quartermaster
+! Location
+|-
+! rowspan=2 | [[Neutral]]
+| {{NPC|Neutral|Commander Lo Ping|Justice Quartermaster|icon=Pandaren Male}}
+| [[Niuzao Temple]], [[Townlong Steppes]]{{Coords|37.9|64.6|Townlong Steppes}}
+|-
+| {{NPC|Neutral|Commander Oxheart|Valor Quartermaster|icon=Pandaren Female}}
+| [[Niuzao Temple]], [[Townlong Steppes]]{{Coords|37.9|64.6|Townlong Steppes}}
+|-
+! [[Order of the Cloud Serpent]]
+| {{NPC|Neutral|San Redscale|icon=Pandaren Male}}
+| [[The Arboretum]], [[Jade Forest]] {{co|56.8|44.4|Jade Forest}}
+|-
+! [[Tillers|The Tillers]]
+| {{NPC|Neutral|Gina Mudclaw|icon=Pandaren Female}}
+| [[Halfhill Market]], [[Valley of the Four Winds]] {{co|53.2|51.6|Valley of the Four Winds}}
+|-
+! [[Anglers|The Anglers]]
+| {{NPC|Neutral|Nat Pagle|icon=Human Male}}
+| [[Anglers Wharf]], [[Krasarang Wilds]] {{co|68.4|43.4|Krasarang Wilds}}
+|-
+! [[Shado-Pan]]
+| {{NPC|Neutral|Rushi the Fox|icon=Pandaren Male}}
+| [[Shado-Pan Garrison]], [[Townlong Steppes]]{{Coords|48.9|70.6|Townlong Steppes}}
+|-
+! [[Klaxxi]]
+| {{NPC|Neutral|Ambersmith Zikk|icon=Mantid}}
+| [[Klaxxi'vess]], [[Dread Wastes]]{{Coords|55.0|35.6|Dread Wastes}}
+|-
+! rowspan=2 | [[August Celestials (faction)|August Celestials]]
+| {{NPC|Alliance|Sage Whiteheart|icon=Pandaren Male}}
+| [[Shrine of Seven Stars]], [[Vale of Eternal Blossoms]]{{Coords|84.6|63.8|Vale of Eternal Blossoms}}
+|-
+| {{NPC|Horde|Sage Lotusbloom|icon=Pandaren Female}}
+| [[Shrine of Two Moons]], [[Vale of Eternal Blossoms]]{{Coords|62|21|Vale of Eternal Blossoms}}
+|-
+! [[Golden Lotus]]
+| {{NPC|Neutral|Jaluu the Generous|icon=Pandaren Male}}
+| [[Mogu'shan Palace]], [[Vale of Eternal Blossoms]] {{co|73.8|42.4|Vale of Eternal Blossoms}}
+|-
+! [[Lorewalkers]]
+| {{NPC|Neutral|Tan Shin Tiao|icon=Pandaren Female}}
+| [[Seat of Knowledge]], [[Vale of Eternal Blossoms]]{{Coords|82.2|29.4|Vale of Eternal Blossoms}}
+|-
+! rowspan=2 | {{Alliance}}[[Operation: Shieldwall]] vs.<br /> {{Horde}}[[Dominance Offensive]]
+| {{NPC|Alliance|Agent Malley|icon=Human Female}}
+| [[Lion's Landing]], [[Krasarang Wilds]]{{Coords|89.6|33.4|Krasarang Wilds}}
+|-
+| {{NPC|Horde|Tuskripper Grukna|icon=Orc Female}}
+| [[Domination Point]], [[Krasarang Wilds]]{{Coords|10.8|53.4|Krasarang Wilds}}
+|-
+! rowspan=2 | {{Alliance}}[[Kirin Tor Offensive]] vs.<br /> {{Horde}}[[Sunreaver Onslaught]]
+| {{NPC|Alliance|Hiren Loresong|icon=HighElf Male}}
+| [[Violet Rise]], [[Isle of Thunder]]{{Coords|64.6|74.6|Isle of Thunder}}
+|-
+| {{NPC|Horde|Vasarin Redmorn|icon=BloodElf Male}}
+| [[Dawnseeker Promontory]], [[Isle of Thunder]]{{Coords|33.4|32.4|Isle of Thunder}}
+|-
+! [[Shado-Pan Assault]]
+| {{NPC|Neutral|Teng of the Flying Daggers|icon=Pandaren Female}}
+| [[Bleak Hollow]], [[Isle of Thunder]] {{co|51.7|46.5|Isle of Thunder||1}}
+|-
+|}
+
+===Cataclysm===
+{| class="darktable zebra"
+|-
+! Faction
+! Quartermaster
+! Location
+|-
+! [[Earthen Ring]]
+| {{NPC|Neutral|Provisioner Arok|icon=Broken Male}}
+| [[Silver Tide Hollow]], [[Shimmering Expanse]], [[Vashj'ir]]{{Coords|49.1|42.1|Shimmering Expanse}}
+|-
+! [[Guardians of Hyjal]]
+| {{NPC|Neutral|Provisioner Whitecloud|icon=Tauren Female}}
+| [[Nordrassil Inn]], [[Mount Hyjal]]{{Coords|62.8|23.8|Mount Hyjal}}
+|-
+! [[Therazane (faction)|Therazane]]
+| {{NPC|Neutral|D'lom the Collector|icon=UnboundEarth}}
+| [[Therazane's Throne]], [[Deepholm]]{{Coords|56.9|13.2|Deepholm}}
+|-
+! [[Ramkahen (faction)|Ramkahen]]
+| {{NPC|Neutral|Blacksmith Abasi|icon=Ramkahen}}
+| [[Ramkahen]], [[Uldum]]{{Coords|54.1|33.3|Uldum}}
+|-
+! [[Wildhammer clan|Wildhammer Clan]]
+| {{NPC|Alliance|Craw MacGraw|icon=Wildhammer Male}}
+| [[Thundermar]], [[Twilight Highlands]]{{Coords|48.7|30.4|Twilight Highlands}}
+|-
+! [[Dragonmaw clan|Dragonmaw Clan]]
+| {{NPC|Horde|Grot Deathblow|icon=Dragonmaw Male}}
+| [[Bloodgulch]], [[Twilight Highlands]]{{Coords|53.9|42.1|Twilight Highlands}}
+|-
+! [[Baradin's Wardens]]
+| {{NPC|Alliance|Quartermaster Brazie|icon=Human Male}}
+| [[Baradin Base Camp]], [[Tol Barad Peninsula]]{{Coords|72.6|62.6|Tol Barad Peninsula}}
+|-
+! [[Hellscream's Reach]]
+| {{NPC|Horde|Pogg|icon=Orc Male}}
+| [[Hellscream's Grasp]], [[Tol Barad Peninsula]]{{Coords|54.6|81.0|Tol Barad Peninsula}}
+|-
+! [[Avengers of Hyjal]]
+| {{NPC|Neutral|Naresir Stormfury|icon=NightElf Male}}
+| [[Sulfuron Spire]], [[Mount Hyjal]]{{Coords|47.8|78.4|Mount Hyjal}}
+|-
+|}
+
+===Wrath of the Lich King===
+{| class="darktable zebra"
+|-
+! Faction
+! Quartermaster
+! Location
+|-
+! [[Argent Crusade]]
+| {{NPC|Neutral|Veteran Crusader Aliocha Segard|icon=Human Male}}
+| [[Argent Vanguard]], [[Icecrown]]{{Coords|87.6|75.6|Icecrown}}
+|-
+! rowspan=2 | [[Kalu'ak]]
+| {{NPC|Neutral|Tanaika|icon=Tuskarr}}
+| [[Kamagua]], [[Howling Fjord]]{{Coords|25.4|58.6|Howling Fjord}}
+|-
+| {{NPC|Neutral|Sairuk|icon=Tuskarr}}
+| [[Moa'ki Harbor]], [[Dragonblight]]{{Coords|48.6|75.6|Dragonblight}}
+|-
+! [[Kirin Tor]]
+| {{NPC|Neutral|Archmage Alvareaux|icon=Human Male}}
+| [[The Violet Citadel]], [[Dalaran]]{{Coords|25.5|49.0|Dalaran}}
+|-
+! [[Knights of the Ebon Blade]]
+| {{NPC|Neutral|Duchess Mynx|icon=BloodElfDeathKnight Female}}
+| [[The Shadow Vault]], [[Icecrown]]{{Coords|43.4|20.6|Icecrown}}
+|-
+! [[The Sons of Hodir]]
+| {{NPC|Neutral|Lillehoff|icon=FrostGiant}}
+| [[Dun Niffelem]], [[Storm Peaks]]{{Coords|66.0|61.4|Storm Peaks}}
+|-
+! The [[Wyrmrest Accord]]
+| {{NPC|Neutral|Cielstrasza|icon=HighElf Female}}
+| [[Wyrmrest Temple]], [[Dragonblight]]{{Coords|59.8|53.0|Dragonblight}}
+|-
+! rowspan=2 | [[Horde Expedition]]
+| {{NPC|Horde|Sebastian Crane|icon=Undead Male}}
+| [[Vengeance Landing]], [[Howling Fjord]]{{Coords|79.6|30.8|Howling Fjord}}
+|-
+| {{NPC|Horde|Gara Skullcrush|icon=Orc Female}}
+| [[Warsong Hold]], [[Borean Tundra]]{{Coords|41.4|53.6|Borean Tundra}}
+|-
+! rowspan=2 | [[Alliance Vanguard]]
+| {{NPC|Alliance|Logistics Officer Brighton|icon=Human Male}}
+| [[Valgarde]], [[Howling Fjord]]{{Coords|59.6|63.8|Howling Fjord}}
+|-
+| {{NPC|Alliance|Logistics Officer Silverstone|icon=Human Female}}
+| [[Valiance Keep]], [[Borean Tundra]]{{Coords|57.6|66.2|Borean Tundra}}
+|-
+! rowspan=2 | [[Frenzyheart Tribe]] vs. [[Oracles]]
+| {{NPC|Neutral|Tanak|icon=Wolvar}}
+| [[Frenzyheart Hill]], [[Sholazar Basin]]{{Coords|55.0|69.0|Sholazar Basin}}
+|-
+| {{NPC|Neutral|Geen|icon=Gorloc}}
+| [[Rainspeaker Canopy]], [[Sholazar Basin]]{{Coords|54.6|56.2|Sholazar Basin}}
+|-
+|}
+
+===The Burning Crusade===
+{| class="darktable zebra"
+|-
+! Faction
+! Quartermaster
+! Location
+|-
+! rowspan=12 | [[Aldor]] vs [[Scryers]]
+
+|{{NPC|Aldor|Quartermaster Endarin|Aldor Quartermaster|icon=Draenei Male}}
+| Aldor Bank, [[Shattrath City]]
+|-
+|{{NPC|Aldor|Scribe Saalyn|Aldor Inscriptions|icon=Draenei Female}}
+| Aldor Bank, [[Shattrath City]]
+|-
+|{{NPC|Aldor|Haldor the Compulsive|Aldor Apothecary|icon=Draenei Male}}
+| Aldor Bank, [[Shattrath City]]
+|-
+|{{NPC|Aldor|Asuur|Keeper of Sha'tari Artifacts|icon=Draenei Male}}
+| Aldor Tier, [[Shattrath City]]
+|-
+|{{NPC|Aldor|Kelara|Keeper of Sha'tari Heirlooms|icon=Draenei Female}}
+| Aldor Tier, [[Shattrath City]]
+|-
+|{{NPC|Aldor|Marksman Bova|Specialty Ammunition Vendor|icon=Draenei Male}}
+| Aldor Bank, [[Shattrath City]]
+|-
+| {{NPC|Scryers|Quartermaster Enuril|Scryer Quartermaster|icon=BloodElf Male}}
+| Scyer Bank, [[Shattrath City]]
+|-
+|{{NPC|Scryers|Scribe Veredis|Scryer Inscriptions|icon=BloodElf Male}}
+| Scyer Bank, [[Shattrath City]]
+|-
+|{{NPC|Scryers|Arcanist Xorith|Scryer Apothecary|icon=BloodElf Male}}
+| Scyer Bank, [[Shattrath City]]
+|-
+|{{NPC|Scryers|Archer Delvinar|Specialty Ammunition Vendor|icon=BloodElf Male}}
+| Scyer Bank, [[Shattrath City]]
+|-
+|{{NPC|Scryers|Arodis Sunblade|Keeper of Sha'tari Artifacts|icon=BloodElf Male}}
+| Scyer Tier, [[Shattrath City]]
+|-
+|{{NPC|Scryers|Veynna Dawnstar|Keeper of Sha'tari Heirlooms|icon=BloodElf Female}}
+| Scyer Tier, [[Shattrath City]]
+|-
+! [[Cenarion Expedition]]
+| {{NPC|Neutral|Fedryen Swiftspear|icon=NightElf Male}}
+| [[Cenarion Refuge]], [[Zangarmarsh]]
+|-
+! rowspan=2 | {{Alliance}}[[Honor Hold]] vs {{Horde}}[[Thrallmar]]
+| {{NPC|Alliance|Logistics Officer Ulrike|icon=Human Female}}
+| [[Honor Hold]], [[Hellfire Peninsula]]
+|-
+| {{NPC|Horde|Quartermaster Urgronn|icon=Orc Male}}
+| [[Thrallmar]], [[Hellfire Peninsula]]
+|-
+!  rowspan=2 | {{Alliance}}[[Kurenai]] vs {{Horde}}[[Mag'har (faction)|Mag'har]]
+| {{NPC|Alliance|Trader Narasu|icon=Broken Male}}
+| [[Telaar]], [[Nagrand]]
+|-
+| {{NPC|Horde|Provisioner Nasela|icon=Mag'har Female}}
+| [[Garadar]], [[Nagrand]]
+|-
+! [[Keepers of Time]]
+| {{NPC|Neutral|Alurmi|icon=HighElf Female}}
+| [[Caverns of Time]], [[Tanaris]]
+|-
+! rowspan=3 | [[Scale of the Sands|The Scale of the Sands]]
+| {{NPC|Neutral|Indormi|Keeper of Ancient Gem Lore|icon=HighElf Female}}
+| [[Hyjal Summit (Caverns of Time)|Hyjal Summit]]
+|-
+| {{NPC|Neutral|Soridormi|The Scale of Sands|icon=HighElf Female}}
+| [[Caverns of Time]], [[Tanaris]]
+|-
+| {{NPC|Neutral|Tydormu|Keeper of Lost Artifacts|icon=HighElf Male}}
+| [[Hyjal Summit (Caverns of Time)|Hyjal Summit]]
+|-
+! [[Ashtongue Deathsworn]]
+| {{NPC|Neutral|Okuno|icon=Broken Male}}
+| [[Sanctuary of Shadows]], [[Black Temple]]
+|-
+! [[Ogri'la (faction)|Ogri'la]]
+| {{NPC|Neutral|Jho'nass|icon=OgreMage}}
+| [[Ogri'la]], [[Blade's Edge Mountains]]
+|-
+! [[Netherwing]]
+| {{NPC|Neutral|Drake Dealer Hurlunk|icon=FelOrc Male}}
+| [[Dragonmaw Base Camp]], [[Shadowmoon Valley]]
+|-
+! [[Sporeggar]]
+| {{NPC|Neutral|Mycah|icon=Sporeling}}
+| [[Sporeggar]], [[Zangarmarsh]]
+|-
+! rowspan=3 | [[Consortium]]
+| {{NPC|Neutral|Karaaz|icon=Ethereal}}
+| [[Stormspire]], [[Netherstorm]]
+|-
+| {{NPC|Neutral|Paulsta'ats|icon=Ethereal}}
+| [[Aeris Landing]], [[Nagrand]]
+|-
+| {{NPC|Neutral|Ythyar|icon=Ethereal}}
+| [[Guardian's Library]], [[Karazhan (raid)|Karazhan]]
+|-
+! rowspan=3 | [[Violet Eye|The Violet Eye]]
+| {{NPC|Neutral|Mage Darius|icon=Human Male}}
+| [[Karazhan]],  [[Deadwind Pass]]
+|-
+| {{NPC|Neutral|Archmage Leryda|icon=HighElf Female}}
+| [[Karazhan]],  [[Deadwind Pass]]
+|-
+| {{NPC|Neutral|Koren|The Blacksmith|icon=Human Male}}
+| [[Livery Stables]], [[Karazhan (raid)|Karazhan]]
+|-
+! [[Lower City]]
+| {{NPC|Neutral|Nakodu|icon=Broken Male}}
+| [[Lower City]], [[Shattrath City]]
+|-
+! [[Sha'tar]]
+| {{NPC|Neutral|Almaador|icon=Draenei Male}}
+| [[Terrace of Light]], [[Shattrath City]]
+|-
+! [[Sha'tari Skyguard]]
+| {{NPC|Neutral|Grella|icon=Orc Female}}
+| [[Blackwind Landing]], [[Terokkar Forest]]
+|-
+! rowspan=3 | [[Shattered Sun Offensive]]
+| {{NPC|Neutral|Shaani|Jewelcrafting Supplies|icon=Draenei Female}}
+| [[Sun's Reach Harbor]], [[Isle of Quel'Danas (Burning Crusade)|Isle of Quel'Danas]]
+|-
+| {{NPC|Neutral|Ontuvo|Jewelcrafting Supplies|icon=Draenei Male}}
+| [[Terrace of Light]], [[Shattrath City]]
+|-
+| {{NPC|Neutral|Eldara Dawnrunner|Shattered Sun Quartermaster|icon=BloodElf Female}}
+| [[Shattered Sun Staging Area]], [[Isle of Quel'Danas (Burning Crusade)|Isle of Quel'Danas]]
+|}
+
+===Classic===
+{| class="darktable zebra"
+|-
+! Faction
+! Quartermaster
+! Location
+|-
+! [[Argent Dawn]]
+|{{NPC|Neutral|Quartermaster Miranda Breechlock|icon=Dwarf Female}}
+| [[Light's Hope Chapel]], [[Eastern Plaguelands]]{{Coords|75.8|54.0|Eastern Plaguelands}}
+|-
+! rowspan=5 | [[Cenarion Circle]]
+| {{NPC|Neutral|Kania|Enchanting Supplies|icon=NightElf Female}}
+| [[Cenarion Hold]], [[Silithus]]
+|-
+| {{NPC|Neutral|Mishta|Trade Supplies|icon=NightElf Female}}
+| [[Cenarion Hold]], [[Silithus]]
+|-
+| {{NPC|Neutral|Vargus|Blacksmith|icon=Tauren Male}}
+| [[Cenarion Hold]], [[Silithus]]
+|-
+| {{NPC|Neutral|Aendel Windspear|icon=NightElf Female}}
+| [[Southwind Village]], [[Silithus]]
+|-
+| {{NPC|Neutral|Lieutenant General Andorov|icon=Human Male}}
+| Spawns after defeat of [[Kurinnaxx]] in [[Ruins of Ahn'Qiraj]], [[Silithus]]
+|-
+! [[Thorium Brotherhood]]
+| {{NPC|Neutral|Lokhtos Darkbargainer|icon=DarkIron Male}}
+| [[Grim Guzzler]] tavern in [[Blackrock Depths]], [[Blackrock Mountain]]
+|-
+! [[Timbermaw Hold (faction)|Timbermaw Hold]]
+| {{NPC|Neutral|Meilosh|icon=Furbolg}}
+| [[Timbermaw Hold]], between [[Felwood]] and [[Winterspring]]
+|-
+! [[Tranquillien]]
+| {{NPC|Horde|Provisioner Vredigar|icon=Undead Male}}
+| [[Tranquillien]], [[Ghostlands]]
+|-
+! [[Wintersaber Trainers]]
+| {{NPC|Alliance|Rivern Frostwind|icon=NightElf Male}}
+| [[Frostsaber Rock]], [[Winterspring]]
+|}
+
+===PvP quartermasters===
+[[PvP]] quartermasters usually offer items in exchange for [[Honor Points]] and [[Conquest Points]].
+{| class="darktable zebra"
+|-
+! Faction
+! Quartermaster
+! Location
+|-
+! rowspan=8 | [[Alliance]]
+| {{NPC|Alliance|Knight-Lieutenant T'Maire Sydes|Honor Quartermaster|icon=Human Female}}
+| [[Stormwind]], [[Champion's Hall]]{{Coords|75.0|67.0|Stormwind City}}
+|-
+| {{NPC|Alliance|Captain Dirgehammer|Conquest Quartermaster|icon=Dwarf Male}}
+| [[Stormwind]], [[Champion's Hall]]{{Coords|75.0|67.0|Stormwind City}}
+|-
+| {{NPC|Alliance|Lieutenant Tristia|Glorious Conquest Quartermaster|icon=Draenei Female}}
+| [[Stormwind]], [[Champion's Hall]]{{Coords|75.0|67.0|Stormwind City}}
+|-
+| {{NPC|Alliance|Edlan Halsing|Honor Trade Goods|icon=Human Male}}
+| [[Stormwind]], [[Champion's Hall]]{{Coords|75.0|67.0|Stormwind City}}
+|-
+| {{NPC|Alliance|Liliana Emberfrost|Honor Heirlooms|icon=Human Female}}
+| [[Stormwind]], [[Champion's Hall]]{{Coords|75.0|67.0|Stormwind City}}
+|-
+| {{NPC|Alliance|Master Sergeant Biggins|Accessories Quartermaster|icon=Gnome Male}}
+| [[Stormwind]], [[Champion's Hall]]{{Coords|75.0|67.0|Stormwind City}}
+|-
+| {{NPC|Alliance|Sergeant Major Clate|Legacy Armor Quartermaster|icon=Dwarf Male}}
+| [[Stormwind]], [[Champion's Hall]]{{Coords|75.0|67.0|Stormwind City}}
+|-
+| {{NPC|Alliance|Lieutenant Jackspring|Legacy Weapon Quartermaster|icon=Gnome Male}}
+| [[Stormwind]], [[Champion's Hall]]{{Coords|75.0|67.0|Stormwind City}}
+|-
+! rowspan=8 | [[Horde]]
+| {{NPC|Horde|Blood Guard Zar'shi|Honor Quartermaster|icon=Troll Male}}
+| [[Orgrimmar]], [[Hall of Legends]]{{Coords|37.8|71.6|Orgrimmar}}
+|-
+| {{NPC|Horde|Sergeant Thunderhorn|Conquest Quartermaster|icon=Tauren Male}}
+| [[Orgrimmar]], [[Hall of Legends]]{{Coords|37.8|71.6|Orgrimmar}}
+|-
+| {{NPC|Horde|Doris Chiltonius|Glorious Conquest Quartermaster|icon=BloodElf Female}}
+| [[Orgrimmar]], [[Hall of Legends]]{{Coords|37.8|71.6|Orgrimmar}}
+|-
+| {{NPC|Horde|Rogoc|Honor Trade Goods|icon=Orc Male}}
+| [[Orgrimmar]], [[Hall of Legends]]{{Coords|37.8|71.6|Orgrimmar}}
+|-
+| {{NPC|Horde|Galra|Honor Heirlooms|icon=Orc Female}}
+| [[Orgrimmar]], [[Hall of Legends]]{{Coords|37.8|71.6|Orgrimmar}}
+|-
+| {{NPC|Horde|Brave Stonehide|Accessories Quartermaster|icon=Tauren Female}}
+| [[Orgrimmar]], [[Hall of Legends]]{{Coords|37.8|71.6|Orgrimmar}}
+|-
+| {{NPC|Horde|First Sergeant Hola'mahi|Legacy Armor Quartermaster|icon=Troll Female}}
+| [[Orgrimmar]], [[Hall of Legends]]{{Coords|37.8|71.6|Orgrimmar}}
+|-
+| {{NPC|Horde|Stone Guard Zarg|Legacy Weapons Quartermaster|icon=Orc Male}}
+| [[Orgrimmar]], [[Hall of Legends]]{{Coords|37.8|71.6|Orgrimmar}}
+|-
+! rowspan=13 | [[Neutral]]
+| {{NPC|Neutral|Blazzek the Biter|Legacy Arena Weapons|icon=Goblin Male}}
+| [[Tanaris]], [[Gadgetzan]]{{Coords|51.4|48.0|Tanaris}}
+|-
+| {{NPC|Neutral|Vixton Pinchwhistle|Legacy Arena Armor|icon=Goblin Male}}
+| [[Tanaris]], [[Gadgetzan]]{{Coords|51.4|48.0|Tanaris}}
+|-
+| {{NPC|Neutral|Trapjaw Rix|Legacy Arena Weapons|icon=Goblin Male}}
+| [[Dalaran]], [[Underbelly]]{{Coords|60.0|57.4|Dalaran}}
+|-
+| {{NPC|Neutral|Blazik Fireclaw|Legacy Arena Armor|icon=Goblin Male}}
+| [[Dalaran]], [[Underbelly]]{{Coords|60.0|57.4|Dalaran}}
+|-
+| {{NPC|Neutral|Xazi Smolderpipe|Conquest Quartermaster|icon=Goblin Female}}
+| [[Dalaran]], [[Underbelly]]{{Coords|60.0|57.4|Dalaran}}
+|-
+| {{NPC|Neutral|Nargle Lashcord|Glorious Conquest Quartermaster|icon=Goblin Male}}
+| [[Dalaran]], [[Underbelly]]{{Coords|60.0|57.4|Dalaran}}
+|-
+| {{NPC|Neutral|Zom Bocom|Honor Quartermaster|icon=Goblin Male}}
+| [[Dalaran]], [[Underbelly]]{{Coords|60.0|57.4|Dalaran}}
+|-
+| {{NPC|Neutral|Grex Brainboiler|Classic Alliance Cloth & Leather|icon=Goblin Male}}
+| [[Netherstorm]], [[Area 52]]{{Coords|33.0|62.0|Netherstorm}}
+|-
+| {{NPC|Neutral|Krixel Pinchwhistle|Classic Alliance Mail & Plate|icon=Goblin Male}}
+| [[Netherstorm]], [[Area 52]]{{Coords|33.0|64.0|Netherstorm}}
+|-
+| {{NPC|Neutral|Tini Smalls|Classic Horde Cloth & Leather|icon=Goblin Female}}
+| [[Netherstorm]], [[Area 52]]{{Coords|33.0|64.0|Netherstorm}}
+|-
+| {{NPC|Neutral|Leeni "Smiley" Smalls|Classic Horde Mail & Plate|icon=Goblin Female}}
+| [[Netherstorm]], [[Area 52]]{{Coords|33.0|64.0|Netherstorm}}
+|-
+| {{NPC|Neutral|Big Zokk Torquewrench|Classic Weapons|icon=Goblin Male}}
+| [[Netherstorm]], [[Area 52]]{{Coords|33.0|64.0|Netherstorm}}
+|-
+| {{NPC|Neutral|Kezzik the Striker|Gladiator, Merciless, & Vengeful Gear|icon=Goblin Male}}
+| [[Netherstorm]], [[Area 52]]{{Coords|33.0|64.0|Netherstorm}}
+|-
+|}
+
+==== Outdoor PvP ====
+===== Hellfire Peninsula/Zangarmarsh =====
+The following vendors take [[Mark of Honor Hold]] or [[Mark of Thrallmar]] tokens as currency. 
+* {{NPC|Alliance|Alliance Field Scout|icon=Human Male}}
+* {{NPC|Alliance|Warrant Officer Tracy Proudwell|icon=Human Female}}
+* {{NPC|Horde|Battlecryer Blackeye|icon=Orc Female}}
+* {{NPC|Horde|Horde Field Scout|icon=Orc Male}}
+
+===== Terokkar Forest =====
+The following vendors take [[Spirit Shard]] tokens as currency.
+* {{NPC|Horde|Spirit Sage Gartok|icon=Orc Male}}
+* {{NPC|Alliance|Spirit Sage Zran|icon=Human Male}}
+
+===== Halaa =====
+The following vendors take [[Halaa Battle Tokens]] and [[Halaa Research Tokens]] as currency.
+* {{NPC|Alliance|Aldraan|Blade Merchant|icon=Draenei Male}}
+* {{NPC|Alliance|Quartermaster Davian Vaclav|icon=Human Male}}
+* {{NPC|Horde|Coreiel (NPC)|Blade Merchant|Coreiel|icon=BloodElf Female}}
+* {{NPC|Horde|Quartermaster Jaffrey Noreliqe|icon=BloodElf Male}}
+
+===== Venture Bay =====
+The following vendors take [[Honor Points]] as currency.
+* {{NPC|Alliance|"Grizzly" D. Adams|Venture Coin Vendor|icon=Human Male}} [[Venture Bay]], [[Grizzly Hills]]{{coords|13.9|86.4|Grizzly Hills}}
+* {{NPC|Horde|Purkom|Venture Coin Vendor|icon=Orc Female}} [[Venture Bay]], [[Grizzly Hills]]{{coords|13.9|86.4|Grizzly Hills}}
+
+===== Wintergrasp =====
+The following vendors take [[Honor Points]] as currency.
+* {{NPC|Horde|Stone Guard Mukar|Wintergrasp Quartermaster|icon=Orc Male}} [[Wintergrasp]]{{coords|51.6|17.4|Wintergrasp}}
+* {{NPC|Horde|Champion Ros'slai|Wintergrasp Quartermaster|icon=Troll Male}} [[Wintergrasp]]{{coords|51.6|17.4|Wintergrasp}}
+* {{NPC|Alliance|Knight Dameron|Wintergrasp Quartermaster|icon=Human Male}} [[Wintergrasp]]{{coords|51.6|17.4|Wintergrasp}}
+* {{NPC|Alliance|Marshal Magruder|Wintergrasp Quartermaster|icon=Human Male}} [[Wintergrasp]]{{coords|51.6|17.4|Wintergrasp}}
+
+===== Tol Barad =====
+The following vendors take [[Tol Barad Commendation]]s as currency.
+* {{NPC|Horde|Pogg|[[Hellscream's Reach]] Quartermaster|icon=Orc Male}} [[Hellscream's Grasp]], [[Tol Barad Peninsula]]{{Coords|54.6|81.0|Tol Barad Peninsula}}
+* {{NPC|Alliance|Quartermaster Brazie|Baradin's Wardens Quartermaster|icon=Human Male}} [[Baradin Base Camp]], [[Tol Barad Peninsula]]{{Coords|72.6|62.6|Tol Barad Peninsula}}
+
+===== Timeless Isle =====
+*[[Speaker Gulan]]
+
+==== Battlegrounds ====
+The following vendors take [[Honor Points]] as currency.
+
+===== Warsong Gulch =====
+*{{NPC|Horde|Kelm Hargunth|Warsong Supply Officer|icon=Orc Male}} ([[Warsong Outriders]])
+*{{NPC|Alliance|Illiyana Moonblaze|Silverwing Supply Officer|icon=NightElf Female}} ([[Silverwing Sentinels]])
+
+===== Arathi Basin =====
+*{{NPC|Horde|Rutherford Twing|[[Defilers]] Supply Officer|icon=Undead Male}}
+*{{NPC|Alliance|Samuel Hawke|[[League of Arathor]] Supply Officer|icon=Human Male}}
+
+===== Alterac Valley =====
+*{{NPC|Horde|Jorek Ironside|Frostwolf Supply Officer|icon=Orc Male}} ([[Frostwolf Clan]])
+*{{NPC|Horde|Grunnda Wolfheart|Frostwolf Supply Officer|icon=Orc Female}} ([[Frostwolf Clan]])
+*{{NPC|Alliance|Gaelden Hammersmith|Stormpike Supply Officer|icon=Wildhammer Male}} ([[Stormpike Guard]])
+*{{NPC|Alliance|Thanthaldis Snowgleam|Stormpike Supply Officer|icon=NightElf Male}} ([[Stormpike Guard]])
+
+==Patch changes==
+*{{Patch 4.0.3a|note=[[Cloth Quartermaster]]s removed.}}
+
+[[Category:Faction quartermasters| ]]
+[[Category:NPC occupations]]
+[[Category:Vendors| ]]
+[[Category:Game terms]]

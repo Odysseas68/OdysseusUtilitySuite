@@ -1,0 +1,240 @@
+{{Stub/Location|+Table with subzones.}}{{SS|Dreamgrove}}
+{{Infobox zone
+|faction=Neutral
+|name=The Dreamgrove
+|ss=The Dreamgrove loading screen.jpg
+|caption=The Dreamgrove
+|level = {{level|legion}}
+|loc=[[Val'sharah]]
+|type=[[Class Hall]]
+|races={{Race|Dryad}}<br/> {{Race|Keeper of the grove}}<br /> {{Race|Nightelf}}<br /> {{Race|Tauren}}<br /> {{Race|Troll}}<br /> {{Race|Worgen}}<br /> {{RaceIcon|FaerieDragon}} [[Faerie Dragon]]<br/> {{Race|Ancient}}
+|affiliation={{Neutral}} [[Dreamweavers]]<br/> {{Neutral}} [[Cenarion Circle]]
+|rulers = {{Neutral}} {{RaceIcon|NightElf|Male}} {{npc||Rensar Greathoof}}<br>{{FactionIcon|Both|small}} {{ClassIcon|Druid}} [[Adventurer|The Archdruid]]<br>
+|territory = Sanctuary
+}}
+[[File:Dreamgrove.jpg|thumb|The Dreamgrove]]
+
+'''The Dreamgrove''' is the [[Order Halls|order hall]] of the [[druid]]s of the [[Dreamweavers]]<ref>[[To The Dreamgrove]]</ref> and [[Cenarion Circle]]. Located in [[Val'sharah]], the Dreamgrove is directly linked to the [[Emerald Dreamway]], a section of the [[Emerald Dream]] connecting several locations powerful in Nature magic across [[Azeroth]], such as the [[Grizzly Hills]] and [[Twilight Grove]].
+
+When asked what the Dreamgrove meant to them, the [[Adventurer|Archdruid]] replied among the followings:
+*Balance - Like the turn of every season, so do they change, adapt, survive, and endure. They ensure the promise of the Dreamgrove: that all things return to balance.
+*Life - The Dreamgrove is the warm light by which death's shadow is cast. That is worth protecting.
+*Nature - They are the vast and varied nature of all living things. The freedom of the world that was, that is, and that will ever be. Good and evil may wax and wane, but nature is eternal.<ref>[[Order from Chaos]]</ref>
+
+==Map==
+[[File:WorldMap-TheDreamgrove.jpg|400px|map of the Dreamgrove]]
+;[[Tome of the Ancients]]
+A large book located north of the Circle of Spirits. This tome starts blank but will grow to hold the lore, history, and powers of the druid artifacts as the player funnels order hall resources into it. Every two work orders provide a new page in the tome. [[Celadine the Fatekeeper]] is the artifact researcher.
+;Seed of Ages
+The Artifact Forge is located west of the Circle of Spirits. It allows players to upgrade their artifact as well as change its appearance. [[Tender Daranelle]] can refund artifact power.
+;Sub-zones
+* The Retreat: Located in the eastern part of the grove, it houses armor racks for raid tier sets as well as [[Light's Heart]].
+* Tel'Andu Barrow Den: Located in the northern part of the grove, it is where the [[Druids of the Claw]] sleep.
+* Circle of Spirits: Located at the center of the grove, it contains four statues that represent each of the druid specializations and the mythic cache.
+
+==Accessing the Dreamgrove==
+;On foot
+The Dreamgrove can be accessed on foot via a dirt path running north from the [[Temple of Elune (Val'sharah)|Temple of Elune]] along the shoreline. Non-druids who attempt to enter are put to sleep by the [[ancient protector]]s at the border and teleported out.
+
+{{col-begin}}
+{{col|2}}
+;Flight paths
+; {{Neutral}} [[Bradensbrook]], [[Val'sharah]]
+; {{Neutral}} [[Gloaming Reef]], [[Val'sharah]]
+; {{Neutral}} [[Garden of the Moon]], [[Val'sharah]]
+; {{Neutral}} [[Felbane Camp]], [[Highmountain]]
+{{col|2}}
+;Portals
+; {{Neutral}} [[Dalaran]]
+; {{Neutral}} [[Emerald Dreamway]]
+{{col-end}}
+
+==NPCs==
+{{col-begin}}
+{{col|2}}
+;Notable characters
+*{{npc||Malfurion Stormrage|icon=Malfurion}}: Archdruid of the [[Cenarion Circle]], leader of [[Darnassus]]
+*{{npc||Arch Druid Rensar Greathoof||Rensar Greathoof|icon=NightElf Male}}: Archdruid of the [[Cenarion Circle]]
+*{{npc||Celestine of the Harvest|icon=Worgen Female}}
+*{{npc||Bashana Runetotem|icon=Tauren Female}}
+*{{npc||Skylord Omnuron|icon=NightElf Male}}
+*{{npc||Turkino|icon=NightElf Male}}
+*{{npc||Zen'Kiki|icon=Troll Male}}
+*{{npc||Alaldras Earthwhisper|icon=NightElf Male}}
+*{{npc||Mistaaytch|icon=NightElf Male}}
+*{{npc||Lunara|icon=Cenarian Female}}
+*{{npc||Iphy|icon=Cenarian Female}}
+*{{npc||Astran Rainfeather|icon=NightElf Male}}
+*{{npc||Perla Nightfang|icon=NightElf Female}}
+*{{npc||Arctyx Thunderfoot|icon=NightElf Male}}
+;Unnamed NPCs
+*{{npc||Grove Tender (treant)||Grove Tender|icon=Treant}}
+*{{npc||Laughing Sister (Legion)||Laughing Sister|icon=Cenarian Female}}
+*{{npc||Ancient Protector (Legion)||Ancient Protector|icon=ProtectorVal'sharah}}
+*{{npc||Tree of Life (Dreamgrove)||Tree of Life|icon=ProtectorVal'sharah}}
+*{{npc||Skysea Wanderer|icon=NightElf Male}}
+*{{npc||Restless Guardian|icon=Troll Male}}
+*{{npc||Tranquil Bloomer|icon=Worgen Female}}
+*{{npc||Sharpclaw Adept|icon=Tauren Male}}
+{{col|2}}
+;Champions
+*{{npc||Remulos||Keeper Remulos|icon=Cenarian Male}}: Keeper of [[Moonglade]]
+*{{npc||Hamuul Runetotem|icon=Hamuul}}: Archdruid of the [[Cenarion Circle]] and [[Thunder Bluff]]
+*{{npc||Mylune|icon=Nymph}}
+*{{npc||Naralex|icon=NightElf Male}}
+*{{npc||Broll Bearmantle|icon=Broll}} : Archdruid of the [[Cenarion Circle]]
+*{{npc||Zen'tabra|icon=Troll Female}}
+*{{npc||Sylendra Gladesong|icon=NightElf Female}}
+*{{npc||Brightwing|icon=FaerieDragon}}
+;Services
+*{{npc||Celadine the Fatekeeper|icon=Tauren Female}}: Artifact Research
+*{{npc||Danise Stargazer|icon=Worgen Female}}: Flightmaster
+*{{npc||Sister Lilith|icon=Cenarian Female}}: Recruiter
+*{{npc||Yaris Darkclaw|icon=NightElf Male}}: Recruiter
+*{{npc||Leafbeard the Storied|icon=Ancient}}: Order Hall Upgrades
+*{{npc||Amurra Thistledew|icon=NightElf Female}}: Class Hall Armor Vendor
+*{{npc||Tender Daranelle|icon=Cenarian Female}}: Artifact Power Refund
+*{{npc||Treant Sapling|icon=Sapling}}: Ancient of War Tender
+{{col-end}}
+
+==Quests==
+{{Druid artifact and class hall}}
+
+==Missions==
+{| class="darktable sortable" 
+! Mission
+! Level/Type
+! Duration
+! Followers
+! Bonus Chest Reward
+|-
+| [[A Glade Defense]]
+| 100
+| 8 hr
+| 3
+| [[Inscribed Leaf of Wisdom]]
+|-
+| [[Sampling the Nightmare]]
+| 100
+| 1 hr
+| 3
+| [[Lasher Seed (druid)]]
+|-
+| [[Sister Lilith (mission)]]
+| 100
+| 2 min
+| 1
+| [[Sister Lilith]]
+|-
+| [[Gathering the Dreamweavers: Celestine of the Harvest]]
+| 102
+| 1 hr
+| 3
+| [[Moon Lily]]
+|-
+| [[Gathering the Dreamweavers: Graham Silverclaw]]
+| 102
+| 1 hr
+| 3
+| [[Broken Eredar Blade]]
+|-
+| [[Gathering the Dreamweavers: Matoclaw]]
+| 102
+| 1 hr
+| 3
+| [[Battered Trophy]]
+|-
+| [[Gathering the Dreamweavers: Thisalee Crow]]
+| 102
+| 1 hr
+| 3
+| [[Thisalee's Fighting Claws]]
+|-
+| [[Gathering the Dreamweavers: Talza]]
+| 102
+| 1 hr
+| 3
+| [[Draketaming Spurs]]
+|-
+| [[Powering the Portal: Andu'talah]]
+| 108
+| 1 hr
+| 3
+| [[Shard of Nightmare]]
+|-
+| [[Powering the Portal: Ashenvale]]
+| 108
+| 1 hr
+| 3
+| [[Shard of Nightmare]]
+|-
+| [[Powering the Portal: Azsuna]]
+| 108
+| 1 hr
+| 3
+| [[Shard of Nightmare]]
+|-
+| [[Powering the Portal: Sylvan Falls]]
+| 108
+| 1 hr
+| 3
+| [[Shard of Nightmare]]
+|-
+| [[Powering the Portal: Val'sharah]]
+| 108
+| 1 hr
+| 3
+| [[Shard of Nightmare]]
+|}
+
+==Order Hall Advancement==
+[[Leafbeard the Storied]] handles [[Order Advancement|Order Hall advancement]] upgrades. There are 8 tiers with each tier having two available upgrades to choose from, except two tiers which only have one upgrade. Each upgrade will require [[Order Resources]] and a research time before their buff will be available. Once upgraded, a player can change to the other upgrade by paying another Order Resources cost and waiting the required research time.
+
+{| class="wikitable"
+|-
+! Tier !! Upgrade 1 !! Upgrade 2 !! Level Required !! Research Time !! Cost !! Research Time (changing) !! Cost (changing)
+|-
+| I || [[Roots (advancement)]] || [[Elune's Favor]] || {{level|legion-min}} || 2 Hours || {{cost|or=50}} || 1 Day || {{cost|or=500}}
+|-
+| II || [[Travel Form (advancement)]] || [[Evergreen (advancement)]] || {{level|legion-min}} || 4 Hours || {{cost|or=100}} || 1 Day || {{cost|or=2000}}
+|-
+| III || [[Reclamation (advancement)]] || [[Hibernation (advancement)]] || {{level|legion-max}} || 6 Hours || {{cost|or=500}} || 1 Day || {{cost|or=2000}}
+|-
+| IV || [[Laughing Sisters (advancement)]] || [[Force of the Forest ]] || {{level|legion-max}} || 12 Hours || {{cost|or=2000}} || 1 Day || {{cost|or=2000}}
+|-
+| V || [[Ancient of War (advancement)]] || [[Elune's Chosen]] || {{level|legion-max}} || 18 Hours || {{cost|or=4000}} || 1 Day || {{cost|or=2000}}
+|-
+| VI || colspan="2" style="text-align: center;" | [[Natural Legend]] || {{level|legion-max}} || 1 Day || {{cost|or=8000}} || colspan="2" style="text-align: center;" | -
+|-
+| VII || [[Wardens of the Grove]] || [[Roster of Champions (druid)]] || {{level|legion-max}} and </br>[[Champions of Legionfall]] || 1 Day || {{cost|or=10000}} || 1 Day || {{cost|or=5000}}
+|-
+| VIII || colspan="2" style="text-align: center;" | [[Legionfall United]] (removed in {{G|bfa}}) || 110 || 5 Days || {{cost|or=15000}} || colspan="2" style="text-align: center;" | -
+|}
+
+==Trivia==
+*The Dreamgrove is not an [[instance]], but trying to enter it as a non-druid tints the screen green and gives you the debuff "Drowsy", which teleports you out if you do not leave in five seconds.
+*The Dreamgrove is one of the few [[Order Hall]]s with a mailbox, which is located across from the Artifact Researcher.
+*The [[Tradewind & Crow: Dreamgrove Detectives]] scenario was planned to take place here, featuring [[Arthur Tradewind]] and [[Thisalee Crow]] as a buddy cop duo in a murder mystery.
+
+==Patch changes==
+*{{Patch 7.1.0|note=Mailbox added.}}
+*{{Patch 7.0.3|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class=darktable
+! Dreamgrove !! Unused scenario
+|-
+|{{Elinks-zone|7846}}
+|{{Elinks-zone|10431}}
+|}
+
+{{Dreamgrove|doc=}}
+{{Val'sharah}}
+{{Order Halls}}
+
+[[Category:Dreamgrove| ]]
+[[Category:Night elf territories]]
+[[Category:Sanctuaries]]

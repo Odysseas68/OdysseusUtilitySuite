@@ -1,0 +1,131 @@
+{{Npcbox
+| name = Marin Bladewing
+| image = Marin Bladewing Azsuna.jpg
+| titles = Warden,<br/>Wardens Emissary
+| gender = Female
+| resource = Energy
+| character = [[Warden]]
+| faction = Alliance
+| race = Night elf
+| creature = Humanoid
+| affiliation = [[Shadow Wardens]], [[The Wardens]], [[Watchers]], [[Guardians of Hyjal]]
+| occupation = [[Quartermaster]] of the Wardens
+| location = [[#Locations|Various]]
+| status = Alive
+}}
+
+'''Marin Bladewing''' is a [[night elf]] [[warden]] serving under [[Maiev Shadowsong]]. She took part in the [[Firelands Invasion]] as part of the [[Shadow Wardens]]. She later joined the [[The Wardens|Wardens]] in resisting the [[Third invasion of the Burning Legion|third invasion]] of the [[Burning Legion]] from [[Azsuna]], under the command of [[Sira Moonwarden]] and Maiev. At the time of the [[Fourth War]], Marin and her fellow wardens committed themselves to the [[Alliance]] cause, and fought alongside their leader in [[Battle for Darkshore|the campaign]] to drive the [[Horde]] from [[Darkshore]].
+
+==Background==
+===Cataclysm===
+{{cata-section}}
+[[File:Marin Bladewing.jpg|thumb|upright|Marin on the [[Molten Front]].]]
+Following the [[Cataclysm (event)|Cataclysm]], Marin originally appeared as a [[Shadow Wardens|Shadow Warden]] at the [[Forlorn Spire]] in the [[Molten Front]]. There, she took part in the [[Firelands Invasion|campaign]] against the Fire Lord, [[Ragnaros]], and his minions, in order to save all of [[Mount Hyjal]] from destruction. She was accompanied in this quest by a number of other wardens and [[adventurer]]s, and appeared to be in command of her fellow sisters.<ref name="The Wardens are Watching">[[The Wardens are Watching]]</ref> After slaying [[fire elemental]]s, they took the [[Forlorn Spire]], after which she sensed [[Druids of the Flame]] nearby.<ref>[[The Forlorn Spire (quest)]]</ref> Therefore, she requested to strike at and destroy the druids' [[Solar Core]] that had the potential of causing massive damage to Azeroth<ref>[[Solar Core Destruction]]</ref> and ordered the capture of one of the druids for questioning in order to learn of their plans, and sent a [[Shadow Warden|warden]] and the adventurer to do it.<ref name="The Wardens are Watching"/> Afterward, she asked the adventurer with assisting [[Shalis Darkhunter]] and [[Theresa Barkskin]] in their mission in the [[Igneous Depths]] and specifically tasked them to disrupt the [[Druids of the Flame]]'s ritual by destroying their [[Flame Protection Rune|summoning runes]].<ref>[[Enduring the Heat]]</ref>
+
+===Warlords of Draenor===
+{{wod-section}}
+During the [[war in Draenor]], Marin was part of a contingent of [[warden]]s sent by [[Maiev Shadowsong]] to protect [[Archmage Khadgar]] as he worked against the [[Burning Legion]] on [[alternate Draenor]]. Led by [[Cordana Felsong]], the group was stationed across the continent, with Marin herself being found in [[Starfall Outpost]] in {{Au|Shadowmoon Valley}} and [[Yrel's Watch]] in {{Au|Nagrand}}.
+
+===Legion===
+{{legion-section}}
+By the time of the [[Third invasion of the Burning Legion|third invasion]] of the [[Burning Legion]], Marin and her [[The Wardens|fellow Wardens]] had reestablished themselves on the [[Broken Isles]], where they guarded the [[Vault of the Wardens]] against all threats. The [[demon]]s' attack on the facility, aided by [[Cordana Felsong]] herself, succeeded in breaching the Vault. Marin would act as [[quartermaster]] for the organization from [[Wardens' Redoubt]] in [[Azsuna]], from which she and her sisters fought desperately to drive back the Legion's forces.
+
+===Battle for Azeroth===
+{{Bfa-section}}
+[[File:Wardenlineup alternate.jpg|thumb|Marin Bladewing and the Wardens in [[Darkshore]].]]
+Warden Bladewing and her sisters would answer the call of [[Maiev Shadowsong]] and [[Tyrande Whisperwind]], as the [[kaldorei]] prepared to retake [[Darkshore]] from its [[Horde]] occupiers during the [[Fourth War]]. They would venture with Maiev to [[Bashal'Aran]], where they defended High Priestess Tyrande during her ritual to become the [[Night Warrior]], and subsequently witnessed her transformation.<ref>[[In Darkest Night]]</ref>
+
+Later, Marin and her sisters took part in the [[Battle for Darkshore]] alongside other [[Alliance]] forces.
+
+===Dragonflight===
+{{Df-section}}
+Years later, Marin and her fellow wardens attended the gathering at [[Amirdrassil]] when it bloomed on the [[Dragon Isles]] after [[Fyrakk]]'s death. Afterward, she can be seen speaking with [[Arko'narin Starshade]] in [[Arlithrien Lodge]].
+
+==Locations==
+{{Npclocations|align=|start=|loc=[[Forlorn Spire]], [[Molten Front]]|level=Molten Front|type=Elite|reaction={{Aggro|1|1}}|notes=As a [[quest giver]] the [[Firelands Invasion]] questline.}}
+{{Npclocations|loc=[[Starfall Outpost]], {{Au|Shadowmoon Valley}}{{Co|29.4|26.0|Shadowmoon Valley (alternate universe)}}|level=Shadowmoon Valley (alternate universe)|type=Elite|reaction={{Aggro|1|-1}}}}
+{{Npclocations|loc=[[Yrel's Watch]], {{Au|Nagrand}}{{Co|62.2|41.6|Nagrand (alternate universe)}}|level=Nagrand (alternate universe)|type=Elite|reaction={{Aggro|1|-1}}}}
+{{Npclocations|loc=[[Wardens' Redoubt]], [[Azsuna]]{{Co|48.2|73.8|Azsuna}}|level=Azsuna|type=Elite|reaction={{Aggro|1|1}}}}
+{{Npclocations|loc=[[Bashal'Aran]], [[Battle for Darkshore]]|level=bfa-max|type=Elite|reaction={{Rep|Friendly|Alliance}}|notes=During [[In Darkest Night]] and the Alliance instance.}}
+{{Npclocations|loc=Bashal'Aran, [[Darkshore]]|level=bfa-max|type=Elite|reaction={{Aggro|1|-1}}|notes=When the Alliance controls the zone.}}
+{{Npclocations|loc=[[Amirdrassil]]|level=Df-max|type=Elite|reaction={{Aggro|1|1}}|notes=During the last [[Guardians of the Dream campaign]] chapter.}}
+{{Npclocations|end=|loc=[[Arlithrien Lodge]], Amirdrassil{{Co|29.0|27.6|Amirdrassil}}|level=Amirdrassil|type=Elite|reaction={{Aggro|1|1}}|notes=In the overworld version.}}
+
+==Sells==
+{{The Wardens}}
+
+==Abilities==
+[[File:Marin Bladewing in Darkshore.png|thumb|upright|Marin Bladewing in Darkshore.]]
+;Molten Front
+*{{Abilities|Drink Healing Potion|id=97689|Uses a Holy elixir to heal the caster.|icon=spell_holy_heal}}
+*{{Abilities|Fan of Knives|id=97667|Instantly whirl around, releasing a spray of throwing knives at all targets within 15 yards.|icon=ability_rogue_fanofknives}}
+*{{Abilities|Shadow Strike|id=97676|Hurls a poisoned dagger which deals large initial damage, and then deals damage over time. The poisoned unit has its movement rate slowed for a short duration.|icon=ability_poisonarrow}}
+*{{Abilities|Shadowstep|id=97668|Attempts to step through the shadows and reappear behind your enemy.|icon=ability_rogue_shadowstep}}
+
+;Darkshore
+*{{Abilities|Mortal Strike|id=19643|Inflicts 150% weapon damage to an enemy and leaves it wounded, reducing the effectiveness of any healing by 50% for 5 sec.|icon=ability_warrior_savageblow}}
+
+==Quests==
+{{Cata-section}}
+*[[The Forlorn Spire (quest)]] {{Questfinishrrq}}
+*[[Enduring the Heat]] {{Queststartrrq}}
+*[[Solar Core Destruction]] {{Queststartfinishrrq}}
+*[[The Wardens are Watching]] {{Queststartfinishrrq}}
+
+{{Legion-section}}
+*[[Paragon of the Wardens]] {{questfinish}}
+*[[Supplies From the Wardens]] {{questfinish}}
+*[[The Wardens (quest)]] {{questfinish}}
+
+==Quotes==
+;Forlorn Spire gossip
+{{Dialogue|
+Greetings, <class>. The Fire Lord has twisted our former brothers and sisters into avatars of molten fury. Even now, the Druids of the Flame carry out his insane plan to destroy the World Tree. We will not let that happen.
+}}
+
+;Wardens' Redoubt gossip
+{{Dialogue|
+Do you have the courage to help us defeat the Legion?
+
+{{buy|I want to browse your goods.}}
+}}
+
+;Darkshore gossip
+{{Dialogue|
+[[Sira Moonwarden|Another]] of our sisters has fallen to darkness. But that will not stop us from our duty.
+}}
+
+==Trivia==
+*She is named after one of the [[Random hero#Warden|random wardens]] of ''[[Warcraft III: The Frozen Throne]]''.
+*Since ''[[World of Warcraft: Legion|Legion]]'', Marin has been seen wielding the [[:Umbra Crescent]]; in ''[[World of Warcraft: Battle for Azeroth|Battle for Azeroth]]'', she began duel-wielding two of them.
+**As of ''Legion'', Marin has also appeared accompanied by a [[Sentinel Owl (NPC)|Sentinel Owl]].
+
+==Patch changes==
+*{{Patch 7.0.3|note=Broken Isles appearance added.}}
+*{{Patch 4.2.0|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Elinks-NPCsearch}}
+
+{{Grand Alliance}}
+
+{{DEFAULTSORT:Bladewing, Marin}}
+[[Category:Night elf characters]]
+[[Category:Wardens]]
+[[Category:Emissaries]]
+[[Category:Faction quartermasters]]
+[[Category:Watchers]]
+[[Category:Guardians of Hyjal]]
+[[Category:The Wardens]]
+[[Category:Quest givers]]
+[[Category:Molten Front NPCs]]
+[[Category:Shadowmoon Valley (alternate universe) NPCs]]
+[[Category:Nagrand (alternate universe) NPCs]]
+[[Category:Azsuna NPCs]]
+[[Category:Darkshore NPCs]]
+[[Category:Battle for Darkshore NPCs]]
+[[Category:Amirdrassil NPCs]]
+[[Category:Warcraft III random heroes]]

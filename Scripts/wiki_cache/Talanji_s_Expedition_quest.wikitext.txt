@@ -1,0 +1,46 @@
+{{Stub/Quest}}
+{{Questbox
+ | id = 50602
+ | name = Talanji's Expedition
+ | category = Nazmir
+ | faction = Horde
+ | level = {{level|bfa-max}}
+ | levelreq = {{level|bfa-max}}
+ | type = Emissary Quest
+ | start = Automatic
+ | end = [[Provisioner Lija]]
+ | reputation = +1,500 [[Talanji's Expedition]]
+ | shareable = No
+}}
+
+==Objectives==
+Complete 4 [[Talanji's Expedition]] [[world quest]]s.
+
+==Description==
+Assist Talanji's Expedition by completing 4 world quests.
+
+==Rewards==
+You will receive:
+* +1,500 reputation with [[Talanji's Expedition]]
+
+{{itembox|You will receive:|Azerite Armor Cache
+|Zandalari Weapons Cache
+|Nazmir Expeditionary Equipment Cache
+|q4=400|Azerite
+|q5=200|War Resources
+}}
+
+==Progress==
+...
+
+==Completion==
+I thank you in da name of da [[Princess Talanji|princess]].
+
+==Patch changes==
+*{{Patch 8.0.1|note=Added.}}
+
+==External links==
+{{Elinks-quest|50602}}
+
+[[Category:Talanji's Expedition quests]]
+[[Category:Emissary quests]]

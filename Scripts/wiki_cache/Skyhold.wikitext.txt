@@ -1,0 +1,318 @@
+{{For|the instance|Halls of Valor}}
+{{Infobox zone
+| name = Skyhold
+| ss = Halls of Valor loading screen.jpg
+| caption = [[Loading screen]] (also used for the [[Halls of Valor]])
+| faction = Neutral
+| level = 100 - 110
+| type = [[Class Hall]]
+| races = {{RaceIcon|Valarjar}} [[Valarjar]]<br/> {{RaceIcon|Valkier}} [[Val'kyr]]<br/> {{race|Vrykul}}
+| rulers = {{NPC|Neutral|Odyn|icon=Odyn}}<br/> {{FactionIcon|Both|small}} {{ClassIcon|Warrior}} [[Adventurer|The Battlelord]]
+| affiliation = [[Valarjar]], [[Valkyra]]
+| loc = [[Halls of Valor]]
+| territory = Sanctuary
+}}
+{{QuoteWiki|Skyhold is more than just the seat of [[Odyn]], or the feasting hall of the honored dead. It is the home of the [[Valarjar]], the warriors of the storm. It is where we tend to our fury and gather our strength, waiting for the call to strike down the enemies of [[Azeroth]] from above.|The [[Adventurer|Battlelord]]<ref>[[Order from Chaos]]</ref>}}
+[[File:Halls of Valor.jpg|thumb|Skyhold.]]
+
+'''Skyhold''' is a portion of the [[Halls of Valor]] which are located high up in the clouds above [[Helheim]]. During the [[third invasion of the Burning Legion]], Skyhold was set aside by [[Odyn|Keeper Odyn]] as the [[warrior]] [[Order Halls|order hall]], granting the warrior the title of the [[Battlelord (title)|Battlelord]] and commander of the [[Valarjar]] forces in the fight against the [[Burning Legion]].
+
+==Geography==
+Skyhold is entered via a central area, which leads to four sections - Eye of Odyn, Forge of Odyn, Arena of Glory and The Great Mead Hall.
+[[Finna Bjornsdottir]], [[Ragnvald Drakeborn]], [[Valarjar Aspirant]]s and [[Valkyra Shieldmaiden]]s are standing around the entrance to the Skyhold, while [[Val'kyr of Odyn]] can be seen flying above.
+
+===Map and subregions===
+[[File:VZ-Skyhold.jpg|thumb|left|300px|Map of Skyhold.]]
+{| class="darktable  hlist"
+|-
+|
+*[[Arena of Glory]] 
+*[[Forge of Odyn]]
+*[[Great Mead Hall|The Great Mead Hall]]
+|}
+{{clear|left}}
+===Eye of Odyn===
+The Eye of Odyn area is where the class hall leader can recruit troops, send champions and troops on missions, place work order for champion armaments and equipment, purchase items from the quartermaster and travel to other zones in the [[Broken Isles]].
+
+[[Aerylia]] can be found at the entrance to the area, talking to her will give the player the options to travel to one of the Broken Isles zones. [[Quartermaster Durnolf]] and a replica of the [[Battlelord's Armor]] can be found on the near left side. Durnolf sells the armor set and armor upgrades. [[Haklang Ulfsson]] can be found on the near right, allowing the player to place work orders for champion armaments and equipment. Haklang Ulfsson will only be available if the player choose the 3rd tier Order Advancement option [[Heavenly Forge]].
+
+Troop recruiters [[Savyn Valorborn]] and [[Matthew Glensorrow]] (for [[Alliance]] players) or [[Sharak Tor]] (for [[Horde]] players) can be found on the far left side. Savyn Valorborn offers to recruit [[Shieldmaiden Warband]]s or [[Valkyra Shieldmaiden]]s if the player choose the 4th tier Order Advancement option [[Ascension]]; Matthew Glensorrow and Sharak Tor will only be available if the player choose 7th tier Order Advancement option [[Strike Hard]]. Glensorrow offers to recruit [[7th Legion Shock Force]], while Tor offers to recruit [[Kor'kron Shock Force]]. Troop recruiter [[Captain Hjalmar Stahlstrom]] can be found on the far right side, offering to recruit [[Valarjar Aspirant]]s or [[Stormforged Valarjar]] if the player choose the 4th tier Order Advancement option [[Trial by Fire]].
+
+[[Skyseer Ghrent]] and the [[Eye of Odyn]] can be found at the far end. The player can send champions and troops on mission by interacting with the Eye of Odyn, while Ghrent will be handling most of the quest turn-ins.
+
+===Forge of Odyn===
+The Forge of Odyn area is where the class hall leader can research their [[Artifact|Artifact Weapon]] to gain more [[Artifact Knowledge]], unlocking traits in their weapon by spending [[Artifact Power]], changing weapon visuals and upgrading their class hall.
+
+[[Einar the Runecaster]], [[Fjornson Stonecarver]] and [[Light's Heart]] can be found at the north side of the entrance in front of the three stone tables: [[Saga of the Valarjar]], [[The Favored of Odyn]] and [[The Legend of Odyn]].
+Einar will offer upgrades to the class hall, while Fjornson will help research the weapons. On the opposite side, [[Keeper]] [[Thorim]] is standing in front five pedestals with the unlocked appearances of the artifact weapon appearing above each. At the far end, [[Master Smith Helgar]] and [[Dvalen Ironrune]] are located besides the [[Forge of Odyn]]. Interacting with the Forge of Odyn will allow the player to spend Artifact Power to unlock traits for their weapon and to change their weapon appearance.
+
+===Arena of Glory===
+The Arena of Glory area is where the class hall leader can place a work order to complete one non-elite [[World Quest]], use the [[Training Dummy]]s and to fight for a chance to win the [[Skyhold Chest of Riches]].
+
+Once every 3 hours Odyn will place the Skyhold Chest of Riches in the center of the arena, warriors entering the arena will be flagged for PvP and must fight to win the chest. If the chest is not looted in 10 minutes, [[Hargal the Bladestormer]] will jump into the area and [[bladestorm]] until the chest is looted or he is defeated, which happens when he reaches ~10% health, at which point he will retreat and drop his [[Hargal's Axe of Bladestorming|axe]], picking up the axe puts you into a permanent bladestorm, with a huge damage boost. A player will only be able to see and loot the chest if the they choose the 2nd tier Order Advancement option [[For Honor and Glory]]. 
+
+[[Matilda Skoptidottir]] can be found on the left side of the arena, offering use of [[Blessing of Mjolnir]] to gain the [[Horn of War]] to unleash the power of the Val'kyr to help complete a non-elite [[World Quest]] once every 18 hours. Matilda Skoptidottir is only available if a player choose the 5th tier Order Advancement option [[Val'kyr Call]]. 
+
+[[Valarjar Aspirant]] spectators, tables of food and drinks and weapon and armor racks can be found around the arena, with [[Val'kyr Arena Master]] located at the 2 entrances to the arena itself.
+[[Weaponmaster Asvard]], [[King Ymiron]] and [[Hodir|Keeper Hodir]] can be found at the entrance, the left and right sides of the arena, respectively.
+[[Lesser Sparring Partner]] and [[Greater Sparring Partner]] Raider's Training Dummy can be found at the far end, while on the right side of the arena Tanking [[Lesser Sparring Partner]] and [[Greater Sparring Partner]] can be found.
+
+Armor racks featuring warrior tier sets are located at the both the left and right sides of the entrance. Once a player collects all items from a set, the set will appear on the armor rack.
+
+===The Great Mead Hall===
+The Great Mead Hall is full of [[Valarjar Aspirant]]s and [[Valarjar Shieldmaiden|Shieldmaidens]] eating and drinking while [[Stormforged Valarjar]] guard the hall. At the hall's center sits [[Odyn|Keeper Odyn]], with [[Hymdall]] and [[Lord Darius Crowley]] (for Alliance players) or [[Eitrigg]] (for Horde players) at his right and left sides, respectively.
+[[Hruthnir]] and [[Magnar Icebreaker]] can be found on the far left side, while [[Renfield]] and [[Svergan Stormcloak]] can be found on the far right side. The [[Grand Challenger's Bounty]] can be located at the entrance to the hall.
+
+==Travel points==
+Once a player has progressed through a zone, a [[Val'kyr of Odyn]] will enable the player to use [[Jump to Skyhold]] to enter Skyhold, talking to Aerylia, the player can return to any of the zones.
+
+Using this means of travel will lead the player to these places:
+* [[Azsuna]] - [[Azurewing Repose]]
+* [[The Broken Shore]] - [[Deliverance Point]]
+* [[Dalaran]] - [[Krasus' Landing]]
+* [[Highmountain]] - [[Thunder Totem]]
+* [[Stormheim]] - [[Valdisdall]]
+* [[Suramar]] - [[Meredil]]
+* [[Val'sharah]] - [[Lorlathil]]
+
+==NPCs==
+{{col-begin}}
+{{col|2}}
+===Named===
+* {{RaceIcon|Odyn}} [[Odyn]]
+* {{RaceIcon|Valkier}} [[Aerylia]] <Stormflight Master>
+* {{RaceIcon|Valarjar}} [[Captain Hjalmar Stahlstrom]] <Recruiter>
+* {{RaceIcon|Vrykul|Male}} [[Einar the Runecaster]] <Class Hall Upgrades>
+* {{RaceIcon|Vrykul|Male}} [[Fjornson Stonecarver]] <Keeper of Legends>
+* {{RaceIcon|Vrykul|Male}} [[Haklang Ulfsson]] <Armaments Requisitioner>
+* {{RaceIcon|Valarjar}} [[Hargal the Bladestormer]]
+* {{RaceIcon|Valarjar}} [[Hruthnir]]
+* {{RaceIcon|Vrykul|Male}} [[Magnar Icebreaker]]
+* {{RaceIcon|Valarjar}} [[Master Smith Helgar]]
+* {{RaceIcon|Valkier}} [[Matilda Skoptidottir]]
+* {{FactionIcon|Alliance|Small}} {{RaceIcon|Human|Male}} [[Matthew Glensorrow]] <Recruiter>
+* {{RaceIcon|Valarjar}} [[Quartermaster Durnolf]]
+* {{RaceIcon|Hozen}} [[Renfield]]
+* {{RaceIcon|Valkier}} [[Savyn Valorborn]] <Recruiter>
+* {{FactionIcon|Horde|Small}} {{RaceIcon|Orc|Male}} [[Sharak Tor]] <Recruiter>
+* {{RaceIcon|Vrykul|Male}} [[Skyseer Ghrent]]
+* {{RaceIcon|Valarjar}} [[Weaponmaster Asvard]] <Warrior Trainer>
+
+===Unnamed===
+* {{RaceIcon|Vrykul|Female}} [[Shieldmaiden (NPC)|Shieldmaiden]]
+* {{RaceIcon|Vrykul|Female}} [[Valkyra Shieldmaiden]]
+* {{RaceIcon|Vrykul|Male}} [[Valarjar Aspirant]]
+* {{RaceIcon|Valarjar}} [[Stormforged Valarjar]]
+* {{RaceIcon|Valkier}} [[Val'kyr of Odyn]]
+* {{RaceIcon|Valkier}} [[Val'kyr Arena Master]]
+* {{RaceIcon|Vrykul|Male}} [[Lesser Sparring Partner]] <Tanking>
+* {{RaceIcon|Valarjar}} [[Greater Sparring Partner]] <Tanking>
+* {{RaceIcon|Vrykul|Male}} [[Lesser Sparring Partner]] <Training Dummy>
+* {{RaceIcon|Valarjar}} [[Greater Sparring Partner]] <Raider's Training Dummy>
+* {{RaceIcon|Vrykul|Female}} [[Injured Shieldmaiden]]
+
+{{col|2}}
+
+===Champions===
+* {{RaceIcon|IronDwarf}} [[Dvalen Ironrune]]
+* {{FactionIcon|Horde|Small}} {{RaceIcon|Orc|Male}} [[Eitrigg]]
+* {{RaceIcon|Vrykul|Female}} [[Finna Bjornsdottir]]
+* {{RaceIcon|Hodir}} [[Hodir]]
+* {{RaceIcon|Hymdall}} [[Hymdall]]
+* {{RaceIcon|Ymiron}} [[King Ymiron]]
+* {{FactionIcon|Alliance|Small}} {{RaceIcon|Crowley}} [[Darius Crowley|Lord Darius Crowley]]
+* {{RaceIcon|Vrykul|Male}} [[Ragnvald Drakeborn]]
+* {{RaceIcon|Vrykul|Male}} [[Svergan Stormcloak]]
+* {{RaceIcon|Thorim}} [[Thorim]]
+
+===Troops===
+* {{RaceIcon|Vrykul|Female}} [[Shieldmaiden Warband]]s
+* {{RaceIcon|Vrykul|Female}} [[Valkyra Shieldmaiden]]s
+* {{RaceIcon|Vrykul|Male}} [[Valarjar Aspirant]]s
+* {{RaceIcon|Valarjar}} [[Stormforged Valarjar]]
+* {{FactionIcon|Alliance|Small}} [[7th Legion Shock Force]]
+* {{FactionIcon|Horde|Small}} [[Kor'kron Shock Force]]
+{{col-end}}
+
+==Objects==
+* [[Saga of the Valarjar]]
+* [[Skyhold Chest of Riches]]
+* [[The Favored of Odyn]]
+* [[The Legend of Odyn]]
+
+==Quests==
+{{main|Valarjar Campaign#Quest chain}}
+
+==Order Hall Advancement==
+Einar the Runecaster handles the Warrior's [[Order Advancement|Order Hall advancement]] upgrades. There are 8 tiers with each tier having two available upgrades to choose from, except two tiers which only have one upgrade. Each upgrade will require [[Order Resources]] and a research time before their buff will be available. Once upgraded, a player can change to the other upgrade by paying another Order Resources cost and waiting the required research time.
+
+{| class="wikitable"
+|-
+! Tier !! Upgrade 1 !! Upgrade 2 !! Level Required !! Research Time !! Cost !! Research Time (changing) !! Cost (changing)
+|-
+| I || [[Odyn's Favor]] || [[Rallying Cry (advancement)]] || {{level|legion-min}} || 2 Hours || {{cost|or=50}} || 1 Day || {{cost|or=500}}
+|-
+| II || [[For Honor and Glory]] || [[Forced March]] || {{level|legion-min}} || 4 Hours || {{cost|or=100}} || 1 Day || {{cost|or=2000}}
+|-
+| III || [[Abundant Valor]] || [[Heavenly Forge]] || {{level|legion-max}} || 6 Hours || {{cost|or=500}} || 1 Day || {{cost|or=2000}}
+|-
+| IV || [[Trial by Fire]] || [[Ascension (advancement)]] || {{level|legion-max}} || 12 Hours || {{cost|or=2000}} || 1 Day || {{cost|or=2000}}
+|-
+| V || [[Val'kyr Call]] || [[Spoils of War (advancement)]] || {{level|legion-max}} || 18 Hours || {{cost|or=4000}} || 1 Day || {{cost|or=2000}}
+|-
+| VI || colspan="2" style="text-align: center;" | [[Legends of Ragnarok]] || {{level|legion-max}} || 1 Day || {{cost|or=8000}} || colspan="2" style="text-align: center;" | -
+|-
+| VII || [[Strike Hard (advancement)]] || [[Roster of Champions (warrior)]] || {{level|legion-max}} and </br>[[Champions of Legionfall]] || 1 Day || {{cost|or=10000}} || 1 Day || {{cost|or=5000}}
+|-
+| VIII || colspan="2" style="text-align: center;" | [[Legionfall United]] (removed in {{G|bfa}}) || 110 || 5 Days || {{cost|or=15000}} || colspan="2" style="text-align: center;" | -
+|}
+
+==Artifact Weapons==
+Odyn supplies the Battlelord with weapons of great power, each fitting a different specialization. The quest to obtain the first weapon is available at level 98 and the warrior must decide which weapon to choose, however this limitation is short as the other two other weapon quests are available at level 102, enabling the warrior to have all 3 weapons. Each weapon initially came with four unlockable appearances and one hidden appearance. Each appearance has 4 color tints which can be unlocked by achieving a certain requirement. A new appearance was made available with [[patch 7.2]], requiring the player to complete a difficult solo challenge to unlock it. In addition, each weapon has a hidden trait unique to that weapon.
+
+In order to attempt the challenge, your character must be level 100, have 35 [[Artifact Trait]]s and complete the new Empowered Trait questline. This must be done for each weapon in order to unlock its challenge. In addition, your region must have constructed the [[Mage Tower (Broken Shore)|Mage Tower]] in [[Deliverance Point]], [[Broken Shore]]. Speak to [[War Councilor Victoria]] once the Mage Tower is constructed to attempt the challenge. The first attempt is free, with subsequent attempts costing {{cost|ns=100}}.
+
+===Arms, Strom'kar, the Warbreaker===
+{{main|Strom'kar, the Warbreaker}}
+
+:''This greatsword was borne into combat by the barbarian warlord who first united humanity under a single banner, founding the nation of [[Arathor]]. A master tactician and strategist, [[Thoradin|King Thoradin]] went on to play a critical role in ending the [[Troll Wars]]. Later the sword was lost while it was being used to subdue a [[C'Thrax]]xi monstrosity in a forgotten tomb beneath [[Tirisfal]]. Abandoned and all but forgotten, Strom'kar has been slowly drinking from the shadowy power there over thousands of years.''<ref name="Warrior Artifact Reveal">{{ref web|url=http://us.battle.net/wow/en/blog/19942707/|title=Legion: Warrior Artifact Reveal|date=2015-10-23|accessdate=2015-11-20}}</ref>
+
+Hidden trait: [[Surrounded by Trolls!]] - When Strom'kar is equipped, all nearby hostile NPC [[troll]]s become feared for 2 minutes.
+
+====Hidden appearance====
+Unlocking the hidden appearance requires obtaining and using [[The Arcanite Bladebreaker]], which is rewarded from the quest [[Secrets of the Axes]] handed by Master Smith Helgar. The quest has a daily chance of being available for the day for each region, and is available to everyone in that region. If the quest is available, a dialog option will appear, saying "Is there an axe equal to Strom'kar?".  Follow that line of dialog to unlock the quest.
+
+====Challenging appearance====
+The Arms weapon challenge, [[Closing the Eye]], requires you to defeat [[Archmage Xylem]] in the [[Eye of Eternity]].
+
+===Fury, Odyn's Fury and Helya's Wrath===
+{{main|Warswords of the Valarjar|Odyn's Fury|Helya's Wrath}}
+
+:''In ages past, the titanic watcher Keeper Odyn betrayed the sorceress Helya, killing her and twisted her spirit into a spectral Val'kyr. He forged this pair of swords for the mightiest of his storm-forged Valarjar, but Helya stole the swords and infused them with a portion of her rage. She then gave them to her own champion, who used them to hunt the greatest of heroes and drag their souls away to serve in Helheim. These swords stir their owner into unrelenting and punishing attacks that overcome a target's defenses and leave no opening for counterattacks.''<ref name="Warrior Artifact Reveal"></ref>
+
+Hidden trait: [[Gaze of the Val'kyr]] - When the Warswords of the Valarjar are equipped, Gaze of the Val'kyr will sometimes trigger when a mob/NPC strikes a killing blow against you, preventing your demise for 8 seconds. If you defeat the enemy that killed you in those 8 seconds, you will stay alive and gain 50% of your health back, if you don't, you will die.
+
+====Hidden appearance====
+Unlocking the hidden appearance requires creating and using [[The Dragonslayers]], which is created by combining three items which require Exalted reputation with the [[Valarjar]] to obtain:
+* [[Haft of the God-King]] - has a chance to drop from [[God-King Skovald (tactics)|God-King Skovald]] in the [[Halls of Valor]]
+* [[Skull of Shar'thos]] - is a guaranteed drop from [[Shar'thos]] in [[Val'sharah]], [[Broken Isles]]
+* [[Skull of Nithogg]] - is a guaranteed drop from [[Nithogg]] in [[Stormheim]], [[Broken Isles]]
+
+====Challenging appearance====
+The Fury weapon challenge, [[An Impossible Foe]], requires you to defeat [[Agatha (demon)|Agatha]] in the [[Fiendish Vault]] in [[Azsuna]].
+
+===Protection, Scale of the Earth-Warder and Scaleshard ===
+{{main|Scale of the Earth-Warder|Scaleshard}}
+
+:''An impenetrable shield crafted from a scale of the [[Black dragonflight|black]] [[Dragon Aspect]], [[Deathwing|Neltharion the Earth-Warder]], before the [[Old Gods]]' corruption overcame him. The formidable [[vrykul]] king [[Magnar Icebreaker]] carried this shield into combat and won victory after victory in the face of grim odds. When he finally fell in battle, it was due to treachery by servants of the [[Val'kyr]] [[Helya]]. The shield is now entombed with King Magnar's body in the [[Path of Kings]] in [[Stormheim]].''<ref name="Warrior Artifact Reveal"></ref>
+
+Hidden trait: unknown
+
+====Hidden appearance====
+Unlocking the hidden appearance requires looting and using [[Burning Plate of the Worldbreaker]], which can occasionally be found on a pile of treasure in [[Neltharion's Vault]] in [[Highmountain]], [[Broken Isles]]. The player's [[Artifact Knowledge]] must be at least Level 5 in order to see this item.
+
+====Challenging appearance====
+The Protection weapon challenge, [[The Highlord's Return]], requires you to defeat [[Highlord Kruul]] in the [[Twisting Nether]].
+
+===Weapon Quests===
+;Level 98
+#[[Weapons of Legend (warrior)]]
+#Acquire the chosen artifact:
+#*Arms ([[Strom'kar, the Warbreaker]])
+#*#[[The Sword of Kings]]
+#*Fury ([[Odyn's Fury]] and [[Helya's Wrath]])
+#*#[[The Hunter of Heroes]]
+#*Protection ([[Scale of the Earth-Warder]] and [[Scaleshard]])
+#*#[[Legacy of the Icebreaker]]
+#[[The Forgening]]
+#[[The Forge of Odyn]]
+
+;Level 102
+#[[More Weapons of Legend]]
+#[[One More Legend]]
+
+{{col-begin}}
+{{col|2}}
+===Empowered Artifact===
+#[[Greater Power For Greater Threats]]
+#[[The Broken Shore: Investigating the Legion]]
+#[[The Council's Call]]
+#[[Away From Prying Eyes]]
+#[[In Dire Need]]
+#*Arms
+## [[Legion Threat: Azshara]]
+## [[Arms: The Thieving Apprentice]]
+## [[Professionally Good Looking]]
+## [[Order of Incantations]]
+## [[The Archmage Accosted]]
+## [[A Portal Away]]
+#*Fury
+## [[Legion Threat: The Missing Mage]]
+## [[Fury: The Folly of Levia Laurence]] 
+## [[Bargaining with Shadows]] 
+## [[The Acolyte Imperiled]] 
+## [[Dabbling in the Demonic]] 
+## [[Following the Scent]] 
+## [[Unlikely Seduction]] 
+## [[Fel-Crossed Lovers]]
+#*Protection
+## [[Legion Threat: Dalaran Infiltration]]
+## [[Protection: Aid of the Illidari (warrior)]]
+## [[Gathering Information]]
+## [[Confirming Suspicions]]
+## [[Between Worlds]]
+## [[Dark Omens]]
+#[[A Gift From the Six]]
+
+{{col|2}}
+===Challenging Artifact Weapon Appearances===
+* Arms - unlocks Blade of the Sky Champion appearance
+** [[Closing the Eye]]
+* Fury - unlocks Helya's Gaze appearance
+** [[An Impossible Foe]]
+* Protection - unlocks Legionbreaker appearance
+** [[The Highlord's Return]]
+{{col-end}}
+
+==Unique warrior rewards==
+* Title: [[Battlelord (title)|Battlelord]], rewarded from completing the quest [[The Fate of Hodir]].
+* Mount: [[Battlelord's Bloodthirsty War Wyrm]], rewarded from completing the quest [[The Trial of Rage]].
+* Toy: [[Stormforged Vrykul Horn]], looted from the chest [[Skyhold Chest of Riches]] in the [[Skyhold Arena of Glory]] in Skyhold.
+* Armor set: [[Battlelord's Plate]], rewarded from completing various ''[[World of Warcraft: Legion|Legion]]'' objectives.
+
+==Trivia==
+*The art and feel of the zone is heavily inspired by [[wikipedia:Valhalla|Valhalla]].
+
+==Speculation==
+{{Speculation}}
+In the alpha, spirits of famous [[warrior]]s were in Skyhold, but they were removed because it didn't feel appropriate to [[Blizzard Entertainment|Blizzard]] for these [[human]] and [[orc]] heroes to appear in this [[vrykul]] place.<ref>[http://www.mmo-champion.com/content/5812-Legion-Developer-Q-A-Artifacts-and-Order-Halls Legion Developer Q&A - Artifacts and Order Halls] MMO-Champion</ref> The identity of these removed heroes is still unknown. However, checking the NPC IDs on [[Wowhead]], starting with the version of [[Danath Trollbane]] used during the [[Return to the Broken Shore (Alliance)]] warrior class quest ([http://www.wowhead.com/npc=96183/danath-trollbane]) and increasing incrementally, the IDs lead to several consecutive unused warrior NPCs that were possibly meant to appear in Skyhold.
+*Among the NPCs are a non-diamond version of [[Magni Bronzebeard]] ([http://www.wowhead.com/npc=96184/king-magni-bronzebeard]), [[Thura]] ([http://www.wowhead.com/npc=96185/thura]), [[Darius Crowley]] ([http://www.wowhead.com/npc=96186/lord-darius-crowley]), [[Grommash Hellscream]] ([http://www.wowhead.com/npc=96189/grommash-hellscream]), [[Nazgrel]] ([http://www.wowhead.com/npc=96190/nazgrel]), [[Jarod Shadowsong]] ([http://www.wowhead.com/npc=96191/jarod-shadowsong]), [[Kur'talos Ravencrest]] ([http://www.wowhead.com/npc=96193/kurtalos-ravencrest]), [[Cairne Bloodhoof]] ([http://www.wowhead.com/npc=96194/cairne-bloodhoof]), [[Urukal]] ([http://www.wowhead.com/npc=96195/uruka-blackhand]), [[Broxigar]] ([http://www.wowhead.com/npc=96197/broxigar]), a non-[[death knight]] version of [[Nazgrim]] ([http://www.wowhead.com/npc=96199/nazgrim]), [[Orgrim Doomhammer]] ([http://www.wowhead.com/npc=96200/orgrim-doomhammer]), [[Anduin Lothar]] ([http://www.wowhead.com/npc=96201/anduin-lothar]), [[Daelin Proudmoore]] ([http://www.wowhead.com/npc=96202/daelin-proudmoore]), [[Llane Wrynn I]] ([http://www.wowhead.com/npc=96203/llane-wrynn]), a non-[[death knight]] version of [[Thoras Trollbane]] ([http://www.wowhead.com/npc=96206/thoras-trollbane]), [[Varian Wrynn]] ([http://www.wowhead.com/npc=96207/king-varian-wrynn]), [[Jubei'Thos]] ([http://www.wowhead.com/npc=96208/jubeithos]), [[Marcus Jonathan]] ([http://www.wowhead.com/npc=96209/general-marcus-jonathan]), [[Krol the Blade]] ([http://www.wowhead.com/npc=96210/krol-the-blade]), [[Ignaeus Trollbane]] ([http://www.wowhead.com/npc=96211/ignaeus-trollbane]), [[Korda Torros]] ([http://www.wowhead.com/npc=96212/korda-torros]), [[Thargas Anvilmar]] ([http://www.wowhead.com/npc=96217/thargas-anvilmar]), [[Joanna Blueheart]] ([http://www.wowhead.com/npc=96218/joanna-blueheart]), [[Modimus Anvilmar]] ([http://www.wowhead.com/npc=96219/modimus-anvilmar]), [[Mankrik]] ([http://www.wowhead.com/npc=96220/mankrik]), [[High Warlord Cromush]] ([http://www.wowhead.com/npc=96221/high-warlord-cromush]), [[John J. Keeshan]] ([http://www.wowhead.com/npc=96222/john-j-keeshan]), [[Gamon]] ([http://www.wowhead.com/npc=96223/gamon]), [[Kash'drakor]] ([http://www.wowhead.com/npc=96224/kashdrakor]), [[Gorgonna]] ([http://www.wowhead.com/npc=96225/gorgonna]) and [[Bragor Bloodfist]] ([http://www.wowhead.com/npc=96226/bragor-bloodfist]).
+
+Considering some of these are still living to this day, it is possible that other living warriors were meant to be accepted into Skyhold like the [[Adventurer|Battlelord]]. The presence of [[Nazgrim]] and [[Thoras Trollbane]] may also indicate that they were not maybe always meant to be part of the reborn [[Four Horsemen#Original Legion intent|Horsemen]]. Several of them have a placeholder model, though others such as Anduin Lothar had never appeared in ''[[World of Warcraft]]'' before.
+
+[[Cairne Bloodhoof]] might have been originally intended intended to be a Valarjar's sub-leader, according to [[New Recruit (warrior)]], which had similar variants given by the other class halls' sub-leaders.
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class=darktable
+!Skyhold !!Shadowlands scenario 
+|-
+|{{Elinks-zone|7813}}
+|{{Elinks-zone|13637}}
+|}
+
+{{Skyhold|doc=}}
+{{Stormheim}}
+{{Order Halls}}
+
+[[Category:Skyhold| ]]
+[[Category:Halls of Valor]]
+[[Category:Vrykul territories]]
+[[Category:Valarjar]]
+[[Category:Sanctuaries]]
+[[Category:Titan facilities]]

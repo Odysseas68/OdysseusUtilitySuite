@@ -1,0 +1,283 @@
+{{Distinguish|Aszune}}
+{{Infobox zone
+| name = Azsuna
+| ss = WoW 7.0Zones Azsuna EM 008.png
+| faction = Neutral
+| level = {{level|Azsuna}}
+| battlelvl = 25
+| capital = {{Neutral}} [[Ruins of Nar'thalas]]
+| races = {{Race|Naga}}<br/>  {{Race|Demon}}<br/> {{Race|NightElf}}<br/> {{RaceIcon|Nightfallen|Male}}{{RaceIcon|Nightfallen|Female}} [[Nightfallen]]<br/> {{Race|BloodElf}}<br/> {{RaceIcon|Gilgoblin}} [[Gilblin]]<br/> {{Race|Makrura}}<br/> {{Race|Murloc}}<br/> {{Race|Blue Dragonflight}}<br/> {{RaceIcon|Skrog}} [[Sea giant]]<br/> {{RaceIcon|Withered}} [[Withered]]
+| rulers =  {{RaceIcon|Farondis}} [[Prince Farondis]]<br/> {{RaceIcon|Maiev}} [[Maiev Shadowsong]]
+| major =  {{Neutral}} [[Dalaran]]<br/> {{Neutral}} [[Temple of a Thousand Lights]]<br/> {{Neutral}} [[Vault of the Wardens]]
+| minor = {{Neutral}} [[Shackle's Den]]<br/> {{Neutral}} [[Azurewing Repose]]
+| affiliation = [[Court of Farondis]], [[The Wardens]], [[Azurewing]], [[Nazjatar Empire]]
+| loc = Southwestern [[Broken Isles]]
+| territory = Contested
+}}
+
+:''Azsuna was once a gem of the night elf empire. Now much of it lies in ruins, a home for vengeful elven spirits and hidden enclaves of blue dragons. What remains of this haunted land has come under threat from conflict among Azeroth's defenders, an army of serpentine naga, and the Burning Legion.''<ref>''[[The Art of World of Warcraft: Legion]]'', pg. 47</ref>
+
+'''Azsuna''' ({{IPA|/æzˈsuːnə/}} {{respell|az-SOO-nə}}) is an island<ref>[[Down to Azsuna]]</ref> and [[zone]] in the southwestern part of the [[Broken Isles]]. It holds the ruins of the [[night elf]] civlization that existed before the [[Great Sundering]].<ref>[https://web.archive.org/web/20171030131220/https://worldofwarcraft.com/en-us/news/20245588 Legion Zone Preview: Azsuna]</ref> The ghosts of ancient night elves roam this area, along with remnants of the [[blue dragonflight]]. The [[Nightfallen]] maintain a presence here. Azsuna was not destroyed in the Great Sundering, but was actually devastated several years before that by [[Queen Azshara]] herself.<ref>BlizzCon 2015</ref>
+
+This is where one of the [[Pillars of Creation]], the [[Tidestone of Golganneth]], was contested by the [[hero]]es of [[Azeroth]] and the minions of Azshara.<ref>2015-08-08, [http://warcraft.blizzplanet.com/blog/comments/gamescom-2015-world-of-warcraft-legion-story-and-setting-transcript GamesCom 2015 World of Warcraft: Legion Story and Setting Transcript]. ''Blizzplanet'', retrieved on 2015-08-22</ref>
+
+==History==
+Azsuna was originally populated by more than ten thousand elves.<ref>[[Trailing the Tidestone#Notes]]</ref>
+
+[[Queen Azshara]]'s pact with the demon lord [[Sargeras]] went mostly uncontested by her subjects. One of the few that dared to defy her was [[Prince Farondis]].
+
+As one of the queen's trusted advisors, Farondis was in regular contact with the [[Highborne]] of [[Zin-Azshari]], but his palace in Azsuna was several leagues away from the elven capital. As such, he was able to witness Sargeras' influence on the Highborne court without falling sway to the Legion lord's temptation.
+
+Farondis' plan was bold, but simple: destroy the [[Well of Eternity]] in Zin-Azshari. Doing so would close the portal to Sargeras' realm and stem the tide of evil before it even started. In order to accomplish this task, he would use the power of an artifact stored deep within [[Nar'thalas Academy]]: the [[Tidestone of Golganneth]]. 
+
+Unfortunately, the queen's influence in Farondis' palace was already deep-seated. [[Vandros]], a young noble in Farondis' court, caught word of Farondis' plans to defy the Queen, and reported the insurrection to Queen Azshara herself.
+
+Azshara wasted no time in punishing Farondis and his people. In a frightening display of arcane power, she destroyed the Tidestone of Golganneth, and in doing so, released a wave of dark energy over all of Azsuna and its inhabitants.
+
+Since that day, the elves of Azsuna have been unable to experience the release of death, and their spirits wander the land indefinitely.<ref>[[Children of Nar'thalas]]</ref>
+
+At some point during the [[Third invasion of the Burning Legion|invasion]], the [[Knights of the Silver Hand|Order of the Silver Hand]] sent their troops into the region after discovering a small [[demon]] force in the east, and hearing rumors that they report directly to [[Balnazzar]]. However, they were lead by [[Pitlord Argamemm]] who was killed by the paladins.<ref>[[The Highlord's Command: Nemesis]]</ref>
+
+==Geography==
+===Maps and subregions===
+[[File:VZ-Azsuna.jpg|thumb|left|Map of Azsuna.]]
+
+{| class="darktable hlist" 
+|-
+|
+*[[Abandoned Crossroads|The Abandoned Crossroads]]
+*[[Alluvanon's Delta]]
+*[[Azurewing Repose]]
+**[[Leyhollow]]
+*[[Azurewing Whelplands]]
+**[[Runas's Hovel]]
+*[[Challiane's Terrace]]
+*[[Dead Man's Bay]]
+*[[El'dranil Peak]]
+*[[El'dranil Shallows]]
+**[[Eye of Azshara]]
+**[[Gangamesh's Den]]
+**[[Hatecoil Slave Pen]]
+**[[Hatecoil Warcamp]]
+***[[Eksis' Lair]]
+*[[Empyrean Society Enclave|The Empyrean Society Enclave]]
+**[[Empyrean Society Headquarters]]
+*[[Faronaar]]
+**[[Altar of End Times]]
+***[[Den of Fiends]]
+***[[Pit of Malinoth]]
+**[[Burning Gate|The Burning Gate]]
+**[[Felbeast Dens]]
+**[[Felfire Cavern]]
+**[[Felsurge Nest]]
+**[[Felwatch Point]]
+**[[Fiendish Vault]]
+**[[Illidari Perch]]
+**[[Legion Camp: Chaos]]
+**[[Legion Camp: Ruin]]
+**[[Pits of Despair]]
+**[[Soul Engine: Apocalypse]]
+**[[Soulrender|The Soulrender]]
+**[[Traitor's Overlook]]
+**[[Trickster's Cut]]
+**[[Vanquish Point]]
+*[[Faronaar Front]]
+*[[Farondale]]
+*[[Felblaze Ingress]]
+*[[Forever Rise]]
+*[[Garden of Elune]]
+*[[Greenway|The Greenway]]
+**[[Lyndras' Exile]]
+*[[Grey Shoals]]
+*[[Illidari Stand]]
+*[[Isle of the Watchers]]
+**[[Vault of the Wardens]]
+**[[Wardens' Redoubt]]
+**[[Watchers' Aerie]]
+*[[Ley-Ruins of Zarkhenar]]
+*[[Lithduin Reef]]
+*[[Llothien]]
+*[[Llothien Highlands]]
+*[[Lost Orchard|The Lost Orchard]]
+*[[Mak'rana]]
+*[[Nor'Danil Wellspring]]
+*[[Oceanus Cove]]
+*[[Old Coast Path]]
+*[[Olivian Veil]]
+**[[Gloombound Barrow]]
+*[[Paledoom's Overlook]]
+*''[[The Queen's Reprisal|Queen's Reprisal]]''
+*[[Rhut'van Divide]]
+*[[Rhut'van Passage]]
+*[[Rhut'van Peak]]
+*[[Ruined Sanctum|The Ruined Sanctum]]
+*[[Ruins of Nar'thalas]]
+**[[Crumbled Palace]]
+**[[Drowned Gardens]]
+**[[Nar'thalas Academy]]
+***[[Hall of Antiquities]]
+***[[Hall of Arcane Learning]]
+**[[Royal Pond|The Royal Pond]]
+*[[Seabreak Isle]]
+*[[Shackle's Den]]
+*[[Shipwreck Arena]]
+*[[Temple of a Thousand Lights]]
+*[[Tidal Marsh|The Tidal Marsh]]
+**[[Lair of the Deposed]]
+*[[Timeworn Strand]]
+|}
+{{clear|left}}
+
+===Instances===
+{| class="darktable zebra"
+!Instance name 
+!Level range 
+!Group size
+|-
+|{{portal|Eye of Azshara (instance)|legion|Eye of Azshara}} || 100-110
+| 5
+|-
+|{{portal|Vault of the Wardens|legion}} || 100-110
+| 5
+|}
+
+===Travel hubs===
+;{{neutral}} Flight paths from [[Illidari Stand]]
+;{{neutral}} Flight paths from [[Illidari Perch]]
+;{{neutral}} Flight paths from [[Azurewing Repose]]
+;{{neutral}} Flight paths from [[Challiane's Terrace]]
+;{{neutral}} Flight paths from [[Felblaze Ingress]]
+;{{neutral}} Flight paths from [[Shackle's Den]]
+;{{neutral}} Flight paths from [[Wardens' Redoubt|Warden's Redoubt]]
+;{{neutral}} Flight paths from [[Watchers' Aerie]]
+;{{neutral}} Flight paths from [[Eye of Azshara]]
+
+===Adjacent regions===
+{| class="darktable zebra"
+|-
+! Zone Name !! Faction !! Level Range !! Direction !! Access
+|-
+| [[Val'sharah]] || {{Alliance}}{{Horde}} || 100-110 (scaled) || North|| By foot or by flight path
+|-
+| [[Suramar]] || {{Alliance}}{{Horde}} || 110 || Northeast || By foot or by flight path
+|}
+
+==Notable characters==
+{{Main|Azsuna NPCs}}
+
+* {{NPC|Neutral|Prince Farondis|icon=Farondis}}
+* {{NPC|Neutral|Senegos|icon=Senegos}}
+* {{NPC|Neutral|Kor'vas Bloodthorn|icon=NightElfDemonHunter Female}}
+* {{NPC|Hostile|Tidemistress Athissa|icon=Athissa}}
+* {{NPC|Hostile|Cordana Felsong|icon=Cordana}}
+
+==Quests==
+{{Main|Azsuna storyline}}
+
+==Resources==
+{{columns|2|
+* Cloth
+** [[Shal'dorei Silk]]
+* Herbalism
+** [[Aethril]]
+** [[Yseralline Seed]]
+** [[Felwort]]
+* Skinning
+** [[Stonehide Leather]]
+** [[Stormscale]]
+** [[Unbroken Tooth]]
+** [[Unbroken Claw]]
+** [[Felhide]]
+* Mining
+** [[Leystone Ore]]
+** [[Felslate]]
+** [[Infernal Brimstone]]
+*Fishing
+** [[Silver Mackerel]]
+** [[Black Barracuda]]
+** [[Cursed Queenfish]]
+}}
+
+==Wild creatures==
+{{columns|2|
+* {{RaceIcon|Bear}} [[Bear]]s
+* {{RaceIcon|Crab}} [[Crab]]s
+* Fish
+** {{RaceIcon|Grouper}} [[Grouper]]s
+** {{RaceIcon|Puffer}} [[Puffer fish]]
+** {{RaceIcon|Ray2}} [[Ray]]s
+** {{RaceIcon|Seahorse}} [[Seahorse]]s
+** {{RaceIcon|Shark}} [[Shark]]s
+* {{RaceIcon|Eagle}} [[Eagle]]s
+* {{RaceIcon|Frog}} [[Frog]]s
+* {{RaceIcon|Fox}} [[Fox]]es
+* {{RaceIcon|Seagull}} [[Gull]]s
+* {{RaceIcon|Hippogryph}} [[Hippogryph]]s
+* {{RaceIcon|Hydra2}} [[Hydra]]s
+* {{RaceIcon|LionSeal}} [[Lion seal]]s
+* {{RaceIcon|ManaWyrm}} [[Mana wyrm]]s
+* {{RaceIcon|Owl2}} [[Owl]]s
+* {{RaceIcon|Gyreworm}} [[Gyreworm]]s
+* {{RaceIcon|ShaleSpider}} [[Shale spider]]s
+* {{RaceIcon|Spider}} [[Spider]]s
+* {{RaceIcon|Snail}} [[Snail]]s
+* {{RaceIcon|Turtle}} [[Turtle]]s
+* {{RaceIcon|Unicorn2}} [[Unicorn]]s
+}}
+
+===Wild creatures===
+{{columns|2|
+*[[Albatross Chick]]
+*[[Coastal Sandpiper]]
+*[[Eldritch Manafiend]]
+*[[Erudite Manafiend]]
+*[[Felspider]]
+*[[Fledgling Kingfeather]]
+*[[Fledgling Oliveback]]
+*[[Olivetail Hare]]
+*[[Squirky]]
+}}
+
+==Notes and trivia==
+*Some quests seem to name it "Aszuna".<ref>[[Slippery Scales]]</ref><ref>[[Seeker of Secrets]]</ref>
+*The [[Eye of Azshara]] island was originally called "Aszuna Isle".<ref>[[:File:Eye of Azshara Design Document.jpg]]</ref>
+*In the Legion World Panel during [[BlizzCon 2015]], the devs mentioned that Azsuna had a "Greek isle theme, with stylized olive and cypress trees".
+
+==Gallery==
+<gallery>
+File:WoW 7.0Zones Azsuna EM 002.png
+File:WoW 7.0Zones Azsuna EM 006.png
+File:WoW 7.0Zones Azsuna EM 012.png
+File:Azsuna BlizzCon 2015 concept art layout.jpg|Concept art of Azsuna.
+File:Legion zone concept 9.jpg|Concept art of Azsuna.<ref>''[[The Art of World of Warcraft: Legion]]'', pg. 46 and 53</ref>
+File:Legion zone concept 10.jpg|Concept art of Azsuna.<ref>''[[The Art of World of Warcraft: Legion]]'', pg. 50</ref>
+File:Azsuna inland concept art layout.jpg|Concept art of inland Azsuna.
+File:Azsuna shores concept art 1.jpg
+File:Azsuna shores concept art 2.jpg
+File:Azsuna shores concept art 3.jpg
+File:Azsuna shores concept art 4.jpg
+File:Azsuna lagoon concept art 1.jpg
+File:Azsuna lagoon concept art 2.jpg
+File:Azsuna flora concept art.jpg
+File:Azsuna elevation concept art.jpg
+</gallery>
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class=darktable
+|{{Elinks-zone|7334}}
+|{{Elinks-zone|8000}}
+|{{Elinks-zone|8625}}
+|}
+
+{{Azsuna}}
+{{Broken Isles}}
+
+[[Category:Azsuna| ]]
+[[Category:Islands]]
+[[Category:Great Sea]]

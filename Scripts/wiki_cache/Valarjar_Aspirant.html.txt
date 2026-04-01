@@ -1,0 +1,90 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width:21.5em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Mob" title="Mob"><img alt="Mob" src="/images/Combat_32.png?8066c4" decoding="async" loading="lazy" width="32" height="32" data-file-width="32" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Valarjar Aspirant</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="https://warcraft.wiki.gg/wiki/Special:Upload?wpDestFile=Valarjar+Aspirant.jpg" title="No image available"><img alt="No image available" src="/images/thumb/Vrykulmale_nopic.jpg/200px-Vrykulmale_nopic.jpg?4252be" decoding="async" loading="lazy" width="200" height="228" data-file-width="300" data-file-height="342" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Gender</th><td>
+Both</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race</th><td>
+<a href="/wiki/Vrykul" title="Vrykul">Vrykul</a>&#160;(Humanoid)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Level</th><td>
+100 - 110 Elite / Normal</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Resource</th><td>
+<span class="rc-mana"><a href="/wiki/Mana_(game_resource)" title="Mana (game resource)">Mana</a></span></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Reaction</th><td>
+<a href="/wiki/Alliance" title="Alliance"><span class="rep-hostile" title="Hostile">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-hostile" title="Hostile">Horde</span></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation(s)</th><td>
+<a href="/wiki/Valkyra" title="Valkyra">Valkyra</a>, <a href="/wiki/Valarjar" title="Valarjar">Valarjar</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Location</th><td>
+<a href="/wiki/Halls_of_Valor" title="Halls of Valor">Halls of Valor</a>; <a href="/wiki/Skyhold" title="Skyhold">Skyhold</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Killable / Alive</td></tr></tbody></table>
+<p><b>Valarjar Aspirants</b> are <a href="/wiki/Vrykul" title="Vrykul">vrykul</a> located in the <a href="/wiki/Halls_of_Valor" title="Halls of Valor">Halls of Valor</a> and in <a href="/wiki/Skyhold" title="Skyhold">Skyhold</a>.
+</p>
+<h2><span class="mw-headline" id="Abilities">Abilities</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Valarjar_Aspirant?action=edit&amp;section=1" title="Edit section: Abilities"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><b>Blast of Light</b> - The caster blasts enemies with a beam of light, inflicting 1576452 to 1586202 Holy damage.</li>
+<li><b>Valkyra's Advance</b> - The caster leaps towards an enemy, inflicting 1089677 to 1121877 Physical damage to all enemies within 5 yds. of the impact.</li></ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Valarjar_Aspirant?action=edit&amp;section=2" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_7.0.3" title="Patch 7.0.3">Patch 7.0.3</a> (2016-07-19):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Valarjar_Aspirant?action=edit&amp;section=3" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable">
+
+<tbody><tr>
+<th></th>
+<th></th>
+<th>
+</th></tr>
+<tr>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/npc=101637">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/npcs/101637">WoWDB</a></li>
+
+
+
+</ul>
+</td>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/npc=96401">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/npcs/96401">WoWDB</a></li>
+
+
+
+</ul>
+</td>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/npc=113267">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/npcs/113267">WoWDB</a></li>
+
+
+
+</ul>
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20260322005124
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: []
+CPU time usage: 0.090 seconds
+Real time usage: 0.224 seconds
+Preprocessor visited node count: 2469/1000000
+Revision size: 1017/4194304 bytes
+Post‐expand include size: 13968/4194304 bytes
+Template argument size: 894/4194304 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.007/15.000 seconds
+Lua memory usage: 720940/52428800 bytes
+Number of processed Cargo queries: 0
+Time spent processing Cargo queries: 0.000 s (avg. 0.000 s)
+Number of Cargo row insertion attempts: 1
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  174.067      1 -total
+ 70.39%  122.522      1 Template:Npcbox
+ 65.35%  113.751      1 Template:Infobox
+ 31.34%   54.551      1 Template:Level
+ 11.42%   19.875      1 Template:Stub/Mob
+ 11.00%   19.145      1 Template:NPC_placeholder_image
+ 10.23%   17.808      1 Template:Stub/Box
+ 10.19%   17.736      2 Template:Amdiv
+  8.06%   14.035      1 Template:Screenshot
+  5.70%    9.929      1 Template:Elinks-NPC3
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:163387-0!canonical and timestamp 20260322005124 and revision id 5754049. Rendering was triggered because: edit-page
+ -->
+</div>

@@ -1,0 +1,66 @@
+{{Npcbox
+| name = Valdemar Stormseeker
+| image = Valdemar Stormseeker.png
+| title = Valarjar Emissary
+| gender = Male
+| race = Vrykul
+| creature = Humanoid
+| level = Stormheim
+| aggro = {{Aggro|1|1}}
+| repfaction = Valarjar
+| faction = Neutral
+| occupation = [[Ambassador]]
+| location = [[Valdisdall]], [[Stormheim]]{{coords|60|51|Stormheim}}
+| status = Alive
+}}
+
+'''Valdemar Stormseeker''' is a [[vrykul]] emissary and [[Valarjar]]'s quartermaster found at [[Valdisdall]] in [[Stormheim]].
+
+==Sells==
+{{Valarjar}}
+
+==Quests==
+{{Legion-section}}
+*[[Paragon of the Valarjar]] {{questfinish}}
+*[[Supplies From the Valarjar]] {{questfinish}}
+*[[Supplies Needed: Fjarnskaggl]] {{queststartfinish}}
+*[[Supplies Needed: Leystone (Stormheim)]] {{queststartfinish}}
+*[[Supplies Needed: Stormscales (Stormheim)]] {{queststartfinish}}
+*[[The Valarjar (quest)]] {{questfinish}}
+*[[Vantus Rune Work Order: Nythendra]] {{queststartfinish}}
+*[[Work Order: Fjarnskaggl]] {{queststartfinish}}
+*[[Work Order: Gunpack]] {{queststartfinish}}
+*[[Work Order: Leystone (Stormheim)]] {{queststartfinish}}
+*[[Work Order: Leystone Breastplate]] {{queststartfinish}}
+*[[Work Order: Queen's Opal Loop]] {{queststartfinish}}
+*[[Work Order: Silkweave Bracers]] {{queststartfinish}}
+*[[Work Order: Skaggldrynk]] {{queststartfinish}}
+*[[Work Order: Stormrays]] {{queststartfinish}}
+*[[Work Order: Stormscales (Stormheim)]] {{queststartfinish}}
+*[[Work Order: Warhide Footpads]] {{queststartfinish}}
+*[[Work Order: Word of Haste]] {{queststartfinish}}
+
+{{Bfa-section}}
+*[[Ring of the Reefs (quest)]] {{questfinish}}
+
+==Quotes==
+;Gossip
+{{Dialogue|
+How may I help you?
+
+{{Buy|I want to browse your goods.}}
+}}
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==External links==
+{{Elinks-NPC|106904}}
+
+{{DEFAULTSORT:Stormseeker, Valdemar}}
+[[Category:Vrykul characters]]
+[[Category:Faction quartermasters]]
+[[Category:Emissaries]]
+[[Category:Valarjar]]
+[[Category:Quest givers]]
+[[Category:Stormheim NPCs]]

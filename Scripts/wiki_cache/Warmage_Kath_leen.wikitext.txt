@@ -1,0 +1,160 @@
+{{Npcbox
+ | name = Warmage Kath'leen
+ | image = Warmage Kath'leen.jpg
+ | title = Legionfall Artificer
+| resource = Mana
+ | affiliation = [[Kirin Tor]], [[Dalaran (kingdom)|Magocracy of Dalaran]], [[Armies of Legionfall]]
+ | aggro = {{Aggro|1|1}}
+ | race = Human
+ | faction = Neutral
+ | gender = Female
+ | creature = Humanoid
+ | class = [[Mage]]
+ | occupation = [[Warmage]], [[Artificer]], [[Merchant]]
+ | location = [[#Locations|Various]]
+ | status = Unknown
+}}
+
+'''Warmage Kath'leen''' is a [[human]] located near the [[Violet Citadel]] in [[Dalaran]]. She can provide directions for various locations in the [[Dalaran]].
+
+It is currently unknown if she survived Dalaran's destruction.
+
+{{legion-section}}
+With the invasion of the [[Burning Legion]], she joined the effort of the [[Armies of Legionfall]] as one of their artificers.
+
+==Locations==
+{{Npchealth|align=
+ | location1 = [[Dalaran]] {{Wotlk-inline}}
+ | level1 = 80
+ | health1 = 10,080
+ | location2 = [[Dalaran]] {{Legion-inline}}
+ | level2 = 105
+ | health2 = 611,763
+ | loc3 = Deliverance Point
+ | level3 = 110
+ | health3 = 1,039,267
+}}
+
+==Quests==
+*[[The Shadow of the Sentinax]] {{questfinish}}
+
+==Vendor==
+[[File:Warmage Kath'leen Deliverance Point.jpg|thumb|Kath'leen at Deliverance Point.]]
+{{Repair}}
+<onlyinclude>{| class="darktable zebra"
+|+ [[Warmage Kath'leen]]<br />{{title|Legionfall Artificer}}
+! Item !! Cost !! Type
+|-
+| [[Nethershard Essence]]
+| align=center | {{cost|ns=8000}} || Reagent
+|-
+| [[Nether Portal Disruptor]]
+| align=center | {{cost|ns=250}} || Usable
+|-
+| [[Legionfall Banner]]
+| align=center | {{cost|ns=4000}} || Usable
+|-
+| [[Cauterizing Void Shard]]
+| align=center | {{cost|ns=5000}} || Usable
+|-
+| [[Repurposed Fel Focuser]]
+| align=center | {{cost|ns=7500}} || Enhancement
+|-
+| [[Legion Pocket Portal]]
+| align=center | {{cost|ns=7500}} || Toy
+|-
+| [[Legionfall Tabard]]
+| align=center | {{cost|ns=10000}} || Tabard
+|-
+| [[Legion Invasion Simulator]]
+| align=center | {{cost|ns=25000}} || Toy
+|-
+| [[Dauntless Hood]]
+| align=center | {{cost|ns=400}} || Head
+|-
+| [[Dauntless Spaulders]]
+| align=center | {{cost|ns=400}} || Shoulder
+|-
+| [[Dauntless Tunic]]
+| align=center | {{cost|ns=400}} || Chest
+|-
+| [[Dauntless Leggings]]
+| align=center | {{cost|ns=400}} || Legs
+|-
+| [[Dauntless Girdle]]
+| align=center | {{cost|ns=400}} || Waist
+|-
+| [[Dauntless Gauntlets]]
+| align=center | {{cost|ns=400}} || Hands
+|-
+| [[Dauntless Treads]]
+| align=center | {{cost|ns=400}} || Feet
+|-
+| [[Dauntless Bracers]]
+| align=center | {{cost|ns=400}} || Wrist
+|-
+| [[Dauntless Cloak]]
+| align=center | {{cost|ns=400}} || Back
+|-
+| [[Dauntless Choker]]
+| align=center | {{cost|ns=400}} || Neck
+|-
+| [[Dauntless Ring]]
+| align=center | {{cost|ns=400}} || Finger
+|-
+| [[Dauntless Trinket]]
+| align=center | {{cost|ns=400}} || Trinket
+|-
+| [[Relinquished Armor Set]]
+| align=center | {{cost|ns=400}} || Usable
+|-
+| [[Arsenal: Armaments of the Silver Hand]]
+| align=center | {{cost|ns=1000}} || Appearance
+|-
+| [[Arsenal: Armaments of the Ebon Blade]]
+| align=center | {{cost|ns=2000}} || Appearance
+|-
+| [[Technique: Glyph of Wrathguard]]
+| align=center | {{cost|ns=2500}} || Recipe
+|}</onlyinclude>
+
+== Quotes ==
+=== Deliverance Point, Broken Shore ===
+;Gossip
+{{Dialogue|
+<Class title>, see something you like?
+
+:{{buy|I would like to buy from you.}}
+}}
+
+;Patch 7.3.0
+{{Dialogue|
+{{Gossip|Where did [[Thaumaturge Vashreen]] go with the Relinquished items?}}
+:Vashreen? He mentioned something about procuring new items and relocating to the [[Vindicaar]] on [[Argus]].
+}}
+
+==Notes==
+*She has the same model as [[Warmage Watkins]].
+
+==Patch changes==
+*{{Patch 7.2.0|note=Added to [[Broken Shore]] as Armies of Legionfall vendor.}}
+*{{Patch 7.0.3|note=Added in the ''[[Legion]]'' version of [[Dalaran]].}}
+*{{Patch 3.0.2|note=Added.}}
+
+==External links==
+{{Elinks-NPC3|32723|96772|120898|loc1=Northrend|loc2=The Broken Isles|loc3=Deliverance Point}}
+
+{{DEFAULTSORT:Kath'leen}}
+[[Category:Human characters]]
+[[Category:Mage characters]]
+[[Category:Warmages]]
+[[Category:Armor vendors]]
+[[Category:Toy vendors]]
+[[Category:Information givers]]
+[[Category:Kirin Tor]]
+[[Category:Dalaran (kingdom)]]
+[[Category:Quest enders]]
+[[Category:Armies of Legionfall]]
+[[Category:Dalaran (Northrend) NPCs]]
+[[Category:Dalaran NPCs]]
+[[Category:Broken Shore NPCs]]

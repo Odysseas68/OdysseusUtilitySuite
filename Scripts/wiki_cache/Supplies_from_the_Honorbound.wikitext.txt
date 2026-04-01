@@ -1,0 +1,37 @@
+{{Questbox
+|id=54455
+|name=Supplies from the Honorbound
+|faction=Horde
+|category=Zuldazar
+ | level = {{level|bfa-max}}
+ | levelreq = {{level|bfa-max}}
+|type=Emissary Quest
+|start=Automatic
+|end=[[Ransa Greyfeather]]
+|rewards=[[Honorbound Supplies]]<br />[[Humming Azerite Heart]]
+|shareable=No
+}}
+
+==Objectives==
+Speak with [[Ransa Greyfeather]] in the [[Port of Zandalar]] for your reward.
+
+==Description==
+<Class title>, thanks to your efforts against the [[Alliance]], our forces have been able to secure additional resources from the battlefield.
+
+The more you continue to dominate the battlefield the more resources our forces can spare.
+
+==Rewards==
+{{itembox|You will receive:
+|Honorbound Supplies
+|Humming Azerite Heart
+}}
+
+==Patch changes==
+* {{Patch 8.2.0|note=Azerite reward moved from paragon container to quest.}}
+* {{Patch 8.1.0|note=Added.}}
+
+==External links==
+{{Elinks-quest|54455}}
+
+[[Category:Emissary quests]]
+[[Category:Dazar'alor quests]]

@@ -1,0 +1,27 @@
+{{Npcbox
+ | name = Legionfall Supplier
+ | image = Legionfall Supplier.jpg
+ | race = Human
+ | gender = Male
+ | level = Broken Shore
+ | creature = Humanoid
+ | aggro = {{Aggro|1|1}}
+ | faction = Neutral
+ | affiliation = [[Armies of Legionfall]]
+ | character = [[Peasant]]
+ | status = Alive
+ | location = [[Deliverance Point]], [[Broken Shore]]
+}}
+
+'''Legionfall Suppliers''' are [[human]]s located at [[Deliverance Point]] in the [[Broken Shore]].
+
+==Patch changes==
+*{{Patch 7.2.0|note=Added.}}
+
+==External links==
+{{Elinks-NPC|120346}}
+
+[[Category:Human characters]]
+[[Category:Peasants]]
+[[Category:Armies of Legionfall]]
+[[Category:Broken Shore NPCs]]

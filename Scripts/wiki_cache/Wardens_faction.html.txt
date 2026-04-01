@@ -1,0 +1,272 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><dl><dd><span class="noexcerpt" data-nosnippet=""><i>This article is about the in-game faction called The Wardens.&#32;&#32;For their lore and background, see <a href="/wiki/Warden" title="Warden">warden</a>&#32;and <a href="/wiki/Watchers" title="Watchers">Watchers</a>.&#32;&#32;For other uses, see <a href="/wiki/Warden_(disambiguation)" title="Warden (disambiguation)">Warden (disambiguation)</a>.</i></span></dd></dl>
+<table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width: 23em;;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_32.png?ae6e60" decoding="async" loading="lazy" width="18" height="32" data-file-width="18" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">The Wardens</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Vault_of_the_Wardens_loading_screen.jpg" class="image"><img alt="Vault of the Wardens loading screen.jpg" src="/images/thumb/Vault_of_the_Wardens_loading_screen.jpg/260px-Vault_of_the_Wardens_loading_screen.jpg?b3a600" decoding="async" loading="lazy" width="260" height="146" data-file-width="1920" data-file-height="1080" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Main leader</th><td>
+<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Maiev.gif/16px-IconSmall_Maiev.gif?af9e97" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Maiev_Shadowsong" title="Maiev Shadowsong"><span style="color:">Maiev Shadowsong</span></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">&#160;&#160;Formerly</th><td>
+<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Warden2.gif/16px-IconSmall_Warden2.gif?a94303" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Sira_Moonwarden" title="Sira Moonwarden"><span style="color:">Sira Moonwarden</span></a> (in absentia)<sup id="cite&#95;ref-DealWithIt&#95;1-0" class="reference"><a href="#cite_note-DealWithIt-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-Working&#95;With&#95;the&#95;Wardens&#95;2-0" class="reference"><a href="#cite_note-Working_With_the_Wardens-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race(s)</th><td>
+<span class="linkicon raceicon RaceLink"><a href="/wiki/Night_elf" title="Night elf"><img alt="Night elf" src="/images/thumb/IconSmall_NightElf_Male.gif/16px-IconSmall_NightElf_Male.gif?289027" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Night_elf" title="Night elf"><img alt="Night elf" src="/images/thumb/IconSmall_NightElf_Female.gif/16px-IconSmall_NightElf_Female.gif?8b2b20" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Night_elf" title="Night elf">Night elf</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Character classes</th><td>
+<a href="/wiki/Warden" title="Warden">Warden</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Base of operations</th><td>
+<a href="/wiki/Vault_of_the_Wardens" title="Vault of the Wardens">Vault of the Wardens</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Theater of operations</th><td>
+<a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation</th><td>
+<a href="/wiki/Watchers" title="Watchers">Watchers</a>, <a href="/wiki/Armies_of_Legionfall" title="Armies of Legionfall">Armies of Legionfall</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Active</td></tr><tr><th colspan="2" style="text-align:center;">Reputation</th></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Quartermaster</th><td>
+<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Warden2.gif/16px-IconSmall_Warden2.gif?a94303" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Marin_Bladewing" title="Marin Bladewing"><span style="color:">Marin Bladewing</span></a></td></tr></tbody></table>
+<p><b>The Wardens</b> are <a href="/wiki/Night_elf" title="Night elf">night elven</a> <a href="/wiki/Warden" title="Warden">wardens</a> loyal to <a href="/wiki/Maiev_Shadowsong" title="Maiev Shadowsong">Maiev Shadowsong</a> operating in the <a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a>. They have worked from their base of operations, the <a href="/wiki/Isle_of_the_Watchers" title="Isle of the Watchers">Isle of the Watchers</a> in <a href="/wiki/Azsuna" title="Azsuna">Azsuna</a>, to hunt down and neutralize major threats to <a href="/wiki/Azeroth" title="Azeroth">Azeroth</a>'s inhabitants, through imprisonment or summary execution. Captured foes were interned in the <a href="/wiki/Vault_of_the_Wardens" title="Vault of the Wardens">Vault of the Wardens</a>. 
+</p><p>They reward the heroes who help them deal with dangerous threats on the <a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a>. The faction is known to possess <a href="/wiki/Warden_Towers" title="Warden Towers">Warden Towers</a> across the Broken Isles, although in recent times they have been forced to abandon many of them. There are two in most <i>Legion</i> zones that serve as PvP targets.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Reputation"><span class="tocnumber">2</span> <span class="toctext">Reputation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Faction_description"><span class="tocnumber">2.1</span> <span class="toctext">Faction description</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Rewards"><span class="tocnumber">2.2</span> <span class="toctext">Rewards</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Notes"><span class="tocnumber">3</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Patch_changes"><span class="tocnumber">4</span> <span class="toctext">Patch changes</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Wardens_(faction)?action=edit&amp;section=1" title="Edit section: History"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<dl><dd><span class="noexcerpt" data-nosnippet=""><i>Main article: <a href="/wiki/Watchers" title="Watchers">Watchers</a></i></span></dd></dl>
+<p>At the outset of the <a href="/wiki/Third_invasion" class="mw-redirect" title="Third invasion">third invasion</a> of Azeroth by the <a href="/wiki/Burning_Legion" title="Burning Legion">Burning Legion</a>, the <a href="/wiki/Demon" title="Demon">demons</a> targeted the Vault and, with the aid of the traitor warden <a href="/wiki/Cordana_Felsong" title="Cordana Felsong">Cordana Felsong</a>, they succeeded in overrunning the prison complex and retrieving the corpse of <a href="/wiki/Illidan_Stormrage" title="Illidan Stormrage">Illidan Stormrage</a>. <a href="/wiki/Maiev_Shadowsong" title="Maiev Shadowsong">Maiev Shadowsong</a> was captured during the conflict and taken to <a href="/wiki/Black_Rook_Hold" title="Black Rook Hold">Black Rook Hold</a>. The Wardens worked with the <a href="/wiki/Illidari" title="Illidari">Illidari</a> to fight back the invading demons.<sup id="cite&#95;ref-Working&#95;With&#95;the&#95;Wardens&#95;2-1" class="reference"><a href="#cite_note-Working_With_the_Wardens-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>In Shadowsong's absence, <span class="raceicon"></span><a href="/wiki/Sira_Moonwarden" title="Sira Moonwarden"><span style="color:">Sira Moonwarden</span></a> took up the mantle of leadership.<sup id="cite&#95;ref-DealWithIt&#95;1-1" class="reference"><a href="#cite_note-DealWithIt-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> The Wardens continued their duties of upholding justice and safeguarding the world's inhabitants, directing <a href="/wiki/Adventurer" title="Adventurer">order leaders</a> to eliminate various threats on the <a href="/wiki/Broken_Isles" title="Broken Isles">Broken Isles</a>. It is implied that the vast majority of the Wardens' ranks have been decimated by recent events,<sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>3<span class="cite-bracket">&#93;</span></a></sup> making it necessary for them to <a href="/wiki/Warden_Trainee" title="Warden Trainee">train new recruits</a>, and to directly ask <a href="/wiki/Adventurer" title="Adventurer">adventurers</a> to hunt down prisoners who have escaped from the <a href="/wiki/Vault_of_the_Wardens" title="Vault of the Wardens">Vault of the Wardens</a>.<sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>4<span class="cite-bracket">&#93;</span></a></sup>
+</p><p>Following the creation of the <a href="/wiki/Armies_of_Legionfall" title="Armies of Legionfall">Armies of Legionfall</a>, members of the Wardens, including the now freed Maiev and several <a href="/wiki/Warden_Vigilant" title="Warden Vigilant">Warden Vigilants</a>, participated in the <a href="/wiki/Assault_on_Broken_Shore" title="Assault on Broken Shore">Assault on Broken Shore</a>.
+</p>
+<h2><span class="mw-headline" id="Reputation">Reputation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Wardens_(faction)?action=edit&amp;section=2" title="Edit section: Reputation"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Faction_description">Faction description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Wardens_(faction)?action=edit&amp;section=3" title="Edit section: Faction description"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><i>After Legion forces broke the Vault of the Wardens with the aid of <span class="raceicon"></span><a href="/wiki/Gul%27dan" title="Gul&#39;dan"><span style="color:">Gul'dan</span></a>, what few Wardens remain are determined to rebuild their prison and hunt down the terrifying beasts that were let loose when it fell.</i>
+</p>
+<h3><span class="mw-headline" id="Rewards">Rewards</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Wardens_(faction)?action=edit&amp;section=4" title="Edit section: Rewards"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="darktable zebra">
+<caption><span class="raceicon"></span><a href="/wiki/Marin_Bladewing" title="Marin Bladewing"><span style="color:">Marin Bladewing</span></a><br /><span style="">&lt;<a class="mw-selflink selflink">Wardens</a> Emissary&gt;</span>
+</caption>
+<tbody><tr>
+<th>Rep</th>
+<th>Item</th>
+<th>Cost</th>
+<th>Type</th>
+<th>Other
+</th></tr>
+<tr>
+<th rowspan="4"><a href="/wiki/Honored" class="mw-redirect" title="Honored"><span class="rep-honored" title="Honored">Honored</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Garrison_silverchest.png/16px-Garrison_silverchest.png?98596c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Trapped_Treasure_Chest_Kit" title="Trapped Treasure Chest Kit"><span class="itemlink ajaxttlink qc-rare" title="Trapped Treasure Chest Kit is a rare quality item."><span class="bracket">&#91;</span>Trapped Treasure Chest Kit<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">300<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Toy</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_Reinforced_Headgun_(Rank_3)" title="Schematic: Reinforced Headgun (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Schematic: Reinforced Headgun is a common quality item."><span class="bracket">&#91;</span>Schematic: Reinforced Headgun<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">550<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Engineering schematic</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_Bolt-Action_Headgun_(Rank_3)" title="Schematic: Bolt-Action Headgun (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Schematic: Bolt-Action Headgun is a common quality item."><span class="bracket">&#91;</span>Schematic: Bolt-Action Headgun<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">550<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Engineering schematic</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/70_professions_scroll_02.png/16px-70_professions_scroll_02.png?62a00e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Feathered_Luffa" title="Recipe: Feathered Luffa"><span class="itemlink ajaxttlink qc-common" title="Recipe: Feathered Luffa is a common quality item."><span class="bracket">&#91;</span>Recipe: Feathered Luffa<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">600<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>First Aid recipe</td>
+<td>
+</td></tr>
+<tr>
+<th rowspan="7"><a href="/wiki/Revered" class="mw-redirect" title="Revered"><span class="rep-revered" title="Revered">Revered</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pet_wardenowl.png/16px-Inv_pet_wardenowl.png?d6ccd1" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Fledgling_Warden_Owl" title="Fledgling Warden Owl"><span class="itemlink ajaxttlink qc-rare" title="Fledgling Warden Owl is a rare quality item."><span class="bracket">&#91;</span>Fledgling Warden Owl<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Companion</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_rod_titanium.png/16px-Inv_rod_titanium.png?552de6" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Syxsehnz_Rod" title="Syxsehnz Rod"><span class="itemlink ajaxttlink qc-rare" title="Syxsehnz Rod is a rare quality item."><span class="bracket">&#91;</span>Syxsehnz Rod<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Toy</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_boot_plate_legiondungeon_c_01.png/16px-Inv_boot_plate_legiondungeon_c_01.png?60f315" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Vault_Patroller%27s_Warboots" title="Vault Patroller&#39;s Warboots"><span class="itemlink ajaxttlink qc-rare" title="Vault Patroller&#39;s Warboots is a rare quality item."><span class="bracket">&#91;</span>Vault Patroller's Warboots<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,000<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Plate boots</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Vantus_Rune_Technique:_Star_Augur_Etraeus_(Rank_3)" title="Vantus Rune Technique: Star Augur Etraeus (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Vantus Rune Technique: Star Augur Etraeus is a common quality item."><span class="bracket">&#91;</span>Vantus Rune Technique: Star Augur Etraeus<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Inscription technique</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Vantus_Rune_Technique:_Spellblade_Aluriel_(Rank_3)" title="Vantus Rune Technique: Spellblade Aluriel (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Vantus Rune Technique: Spellblade Aluriel is a common quality item."><span class="bracket">&#91;</span>Vantus Rune Technique: Spellblade Aluriel<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Inscription technique</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Vantus_Rune_Technique:_Cenarius_(Rank_3)" title="Vantus Rune Technique: Cenarius (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Vantus Rune Technique: Cenarius is a common quality item."><span class="bracket">&#91;</span>Vantus Rune Technique: Cenarius<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Inscription technique</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/70_professions_scroll_02.png/16px-70_professions_scroll_02.png?62a00e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Spiced_Falcosaur_Omelet" title="Recipe: Spiced Falcosaur Omelet"><span class="itemlink ajaxttlink qc-common" title="Recipe: Spiced Falcosaur Omelet is a common quality item."><span class="bracket">&#91;</span>Recipe: Spiced Falcosaur Omelet<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1000<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Cooking recipe</td>
+<td>
+</td></tr>
+<tr>
+<th rowspan="6"><a href="/wiki/Exalted" class="mw-redirect" title="Exalted"><span class="rep-exalted" title="Exalted">Exalted</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_legion_faction_warden.png/16px-Inv_legion_faction_warden.png?7a7507" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Boon_of_the_Bloodhunter" title="Boon of the Bloodhunter"><span class="itemlink ajaxttlink qc-rare" title="Boon of the Bloodhunter is a rare quality item."><span class="bracket">&#91;</span>Boon of the Bloodhunter<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">200<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Shoulder enchant</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cape_raidhunter_q_01.png/16px-Inv_cape_raidhunter_q_01.png?533102" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Drape_of_the_Patient_Hunter" title="Drape of the Patient Hunter"><span class="itemlink ajaxttlink qc-epic" title="Drape of the Patient Hunter is an epic quality item."><span class="bracket">&#91;</span>Drape of the Patient Hunter<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">5,000<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Cloak</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_tabard_a_86warden.png/16px-Inv_tabard_a_86warden.png?6b9e2b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Warden%27s_Tabard" title="Warden&#39;s Tabard"><span class="itemlink ajaxttlink qc-rare" title="Warden&#39;s Tabard is a rare quality item."><span class="bracket">&#91;</span>Warden's Tabard<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">300<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Tabard</td>
+<td>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Design:_Twisted_Pandemonite_Choker_(Rank_3)" title="Design: Twisted Pandemonite Choker (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Design: Twisted Pandemonite Choker is a common quality item."><span class="bracket">&#91;</span>Design: Twisted Pandemonite Choker<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Jewelcrafting design</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_Sawed-Off_Cranial_Cannon_(Rank_3)" title="Schematic: Sawed-Off Cranial Cannon (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Schematic: Sawed-Off Cranial Cannon is a common quality item."><span class="bracket">&#91;</span>Schematic: Sawed-Off Cranial Cannon<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Engineering schematic</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_Semi-Automagic_Cranial_Cannon_(Rank_3)" title="Schematic: Semi-Automagic Cranial Cannon (Rank 3)"><span class="itemlink ajaxttlink qc-common" title="Schematic: Semi-Automatic Cranial Cannon is a common quality item."><span class="bracket">&#91;</span>Schematic: Semi-Automatic Cranial Cannon<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Engineering schematic</td>
+<td>Rank 3
+</td></tr>
+<tr>
+<th rowspan="1"><b>Paragon</b>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_tabard_a_86warden.png/16px-Inv_tabard_a_86warden.png?6b9e2b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Sira%27s_Extra_Cloak" title="Sira&#39;s Extra Cloak"><span class="itemlink ajaxttlink qc-epic" title="Sira&#39;s Extra Cloak is an epic quality item."><span class="bracket">&#91;</span>Sira's Extra Cloak<span class="bracket">&#93;</span></span></a></span></td>
+<td><a href="/wiki/Warden%27s_Supply_Kit" title="Warden&#39;s Supply Kit">Special</a></td>
+<td>Toy</td>
+<td>
+</td></tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Wardens_(faction)?action=edit&amp;section=5" title="Edit section: Notes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>There are <a href="/wiki/Watchers#Inconsistencies" title="Watchers">inconsistencies</a> with their appearance.</li></ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Wardens_(faction)?action=edit&amp;section=6" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_7.0.3" title="Patch 7.0.3">Patch 7.0.3</a> (2016-07-19):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Wardens_(faction)?action=edit&amp;section=7" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="font-size:calc(80% + 2.1px);"><div style="margin-top:-0.3em; margin-bottom:0px; height:0px">&#160;</div><div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-DealWithIt-1">^ <sup><a href="#cite_ref-DealWithIt_1-0">a</a></sup> <sup><a href="#cite_ref-DealWithIt_1-1">b</a></sup> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<img alt="Demon hunter" src="/images/thumb/Ui-charactercreate-classes_demonhunter.png/16px-Ui-charactercreate-classes_demonhunter.png?76ea3f" decoding="async" loading="lazy" title="Demon hunter" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[45]&#160;</span><a href="/wiki/Deal_With_It_Personally" title="Deal With It Personally"><span class="ajaxttlink questlink">Deal With It Personally</span></a></span></span>
+</li>
+<li id="cite&#95;note-Working&#95;With&#95;the&#95;Wardens-2">^ <sup><a href="#cite_ref-Working_With_the_Wardens_2-0">a</a></sup> <sup><a href="#cite_ref-Working_With_the_Wardens_2-1">b</a></sup> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<img alt="Demon hunter" src="/images/thumb/Ui-charactercreate-classes_demonhunter.png/16px-Ui-charactercreate-classes_demonhunter.png?76ea3f" decoding="async" loading="lazy" title="Demon hunter" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[10-45]&#160;</span><a href="/wiki/Working_With_the_Wardens" title="Working With the Wardens"><span class="ajaxttlink questlink">Working With the Wardens</span></a></span></span>
+</li>
+<li id="cite&#95;note-3"><a href="#cite_ref-3">^</a> <span class="reference-text"><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;[45D WQ]&#160;</span><a href="/wiki/Vault_of_the_Wardens:_A_Grim_Matter" title="Vault of the Wardens: A Grim Matter"><span class="ajaxttlink questlink">Vault of the Wardens: A Grim Matter</span></a></span></span>
+</li>
+<li id="cite&#95;note-4"><a href="#cite_ref-4">^</a> <span class="reference-text"><a href="/wiki/Category:The_Wardens_quests" title="Category:The Wardens quests">Warden quests</a></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Wardens_(faction)?action=edit&amp;section=8" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable">
+<tbody><tr>
+<th>Faction
+</th>
+<th>Paragon
+</th></tr>
+<tr>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/faction=1894">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/factions/1894">WoWDB</a></li>
+
+
+
+</ul>
+</td>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/faction=2090">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/factions/2090">WoWDB</a></li>
+
+
+
+</ul>
+</td></tr></tbody></table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Factions/legion" title="Template:Factions/legion"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Factions/legion?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a> <i><a href="/wiki/World_of_Warcraft:_Legion" title="World of Warcraft: Legion">Legion</a></i> <a href="/wiki/Reputation" title="Reputation">reputation</a> <a href="/wiki/Faction" title="Faction">factions</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><span class="neutral-link">&#160;<a href="/wiki/Neutral" class="mw-redirect" title="Neutral">Neutral</a></span></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Armies_of_Legionfall" title="Armies of Legionfall">Armies of Legionfall</a></li>
+<li><a href="/wiki/Court_of_Farondis" title="Court of Farondis">Court of Farondis</a></li>
+<li><a href="/wiki/Dreamweavers" title="Dreamweavers">Dreamweavers</a></li>
+<li><a href="/wiki/Highmountain_Tribe" title="Highmountain Tribe">Highmountain Tribe</a></li>
+<li><a href="/wiki/Nightfallen_(faction)" title="Nightfallen (faction)">The Nightfallen</a></li>
+<li><a href="/wiki/Talon%27s_Vengeance" title="Talon&#39;s Vengeance">Talon's Vengeance</a></li>
+<li><a class="mw-selflink selflink">The Wardens</a></li>
+<li><a href="/wiki/Valarjar" title="Valarjar">Valarjar</a></li></ul>
+</div></td></tr></tbody></table><div>
+  </div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";;">Individual NPCs</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Akule_Riverhorn" title="Akule Riverhorn">Akule Riverhorn</a></li>
+<li><a href="/wiki/Chronormu" title="Chronormu">Chromie</a></li>
+<li><a href="/wiki/Conjurer_Margoss" title="Conjurer Margoss">Conjurer Margoss</a></li>
+<li><a href="/wiki/Corbyn" title="Corbyn">Corbyn</a></li>
+<li><a href="/wiki/Ilyssia_of_the_Waters" title="Ilyssia of the Waters">Ilyssia of the Waters</a></li>
+<li><a href="/wiki/Impus" title="Impus">Impus</a></li>
+<li><a href="/wiki/Keeper_Raynae" title="Keeper Raynae">Keeper Raynae</a></li>
+<li><a href="/wiki/Sha%27leth" title="Sha&#39;leth">Sha'leth</a></li></ul>
+</div></td></tr></tbody></table><div>
+  </div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";;">Argus</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Argussian_Reach" title="Argussian Reach">Argussian Reach</a></li>
+<li><a href="/wiki/Army_of_the_Light" title="Army of the Light">Army of the Light</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr></tbody></table></td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20260323125907
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.283 seconds
+Real time usage: 0.967 seconds
+Preprocessor visited node count: 8655/1000000
+Revision size: 3458/4194304 bytes
+Post‐expand include size: 45872/4194304 bytes
+Template argument size: 6909/4194304 bytes
+Highest expansion depth: 16/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3308/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.012/15.000 seconds
+Lua memory usage: 1055904/52428800 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  417.754      1 -total
+ 53.05%  221.631      1 Template:The_Wardens
+ 46.56%  194.496     17 Template:Cost
+ 17.16%   71.669      1 Template:Infobox_faction
+ 16.43%   68.640      1 Template:Infobox
+ 16.06%   67.107      4 Template:Navbox
+ 13.81%   57.709      1 Template:Factions
+ 12.65%   52.854      1 Template:Factions/legion
+  6.34%   26.487      1 Template:Reflist
+  4.43%   18.506      1 Template:Race
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:264923-0!canonical and timestamp 20260323125906 and revision id 6455705. Rendering was triggered because: RefreshLinksJob
+ -->
+</div>

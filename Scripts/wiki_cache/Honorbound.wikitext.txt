@@ -1,0 +1,139 @@
+{{Distinguish|Honor Bound}}
+{{Infobox faction
+| name = The Honorbound
+| image = The Honorbound.jpg
+| faction = Horde
+| races ={{Race|Orc}}<br/> {{Race|Forsaken}}<br/> {{Race|Tauren}}<br/> {{Race|JungleTroll}}<br/> {{Race|Blood elf}}<br/> {{Race|Goblin}}<br/> {{RaceIcon|Pandaren2|Male}}{{RaceIcon|Pandaren2|Female}} [[Pandaren]]<br/> {{Race|Nightborne}}<br/> {{Race|Highmountain tauren}}<br/> {{Race|Mag'har orc}}<br/> {{Race|Zandalari}}<br>{{RaceIcon|Goren}} [[Goren]]
+| base = [[The Banshee's Wail|The ''Banshee's Wail'']]
+| theater = [[Kul Tiras]], [[Zandalar]]
+| leader = Unknown
+| fleader = {{RaceIcon|Nathanos}} [[Nathanos Blightcaller]]
+| leaders = {{RaceIcon|Garona}} [[Garona Halforcen]]<br/> {{RaceIcon|OrcGray Female}} [[Kaz the Shrieker]]<br/> {{RaceIcon|Adventurer|Horde}} [[Adventurer|Speaker of the Horde]]
+| language = [[Orcish (language)|Orcish]], Various languages
+| character = [[Warrior]], [[Berserker]], [[Hunter]], [[Shadow hunter]], [[Axethrower]], [[Priest]], [[Mage]], [[Summoner]], [[Shaman]], [[Elementalist]], [[Rogue]], [[Engineer]]
+| affiliation = [[Horde Army]], [[Horde]]
+| status = Active
+}}
+
+'''The Honorbound''' is a faction [[Horde]] based on the [[The Banshee's Wail|The ''Banshee's Wail'']], in the [[Port of Zandalar]]. Reputation is gained by completing quests of the [[Horde War Campaign]] quests, world quests on [[Kul Tiras]] and [[Zandalar]], dungeon world quests, in [[warfront]] zones, and during [[Faction Assault]] quests.
+
+==Faction description==
+''A special delegation of the [[Horde]] army, focused on disrupting [[Alliance]] operations in [[Kul Tiras]].''
+
+==Background==
+{{Bfa-section}}
+[[File:The Banshee's Wail.png|thumb|left|The ''[[Banshee's Wail]]'' docked in the [[Port of Zandalar]].]]
+At Nathanos's command, the [[Adventurer|Speaker of the Horde]] gathered [[War Resources|resources]] for the Honorbound in order to lead operations into [[Kul Tiras]].<ref>[[The War Cache (Horde)]]</ref> At the Speaker's direction, the Honorbound carried out missions of subterfuge, reconnaissance, assassination, and other focused strikes against the [[Alliance]].<ref>[[War of Shadows (Horde)]]</ref> [[Garona Halforcen]] recruited reinforcements for the war effort.<ref>[[Reinforcements (Horde)]]</ref>
+
+As apart of their mission, the Honorbound sought to established footholds within Kul Tiras, though the exact order of their formation is unknown.<ref>[[The Kul Tiras Campaign]]</ref> [[Trade Prince]] [[Jastor Gallywix|Gallywix]], [[Eitrigg]], and the Speaker established the [[Krazzlefrazz Outpost]] within the [[Drustvar]]<ref>[[Krazzlefrazz Outpost (quest)]]</ref> Meanwhile, [[Shadow Hunter Ty'jin]], seeking a base within [[Tiragarde Sound]], struck a bargain with [[Owings|First Mate Owings]] of the [[Fogsail Freebooters]], in which she would allow the Horde the use of [[Plunder Harbor]] in exchange for their aid with her coup against [[Captain Rhenik]].<ref>[[Parleyin' Wit Pirates]]</ref> Thus when she launched her coup the Honorbound aided the mutineers, enabling the death of Rhenik, where soon after Plunder Harbor was officially made a foothold of the Horde.<ref>[[I'm the Captain Now]]</ref><ref>[[Marking Our Territory]]</ref>
+
+After the Honorbound established and fortified [[Warfang Hold]] in [[Stormsong Valley]], they came under attack by the Kul Tiran forces.<ref>[[Foothold: Stormsong Valley]]</ref> The attack forced them to the shore and sank their ships, leaving the Honorbound forces with nowhere to run and nowhere to hide. However, they were saved by the timely intervention of [[High Warlord Cromush]] and the Speaker of the Horde, who manned a cannon against the Kul Tirans on the coast which gave the troops some breathing room.<ref>[[A Wall of Iron]]</ref> The Speaker then united with [[Rexxar]] and [[Centurion Kaga Warmstone]] in putting out the flames within the hold and fighting against the Kul Tiran forces within, culminating in the death of [[Captain Ara]].<ref>[[Douse the Flames]]</ref><ref>[[Hunt Them Down]]</ref> With their enemies dead the Speaker sounded the [[Warhorn of the Hold]], which rallied the troops and allowed the Horde to secure Warfang Hold.<ref>[[Reclaiming What's Ours]]</ref>
+
+With the footholds secured, [[Nathanos Blightcaller]], leader of the Honorbound forces, turned to combating the Alliance, while the Speaker directed them to claim [[Swiftwind Post]], [[Wolf's Den]], [[Windfall Cavern]], [[Stonefist Watch]], [[Hillcrest Pasture]], [[Stonetusk Watch]], and [[Mudfisher Cove]] as Horde outposts.
+
+Seeking the corpse of [[Marshal M. Valentine]], Nathanos directed the Honorbound to sail towards the [[Great Sea]]. As the Speaker searched the sea for Valentine's corpse, the Honorbound came under attack by the [[Alliance]]. However, Nathanos and his forces were able to beat back the Alliance and the Speaker returned to the ''[[Banshee's Wail]]'' with the corpses of Valentine and [[Derek Proudmoore]].<ref>[[Grab and Go]]</ref> Derek's corpse was soon used as bait to lure away Kul Tiran forces from [[Boralus]] so that the Speaker and [[Thomas Zelling]] could claim the [[:Abyssal Scepter]].<ref>[[When a Plan Comes Together]]</ref> As they carried this mission, the Honorbound clashed with the Kul Tirans attacking Plunder Harbor. After the Abyssal Scepter was claimed by the Horde, Nathanos used it to destroy the Kul Tiran fleet, securing victory for the Honorbound.<ref>[[The Aid of the Tides]]</ref>
+
+===Tides of Vengeance===
+[[File:A Path of Blood.jpg|thumb|The Honorbound and [[Zandalari army]] fighting the [[Alliance]] forces at the [[Blood Gate]].]]
+As part of the renewed war effort, the Honorbound launched an assault against the [[Azerite]] supply that was in the possession of Kul Tiras and the Alliance at [[Norwington Estate]].<ref>[[The Fury of the Horde]]</ref> After claiming the Azerite, they withdrew from the manor.<ref>[[Ride Out to Meet Them]]</ref> As the war against the Alliance [[Faction Assaults|intensified]], the Honorbound under the command of High Warlord Cromush defended [[Faction Assault on Vol'dun|Vol'dun]], [[Faction Assault on Nazmir|Nazmir]], and [[Faction Assault on Zuldazar|Zuldazar]] and struck out against Alliance forces within [[Faction Assault on Drustvar|Drustvar]], [[Faction Assault on Tiragarde Sound|Tiragarde Sound]], and [[Faction Assault on Stormsong Valley|Stormsong Valley]].
+
+After receiving word that the Alliance had mounted an attack through [[Nazmir]], the Honorbound joined the [[Zandalari Empire]] in battle against their enemies in the region. Following the death of [[Blademaster Telaamon]] and the destruction of the Abyssal Scepter, the Honorbound discovered that Telaamon and his forces were a bait to lure them away from [[Dazar'alor]] in order to weaken the city's defenses.<ref>[[Parting Mists]]</ref> Realizing that the city was in danger, the combined Zandalari and Horde army rushed back to defend the city.<ref>[[Fly Out to Meet Them]]</ref>
+
+After being informed that the ''[[the Swift Vengeance]]'' had been taken by [[Irontide Raiders|Irontide]] [[pirate]]s of the [[Chandlery Wharf]], Nathanos declared they would be sent to search the area for the stolen ship.<ref>[[Under False Colors]]</ref> However, in reality [[Baine Bloodhoof]] and Thomas Zelling had rescued the raised Derek Proudmoore from being turned into a weapon for Sylvanas and had set up the pirates to hide their actions from her. Unbeknownst to them, Sylvanas had discovered their actions and called for the leaders of the Horde to gather at Warfang Hold, which Baine suspected was a show of force.<ref>[[Spy Games#Notes]]</ref> The Honorbound served as a guard for the subsequent meeting that ended with Zelling's death and Baine's arrest at Slyvanas's command.<ref>[[A Display of Power]]</ref>
+
+===Rise of Azshara===
+The Honorbound were among the Horde forces that joined the fleet under the command of [[Nathanos Blightcaller]], who used the [[Xal'atath|black blade]] to guide the Horde fleet and the pursuing Alliance fleet towards [[Nazjatar]] where both would be attacked by the naga under [[Queen Azshara]]'s command after the seas opened.<ref>[[Send the Fleet (Horde)]]</ref> While [[Captain Holgresh]] and the [[Veteran Crew]]s lost their lives as a result, others members of the Honorbound like [[Captain Dawnsail]] and [[Captain Jalazko]] were discovered alive.<ref>[[The Missing Crew (Horde)]]</ref> It is presumed that other possible survivors rallied to [[Lor'themar Theron]], [[First Arcanist Thalyssra]], and the [[Unshackled]] at [[Newhome]].
+
+===Aftermath===
+When the Horde split between [[Varok Saurfang]] revolutionaries and the loyalists of Sylvanas Windrunner, Nathanos rallied to Sylvanas's side.<ref>[[They Move Against Us]]</ref> However, the Honorbound as an organization stood out from the conflict, which ended with Saurfang's death and Sylvanas's abandonment of the Horde.<ref>''[[Reckoning]]''</ref> With Nathanos remaining [[Banshee loyalists|loyal]] to the Banshee Queen,<ref>[[Most Loyal]]</ref> the Honorbound became leaderless.
+
+In the aftermath of [[N'Zoth]]'s death and the end of the [[Fourth War]], the Horde and Alliance entered into an armistice with one another.<ref>[[Warchief of the Horde (quest)]]</ref> The status of the Honorbound is unknown, with it possibly being reassigned or disbanded.
+
+==Members==
+===Named===
+{{Columns|2|
+*{{RaceIcon|Nathanos}} [[Nathanos Blightcaller]]
+*{{RaceIcon|Garona}} [[Garona Halforcen]]
+*{{RaceIcon|OrcGray Female}} [[Kaz the Shrieker]]
+*{{RaceIcon|Orc Female}} [[Usha Eyegouge]]
+*{{RaceIcon|JungleTroll Male}} [[Captain Jalazko]]
+*{{RaceIcon|Orc Male}} [[Captain Holgresh]]
+*{{RaceIcon|Tauren Male}} [[Captain Nashashuk]]
+*{{RaceIcon|Forsaken Female}} [[Death Captain Danielle]]
+*{{RaceIcon|Forsaken Female}} [[Death Captain Delilah]]
+*{{RaceIcon|Forsaken Female}} [[Death Captain Detheca]]
+*{{RaceIcon|Goblin Male}} [[Scout Captain Grizzleknob]]
+*{{RaceIcon|Orc Female}} [[Beastlord Drakara]]
+*{{RaceIcon|JungleTroll Female}} [[Ptin'go]]
+*{{RaceIcon|JungleTroll Male}} [[Zunjo of Sen'jin]]
+*{{RaceIcon|Tauren Male}} [[Motega Bloodshield]]
+*{{RaceIcon|Nightborne Male}} [[Alsian Vistreth]]
+}}
+
+===Unnamed===
+{{Columns|2|
+*{{Race|JungleTroll|}} [[Darkspear Hunter]]
+*{{Race|Goblin|}} [[Goblin Sapper]]
+*{{RaceIcon|Orc Female}} [[Horde Shaman]]
+*{{RaceIcon|Highmountain Male}} [[Horde Warbringer (War Campaign)|Horde Warbringer]]
+*{{Race|Orc|}}{{RaceIcon|Tauren Male}}{{Race|Forsaken|}}{{RaceIcon|Goblin Female}} [[Horde Soldier]]
+*{{Race|Orc|}} [[Honorbound Grunt]]
+*{{Race|Tauren|}} [[Honorbound Spiritcaller]]
+*{{Race|Orc|}} [[Honorbound Conqueror]]
+*{{Race|JungleTroll|}} [[Honorbound Shadow Stalker]]
+*{{Race|JungleTroll|}} [[Honorbound Shadow Hunter]]
+*{{RaceIcon|JungleTroll Male}}{{RaceIcon|Orc Male}} [[Honorbound Skytearer]]
+*{{Race|Orc|}}{{Race|JungleTroll|}}{{Race|Forsaken|}} [[Honorbound Mutineer]]
+*{{RaceIcon|JungleTroll Male}}{{RaceIcon|Orc Male}} [[Honorbound Skytearer]]
+*{{Race|Orc|}}{{Race|Forsaken|}} [[Honorbound Berserker]]
+*{{Race|Orc|}} [[Honorbound Krolusk Rider]]
+*{{RaceIcon|Forsaken Male}} [[Honorbound Elites]]
+*{{RaceIcon|OrcGray Male}} [[Honorbound Sniper]]
+*{{Race|BloodElf|}}{{Race|Nightborne|}} [[Honorbound Arcanist]]
+*{{Race|BloodElf|}}{{Race|Nightborne|}} [[Honorbound Summoner]]
+*{{RaceIcon|Orc Male}}{{RaceIcon|JungleTroll Male}}{{RaceIcon|Tauren Male}}{{RaceIcon|Goblin Male}}  [[Honorbound Medic]]
+*{{RaceIcon|JungleTroll Male}} [[Honorbound Guard]]
+*{{RaceIcon|Tauren Male}} [[Honorbound Warmaster]]
+*{{Race|Forsaken|}} [[Honorbound Warrior]]
+*{{Race|BloodElf|}} [[Honorbound Quickbow]]
+*{{Race|Tauren|}} [[Honorbound Elementalist]]
+*{{Race|Tauren|}} [[Honorbound Shieldbreaker]]
+*{{Race|Forsaken|}}{{Race|BloodElf|}} [[Honorbound Priest]]
+*{{Race|JungleTroll|}} [[Honorbound Lightcaller]]
+*{{Race|JungleTroll|}} [[Honorbound Headcarver]]
+*{{Race|Orc|}}{{Race|Goblin|}} [[Honorbound Engineer]]
+*{{Race|JungleTroll|}}{{Race|ZandalariTroll|}} [[Honorbound Axe Thrower]]
+*{{Race|JungleTroll|}}{{Race|Forsaken|}}{{Race|BloodElf|}} [[Honorbound Assassin]]
+*{{RaceIcon|Goren}} [["Tamed" Goren]]
+*{{RaceIcon|Garn}} [[Honorbound War Wolf]]
+*{{RaceIcon|Garn}} [[Honorbound Throatripper]]
+}}
+
+==Rewards==
+[[File:Ransa Greyfeather Dazar'alor.jpg|thumb|upright|[[Ransa Greyfeather]] in [[Dazar'alor]].]]
+{{Honorbound}}
+
+==Trivia==
+*[[Nathanos Blightcaller]] called them Honorguard.<ref>[[The Aid of the Tides]]</ref>
+*This faction was initially simply named '''War Effort''' during early alpha, before being renamed to '''Horde War Effort''' and finally the '''Honorbound'''.
+
+==Patch changes==
+*{{Patch 8.0.1|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class=darktable
+!Faction !!Paragon
+|-
+|{{Elinks-faction|2157}}
+|{{Elinks-faction|2385}}
+|}
+
+{{Factions|bfa}}
+{{New Horde}}
+
+[[Category:Honorbound| ]]
+[[Category:Horde Army]]
+[[Category:Horde factions]]

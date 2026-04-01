@@ -1,0 +1,26 @@
+{{Stub/NPC}}
+{{Npcbox
+ | name = Valarjar Aspirants
+ | image = Valarjar Aspirants.png
+ | gender = Male
+ | level = 102 - 110
+ | faction = Neutral
+ | aggro = {{Aggro|1|1}}
+ | race = Vrykul
+ | creature = Humanoid
+ | affiliation = [[Valarjar]]
+ | location = [[Skyhold]]
+ | status = Alive
+}}
+
+'''Valarjar Aspirants''' are [[vrykul]] located in [[Skyhold]].
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==External links==
+{{Elinks-NPC|106413}}
+
+[[Category:Vrykul characters]]
+[[Category:Valarjar]]
+[[Category:Skyhold NPCs]]

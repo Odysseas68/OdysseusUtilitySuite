@@ -1,0 +1,113 @@
+{{Npcbox
+ | name = Quartermaster Killian
+ | image = Quartermaster Killian.jpg
+ | title = The Fogsail Freebooters
+ | level = Tiragarde Sound
+ | resource = Mana
+ | faction = Horde
+ | aggro = {{Aggro|-1|1}}
+ | affiliation = [[Fogsail Freebooters]]
+ | race = Human
+ | gender = Male
+ | creature = Humanoid
+ | location = [[Plunder Harbor]], [[Tiragarde Sound]]
+ | status = Alive
+}}
+
+'''Quartermaster Killian''' is a [[human]] vendor located in [[Plunder Harbor]] in [[Tiragarde Sound]]. When [[Owings]] started her uprising, Killian sided with her.<ref>[[A Change in Direction]]</ref>
+
+==Sells==
+{| class="darktable sortable zebra"
+! Item !! Cost
+|-
+| [[Acacia Powder]] || {{Cost||10|}}
+|-
+| [[Amber Tanning Oil]] || {{Cost||2|50}}
+|-
+| [[Black Dye]] || {{Cost||10|}}
+|-
+| [[Blacksmith Hammer]] || {{Cost|||18}}
+|-
+| [[Bright Baubles]] || {{Cost||2|50}}
+|-
+| [[Coal]] || {{Cost||5|}}
+|-
+| [[Coarse Thread]] || {{Cost|||10}}
+|-
+| [[Copper Rod]] || {{Cost||1|24}}
+|-
+| [[Crystal Vial]] || {{Cost||1|50}}
+|-
+| [[Distilled Water]] || {{Cost||2|50}}
+|-
+| [[Durable Flux]] || {{Cost||30|}}
+|-
+| [[Eternium Thread]] || {{Cost|3||}}
+|-
+| [[Fine Thread]] || {{Cost||1|}}
+|-
+| [[Fishing Pole]] || {{Cost|||23}}
+|-
+| [[Gray Dye]] || {{Cost||3|50}}
+|-
+| [[Heavy Silken Thread]] || {{Cost||20|}}
+|-
+| [[Heavy Stock]] || {{Cost||20|}}
+|-
+| [[Herbalist's Spade]] || {{Cost||1|5}}
+|-
+| [[Jeweler's Toolset]] || {{Cost||8|}}
+|-
+| [[Mild Spices]] || {{Cost|||10}}
+|-
+| [[Mining Pick]] || {{Cost|||81}}
+|-
+| [[Nightcrawlers]] || {{Cost||1|}}
+|-
+| [[Nylon Thread]] || {{Cost||60|}}
+|-
+| [[Purple Dye]] || {{Cost||25|}}
+|-
+| [[Red Dye]] || {{Cost|||50}}
+|-
+| [[Rune Thread]] || {{Cost||50|}}
+|-
+| [[Salt]] || {{Cost|||50}}
+|-
+| [[Silken Thread]] || {{Cost||5|}}
+|-
+| [[Skinning Knife]] || {{Cost|||82}}
+|-
+| [[Strong Flux]] || {{Cost||20|}}
+|-
+| [[Virtuoso Inking Set]] || {{Cost||7|50}}
+|-
+| [[Weak Flux]] || {{Cost||1|}}
+|-
+| [[Wooden Stock]] || {{Cost||2|}}
+|-
+| [[Yellow Dye]] || {{Cost||5|}}
+|}
+
+==Objective of==
+*[[A Change in Direction]]
+
+==Quotes==
+{{Main|A Change in Direction#Notes}}
+
+==Patch changes==
+*{{Patch 8.0.1|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Elinks-NPC2|137800|138157}}
+
+{{DEFAULTSORT:Killian}}
+[[Category:Human characters]]
+[[Category:Pirates]]
+[[Category:Profession vendors]]
+[[Category:Quartermasters]]
+[[Category:Fogsail Freebooters]]
+[[Category:Tiragarde Sound NPCs]]

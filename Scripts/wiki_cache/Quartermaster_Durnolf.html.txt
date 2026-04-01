@@ -1,0 +1,178 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width:21.5em;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Faction" title="Neutral"><img alt="Neutral" src="/images/Neutral_32.png?ae6e60" decoding="async" loading="lazy" width="18" height="32" data-file-width="18" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Quartermaster Durnolf</span></span></span></th></tr><tr><td colspan="2" style="text-align:center;">
+<a href="/wiki/File:Quartermaster_Durnolf.png" class="image" title="Image of Quartermaster Durnolf"><img alt="Image of Quartermaster Durnolf" src="/images/thumb/Quartermaster_Durnolf.png/190px-Quartermaster_Durnolf.png?da50e9" decoding="async" loading="lazy" width="190" height="300" data-file-width="682" data-file-height="1074" /></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Gender</th><td>
+Male</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race</th><td>
+<a href="/wiki/Vrykul" title="Vrykul">Vrykul</a>&#160;(Humanoid)</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Level</th><td>
+10-45</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Class</th><td>
+<a href="/wiki/Warrior" title="Warrior">Warrior</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Reaction</th><td>
+<a href="/wiki/Alliance" title="Alliance"><span class="rep-friendly" title="Friendly">Alliance</span></a> <a href="/wiki/Horde" title="Horde"><span class="rep-friendly" title="Friendly">Horde</span></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation(s)</th><td>
+<a href="/wiki/Valarjar" title="Valarjar">Valarjar</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Occupation</th><td>
+Vendor</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Location</th><td>
+<a href="/wiki/Skyhold" title="Skyhold">Skyhold</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Alive</td></tr></tbody></table>
+<p><b>Quartermaster Durnolf</b> is a <a href="/wiki/Vrykul" title="Vrykul">vrykul</a> located in <a href="/wiki/Skyhold" title="Skyhold">Skyhold</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Sells"><span class="tocnumber">1</span> <span class="toctext">Sells</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Quests"><span class="tocnumber">2</span> <span class="toctext">Quests</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Quotes"><span class="tocnumber">3</span> <span class="toctext">Quotes</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Patch_changes"><span class="tocnumber">4</span> <span class="toctext">Patch changes</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Sells">Sells</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Quartermaster_Durnolf?action=edit&amp;section=1" title="Edit section: Sells"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable" cellpadding="2" cellspacing="1">
+<caption>
+
+</caption>
+
+<tbody><tr>
+<td><a href="/wiki/File:Inv_misc_cataclysmarmorkit_06.png" class="image"><img alt="Inv misc cataclysmarmorkit 06.png" src="/images/thumb/Inv_misc_cataclysmarmorkit_06.png/32px-Inv_misc_cataclysmarmorkit_06.png?655dc3" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Armor_Kit" title="Battlelord&#39;s Armor Kit"><span class="ajaxttlink qc-rare" title="Battlelord&#39;s Armor Kit# is a rare quality item."><span class="bracket">&#91;</span>Battlelord's Armor Kit<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt"></span>
+</td>
+<td width="4em">
+</td>
+<td><a href="/wiki/File:Inv_plate_warriorclass_d_01chest.png" class="image"><img alt="Inv plate warriorclass d 01chest.png" src="/images/thumb/Inv_plate_warriorclass_d_01chest.png/32px-Inv_plate_warriorclass_d_01chest.png?f8e297" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Chestplate" title="Battlelord&#39;s Chestplate"><span class="ajaxttlink qc-rare" title="Battlelord&#39;s Chestplate# is a rare quality item."><span class="bracket">&#91;</span>Battlelord's Chestplate<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td></tr>
+
+<tr>
+<td><a href="/wiki/File:Inv_plate_warriorclass_d_01gloves.png" class="image"><img alt="Inv plate warriorclass d 01gloves.png" src="/images/thumb/Inv_plate_warriorclass_d_01gloves.png/32px-Inv_plate_warriorclass_d_01gloves.png?d773ea" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Gauntlets" title="Battlelord&#39;s Gauntlets"><span class="ajaxttlink qc-rare" title="Battlelord&#39;s Gauntlets# is a rare quality item."><span class="bracket">&#91;</span>Battlelord's Gauntlets<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td>
+<td width="4em">
+</td>
+<td><a href="/wiki/File:Inv_plate_warriorclass_d_01buckle.png" class="image"><img alt="Inv plate warriorclass d 01buckle.png" src="/images/thumb/Inv_plate_warriorclass_d_01buckle.png/32px-Inv_plate_warriorclass_d_01buckle.png?cf3194" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Girdle" title="Battlelord&#39;s Girdle"><span class="ajaxttlink qc-epic" title="Battlelord&#39;s Girdle# is an epic quality item."><span class="bracket">&#91;</span>Battlelord's Girdle<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td></tr>
+
+<tr>
+<td><a href="/wiki/File:Inv_misc_cataclysmarmorkit_07.png" class="image"><img alt="Inv misc cataclysmarmorkit 07.png" src="/images/thumb/Inv_misc_cataclysmarmorkit_07.png/32px-Inv_misc_cataclysmarmorkit_07.png?debeb7" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Greater_Armor_Kit" title="Battlelord&#39;s Greater Armor Kit"><span class="ajaxttlink qc-epic" title="Battlelord&#39;s Greater Armor Kit# is an epic quality item."><span class="bracket">&#91;</span>Battlelord's Greater Armor Kit<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt"></span>
+</td>
+<td width="4em">
+</td>
+<td><a href="/wiki/File:Inv_plate_warriorclass_d_01helm.png" class="image"><img alt="Inv plate warriorclass d 01helm.png" src="/images/thumb/Inv_plate_warriorclass_d_01helm.png/32px-Inv_plate_warriorclass_d_01helm.png?ff87c7" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Greathelm" title="Battlelord&#39;s Greathelm"><span class="ajaxttlink qc-rare" title="Battlelord&#39;s Greathelm# is a rare quality item."><span class="bracket">&#91;</span>Battlelord's Greathelm<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td></tr>
+
+<tr>
+<td><a href="/wiki/File:Inv_plate_warriorclass_d_01pants.png" class="image"><img alt="Inv plate warriorclass d 01pants.png" src="/images/thumb/Inv_plate_warriorclass_d_01pants.png/32px-Inv_plate_warriorclass_d_01pants.png?393b3c" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Legplates" title="Battlelord&#39;s Legplates"><span class="ajaxttlink qc-rare" title="Battlelord&#39;s Legplates# is a rare quality item."><span class="bracket">&#91;</span>Battlelord's Legplates<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td>
+<td width="4em">
+</td>
+<td><a href="/wiki/File:Inv_misc_cataclysmarmorkit_03.png" class="image"><img alt="Inv misc cataclysmarmorkit 03.png" src="/images/thumb/Inv_misc_cataclysmarmorkit_03.png/32px-Inv_misc_cataclysmarmorkit_03.png?99dcfe" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Lesser_Armor_Kit" title="Battlelord&#39;s Lesser Armor Kit"><span class="ajaxttlink qc-rare" title="Battlelord&#39;s Lesser Armor Kit# is a rare quality item."><span class="bracket">&#91;</span>Battlelord's Lesser Armor Kit<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt"></span>
+</td></tr>
+
+<tr>
+<td><a href="/wiki/File:Inv_plate_warriorclass_d_01shoulder.png" class="image"><img alt="Inv plate warriorclass d 01shoulder.png" src="/images/thumb/Inv_plate_warriorclass_d_01shoulder.png/32px-Inv_plate_warriorclass_d_01shoulder.png?15f380" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Pauldrons" title="Battlelord&#39;s Pauldrons"><span class="ajaxttlink qc-epic" title="Battlelord&#39;s Pauldrons# is an epic quality item."><span class="bracket">&#91;</span>Battlelord's Pauldrons<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td>
+<td width="4em">
+</td>
+<td><a href="/wiki/File:Inv_plate_warriorclass_d_01boot.png" class="image"><img alt="Inv plate warriorclass d 01boot.png" src="/images/thumb/Inv_plate_warriorclass_d_01boot.png/32px-Inv_plate_warriorclass_d_01boot.png?bfe39d" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Warboots" title="Battlelord&#39;s Warboots"><span class="ajaxttlink qc-rare" title="Battlelord&#39;s Warboots# is a rare quality item."><span class="bracket">&#91;</span>Battlelord's Warboots<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td></tr>
+
+<tr>
+<td><a href="/wiki/File:Inv_plate_warriorclass_d_01bracer.png" class="image"><img alt="Inv plate warriorclass d 01bracer.png" src="/images/thumb/Inv_plate_warriorclass_d_01bracer.png/32px-Inv_plate_warriorclass_d_01bracer.png?2626f8" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Battlelord%27s_Wristguards" title="Battlelord&#39;s Wristguards"><span class="ajaxttlink qc-rare" title="Battlelord&#39;s Wristguards# is a rare quality item."><span class="bracket">&#91;</span>Battlelord's Wristguards<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td>
+<td width="4em">
+</td>
+<td><a href="/wiki/File:Inv_blood_of_sargeras.png" class="image"><img alt="Inv blood of sargeras.png" src="/images/thumb/Inv_blood_of_sargeras.png/32px-Inv_blood_of_sargeras.png?557272" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Blood_of_Sargeras" title="Blood of Sargeras"><span class="ajaxttlink qc-rare" title="Blood of Sargeras# is a rare quality item."><span class="bracket">&#91;</span>Blood of Sargeras<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt"></span>
+</td></tr>
+
+<tr>
+<td><a href="/wiki/File:Achievement_guildperk_everyones_a_hero.png" class="image"><img alt="Achievement guildperk everyones a hero.png" src="/images/thumb/Achievement_guildperk_everyones_a_hero.png/32px-Achievement_guildperk_everyones_a_hero.png?f77bc2" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Champion%27s_Salute" title="Champion&#39;s Salute"><span class="ajaxttlink qc-rare" title="Champion&#39;s Salute# is a rare quality item."><span class="bracket">&#91;</span>Champion's Salute<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt"></span>
+</td>
+<td width="4em">
+</td>
+<td><a href="/wiki/File:Inv_shield_draenorcrafted_d_01_c_horde.png" class="image"><img alt="Inv shield draenorcrafted d 01 c horde.png" src="/images/thumb/Inv_shield_draenorcrafted_d_01_c_horde.png/32px-Inv_shield_draenorcrafted_d_01_c_horde.png?95fe7a" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Skyhold_Bulwark" title="Skyhold Bulwark"><span class="ajaxttlink qc-uncommon" title="Skyhold Bulwark# is an uncommon quality item."><span class="bracket">&#91;</span>Skyhold Bulwark<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">100<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td></tr>
+
+<tr>
+<td><a href="/wiki/File:Inv_sword_2h_draenorcrafted_d_01_c.png" class="image"><img alt="Inv sword 2h draenorcrafted d 01 c.png" src="/images/thumb/Inv_sword_2h_draenorcrafted_d_01_c.png/32px-Inv_sword_2h_draenorcrafted_d_01_c.png?4fbae7" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Skyhold_Claymore" title="Skyhold Claymore"><span class="ajaxttlink qc-uncommon" title="Skyhold Claymore# is an uncommon quality item."><span class="bracket">&#91;</span>Skyhold Claymore<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">100<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td>
+<td width="4em">
+</td>
+<td><a href="/wiki/File:Inv_sword_1h_draenorcrafted_d_01_b.png" class="image"><img alt="Inv sword 1h draenorcrafted d 01 b.png" src="/images/thumb/Inv_sword_1h_draenorcrafted_d_01_b.png/32px-Inv_sword_1h_draenorcrafted_d_01_b.png?359244" decoding="async" loading="lazy" width="32" height="32" data-file-width="64" data-file-height="64" /></a>
+</td>
+<td valign="middle"><span class="itemlink"><a href="/wiki/Skyhold_Quickblade" title="Skyhold Quickblade"><span class="ajaxttlink qc-uncommon" title="Skyhold Quickblade# is an uncommon quality item."><span class="bracket">&#91;</span>Skyhold Quickblade<span class="bracket">&#93;</span></span></a></span><br /><span class="nobreak ajaxoutertt">100<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Quests">Quests</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Quartermaster_Durnolf?action=edit&amp;section=2" title="Edit section: Quests"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span class="questlink"><span class="questlong-prefix linkicon"><img alt="N" src="/images/Neutral_15.png?a79dba" decoding="async" loading="lazy" width="15" height="15" data-file-width="15" data-file-height="15" />&#160;<img alt="Warrior" src="/images/thumb/Ui-charactercreate-classes_warrior.png/16px-Ui-charactercreate-classes_warrior.png?c63406" decoding="async" loading="lazy" title="Warrior" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;[45]&#160;</span><a href="/wiki/Axe_and_You_Shall_Receive" title="Axe and You Shall Receive"><span class="ajaxttlink questlink">Axe and You Shall Receive</span></a></span> <a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Availablequest" src="/images/Availablequesticon.png?91c7d0" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a><a href="/wiki/Quest#Identifying_quest_givers" title="Quest"><img alt="Activequest" src="/images/Activequesticon.png?6f1810" decoding="async" loading="lazy" width="16" height="16" data-file-width="16" data-file-height="16" /></a></li></ul>
+<h2><span class="mw-headline" id="Quotes">Quotes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Quartermaster_Durnolf?action=edit&amp;section=3" title="Edit section: Quotes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span class="text-say">&lt;Name&gt;! I have goods for you! Come!</span></li></ul>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Quartermaster_Durnolf?action=edit&amp;section=4" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Legion" title="Legion"><img alt="Legion" src="/images/Legion-Logo-Small.png?7a5440" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="40" data-file-height="15" /></a></span> <b><a href="/wiki/Patch_7.0.3" title="Patch 7.0.3">Patch 7.0.3</a> (2016-07-19):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Quartermaster_Durnolf?action=edit&amp;section=5" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/npc=112392">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/npcs/112392">WoWDB</a></li>
+
+
+
+</ul>
+<!-- 
+NewPP limit report
+Cached time: 20260322011726
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.157 seconds
+Real time usage: 0.381 seconds
+Preprocessor visited node count: 8644/1000000
+Revision size: 1531/4194304 bytes
+Post‐expand include size: 99204/4194304 bytes
+Template argument size: 9951/4194304 bytes
+Highest expansion depth: 28/100
+Expensive parser function count: 17/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.004/15.000 seconds
+Lua memory usage: 655242/52428800 bytes
+Number of processed Cargo queries: 0
+Time spent processing Cargo queries: 0.000 s (avg. 0.000 s)
+Number of Cargo row insertion attempts: 1
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  299.152      1 -total
+ 77.69%  232.418      1 Template:Itembox
+ 24.67%   73.803     16 Template:Cost
+ 15.65%   46.832      1 Template:Npcbox
+ 13.54%   40.517      1 Template:Infobox
+  2.69%    8.056     16 Template:Loot
+  2.27%    6.785      1 Template:Patch_7.0.3
+  2.20%    6.570      1 Template:Level
+  1.70%    5.096      1 Template:Elinks-NPC
+  1.53%    4.589      1 Template:Patch
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:264917-0!canonical and timestamp 20260322011726 and revision id 6646768. Rendering was triggered because: edit-page
+ -->
+</div>

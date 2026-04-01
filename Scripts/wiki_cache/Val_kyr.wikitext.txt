@@ -1,0 +1,247 @@
+{{Infobox race
+| name = Val'kyr
+| image = Light and Dark Val'kyr.jpg
+| size = 350px
+| capital = {{Neutral}} [[Halls of Valor]]<br/> {{Neutral}} [[Helheim]]
+| fcapital = {{Horde}} [[Undercity]]{{KIA}}<br/> {{Neutral}} [[Icecrown Citadel]] 
+| faction = [[Valarjar]] ([[Valkyra]]), [[Helarjar]],<br/> [[Jotunheim vrykul]],<ref>[[Geirrvif]]</ref><br/> [[Knights of the Ebon Blade]]<br/> '''Formerly:'''<br/> [[Mawsworn]], [[Forsaken]], [[Scourge]]
+| homeworld = [[Azeroth]]
+| area = [[Northrend]], [[Eastern Kingdoms]], [[Broken Isles]], [[Shadowlands]]
+| language = [[Vrykul (language)|Vrykul]], [[Common (language)|Common]]
+| leader = {{NPC||Odyn|icon=Odyn}} ([[Eyir]])<br/> {{NPC||Helya|icon=Helya}}
+| fleader = {{NPC||Sylvanas Windrunner|icon=Sylvanas2}}<br/> {{RaceIcon|LichKing}}{{RaceIcon|NewLichKing}} [[Lich King]]{{KIA}}
+}}
+{{QuoteWiki|I saw the answer. For in life, there exists death, and in death, there can be life. But there are only beings of life and beings of death. My messengers must span both realms. They will be formed from the vrykul, and their bravery shall preserve their brethren as [[Valarjar]] for all time. Like life, they shall be powerful. Like death, they shall be eternal.|[[Odyn]]<ref name="The Legend of Odyn">[[The Legend of Odyn]], "The Keeper's Eye"</ref>}}
+
+'''Val'kyr''' are a type of ascended female [[vrykul]]. The original Val'kyr are warriors of the [[Light]] created to serve the Prime Designate [[Odyn]] by bringing the spirits of the glorious dead to his [[Halls of Valor]]. The Val'kyr of the [[Scourge]] acted as the [[Lich King]]'s agents in the spirit world and were described by [[Thoralius the Wise]] as fearsome creatures made of pure nightmare.<ref name="Echo of Ymiron">[[The Echo of Ymiron]]</ref> After the fall of [[Arthas]], several Val'kyr came to serve the [[Forsaken]] under [[Sylvanas Windrunner]], and following her desertion, they followed her to serve under the [[Zovaal]]'s forces in the [[Maw]].
+
+==Background==
+The first Val'kyr were created in ancient times by the [[keeper|titanic keeper]] [[Odyn]], who disagreed with the other keepers' uplifting of the [[Dragon Aspects]] and decided to form his own elite army to protect [[Azeroth]]. He offered [[vrykul]] warriors who died in glorious combat the opportunity to become part of his [[Valarjar]] in the [[Halls of Valor]]. However, Odyn first had to find a way to take the spirits of these departed vrykul from the [[Shadowlands]] to the Halls of Valor.<ref name="Chronicle 48">{{Ref WoWCV1|48}}</ref> With the help of his adopted daughter, the [[titan-forged]] sorceress [[Helya]],<ref name="The Legend of Odyn"/> Odyn contacted the powerful spirit [[Mueh'zala]]<ref>{{text|yell|Mueh'zala|It be Mueh'zala who brought Helya to da Jailer's side... struck a deal for ol' Odyn's eye... and made da Banshee warchief with a whisper!}}</ref> and sacrificed [[Eye of the Jailer|his eye]] to him in exchange for the ability to gaze into the Shadowlands. There he saw the [[kyrian]] of [[Bastion]], winged beings responsible for ferrying the souls of the dead to the afterlife, and decided to create his own beings based on them.<ref name="SA Gamer">{{Ref web|url=https://sagamer.co.za/2020/05/28/a-deep-dive-into-bastion-the-shadowlands-realm-of-selflessness-and-greater-purpose/|title=A deep dive into Bastion, the Shadowlands realm of selflessness and greater purpose|author=Garth Holden|publisher=SA Gamer|date=2020-05-28|accessdate=2020-11-23}}</ref> These "Val'kyr" would travel between the Shadowlands and the physical world to guide souls to the Halls of Valor, but would also be cursed to a wraithlike existence for eternity. Since no vrykul volunteered for the task, Odyn decided to create his servants by force, a plan Helya vehemently objected to. Seeing Helya's disobedience as a threat to his plans, Odyn shattered her physical form, twisted her spirit into the first Val'kyr, and ordered her to begin transforming other unwilling vrykul into Val'kyr as well. Helya was forced to obey Odyn's commands<ref name="Chronicle 48"/> but nursed resentment against him for millennia, ultimately causing her to rebel against him with the aid of [[Loken]].<ref name="Chronicle 57">{{Ref WoWCV1|57}}</ref>
+
+In the current day, Valarjar Val'kyr are ascended warriors of the [[Valkyra]], who prove their worth to [[Eyir]] in order to become Val'kyr.<ref>[[Shielded Secrets]]</ref> As Val'kyr, they take worthy vrykul warriors who die with glory in battle to the Halls of Valor, where they will feast and battle for eternity as part of Odyn's Valarjar. Val'kyr are considered "sunborne" when they are honored in the presence of Odyn.<ref>[[Sunborne Val'kyr]]</ref> They are also considered warriors of the [[Light]], which Odyn also follows.<ref name="Exploring Azeroth">''[[Exploring Azeroth: Northrend]]'', pg. 132</ref>
+
+From the vrykul in his service, the Lich King learned of the Val'kyr and their ability to corral spirits and even delve into the Shadowlands, the realm of death. The Lich King tried to create his own Val'kyr, but the task proved difficult even for him. After missteps, he finally succeeded, and the Scourge Val'kyr were born. The Val'kyr greatly enhanced his ability to control the dark powers of undeath.<ref>{{Ref WoWCV3|19}}</ref> Some of his Val'kyr were also corrupted original Val'kyr, twisted and bent to his will.<ref>[https://web.archive.org/web/20170514174822/https://twitter.com/Alex_Afrasiabi/status/819948739179606016 Alex Afrasiabi on Twitter (Wayback Machine used to replace dead link)]</ref><ref name="Exploring Azeroth" />
+
+The vrykul bard, [[Helgus]], who lived in the town of [[Nifflevar]], wrote three sagas, one of which was the [[Saga of the Val'kyr]]. This is ancient knowledge,<ref>[[The Enemy's Legacy]]</ref> and it is unknown if other mentions of the Val'kyr in the [[Howling Fjord]] are references to the original Val'kyr, or are direct references to the Lich King's Val'kyr forces.
+
+===Wrath of the Lich King===
+{{Wotlk-section}}
+[[File:Geirrvif.jpg|thumb|A Val'kyr, original model in {{g|wotlk}}.]]
+The [[Scourge]] Val'kyr were described as warrior maidens of old, and each was the greatest warrior of her generation. They are sisters who served the warriors of the north in life, and chose to continue [their] service in death.<ref name="EoN" /> An unknown amount of them were created from the female [[vrykul]] of [[Valkyrion]], who fought and trained to receive the Lich King's unusual gift.<ref>[[Off With Their Black Wings]]</ref> At least [[Svala Sorrowgrave|one example]] exists of a female vrykul being turned into a Val'kyr at another location as well. Those that were deemed worthy underwent the transformation from vrykul to Val'kyr. It is said that the Val'kyr serve to judge the fate of vrykul combatants, transforming the favored contestants to [[Ymirjar]], and the failed contestants to the ranks of the undead [[Vargul]].<ref name="Echo of Ymiron" /> Val'kyr are considered "unborn" until they vanquish a creature of high nobility.<ref>[[Unborn Val'kyr]]</ref>
+
+The [[Val'kyr Battle-maiden]]s watched the fates of the training [[death knight]]s of [[Acherus]], making sure the newly born warriors didn't fall in battle before their time. These Val'kyr were acting much like [[Spirit Healer|spirit healers]]. If they fell in battle, the Val'kyr would return them to their unlife. During the [[Battle for the Ebon Hold]] shortly after the death knights were freed, they were aiding the remains of the [[Scourge]].<ref>[[The Battle For The Ebon Hold]]</ref>
+
+Upon [[Ingvar the Plunderer]]'s death during his encounter in [[Utgarde Keep]], the Val'kyr [[Annhylde the Caller]] judged Ingvar as unworthy and resurrected him as [[Vargul]] as a second chance.
+
+[[Geirrvif]] was appointed to oversee the trials of [[Valhalas]]; judging those worthy to ascend to the ranks of the [[Ymirjar]], while those unworthy became [[Vargul]]s. She is notably extremely friendly to the [[adventurer]]s, expressing genuine joy at seeing them return to fight in the arena and holding no ill will or threats towards them.<ref>[[Battle at Valhalas]]</ref>
+
+[[Fjola Lightbane]] and [[Eydis Darkbane]] were two very powerful Val'kyr that were originally sent by the Lich King along with their [[Vengeful Val'kyr]] army to disrupt, destroy, and terrorize the [[Argent Tournament]] and its citizens. However, [[Argent Confessor Paletress]] came to battle the twins, and upon her victory, Fjola and Eydis were captured by [[paladin]]s of the [[Argent Crusade]]. Their bonds were maintained by [[Priestess Alorah]] and [[Priest Grimmin]].<ref>[[You've Really Done It This Time, Kul]]</ref> They later appeared as the final challenge of the coliseum after the raid defeated the Faction Champions.
+
+===Edge of Night===
+{{Novel-section}}
+After the events took place within the [[Icecrown Citadel]], and the death of Arthas, nine of the Scourge's Val'kyr remained at the Frozen Throne. These nine, led by [[Annhylde the Caller]], were bound to the will of their new dormant Lich King. Imprisoned atop the [[Icecrown]], possibly for eternity, they hungered for their freedom. To gain this freedom, they needed a vessel, one like them, a sister of war, strong, and who understood life and death. Someone who had seen the light and the dark. Someone worthy of power over life and death. [[Sylvanas Windrunner]], after having just committed suicide off the Frozen Throne, was shown what would happen to her people and herself if she was gone. Using this information, they convinced her to make a pact with them. In this pact, the Val'kyr would be free of the Lich King forever, but their souls would be bound to the Dark Lady. Sylvanas will walk with the living once again but through the sisterhood of the Val'kyr. As long as they live, so too would Sylvanas. All of them would have their freedom, life, and power over death. Sylvanas agreed to this pact if only to prolong her fate, which filled her with terror. Annhylde took Sylvanas's place in death as the pact was made, and the remaining eight sisters were bound to their new leader.<ref name="EoN">''[[Edge of Night]]''</ref>
+
+===Part of the Forsaken===
+[[File:Sylvanas and friends at the Sepulcher.jpg|thumb|[[Sylvanas]] and her Val'kyr at the [[Sepulcher]].]]
+The Forsaken had one major flaw working against them; they could not reproduce. The Lich King was the one who created the Scourge, and now that the Lich King was gone, there were no Scourge left to turn to Forsaken. The Val'kyr were her salvation and solution to her dilemma. Since the Val'kyr could raise the undead, they were essentially the key to keeping the Forsaken "alive" as a viable race. After leaving Northrend, a few of the Val'kyr were sent to the [[Deathknell Graves]] to "recruit" any remaining corpses there into the Forsaken, while the Dark Lady made her way to Silverpine to prevent her people from being slaughtered by [[Garrosh Hellscream|Garrosh's]] command. With her were the rest of the Val'kyr making their presence known.<ref name="EoN" />
+
+After Garrosh backed down and allowed Sylvanas to take command of the [[Invasion of Gilneas|campaign for Gilneas]], Sylvanas had decided that her people would no longer be carelessly used or squandered away for some [[orc]].<ref name="EoN" /> They would be used wisely and with a purpose, as a bulwark to safeguard her and their kingdom. A bulwark that grows stronger as the Val'kyr raises the living's dead to bolster their numbers, even with former [[Archmage Ataeric|enemies]] joining their ranks. This is due to the fact that those raised by the Val'kyr who die in combat or under extreme stress, enter into a violent, frenzied state. Undead in this state are easily manipulated, and their rage is often directed at the foes of those who raised them. After the effects wear off, the remaining resurrected are given the option of joining the Forsaken or being returned to the grave.<ref>[[Ask CDev]] #3</ref>
+
+The Val'kyr themselves have been deployed into several battles since their conscription, notably throughout [[Silverpine]] and [[Andorhal]], both of which were sound Forsaken victories due to the Val'kyr's input. However, the Val'kyr were only able to reanimate [[human]] corpses as Forsaken.<ref>[[Lessons in Fear]]</ref> The humans trapped in the conflict with the Forsaken sought to escape that fate by turning into [[worgen]], and thus the surviving leaders and refugees of [[Hillsbrad Fields]] and [[Southshore]] were willing to take the [[worgen curse]] and became [[Hillsbrad Worgen]] to prevent the Forsaken from raising them into undeath.<ref>[[No Escape]]</ref>
+
+When Sylvanas was killed in Silverpine Forest, Agatha, Arthura, and Daschla sacrificed themselves to revive her once more.<ref name="Cities in Dust">[[Cities in Dust]]</ref> Then later in the battle at Andorhal, the Alliance would kill Aradne, thus leaving only four dark Val'kyr in existence. It's unknown where they currently are, but they're likely in a safe area continuing to raise more Forsaken members.
+
+During the [[Siege of Orgrimmar]], Sylvanas intended to use her Val'kyr to raise slain Alliance soldiers in the streets of Orgrimmar.<ref>[[Galakras#Quotes]]</ref>
+
+===Legion===
+{{Legion-section}}
+[[File:EyirHD.png|thumb|upright|[[Eyir]], the [[Valkyra]]'s goddess.]]
+During the [[Battle for Broken Shore]], [[Warchief]] [[Sylvanas Windrunner]] called her Val'kyr. Two of them took [[Baine Bloodhoof]] and [[Thrall]] to her position and later, five of them arrived and picked the bodies of fallen heroes of the [[Horde]] by the end of the conflict.<ref>[[The Battle for Broken Shore (Horde)]]</ref>
+
+The Val'kyr loyal to the [[Valarjar]] were encountered for the first time in the [[Halls of Valor]]. Unlike the ones that were bound to servitude by the [[Lich King]], the Val'kyr residing within these halls are pure beings that are warriors of the [[Light]]. They are tasked with bringing the souls of deceased Vrykul heroes from [[Stormheim]] and Northrend to these halls for eternal feasts.
+
+The [[vrykul]] shieldmaidens of [[Skold-Ashil]] employed a rite of ascension to be granted access to a vault that provides an audience with [[Eyir]]. In time, [[Sylvanas Windrunner]] made a deal with [[Helya]] and was granted a magical lantern called the [[Soulcage]] which she intended to subjugate Eyir with and force her to make more Val'kyr for the [[Forsaken]]. The Banshee Queen had a Horde [[adventurer]] undergo the rite of ascension and used the Soulcage to bind Eyir. However, [[Genn Greymane]] followed Sylvanas into the vault and foiled her plan by smashing the lantern and freeing Eyir.<ref>[[A New Life for Undeath]]</ref><ref>[[Ending the New Beginning]]</ref>
+
+Val'kyr known as [[Dark Seraph]]s appeared to help [[Helya]] in [[Helheim]] during the [[Trial of Valor]].
+
+===Shadowlands===
+{{Sl-section}}
+During the [[war against the Jailer]], [[Helya]] kidnapped several of the [[Valarjar]] val'kyr, including [[Danica the Reclaimer]]. She intended to corrupt them all into [[Mawsworn]], using [[Odyn]]'s [[Eye of the Jailer|sacrificed eye]] as a weapon of darkness.<ref>[[A Hate-Hate Relationship]]</ref> After an [[adventurer]] freed Danica in the [[Maw]], Odyn declared that this "insult" could not stand and ordered the heroes to create the [[Ilskahorn]] to lure his Eye to battle,<ref>[[Fury Given Voice]]</ref> and to recruit a group of worthy Val'kyr to accompany Danica in battle.<ref>[[The Chosen Few]]</ref> The heroes and Val'kyr eventually managed to defeat the Eye and forced it to flee back to [[Torghast, Tower of the Damned|Torghast]].<ref>[[Focusing the Eye]]</ref>
+
+===Exploring Azeroth: Northrend===
+{{Novel-section}}
+During their exploration of [[Northrend]], the brothers [[Bronzebeard]] inspected the city of [[Jotunheim]]. There, they found that the Val'kyr [[Geirrvif]] continued her duties at [[Valhalas]]; though her people no longer have a [[Lich King|death god]] to serve.<ref name="Exploring Azeroth"/> Notably, this makes her the last of the known named [[Scourge]] Val'kyr; and the only one of them to have not joined with the Nine or the [[Knights of the Ebon Blade]].
+
+==The nine==
+After the defeat of the Lich King, only nine of his Val'kyr remained present in his citadel. These nine bound themselves to Sylvanas and in order to seal the pact, the strongest Val'kyr [[Annhylde]] sacrificed herself to save the banshee's life. Later, in Silverpine, [[Agatha]], [[Daschla]], and [[Arthura]] sacrificed themselves to revive the Dark Lady once more after she was shot dead by [[Lord Godfrey]].<ref name="Cities in Dust"/> In Andorhal, [[Aradne]] was killed by Alliance forces.<ref>[[Aradne (quest)]]</ref>
+
+Multiple [[lesser Val'kyr]] maidens were spotted in the skies during the [[Battle for Andorhal]], and though they can raise corpses<ref>[[Val'kyr Incursion]]</ref> these lesser Val'kyr are not part of the original pact and are thus not strong enough to revive Sylvanas. How exactly they are created remains unknown, and where they dwell now is a mystery.<ref>[[BlizzCon 2011]] - Lore Q&A</ref> It is known that they are bound to greater Val'kyr, as when Aradne was slain, these Val'kyr dissipated.
+
+The number of Val'kyr who appeared during the [[Battle for the Broken Shore]] cinematic was five, though five Val'kyr had died, and thus there should be only four left. These could have been lesser Val'kyr.
+
+In the [[Arathi Highlands]], [[Nathanos Blightcaller]] ordered Val'kyr to raise several powerful slain enemies.<ref>Arathi Highlands world quest completion text: {{Text|say|Nathanos Blightcaller|Call in the val'kyr! This one will make a useful ally...}}</ref>
+
+In [[Darkshore]], [[Brynja]] was killed by [[Tyrande Whisperwind]].<ref>[[In Darkest Night]]</ref> The Val'kyr left alive were: [[Signe]], [[Kyra]], and one other.
+
+The Val'kyr are able to raise corpses into undeath, which is how more Forsaken are created. The power of the Lich King previously allowed them to raise more powerful undead in the form of [[death knight]]s. They can still extremely rarely use their own powers to reshape the body of an active undead and make it stronger, though it is an arduous endeavor that they are reluctant to undertake. For this reason, Sylvanas cannot have all the Forsaken undergo the ritual, and the only known person to have done it is [[Nathanos Blightcaller]].<ref>''[[Dark Mirror]]''</ref>
+
+In the [[Sanctum of Domination]], the final Val'kyr is revealed to be [[Skyja]]. The remaining three Val'kyr and Sylvanas raise the six who died back, so that they can block the heroes' progress and protect Sylvanas. This resurrection was seemingly incomplete, or somehow rested on Skyja, as the six are only able to take a supporting role in the ensuing battle with the Maw Walkers, and once Skyja is struck down, the fallen six vanish. When the heroes finally reached the pinnacle of the Sanctum of Domination, [[Bolvar Fordragon]] announced to Sylvanas that all of her Val'kyr were eliminated, and that she would die here for the last time. Sylvanas was undeterred, coldly comparing the losses of her Val'kyr to that of an archer losing their arrows.<ref>[[Sylvanas Windrunner (tactics)#Stage one]]</ref>
+
+;Sylvanas' Val'kyr
+{{columns|3|
+*{{NPC||Agatha|icon=Val'kyr}}{{KIA}}
+*{{NPC||Annhylde|icon=Val'kyr}}{{KIA}}
+*{{NPC||Aradne|icon=Val'kyr}}{{KIA}}
+*{{NPC||Arthura|icon=Val'kyr}}{{KIA}}
+*{{NPC||Brynja|icon=Val'kyr}}{{KIA}}
+*{{NPC||Daschla|icon=Val'kyr}}{{KIA}}
+*{{NPC||Kyra|icon=Val'kyr}}{{KIA}}
+*{{NPC||Signe|icon=Val'kyr}}{{KIA}}
+*{{NPC||Skyja|icon=Val'kyr}}{{KIA}}
+}}
+
+==Notable==
+{{Main|:Category:Val'kyr|label1=Val'kyr NPCs}}
+{| class="darktable sortable zebra"
+|-
+! Name !! Role !! Affiliation !! Status !! Location
+|-
+|{{NPC|Neutral|Helya|icon=Helya}}
+|Fallen Val'kyr queen, ruler of [[Helheim]].
+|[[Helarjar]]
+|{{Status|Active}}
+|[[Helheim]]
+|-
+|{{NPC|Boss|Eydis Darkbane|icon=Val'kyr}}
+|[[Scourge]] lieutenant, twin of [[Fjola Lightbane]].
+|[[Scourge]]
+|{{Status|Killable}}
+|[[Trial of the Crusader]]
+|-
+|{{NPC|Neutral|Eyir|icon=Eyir}}
+|Val'kyr goddess of the [[Valkyra]] and Shieldmaidens of [[Skold-Ashil]].
+|[[Valkyra]], [[Valarjar]]
+|{{Status|Active}}
+|[[Halls of Valor]], [[Vault of Eyir]]
+|-
+|{{NPC|Boss|Fjola Lightbane|icon=Val'kyr}}
+|[[Scourge]] lieutenant, twin of [[Eydis Darkbane]].
+|[[Scourge]]
+|{{Status|Killable}}
+|[[Trial of the Crusader]]
+|-
+|{{NPC|Neutral|Geirrvif|icon=Val'kyr}}
+|Watcher and judge of the [[Valhalas]] tournament.
+|[[Jotunheim vrykul]]
+|{{Status|Active}}
+|[[Valhalas]], [[Icecrown]]
+|-
+|{{NPC|Combat|Hildana Deathstealer|icon=Val'kyr}}
+|Unknown
+|[[Scourge]]
+|{{Status|Killable}}
+|[[Jotunheim]] or [[Ymirheim]], [[Icecrown]]
+|-
+|{{NPC|Boss|Hyrja|icon=Valkier}}
+|Chosen of [[Eyir]].
+|[[Valkyra]], [[Valarjar]]
+|{{Status|Active}}
+|[[Halls of Valor]]
+|-
+|{{NPC|Neutral|Olrun the Battlecaller|icon=Val'kyr}}
+|[[Death knight]] instructor.
+|[[Scourge]]
+|{{Status|Unknown}}
+|[[Death's Breach]], [[Plaguelands: The Scarlet Enclave]]
+|-
+|{{NPC|Boss|Sara|icon=Val'kyr}}
+|Controlled by [[Yogg-Saron]] (or perhaps an avatar of Yogg-Saron).
+|[[Yogg-Saron]]
+|{{Status|Killable}}
+|[[Ulduar]]
+|-
+|{{NPC|Boss|Svala Sorrowgrave|icon=Val'kyr}}
+|Former lieutenant of [[Ingvar the Plunderer]], transformed by the [[Lich King]].
+|[[Scourge]]
+|{{Status|Killable}}
+|[[Observance Hall]], [[Utgarde Pinnacle]]
+|-
+|{{NPC|Combat|Sister Svalna|icon=Val'kyr}}
+|Guards the way to [[Sindragosa (tactics)|Sindragosa]] in [[Icecrown Citadel (instance)|Icecrown Citadel]].
+|[[Scourge]]
+|{{Status|Killable}}
+|[[Frostwing Halls]], [[Icecrown Citadel (instance)|Icecrown Citadel]]
+|-
+|{{NPC|Neutral|Vardmadra|icon=Val'kyr}}
+|High-ranking judge of battles, killed by the [[Lich King]].
+|[[Scourge]]
+|{{Status|Deceased}}
+|[[Icecrown]]
+|-
+|}
+
+==As a companion pet==
+*The [[Unborn Val'kyr]] is an extremely rare wild battle pet that has a chance to appear in three specific locations in every [[Northrend]] zone.
+*The [[Sunborne Val'kyr]] can be purchased from {{NPC||Valdemar Stormseeker|Valarjar Emissary}} at a cost of {{cost|500}} upon reaching {{rep|revered}} reputation with the [[Valarjar]].
+
+==Notes and trivia==
+*''[[World of Warcraft: Chronicle Volume 3]]'' revealed that the Lich King created his own Val'kyr, something shown with [[Svala Sorrowgrave]]. Despite this, [[Alex Afrasiabi]] claimed that they were subjugated servants of Odyn, bound to him without a choice, rather than newly created ones.<ref>[https://web.archive.org/web/20170514174822/https://twitter.com/Alex_Afrasiabi/status/819948739179606016 Alex Afrasiabi on Twitter, (Wayback Machine used to replace dead link.)]</ref><ref name="EoN"/> This was reconciled with ''[[World of Warcraft: Exploring Azeroth: Northrend|Exploring Azeroth: Northrend]]'', which clarified the Lich King both corrupted and created Val'kyr.
+*[[Nibelung]] causes players' harmful spells to have a chance to summon a [[Val'kyr Guardian]] to assist them in combat. Unholy [[death knight]]s used to be able to summon a Val'kyr to their side instead of a [[gargoyle]] with the [[Dark Arbiter]] talent.
+*Early in the ''[[World of Warcraft: Wrath of the Lich King|Wrath of the Lich King]]'' beta, before the proper Val'kyr model was created, they looked like [[banshee]]s instead.
+*In ''[[Warcraft III: Reign of Chaos|Warcraft III]]'', a sword-wielding, [[Guardian of Ancient Kings|angelic figure]] briefly appears when a [[Paladin (Warcraft III)|Paladin]] uses the [[Paladin (Warcraft III)#Resurrection (Ultimate)|Resurrection]] spell. In ''[[Warcraft III: Reforged]]'', it's been replaced with a golden Val'kyr.
+*"Val'kyr" are an obvious reference to the [[wikipedia:Valkyrie|Valkyries]] of Norse myth — minor female deities in the service of Odin. Their duty was to choose the most heroic spirits of slain warriors and take them to Valhalla, where they would serve at Odin's side in the Ragnarök.
+*{{Ref WoWCV1}} mentions that not all Val'kyr chose to join [[Helya]] in [[Helheim]] after the sealing of the [[Halls of Valor]] and instead disappeared into the [[Shadowlands]] to guide the dead back to the realm of the living,<ref name="Chronicle 57"/> implying that these rogue Val'kyr became [[Spirit Healer|spirit healers]]. However, ''Shadowlands'' revealed that spirit healers are actually a form of [[kyrian]].<ref>{{Ref web|accessdate=2019-11-03|author={{Blizz|Blizzard Entertainment}}|date=2019-11-01|title=BlizzCon 2019 - World of Warcraft: What's Next|url=https://blizzcon.com/en-us/watch?v=5db345cf41eadce02c2f077c&eventYear=2019}}</ref><ref name="SA Gamer"/>
+*[[Bondable Val'kyr Diadem]] toy will summon Angelis a small Val'kyr above the player's shoulder.
+*[[Svala Sorrowgrave]] is the only Val'kyr ascension witnessed, being directly imbued with the Lich King's powers through Frostmourne.
+
+==Speculation==
+{{Speculation}}
+The [[Lady of the Sword]] mentioned in [[Revenge for the Vargul]] may be a Val'kyr, or [[Eyir]].
+
+==Gallery==
+<gallery>
+File:Chosen of Eyir.jpg|Updated model in ''Legion''.
+File:Chosen of Eyir 2.jpg|Golden version in ''Legion''.
+File:Val'kyr Resurrection.jpg|In ''[[Warcraft III: Reforged]]''.
+</gallery>
+
+;Art
+<gallery>
+File:Wrath Classic Call of the Crusade key art.jpg|[[Patch 3.4.2]] key art.
+File:Halls of Valor loading screen.jpg|Val'kyr statues in the [[Halls of Valor]].
+File:Val'Kyr Concept2.jpg|Val'kyr concept art.
+File:Val'kyr artbook.jpg|Val'kyr concept art.
+File:Val'Kyr Concept.jpg|Concept art of a more [[banshee]]-like Val'kyr.
+File:Val'kyr Shadowguard TCG.jpg|[[Val'kyr Shadowguard]] in the [[World of Warcraft Trading Card Game|TCG]].
+File:Entomb TCG.jpg|Val'kyr from the Entomb card in the TCG.
+File:Askalti Darksteel TCG.jpg|[[Askalti Darksteel]] in the TCG.
+File:Annhylde HS.jpg|{{HS|Annhylde}} in ''[[Hearthstone (game)|Hearthstone]]''.
+File:Fjola Lightbane HS.jpg|{{HS|Fjola Lightbane}}  in ''Hearthstone''.
+File:Sister Svalna HS.jpg|{{HS|Sister Svalna}}  in ''Hearthstone''.
+File:Val'kyr Champion HS.jpg|{{HS|Val'kyr Champion}}  in ''Hearthstone''.
+File:Val'kyr Shadowguard HS.jpg|{{HS|Val'kyr Shadowguard}}  in ''Hearthstone''.
+File:Victorious Val'kyr HS.jpg|{{HS|Victorious Val'kyr}}  in ''Hearthstone''.
+File:Bring It On! HS.jpg|{{HS|Bring It On!}}  in ''Hearthstone''.
+File:Defrost HS.jpg|{{HS|Defrost}}  in ''Hearthstone''.
+File:Rebuke HS.jpg|{{HS|Rebuke}}  in ''Hearthstone''.
+File:Tyr's Tears HS.jpg|{{HS|Tyr's Tears}}  in ''Hearthstone''.
+File:Vision of Darkness HS.jpg|{{HS|Vision of Darkness}}  in ''Hearthstone''.
+File:Wisdom of Norgannon HS.jpg|{{HS|Wisdom of Norgannon}}  in ''Hearthstone''.
+</gallery>
+
+==See also==
+*[[Al'maiesh, the Cord of Hope]]
+*[[Hyldnir]]
+
+==References==
+{{Reflist}}
+
+{{New Horde}}
+{{Scourge}}
+
+[[Category:Val'kyr| ]]
+[[Category:Races]]
+[[Category:Scourge]]
+[[Category:Forsaken]]
+[[Category:Valarjar]]
+[[Category:Dark Mirror]]

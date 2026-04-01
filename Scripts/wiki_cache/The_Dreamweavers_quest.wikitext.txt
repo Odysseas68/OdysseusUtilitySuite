@@ -1,0 +1,46 @@
+{{Questbox
+ | id = 42170
+ | name = The Dreamweavers
+ | category = Val'sharah
+|level={{level|legion-max}}
+|levelreq={{level|legion-max}}
+ | type = Emissary Quest
+ | start = Automatic
+ | end = [[Sylvia Hartshorn]]
+ | reputation = +1,500 [[Dreamweavers]]
+ | rewards = [[Dreamweaver Provisions]]
+ | shareable = No
+}}
+
+==Objectives==
+Complete any 4 [[world quest]]s in [[Val'sharah]].
+
+* Complete 4 world quests in Val'sharah
+* Return to [[Sylvia Hartshorn]] in Val'Sharah.
+
+==Description==
+Assist the [[Dreamweavers|Druids of Val'sharah]] by completing 4 world quests.
+
+==Rewards==
+{{itembox|You will receive:
+|Dreamweaver Provisions
+}}
+
+==Progress==
+Return to me when you have finished aiding the Dreamweavers, <name>.
+
+==Completion==
+The Dreamweavers thank you.
+
+==Gains==
+* +1,500 reputation with [[Dreamweavers]]
+
+==Patch changes==
+* {{Patch 8.0.1|note=[[Antler of Cenarius]] removed from rewards.}}
+*{{Patch 7.0.3|note=Added.}}
+
+==External links==
+{{Elinks-quest|42170}}
+
+[[Category:Dreamweavers quests]]
+[[Category:Emissary quests]]

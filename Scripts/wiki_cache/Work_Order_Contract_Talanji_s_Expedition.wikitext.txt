@@ -1,0 +1,43 @@
+{{Questbox
+| name=Work Order: Contract: Talanji's Expedition
+| start=Automatic
+| end=[[Provisioner Lija]]
+| faction=Horde
+| id=52396
+ | level = {{level|bfa-max}}
+ | levelreq = {{level|bfa-max}}
+| type=Inscription World Quest
+| category=Nazmir
+| reputation=+75 [[Talanji's Expedition]]
+| shareable=No
+}}
+
+==Objectives==
+* [[Contract: Talanji's Expedition]] (5)
+
+==Rewards==
+You will receive:
+* 75 reputation with [[Talanji's Expedition]]
+* 1 skill point in [[Battle for Azeroth proficiency|Zandalari]] [[Inscription]]
+* [[Recipe: Contract: Talanji's Expedition]] - Rank 3 (first completion only)
+
+{{wqr|bfawo}}
+
+==Progress==
+Are you here to deliver supplies?
+
+==Completion==
+Thank you for assisting us, scribe. We needed these contracts badly.
+
+==Trivia==
+*During early development, the quest was named '''Work Order: Contract: Talanji's Empire'''.
+
+==Patch changes==
+*{{Patch 8.0.1|note=Added.}}
+
+==External links==
+{{Elinks-quest|52396}}
+
+[[Category:Battle for Azeroth world quests]]
+[[Category:Inscription quests]]
+[[Category:Talanji's Expedition quests]]

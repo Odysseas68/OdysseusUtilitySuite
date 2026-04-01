@@ -1,0 +1,62 @@
+{{Infobox town
+| name = The Isle of Fangs
+| ss = Isle of Fangs.jpg
+| faction = Horde
+| type = [[Port]], [[Island]]
+| race = {{Race|ZandalariTroll}}
+| language = [[Zandali]], [[Orcish (language)|Orcish]]
+| affiliation = [[Zandalari Empire]], [[Horde]]
+| faffiliation = [[Atal'zul]]
+| loc = [[Bay of Kings]], [[Zuldazar]]
+| travel = Yes
+ | flightpath = Yes
+| status = Active
+}}
+
+The '''Isle of Fangs''' is a small island off the southern coast of [[Zuldazar]] in the [[Bay of Kings]]. It's the southernmost point of [[Zandalar]]. Like [[Tusk Isle]] just to the north, the Isle of Fangs is used as a [[port]] and outpost by the [[Zandalari Empire]], with part of the [[Golden Fleet]] being moored here. The island also has its own [[watch tower]] which can be used to send signals across the bay.
+
+==History==
+{{Bfa-section}}
+The Isle of Fangs is the farthest out of the various ports in the [[Bay of Kings]] that have been the historic home of the [[Zandalari]] [[Golden Fleet]]. A large portion of the fleeting, including one of its most powerful [[ship]]s known as the ''[[Breath of Pa'ku]]'', was stationed here at the time of the [[war in Zandalar]]. Eventually, mutineers loyal to [[Prophet Zul]] would seize control of the fleet as it sat in harbor, though the [[battleship]]s were soon reclaimed by Zandalari and [[Horde]] forces. After this victory against the traitors and their [[mogu]] allies was complete, the final [[loa]]-blessed signal flame was lit on the Isle of Fangs' watchtower, decisively marking the success as complete.<ref>[[Send the Signal!]]</ref>
+
+Later, as part of their [[Alliance War Campaign|war campaign]] on Zandalar, [[Alliance]] forces would infiltrate the Isle of Fangs and the ships docked there. These agents recovered important military information from the ''Breath of Pa'ku'' before secretly sabotaging the hull of each ship with special [[explosive]]s.<ref>[[Ship Logs]]</ref><ref>[[Sabotaging the Pa'ku]]</ref> The act of mining these battleships was then repeated on [[Tusk Isle]] and at [[Warport Rastari]], in preparation for an [[Battle of Dazar'alor|impending attack]] on [[Dazar'alor]] itself.
+
+==Inhabitants==
+===Named===
+*{{NPC|Horde|Paku'ai Leti|Flight Master|icon=Zandalari Female}}
+*{{NPC|Neutral|Sorcerer Zhang|icon=Mogu}}
+*{{NPC|Neutral|Quartermaster Garza|icon=Zandalari Female}}
+
+During ''[[Hope's Blue Light]]''
+*{{NPC|Horde|Captain Grez'ko|icon=Zandalari Male}}
+
+During ''[[Under the Cover of Swiftwing]]''
+*{{NPC|Alliance|John J. Keeshan|icon=Human Male}}
+*{{NPC|Alliance|Kelsey Steelspark|icon=Gnome Female}}
+
+===Unnamed===
+*{{NPC|Neutral|Zulian Crewman||Zulian Crewmen|icon=Zandalari Male|icon2=Zandalari Female}}
+*{{NPC|Neutral|Lei-zhi Oppressor|icon=Mogu}}s
+*{{NPC|Neutral|Lei-zhi Slaver|icon=Mogu}}s
+*{{NPC|Neutral|Southern Sabertusk|icon=Sabertusk}}s
+*{{NPC|Neutral|Spirit Sabertusk|icon=Sabertusk}}
+*{{NPC|Neutral|Sandskitter Crab|icon=Crab}}s
+
+==Trivia==
+*During the alpha, the island was renamed several times. From the '''Lower Vigilant''' to '''Lower Vigilant Isle''' to what it is today.
+*While [[death|dead]] a [[Spirit Sabertusk]] can be seen sitting next to [[Bwonsamdi]] in the graveyard.
+
+==Patch changes==
+*{{Patch 8.0.1|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Elinks-zone|9603}}
+
+{{Zuldazar}}
+
+[[Category:Islands]]
+[[Category:South Seas]]
+[[Category:Golden Fleet]]

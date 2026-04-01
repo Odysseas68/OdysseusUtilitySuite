@@ -1,0 +1,291 @@
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><dl><dd><span class="noexcerpt" data-nosnippet=""><i>This article is about the in-game faction. For the troll empire lore, see <a href="/wiki/Zandalari_Empire" title="Zandalari Empire">Zandalari Empire</a>.  </i></span></dd>
+<dd><span class="noexcerpt" data-nosnippet=""><i>Not to be confused with <a href="/wiki/Zandalar_Tribe" title="Zandalar Tribe">Zandalar Tribe</a>.</i></span></dd></dl>
+<table class="infobox darktable" cellspacing="3" style="border-spacing:3px;width:22em;width: 23em;;"><tbody><tr class="above-header"><th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;padding:5px;"><span style="display:table;width:100%;border-collapse:collapse;border-spacing:0;"><span style="display:table-row;"><span style="display:table-cell;vertical-align:middle;padding-right:5px;width:1px;"><span class=""><a href="/wiki/Horde" title="Horde"><img alt="Horde" src="/images/Horde_32.png?db3bd7" decoding="async" loading="lazy" width="32" height="32" data-file-width="32" data-file-height="32" /></a></span></span><span style="display:table-cell;vertical-align:middle;padding-right:2px;">Zandalari Empire</span></span></span></th></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Main leader</th><td>
+<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Talanji.gif/16px-IconSmall_Talanji.gif?1bcb18" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Queen_Talanji" class="mw-redirect" title="Queen Talanji"><span style="color:">Queen Talanji</span></a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">&#160;&#160;Formerly</th><td>
+<span class="raceicon"><img alt="" src="/images/thumb/IconSmall_Rastakhan.gif/16px-IconSmall_Rastakhan.gif?633ef5" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/King_Rastakhan" class="mw-redirect" title="King Rastakhan"><span style="color:">King Rastakhan</span></a><sup>&#160;†</sup></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Secondary leaders</th><td>
+<span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Bwonsamdi.gif" class="image"><img alt="IconSmall Bwonsamdi.gif" src="/images/thumb/IconSmall_Bwonsamdi.gif/16px-IconSmall_Bwonsamdi.gif?d26a79" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Gonk.gif" class="image"><img alt="IconSmall Gonk.gif" src="/images/thumb/IconSmall_Gonk.gif/16px-IconSmall_Gonk.gif?23d558" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Krag%27wa.gif" class="image"><img alt="IconSmall Krag&#39;wa.gif" src="/images/thumb/IconSmall_Krag%27wa.gif/16px-IconSmall_Krag%27wa.gif?6e48a4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Loa" title="Loa">Loa</a><sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Zandalari_troll" title="Zandalari troll"><img alt="Zandalari troll" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Zandalari_troll" title="Zandalari troll"><img alt="Zandalari troll" src="/images/thumb/IconSmall_Zandalari_Female.gif/16px-IconSmall_Zandalari_Female.gif?3f392f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_DireZandalari.gif" class="image"><img alt="IconSmall DireZandalari.gif" src="/images/thumb/IconSmall_DireZandalari.gif/16px-IconSmall_DireZandalari.gif?afda44" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Tortollan.gif" class="image"><img alt="IconSmall Tortollan.gif" src="/images/thumb/IconSmall_Tortollan.gif/16px-IconSmall_Tortollan.gif?626af3" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Zanchuli_Council" title="Zanchuli Council">Zanchuli Council</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Race(s)</th><td>
+<span class="linkicon raceicon RaceLink"><a href="/wiki/Zandalari_troll" title="Zandalari troll"><img alt="Zandalari troll" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Zandalari_troll" title="Zandalari troll"><img alt="Zandalari troll" src="/images/thumb/IconSmall_Zandalari_Female.gif/16px-IconSmall_Zandalari_Female.gif?3f392f" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Zandalari_troll" title="Zandalari troll">Zandalari troll</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Dire_troll" title="Dire troll"><img alt="Dire troll" src="/images/thumb/IconSmall_DireTroll.gif/16px-IconSmall_DireTroll.gif?fa1016" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Dire_troll" title="Dire troll">Dire troll</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Tortollan" title="Tortollan"><img alt="Tortollan" src="/images/thumb/IconSmall_Tortollan.gif/16px-IconSmall_Tortollan.gif?626af3" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Tortollan" title="Tortollan">Tortollan</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Vulpera" title="Vulpera"><img alt="Vulpera" src="/images/thumb/IconSmall_Vulpera_Male.gif/16px-IconSmall_Vulpera_Male.gif?ed2cbd" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Vulpera" title="Vulpera"><img alt="Vulpera" src="/images/thumb/IconSmall_Vulpera_Female.gif/16px-IconSmall_Vulpera_Female.gif?a40550" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Vulpera" title="Vulpera">Vulpera</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Jungle_troll" title="Jungle troll"><img alt="Jungle troll" src="/images/thumb/IconSmall_Troll_Male.gif/16px-IconSmall_Troll_Male.gif?7580a0" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Jungle_troll" title="Jungle troll"><img alt="Jungle troll" src="/images/thumb/IconSmall_Troll_Female.gif/16px-IconSmall_Troll_Female.gif?9723e4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Jungle_troll" title="Jungle troll">Jungle troll</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Sand_troll" title="Sand troll"><img alt="Sand troll" src="/images/thumb/IconSmall_SandTroll_Male.gif/16px-IconSmall_SandTroll_Male.gif?a12319" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Sand_troll" title="Sand troll"><img alt="Sand troll" src="/images/thumb/IconSmall_SandTroll_Female.gif/16px-IconSmall_SandTroll_Female.gif?e1a127" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Sand_troll" title="Sand troll">Sand troll</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Mag%27har_orc" title="Mag&#39;har orc"><img alt="Mag&#39;har orc" src="/images/thumb/IconSmall_OrcBrown_Male.gif/16px-IconSmall_OrcBrown_Male.gif?16fed8" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Mag%27har_orc" title="Mag&#39;har orc"><img alt="Mag&#39;har orc" src="/images/thumb/IconSmall_OrcBrown_Female.gif/16px-IconSmall_OrcBrown_Female.gif?be2b11" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Mag%27har_orc" title="Mag&#39;har orc">Mag'har orc</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Goblin" title="Goblin"><img alt="Goblin" src="/images/thumb/IconSmall_Goblin_Male.gif/16px-IconSmall_Goblin_Male.gif?274386" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a><a href="/wiki/Goblin" title="Goblin"><img alt="Goblin" src="/images/thumb/IconSmall_Goblin_Female.gif/16px-IconSmall_Goblin_Female.gif?9787be" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Goblin" title="Goblin">Goblin</a><br /> <span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Rezan.gif" class="image"><img alt="IconSmall Rezan.gif" src="/images/thumb/IconSmall_Rezan.gif/16px-IconSmall_Rezan.gif?d262b4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Pa%27ku.gif" class="image"><img alt="IconSmall Pa&#39;ku.gif" src="/images/thumb/IconSmall_Pa%27ku.gif/16px-IconSmall_Pa%27ku.gif?2e6364" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span><span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Kimbul.gif" class="image"><img alt="IconSmall Kimbul.gif" src="/images/thumb/IconSmall_Kimbul.gif/16px-IconSmall_Kimbul.gif?9c07ee" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Wild_God" title="Wild God">Wild God</a><br /> <span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Gorilla.gif" class="image"><img alt="IconSmall Gorilla.gif" src="/images/thumb/IconSmall_Gorilla.gif/16px-IconSmall_Gorilla.gif?344447" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Gorilla" title="Gorilla">Gorilla</a><br /> <span class="linkicon raceicon RaceLink"><a href="/wiki/Sethrak" title="Sethrak"><img alt="Sethrak" src="/images/thumb/IconSmall_Sethrak.gif/16px-IconSmall_Sethrak.gif?d530d2" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span>&#160;<a href="/wiki/Sethrak" title="Sethrak">Sethrak</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Capital</th><td>
+<a href="/wiki/Dazar%27alor" title="Dazar&#39;alor">Dazar'alor</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Theater of operations</th><td>
+<a href="/wiki/Zuldazar" title="Zuldazar">Zuldazar</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Language(s)</th><td>
+<a href="/wiki/Zandali" title="Zandali">Zandali</a>, <a href="/wiki/Orcish_(language)" title="Orcish (language)">Orcish</a>, <a href="/wiki/Vulpera_(language)" title="Vulpera (language)">Vulpera</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Affiliation</th><td>
+<a href="/wiki/Horde" title="Horde">Horde</a></td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Status</th><td>
+Active</td></tr><tr><th scope="row" style="text-align:left;background-color:transparent;">Quartermaster</th><td>
+<span class="linkicon raceicon"><a href="/wiki/File:IconSmall_Zandalari_Male.gif" class="image"><img alt="IconSmall Zandalari Male.gif" src="/images/thumb/IconSmall_Zandalari_Male.gif/16px-IconSmall_Zandalari_Male.gif?5daf82" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" /></a></span> <a href="/wiki/Natal%27hakata" title="Natal&#39;hakata">Natal'hakata</a></td></tr></tbody></table>
+<p>The <b>Zandalari Empire</b> is a faction located on <a href="/wiki/Zandalar" title="Zandalar">Zandalar</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Faction_description"><span class="tocnumber">1</span> <span class="toctext">Faction description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Reputation"><span class="tocnumber">2</span> <span class="toctext">Reputation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Rewards"><span class="tocnumber">3</span> <span class="toctext">Rewards</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Trivia"><span class="tocnumber">4</span> <span class="toctext">Trivia</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Patch_changes"><span class="tocnumber">5</span> <span class="toctext">Patch changes</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Faction_description">Faction description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Zandalari_Empire_(faction)?action=edit&amp;section=1" title="Edit section: Faction description"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>The oldest empire of Azeroth, the Zandalari are powerful trolls who bargain with fearsome <a href="/wiki/Loa" title="Loa">loa</a> and whose navy is unmatched on the <a href="/wiki/Great_Sea" title="Great Sea">Great Sea</a>.</i>
+</p>
+<h2><span class="mw-headline" id="Reputation">Reputation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Zandalari_Empire_(faction)?action=edit&amp;section=2" title="Edit section: Reputation"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<h2><span class="mw-headline" id="Rewards">Rewards</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Zandalari_Empire_(faction)?action=edit&amp;section=3" title="Edit section: Rewards"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable zebra">
+<caption><span class="raceicon"></span><a href="/wiki/Natal%27hakata" title="Natal&#39;hakata"><span style="color:">Natal'hakata</span></a><br /><span style="">&lt;<a class="mw-selflink selflink">Zandalari Empire</a> Quartermaster&gt;</span>
+</caption>
+<tbody><tr>
+<th>Rep</th>
+<th>Item</th>
+<th>Cost</th>
+<th>Type
+</th></tr>
+<tr>
+<th rowspan="3"><a href="/wiki/Honored" class="mw-redirect" title="Honored"><span class="rep-honored" title="Honored">Honored</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_cape_leather_zandalardungeon_c_01.png/16px-Inv_cape_leather_zandalardungeon_c_01.png?730f56" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Dinomancer%27s_Cloak" title="Dinomancer&#39;s Cloak"><span class="itemlink ajaxttlink qc-rare" title="Dinomancer&#39;s Cloak is a rare quality item."><span class="bracket">&#91;</span>Dinomancer's Cloak<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,100<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Back
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll2star.png/16px-Inv_recipe_70_scroll2star.png?2db659" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_AZ3-R1-T3_Gearspun_Goggles#Horde_Rank_2" title="Schematic: AZ3-R1-T3 Gearspun Goggles"><span class="itemlink ajaxttlink taggedttlink-Horde-Rank-2 qc-common" title="Schematic: AZ3-R1-T3 Gearspun Goggles is a common quality item."><span class="bracket">&#91;</span>Schematic: AZ3-R1-T3 Gearspun Goggles<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,100<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Schematic
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll2star.png/16px-Inv_recipe_70_scroll2star.png?2db659" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Recipe:_Contract:_Zandalari_Empire" title="Recipe: Contract: Zandalari Empire"><span class="itemlink ajaxttlink qc-common" title="Recipe: Contract: Zandalari Empire is a common quality item."><span class="bracket">&#91;</span>Recipe: Contract: Zandalari Empire<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,100<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<th rowspan="20"><a href="/wiki/Revered" class="mw-redirect" title="Revered"><span class="rep-revered" title="Revered">Revered</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_belt_cloth_zandalardungeon_c_01.png/16px-Inv_belt_cloth_zandalardungeon_c_01.png?8c3dc4" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Cord_of_the_Loa_Worshippers" title="Cord of the Loa Worshippers"><span class="itemlink ajaxttlink qc-epic" title="Cord of the Loa Worshippers is an epic quality item."><span class="bracket">&#91;</span>Cord of the Loa Worshippers<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_bracer_leather_zandalardungeon_c_01.png/16px-Inv_bracer_leather_zandalardungeon_c_01.png?2c9330" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Bindings_of_the_Disparate_Tribes" title="Bindings of the Disparate Tribes"><span class="itemlink ajaxttlink qc-epic" title="Bindings of the Disparate Tribes is an epic quality item."><span class="bracket">&#91;</span>Bindings of the Disparate Tribes<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Wrist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_boot_mail_zandalardungeon_c_01.png/16px-Inv_boot_mail_zandalardungeon_c_01.png?483d9c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Gral_Worshipper%27s_Waders" title="Gral Worshipper&#39;s Waders"><span class="itemlink ajaxttlink qc-epic" title="Gral Worshipper&#39;s Waders is an epic quality item."><span class="bracket">&#91;</span>Gral Worshipper's Waders<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Feet
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pant_plate_zandalardungeon_c_01.png/16px-Inv_pant_plate_zandalardungeon_c_01.png?72e261" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Grand_Fleet_Legplates" title="Grand Fleet Legplates"><span class="itemlink ajaxttlink qc-epic" title="Grand Fleet Legplates is an epic quality item."><span class="bracket">&#91;</span>Grand Fleet Legplates<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_offhand_1h_draenorcrafted_d_02a.png/16px-Inv_offhand_1h_draenorcrafted_d_02a.png?4108e2" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Tome_of_Hex:_Zandalari_Tendonripper" title="Tome of Hex: Zandalari Tendonripper"><span class="itemlink ajaxttlink qc-rare" title="Tome of Hex: Zandalari Tendonripper is a rare quality item."><span class="bracket">&#91;</span>Tome of Hex: Zandalari Tendonripper<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,800<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Book
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_misc_book_07.png/16px-Inv_misc_book_07.png?86194b" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Tome_of_Polymorph:_Direhorn" title="Tome of Polymorph: Direhorn"><span class="itemlink ajaxttlink qc-rare" title="Tome of Polymorph: Direhorn is a rare quality item."><span class="bracket">&#91;</span>Tome of Polymorph: Direhorn<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,800<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Book
+</td></tr>
+<tr>
+<td><a href="/wiki/Recipe:_Potion_of_Replenishment#Rank_3" title="Recipe: Potion of Replenishment">Recipe: Potion of Replenishment#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<td><a href="/wiki/Recipe:_Flask_of_Endless_Fathoms#Rank_3" title="Recipe: Flask of Endless Fathoms">Recipe: Flask of Endless Fathoms#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<td><a href="/wiki/Recipe:_Coastal_Healing_Potion#Rank_3" title="Recipe: Coastal Healing Potion">Recipe: Coastal Healing Potion#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<td><a href="/wiki/Formula:_Enchant_Ring_-_Pact_of_Haste?action=edit&amp;redlink=1" class="new" title="Formula: Enchant Ring - Pact of Haste (page does not exist)" rel="nofollow">Formula: Enchant Ring - Pact of Haste#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Formula
+</td></tr>
+<tr>
+<td><a href="/wiki/Formula:_Enchant_Weapon_-_Stalwart_Navigation?action=edit&amp;redlink=1" class="new" title="Formula: Enchant Weapon - Stalwart Navigation (page does not exist)" rel="nofollow">Formula: Enchant Weapon - Stalwart Navigation#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Formula
+</td></tr>
+<tr>
+<td><a href="/wiki/Formula:_Enchant_Weapon_-_Deadly_Navigation?action=edit&amp;redlink=1" class="new" title="Formula: Enchant Weapon - Deadly Navigation (page does not exist)" rel="nofollow">Formula: Enchant Weapon - Deadly Navigation#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Formula
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_recipe_70_scroll3star.png/16px-Inv_recipe_70_scroll3star.png?751f5e" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Schematic:_AZ3-R1-T3_Gearspun_Goggles#Horde_Rank_3" title="Schematic: AZ3-R1-T3 Gearspun Goggles"><span class="itemlink ajaxttlink taggedttlink-Horde-Rank-3 qc-common" title="Schematic: AZ3-R1-T3 Gearspun Goggles is a common quality item."><span class="bracket">&#91;</span>Schematic: AZ3-R1-T3 Gearspun Goggles<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Schematic
+</td></tr>
+<tr>
+<td><a href="/wiki/Schematic:_Organic_Discombobulation_Grenade#Horde" title="Schematic: Organic Discombobulation Grenade">Schematic: Organic Discombobulation Grenade#Horde</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Schematic
+</td></tr>
+<tr>
+<td><a href="/wiki/Schematic:_Interdimensional_Companion_Repository#Horde" title="Schematic: Interdimensional Companion Repository">Schematic: Interdimensional Companion Repository#Horde</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Schematic
+</td></tr>
+<tr>
+<td><a href="/wiki/Schematic:_Deployable_Attire_Rearranger#Horde" title="Schematic: Deployable Attire Rearranger">Schematic: Deployable Attire Rearranger#Horde</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Schematic
+</td></tr>
+<tr>
+<td><a href="/wiki/Design:_Owlseye_Loop?action=edit&amp;redlink=1" class="new" title="Design: Owlseye Loop (page does not exist)" rel="nofollow">Design: Owlseye Loop#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Design
+</td></tr>
+<tr>
+<td><a href="/wiki/Design:_Laribole_Staff_of_Alacrity?action=edit&amp;redlink=1" class="new" title="Design: Laribole Staff of Alacrity (page does not exist)" rel="nofollow">Design: Laribole Staff of Alacrity#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Design
+</td></tr>
+<tr>
+<td><a href="/wiki/Design:_Scarlet_Diamond_Staff_of_Intuition?action=edit&amp;redlink=1" class="new" title="Design: Scarlet Diamond Staff of Intuition (page does not exist)" rel="nofollow">Design: Scarlet Diamond Staff of Intuition#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Design
+</td></tr>
+<tr>
+<td><a href="/wiki/Recipe:_Battle_Potion_of_Stamina#Rank_3" title="Recipe: Battle Potion of Stamina">Recipe: Battle Potion of Stamina#Rank_3</a></td>
+<td><span class="nobreak ajaxoutertt">1,400<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Recipe
+</td></tr>
+<tr>
+<th rowspan="6"><a href="/wiki/Exalted" class="mw-redirect" title="Exalted"><span class="rep-exalted" title="Exalted">Exalted</span></a>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pant_cloth_zandalardungeon_c_01.png/16px-Inv_pant_cloth_zandalardungeon_c_01.png?7107b7" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Shadraspun_Legwraps" title="Shadraspun Legwraps"><span class="itemlink ajaxttlink qc-epic" title="Shadraspun Legwraps is an epic quality item."><span class="bracket">&#91;</span>Shadraspun Legwraps<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">10,000<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Legs
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_belt_leather_zandalardungeon_c_01.png/16px-Inv_belt_leather_zandalardungeon_c_01.png?de7e6c" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Waistcord_of_Pa%27ku%27s_Flight" title="Waistcord of Pa&#39;ku&#39;s Flight"><span class="itemlink ajaxttlink qc-epic" title="Waistcord of Pa&#39;ku&#39;s Flight is an epic quality item."><span class="bracket">&#91;</span>Waistcord of Pa'ku's Flight<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Waist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_glove_mail_zandalardungeon_c_01.png/16px-Inv_glove_mail_zandalardungeon_c_01.png?16fddf" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Torcali%27s_Grips_of_the_Bounty" title="Torcali&#39;s Grips of the Bounty"><span class="itemlink ajaxttlink qc-epic" title="Torcali&#39;s Grips of the Bounty is an epic quality item."><span class="bracket">&#91;</span>Torcali's Grips of the Bounty<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Hands
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_bracer_plate_zandalardungeon_c_01.png/16px-Inv_bracer_plate_zandalardungeon_c_01.png?48dc63" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Gonk_Adherents_Vambraces" title="Gonk Adherents Vambraces"><span class="itemlink ajaxttlink qc-epic" title="Gonk Adherents Vambraces is an epic quality item."><span class="bracket">&#91;</span>Gonk Adherents Vambraces<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">1,900<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Wrist
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_tabard_zandalariempire.png/16px-Inv_tabard_zandalariempire.png?91d209" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Tabard_of_the_Zandalari_Empire" title="Tabard of the Zandalari Empire"><span class="itemlink ajaxttlink qc-rare" title="Tabard of the Zandalari Empire is a rare quality item."><span class="bracket">&#91;</span>Tabard of the Zandalari Empire<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">625<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Tabard
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_pterrordax2mount_blue.png/16px-Inv_pterrordax2mount_blue.png?563ce1" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Reins_of_the_Cobalt_Pterrordax" title="Reins of the Cobalt Pterrordax"><span class="itemlink ajaxttlink qc-epic" title="Reins of the Cobalt Pterrordax is an epic quality item."><span class="bracket">&#91;</span>Reins of the Cobalt Pterrordax<span class="bracket">&#93;</span></span></a></span></td>
+<td><span class="nobreak ajaxoutertt">12,500<span><a href="/wiki/Money#Types_of_coins" title="g"><img alt="g" src="/images/thumb/Gold.png/14px-Gold.png?c28389" decoding="async" loading="lazy" width="14" height="14" data-file-width="20" data-file-height="20" /></a></span></span></td>
+<td>Mount
+</td></tr>
+<tr>
+<th rowspan="1"><b>Paragon</b>
+</th>
+<td><span class="nobreak"><span class="linkicon"><img alt="" src="/images/thumb/Inv_raptorbaby_green.png/16px-Inv_raptorbaby_green.png?cf7956" decoding="async" loading="lazy" width="16" height="16" data-file-width="64" data-file-height="64" />&#160;</span><a href="/wiki/Warbeast_Kraal_Dinner_Bell" title="Warbeast Kraal Dinner Bell"><span class="itemlink ajaxttlink qc-rare" title="Warbeast Kraal Dinner Bell is a rare quality item."><span class="bracket">&#91;</span>Warbeast Kraal Dinner Bell<span class="bracket">&#93;</span></span></a></span></td>
+<td></td>
+<td>Toy
+</td></tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Trivia">Trivia</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Zandalari_Empire_(faction)?action=edit&amp;section=4" title="Edit section: Trivia"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>This faction was initially named <b>Zandalari</b> during early alpha.
+</p>
+<h2><span class="mw-headline" id="Patch_changes">Patch changes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Zandalari_Empire_(faction)?action=edit&amp;section=5" title="Edit section: Patch changes"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span style="display:inline-block; min-width: 50px; text-align:center"><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="Battle for Azeroth"><img alt="Battle for Azeroth" src="/images/thumb/BattleForAzeroth-Logo-Small.png/40px-BattleForAzeroth-Logo-Small.png?25e36c" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a></span> <b><a href="/wiki/Patch_8.0.1" title="Patch 8.0.1">Patch 8.0.1</a> (2018-07-17):</b> Added.   <i></i><br /></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Zandalari_Empire_(faction)?action=edit&amp;section=6" title="Edit section: References"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="font-size:calc(80% + 2.1px);"><div style="margin-top:-0.3em; margin-bottom:0px; height:0px">&#160;</div><div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-1"><a href="#cite_ref-1">^</a> <span class="reference-text"><a href="/wiki/Krag%27wa" class="mw-redirect" title="Krag&#39;wa">Krag'wa</a>, <a href="/wiki/Gonk" title="Gonk">Gonk</a>, <a href="/wiki/Pa%27ku" title="Pa&#39;ku">Pa'ku</a> and <a href="/wiki/Bwonsamdi" title="Bwonsamdi">Bwonsamdi</a> are associated with the faction in-game.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/Zandalari_Empire_(faction)?action=edit&amp;section=7" title="Edit section: External links"><span>edit</span></a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="darktable">
+<tbody><tr>
+<th>Faction</th>
+<th>Paragon
+</th></tr>
+<tr>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/faction=2103">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/factions/2103">WoWDB</a></li>
+
+
+
+</ul>
+</td>
+<td><ul class="elinks">
+<li class="wowhead"><a rel="nofollow" class="external text" href="https://www.wowhead.com/faction=2378">Wowhead</a></li>
+<li class="sigrie"><a rel="nofollow" class="external text" href="https://www.wowdb.com/factions/2378">WoWDB</a></li>
+
+
+
+</ul>
+</td></tr></tbody></table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;;" id=""><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks mw-collapsible mw-autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;;"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="2"><div class="noprint plainlinks hlist navbar mini" style=""><ul><li class="nv-view"><a href="/wiki/Template:Factions/battle_for_azeroth" title="Template:Factions/battle for azeroth"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li><li class="nv-edit"><a class="text" href="https://warcraft.wiki.gg/wiki/Template:Factions/battle_for_azeroth?action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="Battle for Azeroth"><img alt="Battle for Azeroth" src="/images/thumb/BattleForAzeroth-Logo-Small.png/40px-BattleForAzeroth-Logo-Small.png?25e36c" decoding="async" loading="lazy" width="40" height="15" style="vertical-align: middle" data-file-width="80" data-file-height="29" /></a> <i><a href="/wiki/World_of_Warcraft:_Battle_for_Azeroth" title="World of Warcraft: Battle for Azeroth">Battle for Azeroth</a></i> <a href="/wiki/Reputation" title="Reputation">reputation</a> <a href="/wiki/Faction" title="Faction">factions</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><span class="alliance-link">&#160;<a href="/wiki/Alliance" title="Alliance">Alliance</a></span></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Order_of_Embers" title="Order of Embers">Order of Embers</a></li>
+<li><a href="/wiki/Proudmoore_Admiralty" title="Proudmoore Admiralty">Proudmoore Admiralty</a></li>
+<li><a href="/wiki/Storm%27s_Wake" title="Storm&#39;s Wake">Storm's Wake</a></li>
+<li><a href="/wiki/7th_Legion_(faction)" title="7th Legion (faction)">7th Legion</a></li>
+<li><a href="/wiki/Waveblade_Ankoan" title="Waveblade Ankoan">Waveblade Ankoan</a></li>
+<li><a href="/wiki/Honeyback_Hive" title="Honeyback Hive">Honeyback Hive</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><span class="horde-link">&#160;<a href="/wiki/Horde" title="Horde">Horde</a></span></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Talanji%27s_Expedition" title="Talanji&#39;s Expedition">Talanji's Expedition</a></li>
+<li><a href="/wiki/Voldunai" title="Voldunai">Voldunai</a></li>
+<li><a class="mw-selflink selflink">Zandalari Empire</a></li>
+<li><a href="/wiki/Honorbound" title="Honorbound">The Honorbound</a></li>
+<li><a href="/wiki/Unshackled" title="Unshackled">The Unshackled</a></li></ul>
+</div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><span class="neutral-link">&#160;<a href="/wiki/Neutral" class="mw-redirect" title="Neutral">Neutral</a></span></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<ul><li><a href="/wiki/Champions_of_Azeroth" title="Champions of Azeroth">Champions of Azeroth</a></li>
+<li><a href="/wiki/Tortollan_Seekers" title="Tortollan Seekers">Tortollan Seekers</a></li>
+<li><a href="/wiki/Rustbolt_Resistance" title="Rustbolt Resistance">Rustbolt Resistance</a></li>
+<li><a href="/wiki/Rajani" title="Rajani">Rajani</a></li>
+<li><a href="/wiki/Uldum_Accord" title="Uldum Accord">Uldum Accord</a></li></ul>
+</div></td></tr></tbody></table></td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20260306004357
+Cache expiry: 2592000
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.373 seconds
+Real time usage: 0.641 seconds
+Preprocessor visited node count: 12801/1000000
+Revision size: 1902/4194304 bytes
+Post‐expand include size: 58465/4194304 bytes
+Template argument size: 7861/4194304 bytes
+Highest expansion depth: 16/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 436/10000000 bytes
+ExtLoops count: 0/5000
+Lua time usage: 0.024/15.000 seconds
+Lua memory usage: 1835672/52428800 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  368.628      1 -total
+ 57.57%  212.204      1 Template:Zandalari_Empire
+ 53.55%  197.387     29 Template:Cost
+ 19.42%   71.573      1 Template:Infobox_faction
+ 18.61%   68.608      1 Template:Infobox
+  9.32%   34.356     10 Template:Race
+  8.73%   32.164      1 Template:Factions
+  8.06%   29.729      1 Template:Factions/battle_for_azeroth
+  7.50%   27.651      1 Template:Navbox
+  7.26%   26.777      1 Template:Stub/Other
+-->
+
+<!-- Saved in parser cache with key warcraft_en:pcache:idhash:117299-0!canonical and timestamp 20260306004357 and revision id 6471352. Rendering was triggered because: edit-page
+ -->
+</div>

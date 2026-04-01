@@ -1,0 +1,40 @@
+{{Questbox
+| name=Work Order: Contract: Voldunai
+| start=Automatic
+| end=[[Hoarder Jena]]
+| faction=Horde
+| id=52397
+ | level = {{level|bfa-max}}
+ | levelreq = {{level|bfa-max}}
+| type=Inscription World Quest
+| category=Vol'dun
+| reputation=+75 [[Voldunai]]
+| shareable=No
+}}
+
+==Objectives==
+*[[Contract: Voldunai]] (3)
+
+==Rewards==
+You will receive:
+* 75 reputation with [[Voldunai]]
+* 1 skill point in [[Battle for Azeroth proficiency|Zandalari]] [[Inscription]]
+* [[Recipe: Contract: Voldunai]] - Rank 3 (first completion only)
+
+{{wqr|bfawo}}
+
+==Progress==
+Are you here to deliver supplies?
+
+==Completion==
+Thank you for assisting us, scribe. We needed these contracts badly.
+
+==Patch changes==
+*{{Patch 8.0.1|note=Added.}}
+
+==External links==
+{{Elinks-quest|52397}}
+
+[[Category:Battle for Azeroth world quests]]
+[[Category:Inscription quests]]
+[[Category:Voldunai quests]]

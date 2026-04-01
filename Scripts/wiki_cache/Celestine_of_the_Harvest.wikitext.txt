@@ -1,0 +1,236 @@
+{{Distinguish|Matron Celestine}}
+{{Npcbox
+| name = Celestine of the Harvest
+| image = Celestine in Nordrassil.jpg
+| title = Druid Trainer
+| class = [[Druid]]
+| resource = Mana
+| faction = Alliance
+| affiliation = [[Dream Wardens]], [[Dreamweavers]], [[Guardians of Hyjal]], [[Cenarion Circle]], [[Gilneas (faction)|Kingdom of Gilneas]], [[Stormwind (faction)|Stormwind]]
+| occupation = [[Druid trainer|Trainer]], [[Harvest-witch]]
+| race = Worgen
+| creature = Humanoid 
+| gender = Female 
+| location = [[#Locations|Various]]
+| status = Alive
+}}
+
+'''Celestine of the Harvest''' is a [[worgen]] [[druid]] of [[Gilneas (kingdom)|Gilneas]].
+
+==History==
+[[File:Celestine.jpg|thumb|upright|Celestine's human form.]]
+===Cataclysm===
+{{Cata-section}}
+At the time of the [[Cataclysm (event)|Cataclysm]], [[worgen]] [[druid]] [[adventurer]]s first met her in [[Gilneas City (starting zone)|Gilneas City]], where she instructed them on how to use the spell [[Rejuvenation]]. At some point, she was afflicted with the [[worgen curse]] and later moved to [[Stormwind City]], residing in a house next to [[Olivia's Pond]]. Druid adventurers in Stormwind can visit her to train their skills.
+
+During the [[Firelands Invasion]], Celestine helped patrol the [[Regrowth (subzone)|Regrowth]] in [[Mount Hyjal]].
+
+During [[Hallow's End]], Celestine is standing outside the gates of Stormwind, where she explains the significance of burning the [[Wickerman]].
+
+===Legion===
+{{Legion-section}}
+During the [[third invasion of the Burning Legion]], Celestine worked with [[Hamuul Runetotem]] and [[Zen'tabra]] to battle [[Destromath]] at the nearly-destroyed [[Well of Eternity (Hyjal)|Well of Eternity]] on Hyjal.<ref>[[Cleansing the Mother Tree]]</ref>
+
+When [[satyr]] and the [[Burning Legion]] attacked [[Val'sharah]]'s [[Temple of Elune (Val'sharah)|Temple of Elune]], Celestine went there and aided in the defense. She was then recalled by the [[Dreamgrove]] to assist with a ritual to commune with [[Malorne]] in [[Nordrassil]] on Hyjal.<ref>[[Gathering the Dreamweavers: Celestine of the Harvest]]</ref><ref>[[Communing With Malorne]]</ref> Afterward, she was among the druids that entered [[Malorne's Nightmare]].
+
+===Battle for Azeroth===
+{{bfa-section}}
+During the [[Fourth War]], Celestine participated in the [[Battle for Darkshore]]. In [[Bashal'Aran]], she is seen channeling a spell to [[Shadebough (ancient)|Shadebough]]. In Stormwind City, she moved out of her house and is standing next to a tree.
+
+===Shadowlands===
+{{Sl-section}}
+Celestine was present in [[Bashal'Aran]] and witnessed Tyrande's speech about the Horde's defeat in [[Darkshore]].<ref>[[A New Hope]]</ref>
+
+===Dragonflight===
+{{Df-section}}
+[[File:Celestine and Vassandra - Reclamation of Gilneas.jpg|thumb|Celestine fighting the [[Scarlet Crusade]] alongside [[Vassandra Stormclaw]].]]
+Following the reappearance of the [[Dragon Isles]], she traveled to the [[Shady Sanctuary]] in the [[Ohn'ahran Plains]] and was seen speaking with [[Lyessa Bloomwatcher]].
+
+She was later amongst those who came to [[Alexstrasza]]'s aid when she was attacked by [[Fyrakk|Fyrakk the Blazing]]. In the battle that followed, she fought side by side with [[Moira Thaurissan]] and [[Genn Greymane]] at the [[Field of Flames]].<ref>[[The Age of Mortals]]</ref> Celestine later attended the gathering in [[Amirdrassil]] when it bloomed on the [[Dragon Isles]] after Fyrakk's death.
+
+During the [[Reclamation of Gilneas]], Celestine went with [[Genn Greymane|King Genn Greymane]] to [[Aderic's Repose]] and was sent to tell the [[Forsaken]] outside the city to wait for their signal.<ref>[[Knee-High]]</ref> She was later seen fighting the [[Scarlet Crusade]] soldiers at [[Cathedral Square]] alongside [[Vassandra Stormclaw]]. Afterward, she can be found at [[Tal'doren]] in the [[Blackwald]].
+
+Celestine can also be seen in [[Belanaar]] speaking with Vassandra.
+
+==Locations==
+{{Npclocations|align=|start=|loc=[[Gilneas (starting zone)|Gilneas]]; [[Gilneas City]]|level=Gilneas|reaction={{Rep|Friendly|Alliance}}|notes=As part of the [[worgen starting experience]].}}
+{{Npclocations|loc=[[Stormwind City]]{{Co|57.6|24.8|Stormwind City}}|level=Full|reaction={{Aggro|1|-1}}}}
+{{Npclocations|loc=[[Sanctuary of Malorne]], [[Mount Hyjal]]{{Co|25.8|62.0|Mount Hyjal}}|level=Cata-max|reaction={{Aggro|1|1}}|notes=As part of the [[Firelands Invasion]].}}
+{{Npclocations|loc=[[Stormwind Gate]], [[Elwynn Forest]]{{Co|32.0|50.4|Elwynn Forest}}|level=Full|reaction={{Aggro|1|-2}}|notes=As part of the [[Hallow's End]].}}
+{{Npclocations|loc=[[Dreamgrove]]{{Co|59.2|45.8|Dreamgrove}}|level=Legion|type=Elite|reaction={{Aggro|1|1}}|notes=As part of the [[Druid Campaign]].}}
+{{Npclocations|loc=[[Nordrassil]], Mount Hyjal|level=Legion|reaction={{Aggro|1|1}}|notes=As part of the Druid Campaign quests.}}
+{{Npclocations|loc=[[Malorne's Nightmare]]|level=Legion-max|reaction={{Aggro|1|1}}}}
+{{Npclocations|loc=[[Battle for Darkshore]]{{Co|52.0|55.6|Battle for Darkshore}}|level=BfA-max|type=Elite|reaction={{Rep|Friendly|Alliance}}|notes=During the Alliance version.}}
+{{Npclocations|loc=[[Bashal'Aran]], [[Darkshore]]{{Co|47.6|34.2|Darkshore}}|level=BfA-max|type=Elite|reaction={{Aggro|1|-2}}|notes=When the Alliance controls the zone and during [[A New Hope]].}}
+{{Npclocations|loc=[[Shady Sanctuary]] [[Ohn'ahran Plains]]{{Co|29.4|56.2|Ohn'ahran Plains}}|level=Ohn'ahran Plains|reaction={{Aggro|1|1}}}}
+{{Npclocations|loc=[[Dragon Isles]] zones|level=Df-max|reaction={{Aggro|1|1}}|notes=As part of [[Dreamsurges]].}}
+{{Npclocations|loc=[[Field of Flames]], [[Emerald Dream (zone)|Emerald Dream]]|level=Emerald Dream|reaction={{Aggro|1|1}}}}
+{{Npclocations|loc=[[Amirdrassil]]|level=Df-max|reaction={{Aggro|1|1}}}}
+{{Npclocations|loc=[[Ruins of Gilneas]]; Gilneas City|level=Df-max|reaction={{Aggro|1|1}}|notes=During and after the [[Gilneas Reclamation]].}}
+{{Npclocations|end=|loc=[[Belanaar]], Amirdrassil{{Co|50.7|18.0|Amirdrassil}}|level=Df-max|type=Elite|reaction={{Aggro|1|1}}}}
+
+==Vendor==
+Celestine is the quartermaster for the [[Dreamsurge]] event added in [[patch 10.1.7]], found at one of the four original [[Dragon Isles]] zones each week.
+
+{{Dreamsurge items}}
+
+==Abilities==
+*{{Abilities|Swift Flight Form|id=100203|Shapeshift into flight form, increasing movement speed.|icon=ability_druid_flightform}}
+
+==Quests==
+[[File:Celestine Worgen.jpg|thumb|upright|Celestine's worgen form.]]
+;Gilneas
+*[[The Winds Know Your Name... Apparently]] {{questfinish}}
+*[[Safety in Numbers]] {{queststart}}
+
+{{Classic only-section|cata|patch=5.0.4}}
+*[[A Rejuvenating Touch]] {{queststartfinish}}
+
+{{Rfg-section|7.0.3}}
+*[[Moonfire (worgen)]] {{queststartfinish}}
+
+;Stormwind City
+*[[An Invitation from Moonglade]] {{queststart}}
+*[[Moonglade Calls]] {{queststart}}
+
+;Hallow's End
+*[[A Season for Celebration (Alliance)]] {{questfinish}}
+*[[A Time to Gain]] {{queststartfinish}}
+
+;Battle for Darkshore
+*[[Druids of Gloomtide]] {{queststartfinish}}
+
+===Legion===
+{{Legion-section}}
+Celestine is one of the primary [[world quest]] givers for the [[Dreamweavers]] in [[Val'sharah]].
+
+==Quotes==
+===Duskhaven===
+;To druids
+The worgen will pass. We shall pass.
+
+Only the earth and her secrets will remain. Are you willing to learn, <name>?
+
+===Stormwind City===
+;To druids
+A beautiful city, is it not? As was [[Gilneas City|Gilneas]], in its time.
+
+But such things pass, as shall we. Only the earth and her secrets will remain.
+
+Are you willing to learn, <name>?
+
+{{Gossip|I have come to learn the form of the Nightwing raven.}}
+
+:Alert and clever, the raven has many lessons to teach if one is willing to listen. Take this form with the raven's blessing, druid, and learn.
+
+:{{Gossip|<You bow your head and accept the blessing.>}} ''(This will teach the [[Nightwing Raven]] [[Flight Form]] variant.)''
+
+;To non-druids
+You are not initiated in the old ways. There is nothing I can teach you, child.
+
+===Hallow's End===
+;Gossip
+{{Dialogue|Welcome to the [[Wickerman Festival]], <class>!
+
+On the observance of Hallow's End, we burn a [[Wickerman]] to represent a cleansing of the self. As the woods sigh and shed their leaves, we too must undergo a catharsis. Fears, sorrows, regrets: by throwing a branch into the blaze, you can [[Unburdened|relieve yourself]] of any burden you would not bear into winter.
+
+Please, grab a branch from the bonfire and join the celebration!}}
+
+;10 minutes before the Wickerman Festival event
+:{{Text|yell|The Wickerman festivities will begin in ten minutes! Please join us just outside the gates of Stormwind City and celebrate Hallow's End!}}
+
+===Sanctuary of Malorne===
+;Non-worgen gossip
+{{Dialogue|
+You come to join the fight, <class>?
+}}
+
+;Worgen druid gossip
+{{Dialogue|
+<Name>, I am not surprised to see you here. I always thought you were my brightest pupil. I am honored to fight alongside you, my friend.
+}}
+
+;While out on patrol in the Regrowth, dialogue will trigger when engaging fire elementals:
+*{{Text|Say|What big teeth I have? Why thank you.}}
+*{{Text|Say|I've sharpened my claws just for this moment.}}
+
+===Legion===
+{{Legion-section}}
+;Greeting
+*How may I help you?
+*Always respect the wilds.
+*It is nice to see you.
+*The forests spoke of your coming.
+
+;Pissed
+*I do enjoy these long chats.
+*Why don't you ever call?
+*Or perhaps I should put the kettle on?
+*Tea's ready!
+
+;Farewell
+*Do not abandon our ways.
+*We will rebuild.
+*Take care.
+*Farewell.
+
+===Dragonflight===
+{{Df-section}}
+;The Blackwald
+{{Dialogue|
+It's been some time since I stepped foot in the Blackwald. Tal'doren seems to have survived as well as it could.
+
+I've heard many a story of this place from the kaldorei. History goes as deep as the tree's roots, here.
+
+Still--it needs help much as any other tree. I intend to keep it thriving.
+}}
+
+==Trivia==
+*With the release of [[patch 7.3.5]] and the [[Stormwind Embassy]], she was moved underground, rendering her unavailable but still targetable via /tar. Guards still refer to her at her old location.
+**She was later moved back overground, although guards still refer to her cottage despite her now being outdoors.
+*Prior to patch 4.0.6, her worgen form was bugged and had the wrong female worgen texture applied to it.
+*In Stormwind, she was in human form by day and in worgen form by night, like the worgen in the pre-''Cataclysm'' [[Pyrewood Village]].
+*Celestine is voiced by [[Lauren Tom]] in ''[[World of Warcraft: Legion|Legion]]''.
+
+==Patch changes==
+*{{Patch 9.1.5|note=Now teaches druids the [[Nightwing Raven]] [[Flight Form]] variant.}}
+*{{Hotfix|date=2014-10-17|bluenote=Celestine of the Harvest again stands where intended at Olivia's Pond in Stormwind.|link=https://worldofwarcraft.com/en-us/news/21365424}}
+*{{Patch 4.2.2|note=Added as new quest giver for [[Hallow's End]].}}
+*{{Patch 4.0.6|note=Model fixed. No longer wears a hood.}}
+*{{Patch 4.0.3a|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Elinks-NPCsearch}}
+
+[[Category:Human characters]]
+[[Category:Worgen characters]]
+[[Category:Druid characters]]
+[[Category:Druid trainers]]
+[[Category:Armor vendors]]
+[[Category:Mount vendors]]
+[[Category:Companion vendors]]
+[[Category:Gilneas (kingdom)]]
+[[Category:Guardians of Hyjal]]
+[[Category:Dreamweavers]]
+[[Category:Dream Wardens]]
+[[Category:Quest givers]]
+[[Category:Gilneas City NPCs]]
+[[Category:Gilneas NPCs]]
+[[Category:Stormwind City NPCs]]
+[[Category:Elwynn Forest NPCs]]
+[[Category:Mount Hyjal NPCs]]
+[[Category:Dreamgrove NPCs]]
+[[Category:Malorne's Nightmare NPCs]]
+[[Category:Darkshore NPCs]]
+[[Category:Battle for Darkshore NPCs]]
+[[Category:Ohn'ahran Plains NPCs]]
+[[Category:Waking Shores NPCs]]
+[[Category:Azure Span NPCs]]
+[[Category:Thaldraszus NPCs]]
+[[Category:Dreamsurge]]
+[[Category:Emerald Dream NPCs]]
+[[Category:Amirdrassil NPCs]]
+[[Category:Ruins of Gilneas NPCs]]

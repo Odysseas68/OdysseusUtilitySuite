@@ -1,0 +1,216 @@
+{{About|the rebel faction itself|the faction's emissary quest|The Nightfallen (quest)|the race of diminished [[nightborne]]|Nightfallen|the armed conflict over [[Suramar City]]|Nightfallen rebellion}}
+{{Infobox faction
+| name = The Nightfallen
+| image = Nightborne Crest.png
+| caption = [[Dusk lily]] sigil of the Nightfallen
+| faction = Horde
+| leader = {{NPC||First Arcanist Thalyssra|icon=Thalyssra|icon2=Nightfallen Female}}
+| leaders =
+{{NPC||Chief Telemancer Oculeth|icon=Oculeth|icon2=Nightfallen Male}}<br/>
+{{NPC||Arcanist Valtrois|icon=Valtrois|icon2=Nightfallen Female}}<br/>
+{{NPC||Ly'leth Lunastre|icon=Nightborne Female}}
+| races = {{Race|Nightborne}}<br/> {{RaceIcon|Nightfallen|Male}}{{RaceIcon|Nightfallen|Female}} [[Nightfallen]]<br/> {{RaceIcon|Withered}} [[Withered]]
+| capital = [[Suramar City]]
+| base = [[Nighthold]], [[Shal'Aran]]
+| theater = [[Suramar]], [[Broken Isles]]
+| members = [[Duskwatch]]
+| affiliation = [[Suramar (kingdom)|Kingdom of Suramar]], [[Horde]]
+| faffiliation = [[Independent]]
+| quartermaster = {{NPC||First Arcanist Thalyssra|icon=Thalyssra|icon2=Nightfallen Female}}
+| status = Active
+| tabard = Nightfallen Tabard.jpg
+}}
+{{QuoteWiki|We are only as strong as our will.|[[First Arcanist Thalyssra]]}}
+
+'''The Nightfallen''', also called '''Dusk Lily rebels''',<ref>[[Full Might of the Elves]]</ref> or simply the '''Dusk Lily''',<ref>[[How It's Made: Arcwine]]</ref><ref>[[And They Will Tremble]]</ref> are a dissident [[nightfallen]] and [[nightborne]] faction that splintered from the rest of nightborne society in [[Suramar City]] and led a [[Nightfallen rebellion|rebellion]] to overthrow [[Grand Magistrix Elisande]] and her [[demon]]ic [[Burning Legion|allies]]. Led by [[First Arcanist Thalyssra]], the Nightfallen waged a successful war of resistance against Elisande's loyalist forces, eventually taking control of Suramar. With their success, they liberated Suramar and its people and expelled the demons from the city. They would also continue to aid the defenders of [[Azeroth]] in their [[Third invasion of the Burning Legion|wider fight]] against the Burning Legion.
+
+For most of the rebellion, the main headquarters of the Nightfallen remained the underground complex of [[Shal'Aran]], though they maintained bases and safehouses throughout Suramar. Having come to power in the city, they are now based in the [[Nighthold]] itself, the traditional seat of power for Suramar's rulers. Now sole rulers of their people, Thalyssra and the Nightfallen began to forge a new future for the nightborne race. In this new role, they would be responsible for the subsequent nightborne entry into the [[Horde]] prior to the [[Fourth War]].
+
+==History==
+===Rebellion===
+{{legion-section}}
+{{Main|Nightfallen rebellion}}
+
+[[File:Shal'Aran inhabited.jpg|thumb|left|The Nightfallen base at [[Shal'Aran]]]]
+The Nightfallen were founded as a direct result of the [[Burning Legion]]'s [[Third invasion of the Burning Legion|third invasion]] of [[Azeroth]]. When the [[demon]]s first arrived on the world in the [[Broken Isles]], they made contact with the [[nightborne]] in [[Suramar City|Suramar]]. Threatened with annihilation, [[Grand Magistrix Elisande]] reached an accord with the Legion, though many citizens opposed this decision. One of these dissidents, [[First Arcanist Thalyssra]] personally led a failed coup to prevent Elisande from lowering Suramar's defenses to the Legion. Despite her efforts, the attempt was betrayed and crushed, with Thalyssra herself escaping on the brink of death.<ref>[[Twilight of Suramar]]</ref>
+
+Though her city was now occupied by demonic forces, the First Arcanist refused to give up the struggle. She made her way to the subterranean ruins of [[Shal'Aran]] in central [[Suramar]] and made contact with outsiders also resisting the Burning Legion based from [[Dalaran]]. [[Order Halls|Order Hall]] [[Adventurer|champions]] sent by [[Archmage Khadgar]] eventually responded to Thalyssra's plea, saving her life and claiming Shal'Aran.<ref>[[Magic Message]]</ref> Her position stable, Thalyssra began to take the first steps in forming an effective resistance movement.
+
+Fortunately for the fledgling rebellion, many nightborne were still strongly (albeit secretly) opposed to the Legion's arrival. Before long, many key figures had been recruited, such as [[Arcanist Valtrois]], [[Chief Telemancer Oculeth]], [[Silgryn]], and [[Ly'leth Lunastre|Lady Ly'leth Lunastre]]. Refugees and exiled dissidents from across Suramar joined the faction, which had become known as the ''Nightfallen'' in reference to the [[Nightfallen|devolved state]] most of the rebels were in, cut off as they were from the energies of the [[Nightwell]]. They also began training [[withered]] to help them fight their opponents.
+
+With the help of their foreign allies, the Nightfallen quickly gained ground and support against Elisande and her forces. The war they waged was one of stealth, employing hit-and-run tactics and keeping to [[Masquerade|disguises]] and the shadows. The figure of First Arcanist Thalyssra in particular inspired hope and support among the populace,<ref>[[How It's Made: Arcwine#Notes]]</ref><ref>[[First Contact#Notes]]</ref> while Elisande's worsening cruelty alienated many of her allies.<ref>[[Crackdown]]</ref><ref>[[More Like Me]]</ref> The [[dusk lily]], a flower associated personally with Thalyssra, would become the main symbol of both the rebellion and the Nightfallen themselves.
+
+[[File:Nightfallen Nighthold 1.jpg|thumb|The [[Nighthold]] under Nightfallen control]]
+As the conflict reached its climax, the Nightfallen were able to reverse their withering state through the fruit of the powerful [[arcan'dor]] tree, which freed them from their [[Magic addiction|addiction to magic]]. Coupled with the arrival of three other elven armies to support them,<ref>[[Take Me To Your Leader]]</ref> the Nightfallen were ready to march on Suramar City and topple the Grand Magistrix's regime. After battling through the city and laying siege to the [[Nighthold]],<ref>[[Taking a Promenade]]</ref> they and their allies were finally successful; Elisande was slain and the Burning Legion firmly defeated in Suramar.
+
+In a closing act of the civil war, and as part of her new role in leading her people, Thalyssra made the decision to let the waning Nightwell die. She reasoned that its death would mark a new beginning awaited the nightborne, with the Nightfallen guiding them in rejoining the world.<ref>[[Fate of the Nightborne]]</ref>
+
+===New beginnings===
+{{bfa-section}}
+The Nightfallen would continue to support their allies in the ongoing war in the [[Broken Isles]] against the [[Burning Legion|Legion]], which eventually proved successful. [[Suramar City|Suramar]] itself has suffered terribly in the [[Nightfallen rebellion|civil war]], and work was done to rebuild their society and their city. First Arcanist Thalyssra assumed the role of leader, while other prominent Nightfallen also took up positions of power from the [[Nighthold]]. The [[Duskwatch]], once the rebellion's sworn enemy, was assimilated into the new regime. The deserter-turned-rebel [[Victoire]] was placed in charge of the security force and made First Blade under Thalyssra.
+
+Despite the successes they had achieved, Thalyssra was convinced that the nightborne should seek out allies as they took their new place in the world. Though she considered joining the [[Alliance]], in the end she and the other Nightfallen would ally with the [[Horde]].<ref>[[The Nightborne]]</ref> In the lead-up to the [[Fourth War]], the Nightfallen would join the Horde in their preparations for war, while many new nightborne [[adventurer]]s ventured out into the world for the first time.<ref>[[For the Horde (nightborne)]]</ref>
+
+==Reputation==
+Many quests in [[Suramar]] award reputation, and completing [[Nightfallen But Not Forgotten]] opens up their world quests. Progressing further into the faction's storyline unlocks more quests for additional reputation. [[Arcane Remnant of Falanaar]] and [[Arcane Tablet of Falanaar]] both come from chests in [[Withered Army Training (quest)]], and after completing the mission.
+
+[[Nightborne (playable)|Playable Nightborne]] begin at exalted reputation by default.
+
+;Faction description
+''These exiled [[Nightborne]] elves suffer withdrawals after being cut off from the [[Nightwell]]. They oppose their people's alliance with the Legion and fight for some kind of redemption.''
+
+===Feeding===
+Cut off from all sources of [[Arcwine]], [[First Arcanist Thalyssra]] will have to be provided with [[Ancient Mana]], along with [[Chief Telemancer Oculeth]] and [[Arcanist Valtrois]] (after they have been recruited) in order to feed them and allow them to keep functioning.
+
+Each one has an Arcane Thirst meter that starts at 100 and slowly depletes to 1. As part of their quests, they will need to be sated once as an example mechanic. From 100 to 1 takes about one day, thus, they each have a daily feed requirement of 50 Ancient Mana.  This will reward a unique one hour buff and 75 reputation.
+
+Their state will be listed as ''Stable'' until their Arcane Thirst reaches 1, at which point they will be listed as ''Withering''.  When this happens, the quest giver will be starving, start trembling, and will not be able to do anything until fed. Once [[Friends On the Outside]] is completed, the buffs can also be purchased at any time; altogether, it is also at a discount at 120 Ancient Mana.
+
+Note that for gameplay purposes, the quest givers will not actually become Withered if you do not do their daily feeding over a long period of time since such a change is said to be permanent and irreversible.
+
+===Rewards===
+{{The Nightfallen}}
+
+==Members==
+===Named===
+{|class="darktable sortable zebra"
+!Name!!Role!!Status!!Location
+|-
+|{{NPC|Horde|First Arcanist Thalyssra|icon=Thalyssra}}
+|Founder and leader 
+|{{Status|Alive}}
+|[[First Arcanist Thalyssra#Locations|Various]]
+|-
+|{{NPC|Horde|Chief Telemancer Oculeth|icon=Oculeth}}
+|Founding member and telemancy expert
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Arcanist Valtrois|icon=Valtrois}}
+|Founding member and [[ley line]] expert
+|{{Status|Alive}}
+|[[Valtrois#Locations|Various]]
+|-
+|{{NPC|Horde|Ly'leth Lunastre|icon=Nightborne Female}}
+|Prominent noble sympathizer 
+|{{Status|Alive}}
+|[[Ly'leth Lunastre#Locations|Various]]
+|-
+|{{NPC|Horde|Silgryn|icon=Nightborne Male}}
+|Founding member
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Vanthir|icon=Nightborne Male}}
+|Head of operations at the [[Waning Crescent]]
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Victoire|icon=Nightborne Female}}
+|[[Duskwatch]] deserter and arms expert; later First Blade under the new regime
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Absolon|icon=Nightborne Male}}
+|Member
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Margaux|icon=Nightborne Female}}
+|Secret sympathizer and manager at the [[Twilight Vineyards]] 
+|{{Status|Deceased}}
+|[[Twilight Vineyards]], [[Suramar]]
+|-
+|{{NPC|Horde|Sylverin|icon=Nightborne Male}}
+|Member; former assistant to [[Margaux]]
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Maribeth|icon=Nightborne Female}}
+|Member and [[innkeeper]] at [[Shal'Aran]]
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Arluin|icon=Nightborne Male}}
+|Hired informer and agent 
+|{{Status|Deceased}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Arluelle|icon=Nightborne Female}}
+|Agent and member 
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Thaedris Feathersong|icon=Nightfallen Male}}
+|Member
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Horde|Melitier Vahlouran|icon=Nightborne Female}}
+|Emissary to the [[Horde]]
+|{{Status|Alive}}
+|[[Orgrimmar]]
+|-
+|{{NPC|Horde|Rovendros|icon=Nightfallen Male}}
+|Member 
+|{{Status|Alive}}
+|[[Suramar]]
+|-
+|{{NPC|Neutral|Elieth|icon=Nightfallen Female}}
+|Member 
+|{{Status|Deceased}}
+|[[Suramar]]
+|}
+
+===Unnamed===
+{{columns|2|
+*{{npc|Independant|Captured Nightfallen|icon=Nightfallen Female}}
+*{{npc|Horde|Distillery Attendant|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Horde|Duskwatch Battle-Magus|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Horde|Duskwatch Sentinel|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Independent|Huddled Vagrant|icon=Nightfallen Male|icon2=Nightfallen Female}}
+*{{npc|Independant|Nightfallen Rebel|icon=Nightfallen Male|icon2=Nightfallen Female}}
+*{{npc|Horde|Nighthold Citizen|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Horde|Nighthold Protector|icon=Construct}}
+*{{npc|Horde|Nighthold Retainer|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Horde|Nightborne Trainee|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Horde|Nobleborn Warpcaster|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Horde|Promenade Guard|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Horde|Suramar Citizen|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Horde|Trained Shadescale|icon=ManaWyrm}}
+*{{npc|Horde|Terrace Grove-Tender|icon=Nightborne Male|icon2=Nightborne Female}}
+*{{npc|Independant|Terrified Nightfallen|icon=Nightfallen Male|icon2=Nightfallen Female}}
+}}
+
+==Gallery==
+<gallery>
+Nightfallen leaders.jpg|From left to right; [[Arcanist Valtrois]], [[First Arcanist Thalyssra]], [[Chief Telemancer Oculeth]]
+Nightfallen.jpg|Thalyssra and [[Valewalker Farodin]] observe the [[Arcan'dor]] in [[Shal'Aran]]
+Nightfallen Nighthold 2.jpg|The [[Nighthold]], liberated by the Nightfallen rebels
+First Arcanist Thalyssra Cured.jpg|First Arcanist Thalyssra in her restored form
+Sign of the Dusk Lily.jpg|The [[dusk lily]] symbol employed during the insurrection
+</gallery>
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class="darktable"
+! Faction
+! Paragon
+|-
+| {{Elinks-faction|1859}}
+| {{Elinks-faction|2089}}
+|}
+
+{{Nightfallen resistance}}
+{{New Horde}}
+{{Factions|legion}}
+
+[[Category:The Nightfallen| ]]
+[[Category:Nightborne organizations]]
+[[Category:Factions]]
+[[Category:Legion]]

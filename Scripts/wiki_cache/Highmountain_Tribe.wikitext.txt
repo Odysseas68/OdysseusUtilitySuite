@@ -1,0 +1,207 @@
+{{Redirect|Highmountain Tribes|The emissary quest|Highmountain Tribes (quest)}}
+{{About||[[Ornamm]]'s tribe|Highmountain tribe (Legends)|the achievement for reaching {{rep|exalted}} status|Highmountain Tribe (achievement)}}
+{{Infobox faction
+| name = Highmountain Tribe
+| faction = Horde
+| image = Highmountain Tauren Crest.png
+| caption = Icon of Highmountain
+| leader = {{NPC||Mayla Highmountain|icon=Mayla}}
+| fleader = {{NPC||Ulan Highmountain|icon=Highmountain Male}}{{KIA}}<br>{{NPC||Nalmus Highmountain|icon=Highmountain Male}}{{KIA}}<br>{{NPC||Dorro Highmountain|icon=Highmountain Male}}{{KIA}}<br>{{NPC||Gardrel Highmountain|icon=Highmountain Female}}{{KIA}}<br>{{NPC||Huln Highmountain|icon=Highmountain Male}}{{KIA}}<br>{{NPC||Eruna Highmountain|icon=Tauren Female}}{{KIA}}<br>{{NPC||Moren Highmountain|icon=Tauren Male}}{{KIA}}
+| leaders = {{NPC||Jale Rivermane|icon=Jale}}<br>{{NPC||Lasan Skyhorn|icon=Lasan}}<br>{{NPC||Navarrogg|icon=Navarrogg}} (as ally)
+| fleaders = {{NPC||Torok Bloodtotem|icon=Torok}}{{KIA}}
+| races = {{Race|Highmountain}}<br/> {{RaceIcon|DragonBlack}} [[Black dragon]] (formerly)<br/> {{RaceIcon|Drogbar}} [[Drogbar]] (as allies)
+| capital = [[Thunder Totem]]
+| capitals = [[#Territories|See below]]
+| theater = [[Highmountain]]
+| affiliation = [[Horde]]
+| faffiliation = [[Independent]]
+| character = [[Warrior]], [[Hunter]], [[Shaman]] [[Brave]], [[Spiritwalker]], [[Scout]]
+| quartermaster = {{NPC||Ransa Greyfeather|icon=Highmountain Female}}
+| status = Active
+}}
+
+The '''Highmountain Tribe''' is the dominant tribe of the [[Highmountain tauren]] of the [[Broken Isles]], currently led by [[Mayla Highmountain|High Chieftain Mayla Highmountain]].
+
+==History==
+===War of the Ancients===
+The Highmountain are descendants of the hero [[Huln Highmountain]], also known as "Huln of the Eagle Spear" and the members of the tribes he united. During the [[War of the Ancients]], 10,000 years ago, he united the warring [[Rivermane tribe|Rivermane]], [[Bloodtotem tribe|Bloodtotem]], and [[Skyhorn tribe|Skyhorn]] tribes of his homeland under the banner of the Highmountain.<ref>[[The Story of Huln]]</ref> Huln was chosen by [[Korialstrasz|Krasus]] to lead his people against the [[Burning Legion]] alongside [[Unng Ak]] of the [[furbolg]]s and [[Dungard Ironcutter]] of the [[earthen]]. For his bravery during the war, Huln received a blessing from the [[Wild God]] [[Cenarius]], so that his people would forever have the demigod's favor: the [[Horns of Eche'ro]], which transformed the horns of Huln into moose-like antlers.<ref>[[Huln's War - Stormrage]]</ref> After the war, Huln returned to his homeland and used a [[titan]] artifact known as the [[Hammer of Khaz'goroth]] to banish the traitorous [[Dragon Aspect]] [[Deathwing]] and free his [[drogbar]] slaves as well as [[Ebyssian|a single uncorrupted black dragon egg]]. In his honor, the four tribes named the region "[[Highmountain]]".<ref>[[Titanic Showdown]]</ref>
+
+===Legion===
+{{Legion-section}}
+[[File:Legion zone concept 2.jpg|thumb||200px|Thunder Totem]]
+When the [[Night elf|night elves]] who founded the [[Unseen Path]] left [[Mount Hyjal]] to return to the Broken Isles, the Highmountain [[Highmountain tauren|tauren]] recognized the nobility of their cause and offered them friendship. It was the descendants of [[Huln Highmountain]] who led the Unseen Path to [[Talon Peak]] where they built their base known as [[Trueshot Lodge]]. Since the [[Burning Legion]]'s return, the Highmountain have helped restore the lodge, such as replacing two damaged watch towers with tauren structures.<ref>[[The Unseen Path]]</ref>
+
+Millennia later, Huln's descendants continue to live in [[Thunder Totem]] on the [[Broken Isles]]. With the death of [[Ulan Highmountain|High Chieftain Ulan]], his daughter [[Mayla Highmountain|Mayla]] has become the High Chieftain of the accord between Highmountain, Rivermane, Skyhorn and Bloodtotem. Unfortunately, the theft of the Hammer of Khaz'goroth by [[Dargrul|Dargrul the Underking]] and his drogbar has shattered the unity of the four tribes. Despite the attempts at a reunion of the tribes by an [[adventurer]], the Bloodtotem betrayed the other tribes by joining the Burning Legion. In their place, the drogbar [[Navarrogg]] and his [[Stonedark clan]] joined the Highmountain's cause instead.<ref>[[Unexpected Allies]]</ref>
+
+===Joining the Horde===
+After corresponding with Chieftain [[Baine Bloodhoof]] in the aftermath of the [[Argus Campaign]], [[Mayla Highmountain]] accepted an invitation to attend a feast in [[Thunder Bluff]]. Yet, when Baine and the [[Horde]] [[Adventurer|champion]] greeted their Highmountain tauren guests, [[Spiritwalker Ebonhorn]] was tormented by the [[Old Gods' forces]] of [[Uul'gyneth]] attempting to corrupt him,<ref>[[A Feast for Our Kin]]</ref> and he and Mayla were forced to retreat back to [[Thunder Totem]] while Baine and the [[Horde]] champion defended Thunder Bluff from Uul'gyneth's invasion force.<ref>[[Shadow Over Thunder Bluff]]</ref><ref>[[Dark Forces]]</ref> Apparently, the wards Ebonhorn had been maintaining in [[Highmountain]] weakened just enough to let the Darkness seep through.<ref name="QCotN">[[Curse of the Necrodark]]</ref> 
+
+Later on, Baine and the Horde champion traveled to Thunder Totem to offer their aid to mend Ebonhorn,<ref>[[Return to Highmountain]]</ref> who has been fighting unconsciously to keep a darkness from consuming him. Mayla sent the Horde champion to [[Spiritwalker Graysky]],<ref>[[Dark Tales]]</ref> who has the Horde champion undergo [[Spiritwalker]] rituals to walk in the memories of [[Igrul the Scalebane]],<ref>[[Walking in Their Footsteps]]</ref> [[Oenia Skyhorn]],<ref>[[Minions of the Darkness]]</ref> and [[Huln Highmountain]] in order to restore the wards that kept the dark corrupting forces at bay.<ref>[[Huln's Mountain]]</ref> After restoring the wards, Ebonhorn regained consciousness<ref>[[How Fares Ebonhorn?]]</ref> and revealed Uul'gyneth sought to return and conquer Highmountain. Baine, Mayla, the Horde champion, and Ebonhorn left to join [[Lasan Skyhorn]], [[Aviash]], and [[Jale Rivermane]] at [[Highmountain Summit]] to thwart the [[Necrodark]]'s ritual to incarnate Uul'gyneth<ref name="QCotN" /> and restore the final ward. They failed however, and Uul'gyneth was summoned into the physical realm,<ref>[[The Final Ward]]</ref> leaving the Horde champion little choice but to vanquish Uul'gyneth the Darkness. After the battle, Mayla expressed her gratitude for rescuing her people from the [[Old Gods]].<ref>[[The Darkness (quest)]]</ref> Impressed by the strength and courage of the Horde, Mayla and Baine traveled to [[Orgrimmar]] to pledge the Highmountain tauren to the Horde.<ref>[[Together We Are the Horde!]]</ref>
+
+===Battle for Azeroth===
+{{Bfa-section}}
+Members of the Highmountain tribe took part in the [[Fourth War]]. Notably, they set up an outpost named [[Swiftwind Post]] in [[Drustvar]] on [[Kul Tiras]].
+
+==Reputation==
+===Faction description===
+''The Highmountain Tribe has dwindled in numbers over the years, and with the [[drogbar]] threat looming, seek new allies to save their homeland.''
+
+===Rewards===
+{{Highmountain Tribe}}
+
+==Members==
+===Named===
+{{Columns|3|
+;Leaders
+*{{NPC||Mayla Highmountain|icon=Mayla}}
+*{{NPC||Ulan Highmountain|icon=Highmountain Male}}
+*{{NPC||Nalmus Highmountain|icon=Highmountain Male}}
+*{{NPC||Dorro Highmountain|icon=Highmountain Male}}
+*{{NPC||Gardrel Highmountain|icon=Highmountain Female}}
+*{{NPC||Huln Highmountain|icon=Highmountain Male}}
+*{{NPC||Eruna Highmountain|icon=Tauren Female}}
+*{{NPC||Moren Highmountain|icon=Tauren Male}}
+
+;Notable
+*[[Spiritwalker Ebonhorn]]
+*[[Apata Highmountain]]
+*[[Halian Shlavahawk]]
+*[[Ransa Greyfeather]]
+*[[Wuho Highmountain]]
+*[[A'te Amberfur]]
+*[[Bolas Skyfeather]]
+*[[Ethel Waterwise]]
+*[[Grand Spiritwalker Ko]]
+*[[Guron Twaintail]]
+*[[Jarum Skymane]]
+*[[Meliah Grayfeather]]
+*[[Old Nefu]]
+*[[Scout Harefoot]]
+*[[Spiritwalker Graysky]]
+*[[Warbrave Nava]]
+*[[Warbrave Oro]]
+}}
+
+===Types===
+{{Columns|3|
+*[[Ancestral Warbrave]]
+*[[Highmountain Brave]]
+*[[Highmountain Defender]]
+*[[Highmountain Elder]]
+*[[Highmountain Flame Guardian]]
+*[[Highmountain Pathfinder]]
+*[[Highmountain Prisoner]]
+*[[Highmountain Protector]]
+*[[Highmountain Shaman]]
+*[[Highmountain Spiritwalker]]
+*[[Highmountain Tracker]] <!-- may be a generic name for Huln, needs confirmation -->
+*[[Highmountain Trainee]]
+*[[Highmountain Warbrave]]
+*[[Highmountain Warrior]]
+*[[Wounded Highmountain Protector]]
+*[[Wounded Highmountain Warrior]]
+*[[Captive Great Eagle]]
+*[[Captured Eagle]]
+*[[Captured Icefang Pup]]
+*[[Corrupted Great Eagle]]
+*[[Great Eagle]]
+*[[Frightened Mountainstrider]]
+*[[Fallen Pathfinder]]
+*[[Injured Protector]]
+*[[Injured Warbrave]]
+*[[Talonrest Brave]]
+*[[Thunder Totem Native]]
+*[[Trained Mountainstrider]]
+*[[War Eagle]]
+}}
+
+The other Highmountain tribes and the [[Stonedark clan]] of the [[drogbar]] are a part of the Highmountain Tribe as well.
+
+==Territories==
+{| class="darktable sortable zebra"
+|-
+! Name
+! Leader
+! Location
+! Status
+|-
+| [[Thunder Totem]] || {{RaceIcon|Mayla}} [[Mayla Highmountain]] || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Riverbend]] || {{RaceIcon|Jale}} [[Jale Rivermane]] || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Torok's Bluff]] || {{RaceIcon|Highmountain Male}} [[Torok Bloodtotem]] || [[Highmountain]] || {{Status|Defunct}}
+|-
+| [[Ironhorn Enclave]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Skyhorn]] || {{RaceIcon|Lasan}} [[Lasan Skyhorn]] || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Stonedark Grotto]] || {{RaceIcon|Navarrogg}} [[Navarrogg]] || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Navarrogg's Refuge]] || {{RaceIcon|Navarrogg}} [[Navarrogg]] || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Feltotem]] || Unknown || [[Highmountain]] || {{Status|Defunct}}
+|-
+| [[Prepfoot Compound]] || {{RaceIcon|Highmountain Male}} [[Trand Prepfoot]] || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Snowmane Village]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Cliff's Edge]] || Unknown || [[Highmountain]] || {{Status|Unknown}}
+|-
+| [[Earthmother's Bounty]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Cliffhorn Watch]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Fields of An'she]] || Unknown || [[Highmountain]] || {{Status|Defunct}}
+|-
+| [[Frosthoof Watch]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Obsidian Overlook]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Oro's Overlook]] || {{RaceIcon|Highmountain Female}} [[Kura Stonehoof]] || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Pass of An'she]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Sanderhoof's Ledge]] || {{RaceIcon|Highmountain Male}} [[Sanderhoof]] || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Sepulcher of the Sky]] || Unknown || [[Highmountain]] || {{Status|Defunct}}
+|-
+| [[Summitcrest Basecamp]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Spiritwatch Point]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Stonehoof Watch]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Sylvan Precipice]] || Unknown || [[Highmountain]] || {{Status|Active}}
+|-
+| [[Valley of the Sword]] || {{RaceIcon|Highmountain Male}} [[Gro Rumblehoof]] || [[Stormheim]] || {{Status|Active}}
+|-
+| [[Swiftwind Post]] || {{RaceIcon|Highmountain Male}} [[Toska Eaglehorn]] || [[Drustvar]] || {{Status|Defunct}}
+|-
+|}
+
+
+==Trivia==
+*During the ''[[World of Warcraft: Legion|Legion]]'' alpha, the faction's description had the following placeholder text: ''Highmountain Tauren like long walks on the beach and fruity cocktails.''
+
+==Patch changes==
+*{{Patch 7.0.3|note=Added.}}
+
+==References==
+{{Reflist}}
+
+==External links==
+{|class="darktable"
+! Faction
+! Paragon
+|-
+| {{Elinks-faction|1828}}
+| {{Elinks-faction|2085}}
+|}
+
+{{Tauren}}
+{{New Horde}}
+{{Factions|Legion}}
+
+[[Category:Highmountain Tribe| ]]
+[[Category:Highmountain tauren]]
+[[Category:Factions]]

@@ -1,0 +1,67 @@
+{{Infobox faction
+| name = Fogsail Freebooters
+| image = Fogsail Freebooters Banner.jpg
+| faction = Horde
+| leader = {{NPC||Owings||Captain Owings|icon=KulTiran Female}}
+| fleader = {{NPC||Captain Rhenik|icon=KulTiran Male}}{{KIA}}
+| leaders = {{NPC||First Mate Malone|icon=KulTiran Male}}
+| races = {{Race|Human}}
+| character = [[Cannoneer]], [[Pirate]]
+| base = [[Plunder Harbor]]
+| theater = [[Kul Tiras]], [[Great Sea]]
+| affiliation = [[Independent]], [[Horde]] (allied)
+| status = Active
+}}
+
+The '''Fogsail Freebooters''' are a [[pirate]] group found in [[Kul Tiras]]. They allow the [[Horde]] to use their base of [[Plunder Harbor]] as a foothold on the island, after the Horde helped [[Owings]] pull a mutiny on the previous captain [[Captain Rhenik|Rhenik]] for wanting to sell the crew out to the [[Ashvane Trading Company]].<ref>[[I'm the Captain Now]]</ref>
+
+==History==
+By the time of the [[Fourth War]], Captain Rhenik, convinced that riches were in store, sought to sell the services of the Fogsail Freebooters to the [[Ashvane Trading Company]]. This, in turn, created a schism within the Fogsail Freebooters with those [[Rhenik Loyalist|agreeing]] with their captain and those who sought their freedom above all else. During this time, First Mate Owings came into contact with [[Shadow Hunter Ty'jin]] who sought to establish a [[Horde]] outpost within [[Tiragarde Sound]].<ref>[[Parleyin' Wit Pirates]]</ref> The pair entered into an agreement with each other, Owings would allow the Horde use of Plunder Harbor on the condition that they aided her overthrowing Rhenik.
+
+After tensions among the pirates were stroked,<ref>[[Spike the Punch]]</ref> the Fogsail Freebooters descended into a civil war. Amidst the fighting, [[Quartermaster Killian]] sided with Owings, [[Boatswain Taryn]] with Rhenik, and [[Navigator Swink]]'s sheer refusal to work with the Horde caused him to attack the [[Adventurer|Speaker of the Horde]].<ref>[[A Change in Direction]]</ref> With the aid of the [[Honorbound]], Owings's forces prevailed and Captain Rhenik was killed. With his death Owings emerged as the new leader of the Fogsail Freebooters and opened Plunder Harbor up for Horde usage.<ref>[[I'm the Captain Now]]</ref>
+
+As part of a gambit to claim the [[:Abyssal Scepter]], [[Nathanos Blightcaller]] sent [[Marshal M. Valentine|word]] to [[Katherine Proudmoore]] that the Horde was in possession of [[Derek Proudmoore|her son's corpse]] which was located at Plunder Harbor. The Kul Tirans subsequently attacked the harbor causing the Fogsail Freebooters to fight to defend their home and freedom. After the Abyssal Scepter was acquired by the Speaker of the Horde and [[Thomas Zelling]], the Scepter was used against the Kul Tiran forces which ended the siege of Plunder Harbor and ensured the continued freedom of the Fogsail Freebooters.
+
+During the [[Faction Assault on Tiragarde Sound]], the Fogsail Freebooters aided their Horde allies in striking against the Alliance.<ref>[[Fogsail for a Day]]</ref><ref>[[First Mate Malone (quest)]]</ref>
+
+==Members==
+<ul class="side-by-side">
+<li>
+===Named===
+*{{NPC||Owings||Captain Owings|icon=KulTiran Female}}
+*{{RaceIcon|KulTiran|Male}} [[Captain Rhenik]]{{KIA}}
+*{{NPC||First Mate Malone|icon=KulTiran Male}}
+*{{RaceIcon|Human|Female}} [[Boatswain Taryn]]{{KIA}}
+*{{RaceIcon|Human|Male}} [[Boatswain Mace]]
+*{{RaceIcon|Human|Male}} [[Navigator Swink]]{{KIA}}
+*{{RaceIcon|Human|Male}} [[Quartermaster Killian]]
+</li>
+<li>
+
+===Unnamed===
+*[[Fogsail Cannoneer]]
+*[[Fogsail Mutineer]]
+*[[Fogsail Pirate]]
+*[[Fogsail Rower]]
+*[[Rhenik Loyalist]]
+*[[Fogsail Prisoner]]
+*[[Fogsail Pillager]]
+*[[Fogsail Gunner]]
+</li>
+<li>
+===Constructs===
+*[[Fogsail Cannon]]
+*[[Fogsail Rowboat]]
+*[[Fogsail Booty]]
+*[[Fogsail Freebooter Banner]]
+</li>
+</ul>
+
+==References==
+{{Reflist}}
+
+{{New Horde}}
+
+[[Category:Fogsail Freebooters| ]]
+[[Category:Human organizations]]
+[[Category:Pirates]]
