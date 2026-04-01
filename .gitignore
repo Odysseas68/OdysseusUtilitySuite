@@ -16,6 +16,7 @@ chatgpt_notes.txt
 .vscode/
 .idea/
 Scripts/
+/Scripts/
 *.sublime-workspace
 *.code-workspace
 
