@@ -10,7 +10,7 @@ OUS.FactionData = {
         paragonFactionID = 2085,
         paragonThreshold = 10000,
         paragonQuestID = 46743,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 750, x = 38.8, y = 45.4, npcName = "Ransa Greyfeather" },
     },
     [1859] = {
         name = "The Nightfallen",
@@ -42,7 +42,7 @@ OUS.FactionData = {
         paragonFactionID = 2087,
         paragonThreshold = 10000,
         paragonQuestID = 46745,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1545, x = 47, y = 40, npcName = "Veridis Fallon" },
     },
     [1948] = {
         name = "Valarjar",
@@ -66,7 +66,7 @@ OUS.FactionData = {
         paragonFactionID = 2085,
         paragonThreshold = 10000,
         paragonQuestID = 46743,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 750, x = 38.8, y = 45.4, npcName = "Ransa Greyfeather" },
     },
     [2086] = {
         name = "Valarjar (Paragon)",
@@ -82,7 +82,7 @@ OUS.FactionData = {
         paragonFactionID = 2087,
         paragonThreshold = 10000,
         paragonQuestID = 46745,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1545, x = 47, y = 40, npcName = "Veridis Fallon" },
     },
     [2088] = {
         name = "Dreamweavers (Paragon)",
