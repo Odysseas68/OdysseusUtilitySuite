@@ -1,4 +1,0 @@
-# Items needing manual review
-
-1859,The Nightfallen -> Nightfallen (faction) | score=23 | title matches faction; page text mentions faction; vendor-like page text; explicit quartermaster field; generic faction/reputation page penalty; generic page without coordinates; no coordinates penalty | npc resolved but no fixed coordinates | https://warcraft.wiki.gg/wiki/Nightfallen_(faction)
-1948,Valarjar -> Quartermaster Durnolf | score=80 | page text mentions faction; vendor-like page text; possible vendor name found; npc/vendor page preferred; no coordinates penalty; linked from Valarjar; linked npc/vendor page; followed explicit quartermaster/vendor field | npc resolved but no fixed coordinates | https://warcraft.wiki.gg/wiki/Quartermaster_Durnolf
