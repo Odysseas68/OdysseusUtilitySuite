@@ -1008,7 +1008,7 @@ def scrape_waypoint_from_wiki(faction_id: str, faction_name: str) -> Dict[str, o
         if not preferred_titles:
             preferred_titles = extract_quartermaster_names_from_wikitext(wikitext)
 
-        log("DEBUG", f"{base_title} preferred_titles={preferred_titles}", C_YELLOW)
+        #log("DEBUG", f"{base_title} preferred_titles={preferred_titles}", C_YELLOW)
 
         filtered_candidate_titles: List[str] = []
 
@@ -1064,33 +1064,32 @@ def scrape_waypoint_from_wiki(faction_id: str, faction_name: str) -> Dict[str, o
     if best["score"] < MIN_CONFIDENCE_TO_WRITE or not best["coords"]:
         reason_text = "; ".join(best["reasons"]) if best["reasons"] else "no details"
 
-    if not best["coords"]:
-        reason_group = "no coordinates after npc-link follow"
-        reason = f"no coordinates ({best['score']})"
-    else:
-        reason_group = "low confidence"
-        reason = f"low confidence ({best['score']})"
+        if not best["coords"]:
+            reason_group = "no coordinates after npc-link follow"
+            reason = f"no coordinates ({best['score']})"
+        else:
+            reason_group = "low confidence"
+            reason = f"low confidence ({best['score']})"
 
-    review_note = reason_text
-    if str(best["title"]).strip().lower() != str(faction_name).strip().lower():
-        review_note += " | npc resolved but no fixed coordinates"
+        review_note = reason_text
+        if str(best["title"]).strip().lower() != str(faction_name).strip().lower():
+            review_note += " | npc resolved but no fixed coordinates"
 
-    return {
-        "ok": False,
-        "reason": reason,
-        "reason_group": reason_group,
-        "best_score": best["score"],
-        "best_title": best["title"],
-        "review": (
-            f"{faction_id},{faction_name} -> {best['title']} | "
-            f"score={best['score']} | {review_note} | {best['url']}"
-        ),
-    }
+        return {
+            "ok": False,
+            "reason": reason,
+            "reason_group": reason_group,
+            "best_score": best["score"],
+            "best_title": best["title"],
+            "review": (
+                f"{faction_id},{faction_name} -> {best['title']} | "
+                f"score={best['score']} | {review_note} | {best['url']}"
+            ),
+        }
 
     map_id, x, y = best["coords"][0]
 
     npc_name = str(best["title"])
-
     vendor_names = best.get("vendor_names") or []
     if vendor_names:
         candidate = str(vendor_names[0]).strip()
