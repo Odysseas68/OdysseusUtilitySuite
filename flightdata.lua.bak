@@ -1899,7 +1899,6 @@ SFT_FlightData = {
         ["Amani'Zar Village"] = 95,
     },
     ["Camp Stonewash, Zul'Aman"] = {
-        ["Sanctum of Light, Silvermoon City"] = 165,
         ["Shadebasin Watch, Zul'Aman"] = 22,
     },
     ["Camp Tunka'lo"] = {
@@ -10364,7 +10363,6 @@ SFT_FlightData = {
         ["Atal'Aman, Zul'Aman"] = 182,
         ["Camp Stonewash, Zul'Aman"] = 161,
         ["Fairbreeze Village, Eversong Woods"] = 50,
-        ["Shadebasin Watch, Zul'Aman"] = 149,
         ["Tranquillien, Eversong Woods"] = 92,
         ["Witherbark Bluffs, Zul'Aman"] = 125,
     },
@@ -10780,7 +10778,6 @@ SFT_FlightData = {
     },
     ["Shadebasin Watch, Zul'Aman"] = {
         ["Amani'Zar Village, Zul'Aman"] = 90,
-        ["Camp Stonewash, Zul'Aman"] = 21,
         ["Sanctum of Light, Silvermoon City"] = 151,
     },
     ["Shadebough"] = {
@@ -11419,9 +11416,6 @@ SFT_FlightData = {
         ["Tenebrous Cavern"] = 110,
         ["Tranquil Wash"] = 43,
         ["Voldrin's Hold"] = 89,
-    },
-    ["Silverglade Refuge, Eversong Woods"] = {
-        ["Tranquillien, Eversong Woods"] = 77,
     },
     ["Silvermoon City"] = {
         ["Acherus: The Ebon Hold"] = 244,
@@ -14829,10 +14823,8 @@ SFT_FlightData = {
         ["Zul'Aman"] = 51,
     },
     ["Tranquillien, Eversong Woods"] = {
-        ["Atal'Aman, Zul'Aman"] = 96,
         ["Fairbreeze Village, Eversong Woods"] = 61,
         ["Sanctum of Light, Silvermoon City"] = 89,
-        ["Silverglade Refuge, Eversong Woods"] = 87,
     },
     ["Transitus Shield"] = {
         ["Agmar's Hammer"] = 137,

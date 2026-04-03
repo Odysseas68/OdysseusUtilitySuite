@@ -4,7 +4,7 @@
 local addonName, OUS = ...
 local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
-f:RegisterEvent("PLAYER_LOGIN") 
+f:RegisterEvent("PLAYER_LOGIN")
 
 local LSM = LibStub("LibSharedMedia-3.0")
 
@@ -15,6 +15,7 @@ local currentDestFull = "Unknown"
 local currentStartFull = "Unknown"
 local currentDestShort = "Unknown"
 local currentStartShort = "Unknown"
+local activeKnownTime = nil
 
 OUS.isFlightBarUnlocked = false
 
@@ -52,7 +53,7 @@ bg:SetColorTexture(0, 0, 0, 0.5)
 
 OUS.timerBorderFrame = CreateFrame("Frame", nil, timerBar, "BackdropTemplate")
 local borderFrame = OUS.timerBorderFrame
-borderFrame:SetFrameLevel(timerBar:GetFrameLevel() + 2) 
+borderFrame:SetFrameLevel(timerBar:GetFrameLevel() + 2)
 
 OUS.timerText = timerBar:CreateFontString(nil, "OVERLAY")
 OUS.timerText:SetPoint("CENTER")
@@ -65,7 +66,7 @@ function OUS.ApplyFlightFonts()
     local fPath = LSM:Fetch("font", fName) or LSM:Fetch("font", "Friz Quadrata TT")
     local fSize = OdysseusDB.flightSettings.fontSize or 12
     OUS.timerText:SetFont(fPath, fSize, "OUTLINE")
-    OUS.timerTopText:SetFont(fPath, math.max(8, fSize - 3), "OUTLINE") 
+    OUS.timerTopText:SetFont(fPath, math.max(8, fSize - 3), "OUTLINE")
 end
 
 function OUS.ApplyFlightTexture()
@@ -78,7 +79,7 @@ function OUS.ApplyFlightBorder()
     local bName = OdysseusDB.flightSettings.borderName or "None"
     local bPath = LSM:Fetch("border", bName)
     local bSize = OdysseusDB.flightSettings.borderSize or 16
-    
+
     if bPath and bName ~= "None" then
         borderFrame:SetBackdrop({ edgeFile = bPath, edgeSize = bSize })
         local offset = math.floor(bSize / 3)
@@ -88,7 +89,7 @@ function OUS.ApplyFlightBorder()
     else
         borderFrame:SetBackdrop(nil)
         borderFrame:ClearAllPoints()
-        borderFrame:SetAllPoints(timerBar) 
+        borderFrame:SetAllPoints(timerBar)
     end
 end
 
@@ -122,7 +123,7 @@ hooksecurefunc("TakeTaxiNode", function(slot)
     if TaxiNodeName(slot) then
         currentDestFull = CleanString(TaxiNodeName(slot))
         currentDestShort = GetShortName(currentDestFull)
-        
+
         local foundStart = false
         for i = 1, NumTaxiNodes() do
             if TaxiNodeGetType(i) == "CURRENT" then
@@ -131,7 +132,7 @@ hooksecurefunc("TakeTaxiNode", function(slot)
                 break
             end
         end
-        
+
         if not foundStart then
             if cachedStartFull ~= "Unknown" then
                 currentStartFull = cachedStartFull
@@ -139,7 +140,7 @@ hooksecurefunc("TakeTaxiNode", function(slot)
                 currentStartFull = CleanString(GetMinimapZoneText() or GetZoneText())
             end
         end
-        
+
         currentStartShort = GetShortName(currentStartFull)
         OUS.LogDebug("Flight", string.format("Hooked TakeTaxiNode: [%s] -> [%s]", currentStartFull, currentDestFull))
     end
@@ -183,37 +184,57 @@ mapTooltip.costText:SetPoint("TOP", mapTooltip.timeText, "BOTTOM", 0, -4)
 -- Exhaustive Database Lookup
 local function GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
     local function SearchTable(db)
-        if type(db) ~= "table" then return nil end
-        if db[startFull] and db[startFull][destFull] then return db[startFull][destFull] end
-        if db[startShort] and db[startShort][destShort] then return db[startShort][destShort] end
-        if db[startFull] and db[startFull][destShort] then return db[startFull][destShort] end
-        if db[startShort] and db[startShort][destFull] then return db[startShort][destFull] end
+        if type(db) ~= "table" then
+            return nil
+        end
+
+        local row = db[startFull]
+        if type(row) == "table" then
+            if row[destFull] then return row[destFull] end
+            if row[destShort] then return row[destShort] end
+        end
+
+        row = db[startShort]
+        if type(row) == "table" then
+            if row[destShort] then return row[destShort] end
+            if row[destFull] then return row[destFull] end
+        end
+
         return nil
     end
 
-    local time = SearchTable(OdysseusDB and OdysseusDB.flightSettings and OdysseusDB.flightSettings.times)
-    if time then return time end
-    time = SearchTable(SFT_FlightData)
-    if time then return time end
-    time = SearchTable(OUS and OUS.FlightData) 
-    if time then return time end
+    local saved = SearchTable(OdysseusDB and OdysseusDB.flightSettings and OdysseusDB.flightSettings.times)
+    if saved then
+        return saved
+    end
+
+    local bundled = SearchTable(SFT_FlightData)
+    if bundled then
+        return bundled
+    end
+
+    local fallback = SearchTable(OUS and OUS.FlightData)
+    if fallback then
+        return fallback
+    end
+
     return nil
 end
 
 hooksecurefunc(GameTooltip, "Show", function(self)
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then return end
-    
+
     -- Safety Check: Ensure tooltips default to TRUE if the config hasn't been saved yet.
     if OdysseusDB.flightSettings.showTooltips == false then return end
 
     local flightMapOpen = (FlightMapFrame and FlightMapFrame:IsShown()) or (TaxiFrame and TaxiFrame:IsShown())
-    if not flightMapOpen then 
+    if not flightMapOpen then
         mapTooltip:Hide()
-        return 
+        return
     end
 
     local rawDest = _G["GameTooltipTextLeft1"] and _G["GameTooltipTextLeft1"]:GetText()
-    
+
     -- Debug Radar: Tell us what the engine sees!
     if IsAltKeyDown() then
         OUS.LogDebug("Flight", "Tooltip Hovered! Text found: " .. tostring(rawDest))
@@ -242,9 +263,9 @@ hooksecurefunc(GameTooltip, "Show", function(self)
     if startFull == "Unknown" and cachedStartFull ~= "Unknown" then startFull = cachedStartFull end
     if startFull == "Unknown" then startFull = CleanString(GetMinimapZoneText() or GetZoneText()) end
 
-    if not nodeID then 
+    if not nodeID then
         if IsAltKeyDown() then OUS.LogDebug("Flight", "Failed to find matching nodeID for: " .. destFull) end
-        return 
+        return
     end
 
     local destShort = GetShortName(destFull)
@@ -270,28 +291,28 @@ hooksecurefunc(GameTooltip, "Show", function(self)
         end
     end
 
-    -- FIX 1: We removed the 'if knownTime or showCost then' wrapper. 
+    -- FIX 1: We removed the 'if knownTime or showCost then' wrapper.
     -- If we successfully found a nodeID, we ALWAYS show the tooltip!
     if knownTime then
         mapTooltip.timeText:SetText(string.format("Flight Time: %d:%02d", math.floor(knownTime / 60), knownTime % 60))
-        mapTooltip.timeText:SetTextColor(0.2, 1, 0.2) 
+        mapTooltip.timeText:SetTextColor(0.2, 1, 0.2)
     else
         mapTooltip.timeText:SetText("Flight Time: Unknown")
-        mapTooltip.timeText:SetTextColor(0.5, 0.5, 0.5) 
+        mapTooltip.timeText:SetTextColor(0.5, 0.5, 0.5)
     end
-    
-    if showCost then 
-        mapTooltip.costText:SetText("Cost: " .. costString) 
-    else 
-        mapTooltip.costText:SetText("") 
+
+    if showCost then
+        mapTooltip.costText:SetText("Cost: " .. costString)
+    else
+        mapTooltip.costText:SetText("")
     end
-    
+
     local w1 = mapTooltip.timeText:GetStringWidth()
     local w2 = mapTooltip.costText:GetStringWidth()
     local maxW = math.max(w1, w2, 130)
     mapTooltip:SetWidth(maxW + 30)
     mapTooltip:SetHeight(showCost and 65 or 48)
-    
+
     mapTooltip:ClearAllPoints()
     mapTooltip:SetPoint("TOP", GameTooltip, "BOTTOM", 0, -2)
     mapTooltip:Show()
@@ -307,65 +328,79 @@ updateFrame:SetScript("OnUpdate", function(self, elapsed)
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then return end
 
     local onTaxi = UnitOnTaxi("player")
-    
+
     if onTaxi and not isFlying then
         isFlying = true
         startTime = GetTime()
-        OUS.ApplyFlightBorder() 
+        OUS.ApplyFlightBorder()
         timerBar:Show()
         OUS.timerTopText:SetText(currentStartFull .. " -> " .. currentDestFull)
-        
-        local knownTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
-        OUS.LogDebug("Flight", "Liftoff! Known Time: " .. (knownTime and tostring(math.floor(knownTime)) .. "s" or "Unknown"))
-        
-        if knownTime then
-            timerBar:SetMinMaxValues(0, knownTime)
+
+        activeKnownTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
+        OUS.LogDebug("Flight", "Liftoff! Known Time: " .. (activeKnownTime and tostring(math.floor(activeKnownTime)) .. "s" or "Unknown"))
+
+        if activeKnownTime then
+            timerBar:SetMinMaxValues(0, activeKnownTime)
         else
             timerBar:SetMinMaxValues(0, 1)
             timerBar:SetValue(1)
         end
-        
+
     elseif not onTaxi and isFlying then
         isFlying = false
-        if not OUS.isFlightBarUnlocked then timerBar:Hide() end
-        
-        local duration = GetTime() - startTime
-        OUS.LogDebug("Flight", string.format("Landed. Total duration: %.1f seconds.", duration))
-        
-        if duration > 10 and currentDestFull ~= "Unknown" then 
+        OUS.timerText:SetText("")
+        OUS.timerTopText:SetText("")
+        timerBar:SetValue(0)
+
+        if not OUS.isFlightBarUnlocked then
+            timerBar:Hide()
+        end
+
+        local duration = math.floor((GetTime() - startTime) + 0.5)
+        OUS.LogDebug("Flight", string.format("Landed. Total duration: %d seconds.", duration))
+
+        if duration > 10 and currentDestFull ~= "Unknown" then
             OdysseusDB.flightSettings.times = OdysseusDB.flightSettings.times or {}
             local oldTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
-            
-            if not oldTime or math.abs(oldTime - duration) > 3 then
+
+            if not oldTime or math.abs(oldTime - duration) > 5 then
                 OdysseusDB.flightSettings.times[currentStartFull] = OdysseusDB.flightSettings.times[currentStartFull] or {}
                 OdysseusDB.flightSettings.times[currentStartFull][currentDestFull] = duration
-                
+
                 if not oldTime then
                     print("|cFF00CCFFOdysseus:|r |cFF33FF33Learned|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
                     OUS.LogDebug("Flight", "Saved new flight time to database.")
-                else 
+                else
                     print("|cFF00CCFFOdysseus:|r |cFFFFAA00Updated|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
                     OUS.LogDebug("Flight", "Updated existing flight time in database.")
                 end
             end
         end
+
+        activeKnownTime = nil
+        currentDestFull = "Unknown"
+        currentStartFull = "Unknown"
+        currentDestShort = "Unknown"
+        currentStartShort = "Unknown"
+        startTime = 0
     end
 
     if isFlying and not OUS.isFlightBarUnlocked then
         local timeElapsed = GetTime() - startTime
-        local knownTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
-        
+        local knownTime = activeKnownTime
+
         if knownTime then
             local timeLeft = knownTime - timeElapsed
             if timeLeft > 0 then
-                timerBar:SetValue(timeLeft) 
+                timerBar:SetValue(timeLeft)
                 OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeLeft / 60), math.floor(timeLeft % 60)))
             else
-                OUS.timerText:SetText("Arriving soon...")
+                OUS.timerText:SetText("Arrival Imminent")
                 timerBar:SetValue(0)
             end
         else
-            OUS.timerText:SetText(string.format("Learning... %d:%02d", math.floor(timeElapsed / 60), math.floor(timeElapsed % 60)))
+            OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeElapsed / 60), math.floor(timeElapsed % 60)))
+            timerBar:SetValue(1)
         end
     end
 end)
@@ -389,7 +424,7 @@ f:SetScript("OnEvent", function(self, event, arg1)
             end
         end
         OdysseusDB.flightSettings.times = OdysseusDB.flightSettings.times or {}
-        
+
         if OdysseusDB.flightSettings.pos then
             local p = OdysseusDB.flightSettings.pos
             timerBar:ClearAllPoints()
@@ -412,7 +447,7 @@ f:SetScript("OnEvent", function(self, event, arg1)
 
         OUS.LogDebug("Flight", "Database loaded successfully.")
     end
-    
+
     if event == "PLAYER_LOGIN" then
         OUS.ApplyFlightFonts()
         OUS.ApplyFlightTexture()

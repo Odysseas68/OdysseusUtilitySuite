@@ -18,7 +18,7 @@ OUS.FactionData = {
         paragonFactionID = 2089,
         paragonThreshold = 10000,
         paragonQuestID = 46748,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 680, x = 36.4, y = 46.8, npcName = "First Arcanist Thalyssra" },
     },
     [1883] = {
         name = "Dreamweavers",
@@ -26,7 +26,7 @@ OUS.FactionData = {
         paragonFactionID = 2088,
         paragonThreshold = 10000,
         paragonQuestID = 46747,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2666, x = 50.7, y = 18, npcName = "Celestine of the Harvest" },
     },
     [1894] = {
         name = "The Wardens",
@@ -34,7 +34,7 @@ OUS.FactionData = {
         paragonFactionID = 2090,
         paragonThreshold = 10000,
         paragonQuestID = 46749,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1545, x = 48.2, y = 73.8, npcName = "Quartermaster" },
     },
     [1900] = {
         name = "Court of Farondis",
@@ -50,7 +50,7 @@ OUS.FactionData = {
         paragonFactionID = 2086,
         paragonThreshold = 10000,
         paragonQuestID = 46746,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 634, x = 60.2, y = 51.2, npcName = "Valdemar Stormseeker" },
     },
     [2045] = {
         name = "Armies of Legionfall",
@@ -58,7 +58,7 @@ OUS.FactionData = {
         paragonFactionID = 2091,
         paragonThreshold = 10000,
         paragonQuestID = 46777,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 646, x = 44.4, y = 62.2, npcName = "Warmage Kath'leen" },
     },
     [2085] = {
         name = "Highmountain Tribe (Paragon)",
@@ -74,7 +74,7 @@ OUS.FactionData = {
         paragonFactionID = 2086,
         paragonThreshold = 10000,
         paragonQuestID = 46746,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 634, x = 60.2, y = 51.2, npcName = "Valdemar Stormseeker" },
     },
     [2087] = {
         name = "Court of Farondis (Paragon)",
@@ -90,7 +90,7 @@ OUS.FactionData = {
         paragonFactionID = 2088,
         paragonThreshold = 10000,
         paragonQuestID = 46747,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2666, x = 50.7, y = 18, npcName = "Celestine of the Harvest" },
     },
     [2089] = {
         name = "The Nightfallen (Paragon)",
@@ -98,7 +98,7 @@ OUS.FactionData = {
         paragonFactionID = 2089,
         paragonThreshold = 10000,
         paragonQuestID = 46748,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 680, x = 36.4, y = 46.8, npcName = "First Arcanist Thalyssra" },
     },
     [2090] = {
         name = "The Wardens (Paragon)",
@@ -106,7 +106,7 @@ OUS.FactionData = {
         paragonFactionID = 2090,
         paragonThreshold = 10000,
         paragonQuestID = 46749,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1545, x = 48.2, y = 73.8, npcName = "Quartermaster" },
     },
     [2091] = {
         name = "Armies of Legionfall (Paragon)",
@@ -114,7 +114,7 @@ OUS.FactionData = {
         paragonFactionID = 2091,
         paragonThreshold = 10000,
         paragonQuestID = 46777,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 646, x = 44.4, y = 62.2, npcName = "Warmage Kath'leen" },
     },
     [2103] = {
         name = "Zandalari Empire",
@@ -122,7 +122,7 @@ OUS.FactionData = {
         paragonFactionID = 2378,
         paragonThreshold = 10000,
         paragonQuestID = 54462,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 863, x = 39, y = 79.4, npcName = "Provisioner Lija" },
     },
     [2156] = {
         name = "Talanji's Expedition",
@@ -130,7 +130,7 @@ OUS.FactionData = {
         paragonFactionID = 2380,
         paragonThreshold = 10000,
         paragonQuestID = 54460,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 863, x = 39, y = 79.4, npcName = "Provisioner Lija" },
     },
     [2157] = {
         name = "The Honorbound",
@@ -138,7 +138,7 @@ OUS.FactionData = {
         paragonFactionID = 2385,
         paragonThreshold = 10000,
         paragonQuestID = 54455,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 750, x = 38.8, y = 45.4, npcName = "Ransa Greyfeather" },
     },
     [2158] = {
         name = "Voldunai",
@@ -146,7 +146,7 @@ OUS.FactionData = {
         paragonFactionID = 2382,
         paragonThreshold = 10000,
         paragonQuestID = 54461,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 864, x = 56.6, y = 49.8, npcName = "Hoarder Jena" },
     },
     [2159] = {
         name = "7th Legion",
@@ -154,7 +154,7 @@ OUS.FactionData = {
         paragonFactionID = 2384,
         paragonThreshold = 10000,
         paragonQuestID = 54454,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 8568, x = 74.1, y = 25.8, npcName = "Vindicator Jaelaana" },
     },
     [2160] = {
         name = "Proudmoore Admiralty",
@@ -162,7 +162,7 @@ OUS.FactionData = {
         paragonFactionID = 2379,
         paragonThreshold = 10000,
         paragonQuestID = 54458,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 8568, x = 67.5, y = 21.58, npcName = "Provisioner Fray Harbormaster's Office" },
     },
     [2161] = {
         name = "Order of Embers",
@@ -170,7 +170,7 @@ OUS.FactionData = {
         paragonFactionID = 2383,
         paragonThreshold = 10000,
         paragonQuestID = 54456,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 896, x = 37.8, y = 49, npcName = "Quartermaster Alcorn" },
     },
     [2162] = {
         name = "Storm's Wake",
@@ -178,7 +178,7 @@ OUS.FactionData = {
         paragonFactionID = 2381,
         paragonThreshold = 10000,
         paragonQuestID = 54457,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 942, x = 59.2, y = 69.4, npcName = "Sister Lilyana" },
     },
     [2163] = {
         name = "Tortollan Seekers",
@@ -186,7 +186,7 @@ OUS.FactionData = {
         paragonFactionID = 2387,
         paragonThreshold = 10000,
         paragonQuestID = 54451,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 862, x = 71.4, y = 30.2, npcName = "Collector Kojo" },
     },
     [2164] = {
         name = "Champions of Azeroth",
@@ -194,7 +194,7 @@ OUS.FactionData = {
         paragonFactionID = 2386,
         paragonThreshold = 10000,
         paragonQuestID = 54453,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 81, x = 42.2, y = 44.2, npcName = "Magni Bronzebeard" },
     },
     [2165] = {
         name = "Army of the Light",
@@ -202,7 +202,7 @@ OUS.FactionData = {
         paragonFactionID = 2166,
         paragonThreshold = 10000,
         paragonQuestID = 48977,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 8916, x = 69.2, y = 25.6, npcName = "Vindicator Jaelaana" },
     },
     [2166] = {
         name = "Army of the Light (Paragon)",
@@ -210,7 +210,7 @@ OUS.FactionData = {
         paragonFactionID = 2166,
         paragonThreshold = 10000,
         paragonQuestID = 48977,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 8916, x = 69.2, y = 25.6, npcName = "Vindicator Jaelaana" },
     },
     [2167] = {
         name = "Argussian Reach (Paragon)",
@@ -218,7 +218,7 @@ OUS.FactionData = {
         paragonFactionID = 2167,
         paragonThreshold = 10000,
         paragonQuestID = 48976,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 885, x = 56.6, y = 30.6, npcName = "Toraan the Revered" },
     },
     [2170] = {
         name = "Argussian Reach",
@@ -226,7 +226,7 @@ OUS.FactionData = {
         paragonFactionID = 2167,
         paragonThreshold = 10000,
         paragonQuestID = 48976,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 885, x = 56.6, y = 30.6, npcName = "Toraan the Revered" },
     },
     [2373] = {
         name = "The Unshackled",
@@ -234,7 +234,7 @@ OUS.FactionData = {
         paragonFactionID = 2374,
         paragonThreshold = 10000,
         paragonQuestID = 53982,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1355, x = 50.8, y = 65.2, npcName = "Atolia Seapearl" },
     },
     [2374] = {
         name = "The Unshackled (Paragon)",
@@ -242,7 +242,7 @@ OUS.FactionData = {
         paragonFactionID = 2374,
         paragonThreshold = 10000,
         paragonQuestID = 53982,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1355, x = 50.8, y = 65.2, npcName = "Atolia Seapearl" },
     },
     [2378] = {
         name = "Zandalari Empire (Paragon)",
@@ -250,7 +250,7 @@ OUS.FactionData = {
         paragonFactionID = 2378,
         paragonThreshold = 10000,
         paragonQuestID = 54462,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 863, x = 39, y = 79.4, npcName = "Provisioner Lija" },
     },
     [2379] = {
         name = "Proudmoore Admiralty (Paragon)",
@@ -258,7 +258,7 @@ OUS.FactionData = {
         paragonFactionID = 2379,
         paragonThreshold = 10000,
         paragonQuestID = 54458,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 8568, x = 67.5, y = 21.58, npcName = "Provisioner Fray Harbormaster's Office" },
     },
     [2380] = {
         name = "Talanji's Expedition (Paragon)",
@@ -266,7 +266,7 @@ OUS.FactionData = {
         paragonFactionID = 2380,
         paragonThreshold = 10000,
         paragonQuestID = 54460,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 863, x = 39, y = 79.4, npcName = "Provisioner Lija" },
     },
     [2381] = {
         name = "Storm's Wake (Paragon)",
@@ -274,7 +274,7 @@ OUS.FactionData = {
         paragonFactionID = 2381,
         paragonThreshold = 10000,
         paragonQuestID = 54457,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 942, x = 59.2, y = 69.4, npcName = "Sister Lilyana" },
     },
     [2382] = {
         name = "Voldunai (Paragon)",
@@ -282,7 +282,7 @@ OUS.FactionData = {
         paragonFactionID = 2382,
         paragonThreshold = 10000,
         paragonQuestID = 54461,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 864, x = 56.6, y = 49.8, npcName = "Hoarder Jena" },
     },
     [2383] = {
         name = "Order of Embers (Paragon)",
@@ -290,7 +290,7 @@ OUS.FactionData = {
         paragonFactionID = 2383,
         paragonThreshold = 10000,
         paragonQuestID = 54456,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 896, x = 37.8, y = 49, npcName = "Quartermaster Alcorn" },
     },
     [2384] = {
         name = "7th Legion (Paragon)",
@@ -298,7 +298,7 @@ OUS.FactionData = {
         paragonFactionID = 2384,
         paragonThreshold = 10000,
         paragonQuestID = 54454,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 8568, x = 74.1, y = 25.8, npcName = "Vindicator Jaelaana" },
     },
     [2385] = {
         name = "The Honorbound (Paragon)",
@@ -306,7 +306,7 @@ OUS.FactionData = {
         paragonFactionID = 2385,
         paragonThreshold = 10000,
         paragonQuestID = 54455,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 750, x = 38.8, y = 45.4, npcName = "Ransa Greyfeather" },
     },
     [2386] = {
         name = "Champions of Azeroth (Paragon)",
@@ -314,7 +314,7 @@ OUS.FactionData = {
         paragonFactionID = 2386,
         paragonThreshold = 10000,
         paragonQuestID = 54453,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 81, x = 42.2, y = 44.2, npcName = "Magni Bronzebeard" },
     },
     [2387] = {
         name = "Tortollan Seekers (Paragon)",
@@ -322,7 +322,7 @@ OUS.FactionData = {
         paragonFactionID = 2387,
         paragonThreshold = 10000,
         paragonQuestID = 54451,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 862, x = 71.4, y = 30.2, npcName = "Collector Kojo" },
     },
     [2391] = {
         name = "Rustbolt Resistance",
@@ -330,7 +330,7 @@ OUS.FactionData = {
         paragonFactionID = 2392,
         paragonThreshold = 10000,
         paragonQuestID = 55348,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1462, x = 73.6, y = 36.6, npcName = "Stolen Royal Vendorbot" },
     },
     [2392] = {
         name = "Rustbolt Resistance (Paragon)",
@@ -338,7 +338,7 @@ OUS.FactionData = {
         paragonFactionID = 2392,
         paragonThreshold = 10000,
         paragonQuestID = 55348,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1462, x = 73.6, y = 36.6, npcName = "Stolen Royal Vendorbot" },
     },
     [2400] = {
         name = "Waveblade Ankoan",
@@ -346,7 +346,7 @@ OUS.FactionData = {
         paragonFactionID = 2401,
         paragonThreshold = 10000,
         paragonQuestID = 55976,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1355, x = 38, y = 55.6, npcName = "Speaker Utia" },
     },
     [2401] = {
         name = "Waveblade Ankoan (Paragon)",
@@ -354,7 +354,7 @@ OUS.FactionData = {
         paragonFactionID = 2401,
         paragonThreshold = 10000,
         paragonQuestID = 55976,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1355, x = 38, y = 55.6, npcName = "Speaker Utia" },
     },
     [2407] = {
         name = "The Ascended",
@@ -362,7 +362,7 @@ OUS.FactionData = {
         paragonFactionID = 2441,
         paragonThreshold = 10000,
         paragonQuestID = 61097,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1533, x = 52.2, y = 47, npcName = "Adjutant Nikos" },
     },
     [2410] = {
         name = "The Undying Army",
@@ -370,7 +370,7 @@ OUS.FactionData = {
         paragonFactionID = 2440,
         paragonThreshold = 10000,
         paragonQuestID = 61095,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1536, x = 50.6, y = 53.4, npcName = "Nalcorn Talsen" },
     },
     [2413] = {
         name = "Court of Harvesters",
@@ -378,7 +378,7 @@ OUS.FactionData = {
         paragonFactionID = 2442,
         paragonThreshold = 10000,
         paragonQuestID = 61100,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2287, x = 74.04, y = 51.98, npcName = "Venthyr Covenant" },
     },
     [2415] = {
         name = "Rajani",
@@ -386,7 +386,7 @@ OUS.FactionData = {
         paragonFactionID = 2416,
         paragonThreshold = 10000,
         paragonQuestID = 58096,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1530, x = 44.4, y = 75.2, npcName = "Zhang Ku" },
     },
     [2416] = {
         name = "Rajani (Paragon)",
@@ -394,7 +394,7 @@ OUS.FactionData = {
         paragonFactionID = 2416,
         paragonThreshold = 10000,
         paragonQuestID = 58096,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1530, x = 44.4, y = 75.2, npcName = "Zhang Ku" },
     },
     [2417] = {
         name = "Uldum Accord",
@@ -402,7 +402,7 @@ OUS.FactionData = {
         paragonFactionID = 2418,
         paragonThreshold = 10000,
         paragonQuestID = 58097,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1527, x = 55, y = 32.8, npcName = "Provisioner Qorra" },
     },
     [2418] = {
         name = "Uldum Accord (Paragon)",
@@ -410,7 +410,7 @@ OUS.FactionData = {
         paragonFactionID = 2418,
         paragonThreshold = 10000,
         paragonQuestID = 58097,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1527, x = 55, y = 32.8, npcName = "Provisioner Qorra" },
     },
     [2432] = {
         name = "Ve'nari",
@@ -418,7 +418,7 @@ OUS.FactionData = {
         paragonFactionID = 2474,
         paragonThreshold = 10000,
         paragonQuestID = 64267,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2830, x = 43, y = 4, npcName = "Tazavesh, the Veiled Market" },
     },
     [2440] = {
         name = "The Undying Army (Paragon)",
@@ -426,7 +426,7 @@ OUS.FactionData = {
         paragonFactionID = 2440,
         paragonThreshold = 10000,
         paragonQuestID = 61095,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1536, x = 50.6, y = 53.4, npcName = "Nalcorn Talsen" },
     },
     [2441] = {
         name = "The Ascended (Paragon)",
@@ -434,7 +434,7 @@ OUS.FactionData = {
         paragonFactionID = 2441,
         paragonThreshold = 10000,
         paragonQuestID = 61097,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1533, x = 52.2, y = 47, npcName = "Adjutant Nikos" },
     },
     [2442] = {
         name = "Court of Harvesters (Paragon)",
@@ -442,7 +442,7 @@ OUS.FactionData = {
         paragonFactionID = 2442,
         paragonThreshold = 10000,
         paragonQuestID = 61100,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2287, x = 74.04, y = 51.98, npcName = "Venthyr Covenant" },
     },
     [2444] = {
         name = "The Wild Hunt (Paragon)",
@@ -450,7 +450,7 @@ OUS.FactionData = {
         paragonFactionID = 2444,
         paragonThreshold = 10000,
         paragonQuestID = 61098,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1565, x = 48.4, y = 50.6, npcName = "Aithlyn" },
     },
     [2465] = {
         name = "The Wild Hunt",
@@ -458,7 +458,7 @@ OUS.FactionData = {
         paragonFactionID = 2444,
         paragonThreshold = 10000,
         paragonQuestID = 61098,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1565, x = 48.4, y = 50.6, npcName = "Aithlyn" },
     },
     [2470] = {
         name = "Death's Advance",
@@ -466,7 +466,7 @@ OUS.FactionData = {
         paragonFactionID = 2471,
         paragonThreshold = 10000,
         paragonQuestID = 64012,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1961, x = 63.4, y = 23.6, npcName = "Duchess Mynx" },
     },
     [2471] = {
         name = "Death's Advance (Paragon)",
@@ -474,7 +474,7 @@ OUS.FactionData = {
         paragonFactionID = 2471,
         paragonThreshold = 10000,
         paragonQuestID = 64012,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1961, x = 63.4, y = 23.6, npcName = "Duchess Mynx" },
     },
     [2472] = {
         name = "The Archivists' Codex",
@@ -482,7 +482,7 @@ OUS.FactionData = {
         paragonFactionID = 2473,
         paragonThreshold = 10000,
         paragonQuestID = 64266,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1961, x = 62.6, y = 22.6, npcName = "Archivist Roh-Suir" },
     },
     [2473] = {
         name = "The Archivists' Codex (Paragon)",
@@ -490,7 +490,7 @@ OUS.FactionData = {
         paragonFactionID = 2473,
         paragonThreshold = 10000,
         paragonQuestID = 64266,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1961, x = 62.6, y = 22.6, npcName = "Archivist Roh-Suir" },
     },
     [2474] = {
         name = "Ve'nari (Paragon)",
@@ -498,7 +498,7 @@ OUS.FactionData = {
         paragonFactionID = 2474,
         paragonThreshold = 10000,
         paragonQuestID = 64267,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2830, x = 43, y = 4, npcName = "Tazavesh, the Veiled Market" },
     },
     [2478] = {
         name = "The Enlightened",
@@ -506,7 +506,7 @@ OUS.FactionData = {
         paragonFactionID = 2479,
         paragonThreshold = 10000,
         paragonQuestID = 64867,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1970, x = 34.8, y = 64.2, npcName = "Vilo" },
     },
     [2479] = {
         name = "The Enlightened (Paragon)",
@@ -514,7 +514,7 @@ OUS.FactionData = {
         paragonFactionID = 2479,
         paragonThreshold = 10000,
         paragonQuestID = 64867,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 1970, x = 34.8, y = 64.2, npcName = "Vilo" },
     },
     [2503] = {
         name = "Maruuk Centaur",
@@ -567,12 +567,12 @@ OUS.FactionData = {
     [2517] = {
         name = "Wrathion",
         isParagon = false,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2022, x = 25.2, y = 55.8, npcName = "Lorena Belle" },
     },
     [2518] = {
         name = "Sabellian",
         isParagon = false,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2022, x = 24.6, y = 56.8, npcName = "Samia Inkling" },
     },
     [2521] = {
         name = "Clan Nokhud (Paragon)",
@@ -585,7 +585,7 @@ OUS.FactionData = {
     [2526] = {
         name = "Winterpelt Furbolg",
         isParagon = false,
-        rewardNPC = { mapID = 2024, x = 65.6, y = 36, npcName = "Sonovo" },
+        rewardNPC = { mapID = 2024, x = 56.6, y = 67, npcName = "Garzquote" },
     },
     [2544] = {
         name = "Artisan's Consortium - Dragon Isles Branch",
@@ -675,7 +675,7 @@ OUS.FactionData = {
         paragonFactionID = 2596,
         paragonThreshold = 7500,
         paragonQuestID = 79196,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2255, x = 55.2, y = 41.2, npcName = "Lady Vinazian" },
     },
     [2600] = {
         name = "The Severed Threads",
@@ -683,7 +683,7 @@ OUS.FactionData = {
         paragonFactionID = 2596,
         paragonThreshold = 7500,
         paragonQuestID = 79196,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2255, x = 55.2, y = 41.2, npcName = "Lady Vinazian" },
     },
     [2601] = {
         name = "The Weaver",
@@ -691,7 +691,7 @@ OUS.FactionData = {
         paragonFactionID = 2648,
         paragonThreshold = 2500,
         paragonQuestID = 83738,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2255, x = 56.4, y = 43.2, npcName = "Bobbin" },
     },
     [2604] = {
         name = "Keg Leg's Crew (Paragon)",
@@ -699,7 +699,7 @@ OUS.FactionData = {
         paragonFactionID = 2604,
         paragonThreshold = 10000,
         paragonQuestID = 0,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2339, x = 57.16, y = 61.54, npcName = "Da'kash Grimledger" },
     },
     [2605] = {
         name = "The General",
@@ -707,7 +707,7 @@ OUS.FactionData = {
         paragonFactionID = 2649,
         paragonThreshold = 2500,
         paragonQuestID = 83739,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2255, x = 55.8, y = 42.2, npcName = "Anub'okki" },
     },
     [2607] = {
         name = "The Vizier",
@@ -715,7 +715,7 @@ OUS.FactionData = {
         paragonFactionID = 2647,
         paragonThreshold = 2500,
         paragonQuestID = 83740,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2255, x = 56.2, y = 42.2, npcName = "Tulumun" },
     },
     [2611] = {
         name = "Hallowfall Arathi (Paragon)",
@@ -747,7 +747,7 @@ OUS.FactionData = {
         paragonFactionID = 2604,
         paragonThreshold = 10000,
         paragonQuestID = 0,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2339, x = 57.16, y = 61.54, npcName = "Da'kash Grimledger" },
     },
     [2647] = {
         name = "The Vizier (Paragon)",
@@ -755,7 +755,7 @@ OUS.FactionData = {
         paragonFactionID = 2647,
         paragonThreshold = 2500,
         paragonQuestID = 83740,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2255, x = 56.2, y = 42.2, npcName = "Tulumun" },
     },
     [2648] = {
         name = "The Weaver (Paragon)",
@@ -763,7 +763,7 @@ OUS.FactionData = {
         paragonFactionID = 2648,
         paragonThreshold = 2500,
         paragonQuestID = 83738,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2255, x = 56.4, y = 43.2, npcName = "Bobbin" },
     },
     [2649] = {
         name = "The General (Paragon)",
@@ -771,7 +771,7 @@ OUS.FactionData = {
         paragonFactionID = 2649,
         paragonThreshold = 2500,
         paragonQuestID = 83739,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2255, x = 55.8, y = 42.2, npcName = "Anub'okki" },
     },
     [2653] = {
         name = "The Cartels of Undermine",
@@ -779,7 +779,7 @@ OUS.FactionData = {
         paragonFactionID = 2667,
         paragonThreshold = 7500,
         paragonQuestID = 85805,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 43.6, y = 50.8, npcName = "Smaks Topskimmer" },
     },
     [2658] = {
         name = "The K'aresh Trust",
@@ -787,7 +787,7 @@ OUS.FactionData = {
         paragonFactionID = 2659,
         paragonThreshold = 7500,
         paragonQuestID = 85109,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2472, x = 40.6, y = 29.2, npcName = "Om'sirik" },
     },
     [2659] = {
         name = "The K'aresh Trust (Paragon)",
@@ -795,7 +795,7 @@ OUS.FactionData = {
         paragonFactionID = 2659,
         paragonThreshold = 7500,
         paragonQuestID = 85109,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2472, x = 40.6, y = 29.2, npcName = "Om'sirik" },
     },
     [2667] = {
         name = "The Cartels of Undermine (Paragon)",
@@ -803,7 +803,7 @@ OUS.FactionData = {
         paragonFactionID = 2667,
         paragonThreshold = 7500,
         paragonQuestID = 85805,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 43.6, y = 50.8, npcName = "Smaks Topskimmer" },
     },
     [2668] = {
         name = "Darkfuse Solutions (Paragon)",
@@ -811,7 +811,7 @@ OUS.FactionData = {
         paragonFactionID = 2668,
         paragonThreshold = 10000,
         paragonQuestID = 85808,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2346, x = 30.6, y = 38.8, npcName = "Sitch Lowdown" },
     },
     [2669] = {
         name = "Darkfuse Solutions",
@@ -819,7 +819,7 @@ OUS.FactionData = {
         paragonFactionID = 2668,
         paragonThreshold = 10000,
         paragonQuestID = 85808,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2346, x = 30.6, y = 38.8, npcName = "Sitch Lowdown" },
     },
     [2670] = {
         name = "Venture Company (Paragon)",
@@ -827,7 +827,7 @@ OUS.FactionData = {
         paragonFactionID = 2670,
         paragonThreshold = 10000,
         paragonQuestID = 85810,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 53.2, y = 72.6, npcName = "Shredz the Scrapper" },
     },
     [2671] = {
         name = "Venture Company",
@@ -835,7 +835,7 @@ OUS.FactionData = {
         paragonFactionID = 2670,
         paragonThreshold = 10000,
         paragonQuestID = 85810,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 53.2, y = 72.6, npcName = "Shredz the Scrapper" },
     },
     [2672] = {
         name = "Bilgewater Cartel (Paragon)",
@@ -843,7 +843,7 @@ OUS.FactionData = {
         paragonFactionID = 2672,
         paragonThreshold = 10000,
         paragonQuestID = 85806,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 85, x = 49.8, y = 58.6, npcName = "Frizzo Villamar" },
     },
     [2673] = {
         name = "Bilgewater Cartel",
@@ -851,7 +851,7 @@ OUS.FactionData = {
         paragonFactionID = 2672,
         paragonThreshold = 10000,
         paragonQuestID = 85806,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 85, x = 49.8, y = 58.6, npcName = "Frizzo Villamar" },
     },
     [2674] = {
         name = "Blackwater Cartel (Paragon)",
@@ -859,7 +859,7 @@ OUS.FactionData = {
         paragonFactionID = 2674,
         paragonThreshold = 10000,
         paragonQuestID = 85807,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 63.4, y = 16.7, npcName = "Boatswain Hardee" },
     },
     [2675] = {
         name = "Blackwater Cartel",
@@ -867,7 +867,7 @@ OUS.FactionData = {
         paragonFactionID = 2674,
         paragonThreshold = 10000,
         paragonQuestID = 85807,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 63.4, y = 16.7, npcName = "Boatswain Hardee" },
     },
     [2676] = {
         name = "Steamwheedle Cartel (Paragon)",
@@ -875,7 +875,7 @@ OUS.FactionData = {
         paragonFactionID = 2676,
         paragonThreshold = 10000,
         paragonQuestID = 85809,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 27.8, y = 73.4, npcName = "Vendor" },
     },
     [2677] = {
         name = "Steamwheedle Cartel",
@@ -883,7 +883,7 @@ OUS.FactionData = {
         paragonFactionID = 2676,
         paragonThreshold = 10000,
         paragonQuestID = 85809,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 27.8, y = 73.4, npcName = "Vendor" },
     },
     [2684] = {
         name = "Gallagio Loyalty Rewards Club (Paragon)",
@@ -891,7 +891,7 @@ OUS.FactionData = {
         paragonFactionID = 2684,
         paragonThreshold = 7500,
         paragonQuestID = 85471,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 43.6, y = 50.8, npcName = "Smaks Topskimmer" },
     },
     [2685] = {
         name = "Gallagio Loyalty Rewards Club",
@@ -899,7 +899,7 @@ OUS.FactionData = {
         paragonFactionID = 2684,
         paragonThreshold = 7500,
         paragonQuestID = 85471,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2706, x = 43.6, y = 50.8, npcName = "Smaks Topskimmer" },
     },
     [2688] = {
         name = "Flame's Radiance",
@@ -907,7 +907,7 @@ OUS.FactionData = {
         paragonFactionID = 2689,
         paragonThreshold = 7500,
         paragonQuestID = 89515,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2215, x = 28.2, y = 56.2, npcName = "Lars Bronsmaelt" },
     },
     [2689] = {
         name = "Flame's Radiance (Paragon)",
@@ -915,7 +915,7 @@ OUS.FactionData = {
         paragonFactionID = 2689,
         paragonThreshold = 7500,
         paragonQuestID = 89515,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2215, x = 28.2, y = 56.2, npcName = "Lars Bronsmaelt" },
     },
     [2696] = {
         name = "Amani Tribe",
@@ -984,7 +984,7 @@ OUS.FactionData = {
     [2764] = {
         name = "Prey: Season 1",
         isParagon = false,
-        rewardNPC = { mapID = 0, x = 0.0, y = 0.0, npcName = "" },
+        rewardNPC = { mapID = 2393, x = 55.8, y = 65.8, npcName = "Construct V'anore" },
     },
     [2770] = {
         name = "Slayer's Duellum",
