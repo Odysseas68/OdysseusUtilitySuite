@@ -2,12 +2,12 @@
 -- 1. ODYSSEUS UTILITY SUITE: CORE NAMESPACE
 -- ==========================================
 local addonName, OUS = ...
-_G[addonName] = OUS 
+_G[addonName] = OUS
 
 OUS.Session = {
     isDebugOn = false,
     sessionStartTime = GetTime(),
-    logHistory = {}, 
+    logHistory = {},
 }
 
 -- ==========================================
@@ -20,12 +20,12 @@ f:SetScript("OnEvent", function(self, event, arg1)
     if event == "ADDON_LOADED" and arg1 == addonName then
         OdysseusDB = OdysseusDB or {}
         OdysseusDB.modules = OdysseusDB.modules or {}
-        
+
         if OdysseusDB.modules.flightMaster == nil then OdysseusDB.modules.flightMaster = true end
         if OdysseusDB.modules.fasterLoot == nil then OdysseusDB.modules.fasterLoot = true end
         if OdysseusDB.modules.fishingTracker == nil then OdysseusDB.modules.fishingTracker = true end
         if OdysseusDB.modules.xpBar == nil then OdysseusDB.modules.xpBar = true end
-        
+
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}
         OdysseusDB.fishingSettings = OdysseusDB.fishingSettings or { history = {} }
     end
@@ -34,9 +34,9 @@ end)
 function OUS.DeepCopyTable(src)
     local dest = {}
     for k, v in pairs(src) do
-        if type(v) == "table" then 
-            dest[k] = OUS.DeepCopyTable(v) 
-        else 
+        if type(v) == "table" then
+            dest[k] = OUS.DeepCopyTable(v)
+        else
             dest[k] = v
         end
     end
@@ -44,6 +44,7 @@ function OUS.DeepCopyTable(src)
 end
 
 function OUS.ResetAllSettings()
+    OdysseusDB = OdysseusDB or {}
     print("|cFF00CCFFOdysseus:|r All settings reset. Reloading UI.")
 
     -- Reset Modules
@@ -69,8 +70,10 @@ function OUS.ResetAllSettings()
     -- Reset XP Bar
     if OUS.defaults then
         OdysseusDB.xpBar = OUS.DeepCopyTable(OUS.defaults)
+    else
+        OdysseusDB.xpBar = OdysseusDB.xpBar or {}
     end
-    
+
     C_Timer.After(0.5, ReloadUI)
 end
 
@@ -106,25 +109,25 @@ debugHeader:SetText("|cFF00FFFF[Odysseus Debug Console]|r")
 local msgFrame = CreateFrame("ScrollingMessageFrame", nil, debugFrame)
 msgFrame:SetPoint("TOPLEFT", 10, -30)
 msgFrame:SetPoint("BOTTOMRIGHT", -10, 40)
-msgFrame:SetFontObject(GameFontNormal) 
+msgFrame:SetFontObject(GameFontNormal)
 msgFrame:SetJustifyH("LEFT")
 msgFrame:SetFading(false)
 msgFrame:SetMaxLines(500)
 
 local closeXBtn = CreateFrame("Button", nil, debugFrame, "UIPanelCloseButton")
 closeXBtn:SetPoint("TOPRIGHT", debugFrame, "TOPRIGHT", -2, -2)
-closeXBtn:SetScript("OnClick", function() 
+closeXBtn:SetScript("OnClick", function()
     debugFrame:Hide()
-    OUS.Session.isDebugOn = false 
+    OUS.Session.isDebugOn = false
 end)
 
 local closeBtn = CreateFrame("Button", nil, debugFrame, "UIPanelButtonTemplate")
 closeBtn:SetSize(80, 22)
 closeBtn:SetPoint("BOTTOMRIGHT", debugFrame, "BOTTOMRIGHT", -10, 10)
 closeBtn:SetText("Close")
-closeBtn:SetScript("OnClick", function() 
+closeBtn:SetScript("OnClick", function()
     debugFrame:Hide()
-    OUS.Session.isDebugOn = false 
+    OUS.Session.isDebugOn = false
 end)
 
 local clearBtn = CreateFrame("Button", nil, debugFrame, "UIPanelButtonTemplate")
@@ -148,7 +151,7 @@ copyOverlay:Hide()
 
 local copyEditBox = CreateFrame("EditBox", nil, copyOverlay)
 copyEditBox:SetMultiLine(true)
-copyEditBox:SetFontObject(GameFontNormal) 
+copyEditBox:SetFontObject(GameFontNormal)
 copyEditBox:SetWidth(390)
 copyEditBox:SetAutoFocus(false)
 copyOverlay:SetScrollChild(copyEditBox)
@@ -182,11 +185,16 @@ function OUS.LogDebug(module, message)
 
         local plainText = string.format("[%s] [%s] %s", timeStamp, safeMod, safeMsg)
         local formattedMsg = string.format("|cFF888888[%s]|r |cFFFFD100[%s]|r %s", timeStamp, safeMod, safeMsg)
-        
+
         if not OUS.Session.logHistory then OUS.Session.logHistory = {} end
-        table.insert(OUS.Session.logHistory, plainText) 
-        
-        DEFAULT_CHAT_FRAME:AddMessage(formattedMsg)
+        table.insert(OUS.Session.logHistory, plainText)
+        if #OUS.Session.logHistory > 500 then
+            table.remove(OUS.Session.logHistory, 1)
+        end
+
+        if DEFAULT_CHAT_FRAME then
+            DEFAULT_CHAT_FRAME:AddMessage(formattedMsg)
+        end
 
         if msgFrame then
             msgFrame:AddMessage(formattedMsg)
@@ -194,7 +202,9 @@ function OUS.LogDebug(module, message)
     end)
 
     if not success then
-        DEFAULT_CHAT_FRAME:AddMessage("|cFFFF0000[Odysseus CRITICAL]|r LogDebug crashed: " .. tostring(err))
+        if DEFAULT_CHAT_FRAME then
+            DEFAULT_CHAT_FRAME:AddMessage("|cFFFF0000[Odysseus CRITICAL]|r LogDebug crashed: " .. tostring(err))
+        end
     end
 end
 
@@ -217,11 +227,11 @@ end
 SLASH_ODYSSEUS1 = "/ous"
 SlashCmdList["ODYSSEUS"] = function(msg)
     local cmd = string.lower(strtrim(msg))
-    
+
     if cmd == "fish" then
         if OUS.ToggleFishingTracker then OUS.ToggleFishingTracker() end
     elseif cmd == "debug" then
-        SlashCmdList["ODYSSEUSDEBUG"]() 
+        SlashCmdList["ODYSSEUSDEBUG"]()
     elseif cmd == "help" then
         if OdysseusHelpFrame then
             if OdysseusHelpFrame:IsShown() then OdysseusHelpFrame:Hide() else OdysseusHelpFrame:Show() end
@@ -234,5 +244,10 @@ SlashCmdList["ODYSSEUS"] = function(msg)
 end
 
 _G.Odysseus_ToggleConfig = function()
-    if OUS.ConfigFrame:IsShown() then OUS.ConfigFrame:Hide() else OUS.ConfigFrame:Show() end
+    if not OUS.ConfigFrame then return end
+    if OUS.ConfigFrame:IsShown() then
+        OUS.ConfigFrame:Hide()
+    else
+        OUS.ConfigFrame:Show()
+    end
 end

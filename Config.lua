@@ -2,9 +2,9 @@ local addonName, OUS = ...
 local LSM = LibStub("LibSharedMedia-3.0")
 
 local cfg = CreateFrame("Frame", "OdysseusConfigFrame", UIParent, "BackdropTemplate")
-cfg:SetSize(650, 620) 
+cfg:SetSize(650, 620)
 cfg:SetPoint("CENTER")
-cfg:SetFrameStrata("DIALOG") 
+cfg:SetFrameStrata("DIALOG")
 cfg:Hide()
 cfg:SetMovable(true)
 cfg:EnableMouse(true)
@@ -55,42 +55,42 @@ local sliderCounter = 1
 function OUS.CreatePremiumSlider(parent, db, titleText, yOffset, dbKey, minVal, maxVal, step, onUpdate)
     local sliderName = "OdysseusPremiumSlider" .. sliderCounter
     sliderCounter = sliderCounter + 1
-    
+
     local container = CreateFrame("Frame", nil, parent)
     container:SetSize(450, 40)
     container:SetPoint("TOPLEFT", 12, yOffset)
-    
+
     local title = container:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     title:SetPoint("TOPLEFT", 0, 0)
     title:SetText(titleText)
-    
+
     local btnMinus = CreateFrame("Button", nil, container, "UIPanelButtonTemplate")
     btnMinus:SetSize(20, 20)
     btnMinus:SetPoint("BOTTOMLEFT", 0, 0)
     btnMinus:SetText("<")
-    
+
     local slider = CreateFrame("Slider", sliderName, container, "OptionsSliderTemplate")
     slider:SetPoint("LEFT", btnMinus, "RIGHT", 6, 0)
     slider:SetWidth(250)
     slider:SetMinMaxValues(minVal, maxVal)
     slider:SetValueStep(step)
     slider:SetObeyStepOnDrag(true)
-    
+
     _G[slider:GetName() .. "Text"]:SetText("")
     _G[slider:GetName() .. "Low"]:SetText("")
     _G[slider:GetName() .. "High"]:SetText("")
-    
+
     local btnPlus = CreateFrame("Button", nil, container, "UIPanelButtonTemplate")
     btnPlus:SetSize(20, 20)
     btnPlus:SetPoint("LEFT", slider, "RIGHT", 6, 0)
     btnPlus:SetText(">")
-    
+
     local editBg = CreateFrame("Frame", nil, container, "BackdropTemplate")
     editBg:SetSize(40, 22)
     editBg:SetPoint("LEFT", btnPlus, "RIGHT", 10, 0)
     editBg:SetBackdrop({ bgFile = "Interface\\ChatFrame\\ChatFrameBackground", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", tile = false, edgeSize = 12, insets = { left = 2, right = 2, top = 2, bottom = 2 }})
     editBg:SetBackdropColor(0.03, 0.02, 0.05, 0.8)
-    
+
     local editBox = CreateFrame("EditBox", nil, editBg)
     editBox:SetFontObject("GameFontHighlightSmall")
     editBox:SetPoint("TOPLEFT", 4, -2)
@@ -104,40 +104,44 @@ function OUS.CreatePremiumSlider(parent, db, titleText, yOffset, dbKey, minVal, 
 
     btnMinus:SetScript("OnClick", function() slider:SetValue(slider:GetValue() - step) end)
     btnPlus:SetScript("OnClick", function() slider:SetValue(slider:GetValue() + step) end)
-    
+
     editBox:SetScript("OnEscapePressed", function(self) self:ClearFocus(); self:SetText(slider:GetValue()) end)
-    editBox:SetScript("OnEnterPressed", function(self) 
+    editBox:SetScript("OnEnterPressed", function(self)
         self:ClearFocus()
         local val = tonumber(self:GetText())
-        if val then val = math.max(minVal, math.min(maxVal, val)); slider:SetValue(val) else self:SetText(slider:GetValue()) end 
+        if val then val = math.max(minVal, math.min(maxVal, val)); slider:SetValue(val) else self:SetText(slider:GetValue()) end
     end)
-    
-    slider:SetScript("OnValueChanged", function(self, value) 
-        local snappedValue 
+
+    slider:SetScript("OnValueChanged", function(self, value)
+        local snappedValue
         if step < 1 then snappedValue = math.floor(value * 100 + 0.5) / 100 else snappedValue = math.floor(value + 0.5) end
         db[dbKey] = snappedValue
-        editBox:SetText(snappedValue)
-        if onUpdate then onUpdate() end 
+        if step < 1 then
+            editBox:SetText(string.format("%.2f", snappedValue):gsub("0+$", ""):gsub("%.$", ""))
+        else
+            editBox:SetText(snappedValue)
+        end
+        if onUpdate then onUpdate() end
     end)
     return slider, editBox
 end
 
 function OUS.OpenColorPicker(dbColor, colorBoxFrame, onUpdateFunc)
     local onUpdate = onUpdateFunc or function() end
-    ColorPickerFrame:SetupColorPickerAndShow({ 
-        r = dbColor.r, g = dbColor.g, b = dbColor.b, 
-        hasOpacity = false, 
-        swatchFunc = function() 
+    ColorPickerFrame:SetupColorPickerAndShow({
+        r = dbColor.r, g = dbColor.g, b = dbColor.b,
+        hasOpacity = false,
+        swatchFunc = function()
             local r, g, b = ColorPickerFrame:GetColorRGB()
             dbColor.r, dbColor.g, dbColor.b = r, g, b
             colorBoxFrame:SetBackdropColor(r, g, b, 1)
-            onUpdate() 
-        end, 
-        cancelFunc = function(previousValues) 
+            onUpdate()
+        end,
+        cancelFunc = function(previousValues)
             dbColor.r, dbColor.g, dbColor.b = previousValues.r, previousValues.g, previousValues.b
             colorBoxFrame:SetBackdropColor(previousValues.r, previousValues.g, previousValues.b, 1)
-            onUpdate() 
-        end 
+            onUpdate()
+        end
     })
 end
 
@@ -147,15 +151,15 @@ function OUS.CreateColorBox(parent, labelText, xOffset, yOffset, colorTableRef, 
     box:SetPoint("TOPLEFT", xOffset, yOffset)
     box:SetBackdrop({ bgFile = "Interface\\ChatFrame\\ChatFrameBackground", edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 })
     box:SetBackdropBorderColor(0.8, 0.8, 0.8, 1)
-    
+
     local text = box:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     text:SetPoint("LEFT", box, "RIGHT", 6, 0)
     text:SetText(labelText)
-    
+
     box:SetScript("OnEnter", function(self) self:SetBackdropBorderColor(1, 1, 1, 1) end)
     box:SetScript("OnLeave", function(self) self:SetBackdropBorderColor(0.8, 0.8, 0.8, 1) end)
     box:SetScript("OnClick", function(self) OUS.OpenColorPicker(colorTableRef, self, onUpdateFunc) end)
-    
+
     box:SetBackdropColor(colorTableRef.r, colorTableRef.g, colorTableRef.b, 1)
     return box
 end
@@ -165,9 +169,9 @@ tabs.General = CreateFrame("Frame", nil, contentPanel)
 tabs.FlightMaster = CreateFrame("Frame", nil, contentPanel)
 tabs.FasterLoot = CreateFrame("Frame", nil, contentPanel)
 tabs.Fishing = CreateFrame("Frame", nil, contentPanel)
-tabs.XPBar = CreateFrame("Frame", nil, contentPanel) 
+tabs.XPBar = CreateFrame("Frame", nil, contentPanel)
 
-OUS.XPBarTab = tabs.XPBar 
+OUS.XPBarTab = tabs.XPBar
 
 for _, tab in pairs(tabs) do
     tab:SetAllPoints()
@@ -214,6 +218,8 @@ StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE"] = {
     button1 = "Yes, Wipe",
     button2 = "Cancel",
     OnAccept = function()
+        OdysseusDB = OdysseusDB or {}
+        OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}
         OdysseusDB.flightSettings.times = {}
         print("|cFF00CCFFOdysseus:|r All recorded flight times |cFFFF0000wiped|r!")
     end,
@@ -334,7 +340,7 @@ local dropdownButtons = {}
 -- THE FIX: Exported globally to OUS and added intelligent toggling!
 function OUS.OpenDropDown(mediaType, currentName, onSelect)
     local expectedTitle = "Select " .. (mediaType == "font" and "Font" or (mediaType == "statusbar" and "Texture" or "Border"))
-    
+
     if dropDown:IsShown() and dropDown.title:GetText() == expectedTitle then
         dropDown:Hide()
         return
@@ -359,28 +365,28 @@ function OUS.OpenDropDown(mediaType, currentName, onSelect)
             btn.txt:SetWordWrap(false)
             local hl = btn:CreateTexture(nil, "HIGHLIGHT")
             hl:SetAllPoints()
-            hl:SetColorTexture(1, 1, 1, 0.15) 
+            hl:SetColorTexture(1, 1, 1, 0.15)
             table.insert(dropdownButtons, btn)
         end
 
         btn:ClearAllPoints()
         btn:SetPoint("TOPLEFT", 0, -yOffset)
         local path = LSM:Fetch(mediaType, name)
-        
+
         btn:SetBackdrop(nil)
-        
+
         if mediaType == "statusbar" then
-            btn.bg:SetColorTexture(1, 1, 1, 1) 
+            btn.bg:SetColorTexture(1, 1, 1, 1)
             btn.bg:SetTexture(path)
             btn.txt:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
         elseif mediaType == "font" then
             btn.bg:SetTexture(nil)
-            btn.bg:SetColorTexture(0.05, 0.05, 0.08, 0.8) 
+            btn.bg:SetColorTexture(0.05, 0.05, 0.08, 0.8)
             local success = pcall(function() btn.txt:SetFont(path, 12, "OUTLINE") end)
             if not success then btn.txt:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE") end
         elseif mediaType == "border" then
             btn.bg:SetTexture(nil)
-            btn.bg:SetColorTexture(0.1, 0.1, 0.15, 1) 
+            btn.bg:SetColorTexture(0.1, 0.1, 0.15, 1)
             btn.txt:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
             if path then
                 btn:SetBackdrop({ edgeFile = path, edgeSize = 12 })
@@ -408,16 +414,16 @@ local function CreateModuleToggle(parent, label, yOffset, dbKey)
     local cb = CreateFrame("CheckButton", frameName, parent, "ChatConfigCheckButtonTemplate")
     cb:SetPoint("TOPLEFT", 20, yOffset)
     _G[cb:GetName().."Text"]:SetText(label)
-    
+
     cb:SetScript("OnShow", function(self)
         if OdysseusDB and OdysseusDB.modules then
             self:SetChecked(OdysseusDB.modules[dbKey])
         end
     end)
-    
+
     cb:SetScript("OnClick", function(self)
         OdysseusDB.modules[dbKey] = self:GetChecked()
-        
+
         if dbKey == "fishingTracker" and not self:GetChecked() and OdysseusFishingMain then
             OdysseusFishingMain:Hide()
         end
@@ -461,6 +467,10 @@ resetDesc:SetText("This will restore |cFFFF0000ALL|r settings for |cFFFF0000ALL|
 -- =====================================
 -- TAB 2: FLIGHT MASTER (Two-Column Layout)
 -- =====================================
+local function EscapeLuaString(text)
+    return tostring(text):gsub("\\", "\\\\"):gsub("\"", "\\\"")
+end
+
 local fmWidgetsCreated = false
 local lockBtn, texBtn, fontBtn, borderBtn, colorBox, tooltipCB, expBtn, wipeBtn
 local widthSlider, widthBox, heightSlider, heightBox, scaleSlider, scaleBox, fontSlider, fontBox, borderSlider, borderBox
@@ -480,7 +490,7 @@ local function CreateFlightMasterWidgets()
         OUS.isFlightBarUnlocked = not OUS.isFlightBarUnlocked
         if OUS.isFlightBarUnlocked then
             self:SetText("Lock Timer Bar")
-            OUS.ApplyFlightBorder() 
+            OUS.ApplyFlightBorder()
             OUS.timerBar:EnableMouse(true)
             OUS.timerBar:Show()
             OUS.timerBar:SetMinMaxValues(0, 1)
@@ -505,7 +515,7 @@ local function CreateFlightMasterWidgets()
     texBtn:SetScript("OnClick", function(self)
         OUS.OpenDropDown("statusbar", OdysseusDB.flightSettings.textureName, function(name)
             OdysseusDB.flightSettings.textureName = name
-            self:SetText(string.sub(name, 1, 25)) 
+            self:SetText(string.sub(name, 1, 25))
             OUS.ApplyFlightTexture()
         end)
     end)
@@ -543,7 +553,7 @@ local function CreateFlightMasterWidgets()
         OUS.timerBar:SetStatusBarColor(c.r, c.g, c.b)
     end)
 
-    tooltipCB = CreateFrame("CheckButton", "OdysseusTooltipCheckButton", tabs.FlightMaster, "ChatConfigCheckButtonTemplate")    
+    tooltipCB = CreateFrame("CheckButton", "OdysseusTooltipCheckButton", tabs.FlightMaster, "ChatConfigCheckButtonTemplate")
     tooltipCB:SetPoint("BOTTOMLEFT", 12, 70)
     _G[tooltipCB:GetName().."Text"]:SetText(" Show Map Tooltips")
     tooltipCB:SetScript("OnClick", function(self)
@@ -555,23 +565,54 @@ local function CreateFlightMasterWidgets()
     expBtn:SetPoint("BOTTOMLEFT", 12, 40)
     expBtn:SetText("Export Flight Data")
     expBtn:SetScript("OnClick", function()
+        local flightSettings = OdysseusDB and OdysseusDB.flightSettings
+        local times = flightSettings and flightSettings.times
+
         local t = "-- Exported on " .. date("%Y-%m-%d %H:%M:%S") .. "\n"
         local hasData = false
-        if OdysseusDB.flightSettings.times then
-            for startNode, dests in pairs(OdysseusDB.flightSettings.times) do
+
+        if type(times) == "table" then
+            local startNodes = {}
+            for startNode, dests in pairs(times) do
                 if type(dests) == "table" then
-                    t = t .. "    [\"" .. startNode .. "\"] = {\n"
-                    for destNode, time in pairs(dests) do
-                        t = t .. "        [\"" .. destNode .. "\"] = " .. time .. ",\n"
+                    table.insert(startNodes, startNode)
+                end
+            end
+            table.sort(startNodes)
+
+            for _, startNode in ipairs(startNodes) do
+                local dests = times[startNode]
+                local destNodes = {}
+
+                for destNode, time in pairs(dests) do
+                    if type(time) == "number" then
+                        table.insert(destNodes, destNode)
+                    end
+                end
+
+                if #destNodes > 0 then
+                    table.sort(destNodes)
+                    t = t .. "    [\"" .. EscapeLuaString(startNode) .. "\"] = {\n"
+
+                    for _, destNode in ipairs(destNodes) do
+                        local time = dests[destNode]
+                        t = t .. "        [\"" .. EscapeLuaString(destNode) .. "\"] = " .. time .. ",\n"
                         hasData = true
                     end
+
                     t = t .. "    },\n"
                 end
             end
         end
-        if not hasData then exportEditBox:SetText("-- No new flights to export yet!\n-- Your database is empty.") else exportEditBox:SetText(t) end
-        exportFrame:Show()
-    end)
+
+        if not hasData then
+            exportEditBox:SetText("-- No new flights to export yet!\n-- Your database is empty.")
+        else
+            exportEditBox:SetText(t)
+        end
+
+    exportFrame:Show()
+end)
 
     wipeBtn = CreateFrame("Button", nil, tabs.FlightMaster, "UIPanelButtonTemplate")
     wipeBtn:SetSize(120, 24)
@@ -591,7 +632,7 @@ local function CreateFlightMasterWidgets()
     resetBtn:SetText("Reset Defaults")
     resetBtn:SetScript("OnClick", function()
         if not OUS.flightDefaults then return end
-        
+
         for k, v in pairs(OUS.flightDefaults) do
             if type(v) == "table" then
                 OdysseusDB.flightSettings[k] = OUS.DeepCopyTable(v)
@@ -605,12 +646,12 @@ local function CreateFlightMasterWidgets()
         if scaleSlider then scaleSlider:SetValue(OUS.flightDefaults.scale); scaleBox:SetText(OUS.flightDefaults.scale) end
         if fontSlider then fontSlider:SetValue(OUS.flightDefaults.fontSize); fontBox:SetText(OUS.flightDefaults.fontSize) end
         if borderSlider then borderSlider:SetValue(OUS.flightDefaults.borderSize); borderBox:SetText(OUS.flightDefaults.borderSize) end
-        
+
         if texBtn then texBtn:SetText(string.sub(OUS.flightDefaults.textureName, 1, 25)) end
         if fontBtn then fontBtn:SetText(string.sub(OUS.flightDefaults.fontName, 1, 25)) end
         if borderBtn then borderBtn:SetText(string.sub(OUS.flightDefaults.borderName, 1, 25)) end
         if tooltipCB then tooltipCB:SetChecked(OUS.flightDefaults.showTooltips) end
-        
+
         if colorBox and OUS.flightDefaults.color then
             local c = OUS.flightDefaults.color
             colorBox:SetBackdropColor(c.r, c.g, c.b, 1)
@@ -624,7 +665,9 @@ local function CreateFlightMasterWidgets()
         OUS.ApplyFlightBorder()
         local c = OUS.flightDefaults.color
         OUS.timerBar:SetStatusBarColor(c.r, c.g, c.b)
-        OUS.LogDebug("Flight", "Flight Master settings restored to default.")
+        if OUS.LogDebug then
+            OUS.LogDebug("Flight", "Flight Master settings restored to default.")
+        end
     end)
 
     fmWidgetsCreated = true
@@ -636,7 +679,7 @@ tabs.FlightMaster:SetScript("OnShow", function()
     if fontBtn then fontBtn:SetText(string.sub(OdysseusDB.flightSettings.fontName or "Friz Quadrata TT", 1, 25)) end
     if texBtn then texBtn:SetText(string.sub(OdysseusDB.flightSettings.textureName or "Blizzard", 1, 25)) end
     if borderBtn then borderBtn:SetText(string.sub(OdysseusDB.flightSettings.borderName or "None", 1, 25)) end
-    
+
     if fontSlider then fontSlider:SetValue(OdysseusDB.flightSettings.fontSize or 12) end
     if fontBox then fontBox:SetText(OdysseusDB.flightSettings.fontSize or 12) end
     if widthSlider then widthSlider:SetValue(OdysseusDB.flightSettings.width or 200) end
@@ -721,9 +764,11 @@ local function CreateFishingWidgets()
         if alphaSlider then alphaSlider:SetValue(OUS.fishingDefaults.alpha); alphaBox:SetText(OUS.fishingDefaults.alpha) end
         if _G["OdysseusFishingToggle_autoCloseInactive"] then _G["OdysseusFishingToggle_autoCloseInactive"]:SetChecked(OUS.fishingDefaults.autoCloseInactive) end
         if _G["OdysseusFishingToggle_autoCloseMounted"] then _G["OdysseusFishingToggle_autoCloseMounted"]:SetChecked(OUS.fishingDefaults.autoCloseMounted) end
-        
+
         if OUS.UpdateFishingAlpha then OUS.UpdateFishingAlpha() end
-        OUS.LogDebug("Fishing", "Fishing Tracker settings restored to default.")
+        if OUS.LogDebug then
+            OUS.LogDebug("Fishing", "Fishing Tracker settings restored to default.")
+        end
     end)
 
     fishWidgetsCreated = true
@@ -733,16 +778,22 @@ tabs.Fishing:SetScript("OnShow", function()
     CreateFishingWidgets()
 
     if OdysseusDB and OdysseusDB.fishingSettings then
+        if _G["OdysseusFishingToggle_autoCloseInactive"] then
+            _G["OdysseusFishingToggle_autoCloseInactive"]:SetChecked(OdysseusDB.fishingSettings.autoCloseInactive)
+        end
+        if _G["OdysseusFishingToggle_autoCloseMounted"] then
+            _G["OdysseusFishingToggle_autoCloseMounted"]:SetChecked(OdysseusDB.fishingSettings.autoCloseMounted)
+        end
+
         local delay = OdysseusDB.fishingSettings.autoCloseDelay or 30
         if delaySlider then delaySlider:SetValue(delay) end
         if delayBox then delayBox:SetText(delay) end
-        
+
         local alpha = OdysseusDB.fishingSettings.alpha or 1.0
         if alphaSlider then alphaSlider:SetValue(alpha) end
         if alphaBox then alphaBox:SetText(alpha) end
     end
 end)
-
 cfg:SetScript("OnHide", function() dropDown:Hide() end)
 ShowTab("General")
 
