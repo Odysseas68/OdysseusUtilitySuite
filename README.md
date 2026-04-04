@@ -1,61 +1,155 @@
-# ⛵ Odysseus Utility Suite
+# Odysseus Utility Suite
 
-A premium, highly-polished collection of Quality of Life (QoL) modules for World of Warcraft. Designed with a sleek "Midnight" aesthetic, this suite operates efficiently in the background to enhance your gameplay without cluttering your screen.
+**Odysseus Utility Suite** is a modular Quality-of-Life addon for **World of Warcraft Retail** focused on utility, visibility, and clean customization.
 
-## 🌟 Core Modules
+It combines several standalone tools into one suite while keeping each module independently toggleable from a single Midnight-themed configuration window.
 
-### ⚙️ Centralized Configuration
-Manage your entire suite from a single, beautifully designed dashboard.
-* **Dynamic Toggles:** Instantly enable or disable individual modules on the fly.
-* **Data Management:** Safely wipe or export your saved database history (with built-in confirmation warnings).
-* **SharedMedia Integration:** Fully supports LibSharedMedia for custom fonts, textures, and borders.
+---
 
-### 📊 Experience, Reputation & Delves Bar
-A highly customizable, dual-purpose tracking bar that seamlessly adapts to what you are doing in the game.
-* **Modern Tracking:** Fully supports Classic Reputations, Friendship Ranks, Renown, and Paragon overflow (including account-wide Warband gains).
-* **Delves Auto-Detection:** Utilizes an invisible radar to detect when you enter a Delve, automatically swapping the main bar to a custom UI that tracks your active Companion (Brann Bronzebeard / Valeera Sanguinar) and Journey progress.
-* **Smart Auto-Hide:** Configure your bars to smoothly fade out when idle, instantly waking up when you enter combat, gain XP/Reputation, or hover over them with your mouse.
-* **Reward Toasts:** Get a stylish, animated popup notification whenever your Renown increases or a Paragon reward box is ready to be claimed! (Hold **Shift** and drag to reposition the popup).
-* **Session Stats:** Type `/xpstats` to open a sleek window detailing exactly how much XP and Reputation you've farmed during your current session.
+## Modules
 
-### 🦅 Flight Master & GPS Routing
-"Google Maps for Azeroth." A mathematically perfect routing engine and smart flight tracker.
-* **Interactive Itinerary Sidebar:** Hover over any destination on the map to trigger a premium, slide-out sidebar that lists your exact starting location, intermediate hops, destination, and sub-zones before you even speak to the Flight Master.
-* **Glowing Map Engine:** Bypasses Blizzard's native UI limitations to draw thick, glowing cyan paths directly onto your map. Powered by invisible anchor frames, the lines seamlessly scale, zoom, and pan with the 3D map canvas.
-* **Cross-Continent Dijkstra Engine:** Type `/route [Start], [End]` anywhere in the world to calculate the absolute shortest path across expansions, automatically filtering out hidden developer testing nodes and Faction-restricted outposts.
-* **Dynamic Learning Timer:** Automatically learns and permanently records flight durations the first time you take a path. Fully customizable visual timer bar (scale, width, height, colors, and fonts).
+### Central Configuration
+The suite includes a standalone configuration frame opened with `/ous`.
 
-### ⚡ Faster Loot
-An ultra-fast, intelligent auto-looter that safely bypasses Blizzard's UI rendering delays.
-* **Group-Safe:** Strictly respects Master Loot, Group Loot, and Need Before Greed. It will safely leave the window open for any item that requires a party roll or manual distribution.
-* **Smart Bag Protection:** Actively counts your *general* bag slots (ignoring specialized Reagent/Profession bags). If you have 1 or fewer free slots, it will still loot money and stackables, but leaves the window open so you don't miss unstackable gear.
-* **Lock-Aware:** Safely ignores locked boxes requiring keys or a Rogue's lockpicking.
-* **Module Synergy:** Automatically detects and yields to the Fishing Tracker when looting a bobber.
+Features include:
+- per-module enable/disable toggles
+- Midnight-themed standalone config UI
+- settings grouped by module
+- safe reset / wipe actions where appropriate
+- Flight Master export support for learned flight-time data
 
-### 🎣 Fishing Tracker
-A comprehensive, professional-grade fishing dashboard and database.
-* **Dual Dashboards:** Tracks your "Current Session" and "Overall Global Statistics" with a unified, 3-column layout (Fish Name, Count, Percent).
-* **Deep Database:** Records catches by Zone and specific Sub-Zone. Automatically sorts your most-caught fish to the top of the list.
-* **Smart Auto-Close:** Configure the tracker to automatically hide itself if you go AFK or mount up, complete with a smooth 10-second warning countdown. Freezes the countdown while you are actively casting!
-* **Rich Analytics:** Features real-time Fish-Per-Hour (`fish/hr`) tracking, dynamic item quality color-coding, and automatic trash (grey item) filtering so your database stays clean.
-* **Expansion Aware:** Reads Zone IDs to display modern expansion fishing tiers (e.g., *Midnight Fishing*, *Khaz Algar Fishing*).
-* **Custom Transparency:** Set the exact alpha level of the tracker's background frames without "ghosting" the text.
+---
 
-## ⚙️ Commands
+### Experience, Reputation & Delves Bar
+A modular tracking bar system for modern Retail progression.
 
-* `/ous` - Open the Main Configuration Panel.
-* `/ous help` - Opens a draggable on-screen mini-window listing all available commands.
-* `/xpstats` (or `/ousxp`) - Open the Session XP & Reputation summary window.
-* `/route [Start], [Dest]` - Calculates the shortest flight path between any two flight masters.
-* `/toasttest` - Fire a test Reward Popup (Hold **Shift** and drag to move it!).
+Highlights:
+- experience tracking
+- reputation tracking at max level
+- Renown support
+- Friendship faction support
+- Paragon support
+- Warband-aware reputation text parsing
+- remembered reputation fallback behavior at max level
+- session statistics window
+- reward toast notifications
+- Delves companion + journey tracking
+- configurable fade / wake / auto-hide behavior
 
-**Developer Commands:**
-* `/delvetest` - Toggles fake data to let you preview and move the Delves UI anywhere in the world.
-* `/delvedebug` - Prints advanced instance/scenario IDs to the chat to help calibrate Delve detection.
-* `/ousdebug` - Toggles the global developer mode for background process monitoring.
+Commands:
+- `/xpstats`
+- `/ousxp`
 
-## 🛠️ Installation
-1. Download the latest release.
-2. Extract the `OdysseusUtilitySuite` folder.
-3. Place the folder into your World of Warcraft `_retail_\Interface\AddOns\` directory.
-4. Log in and type `/ous` to customize your experience!
+---
+
+### Flight Master
+A flight timer and routing helper for Flight Map / Taxi use.
+
+Highlights:
+- learned flight durations saved locally
+- bundled + learned route timing lookups
+- configurable timer bar
+- itinerary sidebar for hovered destinations
+- estimated total route time when route data is known
+- export workflow for newly learned routes
+- update pipeline support through your local `Update_flights.py`
+
+Notes:
+- the timer prefers learned saved timings first, then bundled database values
+- the addon keeps the standalone config frame; it does not replace Blizzard’s default taxi UI
+
+---
+
+### Flight Routing
+The routing module enhances taxi destination previews.
+
+Highlights:
+- hovered destination itinerary sidebar
+- route hop breakdown
+- custom line drawing on the taxi / flight map
+- generated route database support
+- stable multi-hop map path rendering
+
+---
+
+### Faster Loot
+A fast auto-loot module that tries to stay safe and predictable.
+
+Highlights:
+- respects manual loot choice
+- respects group-loot situations that require player interaction
+- avoids interfering with locked items
+- yields correctly to the Fishing Tracker for bobber loot
+- reveals the Blizzard loot frame when loot cannot be completed automatically
+
+---
+
+### Fishing Tracker
+A location-aware fishing tracker with session and global statistics.
+
+Highlights:
+- tracks catches by zone and sub-zone
+- session and overall statistics
+- fish-per-hour tracking
+- expansion-aware fishing profession naming by zone
+- auto-close options for inactivity / mounting
+- separate currency tracking
+- item quality coloring in lists
+- trash filtering
+- support for double-loot cases such as fish + item or fish + currency
+
+Current tracking behavior:
+- fish count toward catch totals and fish-per-hour
+- currencies are tracked separately
+- both fish and currencies can still appear in the catch lists
+
+---
+
+## Commands
+
+### Main
+- `/ous` — open the main configuration window
+- `/ous help` — open the on-screen help window
+
+### XP / Reputation
+- `/xpstats`
+- `/ousxp`
+
+### Utility / Debug
+- `/toasttest`
+- `/delvetest`
+- `/delvedebug`
+- `/ousdebug`
+
+---
+
+## Design Notes
+
+- Built for **WoW Retail**
+- Midnight-themed standalone configuration UI
+- Modular structure with minimal coupling between systems
+- Local script pipeline used for generated databases and maintenance tasks
+- Flight and faction helper scripts are local-development tools and are not required by end users
+
+---
+
+## Installation
+
+1. Download or copy the `OdysseusUtilitySuite` folder.
+2. Place it in:
+
+   `World of Warcraft/_retail_/Interface/AddOns/`
+
+3. Launch the game.
+4. Enable the addon from the character AddOns list.
+5. Type `/ous` to open the configuration window.
+
+---
+
+## Current Focus
+
+The addon is currently in an active refinement phase, with recent work focused on:
+- Flight Master timing and route presentation
+- Fishing Tracker and Faster Loot cooperation
+- config UI polish and Midnight-theme improvements
+- XP / Reputation / Delves behavior refinement

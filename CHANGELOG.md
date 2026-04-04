@@ -1,137 +1,107 @@
 # Changelog
-# Changelog
 
-## [Latest Version] - The "Google Maps of Azeroth" Flight Update 24/03/2026
+All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
-This update introduces a complete, mathematically perfect GPS and routing engine to the World of Warcraft map, transforming the Odysseus Flight Master module from a simple timer into a true geographical navigation system.
+---
 
-### 🗺️ Flight Master Routing & Map Engine (Major Overhaul)
-* **The "Google Maps" Sidebar UI**: Hovering over any destination on the Flight Map now summons a premium, dark-themed Sidebar Itinerary. It actively reads Blizzard's engine to display your exact route, breaking down the starting location, every intermediate hop, and the destination, complete with dynamic sub-zone subtitles.
-* **Custom Map Drawing Engine**: Built a highly advanced visual line renderer that draws thick, glowing cyan paths directly onto the world map to connect your flight pins. 
-  * *UI Engineering Feat*: Bypasses Blizzard's notorious scroll-frame clipping traps by utilizing natively parented "invisible anchor frames." The cyan lines will scale, pan, and zoom flawlessly with the 3D map canvas, sitting at a `+200` FrameLevel to perfectly eclipse the default Blizzard black dotted lines.
-* **Relational Geography Database**: Implemented a custom backend Python compiler (`build_routes.py`) that parses Blizzard's raw internal matrices. 
-  * Features an aggressive Regex "Bouncer" that actively filters out datamined Alpha/Beta content, hidden "12.0 Midnight" developer teleporters, and orphaned quest nodes to maintain a 100% clean, player-facing database.
-* **Dijkstra's Chat Routing Engine**: Added the `/route [Start Node], [End Node]` command. Powered by a highly-optimized Dijkstra algorithm that calculates the shortest geographical path (the "Skroutz" engine) across continents and expansions in milliseconds, safely navigating around Faction-specific outposts and legacy duplicate nodes.
+## [Unreleased / Current] - 2026-04-04
 
-## [Previous Version] - The "Midnight" & Delves Update 21/03/2026
+### Changed
+- Refined the standalone **Midnight-themed configuration UI**.
+- Restyled the left navigation buttons with a darker metallic / Midnight look.
+- Added matching dark-purple content headers across config sections.
+- Improved the Flight Master export workflow with safer Lua string escaping and sorted output for cleaner update files.
+- Improved slider edit-box formatting for decimal-based settings.
+- Hardened multiple config actions against missing database tables.
 
-This massive update transforms Odysseus from a collection of standalone tools into a cohesive, highly optimized Utility Suite. The entire configuration system has been unified, and the Experience & Reputation tracking has been rebuilt from the ground up to fully support modern World of Warcraft systems (The War Within & Midnight).
+### Flight Master
+- Improved flight timing stability and state cleanup during landing.
+- Added safer database lookups for mixed legacy and learned flight timing entries.
+- Rounded learned flight durations before saving for cleaner exported data.
+- Increased the update threshold so tiny route-time differences no longer spam database updates.
+- Preserved the standalone timer bar workflow and `/ous` configuration flow.
 
-### 🌟 Major Features
-* **Unified Configuration Suite (`/ous`)**: All modules (Flight Master, Faster Loot, Fishing Tracker, and the new Exp/Rep Bar) have been merged into a single, beautifully styled "Midnight-themed" control panel. 
-* **Dynamic Experience & Reputation Bar**: 
-  * Fully customizable, movable, and resizable layout with custom text tags.
-  * Added full support for **Renown (Major Factions)** and **Friendship Factions (Ranks)**.
-  * Added **Paragon Support**: The bar will now track Paragon overflow XP and alert you when a reward box is pending.
-  * Properly parses account-wide "Warband" reputation gains.
-* **Smart Delves Integration**:
-  * The addon now utilizes an invisible radar based on Difficulty IDs to flawlessly detect when you enter a Delve.
-  * Automatically replaces the main XP bar with a dual-bar system tracking your **Companion** (Brann Bronzebeard / Valeera Sanguinar) and your **Journey** progress.
-* **Auto-Hide & Fade Engine**: The Exp/Rep bars now feature a buttery-smooth animation engine. They will intelligently fade out when idle and instantly wake up during combat, mouse-hover, or upon gaining XP/Rep.
-* **Session Statistics (`/xpstats`)**: A new, lightweight tracking window that records total XP gained and provides a detailed breakdown of all Faction Reputation earned during your current session.
-* **Reward Toasts**: Added an achievement-style, animated popup that slides onto the screen whenever you level up a Renown faction or earn a Paragon reward box. (Shift+Drag to reposition!).
-* **On-Screen Help Menu (`/ous help`)**: Replaced standard chat-box command spam with a clean, draggable floating window.
+### Flight Routing
+- Removed the old `/route` debug command from the live module.
+- Improved tooltip/sidebar route handling and map line drawing safety.
+- Added estimated total route time to the itinerary sidebar when route timing data is known.
+- Fixed hover/selection visual issues in the config navigation while polishing the UI.
 
-### 🐛 Bug Fixes & Optimizations
-* Fixed an issue where modern scenarios and seamless instances were preventing UI elements from loading.
-* Fixed a race condition causing nil errors during the database merging process on initial login.
-* The Flight Master timer now correctly saves its screen position and dimensions across sessions.
-* Stripped out bulky default Blizzard borders in favor of a minimalist, 1-pixel dark aesthetic.
+### Faster Loot
+- Kept full cooperation with the Fishing Tracker so fishing loot can be processed safely.
+- Improved handling for bag-full / max-count situations by cancelling the active loot ticker before yielding the Blizzard loot window.
+- Added safer debug logging guards.
 
-------------------------------------------------------------
+### Fishing Tracker
+- Fixed helper-scope and display issues introduced during the tracker update pass.
+- Improved fishing loot detection by recognizing loot that happens shortly after a fishing cast, even if the cast/channel stop event has already fired.
+- Added support for fishing-related currency rewards.
+- Separated **fish catches** from **currency totals**:
+  - fish count toward catch totals and fish-per-hour
+  - currencies are tracked separately
+  - both still appear in the lists
+- Added separate currency summary lines in:
+  - current location
+  - current session
+  - overall statistics
+- Hardened item/currency row rendering against async stale-row callbacks.
 
-### ⚡ Faster Loot Module (Safety & API Compatibility Update)
-* **Cross-Version API Support:** Updated the loot-method detection to be fully compatible with both Classic WoW and modern Retail WoW (safely bypassing Blizzard's removal of the `GetLootMethod` command in Retail).
-* **Advanced Bag Protection:** The auto-close feature now actively monitors your inventory. It specifically looks for standard bag slots (safely ignoring specialized Reagent or Profession bags). If you have 1 or fewer general slots available, it will still lightning-loot money and stackables, but will forcefully leave the window open so you never accidentally abandon unstackable gear on a corpse!
-* **Smart Group Looting:** The module now fully respects group and raid loot rules (Master Loot, Group Loot, Need Before Greed). It actively checks the party's loot threshold and will safely ignore items that require a roll or manual distribution.
-* **Locked Item Detection:** Added a strict safety check to prevent the addon from attempting to auto-loot locked boxes that require lockpicking or specific keys.
+### Core
+- Hardened `ResetAllSettings()` against missing saved-variable tables.
+- Added a session log history cap to prevent unbounded debug log growth.
+- Made global config toggling safer if the config frame is not yet created.
 
--------------------------------------------------
+---
 
-### 🎣 Fishing Tracker Module (Major Overhaul)
-* **New Loot Detection Engine:** Completely replaced the legacy chat-log parser with a native `LOOT_READY` event hook. It now reads item data directly from the game engine, guaranteeing 100% accuracy and bypassing chat-tab filter bugs.
-* **Expansion-Accurate Skill Names:** Implemented a backend Zone ID mapping system. The UI now correctly displays modern profession tiers (e.g., Midnight Fishing, Khaz Algar Fishing) instead of the default generic "Fishing" tag.
-* **Global Statistics Dashboard:** Added a brand new "Overall Stats" frame. Features a scrollable, full-database dashboard sortable by "Fish" (all-time catches) and "Zone" (locations fished), including total unique sub-zones discovered.
-* **Smart Auto-Close System:** The tracker can now automatically hide itself to keep your screen clean.
-* **Fish-Per-Hour Metric:** Added a real-time fish/hr rolling average to the Session Frame. Throttled to update every 15 seconds to prevent visually distracting UI flickering.
--------------------------------------------------------------------
+## [2026-03-24] - Flight Routing & Map Update
 
-## [Latest Version] - The "Midnight" & Delves Update 21/03/2026
+### Added
+- Added a route itinerary sidebar for Flight Map / Taxi destinations.
+- Added custom route-line drawing on the map using anchored line segments.
+- Added generated route database support for the Flight Routing module.
+- Added learned-flight export workflow for updating the bundled flight timing database.
 
-This massive update transforms Odysseus from a collection of standalone tools into a cohesive, highly optimized Utility Suite. The entire configuration system has been unified, and the Experience & Reputation tracking has been rebuilt from the ground up to fully support modern World of Warcraft systems (The War Within & Midnight).
+### Changed
+- Expanded the Flight Master module from a simple timer into a broader flight utility system with:
+  - learned route timing
+  - map-side route previews
+  - itinerary details for hovered destinations
 
-### 🌟 Major Features
-* **Unified Configuration Suite (`/ous`)**: All modules (Flight Master, Faster Loot, Fishing Tracker, and the new Exp/Rep Bar) have been merged into a single, beautifully styled "Midnight-themed" control panel. 
-* **Dynamic Experience & Reputation Bar**: 
-  * Fully customizable, movable, and resizable layout with custom text tags.
-  * Added full support for **Renown (Major Factions)** and **Friendship Factions (Ranks)**.
-  * Added **Paragon Support**: The bar will now track Paragon overflow XP and alert you when a reward box is pending.
-  * Properly parses account-wide "Warband" reputation gains.
-* **Smart Delves Integration**:
-  * The addon now utilizes an invisible radar based on Difficulty IDs to flawlessly detect when you enter a Delve.
-  * Automatically replaces the main XP bar with a dual-bar system tracking your **Companion** (Brann Bronzebeard / Valeera Sanguinar) and your **Journey** progress.
-* **Auto-Hide & Fade Engine**: The Exp/Rep bars now feature a buttery-smooth animation engine. They will intelligently fade out when idle and instantly wake up during combat, mouse-hover, or upon gaining XP/Rep.
-* **Session Statistics (`/xpstats`)**: A new, lightweight tracking window that records total XP gained and provides a detailed breakdown of all Faction Reputation earned during your current session.
-* **Reward Toasts**: Added an achievement-style, animated popup that slides onto the screen whenever you level up a Renown faction or earn a Paragon reward box. (Shift+Drag to reposition!).
-* **On-Screen Help Menu (`/ous help`)**: Replaced standard chat-box command spam with a clean, draggable floating window.
+---
 
-### 🐛 Bug Fixes & Optimizations
-* Fixed an issue where modern scenarios and seamless instances were preventing UI elements from loading.
-* Fixed a race condition causing nil errors during the database merging process on initial login.
-* The Flight Master timer now correctly saves its screen position and dimensions across sessions.
-* Stripped out bulky default Blizzard borders in favor of a minimalist, 1-pixel dark aesthetic.
+## [2026-03-21] - Midnight, XP/Rep & Delves Update
 
-------------------------------------------------------------
+### Added
+- Added the unified `/ous` configuration panel.
+- Added the modular **Experience / Reputation Bar** system.
+- Added support for:
+  - standard experience tracking
+  - watched reputation
+  - Renown
+  - Friendship factions
+  - Paragon progress
+  - Warband-aware reputation text parsing
+- Added Delves support with companion + journey tracking.
+- Added reward toast notifications for major reputation milestones.
+- Added `/xpstats` session statistics.
 
-### ⚡ Faster Loot Module (Safety & API Compatibility Update)
-* **Cross-Version API Support:** Updated the loot-method detection to be fully compatible with both Classic WoW and modern Retail WoW (safely bypassing Blizzard's removal of the `GetLootMethod` command in Retail).
-* **Advanced Bag Protection:** The auto-close feature now actively monitors your inventory. It specifically looks for standard bag slots (safely ignoring specialized Reagent or Profession bags). If you have 1 or fewer general slots available, it will still lightning-loot money and stackables, but will forcefully leave the window open so you never accidentally abandon unstackable gear on a corpse!
+### Changed
+- Split the XP/Rep system into dedicated module files for core logic, engine logic, Delves, favorites, and config.
+- Improved max-level reputation fallback behavior and remembered-faction logic.
+- Refined fade, wake, and visibility handling for the custom bars.
 
---------------------------------------------------------
+---
 
-Odysseus Utility Suite - Latest Update 18/3/2026
-⚡ Faster Loot Module (Group & Raid Safety Update)
+## [2026-03-18] - Faster Loot & Fishing Tracker Update
 
-    Smart Group Looting: The module now fully respects group and raid loot rules (Master Loot, Group Loot, Need Before Greed). It actively checks the party's loot threshold and will safely ignore items that require a roll or manual distribution.
+### Faster Loot
+- Added safer handling for group and raid loot rules.
+- Added locked-item checks.
+- Improved behavior when items must be left behind for manual handling.
 
-    Locked Item Detection: Added a strict safety check to prevent the addon from attempting to auto-loot locked boxes that require lockpicking or specific keys.
-
-    Intelligent UI Yielding: The visual loot window will now aggressively auto-close only if every single item on the corpse was successfully looted. If an item is left behind for a group roll, the window safely stays open so you can see what dropped and interact with it normally.
-
--------------------------------------------------
-
-Odysseus Utility Suite - Latest Update
-🎣 Fishing Tracker Module (Major Overhaul)
-
-    New Loot Detection Engine: Completely replaced the legacy chat-log parser with a native LOOT_READY event hook. It now reads item data directly from the game engine, guaranteeing 100% accuracy and bypassing chat-tab filter bugs.
-
-    Expansion-Accurate Skill Names: Implemented a backend Zone ID mapping system. The UI now correctly displays modern profession tiers (e.g., Midnight Fishing, Khaz Algar Fishing) instead of the default generic "Fishing" tag.
-
-    Global Statistics Dashboard: Added a brand new "Overall Stats" frame. Features a scrollable, full-database dashboard sortable by "Fish" (all-time catches) and "Zone" (locations fished), including total unique sub-zones discovered.
-
-    Smart Auto-Close System: The tracker can now automatically hide itself to keep your screen clean.
-        Automatically pauses the countdown while your bobber is actively in the water.
-        Triggers countdown if you go AFK or mount/skyride away.
-        Warns you with a discrete "Closing in: 10s" text only during the final 10 seconds.
-
-    UI & Visual Upgrades:
-        Widened the Main and Session frames to ensure text is never cut off.
-        Implemented a clean, unified 3-column layout across all frames (Fish Name, Count, Percent) with perfectly centered metrics.
-        Item names are now dynamically colored based on their in-game item quality hex codes.
-        Added summary headers for "Current Location Stats" and "Total caught this session".
-
-    Fish-Per-Hour Metric: Added a real-time fish/hr rolling average to the Session Frame. Throttled to update every 15 seconds to prevent visually distracting UI flickering.
-
-    Database Upgrades: Upgraded the OdysseusDB backend to quietly track sub-zones. Included backward-compatibility logic to protect and seamlessly merge old save data without throwing Lua errors.
-
-⚡ Faster Loot Module
-
-    Module Synchronization: Faster Loot now perfectly communicates with the Fishing Tracker. Added an IsFishingLoot() gatekeeper so Faster Loot automatically yields to the fishing bobber, allowing the tracker to log the fish before Faster Loot cleans up the window.
-
-⚙️ Configuration Menu (config.lua)
-
-    New Fishing Tracker Tab: Built out a dedicated settings tab matching the clean Midnight Theme aesthetic.
-
-    Auto-Close Controls: Added simple checkboxes to toggle Auto-Close on AFK or Mount, alongside an interactive slider to set the exact delay timer (10s to 60s).
-
-    Database Management: Added a secure "Wipe Saved Data" button specifically for the Fishing Tracker. It includes a StaticPopupDialog confirmation warning to prevent accidental deletions.
+### Fishing Tracker
+- Replaced older catch detection with `LOOT_READY`-based tracking.
+- Added expansion-aware fishing profession naming by zone.
+- Added the overall statistics frame.
+- Added auto-close logic and fish-per-hour tracking.
+- Added database upgrades for location and sub-zone tracking.

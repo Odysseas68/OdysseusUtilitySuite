@@ -39,14 +39,50 @@ cfg.closeBtn = CreateFrame("Button", nil, cfg, "UIPanelCloseButton")
 cfg.closeBtn:SetPoint("TOPRIGHT", cfg, "TOPRIGHT", -2, -2)
 
 local navPanel = CreateFrame("Frame", nil, cfg, "BackdropTemplate")
-navPanel:SetSize(150, 570) -- Adjusted height
+navPanel:SetSize(150, 570)
 navPanel:SetPoint("TOPLEFT", cfg, "TOPLEFT", 4, -34)
-navPanel:SetBackdrop({ bgFile = "Interface\\ChatFrame\\ChatFrameBackground" })
-navPanel:SetBackdropColor(0, 0, 0, 0.3)
+navPanel:SetBackdrop({
+    bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+    edgeFile = "Interface\\Buttons\\WHITE8x8",
+    tile = false,
+    edgeSize = 1,
+    insets = { left = 1, right = 1, top = 1, bottom = 1 }
+})
+navPanel:SetBackdropColor(0.05, 0.05, 0.07, 0.78)
+navPanel:SetBackdropBorderColor(0.24, 0.22, 0.30, 0.95)
 
-local contentPanel = CreateFrame("Frame", nil, cfg)
-contentPanel:SetSize(480, 570) -- Adjusted height
+navPanel.topSheen = navPanel:CreateTexture(nil, "ARTWORK")
+navPanel.topSheen:SetPoint("TOPLEFT", 1, -1)
+navPanel.topSheen:SetPoint("TOPRIGHT", -1, -1)
+navPanel.topSheen:SetHeight(24)
+navPanel.topSheen:SetTexture("Interface\\Buttons\\WHITE8x8")
+navPanel.topSheen:SetGradient("VERTICAL",
+    CreateColor(0.90, 0.90, 0.96, 0.05),
+    CreateColor(0.55, 0.55, 0.62, 0.01)
+)
+
+navPanel.sideShade = navPanel:CreateTexture(nil, "ARTWORK")
+navPanel.sideShade:SetPoint("TOPRIGHT", -1, -1)
+navPanel.sideShade:SetPoint("BOTTOMRIGHT", -1, 1)
+navPanel.sideShade:SetWidth(10)
+navPanel.sideShade:SetTexture("Interface\\Buttons\\WHITE8x8")
+navPanel.sideShade:SetGradient("HORIZONTAL",
+    CreateColor(0.00, 0.00, 0.00, 0.00),
+    CreateColor(0.00, 0.00, 0.00, 0.16)
+)
+
+local contentPanel = CreateFrame("Frame", nil, cfg, "BackdropTemplate")
+contentPanel:SetSize(480, 570)
 contentPanel:SetPoint("TOPLEFT", navPanel, "TOPRIGHT", 0, 0)
+contentPanel:SetBackdrop({
+    bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+    edgeFile = "Interface\\Buttons\\WHITE8x8",
+    tile = false,
+    edgeSize = 1,
+    insets = { left = 1, right = 1, top = 1, bottom = 1 }
+})
+contentPanel:SetBackdropColor(0.07, 0.05, 0.10, 0.18)
+contentPanel:SetBackdropBorderColor(0.20, 0.14, 0.28, 0.35)
 
 -- =====================================
 -- SHARED WIDGET FACTORIES
@@ -178,18 +214,200 @@ for _, tab in pairs(tabs) do
     tab:Hide()
 end
 
-local function ShowTab(tabName)
-    for k, tab in pairs(tabs) do
-        if k == tabName then tab:Show() else tab:Hide() end
+local navButtons = {}
+local currentNavTab = nil
+
+local function SetMidnightNavButtonState(btn, isActive)
+    if not btn then return end
+
+    if isActive then
+        btn:SetBackdropColor(0.12, 0.12, 0.15, 0.97)
+        btn:SetBackdropBorderColor(0.62, 0.60, 0.68, 1)
+
+        btn.base:SetColorTexture(0.18, 0.18, 0.22, 0.96)
+        btn.accent:SetColorTexture(0.84, 0.80, 0.92, 1)
+        btn.accent:Show()
+
+        btn.text:SetTextColor(1.0, 0.97, 0.92)
+
+        btn.topSheen:SetAlpha(0.22)
+        btn.bottomShade:SetAlpha(0.28)
+        btn.innerGlow:Show()
+    else
+        btn:SetBackdropColor(0.08, 0.08, 0.10, 0.95)
+        btn:SetBackdropBorderColor(0.30, 0.30, 0.36, 1)
+
+        btn.base:SetColorTexture(0.13, 0.13, 0.16, 0.94)
+        btn.accent:SetColorTexture(0.58, 0.58, 0.66, 0.90)
+        btn.accent:Hide()
+
+        btn.text:SetTextColor(0.82, 0.82, 0.88)
+
+        btn.topSheen:SetAlpha(0.12)
+        btn.bottomShade:SetAlpha(0.20)
+        btn.innerGlow:Hide()
     end
 end
 
+local function RefreshNavButtonStates(selectedTabName)
+    currentNavTab = selectedTabName
+
+    for _, btn in ipairs(navButtons) do
+        SetMidnightNavButtonState(btn, btn.targetTab == selectedTabName)
+    end
+end
+
+local function ShowTab(tabName)
+    for k, tab in pairs(tabs) do
+        if k == tabName then
+            tab:Show()
+        else
+            tab:Hide()
+        end
+    end
+
+    currentNavTab = tabName
+    RefreshNavButtonStates(tabName)
+end
+
 local function CreateNavButton(label, yOffset, targetTab)
-    local btn = CreateFrame("Button", nil, navPanel, "UIPanelButtonTemplate")
-    btn:SetSize(140, 30)
+    local btn = CreateFrame("Button", nil, navPanel, "BackdropTemplate")
+    btn:SetSize(138, 32)
     btn:SetPoint("TOP", navPanel, "TOP", 0, yOffset)
-    btn:SetText(label)
-    btn:SetScript("OnClick", function() ShowTab(targetTab) end)
+    btn.targetTab = targetTab
+
+    btn:SetBackdrop({
+        bgFile = "Interface\\Buttons\\WHITE8x8",
+        edgeFile = "Interface\\Buttons\\WHITE8x8",
+        tile = false,
+        edgeSize = 1,
+        insets = { left = 1, right = 1, top = 1, bottom = 1 }
+    })
+
+    btn.base = btn:CreateTexture(nil, "BACKGROUND")
+    btn.base:SetPoint("TOPLEFT", 1, -1)
+    btn.base:SetPoint("BOTTOMRIGHT", -1, 1)
+    btn.base:SetColorTexture(0.13, 0.13, 0.16, 0.94)
+
+    btn.topSheen = btn:CreateTexture(nil, "ARTWORK")
+    btn.topSheen:SetPoint("TOPLEFT", 1, -1)
+    btn.topSheen:SetPoint("TOPRIGHT", -1, -1)
+    btn.topSheen:SetHeight(11)
+    btn.topSheen:SetTexture("Interface\\Buttons\\WHITE8x8")
+    btn.topSheen:SetGradient("VERTICAL",
+        CreateColor(0.90, 0.90, 0.96, 0.14),
+        CreateColor(0.55, 0.55, 0.62, 0.02)
+    )
+
+    btn.bottomShade = btn:CreateTexture(nil, "ARTWORK")
+    btn.bottomShade:SetPoint("BOTTOMLEFT", 1, 1)
+    btn.bottomShade:SetPoint("BOTTOMRIGHT", -1, 1)
+    btn.bottomShade:SetHeight(10)
+    btn.bottomShade:SetTexture("Interface\\Buttons\\WHITE8x8")
+    btn.bottomShade:SetGradient("VERTICAL",
+        CreateColor(0.00, 0.00, 0.00, 0.02),
+        CreateColor(0.00, 0.00, 0.00, 0.22)
+    )
+
+    btn.innerGlow = btn:CreateTexture(nil, "OVERLAY")
+    btn.innerGlow:SetPoint("TOPLEFT", 2, -2)
+    btn.innerGlow:SetPoint("BOTTOMRIGHT", -2, 2)
+    btn.innerGlow:SetColorTexture(0.84, 0.80, 0.92, 0.05)
+    btn.innerGlow:Hide()
+
+    btn.accent = btn:CreateTexture(nil, "ARTWORK")
+    btn.accent:SetPoint("TOPLEFT", 1, -1)
+    btn.accent:SetPoint("BOTTOMLEFT", 1, 1)
+    btn.accent:SetWidth(4)
+    btn.accent:Hide()
+
+    btn.topLine = btn:CreateTexture(nil, "OVERLAY")
+    btn.topLine:SetPoint("TOPLEFT", 2, -2)
+    btn.topLine:SetPoint("TOPRIGHT", -2, -2)
+    btn.topLine:SetHeight(1)
+    btn.topLine:SetColorTexture(1, 1, 1, 0.06)
+
+    btn.text = btn:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+    btn.text:SetPoint("CENTER")
+    btn.text:SetFont("Fonts\\FRIZQT__.TTF", 11, "OUTLINE")
+    btn.text:SetText(label)
+
+    btn:SetScript("OnEnter", function(self)
+        if currentNavTab == self.targetTab then
+            return
+        end
+
+        self:SetBackdropColor(0.11, 0.11, 0.14, 0.98)
+        self:SetBackdropBorderColor(0.48, 0.48, 0.56, 1)
+        self.base:SetColorTexture(0.16, 0.16, 0.20, 0.96)
+        self.text:SetTextColor(0.96, 0.94, 0.98)
+        self.accent:SetColorTexture(0.72, 0.72, 0.80, 0.95)
+        self.accent:Show()
+        self.innerGlow:Show()
+        self.topSheen:SetAlpha(0.18)
+    end)
+
+    btn:SetScript("OnLeave", function(self)
+        RefreshNavButtonStates(currentNavTab)
+    end)
+
+    btn:SetScript("OnMouseDown", function(self)
+        if currentNavTab == self.targetTab then
+            return
+        end
+
+        self:SetBackdropColor(0.07, 0.07, 0.09, 0.99)
+        self:SetBackdropBorderColor(0.40, 0.40, 0.48, 1)
+        self.base:SetColorTexture(0.11, 0.11, 0.14, 0.98)
+    end)
+
+    btn:SetScript("OnMouseUp", function(self)
+        RefreshNavButtonStates(currentNavTab)
+    end)
+
+    btn:SetScript("OnClick", function(self)
+        ShowTab(self.targetTab)
+    end)
+
+    SetMidnightNavButtonState(btn, false)
+    table.insert(navButtons, btn)
+
+    return btn
+end
+
+local function CreateContentHeader(parent, yOffset, titleText)
+    local header = CreateFrame("Frame", nil, parent)
+    header:SetSize(448, 30)
+    header:SetPoint("TOPLEFT", 12, yOffset)
+
+    header.bg = header:CreateTexture(nil, "BACKGROUND")
+    header.bg:SetPoint("TOPLEFT")
+    header.bg:SetPoint("TOPRIGHT")
+    header.bg:SetHeight(28)
+    header.bg:SetTexture("Interface\\Buttons\\WHITE8x8")
+    header.bg:SetGradient("HORIZONTAL",
+        CreateColor(0.18, 0.08, 0.28, 0.92),
+        CreateColor(0.09, 0.05, 0.14, 0.92)
+    )
+
+    header.bottomLine = header:CreateTexture(nil, "ARTWORK")
+    header.bottomLine:SetPoint("BOTTOMLEFT", 0, 0)
+    header.bottomLine:SetPoint("BOTTOMRIGHT", 0, 0)
+    header.bottomLine:SetHeight(1)
+    header.bottomLine:SetColorTexture(0.56, 0.38, 0.78, 0.65)
+
+    header.topLine = header:CreateTexture(nil, "OVERLAY")
+    header.topLine:SetPoint("TOPLEFT", 0, 0)
+    header.topLine:SetPoint("TOPRIGHT", 0, 0)
+    header.topLine:SetHeight(1)
+    header.topLine:SetColorTexture(1, 1, 1, 0.06)
+
+    header.title = header:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
+    header.title:SetPoint("LEFT", 10, 0)
+    header.title:SetText(titleText)
+    header.title:SetTextColor(0.95, 0.90, 1.0)
+
+    return header
 end
 
 CreateNavButton("General", -10, "General")
@@ -405,9 +623,7 @@ end
 -- =====================================
 -- TAB 1: GENERAL (Module Toggles)
 -- =====================================
-local genTitle = tabs.General:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
-genTitle:SetPoint("TOPLEFT", 20, -20)
-genTitle:SetText("Module Management")
+local genHeader = CreateContentHeader(tabs.General, -15, "Module Management")
 
 local function CreateModuleToggle(parent, label, yOffset, dbKey)
     local frameName = "OdysseusToggle_" .. dbKey
@@ -478,9 +694,7 @@ local widthSlider, widthBox, heightSlider, heightBox, scaleSlider, scaleBox, fon
 local function CreateFlightMasterWidgets()
     if fmWidgetsCreated then return end
 
-    local fmTitle = tabs.FlightMaster:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
-    fmTitle:SetPoint("TOPLEFT", 12, -15)
-    fmTitle:SetText("Flight Master Settings")
+    local fmHeader = CreateContentHeader(tabs.FlightMaster, -15, "Flight Master Settings")
 
     lockBtn = CreateFrame("Button", nil, tabs.FlightMaster, "UIPanelButtonTemplate")
     lockBtn:SetSize(180, 25)
@@ -611,8 +825,8 @@ local function CreateFlightMasterWidgets()
             exportEditBox:SetText(t)
         end
 
-    exportFrame:Show()
-end)
+        exportFrame:Show()
+    end)
 
     wipeBtn = CreateFrame("Button", nil, tabs.FlightMaster, "UIPanelButtonTemplate")
     wipeBtn:SetSize(120, 24)
@@ -700,12 +914,10 @@ end)
 -- =====================================
 -- TAB 3: FASTER LOOT
 -- =====================================
-local lootTitle = tabs.FasterLoot:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
-lootTitle:SetPoint("TOPLEFT", 20, -20)
-lootTitle:SetText("Faster Loot")
+local lootHeader = CreateContentHeader(tabs.FasterLoot, -15, "Faster Loot")
 
 local lootDesc = tabs.FasterLoot:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-lootDesc:SetPoint("TOPLEFT", 20, -50)
+lootDesc:SetPoint("TOPLEFT", 20, -58)
 lootDesc:SetWidth(420)
 lootDesc:SetJustifyH("LEFT")
 lootDesc:SetText("Faster Loot operates silently in the background.\n\nIt dynamically reads your Auto-Loot settings and Shift-Click modifiers. When triggered, it loots items directly from memory, bypassing the Blizzard UI rendering delay.")
@@ -720,9 +932,7 @@ local delaySlider, delayBox, alphaSlider, alphaBox
 local function CreateFishingWidgets()
     if fishWidgetsCreated then return end
 
-    local fishTitle = tabs.Fishing:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
-    fishTitle:SetPoint("TOPLEFT", 12, -15)
-    fishTitle:SetText("Fishing Tracker Settings")
+    local fishHeader = CreateContentHeader(tabs.Fishing, -15, "Fishing Tracker Settings")
 
     local function CreateFishingToggle(parent, label, yOffset, dbKey)
         local frameName = "OdysseusFishingToggle_" .. dbKey
