@@ -4,6 +4,13 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ---
 
+## [2026-04-07] - XP / Reputation / Delves
+
+### XP / Reputation / Delves
+- Fixed a max-level reputation-bar regression where the custom rep bar could disappear if Blizzard's **Show as Experience Bar** option was unchecked, by persisting the currently displayed faction as fallback state.
+- Fixed the Delve bar disappearing immediately after the final boss died while still inside the Delve chest room, by keeping Delve visibility active during the post-boss scenario state even after `IsDelveInProgress()` becomes false.
+- Corrected Delve companion max-level handling order in the Delve update path.
+
 ## [Unreleased / Current] - 2026-04-04
 
 ### Changed
