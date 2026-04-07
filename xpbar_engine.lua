@@ -45,11 +45,11 @@ function OUS.ApplyFonts()
     if not OdysseusDB or not OdysseusDB.xpBar then return end
     local fontPath = "Fonts\\FRIZQT__.TTF"
     local LSM = LibStub and LibStub("LibSharedMedia-3.0", true)
-    
-    if LSM then 
-        fontPath = LSM:Fetch("font", OdysseusDB.xpBar.xpFont) or fontPath 
+
+    if LSM then
+        fontPath = LSM:Fetch("font", OdysseusDB.xpBar.xpFont) or fontPath
     end
-    
+
     local size = OdysseusDB.xpBar.xpFontSize or 12
     xpBar.text:SetFont(fontPath, size, "OUTLINE")
     delveBar.compText:SetFont(fontPath, math.max(8, size - 2), "OUTLINE")
@@ -59,13 +59,13 @@ end
 function OUS.ApplyDimensions()
     if not OdysseusDB or not OdysseusDB.xpBar then return end
     local db = OdysseusDB.xpBar
-    
+
     xpBar:SetSize(db.xpBarWidth or 400, db.xpBarHeight or 24)
     xpBar:SetScale(db.xpBarScale or 1.0)
-    
+
     delveBar:SetSize(db.delveBarWidth or 300, db.delveBarHeight or 40)
     delveBar:SetScale(db.delveBarScale or 1.0)
-    
+
     local innerHeight = ((db.delveBarHeight or 40) - 2) / 2
     delveBar.compBar:SetSize((db.delveBarWidth or 300) - 2, innerHeight)
     delveBar.jourBar:SetSize((db.delveBarWidth or 300) - 2, innerHeight)
@@ -73,48 +73,48 @@ end
 
 function OUS.FadeBarsTo(targetAlpha)
     if Session.fadeTicker then Session.fadeTicker:Cancel() end
-    
+
     local currentAlpha = xpBar:GetAlpha()
     local step = (targetAlpha - currentAlpha) / 10
     if step == 0 then return end
-    
+
     local count = 0
     Session.fadeTicker = C_Timer.NewTicker(0.02, function()
         count = count + 1
         local newAlpha = currentAlpha + (step * count)
         xpBar:SetAlpha(newAlpha)
         delveBar:SetAlpha(newAlpha)
-        
-        if count >= 10 then 
+
+        if count >= 10 then
             xpBar:SetAlpha(targetAlpha)
-            delveBar:SetAlpha(targetAlpha) 
+            delveBar:SetAlpha(targetAlpha)
         end
     end, 10)
 end
 
 function OUS.WakeBars()
-    if not OdysseusDB or not OdysseusDB.xpBar.autoHide then 
+    if not OdysseusDB or not OdysseusDB.xpBar.autoHide then
         OUS.FadeBarsTo((OdysseusDB and OdysseusDB.xpBar.activeAlpha or 100) / 100)
-        return 
+        return
     end
-    
-    if Session.sleepTimer then 
+
+    if Session.sleepTimer then
         Session.sleepTimer:Cancel()
-        Session.sleepTimer = nil 
+        Session.sleepTimer = nil
     end
-    
+
     OUS.FadeBarsTo(OdysseusDB.xpBar.activeAlpha / 100)
 end
 
 function OUS.SleepBars()
     if not OdysseusDB or not OdysseusDB.xpBar.autoHide then return end
     if UnitAffectingCombat("player") or xpBar:IsMouseOver() or delveBar:IsMouseOver() or Session.forceRepDisplay or (OUS.favHoverFrame and OUS.favHoverFrame:IsMouseOver()) then return end
-    
+
     if Session.sleepTimer then Session.sleepTimer:Cancel() end
-    
+
     Session.sleepTimer = C_Timer.NewTimer(OdysseusDB.xpBar.fadeDelay, function()
-        if not UnitAffectingCombat("player") and not xpBar:IsMouseOver() and not delveBar:IsMouseOver() and not Session.forceRepDisplay and not (OUS.favHoverFrame and OUS.favHoverFrame:IsMouseOver()) then 
-            OUS.FadeBarsTo(OdysseusDB.xpBar.fadedAlpha / 100) 
+        if not UnitAffectingCombat("player") and not xpBar:IsMouseOver() and not delveBar:IsMouseOver() and not Session.forceRepDisplay and not (OUS.favHoverFrame and OUS.favHoverFrame:IsMouseOver()) then
+            OUS.FadeBarsTo(OdysseusDB.xpBar.fadedAlpha / 100)
         end
     end)
 end
@@ -138,11 +138,11 @@ toast:SetScript("OnMouseUp", function(self, button)
         local data = OUS.FactionData and OUS.FactionData[self.factionID]
         if data and data.rewardNPC and data.rewardNPC.mapID and data.rewardNPC.mapID > 0 then
             local npc = data.rewardNPC
-            
+
             if TomTom and TomTom.AddWaypoint then
                 TomTom:AddWaypoint(npc.mapID, npc.x/100, npc.y/100, { title = "Quartermaster (" .. data.name .. ")", persistent = false, minimap = true, world = true })
             end
-            
+
             if C_Map.CanSetUserWaypointOnMap(npc.mapID) then
                 C_Map.ClearUserWaypoint()
                 local pt = UiMapPoint.CreateFromCoordinates(npc.mapID, npc.x/100, npc.y/100)
@@ -172,18 +172,18 @@ function OUS.ParseXPText(template, curXP, maxXP, restXP, level, mLVL, ktl, isMax
     local restPC = (maxXP > 0 and restXP > 0) and math.floor((restXP / maxXP) * 100) or 0
     local restLVL = maxXP > 0 and string.format("%.2f", restXP / maxXP) or "0"
     local btl = maxXP > 0 and math.ceil(needXP / (maxXP / 20)) or 0
-    
-    if isMaxed then 
+
+    if isMaxed then
         str = string.gsub(str, "%[curXP%]/%[maxXP%]", "Max Level")
         str = string.gsub(str, "%[curXP%]", "Max")
         str = string.gsub(str, "%[maxXP%]", "Max")
         str = string.gsub(str, "%[needXP%]", "0")
-    else 
+    else
         str = string.gsub(str, "%[curXP%]", OUS.FormatLargeNumber(curXP))
         str = string.gsub(str, "%[maxXP%]", OUS.FormatLargeNumber(maxXP))
-        str = string.gsub(str, "%[needXP%]", OUS.FormatLargeNumber(needXP)) 
+        str = string.gsub(str, "%[needXP%]", OUS.FormatLargeNumber(needXP))
     end
-    
+
     str = string.gsub(str, "%[restXP%]", OUS.FormatLargeNumber(restXP))
     str = string.gsub(str, "%[curPC%]", curPC)
     str = string.gsub(str, "%[needPC%]", needPC)
@@ -194,7 +194,7 @@ function OUS.ParseXPText(template, curXP, maxXP, restXP, level, mLVL, ktl, isMax
     str = string.gsub(str, "%[restLVL%]", restLVL)
     str = string.gsub(str, "%[KTL%]", ktl or "?")
     str = string.gsub(str, "%[BTL%]", btl)
-    
+
     if compName then str = string.gsub(str, "%[compName%]", compName) end
     return str
 end
@@ -204,18 +204,18 @@ function OUS.ParseRepText(template, name, standingText, curRep, maxRep, isMaxed,
     local needRep = maxRep - curRep
     local repPC = maxRep > 0 and math.floor((curRep / maxRep) * 100) or 100
     local needPC = maxRep > 0 and math.ceil((needRep / maxRep) * 100) or 0
-    
-    if isMaxed then 
+
+    if isMaxed then
         str = string.gsub(str, "%[curRep%]/%[maxRep%]", "Max Level")
         str = string.gsub(str, "%[curRep%]", "Max")
         str = string.gsub(str, "%[maxRep%]", "Max")
         str = string.gsub(str, "%[needRep%]", "0")
-    else 
+    else
         str = string.gsub(str, "%[curRep%]", OUS.FormatLargeNumber(curRep))
         str = string.gsub(str, "%[maxRep%]", OUS.FormatLargeNumber(maxRep))
-        str = string.gsub(str, "%[needRep%]", OUS.FormatLargeNumber(needRep)) 
+        str = string.gsub(str, "%[needRep%]", OUS.FormatLargeNumber(needRep))
     end
-    
+
     str = string.gsub(str, "%[faction%]", name or "Unknown")
     str = string.gsub(str, "%[standing%]", standingText or "Neutral")
     str = string.gsub(str, "%[repPC%]", repPC)
@@ -240,7 +240,7 @@ function OUS.GetFactionDetails(factionID)
     if not factionID then return nil end
     local data = C_Reputation.GetFactionDataByID(factionID)
     if not data then return nil end
-    
+
     local name = data.name
     local reaction = data.reaction or 4
     local standingText = GetText("FACTION_STANDING_LABEL" .. reaction) or "Neutral"
@@ -248,7 +248,7 @@ function OUS.GetFactionDetails(factionID)
     local isMaxed, hasRewardPending = false, false
     local iconPath = "Interface\\Icons\\Achievement_Reputation_01"
     local textureKit = nil
-    
+
     -- Handle Major Factions (Renown)
     if C_MajorFactions and C_MajorFactions.GetMajorFactionData then
         local majorData = C_MajorFactions.GetMajorFactionData(factionID)
@@ -256,73 +256,73 @@ function OUS.GetFactionDetails(factionID)
             standingText = "Renown " .. majorData.renownLevel
             curRep = majorData.renownReputationEarned or 0
             maxRep = majorData.renownLevelThreshold or 1
-            if majorData.textureKit then 
+            if majorData.textureKit then
                 textureKit = majorData.textureKit
-                iconPath = "Interface\\Icons\\UI_MajorFaction_" .. textureKit 
+                iconPath = "Interface\\Icons\\UI_MajorFaction_" .. textureKit
             end
-            if C_MajorFactions.HasMaximumRenown(factionID) then 
+            if C_MajorFactions.HasMaximumRenown(factionID) then
                 isMaxed = true
                 standingText = "Max Renown"
                 curRep = 1
-                maxRep = 1 
+                maxRep = 1
             end
         end
     end
-    
+
     -- Handle Friendship Factions (Gossip/Ranks)
     if not isMaxed and C_GossipInfo and C_GossipInfo.GetFriendshipReputation then
         local repInfo = C_GossipInfo.GetFriendshipReputation(factionID)
         if repInfo and repInfo.friendshipFactionID > 0 then
             if repInfo.texture and repInfo.texture > 0 then iconPath = repInfo.texture end
             local rankInfo = C_GossipInfo.GetFriendshipReputationRanks(factionID)
-            if rankInfo and rankInfo.currentLevel then 
+            if rankInfo and rankInfo.currentLevel then
                 standingText = "Rank " .. rankInfo.currentLevel
-                if rankInfo.currentLevel >= rankInfo.maxLevel then 
+                if rankInfo.currentLevel >= rankInfo.maxLevel then
                     isMaxed = true
                     standingText = "Max Rank"
                     curRep = 1
-                    maxRep = 1 
-                else 
+                    maxRep = 1
+                else
                     curRep = repInfo.standing - repInfo.reactionThreshold
-                    maxRep = repInfo.nextThreshold - repInfo.reactionThreshold 
-                end 
+                    maxRep = repInfo.nextThreshold - repInfo.reactionThreshold
+                end
             end
         end
     end
-    
+
     -- Standard Legacy Factions
     if curRep == 0 and maxRep == 1 and data.currentStanding then
-        if data.currentValue then 
-            curRep, maxRep = data.currentValue, data.maxValue 
-        else 
+        if data.currentValue then
+            curRep, maxRep = data.currentValue, data.maxValue
+        else
             curRep = data.currentStanding - data.currentReactionThreshold
-            maxRep = data.nextReactionThreshold - data.currentReactionThreshold 
+            maxRep = data.nextReactionThreshold - data.currentReactionThreshold
         end
-        if curRep >= maxRep and maxRep > 0 then 
-            isMaxed = true; curRep = 1; maxRep = 1 
+        if curRep >= maxRep and maxRep > 0 then
+            isMaxed = true; curRep = 1; maxRep = 1
         end
     end
-    
+
     -- Paragon Detection
     if isMaxed and C_Reputation.IsFactionParagon(factionID) then
         local currentValue, threshold, _, hasReward = C_Reputation.GetFactionParagonInfo(factionID)
-        if currentValue and threshold and threshold > 0 then 
+        if currentValue and threshold and threshold > 0 then
             isMaxed = false
             curRep = currentValue % threshold
             maxRep = threshold
             hasRewardPending = hasReward
-            if hasRewardPending then 
+            if hasRewardPending then
                 standingText = "Paragon (Reward Ready!)"
-                if curRep == 0 then curRep = maxRep end 
-            else 
-                standingText = "Paragon" 
-            end 
+                if curRep == 0 then curRep = maxRep end
+            else
+                standingText = "Paragon"
+            end
         end
     end
-    
+
     if maxRep == 0 then maxRep = 1 end
     local repPC = math.floor((curRep / maxRep) * 100)
-    
+
     return { name = name, standingText = standingText, curRep = curRep, maxRep = maxRep, repPC = repPC, isMaxed = isMaxed, hasRewardPending = hasRewardPending, description = data.description, reaction = reaction, icon = iconPath, textureKit = textureKit }
 end
 
@@ -333,7 +333,7 @@ local function ScanFactionsForPopups(isInitialLogin)
         if data and data.factionID then
             local fid = data.factionID
             local name = data.name
-            
+
             -- Scan for Renown Level Ups
             if C_MajorFactions and C_MajorFactions.GetMajorFactionData then
                 local majorData = C_MajorFactions.GetMajorFactionData(fid)
@@ -347,7 +347,7 @@ local function ScanFactionsForPopups(isInitialLogin)
                     Session.repCache.renown[fid] = rLvl
                 end
             end
-            
+
             -- Scan for Paragon Rewards
             if C_Reputation.IsFactionParagon(fid) then
                 local _, _, _, hasRewardPending = C_Reputation.GetFactionParagonInfo(fid)
@@ -525,6 +525,14 @@ local function RenderReputationBar(db, targetFactionID)
     if not info then
         xpBar:Hide()
         return
+    end
+
+    -- Persist the faction currently being displayed so we can survive Blizzard
+    -- clearing the watched rep state (for example when "Show as Experience Bar"
+    -- gets unchecked).
+    if info and info.name then
+        Session.lastGainedFactionName = info.name
+        SetPersistentRepFallbackName(info.name)
     end
 
     xpBar.progressBar:SetMinMaxValues(0, info.maxRep)

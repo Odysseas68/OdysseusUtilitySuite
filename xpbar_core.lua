@@ -11,13 +11,13 @@ OUS.defaults = {
     repTemplate = "Rep: [faction] ([standing]) [curRep]/[maxRep] :: [repPC]%",
     delveCompTemplate = "[compName]: Level [pLVL] - [curXP]/[maxXP]",
     delveJourTemplate = "Journey: ([curLVL]->[nextLVL])::[curRep]/[maxRep]",
-    
+
     -- Main Experience Colors
     xpColor = {r = 0.6, g = 0.2, b = 0.8},
     restColor = {r = 0.0, g = 0.4, b = 0.9},
     xpTextColor = {r = 1.0, g = 1.0, b = 1.0},
     showRestIcon = true,
-    
+
     -- Dynamic Reputation Colors (Nested!)
     repTextColor = {r = 1.0, g = 1.0, b = 1.0},
     repColors = {
@@ -67,30 +67,32 @@ OUS.XPBarSession = OUS.XPBarSession or {
     sleepTimer = nil,
     fadeTicker = nil,
     delveCheckTicker = nil,
-    isTestingDelve = false
+    isTestingDelve = false,
+    lastKnownDelveState = false,
+    lastDelveSeenTime = 0
 }
 
 function OUS.FormatLargeNumber(n)
     if not n then return "0" end
-    
+
     -- If the user disabled abbreviated numbers, format with standard commas
     if OdysseusDB and OdysseusDB.xpBar and OdysseusDB.xpBar.shortNumbers == false then
         local formatted = tostring(math.floor(n))
         local k
-        while true do  
+        while true do
             formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
             if (k==0) then break end
         end
         return formatted
     end
-    
+
     -- Default behavior (Abbreviated: 1.5K, 2.3M)
     if n >= 1000000 then
-        return string.format("%.1fM", n / 1000000) 
-    elseif n >= 1000 then 
-        return string.format("%.1fK", n / 1000) 
+        return string.format("%.1fM", n / 1000000)
+    elseif n >= 1000 then
+        return string.format("%.1fK", n / 1000)
     else
-        return tostring(math.floor(n)) 
+        return tostring(math.floor(n))
     end
 end
 
@@ -123,10 +125,10 @@ xpBar:SetMovable(true)
 xpBar:EnableMouse(true)
 xpBar:RegisterForDrag("LeftButton")
 xpBar:SetScript("OnDragStart", function(self) if IsShiftKeyDown() then self:StartMoving() end end)
-xpBar:SetScript("OnDragStop", function(self) 
+xpBar:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
     local p, _, rP, x, y = self:GetPoint()
-    OdysseusDB.xpBar.xpBarPos = {p=p, rP=rP, x=x, y=y} 
+    OdysseusDB.xpBar.xpBarPos = {p=p, rP=rP, x=x, y=y}
 end)
 
 -- Delve Bar
@@ -158,10 +160,10 @@ delveBar:SetMovable(true)
 delveBar:EnableMouse(true)
 delveBar:RegisterForDrag("LeftButton")
 delveBar:SetScript("OnDragStart", function(self) if IsShiftKeyDown() then self:StartMoving() end end)
-delveBar:SetScript("OnDragStop", function(self) 
+delveBar:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
     local p, _, rP, x, y = self:GetPoint()
-    OdysseusDB.xpBar.delveBarPos = {p=p, rP=rP, x=x, y=y} 
+    OdysseusDB.xpBar.delveBarPos = {p=p, rP=rP, x=x, y=y}
 end)
 delveBar:Hide()
 
@@ -170,10 +172,10 @@ OUS.toastFrame = CreateFrame("Frame", "OdysseusToastFrame", UIParent, "BackdropT
 local toast = OUS.toastFrame
 toast:SetSize(300, 56)
 toast:SetFrameStrata("DIALOG")
-toast:SetBackdrop({ 
-    bgFile = "Interface\\ChatFrame\\ChatFrameBackground", 
-    edgeFile = "Interface\\Buttons\\WHITE8x8", 
-    tile = false, edgeSize = 1, 
+toast:SetBackdrop({
+    bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+    edgeFile = "Interface\\Buttons\\WHITE8x8",
+    tile = false, edgeSize = 1,
     insets = { left = 0, right = 0, top = 0, bottom = 0 }
 })
 toast:SetBackdropColor(0.07, 0.05, 0.1, 0.95)
@@ -185,10 +187,10 @@ toast:SetMovable(true)
 toast:EnableMouse(true)
 toast:RegisterForDrag("LeftButton")
 toast:SetScript("OnDragStart", function(self) if IsShiftKeyDown() then self:StartMoving() end end)
-toast:SetScript("OnDragStop", function(self) 
+toast:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
     local p, _, rP, x, y = self:GetPoint()
-    OdysseusDB.xpBar.toastPos = {p=p, rP=rP, x=x, y=y} 
+    OdysseusDB.xpBar.toastPos = {p=p, rP=rP, x=x, y=y}
 end)
 
 toast.icon = toast:CreateTexture(nil, "ARTWORK")
@@ -310,10 +312,10 @@ stats:SetPoint("CENTER")
 stats:SetFrameStrata("DIALOG")
 tinsert(UISpecialFrames, stats:GetName())
 
-stats:SetBackdrop({ 
-    bgFile = "Interface\\ChatFrame\\ChatFrameBackground", 
-    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", 
-    tile = false, edgeSize = 16, 
+stats:SetBackdrop({
+    bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = false, edgeSize = 16,
     insets = { left = 4, right = 4, top = 4, bottom = 4 }
 })
 stats:SetBackdropColor(0.07, 0.05, 0.1, 0.98)
@@ -352,16 +354,16 @@ stats.content:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
 function stats:UpdateData()
     local text = "|cFF00FFFFExperience Gained:|r\n" .. OUS.FormatLargeNumber(OUS.XPBarSession.sessionXP) .. " XP\n\n|cFF00FFFFReputation Breakdown:|r\n"
     local hasRep = false
-    
-    for faction, amount in pairs(OUS.XPBarSession.sessionRep) do 
+
+    for faction, amount in pairs(OUS.XPBarSession.sessionRep) do
         hasRep = true
-        text = text .. "• " .. faction .. ": |cFF00FF00+" .. amount .. "|r\n" 
+        text = text .. "• " .. faction .. ": |cFF00FF00+" .. amount .. "|r\n"
     end
-    
-    if not hasRep then 
-        text = text .. "|cFF888888No reputation gained yet this session.|r" 
+
+    if not hasRep then
+        text = text .. "|cFF888888No reputation gained yet this session.|r"
     end
-    
+
     self.content:SetText(text)
 end
 
@@ -370,51 +372,51 @@ end
 -- ==========================================
 SLASH_XPSTATS1 = "/xpstats"
 SLASH_XPSTATS2 = "/ousxp"
-SlashCmdList["XPSTATS"] = function() 
+SlashCmdList["XPSTATS"] = function()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
-    if OUS.statsFrame:IsShown() then 
-        OUS.statsFrame:Hide() 
-    else 
+    if OUS.statsFrame:IsShown() then
+        OUS.statsFrame:Hide()
+    else
         OUS.statsFrame:UpdateData()
-        OUS.statsFrame:Show() 
-    end 
+        OUS.statsFrame:Show()
+    end
 end
 
 SLASH_DELVETEST1 = "/delvetest"
-SlashCmdList["DELVETEST"] = function() 
+SlashCmdList["DELVETEST"] = function()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
     OUS.XPBarSession.isTestingDelve = not OUS.XPBarSession.isTestingDelve
     if OUS.UpdateBar then OUS.UpdateBar() end
-    if OUS.XPBarSession.isTestingDelve then 
+    if OUS.XPBarSession.isTestingDelve then
         print("|cFF00FF00Odysseus:|r Delves UI forced ON.")
         OUS.LogDebug("XPBar", "Test Delve Mode Enabled")
-    else 
-        print("|cFFFF0000Odysseus:|r Delves UI forced OFF.") 
+    else
+        print("|cFFFF0000Odysseus:|r Delves UI forced OFF.")
         OUS.LogDebug("XPBar", "Test Delve Mode Disabled")
-    end 
+    end
 end
 
 SLASH_TOASTTEST1 = "/toasttest"
-SlashCmdList["TOASTTEST"] = function() 
+SlashCmdList["TOASTTEST"] = function()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
-    OUS.ShowToast("Renown Increased!", "The Midnight Court - Rank 10") 
+    OUS.ShowToast("Renown Increased!", "The Midnight Court - Rank 10")
 end
 
 SLASH_DELVEDEBUG1 = "/delvedebug"
-SlashCmdList["DELVEDEBUG"] = function() 
+SlashCmdList["DELVEDEBUG"] = function()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
     local inInstance, instanceType = IsInInstance()
     local name, _, difficultyID, _, _, _, _, instanceID = GetInstanceInfo()
     local uiMapID = C_Map.GetBestMapForUnit("player")
     local scenarioType = "N/A"
-    if C_Scenario and C_Scenario.GetInfo then 
+    if C_Scenario and C_Scenario.GetInfo then
         local sInfo = C_Scenario.GetInfo()
-        if sInfo then scenarioType = tostring(sInfo.scenarioType) end 
+        if sInfo then scenarioType = tostring(sInfo.scenarioType) end
     end
-    
-    local log = string.format("InInstance: %s | Type: %s | Name: %s | ID: %s | Diff: %s | Map: %s", 
+
+    local log = string.format("InInstance: %s | Type: %s | Name: %s | ID: %s | Diff: %s | Map: %s",
         tostring(inInstance), tostring(instanceType), tostring(name), tostring(instanceID), tostring(difficultyID), tostring(uiMapID))
-    
+
     print("|cFF00FFFF--- Odysseus Delve Radar ---|r (Check /ousdebug for logs)")
     OUS.LogDebug("DelveRadar", log)
 end
