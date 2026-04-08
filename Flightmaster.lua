@@ -275,19 +275,29 @@ hooksecurefunc(GameTooltip, "Show", function(self)
         OUS.LogDebug("Flight", string.format("DB Search: [%s] -> [%s]", startFull, destFull))
     end
 
-    local knownTime = GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
-    local cost = TaxiNodeCost(nodeID)
-    local showCost = false
-    local costString = ""
+local knownTime = GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
+local showCost = false
+local costString = ""
 
-    -- FIX 2: Use the correct API to format copper into Gold/Silver/Copper icons
-    if cost and cost > 0 then
-        showCost = true
-        local getCoinStr = (C_CurrencyInfo and C_CurrencyInfo.GetCoinTextureString) or GetCoinTextureString
-        if getCoinStr then
-            costString = getCoinStr(cost)
-        else
-            costString = cost .. "c"
+    -- Defensive handling: TaxiNodeCost() can sometimes surface a secret/tainted
+    -- numeric value in odd post-instance states. Never let that break the tooltip.
+    do
+        local okCost, rawCost = pcall(TaxiNodeCost, nodeID)
+        if okCost and rawCost ~= nil then
+            local okNumber, cost = pcall(tonumber, rawCost)
+            if okNumber and type(cost) == "number" and cost > 0 then
+                local getCoinStr = (C_CurrencyInfo and C_CurrencyInfo.GetCoinTextureString) or GetCoinTextureString
+                if getCoinStr then
+                    local okCoin, result = pcall(getCoinStr, cost)
+                    if okCoin and result then
+                        showCost = true
+                        costString = result
+                    end
+                else
+                    showCost = true
+                    costString = tostring(cost) .. "c"
+                end
+            end
         end
     end
 
@@ -307,10 +317,7 @@ hooksecurefunc(GameTooltip, "Show", function(self)
         mapTooltip.costText:SetText("")
     end
 
-    local w1 = mapTooltip.timeText:GetStringWidth()
-    local w2 = mapTooltip.costText:GetStringWidth()
-    local maxW = math.max(w1, w2, 130)
-    mapTooltip:SetWidth(maxW + 30)
+    mapTooltip:SetWidth(220)
     mapTooltip:SetHeight(showCost and 65 or 48)
 
     mapTooltip:ClearAllPoints()
