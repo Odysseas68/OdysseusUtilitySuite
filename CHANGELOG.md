@@ -2,6 +2,11 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-04-07] - Flight Master
+
+### Flightmaster
+- Fixed a custom Flightmaster tooltip error on flight-map hover caused by secret/tainted taxi tooltip values, by hardening taxi cost handling and replacing dynamic tooltip width sizing with a fixed safe width.
+
 ---
 
 ## [2026-04-07] - XP / Reputation / Delves
