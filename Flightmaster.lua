@@ -405,16 +405,26 @@ updateFrame:SetScript("OnUpdate", function(self, elapsed)
             OdysseusDB.flightSettings.times = OdysseusDB.flightSettings.times or {}
             local oldTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
 
-            if not oldTime or math.abs(oldTime - duration) > 5 then
-                OdysseusDB.flightSettings.times[currentStartFull] = OdysseusDB.flightSettings.times[currentStartFull] or {}
-                OdysseusDB.flightSettings.times[currentStartFull][currentDestFull] = duration
+            -- If we already know the full route time and the measured duration is much
+            -- shorter, assume the player used Request Stop / landed early and do not
+            -- overwrite the known full-route duration.
+            if oldTime and duration < (oldTime - 10) then
+                OUS.LogDebug("Flight", string.format(
+                "Skipped saving flight time because measured duration looked like an early stop. Route=[%s -> %s], Known=%ds, Measured=%ds",
+                currentStartFull, currentDestFull, oldTime, duration
+                ))
+            else
+                if not oldTime or math.abs(oldTime - duration) > 5 then
+                    OdysseusDB.flightSettings.times[currentStartFull] = OdysseusDB.flightSettings.times[currentStartFull] or {}
+                    OdysseusDB.flightSettings.times[currentStartFull][currentDestFull] = duration
 
-                if not oldTime then
-                    print("|cFF00CCFFOdysseus:|r |cFF33FF33Learned|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
-                    OUS.LogDebug("Flight", "Saved new flight time to database.")
-                else
-                    print("|cFF00CCFFOdysseus:|r |cFFFFAA00Updated|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
-                    OUS.LogDebug("Flight", "Updated existing flight time in database.")
+                    if not oldTime then
+                        print("|cFF00CCFFOdysseus:|r |cFF33FF33Learned|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
+                        OUS.LogDebug("Flight", "Saved new flight time to database.")
+                    else
+                        print("|cFF00CCFFOdysseus:|r |cFFFFAA00Updated|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
+                        OUS.LogDebug("Flight", "Updated existing flight time in database.")
+                    end
                 end
             end
         end
