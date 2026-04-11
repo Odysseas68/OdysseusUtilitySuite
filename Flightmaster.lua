@@ -221,11 +221,16 @@ local function GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
     return nil
 end
 
-hooksecurefunc(GameTooltip, "Show", function(self)
-    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then return end
+local function UpdateCustomFlightTooltip()
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then
+        mapTooltip:Hide()
+        return
+    end
 
-    -- Safety Check: Ensure tooltips default to TRUE if the config hasn't been saved yet.
-    if OdysseusDB.flightSettings.showTooltips == false then return end
+    if OdysseusDB.flightSettings.showTooltips == false then
+        mapTooltip:Hide()
+        return
+    end
 
     local flightMapOpen = (FlightMapFrame and FlightMapFrame:IsShown()) or (TaxiFrame and TaxiFrame:IsShown())
     if not flightMapOpen then
@@ -234,13 +239,14 @@ hooksecurefunc(GameTooltip, "Show", function(self)
     end
 
     local rawDest = _G["GameTooltipTextLeft1"] and _G["GameTooltipTextLeft1"]:GetText()
+    if not rawDest or rawDest == "" then
+        mapTooltip:Hide()
+        return
+    end
 
-    -- Debug Radar: Tell us what the engine sees!
     if IsAltKeyDown() then
         OUS.LogDebug("Flight", "Tooltip Hovered! Text found: " .. tostring(rawDest))
     end
-
-    if not rawDest then return end
 
     local destFull = CleanString(rawDest)
     local nodeID = nil
@@ -255,16 +261,23 @@ hooksecurefunc(GameTooltip, "Show", function(self)
                 cachedStartFull = nodeName
             elseif nodeName == destFull or string.find(destFull, nodeName, 1, true) then
                 nodeID = i
-                destFull = nodeName -- Force exact sync
+                destFull = nodeName
             end
         end
     end
 
-    if startFull == "Unknown" and cachedStartFull ~= "Unknown" then startFull = cachedStartFull end
-    if startFull == "Unknown" then startFull = CleanString(GetMinimapZoneText() or GetZoneText()) end
+    if startFull == "Unknown" and cachedStartFull ~= "Unknown" then
+        startFull = cachedStartFull
+    end
+    if startFull == "Unknown" then
+        startFull = CleanString(GetMinimapZoneText() or GetZoneText())
+    end
 
     if not nodeID then
-        if IsAltKeyDown() then OUS.LogDebug("Flight", "Failed to find matching nodeID for: " .. destFull) end
+        mapTooltip:Hide()
+        if IsAltKeyDown() then
+            OUS.LogDebug("Flight", "Failed to find matching nodeID for: " .. destFull)
+        end
         return
     end
 
@@ -275,12 +288,10 @@ hooksecurefunc(GameTooltip, "Show", function(self)
         OUS.LogDebug("Flight", string.format("DB Search: [%s] -> [%s]", startFull, destFull))
     end
 
-local knownTime = GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
-local showCost = false
-local costString = ""
+    local knownTime = GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
+    local showCost = false
+    local costString = ""
 
-    -- Defensive handling: TaxiNodeCost() can sometimes surface a secret/tainted
-    -- numeric value in odd post-instance states. Never let that break the tooltip.
     do
         local okCost, rawCost = pcall(TaxiNodeCost, nodeID)
         if okCost and rawCost ~= nil then
@@ -301,8 +312,6 @@ local costString = ""
         end
     end
 
-    -- FIX 1: We removed the 'if knownTime or showCost then' wrapper.
-    -- If we successfully found a nodeID, we ALWAYS show the tooltip!
     if knownTime then
         mapTooltip.timeText:SetText(string.format("Flight Time: %d:%02d", math.floor(knownTime / 60), knownTime % 60))
         mapTooltip.timeText:SetTextColor(0.2, 1, 0.2)
@@ -321,11 +330,37 @@ local costString = ""
     mapTooltip:SetHeight(showCost and 65 or 48)
 
     mapTooltip:ClearAllPoints()
-    mapTooltip:SetPoint("TOP", GameTooltip, "BOTTOM", 0, -2)
+
+    if GameTooltip and GameTooltip:IsShown() then
+        mapTooltip:SetPoint("TOP", GameTooltip, "BOTTOM", 0, -2)
+    else
+        mapTooltip:SetPoint("TOP", UIParent, "CENTER", 0, -80)
+    end
+
     mapTooltip:Show()
+end
+
+hooksecurefunc(GameTooltip, "Show", function()
+    UpdateCustomFlightTooltip()
 end)
 
-hooksecurefunc(GameTooltip, "Hide", function() mapTooltip:Hide() end)
+local tooltipMonitor = CreateFrame("Frame")
+local tooltipElapsed = 0
+
+tooltipMonitor:SetScript("OnUpdate", function(self, elapsed)
+    tooltipElapsed = tooltipElapsed + elapsed
+    if tooltipElapsed < 0.05 then
+        return
+    end
+    tooltipElapsed = 0
+
+    local flightMapOpen = (FlightMapFrame and FlightMapFrame:IsShown()) or (TaxiFrame and TaxiFrame:IsShown())
+    if flightMapOpen then
+        UpdateCustomFlightTooltip()
+    else
+        mapTooltip:Hide()
+    end
+end)
 
 -- ==========================================
 -- 5. FLIGHT DETECTION & UPGRADE UPDATE
