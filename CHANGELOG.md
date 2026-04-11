@@ -5,7 +5,8 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 ## [2026-04-11] - Flight Master
 
 ### Flightmaster
-- Fixed custom flight-map tooltip stability issues by hardening taxi cost handling, using a fixed safe width, and decoupling the custom tooltip from Blizzard tooltip hide/show behavior.
+- Fixed custom flight-map tooltip errors by hardening taxi cost handling, switching the custom tooltip to a fixed safe width, and decoupling tooltip updates from Blizzard tooltip hide/show behavior.
+- Added a fallback anchor so the Odysseus Flightmaster tooltip remains visible even if Blizzard's taxi tooltip is disrupted by third-party addon taint.
 - Fixed route timing updates so unknown routes save correctly, while known full-route times are protected from Request Stop partial-flight overwrites.
 
 ### Flightmaster
