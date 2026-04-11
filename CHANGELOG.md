@@ -2,6 +2,14 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-04-11] - Flight Master
+
+### Flightmaster
+- Fixed custom flight-map tooltip errors caused by secret/tainted taxi tooltip values by hardening taxi cost handling and replacing dynamic tooltip width sizing with a fixed safe width.
+- Improved Flightmaster tooltip resilience by moving custom tooltip updates into an independent refresh path and adding a fallback anchor when Blizzard's tooltip is unavailable.
+
+---
+
 ## [2026-04-07] - Flight Master
 
 ### Flightmaster
