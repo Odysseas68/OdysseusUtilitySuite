@@ -104,15 +104,15 @@ OUS.xpBarFrame = CreateFrame("Frame", "OdysseusXPBar", UIParent, "BackdropTempla
 local xpBar = OUS.xpBarFrame
 
 xpBar.bg = xpBar:CreateTexture(nil, "BACKGROUND")
-xpBar.bg:SetAllPoints(true)
+xpBar.bg:SetAllPoints()
 xpBar.bg:SetColorTexture(0.07, 0.05, 0.1, 0.8)
 
 xpBar.restedBar = CreateFrame("StatusBar", nil, xpBar)
-xpBar.restedBar:SetAllPoints(true)
+xpBar.restedBar:SetAllPoints()
 xpBar.restedBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 xpBar.progressBar = CreateFrame("StatusBar", nil, xpBar)
-xpBar.progressBar:SetAllPoints(true)
+xpBar.progressBar:SetAllPoints()
 xpBar.progressBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 xpBar.borderFrame = CreateFrame("Frame", nil, xpBar, "BackdropTemplate")
@@ -139,7 +139,7 @@ delveBar.borderFrame = CreateFrame("Frame", nil, delveBar, "BackdropTemplate")
 delveBar.borderFrame:SetFrameLevel(delveBar:GetFrameLevel() + 2)
 
 delveBar.bg = delveBar:CreateTexture(nil, "BACKGROUND")
-delveBar.bg:SetAllPoints(true)
+delveBar.bg:SetAllPoints()
 delveBar.bg:SetColorTexture(0.07, 0.05, 0.1, 0.8)
 
 delveBar.compBar = CreateFrame("StatusBar", nil, delveBar)

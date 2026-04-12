@@ -98,12 +98,12 @@ function OUS.UpdateDelveBar()
                 if renownInfo then
                     jRep = renownInfo.renownReputationEarned or 0
                     jMax = renownInfo.renownLevelThreshold or 1
-                    jLvl = renownInfo.renownLevel or "?"
+                    jLvl = renownInfo.renownLevel or "?" ---@diagnostic disable-line: cast-local-type
 
                     if jMax == 0 then jMax = 1 end
 
                     if jRep < jMax then
-                        jNextLvl = (renownInfo.renownLevel or 0) + 1
+                        jNextLvl = (renownInfo.renownLevel or 0) + 1 ---@diagnostic disable-line: cast-local-type
                     else
                         jNextLvl = "Max"
                     end
@@ -114,7 +114,7 @@ function OUS.UpdateDelveBar()
         if Session.isTestingDelve and cMax <= 1 and jMax <= 1 then
             cXP, cMax, cLvl = 25000, 83000, 15
             jRep, jMax = 1200, 5000
-            jLvl, jNextLvl = 4, 5
+            jLvl, jNextLvl = 4, 5 ---@diagnostic disable-line: cast-local-type
             isMaxed = false
         end
 
