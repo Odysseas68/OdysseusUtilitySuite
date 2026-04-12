@@ -150,6 +150,4 @@ Current tracking behavior:
 
 The addon is currently in an active refinement phase, with recent work focused on:
 - Flight Master timing and route presentation
-- Fishing Tracker and Faster Loot cooperation
 - config UI polish and Midnight-theme improvements
-- XP / Reputation / Delves behavior refinement
