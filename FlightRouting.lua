@@ -199,7 +199,7 @@ local function GetKnownLegTime(startFull, destFull, startShort, destShort)
         return saved
     end
 
-    local bundled = SearchTable(SFT_FlightData)
+    local bundled = SearchTable(rawget(_G, "SFT_FlightData"))
     if bundled then
         return bundled
     end

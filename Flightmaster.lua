@@ -38,6 +38,28 @@ local function GetShortName(name)
     return shortName and strtrim(shortName) or name
 end
 
+local function GetTaxiCostString(cost)
+    if C_CurrencyInfo and C_CurrencyInfo.GetCoinTextureString then
+        local ok, result = pcall(C_CurrencyInfo.GetCoinTextureString, cost)
+        if ok and type(result) == "string" and result ~= "" then
+            return result
+        end
+    end
+
+    local copper = cost % 100
+    local silverTotal = math.floor(cost / 100)
+    local silver = silverTotal % 100
+    local gold = math.floor(silverTotal / 100)
+
+    if gold > 0 then
+        return string.format("%dg %ds %dc", gold, silver, copper)
+    end
+    if silver > 0 then
+        return string.format("%ds %dc", silver, copper)
+    end
+    return string.format("%dc", copper)
+end
+
 -- ==========================================
 -- 2. CREATE THE VISUAL TIMER BAR
 -- ==========================================
@@ -48,7 +70,7 @@ timerBar:SetPoint("TOP", UIParent, "TOP", 0, -150)
 timerBar:Hide()
 
 local bg = timerBar:CreateTexture(nil, "BACKGROUND")
-bg:SetAllPoints(true)
+bg:SetAllPoints(timerBar)
 bg:SetColorTexture(0, 0, 0, 0.5)
 
 OUS.timerBorderFrame = CreateFrame("Frame", nil, timerBar, "BackdropTemplate")
@@ -63,7 +85,7 @@ OUS.timerTopText:SetPoint("BOTTOM", timerBar, "TOP", 0, 4)
 
 function OUS.ApplyFlightFonts()
     local fName = OdysseusDB.flightSettings.fontName or "Friz Quadrata TT"
-    local fPath = LSM:Fetch("font", fName) or LSM:Fetch("font", "Friz Quadrata TT")
+    local fPath = LSM:Fetch("font", fName) or LSM:Fetch("font", "Friz Quadrata TT") or "Fonts\\FRIZQT__.TTF"
     local fSize = OdysseusDB.flightSettings.fontSize or 12
     OUS.timerText:SetFont(fPath, fSize, "OUTLINE")
     OUS.timerTopText:SetFont(fPath, math.max(8, fSize - 3), "OUTLINE")
@@ -71,7 +93,7 @@ end
 
 function OUS.ApplyFlightTexture()
     local tName = OdysseusDB.flightSettings.textureName or "Blizzard"
-    local tPath = LSM:Fetch("statusbar", tName) or LSM:Fetch("statusbar", "Blizzard")
+    local tPath = LSM:Fetch("statusbar", tName) or LSM:Fetch("statusbar", "Blizzard") or "Interface\\TargetingFrame\\UI-StatusBar"
     timerBar:SetStatusBarTexture(tPath)
 end
 
@@ -208,7 +230,7 @@ local function GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
         return saved
     end
 
-    local bundled = SearchTable(SFT_FlightData)
+    local bundled = SearchTable(rawget(_G, "SFT_FlightData"))
     if bundled then
         return bundled
     end
@@ -297,17 +319,8 @@ local function UpdateCustomFlightTooltip()
         if okCost and rawCost ~= nil then
             local okNumber, cost = pcall(tonumber, rawCost)
             if okNumber and type(cost) == "number" and cost > 0 then
-                local getCoinStr = (C_CurrencyInfo and C_CurrencyInfo.GetCoinTextureString) or GetCoinTextureString
-                if getCoinStr then
-                    local okCoin, result = pcall(getCoinStr, cost)
-                    if okCoin and result then
-                        showCost = true
-                        costString = result
-                    end
-                else
-                    showCost = true
-                    costString = tostring(cost) .. "c"
-                end
+                showCost = true
+                costString = GetTaxiCostString(cost)
             end
         end
     end

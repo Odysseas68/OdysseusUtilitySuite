@@ -190,7 +190,7 @@ function OUS.ParseXPText(template, curXP, maxXP, restXP, level, mLVL, ktl, isMax
     str = string.gsub(str, "%[restPC%]", restPC)
     str = string.gsub(str, "%[pLVL%]", level)
     str = string.gsub(str, "%[nLVL%]", level + 1)
-    str = string.gsub(str, "%[mLVL%]", mLVL)
+    str = string.gsub(str, "%[mLVL%]", tostring(mLVL or "?"))
     str = string.gsub(str, "%[restLVL%]", restLVL)
     str = string.gsub(str, "%[KTL%]", ktl or "?")
     str = string.gsub(str, "%[BTL%]", btl)
@@ -227,8 +227,10 @@ end
 
 function OUS.ApplyBlizzardKiller()
     if OdysseusDB and OdysseusDB.xpBar.hideBlizz and StatusTrackingBarManager then
-        StatusTrackingBarManager:UnregisterAllEvents()
-        StatusTrackingBarManager:Hide()
+        pcall(function()
+            StatusTrackingBarManager:UnregisterAllEvents()
+            StatusTrackingBarManager:Hide()
+        end)
         OUS.LogDebug("XPBar", "Blizzard Default Status Bars hidden.")
     end
 end
@@ -243,7 +245,7 @@ function OUS.GetFactionDetails(factionID)
 
     local name = data.name
     local reaction = data.reaction or 4
-    local standingText = GetText("FACTION_STANDING_LABEL" .. reaction) or "Neutral"
+    local standingText = _G["FACTION_STANDING_LABEL" .. reaction] or "Neutral"
     local curRep, maxRep = 0, 1
     local isMaxed, hasRewardPending = false, false
     local iconPath = "Interface\\Icons\\Achievement_Reputation_01"
@@ -273,7 +275,7 @@ function OUS.GetFactionDetails(factionID)
     if not isMaxed and C_GossipInfo and C_GossipInfo.GetFriendshipReputation then
         local repInfo = C_GossipInfo.GetFriendshipReputation(factionID)
         if repInfo and repInfo.friendshipFactionID > 0 then
-            if repInfo.texture and repInfo.texture > 0 then iconPath = repInfo.texture end
+            if repInfo.texture and repInfo.texture ~= "" then iconPath = tostring(repInfo.texture) end
             local rankInfo = C_GossipInfo.GetFriendshipReputationRanks(factionID)
             if rankInfo and rankInfo.currentLevel then
                 standingText = "Rank " .. rankInfo.currentLevel
@@ -292,8 +294,8 @@ function OUS.GetFactionDetails(factionID)
 
     -- Standard Legacy Factions
     if curRep == 0 and maxRep == 1 and data.currentStanding then
-        if data.currentValue then
-            curRep, maxRep = data.currentValue, data.maxValue
+        if data.currentValue then ---@diagnostic disable-line: undefined-field
+            curRep, maxRep = data.currentValue, data.maxValue ---@diagnostic disable-line: undefined-field
         else
             curRep = data.currentStanding - data.currentReactionThreshold
             maxRep = data.nextReactionThreshold - data.currentReactionThreshold
@@ -391,8 +393,9 @@ end
 local function ResolveTargetFactionID()
     local targetFactionID = nil
     local playerLevel = UnitLevel("player")
-    local maxExpansionLevel = GetMaxPlayerLevel and GetMaxPlayerLevel() or 80
-    local isMaxLevel = (playerLevel >= maxExpansionLevel) or (IsXPUserDisabled and IsXPUserDisabled())
+    local isMaxLevel = (UnitXP("player") == 0 and UnitXPMax("player") > 1000000)
+        or (IsXPUserDisabled and IsXPUserDisabled())
+        or false
 
     local function FindFactionIDByName(factionName)
         if not factionName or factionName == "" then return nil end
@@ -410,7 +413,7 @@ local function ResolveTargetFactionID()
         if C_Reputation and C_Reputation.GetNumFactions then
             for i = 1, C_Reputation.GetNumFactions() do
                 local data = C_Reputation.GetFactionDataByIndex(i)
-                if data and not data.isHidden then
+                if data and not data.isHidden then ---@diagnostic disable-line: undefined-field
                     local dataName = NormalizeFactionName(data.name)
                     if dataName == targetName and not (data.isHeader and not data.isHeaderWithRep) then
                         return data.factionID
@@ -564,14 +567,20 @@ function OUS.UpdateBar()
 
     local db = OdysseusDB.xpBar
     local playerLevel = UnitLevel("player")
-    local maxExpansionLevel = GetMaxPlayerLevel and GetMaxPlayerLevel() or 80
-    local isMaxLevel = (playerLevel >= maxExpansionLevel) or (IsXPUserDisabled and IsXPUserDisabled())
+    local maxExpansionLevel = 90  -- for display in text templates only
+    local isMaxLevel = (UnitXP("player") == 0 and UnitXPMax("player") > 1000000)
+        or (IsXPUserDisabled and IsXPUserDisabled())
+        or false
     local targetFactionID = ResolveTargetFactionID()
 
-    if not isMaxLevel and not (Session.forceRepDisplay and targetFactionID) then
-        RenderXPBar(db, playerLevel, maxExpansionLevel)
-    else
+    OUS.LogDebug("XPBar", "isMaxLevel = " .. tostring(isMaxLevel) .. " | UnitXPMax = " .. tostring(UnitXPMax("player")))
+
+    if isMaxLevel then
         RenderReputationBar(db, targetFactionID)
+    elseif Session.forceRepDisplay and targetFactionID then
+        RenderReputationBar(db, targetFactionID)
+    else
+        RenderXPBar(db, playerLevel, maxExpansionLevel)
     end
 
     OUS.UpdateDelveBar()
@@ -586,7 +595,6 @@ f:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 f:RegisterEvent("SCENARIO_UPDATE")
 f:RegisterEvent("UPDATE_INSTANCE_INFO")
 f:RegisterEvent("PLAYER_XP_UPDATE")
-f:RegisterEvent("UPDATE_EXHAUSTION")
 f:RegisterEvent("UPDATE_FACTION")
 f:RegisterEvent("PLAYER_REGEN_DISABLED")
 f:RegisterEvent("PLAYER_REGEN_ENABLED")

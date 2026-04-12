@@ -136,16 +136,16 @@ function OUS.CreatePremiumSlider(parent, db, titleText, yOffset, dbKey, minVal, 
 
     local initVal = db[dbKey] or minVal
     slider:SetValue(initVal)
-    editBox:SetText(initVal)
+    editBox:SetText(tostring(initVal))
 
     btnMinus:SetScript("OnClick", function() slider:SetValue(slider:GetValue() - step) end)
     btnPlus:SetScript("OnClick", function() slider:SetValue(slider:GetValue() + step) end)
 
-    editBox:SetScript("OnEscapePressed", function(self) self:ClearFocus(); self:SetText(slider:GetValue()) end)
+    editBox:SetScript("OnEscapePressed", function(self) self:ClearFocus(); self:SetText(tostring(slider:GetValue())) end)
     editBox:SetScript("OnEnterPressed", function(self)
         self:ClearFocus()
         local val = tonumber(self:GetText())
-        if val then val = math.max(minVal, math.min(maxVal, val)); slider:SetValue(val) else self:SetText(slider:GetValue()) end
+        if val then val = math.max(minVal, math.min(maxVal, val)); slider:SetValue(val) else self:SetText(tostring(slider:GetValue())) end
     end)
 
     slider:SetScript("OnValueChanged", function(self, value)
@@ -155,7 +155,7 @@ function OUS.CreatePremiumSlider(parent, db, titleText, yOffset, dbKey, minVal, 
         if step < 1 then
             editBox:SetText(string.format("%.2f", snappedValue):gsub("0+$", ""):gsub("%.$", ""))
         else
-            editBox:SetText(snappedValue)
+            editBox:SetText(tostring(snappedValue))
         end
         if onUpdate then onUpdate() end
     end)
