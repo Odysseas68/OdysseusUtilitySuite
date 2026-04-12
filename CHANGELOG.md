@@ -2,6 +2,21 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-04-13] - XP / Reputation
+
+### Fixed
+- Replaced deprecated `GetText()` with `_G[]` for faction standing labels
+- Removed `GetMaxPlayerLevel()` and `MAX_PLAYER_LEVEL` which are nil in Midnight 12.0
+- Removed `UPDATE_EXHAUSTION` event which was removed in 12.0
+- Fixed XP/Rep bar display logic for cross-expansion characters (level 87 showing
+  rep bar instead of XP bar due to incorrect max level detection)
+- Max level detection now uses `UnitXP()==0 and UnitXPMax()>1000000` to correctly
+  handle Blizzard's 100,000,000 XP cap value at max level
+- Fixed `mLVL` nil value crash in ParseXPText template parser
+- Added `tostring()` safety wrap for reputation texture field
+- Added `pcall` protection for StatusTrackingBarManager
+- Suppressed false-positive LuaLS warnings for undocumented API fields
+
 ## [2026-04-11] - Flight Master
 
 ### Flightmaster
