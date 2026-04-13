@@ -10,6 +10,8 @@ desktop.ini
 notes.txt
 gemini-notes.txt
 chatgpt_notes.txt
+flightdata.lua.bak
+CLAUDE.md
 
 # IDE and Editor Folders (Keeps your personal VS Code settings private)
 .vscode/

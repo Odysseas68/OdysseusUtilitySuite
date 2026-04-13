@@ -290,6 +290,8 @@ SFT_FlightData = {
         ["Witherbark Bluffs"] = 122,
     },
     ["Amani'Zar Village, Zul'Aman"] = {
+        ["Atal'Aman, Zul'Aman"] = 56,
+        ["Camp Stonewash, Zul'Aman"] = 93,
         ["Sanctum of Light, Silvermoon City"] = 231,
     },
     ["Amber Ledge"] = {
@@ -746,8 +748,11 @@ SFT_FlightData = {
         ["Sanctum of Light"] = 177,
     },
     ["Atal'Aman, Zul'Aman"] = {
+        ["Amani'Zar Village, Zul'Aman"] = 58,
+        ["Camp Stonewash, Zul'Aman"] = 86,
         ["Shadebasin Watch, Zul'Aman"] = 74,
         ["Torntusk Overlook, Zul'Aman"] = 55,
+        ["Witherbark Bluffs, Zul'Aman"] = 68,
     },
     ["Atal'Dazar"] = {
         ["Atal'Gral"] = 83,
@@ -1895,10 +1900,9 @@ SFT_FlightData = {
         ["Wyrmrest Temple"] = 223,
         ["Zim'Torga"] = 92,
     },
-    ["Camp Stonewash"] = {
-        ["Amani'Zar Village"] = 95,
-    },
     ["Camp Stonewash, Zul'Aman"] = {
+        ["Amani'Zar Village, Zul'Aman"] = 95,
+        ["Atal'Aman, Zul'Aman"] = 87,
         ["Sanctum of Light, Silvermoon City"] = 165,
         ["Shadebasin Watch, Zul'Aman"] = 22,
     },
@@ -5975,6 +5979,9 @@ SFT_FlightData = {
     },
     ["Har'athir"] = {
         ["The Den"] = 28,
+    },
+    ["Har'mara, Harandar"] = {
+        ["Har'alnor, Harandar"] = 68,
     },
     ["Hardwrench Hideaway"] = {
         ["Andorhal"] = 655,
@@ -10361,10 +10368,11 @@ SFT_FlightData = {
         ["Torntusk Overlook"] = 227,
     },
     ["Sanctum of Light, Silvermoon City"] = {
-        ["Atal'Aman, Zul'Aman"] = 182,
+        ["Atal'Aman, Zul'Aman"] = 183,
         ["Camp Stonewash, Zul'Aman"] = 161,
         ["Fairbreeze Village, Eversong Woods"] = 50,
         ["Shadebasin Watch, Zul'Aman"] = 149,
+        ["Silverglade Refuge, Eversong Woods"] = 170,
         ["Tranquillien, Eversong Woods"] = 92,
         ["Witherbark Bluffs, Zul'Aman"] = 125,
     },
@@ -10782,6 +10790,7 @@ SFT_FlightData = {
         ["Amani'Zar Village, Zul'Aman"] = 90,
         ["Camp Stonewash, Zul'Aman"] = 21,
         ["Sanctum of Light, Silvermoon City"] = 151,
+        ["Torntusk Overlook, Zul'Aman"] = 126,
     },
     ["Shadebough"] = {
         ["Cenarion Hold"] = 201,
@@ -11421,6 +11430,7 @@ SFT_FlightData = {
         ["Voldrin's Hold"] = 89,
     },
     ["Silverglade Refuge, Eversong Woods"] = {
+        ["Sanctum of Light, Silvermoon City"] = 162,
         ["Tranquillien, Eversong Woods"] = 77,
     },
     ["Silvermoon City"] = {
@@ -13351,6 +13361,9 @@ SFT_FlightData = {
     ["The Den"] = {
         ["Har'athir"] = 31,
     },
+    ["The Den, Harandar"] = {
+        ["Har'alnor, Harandar"] = 64,
+    },
     ["The Draakorium"] = {
         ["Darktide Roost"] = 37,
         ["Elodor (Alliance)"] = 31,
@@ -13742,6 +13755,9 @@ SFT_FlightData = {
     ["The Outer Banks"] = {
         ["Brumewood Hollow"] = 35,
         ["Town Center"] = 25,
+    },
+    ["The Outer Banks, Founder's Point"] = {
+        ["Entrance Portal, Founder's Point"] = 40,
     },
     ["The Pulsing Pit"] = {
         ["Grand Rampart"] = 19,
@@ -14650,6 +14666,7 @@ SFT_FlightData = {
     },
     ["Torntusk Overlook, Zul'Aman"] = {
         ["Atal'Aman, Zul'Aman"] = 52,
+        ["Camp Stonewash, Zul'Aman"] = 138,
     },
     ["Tortaka Refuge"] = {
         ["Atal'Gral"] = 174,
@@ -14723,6 +14740,9 @@ SFT_FlightData = {
     },
     ["Town Center"] = {
         ["Brumewood Hollow"] = 20,
+    },
+    ["Town Center, Founder's Point"] = {
+        ["The Outer Banks, Founder's Point"] = 24,
     },
     ["Tradewinds Market"] = {
         ["Anglepoint Wharf"] = 150,
@@ -16480,6 +16500,7 @@ SFT_FlightData = {
         ["Torntusk Overlook"] = 121,
     },
     ["Witherbark Bluffs, Zul'Aman"] = {
+        ["Atal'Aman, Zul'Aman"] = 73,
         ["Camp Stonewash, Zul'Aman"] = 42,
     },
     ["Wolf's Den"] = {
