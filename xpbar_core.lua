@@ -13,8 +13,9 @@ OUS.defaults = {
     delveJourTemplate = "Journey: ([curLVL]->[nextLVL])::[curRep]/[maxRep]",
 
     -- Main Experience Colors
-    xpColor = {r = 0.6, g = 0.2, b = 0.8},
-    restColor = {r = 0.0, g = 0.4, b = 0.9},
+    xpColor = {r = 0.7, g = 0.4, b = 1.0},
+    restColor = {r = 0.3, g = 0.6, b = 1.0},
+    bgColor = {r = 0.07, g = 0.05, b = 0.1},
     xpTextColor = {r = 1.0, g = 1.0, b = 1.0},
     showRestIcon = true,
 

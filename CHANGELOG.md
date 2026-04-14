@@ -2,6 +2,32 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-04-15] - Code Quality & XP Bar
+
+### Fixed
+- **XP Bar**: Replaced `GetXPExhaustion()` (Classic-only, nil in Retail 12.0+) with an
+  event-driven cache updated by `UPDATE_EXHAUSTION`. Rest XP overlay on the bar now
+  correctly reflects rested state instead of always reading as zero.
+
+### Changed
+- **Flight Master**: Replaced two always-running `OnUpdate` polling frames with
+  event-driven handlers:
+  - Liftoff / landing detection now uses `UNIT_FLAGS` (fires exactly on taxi state change)
+    instead of calling `UnitOnTaxi()` every frame.
+  - Map tooltip hide/show now uses `TAXIMAP_OPENED` / `TAXIMAP_CLOSED` events instead
+    of a 20 fps polling loop. The `GameTooltip:Show` hook still handles hover updates.
+  - The timer countdown `OnUpdate` frame is now only active during an active taxi ride.
+- **XP Bar defaults**: Lightened default XP bar color (dark purple → violet `0.7/0.4/1.0`)
+  and rest bar color (dark blue → sky blue `0.3/0.6/1.0`) for better visibility.
+
+### Added
+- **XP Bar config**: Background color picker added to the Experience tab, allowing the
+  bar background color to be changed without editing saved variables.
+- **XP Bar config**: "Show Zzzz Icon when Resting" checkbox moved below the three
+  dimension sliders (Width / Height / Scale) for better layout flow.
+
+---
+
 ## [2026-04-13] - XP / Reputation
 
 ### Fixed

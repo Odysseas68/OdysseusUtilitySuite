@@ -274,18 +274,20 @@ function OUS.BuildXPConfigUI()
     local xpTextColorBox = OUS.CreateColorBox(pages[2], "Text Color", 180, -70, OdysseusDB.xpBar.xpTextColor, OUS.UpdateBar)
     -- Row 2 of Colors
     local restColorBox = OUS.CreateColorBox(pages[2], "Rested Bar", 12, -95, OdysseusDB.xpBar.restColor, OUS.UpdateBar)
-    
+    -- Row 3 of Colors
+    local bgColorBox = OUS.CreateColorBox(pages[2], "Background", 12, -120, OdysseusDB.xpBar.bgColor, OUS.ApplyXPBarBg)
+
+    local xpWidthSlider, xpWidthBox = OUS.CreatePremiumSlider(pages[2], OdysseusDB.xpBar, "Main Bar Width", -155, "xpBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local xpHeightSlider, xpHeightBox = OUS.CreatePremiumSlider(pages[2], OdysseusDB.xpBar, "Main Bar Height", -205, "xpBarHeight", 10, 100, 1, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+    local xpScaleSlider, xpScaleBox = OUS.CreatePremiumSlider(pages[2], OdysseusDB.xpBar, "Main Bar Scale", -255, "xpBarScale", 0.5, 2.0, 0.05, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
+
     local restIconCheck = CreateFrame("CheckButton", nil, pages[2], "UICheckButtonTemplate")
-    restIconCheck:SetPoint("TOPLEFT", 180, -90)
+    restIconCheck:SetPoint("TOPLEFT", 12, -295)
     restIconCheck.text = restIconCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     restIconCheck.text:SetPoint("LEFT", restIconCheck, "RIGHT", 4, 0)
     restIconCheck.text:SetText("Show 'Zzzz' Icon when Resting")
     restIconCheck:SetChecked(OdysseusDB.xpBar.showRestIcon)
     restIconCheck:SetScript("OnClick", function(self) OdysseusDB.xpBar.showRestIcon = self:GetChecked(); OUS.UpdateBar() end)
-    
-    local xpWidthSlider, xpWidthBox = OUS.CreatePremiumSlider(pages[2], OdysseusDB.xpBar, "Main Bar Width", -135, "xpBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
-    local xpHeightSlider, xpHeightBox = OUS.CreatePremiumSlider(pages[2], OdysseusDB.xpBar, "Main Bar Height", -185, "xpBarHeight", 10, 100, 1, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
-    local xpScaleSlider, xpScaleBox = OUS.CreatePremiumSlider(pages[2], OdysseusDB.xpBar, "Main Bar Scale", -235, "xpBarScale", 0.5, 2.0, 0.05, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
     
     local resetXPBtn = CreateFrame("Button", nil, pages[2], "UIPanelButtonTemplate")
     resetXPBtn:SetSize(120, 24)
@@ -296,6 +298,7 @@ function OUS.BuildXPConfigUI()
         OdysseusDB.xpBar.xpColor = OUS.DeepCopyTable(OUS.defaults.xpColor)
         OdysseusDB.xpBar.xpTextColor = OUS.DeepCopyTable(OUS.defaults.xpTextColor)
         OdysseusDB.xpBar.restColor = OUS.DeepCopyTable(OUS.defaults.restColor)
+        OdysseusDB.xpBar.bgColor = OUS.DeepCopyTable(OUS.defaults.bgColor)
         OdysseusDB.xpBar.showRestIcon = OUS.defaults.showRestIcon
         OdysseusDB.xpBar.xpBarWidth = OUS.defaults.xpBarWidth
         OdysseusDB.xpBar.xpBarHeight = OUS.defaults.xpBarHeight
@@ -305,6 +308,7 @@ function OUS.BuildXPConfigUI()
         xpColorBox:SetBackdropColor(OUS.defaults.xpColor.r, OUS.defaults.xpColor.g, OUS.defaults.xpColor.b, 1)
         xpTextColorBox:SetBackdropColor(OUS.defaults.xpTextColor.r, OUS.defaults.xpTextColor.g, OUS.defaults.xpTextColor.b, 1)
         restColorBox:SetBackdropColor(OUS.defaults.restColor.r, OUS.defaults.restColor.g, OUS.defaults.restColor.b, 1)
+        bgColorBox:SetBackdropColor(OUS.defaults.bgColor.r, OUS.defaults.bgColor.g, OUS.defaults.bgColor.b, 1)
         restIconCheck:SetChecked(OUS.defaults.showRestIcon)
         xpWidthSlider:SetValue(OUS.defaults.xpBarWidth)
         xpWidthBox:SetText(OUS.defaults.xpBarWidth)
@@ -312,6 +316,7 @@ function OUS.BuildXPConfigUI()
         xpHeightBox:SetText(OUS.defaults.xpBarHeight)
         xpScaleSlider:SetValue(OUS.defaults.xpBarScale)
         xpScaleBox:SetText(OUS.defaults.xpBarScale)
+        OUS.ApplyXPBarBg()
         OUS.LogDebug("XPBar", "Experience tab defaults restored.")
     end)
 

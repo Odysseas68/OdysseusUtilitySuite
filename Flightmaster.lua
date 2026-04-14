@@ -5,6 +5,9 @@ local addonName, OUS = ...
 local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:RegisterEvent("PLAYER_LOGIN")
+f:RegisterEvent("TAXIMAP_OPENED")
+f:RegisterEvent("TAXIMAP_CLOSED")
+f:RegisterUnitEvent("UNIT_FLAGS", "player")
 
 local LSM = LibStub("LibSharedMedia-3.0")
 
@@ -357,123 +360,128 @@ hooksecurefunc(GameTooltip, "Show", function()
     UpdateCustomFlightTooltip()
 end)
 
-local tooltipMonitor = CreateFrame("Frame")
-local tooltipElapsed = 0
+-- mapTooltip is hidden via TAXIMAP_CLOSED / PLAYER_LOGIN events (see section 6).
 
-tooltipMonitor:SetScript("OnUpdate", function(self, elapsed)
-    tooltipElapsed = tooltipElapsed + elapsed
-    if tooltipElapsed < 0.05 then
-        return
-    end
-    tooltipElapsed = 0
+-- ==========================================
+-- 5. FLIGHT DETECTION & TIMER UPDATE
+-- ==========================================
+local timerUpdateFrame = CreateFrame("Frame")
+timerUpdateFrame:SetScript("OnUpdate", function()
+    if not isFlying or OUS.isFlightBarUnlocked then return end
+    local timeElapsed = GetTime() - startTime
+    local knownTime = activeKnownTime
 
-    local flightMapOpen = (FlightMapFrame and FlightMapFrame:IsShown()) or (TaxiFrame and TaxiFrame:IsShown())
-    if flightMapOpen then
-        UpdateCustomFlightTooltip()
+    if knownTime then
+        local timeLeft = knownTime - timeElapsed
+        if timeLeft > 0 then
+            timerBar:SetValue(timeLeft)
+            OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeLeft / 60), math.floor(timeLeft % 60)))
+        else
+            OUS.timerText:SetText("Arrival Imminent")
+            timerBar:SetValue(0)
+        end
     else
-        mapTooltip:Hide()
+        OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeElapsed / 60), math.floor(timeElapsed % 60)))
+        timerBar:SetValue(1)
     end
 end)
+timerUpdateFrame:Hide() -- activated only while on taxi
 
--- ==========================================
--- 5. FLIGHT DETECTION & UPGRADE UPDATE
--- ==========================================
-local updateFrame = CreateFrame("Frame")
-updateFrame:SetScript("OnUpdate", function(self, elapsed)
+local function HandleLiftoff()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then return end
+    isFlying = true
+    startTime = GetTime()
+    OUS.ApplyFlightBorder()
+    timerBar:Show()
+    OUS.timerTopText:SetText(currentStartFull .. " -> " .. currentDestFull)
 
-    local onTaxi = UnitOnTaxi("player")
+    activeKnownTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
+    OUS.LogDebug("Flight", "Liftoff! Known Time: " .. (activeKnownTime and tostring(math.floor(activeKnownTime)) .. "s" or "Unknown"))
 
-    if onTaxi and not isFlying then
-        isFlying = true
-        startTime = GetTime()
-        OUS.ApplyFlightBorder()
-        timerBar:Show()
-        OUS.timerTopText:SetText(currentStartFull .. " -> " .. currentDestFull)
+    if activeKnownTime then
+        timerBar:SetMinMaxValues(0, activeKnownTime)
+    else
+        timerBar:SetMinMaxValues(0, 1)
+        timerBar:SetValue(1)
+    end
 
-        activeKnownTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
-        OUS.LogDebug("Flight", "Liftoff! Known Time: " .. (activeKnownTime and tostring(math.floor(activeKnownTime)) .. "s" or "Unknown"))
+    timerUpdateFrame:Show()
+end
 
-        if activeKnownTime then
-            timerBar:SetMinMaxValues(0, activeKnownTime)
+local function HandleLanding()
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then return end
+    timerUpdateFrame:Hide()
+    isFlying = false
+    OUS.timerText:SetText("")
+    OUS.timerTopText:SetText("")
+    timerBar:SetValue(0)
+
+    if not OUS.isFlightBarUnlocked then
+        timerBar:Hide()
+    end
+
+    local duration = math.floor((GetTime() - startTime) + 0.5)
+    OUS.LogDebug("Flight", string.format("Landed. Total duration: %d seconds.", duration))
+
+    if duration > 10 and currentDestFull ~= "Unknown" then
+        OdysseusDB.flightSettings.times = OdysseusDB.flightSettings.times or {}
+        local oldTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
+
+        -- If we already know the full route time and the measured duration is much
+        -- shorter, assume the player used Request Stop / landed early and do not
+        -- overwrite the known full-route duration.
+        if oldTime and duration < (oldTime - 10) then
+            OUS.LogDebug("Flight", string.format(
+            "Skipped saving flight time because measured duration looked like an early stop. Route=[%s -> %s], Known=%ds, Measured=%ds",
+            currentStartFull, currentDestFull, oldTime, duration
+            ))
         else
-            timerBar:SetMinMaxValues(0, 1)
-            timerBar:SetValue(1)
-        end
+            if not oldTime or math.abs(oldTime - duration) > 5 then
+                OdysseusDB.flightSettings.times[currentStartFull] = OdysseusDB.flightSettings.times[currentStartFull] or {}
+                OdysseusDB.flightSettings.times[currentStartFull][currentDestFull] = duration
 
-    elseif not onTaxi and isFlying then
-        isFlying = false
-        OUS.timerText:SetText("")
-        OUS.timerTopText:SetText("")
-        timerBar:SetValue(0)
-
-        if not OUS.isFlightBarUnlocked then
-            timerBar:Hide()
-        end
-
-        local duration = math.floor((GetTime() - startTime) + 0.5)
-        OUS.LogDebug("Flight", string.format("Landed. Total duration: %d seconds.", duration))
-
-        if duration > 10 and currentDestFull ~= "Unknown" then
-            OdysseusDB.flightSettings.times = OdysseusDB.flightSettings.times or {}
-            local oldTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
-
-            -- If we already know the full route time and the measured duration is much
-            -- shorter, assume the player used Request Stop / landed early and do not
-            -- overwrite the known full-route duration.
-            if oldTime and duration < (oldTime - 10) then
-                OUS.LogDebug("Flight", string.format(
-                "Skipped saving flight time because measured duration looked like an early stop. Route=[%s -> %s], Known=%ds, Measured=%ds",
-                currentStartFull, currentDestFull, oldTime, duration
-                ))
-            else
-                if not oldTime or math.abs(oldTime - duration) > 5 then
-                    OdysseusDB.flightSettings.times[currentStartFull] = OdysseusDB.flightSettings.times[currentStartFull] or {}
-                    OdysseusDB.flightSettings.times[currentStartFull][currentDestFull] = duration
-
-                    if not oldTime then
-                        print("|cFF00CCFFOdysseus:|r |cFF33FF33Learned|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
-                        OUS.LogDebug("Flight", "Saved new flight time to database.")
-                    else
-                        print("|cFF00CCFFOdysseus:|r |cFFFFAA00Updated|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
-                        OUS.LogDebug("Flight", "Updated existing flight time in database.")
-                    end
+                if not oldTime then
+                    print("|cFF00CCFFOdysseus:|r |cFF33FF33Learned|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
+                    OUS.LogDebug("Flight", "Saved new flight time to database.")
+                else
+                    print("|cFF00CCFFOdysseus:|r |cFFFFAA00Updated|r flight from |cFFFFD100" .. currentStartFull .. "|r to |cFFFFD100" .. currentDestFull .. "|r.")
+                    OUS.LogDebug("Flight", "Updated existing flight time in database.")
                 end
             end
         end
-
-        activeKnownTime = nil
-        currentDestFull = "Unknown"
-        currentStartFull = "Unknown"
-        currentDestShort = "Unknown"
-        currentStartShort = "Unknown"
-        startTime = 0
     end
 
-    if isFlying and not OUS.isFlightBarUnlocked then
-        local timeElapsed = GetTime() - startTime
-        local knownTime = activeKnownTime
-
-        if knownTime then
-            local timeLeft = knownTime - timeElapsed
-            if timeLeft > 0 then
-                timerBar:SetValue(timeLeft)
-                OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeLeft / 60), math.floor(timeLeft % 60)))
-            else
-                OUS.timerText:SetText("Arrival Imminent")
-                timerBar:SetValue(0)
-            end
-        else
-            OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeElapsed / 60), math.floor(timeElapsed % 60)))
-            timerBar:SetValue(1)
-        end
-    end
-end)
+    activeKnownTime = nil
+    currentDestFull = "Unknown"
+    currentStartFull = "Unknown"
+    currentDestShort = "Unknown"
+    currentStartShort = "Unknown"
+    startTime = 0
+end
 
 -- ==========================================
 -- 6. LOAD SAVED DATA
 -- ==========================================
-f:SetScript("OnEvent", function(self, event, arg1)
+f:SetScript("OnEvent", function(_, event, arg1)
+    if event == "UNIT_FLAGS" then
+        if UnitOnTaxi("player") and not isFlying then
+            HandleLiftoff()
+        elseif not UnitOnTaxi("player") and isFlying then
+            HandleLanding()
+        end
+        return
+    end
+
+    if event == "TAXIMAP_CLOSED" then
+        mapTooltip:Hide()
+        return
+    end
+
+    if event == "TAXIMAP_OPENED" then
+        UpdateCustomFlightTooltip()
+        return
+    end
+
     if event == "ADDON_LOADED" and arg1 == addonName then
         OdysseusDB = OdysseusDB or {}
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}

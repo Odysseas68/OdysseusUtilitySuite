@@ -4,6 +4,7 @@
 local addonName, OUS = ...
 local f = CreateFrame("Frame")
 local Session = OUS.XPBarSession
+local cachedRestXP = 0
 local xpBar = OUS.xpBarFrame
 local delveBar = OUS.delveBarFrame
 local toast = OUS.toastFrame
@@ -69,6 +70,14 @@ function OUS.ApplyDimensions()
     local innerHeight = ((db.delveBarHeight or 40) - 2) / 2
     delveBar.compBar:SetSize((db.delveBarWidth or 300) - 2, innerHeight)
     delveBar.jourBar:SetSize((db.delveBarWidth or 300) - 2, innerHeight)
+end
+
+function OUS.ApplyXPBarBg()
+    if not OdysseusDB or not OdysseusDB.xpBar then return end
+    local c = OdysseusDB.xpBar.bgColor
+    if c then
+        xpBar.bg:SetColorTexture(c.r, c.g, c.b, 0.8)
+    end
 end
 
 function OUS.FadeBarsTo(targetAlpha)
@@ -473,7 +482,7 @@ end
 
 local function RenderXPBar(db, playerLevel, maxExpansionLevel)
     local curXP, maxXP = UnitXP("player"), UnitXPMax("player")
-    local restXP = GetXPExhaustion() or 0
+    local restXP = cachedRestXP
     local killsToLevel = "?"
 
     if Session.lastXPGain > 0 then
@@ -595,6 +604,7 @@ f:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 f:RegisterEvent("SCENARIO_UPDATE")
 f:RegisterEvent("UPDATE_INSTANCE_INFO")
 f:RegisterEvent("PLAYER_XP_UPDATE")
+f:RegisterEvent("UPDATE_EXHAUSTION")
 f:RegisterEvent("UPDATE_FACTION")
 f:RegisterEvent("PLAYER_REGEN_DISABLED")
 f:RegisterEvent("PLAYER_REGEN_ENABLED")
@@ -642,6 +652,7 @@ local function HandleAddonLoaded(loadedAddonName)
 
     OUS.ApplyDimensions()
     OUS.ApplyXPBarBorders()
+    OUS.ApplyXPBarBg()
 
     Session.sessionXP = 0
     Session.lastXPGain = 0
@@ -797,6 +808,10 @@ f:SetScript("OnEvent", function(self, event, arg1)
         HandleScenarioOrGroupUpdate()
 
     elseif event == "PLAYER_XP_UPDATE" then
+        HandleXPUpdate()
+
+    elseif event == "UPDATE_EXHAUSTION" then
+        cachedRestXP = (GetXPExhaustion and GetXPExhaustion()) or 0
         HandleXPUpdate()
 
     elseif event == "UPDATE_FACTION" then
