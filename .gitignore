@@ -16,6 +16,7 @@ CLAUDE.md
 # IDE and Editor Folders (Keeps your personal VS Code settings private)
 .vscode/
 .idea/
+.github/
 /Scripts/
 *.sublime-workspace
 *.code-workspace
