@@ -522,6 +522,7 @@ local function RenderXPBar(db, playerLevel, maxExpansionLevel)
     end
 
     xpBar.text:SetText(parsedText)
+    if xpBar.rewardIcon then xpBar.rewardIcon:Hide() end
     xpBar:Show()
 end
 
@@ -563,11 +564,23 @@ local function RenderReputationBar(db, targetFactionID)
         info.isMaxed
     )
 
-    if info.hasRewardPending then
-        repText = repText .. " |TInterface\\Icons\\UI-LFG-Loot-Bag:16:16:0:0|t"
+    xpBar.text:SetText(repText)
+
+    -- Lazy-create the reward icon once, then show/hide each render
+    if not xpBar.rewardIcon then
+        xpBar.rewardIcon = xpBar:CreateTexture(nil, "OVERLAY")
+        xpBar.rewardIcon:SetSize(16, 16)
+        xpBar.rewardIcon:SetAtlas("levelup-icon-bag")
+        xpBar.rewardIcon:SetPoint("RIGHT", xpBar, "RIGHT", -5, 0)
+        xpBar.rewardIcon:SetVertexColor(1, 0.85, 0)
     end
 
-    xpBar.text:SetText(repText)
+    if info.hasRewardPending then
+        xpBar.rewardIcon:Show()
+    else
+        xpBar.rewardIcon:Hide()
+    end
+
     xpBar:Show()
 end
 

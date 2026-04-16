@@ -350,17 +350,16 @@ local function UpdateCustomFlightTooltip()
     if GameTooltip and GameTooltip:IsShown() then
         mapTooltip:SetPoint("TOP", GameTooltip, "BOTTOM", 0, -2)
     else
-        mapTooltip:SetPoint("TOP", UIParent, "CENTER", 0, -80)
+        local scale = UIParent:GetEffectiveScale()
+        local x, y = GetCursorPosition()
+        mapTooltip:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x / scale + 10, y / scale + 10)
     end
 
     mapTooltip:Show()
 end
 
-hooksecurefunc(GameTooltip, "Show", function()
-    UpdateCustomFlightTooltip()
-end)
-
--- mapTooltip is hidden via TAXIMAP_CLOSED / PLAYER_LOGIN events (see section 6).
+hooksecurefunc("TaxiNodeOnButtonEnter", function() UpdateCustomFlightTooltip() end)
+hooksecurefunc("TaxiNodeOnButtonLeave", function() mapTooltip:Hide() end)
 
 -- ==========================================
 -- 5. FLIGHT DETECTION & TIMER UPDATE

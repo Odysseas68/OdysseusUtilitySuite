@@ -305,199 +305,239 @@ local favScrollChild = CreateFrame("Frame")
 favScroll:SetScrollChild(favScrollChild)
 local favRows = {}
 
+-- Section header for the pending rewards section, created once and repositioned each refresh
+local favPendingHeader = favScrollChild:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+favPendingHeader:SetFont("Fonts\\FRIZQT__.TTF", 11, "OUTLINE")
+favPendingHeader:SetJustifyH("LEFT")
+favPendingHeader:SetTextColor(1, 0.85, 0)
+favPendingHeader:SetText("|A:levelup-icon-bag:13:13|a Pending Rewards")
+favPendingHeader:Hide()
+
+-- Builds and places a single hover row at the given pool index and yOffset.
+-- Returns the row frame (created lazily).
+local function BuildHoverRow(index, data, info, yOffset)
+    local row = favRows[index]
+    if not row then
+        row = CreateFrame("Button", nil, favScrollChild, "BackdropTemplate")
+        row:SetSize(340, 26)
+        row:RegisterForClicks("AnyUp")
+        row:SetBackdrop({ bgFile = "Interface\\ChatFrame\\ChatFrameBackground", edgeFile = "Interface\\Buttons\\WHITE8x8", tile = false, edgeSize = 1, insets = { left = 0, right = 0, top = 0, bottom = 0 }})
+        row:SetBackdropColor(0, 0, 0, 0.4)
+        row:SetBackdropBorderColor(0.2, 0.2, 0.2, 1)
+
+        row.wbIcon = row:CreateTexture(nil, "OVERLAY")
+        row.wbIcon:SetSize(14, 14)
+        pcall(function() row.wbIcon:SetAtlas("warbands-icon") end)
+
+        row.facIcon = row:CreateTexture(nil, "OVERLAY")
+        row.facIcon:SetSize(16, 16)
+
+        row.bar = CreateFrame("StatusBar", nil, row)
+        row.bar:SetSize(100, 14)
+        row.bar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+
+        row.bar.bg = row.bar:CreateTexture(nil, "BACKGROUND")
+        row.bar.bg:SetAllPoints()
+        row.bar.bg:SetColorTexture(0.1, 0.1, 0.1, 0.8)
+
+        row.bar.txt = row.bar:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+        row.bar.txt:SetPoint("CENTER")
+        row.bar.txt:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+        row.bar:EnableMouse(false)
+
+        row.txt = row:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+        row.txt:SetJustifyH("LEFT")
+        row.txt:SetFont("Fonts\\FRIZQT__.TTF", 11, "OUTLINE")
+        row.txt:SetWordWrap(false)
+
+        -- Paragon reward pending indicator, shown to the right of the progress bar
+        row.rewardIcon = row:CreateTexture(nil, "OVERLAY")
+        row.rewardIcon:SetSize(16, 16)
+        row.rewardIcon:SetAtlas("levelup-icon-bag")
+        row.rewardIcon:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+        row.rewardIcon:Hide()
+
+        row:SetScript("OnEnter", function(self)
+            -- Stop the frame from closing while we look at a specific row tooltip
+            if Session.favTimer then
+                Session.favTimer:Cancel()
+                Session.favTimer = nil
+            end
+            self:SetBackdropColor(0.2, 0.15, 0.3, 0.8)
+            self:SetBackdropBorderColor(0.6, 0.2, 0.8, 1)
+            OUS.WakeBars()
+
+            local rInfo = GetFactionDetails(self.factionID)
+            if rInfo then
+                GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+                local iconStr = ""
+                if rInfo.textureKit then iconStr = "|A:UI-MajorFaction-"..rInfo.textureKit..":18:18|a " elseif rInfo.icon then iconStr = "|T"..rInfo.icon..":18:18:0:0|t " end
+                GameTooltip:SetText(iconStr .. rInfo.name, 0.6, 0.2, 0.8)
+                GameTooltip:AddLine(rInfo.standingText .. " - " .. OUS.FormatLargeNumber(rInfo.curRep) .. " / " .. OUS.FormatLargeNumber(rInfo.maxRep), 1, 1, 1)
+                if rInfo.hasRewardPending then GameTooltip:AddLine("Paragon Reward Ready!", 0, 1, 0) end
+                if rInfo.description and rInfo.description ~= "" then GameTooltip:AddLine(" "); GameTooltip:AddLine(rInfo.description, 0.8, 0.8, 0.8, true) end
+                GameTooltip:Show()
+            end
+        end)
+
+        row:SetScript("OnLeave", function(self)
+            self:SetBackdropColor(0, 0, 0, 0.4)
+            self:SetBackdropBorderColor(0.2, 0.2, 0.2, 1)
+            GameTooltip:Hide()
+
+            -- Re-arm the closing timer in case we slid off the edge of the row and out of the frame
+            if Session.favTimer then Session.favTimer:Cancel() end
+            Session.favTimer = C_Timer.NewTimer(0.2, function()
+                if not favFrame:IsMouseOver() and not xpBar:IsMouseOver() then
+                    favFrame:Hide()
+                    OUS.SleepBars()
+                end
+            end)
+        end)
+        favRows[index] = row
+    end
+
+    row.factionID = data.factionID
+    if data.isAccountWide then
+        row.wbIcon:SetPoint("LEFT", 5, 0)
+        row.wbIcon:Show()
+        row.facIcon:SetPoint("LEFT", row.wbIcon, "RIGHT", 4, 0)
+    else
+        row.wbIcon:Hide()
+        row.facIcon:SetPoint("LEFT", 5, 0)
+    end
+
+    if info.textureKit then
+        local s = pcall(function() row.facIcon:SetAtlas("UI-MajorFaction-" .. info.textureKit) end)
+        if not s then row.facIcon:SetTexture(info.icon) end
+    else
+        row.facIcon:SetTexture(info.icon)
+    end
+
+    row.txt:SetPoint("LEFT", row.facIcon, "RIGHT", 4, 0)
+    row.txt:SetText(info.name)
+    row.bar:SetMinMaxValues(0, info.maxRep)
+    row.bar:SetValue(info.curRep)
+
+    ApplyFactionBarColor(row.bar, info)
+    SetFactionBarText(row.bar.txt, info)
+
+    -- Reposition bar and show/hide reward icon based on paragon state
+    row.bar:ClearAllPoints()
+    if info.hasRewardPending then
+        row.bar:SetPoint("RIGHT", row.rewardIcon, "LEFT", -3, 0)
+        row.rewardIcon:SetVertexColor(1, 0.85, 0)
+        row.rewardIcon:Show()
+    else
+        row.bar:SetPoint("RIGHT", row, "RIGHT", -5, 0)
+        row.rewardIcon:Hide()
+    end
+
+    row:SetScript("OnClick", function(self, button)
+        if button == "RightButton" then
+            local fData = OUS.FactionData and OUS.FactionData[self.factionID]
+            if fData and fData.rewardNPC and fData.rewardNPC.mapID > 0 then
+                local npc = fData.rewardNPC
+                if TomTom and TomTom.AddWaypoint then TomTom:AddWaypoint(npc.mapID, npc.x/100, npc.y/100, { title = "Quartermaster", persistent = false, minimap = true, world = true }) end
+                if C_Map.CanSetUserWaypointOnMap(npc.mapID) then
+                    C_Map.ClearUserWaypoint()
+                    local pt = UiMapPoint.CreateFromCoordinates(npc.mapID, npc.x/100, npc.y/100)
+                    C_Map.SetUserWaypoint(pt)
+                    C_SuperTrack.SetSuperTrackedUserWaypoint(true)
+                    PlaySound(SOUNDKIT.UI_MAP_WAYPOINT_CHAT_WIDGET_CLICK)
+                    print("|cFF00FF00Odysseus:|r Waypoint set for Quartermaster!")
+                else
+                    print("|cFFFF0000Odysseus:|r Map API rejected the pin. Map ID " .. npc.mapID .. " might be invalid or instanced.")
+                end
+            else
+                print("|cFF00FFFFOdysseus:|r No location data saved for this faction.")
+            end
+        else
+            local cIndex = nil
+            for j = 1, C_Reputation.GetNumFactions() do
+                local d = C_Reputation.GetFactionDataByIndex(j)
+                if d and d.factionID == data.factionID then cIndex = j; break end
+            end
+            if cIndex then
+                C_Reputation.SetWatchedFactionByIndex(cIndex)
+                Session.forceRepDisplay = false
+                if OUS.UpdateBar then OUS.UpdateBar() end
+                favFrame:Hide()
+            end
+        end
+    end)
+
+    row:ClearAllPoints()
+    row:SetPoint("TOPLEFT", 0, -yOffset)
+    row:Show()
+    return row
+end
+
 -- ==========================================
 -- 5. HOVER DASHBOARD RENDERING
 -- ==========================================
 local function RefreshHoverFavorites()
     if not OdysseusDB or not OdysseusDB.xpBar.favFactions then return end
     for _, row in pairs(favRows) do row:Hide() end
+    favPendingHeader:Hide()
 
-    local favList = {}
-    for fid, isFav in pairs(OdysseusDB.xpBar.favFactions) do
-        if isFav then table.insert(favList, fid) end
-    end
+    if not C_Reputation or not C_Reputation.GetNumFactions then return end
 
-    if #favList == 0 then return end
-
-    table.sort(favList, function(a, b)
-        local da = C_Reputation.GetFactionDataByID(a)
-        local db = C_Reputation.GetFactionDataByID(b)
-        return (da and da.name or "") < (db and db.name or "")
-    end)
-
+    -- ---- Section 1: Favorited factions, preserving original faction list order ----
     local yOffset = 0
     local index = 1
 
-    if C_Reputation and C_Reputation.GetNumFactions then
-        for i = 1, C_Reputation.GetNumFactions() do
-            local data = C_Reputation.GetFactionDataByIndex(i)
-            if data and OdysseusDB.xpBar.favFactions[data.factionID] then
-                if not (data.isHeader and not data.isHeaderWithRep) then
-                    local info = GetFactionDetails(data.factionID)
-                    if info then
-                        local row = favRows[index]
-                        if not row then
-                            row = CreateFrame("Button", nil, favScrollChild, "BackdropTemplate")
-                            row:SetSize(340, 26)
-                            row:RegisterForClicks("AnyUp")
-                            row:SetBackdrop({ bgFile = "Interface\\ChatFrame\\ChatFrameBackground", edgeFile = "Interface\\Buttons\\WHITE8x8", tile = false, edgeSize = 1, insets = { left = 0, right = 0, top = 0, bottom = 0 }})
-                            row:SetBackdropColor(0, 0, 0, 0.4)
-                            row:SetBackdropBorderColor(0.2, 0.2, 0.2, 1)
-
-                            row.wbIcon = row:CreateTexture(nil, "OVERLAY")
-                            row.wbIcon:SetSize(14, 14)
-                            pcall(function() row.wbIcon:SetAtlas("warbands-icon") end)
-
-                            row.facIcon = row:CreateTexture(nil, "OVERLAY")
-                            row.facIcon:SetSize(16, 16)
-
-                            row.bar = CreateFrame("StatusBar", nil, row)
-                            row.bar:SetSize(100, 14)
-                            row.bar:SetPoint("RIGHT", -5, 0)
-                            row.bar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-
-                            row.bar.bg = row.bar:CreateTexture(nil, "BACKGROUND")
-                            row.bar.bg:SetAllPoints()
-                            row.bar.bg:SetColorTexture(0.1, 0.1, 0.1, 0.8)
-
-                            row.bar.txt = row.bar:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-                            row.bar.txt:SetPoint("CENTER")
-                            row.bar.txt:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
-                            row.bar:EnableMouse(false)
-
-                            row.txt = row:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-                            row.txt:SetJustifyH("LEFT")
-                            row.txt:SetFont("Fonts\\FRIZQT__.TTF", 11, "OUTLINE")
-                            row.txt:SetPoint("RIGHT", row.bar, "LEFT", -5, 0)
-                            row.txt:SetWordWrap(false)
-
-                            -- Paragon reward pending indicator, shown to the right of the progress bar
-                            row.rewardIcon = row:CreateTexture(nil, "OVERLAY")
-                            row.rewardIcon:SetSize(16, 16)
-                            row.rewardIcon:SetTexture("Interface\\Buttons\\UI-GuildButton-PublicNote-Up")
-                            row.rewardIcon:SetPoint("RIGHT", row, "RIGHT", -2, 0)
-                            row.rewardIcon:Hide()
-
-                            row:SetScript("OnEnter", function(self)
-                                -- Stop the frame from closing while we look at a specific row tooltip
-                                if Session.favTimer then
-                                    Session.favTimer:Cancel()
-                                    Session.favTimer = nil
-                                end
-                                self:SetBackdropColor(0.2, 0.15, 0.3, 0.8)
-                                self:SetBackdropBorderColor(0.6, 0.2, 0.8, 1)
-                                OUS.WakeBars()
-
-                                local rInfo = GetFactionDetails(self.factionID)
-                                if rInfo then
-                                    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-                                    local iconStr = ""
-                                    if rInfo.textureKit then iconStr = "|A:UI-MajorFaction-"..rInfo.textureKit..":18:18|a " elseif rInfo.icon then iconStr = "|T"..rInfo.icon..":18:18:0:0|t " end
-                                    GameTooltip:SetText(iconStr .. rInfo.name, 0.6, 0.2, 0.8)
-                                    GameTooltip:AddLine(rInfo.standingText .. " - " .. OUS.FormatLargeNumber(rInfo.curRep) .. " / " .. OUS.FormatLargeNumber(rInfo.maxRep), 1, 1, 1)
-                                    if rInfo.hasRewardPending then GameTooltip:AddLine("Paragon Reward Ready!", 0, 1, 0) end
-                                    if rInfo.description and rInfo.description ~= "" then GameTooltip:AddLine(" "); GameTooltip:AddLine(rInfo.description, 0.8, 0.8, 0.8, true) end
-                                    GameTooltip:Show()
-                                end
-                            end)
-
-                            row:SetScript("OnLeave", function(self)
-                                self:SetBackdropColor(0, 0, 0, 0.4)
-                                self:SetBackdropBorderColor(0.2, 0.2, 0.2, 1)
-                                GameTooltip:Hide()
-
-                                -- Re-arm the closing timer in case we slid off the edge of the row and out of the frame
-                                if Session.favTimer then Session.favTimer:Cancel() end
-                                Session.favTimer = C_Timer.NewTimer(0.2, function()
-                                    if not favFrame:IsMouseOver() and not xpBar:IsMouseOver() then
-                                        favFrame:Hide()
-                                        OUS.SleepBars()
-                                    end
-                                end)
-                            end)
-                            favRows[index] = row
-                        end
-
-                        row.factionID = data.factionID
-                        if data.isAccountWide then
-                            row.wbIcon:SetPoint("LEFT", 5, 0)
-                            row.wbIcon:Show()
-                            row.facIcon:SetPoint("LEFT", row.wbIcon, "RIGHT", 4, 0)
-                        else
-                            row.wbIcon:Hide()
-                            row.facIcon:SetPoint("LEFT", 5, 0)
-                        end
-
-                        if info.textureKit then
-                            local s = pcall(function() row.facIcon:SetAtlas("UI-MajorFaction-" .. info.textureKit) end)
-                            if not s then row.facIcon:SetTexture(info.icon) end
-                        else
-                            row.facIcon:SetTexture(info.icon)
-                        end
-
-                        row.txt:SetPoint("LEFT", row.facIcon, "RIGHT", 4, 0)
-                        row.txt:SetText(info.name)
-                        row.bar:SetMinMaxValues(0, info.maxRep)
-                        row.bar:SetValue(info.curRep)
-
-                        ApplyFactionBarColor(row.bar, info)
-                        SetFactionBarText(row.bar.txt, info)
-
-                        -- Reposition bar and show/hide reward icon based on paragon state
-                        row.bar:ClearAllPoints()
-                        if info.hasRewardPending then
-                            row.bar:SetPoint("RIGHT", row.rewardIcon, "LEFT", -3, 0)
-                            row.rewardIcon:SetVertexColor(1, 0.85, 0)
-                            row.rewardIcon:Show()
-                        else
-                            row.bar:SetPoint("RIGHT", row, "RIGHT", -5, 0)
-                            row.rewardIcon:Hide()
-                        end
-
-                        row:SetScript("OnClick", function(self, button)
-                            if button == "RightButton" then
-                                local fData = OUS.FactionData and OUS.FactionData[self.factionID]
-                                if fData and fData.rewardNPC and fData.rewardNPC.mapID > 0 then
-                                    local npc = fData.rewardNPC
-                                    if TomTom and TomTom.AddWaypoint then TomTom:AddWaypoint(npc.mapID, npc.x/100, npc.y/100, { title = "Quartermaster", persistent = false, minimap = true, world = true }) end
-                                    if C_Map.CanSetUserWaypointOnMap(npc.mapID) then
-                                        C_Map.ClearUserWaypoint()
-                                        local pt = UiMapPoint.CreateFromCoordinates(npc.mapID, npc.x/100, npc.y/100)
-                                        C_Map.SetUserWaypoint(pt)
-                                        C_SuperTrack.SetSuperTrackedUserWaypoint(true)
-                                        PlaySound(SOUNDKIT.UI_MAP_WAYPOINT_CHAT_WIDGET_CLICK)
-                                        print("|cFF00FF00Odysseus:|r Waypoint set for Quartermaster!")
-                                    else
-                                        print("|cFFFF0000Odysseus:|r Map API rejected the pin. Map ID " .. npc.mapID .. " might be invalid or instanced.")
-                                    end
-                                else
-                                    print("|cFF00FFFFOdysseus:|r No location data saved for this faction.")
-                                end
-                            else
-                                local cIndex = nil
-                                for j = 1, C_Reputation.GetNumFactions() do
-                                    local d = C_Reputation.GetFactionDataByIndex(j)
-                                    if d and d.factionID == data.factionID then cIndex = j; break end
-                                end
-                                if cIndex then
-                                    C_Reputation.SetWatchedFactionByIndex(cIndex)
-                                    Session.forceRepDisplay = false
-                                    if OUS.UpdateBar then OUS.UpdateBar() end
-                                    favFrame:Hide()
-                                end
-                            end
-                        end)
-
-                        row:ClearAllPoints()
-                        row:SetPoint("TOPLEFT", 0, -yOffset)
-                        row:Show()
-                        yOffset = yOffset + 28
-                        index = index + 1
-                    end
+    for i = 1, C_Reputation.GetNumFactions() do
+        local data = C_Reputation.GetFactionDataByIndex(i)
+        if data and OdysseusDB.xpBar.favFactions[data.factionID] then
+            if not (data.isHeader and not data.isHeaderWithRep) then
+                local info = GetFactionDetails(data.factionID)
+                if info then
+                    BuildHoverRow(index, data, info, yOffset)
+                    yOffset = yOffset + 28
+                    index = index + 1
                 end
             end
         end
     end
+
+    -- ---- Section 2: All factions with a pending paragon reward ----
+    -- Collect pending factions not already shown as a favorite
+    local pendingList = {}
+    for i = 1, C_Reputation.GetNumFactions() do
+        local data = C_Reputation.GetFactionDataByIndex(i)
+        if data and not (data.isHeader and not data.isHeaderWithRep) then
+            local info = GetFactionDetails(data.factionID)
+            if info and info.hasRewardPending then
+                table.insert(pendingList, { data = data, info = info })
+            end
+        end
+    end
+    table.sort(pendingList, function(a, b) return a.data.name < b.data.name end)
+
+    if #pendingList > 0 then
+        -- Place the section header at the current yOffset
+        favPendingHeader:ClearAllPoints()
+        -- Add a small gap above the header only when there were favorites above it
+        local headerTop = (index > 1) and (yOffset + 6) or yOffset
+        favPendingHeader:SetPoint("TOPLEFT", 4, -headerTop)
+        favPendingHeader:Show()
+        yOffset = headerTop + 18
+
+        for _, entry in ipairs(pendingList) do
+            BuildHoverRow(index, entry.data, entry.info, yOffset)
+            yOffset = yOffset + 28
+            index = index + 1
+        end
+    end
+
+    -- Nothing at all to show — leave the frame hidden (caller decides visibility)
+    if index == 1 then
+        favScrollChild:SetSize(340, 0)
+        favFrame:SetHeight(80)
+        return
+    end
+
     favScrollChild:SetSize(340, yOffset)
     favFrame:SetHeight(math.min(400, math.max(80, yOffset + 40)))
 end
@@ -530,14 +570,25 @@ end)
 xpBar:HookScript("OnEnter", function()
     OUS.WakeBars()
     RefreshHoverFavorites()
-    local hasFavs = false
+
+    -- Show the frame when there is anything to display (favorites or pending rewards)
+    local hasContent = false
     if OdysseusDB and OdysseusDB.xpBar.favFactions then
-        for k, v in pairs(OdysseusDB.xpBar.favFactions) do
-            if v then hasFavs = true; break end
+        for _, v in pairs(OdysseusDB.xpBar.favFactions) do
+            if v then hasContent = true; break end
+        end
+    end
+    if not hasContent and C_Reputation and C_Reputation.GetNumFactions then
+        for i = 1, C_Reputation.GetNumFactions() do
+            local data = C_Reputation.GetFactionDataByIndex(i)
+            if data and not (data.isHeader and not data.isHeaderWithRep) then
+                local info = GetFactionDetails(data.factionID)
+                if info and info.hasRewardPending then hasContent = true; break end
+            end
         end
     end
 
-    if hasFavs then
+    if hasContent then
         favFrame:ClearAllPoints()
         local point = OdysseusDB.xpBar.xpBarPos.p or "BOTTOM"
         if string.find(point, "BOTTOM") then
