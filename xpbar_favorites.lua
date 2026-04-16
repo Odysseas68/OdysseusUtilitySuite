@@ -371,6 +371,13 @@ local function RefreshHoverFavorites()
                             row.txt:SetPoint("RIGHT", row.bar, "LEFT", -5, 0)
                             row.txt:SetWordWrap(false)
 
+                            -- Paragon reward pending indicator, shown to the right of the progress bar
+                            row.rewardIcon = row:CreateTexture(nil, "OVERLAY")
+                            row.rewardIcon:SetSize(16, 16)
+                            row.rewardIcon:SetTexture("Interface\\Buttons\\UI-GuildButton-PublicNote-Up")
+                            row.rewardIcon:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+                            row.rewardIcon:Hide()
+
                             row:SetScript("OnEnter", function(self)
                                 -- Stop the frame from closing while we look at a specific row tooltip
                                 if Session.favTimer then
@@ -435,6 +442,17 @@ local function RefreshHoverFavorites()
 
                         ApplyFactionBarColor(row.bar, info)
                         SetFactionBarText(row.bar.txt, info)
+
+                        -- Reposition bar and show/hide reward icon based on paragon state
+                        row.bar:ClearAllPoints()
+                        if info.hasRewardPending then
+                            row.bar:SetPoint("RIGHT", row.rewardIcon, "LEFT", -3, 0)
+                            row.rewardIcon:SetVertexColor(1, 0.85, 0)
+                            row.rewardIcon:Show()
+                        else
+                            row.bar:SetPoint("RIGHT", row, "RIGHT", -5, 0)
+                            row.rewardIcon:Hide()
+                        end
 
                         row:SetScript("OnClick", function(self, button)
                             if button == "RightButton" then
