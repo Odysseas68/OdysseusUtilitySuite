@@ -2,6 +2,14 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-04-19] - Flightmaster & Delves bar
+
+### Fixed
+- **Flightmaster**: Fix tooltip persisting after mouse-off and spurious show after delve exit.
+
+- **Delves bar**: Fix bar hiding after final boss, sticky companion detection,
+    add Alt+Click debug info, correct Midnight Valeera delve IDs
+
 ## [2026-04-15] - Code Quality & XP Bar
 
 ### Fixed
