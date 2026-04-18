@@ -12,12 +12,15 @@ gemini-notes.txt
 chatgpt_notes.txt
 flightdata.lua.bak
 CLAUDE.md
+AGENTS.md
+wow-dev-mcp.cmd
 
 # IDE and Editor Folders (Keeps your personal VS Code settings private)
 .vscode/
 .idea/
 .github/
 .claude/
+.agents/
 /Scripts/
 *.sublime-workspace
 *.code-workspace

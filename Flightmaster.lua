@@ -174,6 +174,11 @@ end)
 -- ==========================================
 -- 4. THE CUSTOM MAP TOOLTIP & LOOKUP
 -- ==========================================
+
+-- Tracks whether the taxi map is genuinely open, set by TAXIMAP_OPENED/CLOSED.
+-- Guards against spurious TAXIMAP_OPENED fires during instance exit cleanup.
+local taxiMapOpen = false
+
 local mapTooltip = CreateFrame("Frame", "OdysseusMapTooltip", UIParent, "BackdropTemplate")
 mapTooltip:SetFrameStrata("TOOLTIP")
 mapTooltip:SetSize(180, 65)
@@ -257,8 +262,7 @@ local function UpdateCustomFlightTooltip()
         return
     end
 
-    local flightMapOpen = (FlightMapFrame and FlightMapFrame:IsShown()) or (TaxiFrame and TaxiFrame:IsShown())
-    if not flightMapOpen then
+    if not taxiMapOpen then
         mapTooltip:Hide()
         return
     end
@@ -358,8 +362,15 @@ local function UpdateCustomFlightTooltip()
     mapTooltip:Show()
 end
 
-hooksecurefunc("TaxiNodeOnButtonEnter", function() UpdateCustomFlightTooltip() end)
-hooksecurefunc("TaxiNodeOnButtonLeave", function() mapTooltip:Hide() end)
+hooksecurefunc(GameTooltip, "Show", function()
+    UpdateCustomFlightTooltip()
+end)
+
+hooksecurefunc(GameTooltip, "Hide", function()
+    if taxiMapOpen then
+        mapTooltip:Hide()
+    end
+end)
 
 -- ==========================================
 -- 5. FLIGHT DETECTION & TIMER UPDATE
@@ -472,12 +483,13 @@ f:SetScript("OnEvent", function(_, event, arg1)
     end
 
     if event == "TAXIMAP_CLOSED" then
+        taxiMapOpen = false
         mapTooltip:Hide()
         return
     end
 
     if event == "TAXIMAP_OPENED" then
-        UpdateCustomFlightTooltip()
+        taxiMapOpen = true
         return
     end
 

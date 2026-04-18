@@ -5,28 +5,64 @@ local addonName, OUS = ...
 local Session = OUS.XPBarSession
 local delveBar = OUS.delveBarFrame
 
+-- Alt+Left-click either bar to print delve debug info to chat.
+local function DelveBarClickHandler(_, button)
+    if button == "LeftButton" and IsAltKeyDown() then
+        local _, _, _, _, _, _, _, iID = GetInstanceInfo()
+        local uiMap = C_Map.GetBestMapForUnit("player")
+        print(string.format("|cFF00CCFFOdysseus Delve Debug:|r iID: %s | uiMap: %s | companion: %s",
+            tostring(iID), tostring(uiMap), tostring(Session.activeDelveCompanion)))
+    end
+end
+
+delveBar.compBar:EnableMouse(true)
+delveBar.compBar:SetScript("OnMouseUp", DelveBarClickHandler)
+delveBar.jourBar:EnableMouse(true)
+delveBar.jourBar:SetScript("OnMouseUp", DelveBarClickHandler)
+
 -- ==========================================
 -- 2. DELVES HELPERS
 -- ==========================================
-local function GetActiveDelveCompanion()
-    if not OdysseusDB then return "Companion", 2640 end
-    local _, _, _, _, _, _, _, instanceID = GetInstanceInfo()
-    local uiMapID = C_Map.GetBestMapForUnit("player") or 0
 
-    if (instanceID and instanceID >= 2800) or (uiMapID >= 2350) then
-        return "Valeera Sanguinar", OdysseusDB.xpBar.delveValeeraID or 2744
-    else
-        return "Brann Bronzebeard", OdysseusDB.xpBar.delveBrannID or 2640
-    end
-end
+-- Midnight-expansion delves that use Valeera Sanguinar as companion.
+local VALEERA_INSTANCE_IDS = {
+    [2933] = true, -- Collegiate Calamity
+    [2952] = true, -- The Shadow Enclave
+    [2953] = true, -- Parhelion Plaza
+    [2961] = true, -- Twilight Crypts
+    [2962] = true, -- Atal'Aman
+    [2963] = true, -- The Grudge Pit
+    [2964] = true, -- The Gulf of Memory
+    [2965] = true, -- Sunkiller Sanctum
+    [2966] = true, -- Torment's Rise
+    [2979] = true, -- Shadowguard Point
+    [3003] = true, -- The Darkway
+}
+local VALEERA_MAP_IDS = {
+    [2933] = true, -- Collegiate Calamity
+    [2952] = true, -- The Shadow Enclave
+    [2953] = true, -- Parhelion Plaza
+    [2961] = true, -- Twilight Crypts
+    [2962] = true, -- Atal'Aman
+    [2963] = true, -- The Grudge Pit
+    [2964] = true, -- The Gulf of Memory
+    [2965] = true, -- Sunkiller Sanctum
+    [2966] = true, -- Torment's Rise
+    [2979] = true, -- Shadowguard Point
+    [3003] = true, -- The Darkway
+}
+
+-- Delves that fall above the Valeera thresholds but actually use Brann.
+local BRANN_EXCEPTION_INSTANCE_IDS = { [2951]=true }
+local BRANN_EXCEPTION_MAP_IDS      = { [2484]=true }
 
 local function IsPlayerInDelve()
     if Session.isTestingDelve then
         return true
     end
 
-    local inInstance, instanceType = IsInInstance()
-    local name, _, difficultyID, _, _, _, _, instanceID = GetInstanceInfo()
+    local _, instanceType = IsInInstance()
+    local _, _, difficultyID, _, _, _, _, instanceID = GetInstanceInfo()
     local uiMapID = C_Map.GetBestMapForUnit("player") or 0
 
     -- Primary signal
@@ -36,7 +72,7 @@ local function IsPlayerInDelve()
 
     -- Fallback: still physically inside a delve scenario even after the boss
     -- has died and Blizzard has already ended the "in progress" flag.
-    if inInstance and instanceType == "scenario" then
+    if instanceType == "scenario" then
         -- Delves currently report difficulty 208 in your test and use delve maps/instances.
         if difficultyID == 208 then
             return true
@@ -49,6 +85,39 @@ local function IsPlayerInDelve()
     end
 
     return false
+end
+
+local function GetActiveDelveCompanion()
+    if not OdysseusDB then
+        return "Companion", 2640
+    end
+    local _, _, _, _, _, _, _, instanceID = GetInstanceInfo()
+    local uiMapID = C_Map.GetBestMapForUnit("player") or 0
+
+    -- Brann exceptions take priority over any whitelist check.
+    if BRANN_EXCEPTION_INSTANCE_IDS[instanceID] or BRANN_EXCEPTION_MAP_IDS[uiMapID] then
+        Session.activeDelveCompanion = "brann"
+        return "Brann Bronzebeard", OdysseusDB.xpBar.delveBrannID or 2640
+    end
+
+    if VALEERA_INSTANCE_IDS[instanceID] or VALEERA_MAP_IDS[uiMapID] then
+        Session.activeDelveCompanion = "valeera"
+        return "Valeera Sanguinar", OdysseusDB.xpBar.delveValeeraID or 2744
+    end
+
+    -- Sticky fallback: Blizzard may swap instance IDs after the final boss dies;
+    -- reuse the last known companion so the bar doesn't flip mid-delve.
+    if IsPlayerInDelve() then
+        if Session.activeDelveCompanion == "valeera" then
+            return "Valeera Sanguinar", OdysseusDB.xpBar.delveValeeraID or 2744
+        end
+        if Session.activeDelveCompanion == "brann" then
+            return "Brann Bronzebeard", OdysseusDB.xpBar.delveBrannID or 2640
+        end
+    end
+
+    Session.activeDelveCompanion = "brann"
+    return "Brann Bronzebeard", OdysseusDB.xpBar.delveBrannID or 2640
 end
 
 -- ==========================================
@@ -132,6 +201,7 @@ function OUS.UpdateDelveBar()
 
         delveBar:Show()
     else
+        Session.activeDelveCompanion = nil
         delveBar:Hide()
     end
 end
