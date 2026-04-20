@@ -435,8 +435,10 @@ local function ResolveTargetFactionID()
     end
 
     -- 1. Temporary rep-gain override always wins while active.
+    -- Only assign if found — factions in non-standard tabs (e.g. Journeys) won't be found, so fall through to steps 2/3 instead of blocking them with nil.
     if Session.forceRepDisplay and Session.lastGainedFactionName then
-        targetFactionID = FindFactionIDByName(Session.lastGainedFactionName)
+        local found = FindFactionIDByName(Session.lastGainedFactionName)
+        if found then targetFactionID = found end
     end
 
     -- 2. Normal watched faction should win during regular max-level display.
