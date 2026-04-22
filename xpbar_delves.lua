@@ -55,6 +55,15 @@ local VALEERA_MAP_IDS = {
 -- Delves that fall above the Valeera thresholds but actually use Brann.
 local BRANN_EXCEPTION_INSTANCE_IDS = { [2951]=true }
 local BRANN_EXCEPTION_MAP_IDS      = { [2484]=true }
+-- Instances that match delve heuristics but are NOT delves (e.g. PvP scenarios).
+local NON_DELVE_INSTANCE_IDS = {
+    [3022] = true, -- Decor Duel
+    [3074] = true, -- Eversong Woods Ritual Site
+}
+local NON_DELVE_MAP_IDS = {
+    [2537] = true, -- Decor Duel
+    [2594] = true, -- Eversong Woods Ritual Site
+}
 
 local function IsPlayerInDelve()
     if Session.isTestingDelve then
@@ -64,6 +73,11 @@ local function IsPlayerInDelve()
     local _, instanceType = IsInInstance()
     local _, _, difficultyID, _, _, _, _, instanceID = GetInstanceInfo()
     local uiMapID = C_Map.GetBestMapForUnit("player") or 0
+
+    -- Explicit exclusions: non-delve scenarios that match delve heuristics.
+    if NON_DELVE_INSTANCE_IDS[instanceID] or NON_DELVE_MAP_IDS[uiMapID] then
+        return false
+    end
 
     -- Primary signal
     if C_PartyInfo and C_PartyInfo.IsDelveInProgress and C_PartyInfo.IsDelveInProgress() then
