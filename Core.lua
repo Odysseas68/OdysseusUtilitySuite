@@ -41,7 +41,8 @@ f:SetScript("OnEvent", function(self, event, arg1)
             discoveredSpells = {},
             spyFilter = {},
         }
-        OdysseusDB.autoRemountChar = OdysseusDB.autoRemountChar or {
+        OdysseusCharDB = OdysseusCharDB or {}
+        OdysseusCharDB.autoRemountChar = OdysseusCharDB.autoRemountChar or {
             mountID = nil,
         }
     end
@@ -104,7 +105,7 @@ function OUS.ResetAllSettings()
         debug = false,
         accountMountID = nil,
     }
-    OdysseusDB.autoRemountChar = { mountID = nil }
+    OdysseusCharDB.autoRemountChar = { mountID = nil }
 
     C_Timer.After(0.5, ReloadUI)
 end

@@ -1074,7 +1074,7 @@ local function CreateAutoRemountWidgets()
     clearCharBtn:SetPoint("LEFT", charMountText, "RIGHT", 10, 0)
     clearCharBtn:SetText("Clear")
     clearCharBtn:SetScript("OnClick", function()
-        OdysseusDB.autoRemountChar.mountID = nil
+        OdysseusCharDB.autoRemountChar.mountID = nil
         charMountText:SetText("|cFF888888None (using account or favourite)|r")
     end)
 
@@ -1111,7 +1111,7 @@ local function CreateAutoRemountWidgets()
         if _G["OdysseusARToggle_spyMode"] then _G["OdysseusARToggle_spyMode"]:SetChecked(false) end
         OdysseusDB.autoRemount.delay = 0.5
         OdysseusDB.autoRemount.accountMountID = nil
-        OdysseusDB.autoRemountChar.mountID = nil
+        OdysseusCharDB.autoRemountChar.mountID = nil
         if arDelaySlider then arDelaySlider:SetValue(0.5) end
         if arDelayBox then arDelayBox:SetText("0.5") end
         if _G["OdysseusARToggle_enabled"] then _G["OdysseusARToggle_enabled"]:SetChecked(true) end
@@ -1137,7 +1137,7 @@ tabs.AutoRemount:SetScript("OnShow", function()
         if _G["OdysseusARToggle_spyMode"] then _G["OdysseusARToggle_spyMode"]:SetChecked(OdysseusDB.autoRemount.spyMode) end
         -- Refresh mount name displays
         if arCharMountText then
-            local charID = OdysseusDB.autoRemountChar.mountID
+            local charID = OdysseusCharDB.autoRemountChar.mountID
             if charID then
                 local name = C_MountJournal.GetMountInfoByID(charID)
                 arCharMountText:SetText(name or "|cFFFF0000Unknown|r")

@@ -4,6 +4,7 @@
 ## Author: Odysseus
 ## Version: 1.0
 ## SavedVariables: OdysseusDB
+## SavedVariablesPerCharacter: OdysseusCharDB
 ## IconTexture: 133853
 ## AddonCompartmentFunc: Odysseus_ToggleConfig
 ## AddonCompartmentIcon: 133853

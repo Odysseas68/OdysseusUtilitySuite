@@ -119,7 +119,7 @@ end
 
 -- Resolves mount ID: character override → account → favourite (0).
 local function GetMountID()
-    local charDB = OdysseusDB.autoRemountChar
+    local charDB = OdysseusCharDB.autoRemountChar
     local db = OdysseusDB.autoRemount
     return charDB.mountID or db.accountMountID or 0
 end
@@ -406,7 +406,7 @@ end)
 
 local function PrintStatus()
     local db = OdysseusDB.autoRemount
-    local charDB = OdysseusDB.autoRemountChar
+    local charDB = OdysseusCharDB.autoRemountChar
 
     local charMount = "|cFF888888None|r"
     if charDB.mountID then
@@ -438,7 +438,7 @@ end
 
 function AR.SlashHandler(msg)
     local db = OdysseusDB.autoRemount
-    local charDB = OdysseusDB.autoRemountChar
+    local charDB = OdysseusCharDB.autoRemountChar
     local command, arg = msg:match("^(%S+)%s*(.*)$")
     if not command then command = "help" end
     command = command:lower()
