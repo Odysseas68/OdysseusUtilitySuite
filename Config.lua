@@ -1167,7 +1167,7 @@ ShowTab("General")
 -- ON-SCREEN HELP FRAME
 -- =====================================
 local helpFrame = CreateFrame("Frame", "OdysseusHelpFrame", UIParent, "BackdropTemplate")
-helpFrame:SetSize(350, 280)
+helpFrame:SetSize(380, 380)
 helpFrame:SetPoint("CENTER")
 helpFrame:SetFrameStrata("DIALOG")
 helpFrame:SetBackdrop({
@@ -1201,15 +1201,57 @@ helpFrame.title:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE")
 local helpCloseBtn = CreateFrame("Button", nil, helpFrame, "UIPanelCloseButton")
 helpCloseBtn:SetPoint("TOPRIGHT", helpFrame, "TOPRIGHT", -2, -2)
 
-local helpTextStr = helpFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-helpTextStr:SetPoint("TOPLEFT", 20, -45)
-helpTextStr:SetJustifyH("LEFT")
-helpTextStr:SetText(
-    "|cFF00FF00/ous|r - Open Main Configuration Panel\n\n" ..
-    "|cFF00FF00/ous help|r - Show This Window\n\n" ..
-    "|cFF00FF00/xpstats|r - Show Session XP & Rep Data\n\n" ..
-    "|cFF00FF00/toasttest|r - Test Popup (Hold Shift to Move!)\n\n" ..
-    "|cFF00FF00/delvetest|r - Toggle Fake Delve Bar\n\n" ..
-    "|cFF00FF00/delvedebug|r - Print Advanced Delve IDs\n\n" ..
-    "|cFF00FF00/ousdebug|r - Toggle Global Debug Mode"
-)
+local helpMsgFrame = CreateFrame("ScrollingMessageFrame", nil, helpFrame)
+helpMsgFrame:SetPoint("TOPLEFT", 14, -38)
+helpMsgFrame:SetPoint("BOTTOMRIGHT", -14, 10)
+helpMsgFrame:SetFontObject(GameFontNormalSmall)
+helpMsgFrame:SetJustifyH("LEFT")
+helpMsgFrame:SetFading(false)
+helpMsgFrame:SetMaxLines(200)
+
+local function AddHelpSection(title)
+    helpMsgFrame:AddMessage("|cFFAA88FF" .. title .. "|r")
+end
+
+local function AddHelpCmd(cmd, desc)
+    helpMsgFrame:AddMessage("|cFF00FF00" .. cmd .. "|r - " .. desc)
+end
+
+local function AddHelpLine(text)
+    helpMsgFrame:AddMessage("|cFF888888" .. text .. "|r")
+end
+
+-- Main
+AddHelpSection("— Main —")
+AddHelpCmd("/ous", "Open Main Configuration Panel")
+AddHelpCmd("/ous help", "Show This Window")
+AddHelpCmd("/ousdebug", "Toggle Global Debug Mode")
+AddHelpLine("")
+
+-- XP / Rep Bar
+AddHelpSection("— XP / Rep Bar —")
+AddHelpCmd("/xpstats", "Show Session XP & Rep Data")
+AddHelpCmd("/ousxp", "Toggle XP Bar")
+AddHelpCmd("/toasttest", "Test Reward Popup")
+AddHelpCmd("/delvetest", "Toggle Fake Delve Bar")
+AddHelpCmd("/delvedebug", "Print Advanced Delve IDs")
+AddHelpLine("")
+
+-- Auto Remount
+AddHelpSection("— Auto Remount —")
+AddHelpCmd("/ar mount <n>", "Set character mount")
+AddHelpCmd("/ar account <n>", "Set account-wide mount")
+AddHelpCmd("/ar reset", "Clear character mount override")
+AddHelpCmd("/ar reset account", "Clear account mount override")
+AddHelpCmd("/ar toggle", "Toggle on/off")
+AddHelpCmd("/ar druid", "Toggle druid form skip")
+AddHelpCmd("/ar delay <sec>", "Set remount delay (0.1-5.0)")
+AddHelpCmd("/ar silent", "Toggle error notifications")
+AddHelpCmd("/ar spy", "Toggle spy mode")
+AddHelpCmd("/ar spyfilter", "Manage spy filter blacklist")
+AddHelpCmd("/ar add <id>", "Add custom spell ID")
+AddHelpCmd("/ar remove <id>", "Remove custom spell ID")
+AddHelpCmd("/ar export", "Print custom spell IDs")
+AddHelpCmd("/ar wipe", "Clear custom spell IDs")
+AddHelpCmd("/ar status", "Show current settings")
+AddHelpCmd("/ar help", "Show all AR commands")
