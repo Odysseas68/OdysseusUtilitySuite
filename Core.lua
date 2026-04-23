@@ -25,9 +25,25 @@ f:SetScript("OnEvent", function(self, event, arg1)
         if OdysseusDB.modules.fasterLoot == nil then OdysseusDB.modules.fasterLoot = true end
         if OdysseusDB.modules.fishingTracker == nil then OdysseusDB.modules.fishingTracker = true end
         if OdysseusDB.modules.xpBar == nil then OdysseusDB.modules.xpBar = true end
+        if OdysseusDB.modules.autoRemount == nil then OdysseusDB.modules.autoRemount = true end
 
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}
         OdysseusDB.fishingSettings = OdysseusDB.fishingSettings or { history = {} }
+        OdysseusDB.autoRemount = OdysseusDB.autoRemount or {
+            enabled = true,
+            delay = 0.5,
+            silent = true,
+            skipDruid = true,
+            debug = false,
+            spyMode = false,
+            accountMountID = nil,
+            customSpells = {},
+            discoveredSpells = {},
+            spyFilter = {},
+        }
+        OdysseusDB.autoRemountChar = OdysseusDB.autoRemountChar or {
+            mountID = nil,
+        }
     end
 end)
 
@@ -53,6 +69,11 @@ function OUS.ResetAllSettings()
         fasterLoot = true,
         fishingTracker = true,
         xpBar = true,
+        autoRemount = true,
+        spyMode = false,
+        customSpells = {},
+        discoveredSpells = {},
+        spyFilter = {},
     }
 
     -- Reset Flight Master
@@ -73,6 +94,17 @@ function OUS.ResetAllSettings()
     else
         OdysseusDB.xpBar = OdysseusDB.xpBar or {}
     end
+
+    -- Reset AutoRemount
+    OdysseusDB.autoRemount = {
+        enabled = true,
+        delay = 0.5,
+        silent = true,
+        skipDruid = true,
+        debug = false,
+        accountMountID = nil,
+    }
+    OdysseusDB.autoRemountChar = { mountID = nil }
 
     C_Timer.After(0.5, ReloadUI)
 end
@@ -240,6 +272,14 @@ SlashCmdList["ODYSSEUS"] = function(msg)
         if OUS.ConfigFrame then
             if OUS.ConfigFrame:IsShown() then OUS.ConfigFrame:Hide() else OUS.ConfigFrame:Show() end
         end
+    end
+end
+
+SLASH_AUTOREMOUNT1 = "/ar"
+SLASH_AUTOREMOUNT2 = "/autoremount"
+SlashCmdList["AUTOREMOUNT"] = function(msg)
+    if OUS.AutoRemount and OUS.AutoRemount.SlashHandler then
+        OUS.AutoRemount.SlashHandler(msg)
     end
 end
 

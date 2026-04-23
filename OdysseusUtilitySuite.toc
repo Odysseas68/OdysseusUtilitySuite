@@ -26,6 +26,7 @@ Core.lua
 flightdata.lua
 xpbar_data.lua
 Odysseus_RoutingDB.lua
+AutoRemountSpells.lua
 
 # ==========================================
 # 4. MODULE ENGINES (The actual logic)
@@ -38,6 +39,7 @@ xpbar_engine.lua
 xpbar_delves.lua
 xpbar_favorites.lua
 FlightRouting.lua
+AutoRemount.lua
 
 # ==========================================
 # 5. CONFIGURATION UI (Loads last to attach to engines)

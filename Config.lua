@@ -206,6 +206,7 @@ tabs.FlightMaster = CreateFrame("Frame", nil, contentPanel)
 tabs.FasterLoot = CreateFrame("Frame", nil, contentPanel)
 tabs.Fishing = CreateFrame("Frame", nil, contentPanel)
 tabs.XPBar = CreateFrame("Frame", nil, contentPanel)
+tabs.AutoRemount = CreateFrame("Frame", nil, contentPanel)
 
 OUS.XPBarTab = tabs.XPBar
 
@@ -415,6 +416,7 @@ CreateNavButton("Flight Master", -45, "FlightMaster")
 CreateNavButton("Faster Loot", -80, "FasterLoot")
 CreateNavButton("Fishing Tracker", -115, "Fishing")
 CreateNavButton("Exp & Rep Bar", -150, "XPBar")
+CreateNavButton("Auto Remount", -185, "AutoRemount")
 
 StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE_ALL"] = {
     text = "Are you sure you want to reset ALL Odysseus settings to their defaults? This will require a UI reload and cannot be undone.",
@@ -1004,6 +1006,138 @@ tabs.Fishing:SetScript("OnShow", function()
         if alphaBox then alphaBox:SetText(alpha) end
     end
 end)
+
+-- =====================================
+-- TAB 6: AUTO REMOUNT
+-- =====================================
+local arWidgetsCreated = false
+local arDelaySlider, arDelayBox
+
+local function CreateAutoRemountWidgets()
+    if arWidgetsCreated then return end
+
+    CreateContentHeader(tabs.AutoRemount, -15, "Auto Remount Settings")
+
+    local function CreateARToggle(label, yOffset, dbKey)
+        local frameName = "OdysseusARToggle_" .. dbKey
+        local cb = CreateFrame("CheckButton", frameName, tabs.AutoRemount, "ChatConfigCheckButtonTemplate")
+        cb:SetPoint("TOPLEFT", 20, yOffset)
+        _G[cb:GetName().."Text"]:SetText(label)
+        cb:SetScript("OnShow", function(self)
+            if OdysseusDB and OdysseusDB.autoRemount then
+                self:SetChecked(OdysseusDB.autoRemount[dbKey])
+            end
+        end)
+        cb:SetScript("OnClick", function(self)
+            OdysseusDB.autoRemount[dbKey] = self:GetChecked()
+        end)
+        return cb
+    end
+
+    CreateARToggle(" Enable Auto Remount", -55, "enabled")
+    CreateARToggle(" Skip Druid Travel Form", -85, "skipDruid")
+    CreateARToggle(" Silent mode (suppress mount errors)", -115, "silent")
+    CreateARToggle(" Debug mode", -145, "debug")
+    CreateARToggle(" Spy mode (discover unknown gather spells)", -175, "spyMode")
+
+    -- Button to open the spy frame directly from config
+    local spyFrameBtn = CreateFrame("Button", nil, tabs.AutoRemount, "UIPanelButtonTemplate")
+    spyFrameBtn:SetSize(160, 24)
+    spyFrameBtn:SetPoint("TOPLEFT", 20, -205)
+    spyFrameBtn:SetText("Open Spy Frame")
+    spyFrameBtn:SetScript("OnClick", function()
+        if OUS.AutoRemount and OUS.AutoRemount.RefreshSpyFrame then
+            OUS.AutoRemount.RefreshSpyFrame()
+        end
+        local f = _G["OdysseusAutoRemountSpyFrame"]
+        if f then f:Show() end
+    end)
+
+    arDelaySlider, arDelayBox = OUS.CreatePremiumSlider(
+        tabs.AutoRemount, OdysseusDB.autoRemount,
+        "Remount Delay (sec)", -235, "delay", 0.1, 5.0, 0.1
+    )
+
+    -- Character mount display
+    local charMountLabel = tabs.AutoRemount:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    charMountLabel:SetPoint("TOPLEFT", 20, -295)
+    charMountLabel:SetText("Character Mount:")
+
+    local charMountText = tabs.AutoRemount:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    charMountText:SetPoint("TOPLEFT", 20, -310)
+    charMountText:SetTextColor(0.8, 0.8, 0.8)
+
+    local clearCharBtn = CreateFrame("Button", nil, tabs.AutoRemount, "UIPanelButtonTemplate")
+    clearCharBtn:SetSize(60, 22)
+    clearCharBtn:SetPoint("LEFT", charMountText, "RIGHT", 10, 0)
+    clearCharBtn:SetText("Clear")
+    clearCharBtn:SetScript("OnClick", function()
+        OdysseusDB.autoRemountChar.mountID = nil
+        charMountText:SetText("|cFF888888None (using account or favourite)|r")
+    end)
+
+    -- Account mount display
+    local acctMountLabel = tabs.AutoRemount:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    acctMountLabel:SetPoint("TOPLEFT", 20, -340)
+    acctMountLabel:SetText("Account Mount:")
+
+    local acctMountText = tabs.AutoRemount:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    acctMountText:SetPoint("TOPLEFT", 20, -355)
+    acctMountText:SetTextColor(0.8, 0.8, 0.8)
+
+    local clearAcctBtn = CreateFrame("Button", nil, tabs.AutoRemount, "UIPanelButtonTemplate")
+    clearAcctBtn:SetSize(60, 22)
+    clearAcctBtn:SetPoint("LEFT", acctMountText, "RIGHT", 10, 0)
+    clearAcctBtn:SetText("Clear")
+    clearAcctBtn:SetScript("OnClick", function()
+        OdysseusDB.autoRemount.accountMountID = nil
+        acctMountText:SetText("|cFF888888None (using favourite)|r")
+    end)
+
+    -- Reset defaults button
+    local resetBtn = CreateFrame("Button", nil, tabs.AutoRemount, "UIPanelButtonTemplate")
+    resetBtn:SetSize(120, 24)
+    resetBtn:SetPoint("BOTTOMRIGHT", -12, 12)
+    resetBtn:SetText("Reset Defaults")
+    resetBtn:SetScript("OnClick", function()
+        OdysseusDB.autoRemount.enabled = true
+        OdysseusDB.autoRemount.skipDruid = true
+        OdysseusDB.autoRemount.silent = true
+        OdysseusDB.autoRemount.debug = false
+        OdysseusDB.autoRemount.spyMode = false
+        if _G["OdysseusARToggle_spyMode"] then _G["OdysseusARToggle_spyMode"]:SetChecked(false) end
+        OdysseusDB.autoRemount.delay = 0.5
+        OdysseusDB.autoRemount.accountMountID = nil
+        OdysseusDB.autoRemountChar.mountID = nil
+        if arDelaySlider then arDelaySlider:SetValue(0.5) end
+        if arDelayBox then arDelayBox:SetText("0.5") end
+        if _G["OdysseusARToggle_enabled"] then _G["OdysseusARToggle_enabled"]:SetChecked(true) end
+        if _G["OdysseusARToggle_skipDruid"] then _G["OdysseusARToggle_skipDruid"]:SetChecked(true) end
+        if _G["OdysseusARToggle_silent"] then _G["OdysseusARToggle_silent"]:SetChecked(true) end
+        if _G["OdysseusARToggle_debug"] then _G["OdysseusARToggle_debug"]:SetChecked(false) end
+        charMountText:SetText("|cFF888888None (using account or favourite)|r")
+        acctMountText:SetText("|cFF888888None (using favourite)|r")
+        if OUS.LogDebug then OUS.LogDebug("AutoRemount", "Settings restored to default.") end
+    end)
+
+    arWidgetsCreated = true
+end
+
+tabs.AutoRemount:SetScript("OnShow", function()
+    CreateAutoRemountWidgets()
+
+    if OdysseusDB and OdysseusDB.autoRemount then
+        if _G["OdysseusARToggle_enabled"] then _G["OdysseusARToggle_enabled"]:SetChecked(OdysseusDB.autoRemount.enabled) end
+        if _G["OdysseusARToggle_skipDruid"] then _G["OdysseusARToggle_skipDruid"]:SetChecked(OdysseusDB.autoRemount.skipDruid) end
+        if _G["OdysseusARToggle_silent"] then _G["OdysseusARToggle_silent"]:SetChecked(OdysseusDB.autoRemount.silent) end
+        if _G["OdysseusARToggle_debug"] then _G["OdysseusARToggle_debug"]:SetChecked(OdysseusDB.autoRemount.debug) end
+        if _G["OdysseusARToggle_spyMode"] then _G["OdysseusARToggle_spyMode"]:SetChecked(OdysseusDB.autoRemount.spyMode) end
+        local delay = OdysseusDB.autoRemount.delay or 0.5
+        if arDelaySlider then arDelaySlider:SetValue(delay) end
+        if arDelayBox then arDelayBox:SetText(tostring(delay)) end
+    end
+end)
+
 cfg:SetScript("OnHide", function() dropDown:Hide() end)
 ShowTab("General")
 

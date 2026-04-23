@@ -20,6 +20,45 @@ Features include:
 
 ---
 
+### Auto Remount
+Automatically remounts after gathering herbs, mining ore, logging lumber, or any other loot-based interaction. Install and forget.
+
+Highlights:
+- spell ID database covering all gathering professions from Classic through Midnight
+- per-character and account-wide mount override
+- fallback to favourite mount when no override is set
+- druid Travel Form skip (toggleable)
+- silent mode to suppress mount error messages
+- safety checks: combat lockdown, flying, dead/ghost, dungeon/raid instance
+- no-loot fallback path for interactions without a loot window (e.g. trap disarm)
+- spy mode: discovers unknown gather spells confirmed by loot events
+  - combat spells automatically discarded — no false positives
+  - persistent discovered spell list across sessions
+  - spy frame with scrollable list, Copy All (DB-formatted), and Clear with confirmation
+- custom spell list for adding your own spell IDs
+- full slash command set via `/ar` and `/autoremount`
+
+Commands:
+- `/ar mount <name>` — set character mount
+- `/ar account <name>` — set account-wide mount
+- `/ar reset` — clear character mount override
+- `/ar reset account` — clear account mount override
+- `/ar toggle` — toggle on/off
+- `/ar enable` / `/ar disable` — explicit on/off
+- `/ar druid` — toggle druid form skip
+- `/ar delay <sec>` — set remount delay (0.1–5.0s)
+- `/ar silent` — toggle error notifications
+- `/ar spy` — toggle spy mode and show discovered spells frame
+- `/ar add <id>` — add custom spell ID
+- `/ar remove <id>` — remove custom spell ID
+- `/ar export` — print custom spell IDs for copy/paste
+- `/ar wipe` — clear all custom spell IDs
+- `/ar debug` — toggle debug mode
+- `/ar status` — show current settings
+- `/ar help` — show command list
+
+---
+
 ### Experience, Reputation & Delves Bar
 A modular tracking bar system for modern Retail progression.
 
@@ -56,7 +95,7 @@ Highlights:
 
 Notes:
 - the timer prefers learned saved timings first, then bundled database values
-- the addon keeps the standalone config frame; it does not replace Blizzard’s default taxi UI
+- the addon keeps the standalone config frame; it does not replace Blizzard's default taxi UI
 
 ---
 
@@ -111,6 +150,9 @@ Current tracking behavior:
 - `/ous` — open the main configuration window
 - `/ous help` — open the on-screen help window
 
+### Auto Remount
+- `/ar` / `/autoremount` — full command set (see Auto Remount section above)
+
 ### XP / Reputation
 - `/xpstats`
 - `/ousxp`
@@ -125,9 +167,11 @@ Current tracking behavior:
 
 ## Design Notes
 
-- Built for **WoW Retail**
+- Built for **WoW Retail 12.0+** (Midnight expansion)
 - Midnight-themed standalone configuration UI
 - Modular structure with minimal coupling between systems
+- Event-driven design — no polling loops or `OnUpdate` for state checks
+- No taint — never hooks or replaces protected Blizzard frames
 - Local script pipeline used for generated databases and maintenance tasks
 - Flight and faction helper scripts are local-development tools and are not required by end users
 
@@ -148,6 +192,7 @@ Current tracking behavior:
 
 ## Current Focus
 
-The addon is currently in an active refinement phase, with recent work focused on:
+The addon is in an active refinement and feature phase, with recent work focused on:
+- Auto Remount module with spy mode for discovering new gather spell IDs
 - Flight Master timing and route presentation
 - config UI polish and Midnight-theme improvements

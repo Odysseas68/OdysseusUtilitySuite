@@ -2,11 +2,32 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-04-23] - Auto Remount
+
+### Added
+- **Auto Remount**: New module that automatically remounts after gathering herbs, mining ore, or logging lumber.
+  - Spell ID database covering all gathering professions from Classic through Midnight (`AutoRemountSpells.lua`)
+  - Configurable remount delay (0.1–5.0 seconds)
+  - Per-character and account-wide mount override via `/ar mount` and `/ar account`
+  - Fallback to favourite mount when no override is set (`SummonByID(0)`)
+  - Druid Travel Form skip (toggleable)
+  - Silent mode to suppress mount error messages
+  - Safety checks: combat lockdown, flying, dead/ghost, dungeon/raid instance
+  - No-loot fallback path for interactions that don't open a loot window (e.g. trap disarm)
+  - **Spy mode** (`/ar spy`): tracks unknown spells that trigger loot windows and records them as potential gather spells
+    - Loot-confirmed only — combat spells are discarded on `PLAYER_REGEN_ENABLED`
+    - Persistent discovered spell list across sessions (`OdysseusDB.autoRemount.discoveredSpells`)
+    - Spy frame with scrollable list, Copy All (DB-formatted output), and Clear with confirmation
+  - Custom spell list (`/ar add` / `/ar remove` / `/ar export` / `/ar wipe`)
+  - New **Auto Remount** tab in `/ous` config panel with toggles, delay slider, mount display, and reset
+  - Full slash command set via `/ar` and `/autoremount`
+
+---
+
 ## [2026-04-19] - Flightmaster & Delves bar
 
 ### Fixed
 - **Flightmaster**: Fix tooltip persisting after mouse-off and spurious show after delve exit.
-
 - **Delves bar**: Fix bar hiding after final boss, sticky companion detection,
     add Alt+Click debug info, correct Midnight Valeera delve IDs
 
@@ -53,27 +74,23 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [2026-04-11] - Flight Master
 
-### Flightmaster
+### Fixed
 - Fixed custom flight-map tooltip errors by hardening taxi cost handling, switching the custom tooltip to a fixed safe width, and decoupling tooltip updates from Blizzard tooltip hide/show behavior.
 - Added a fallback anchor so the Odysseus Flightmaster tooltip remains visible even if Blizzard's taxi tooltip is disrupted by third-party addon taint.
 - Fixed route timing updates so unknown routes save correctly, while known full-route times are protected from Request Stop partial-flight overwrites.
-
-### Flightmaster
-- Fixed custom flight-map tooltip errors caused by secret/tainted taxi tooltip values by hardening taxi cost handling and replacing dynamic tooltip width sizing with a fixed safe width.
-- Improved Flightmaster tooltip resilience by moving custom tooltip updates into an independent refresh path and adding a fallback anchor when Blizzard's tooltip is unavailable.
 
 ---
 
 ## [2026-04-07] - Flight Master
 
-### Flightmaster
+### Fixed
 - Fixed a custom Flightmaster tooltip error on flight-map hover caused by secret/tainted taxi tooltip values, by hardening taxi cost handling and replacing dynamic tooltip width sizing with a fixed safe width.
 
 ---
 
 ## [2026-04-07] - XP / Reputation / Delves
 
-### XP / Reputation / Delves
+### Fixed
 - Fixed a max-level reputation-bar regression where the custom rep bar could disappear if Blizzard's **Show as Experience Bar** option was unchecked, by persisting the currently displayed faction as fallback state.
 - Fixed the Delve bar disappearing immediately after the final boss died while still inside the Delve chest room, by keeping Delve visibility active during the post-boss scenario state even after `IsDelveInProgress()` becomes false.
 - Corrected Delve companion max-level handling order in the Delve update path.
