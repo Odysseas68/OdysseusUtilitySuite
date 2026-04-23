@@ -1012,6 +1012,7 @@ end)
 -- =====================================
 local arWidgetsCreated = false
 local arDelaySlider, arDelayBox
+local arCharMountText, arAcctMountText
 
 local function CreateAutoRemountWidgets()
     if arWidgetsCreated then return end
@@ -1063,9 +1064,10 @@ local function CreateAutoRemountWidgets()
     charMountLabel:SetPoint("TOPLEFT", 20, -295)
     charMountLabel:SetText("Character Mount:")
 
-    local charMountText = tabs.AutoRemount:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-    charMountText:SetPoint("TOPLEFT", 20, -310)
-    charMountText:SetTextColor(0.8, 0.8, 0.8)
+    arCharMountText = tabs.AutoRemount:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    arCharMountText:SetPoint("TOPLEFT", 20, -310)
+    arCharMountText:SetTextColor(0.8, 0.8, 0.8)
+    local charMountText = arCharMountText
 
     local clearCharBtn = CreateFrame("Button", nil, tabs.AutoRemount, "UIPanelButtonTemplate")
     clearCharBtn:SetSize(60, 22)
@@ -1081,9 +1083,10 @@ local function CreateAutoRemountWidgets()
     acctMountLabel:SetPoint("TOPLEFT", 20, -340)
     acctMountLabel:SetText("Account Mount:")
 
-    local acctMountText = tabs.AutoRemount:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-    acctMountText:SetPoint("TOPLEFT", 20, -355)
-    acctMountText:SetTextColor(0.8, 0.8, 0.8)
+    arAcctMountText = tabs.AutoRemount:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    arAcctMountText:SetPoint("TOPLEFT", 20, -355)
+    arAcctMountText:SetTextColor(0.8, 0.8, 0.8)
+    local acctMountText = arAcctMountText
 
     local clearAcctBtn = CreateFrame("Button", nil, tabs.AutoRemount, "UIPanelButtonTemplate")
     clearAcctBtn:SetSize(60, 22)
@@ -1132,6 +1135,25 @@ tabs.AutoRemount:SetScript("OnShow", function()
         if _G["OdysseusARToggle_silent"] then _G["OdysseusARToggle_silent"]:SetChecked(OdysseusDB.autoRemount.silent) end
         if _G["OdysseusARToggle_debug"] then _G["OdysseusARToggle_debug"]:SetChecked(OdysseusDB.autoRemount.debug) end
         if _G["OdysseusARToggle_spyMode"] then _G["OdysseusARToggle_spyMode"]:SetChecked(OdysseusDB.autoRemount.spyMode) end
+        -- Refresh mount name displays
+        if arCharMountText then
+            local charID = OdysseusDB.autoRemountChar.mountID
+            if charID then
+                local name = C_MountJournal.GetMountInfoByID(charID)
+                arCharMountText:SetText(name or "|cFFFF0000Unknown|r")
+            else
+                arCharMountText:SetText("|cFF888888None (using account or favourite)|r")
+            end
+        end
+        if arAcctMountText then
+            local acctID = OdysseusDB.autoRemount.accountMountID
+            if acctID then
+                local name = C_MountJournal.GetMountInfoByID(acctID)
+                arAcctMountText:SetText(name or "|cFFFF0000Unknown|r")
+            else
+                arAcctMountText:SetText("|cFF888888None (using favourite)|r")
+            end
+        end
         local delay = OdysseusDB.autoRemount.delay or 0.5
         if arDelaySlider then arDelaySlider:SetValue(delay) end
         if arDelayBox then arDelayBox:SetText(tostring(delay)) end
