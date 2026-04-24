@@ -72,6 +72,15 @@ local function IsGatherSpell(spellID)
     return IsKnownGatherSpell(spellID) or IsInCustomSpells(spellID)
 end
 
+-- Returns true if spellID is in the permanent exclude list.
+local function IsExcludedSpell(spellID)
+    if not OUS.AutoRemountExcludeSpells then return false end
+    for _, id in ipairs(OUS.AutoRemountExcludeSpells) do
+        if spellID == id then return true end
+    end
+    return false
+end
+
 -- Returns true if spellID is already in the discovered spy list.
 local function IsInDiscoveredSpells(spellID)
     local discovered = OdysseusDB.autoRemount.discoveredSpells
@@ -154,22 +163,12 @@ end
 local function ConfirmSpySpell()
     if not pendingSpySpellID then return end
     if not OdysseusDB.autoRemount.spyMode then return end
-    if IsInDiscoveredSpells(pendingSpySpellID) then
-        pendingSpySpellID = nil
-        return
-    end
 
     local spellName = C_Spell.GetSpellName(pendingSpySpellID) or "Unknown"
-    if not OdysseusDB.autoRemount.discoveredSpells then
-        OdysseusDB.autoRemount.discoveredSpells = {}
-    end
-    table.insert(OdysseusDB.autoRemount.discoveredSpells, {
-        id = pendingSpySpellID,
-        name = spellName,
-    })
-    print("|cFF00CCFFOdysseus AutoRemount Spy:|r New gather spell confirmed: "
-        .. spellName .. " (spellID: " .. tostring(pendingSpySpellID) .. ")")
-    AR.RefreshSpyFrame()
+    -- Print to chat only — user decides whether to /ar add <id>
+    print("|cFF00CCFFOdysseus AutoRemount Spy:|r Loot-confirmed spell: "
+        .. spellName .. " (spellID: " .. tostring(pendingSpySpellID) .. ") — use /ar add "
+        .. tostring(pendingSpySpellID) .. " to track it")
     pendingSpySpellID = nil
 end
 
@@ -225,7 +224,7 @@ spyHeaderBg:SetGradient("HORIZONTAL",
 
 local spyTitle = spyFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 spyTitle:SetPoint("TOP", spyFrame, "TOP", 0, -12)
-spyTitle:SetText("|cFF00FFFFOdysseus AutoRemount|r — Spy Discovered Spells")
+spyTitle:SetText("|cFF00FFFFOdysseus AutoRemount|r — Custom Spell List")
 spyTitle:SetFont("Fonts\\FRIZQT__.TTF", 11, "OUTLINE")
 
 local spyCloseBtn = CreateFrame("Button", nil, spyFrame, "UIPanelCloseButton")
@@ -344,7 +343,9 @@ frame:SetScript("OnEvent", function(self, event, ...)
         local unit, _, spellID = ...
         if unit ~= "player" then return end
 
-        if IsGatherSpell(spellID) then
+        if IsExcludedSpell(spellID) then
+            OUS.LogDebug("AutoRemount", "Excluded spell ignored: " .. tostring(spellID))
+        elseif IsGatherSpell(spellID) then
             -- Known gather spell — trigger remount path.
             isGathering = true
             lootWindowOpened = false
@@ -519,7 +520,7 @@ function AR.SlashHandler(msg)
         if db.spyMode then
             AR.RefreshSpyFrame()
             spyFrame:Show()
-            print("|cFF00CCFFOdysseus AutoRemount:|r Spy mode |cFFFFAA00ON|r — unknown gather spells will be tracked.")
+            print("|cFF00CCFFOdysseus AutoRemount:|r Spy mode |cFFFFAA00ON|r — loot-confirmed spells will be printed to chat.")
         else
             pendingSpySpellID = nil
             spyFrame:Hide()
@@ -647,7 +648,7 @@ function AR.SlashHandler(msg)
         print("  /ar druid — Toggle druid form skip")
         print("  /ar delay <sec> — Set remount delay (0.1-5.0)")
         print("  /ar silent — Toggle error notifications")
-        print("  /ar spy — Toggle spy mode + show discovered spells frame")
+        print("  /ar spy — Toggle spy mode (prints loot-confirmed spells to chat)")
         print("  /ar spyfilter — Show spy filter list")
         print("  /ar spyfilter add <id> — Add spellID to spy filter (never recorded)")
         print("  /ar spyfilter remove <id> — Remove spellID from spy filter")

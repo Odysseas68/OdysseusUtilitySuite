@@ -2,6 +2,32 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-04-24] - AutoRemount Refinements
+
+### Fixed
+- **Auto Remount**: Spy mode no longer auto-saves discovered spells — prints to chat only,
+  user decides whether to `/ar add <id>`. Eliminates false positives from crafting,
+  disenchanting, and other loot-window interactions.
+- **Auto Remount**: Character mount (`/ar mount`) is now correctly per-character via
+  `SavedVariablesPerCharacter` — previously shared across all characters.
+- **Auto Remount**: Config tab now correctly displays current mount name on open for
+  both character and account mount fields.
+
+### Added
+- **Auto Remount**: Permanent exclude list in `AutoRemountSpells.lua` for spells that
+  open a loot window but should never trigger remount (Disenchant, Milling, Prospecting,
+  Studying, Tailoring, and others).
+- **Auto Remount**: Spy filter blacklist (`/ar spyfilter`) persisted in DB — spells added
+  here are silently ignored by spy mode.
+- **Auto Remount**: Spy frame renamed to "Custom Spell List" — shows manually added
+  spells via `/ar add` only.
+- **Auto Remount**: `/ous help` frame rewritten as scrollable `ScrollingMessageFrame`
+  with all current commands including full Auto Remount section.
+- **Auto Remount**: Config tab spy mode toggle label and help text updated to reflect
+  print-only behavior.
+
+---
+
 ## [2026-04-23] - Auto Remount
 
 ### Added

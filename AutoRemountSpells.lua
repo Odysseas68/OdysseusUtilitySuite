@@ -57,3 +57,18 @@ OUS.AutoRemountSpells = {
     441327,     -- Herbalism: The War Within
     471009,     -- Herbalism: Midnight
 }
+
+-- ==========================================
+-- EXCLUDE LIST
+-- ==========================================
+-- Spells that open a loot window but should never trigger remount.
+-- These are confirmed via loot so they bypass the spy filter —
+-- add them here to permanently exclude them from both remount and spy recording.
+OUS.AutoRemountExcludeSpells = {
+    13262,      -- Disenchant
+    31252,      -- Milling
+    72575,      -- Prospecting
+    1280988,    -- Studying: Midnight crafting/research
+    421177,     -- Disable ALL Mounts
+    195126,     -- Tailoring
+}
