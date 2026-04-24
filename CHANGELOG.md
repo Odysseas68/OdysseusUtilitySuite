@@ -4,6 +4,18 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [2026-04-24] - AutoRemount Refinements
 
+### Changed
+- **Auto Remount**: Converted core known/excluded spell databases in `AutoRemountSpells.lua`
+  to fast set-style lookup tables for more reliable spell filtering.
+- **Auto Remount**: Added broad profession-crafting suppression so remount checks are
+  skipped during profession crafting context instead of requiring per-recipe exclusions.
+
+### Fixed
+- **Auto Remount**: Excluded profession actions such as **Disenchant** are now ignored
+  cleanly by spy mode and no longer produce false discovery/chat spam.
+- **Auto Remount**: `LOOT_CLOSED` handling is now quieter and only logs/remounts when
+  an actual gather/remount flow is pending, reducing debug noise during FasterLoot interactions.
+
 ### Fixed
 - **Auto Remount**: Spy mode no longer auto-saves discovered spells — prints to chat only,
   user decides whether to `/ar add <id>`. Eliminates false positives from crafting,

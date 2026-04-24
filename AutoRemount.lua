@@ -51,10 +51,7 @@ end
 
 -- Returns true if spellID is in the master spell list.
 local function IsKnownGatherSpell(spellID)
-    for _, id in ipairs(OUS.AutoRemountSpells) do
-        if spellID == id then return true end
-    end
-    return false
+    return spellID and OUS.AutoRemountSpells and OUS.AutoRemountSpells[spellID] or false
 end
 
 -- Returns true if spellID is in the custom spell list.
@@ -74,11 +71,7 @@ end
 
 -- Returns true if spellID is in the permanent exclude list.
 local function IsExcludedSpell(spellID)
-    if not OUS.AutoRemountExcludeSpells then return false end
-    for _, id in ipairs(OUS.AutoRemountExcludeSpells) do
-        if spellID == id then return true end
-    end
-    return false
+    return spellID and OUS.AutoRemountExcludeSpells and OUS.AutoRemountExcludeSpells[spellID] or false
 end
 
 -- Returns true if spellID is already in the discovered spy list.
@@ -101,6 +94,13 @@ local function IsSpyBlacklisted(spellID)
     return false
 end
 
+-- Returns true if the player currently has a profession crafting UI open.
+local function IsProfessionCraftingContext()
+    if ProfessionsFrame and ProfessionsFrame:IsShown() then return true end
+    if TradeSkillFrame and TradeSkillFrame:IsShown() then return true end
+    return false
+end
+
 -- Returns true if all safety conditions allow remounting.
 local function CanRemount()
     local db = OdysseusDB.autoRemount
@@ -110,6 +110,10 @@ local function CanRemount()
     if InCombatLockdown() then return false end
     if UnitIsDeadOrGhost("player") then return false end
     if IsInRestrictedInstance() then return false end
+    if IsProfessionCraftingContext() then
+        OUS.LogDebug("AutoRemount", "Remount skipped — profession crafting context detected.")
+        return false
+    end
 
     -- Skip druids in any shapeshift form (Travel Form etc.)
     if db.skipDruid then
@@ -344,6 +348,7 @@ frame:SetScript("OnEvent", function(self, event, ...)
         if unit ~= "player" then return end
 
         if IsExcludedSpell(spellID) then
+            pendingSpySpellID = nil  -- Clear any pending spy spell to prevent false confirmations
             OUS.LogDebug("AutoRemount", "Excluded spell ignored: " .. tostring(spellID))
         elseif IsGatherSpell(spellID) then
             -- Known gather spell — trigger remount path.
@@ -367,14 +372,14 @@ frame:SetScript("OnEvent", function(self, event, ...)
         OUS.LogDebug("AutoRemount", "Loot window opened — waiting for LOOT_CLOSED.")
 
     elseif event == "LOOT_CLOSED" then
-        -- Always check spy confirmation on any loot close.
-        ConfirmSpySpell()
+        if pendingSpySpellID then
+            ConfirmSpySpell()
+        end
+
         if not isGathering then
-            OUS.LogDebug("AutoRemount", "Loot closed — not a gather, ignoring.")
             return
         end
-        -- Confirm spy spell via loot path before clearing state.
-        ConfirmSpySpell()
+
         isGathering = false
         lootWindowOpened = false
         CancelNoLootTimer()
