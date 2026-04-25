@@ -107,8 +107,8 @@ local function RefreshCache()
     local db = OdysseusCharDB and OdysseusCharDB.statsBar
 
     -- Item level
-    local ilvl = C_PaperDollInfo.GetInspectItemLevel("player")
-    cache.ilvl = ilvl and string.format("%.1f", ilvl) or "—"
+    local _, equipped = GetAverageItemLevel()
+    cache.ilvl = equipped and equipped > 0 and string.format("%.2f", equipped) or "—"
 
     -- Primary stats
     local str  = UnitStat("player", 1) or 0
