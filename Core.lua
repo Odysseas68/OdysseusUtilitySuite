@@ -26,6 +26,26 @@ f:SetScript("OnEvent", function(self, event, arg1)
         if OdysseusDB.modules.fishingTracker == nil then OdysseusDB.modules.fishingTracker = true end
         if OdysseusDB.modules.xpBar == nil then OdysseusDB.modules.xpBar = true end
         if OdysseusDB.modules.autoRemount == nil then OdysseusDB.modules.autoRemount = true end
+        if OdysseusDB.modules.statsBar == nil then OdysseusDB.modules.statsBar = true end
+
+        OdysseusCharDB = OdysseusCharDB or {}
+        OdysseusCharDB.statsBar = OdysseusCharDB.statsBar or {
+            enabled      = true,
+            template     = "{ilvl} | {spec}",
+            fontSize     = 12,
+            locked       = false,
+            x            = 0,
+            y            = 0,
+            point        = "CENTER",
+            relPoint     = "CENTER",
+            tableEnabled = false,
+            tableX       = 200,
+            tableY       = 0,
+            tablePoint   = "CENTER",
+            tableRelPoint = "CENTER",
+            tableLocked  = false,
+            tableWidth   = 150,
+        }
 
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}
         OdysseusDB.fishingSettings = OdysseusDB.fishingSettings or { history = {} }
@@ -71,10 +91,7 @@ function OUS.ResetAllSettings()
         fishingTracker = true,
         xpBar = true,
         autoRemount = true,
-        spyMode = false,
-        customSpells = {},
-        discoveredSpells = {},
-        spyFilter = {},
+        statsBar = true,
     }
 
     -- Reset Flight Master
@@ -103,9 +120,32 @@ function OUS.ResetAllSettings()
         silent = true,
         skipDruid = true,
         debug = false,
+        spyMode = false,
         accountMountID = nil,
+        customSpells = {},
+        discoveredSpells = {},
+        spyFilter = {},
     }
     OdysseusCharDB.autoRemountChar = { mountID = nil }
+
+    OdysseusCharDB = OdysseusCharDB or {}
+    OdysseusCharDB.statsBar = {
+        enabled      = true,
+        template     = "{ilvl} | {spec}",
+        fontSize     = 12,
+        locked       = false,
+        x            = 0,
+        y            = 0,
+        point        = "CENTER",
+        relPoint     = "CENTER",
+        tableEnabled = false,
+        tableX       = 200,
+        tableY       = 0,
+        tablePoint   = "CENTER",
+        tableRelPoint = "CENTER",
+        tableLocked  = false,
+        tableWidth   = 150,
+    }
 
     C_Timer.After(0.5, ReloadUI)
 end
@@ -281,6 +321,14 @@ SLASH_AUTOREMOUNT2 = "/autoremount"
 SlashCmdList["AUTOREMOUNT"] = function(msg)
     if OUS.AutoRemount and OUS.AutoRemount.SlashHandler then
         OUS.AutoRemount.SlashHandler(msg)
+    end
+end
+
+SLASH_STATSBAR1 = "/sb"
+SLASH_STATSBAR2 = "/statsbar"
+SlashCmdList["STATSBAR"] = function(msg)
+    if OUS.StatsBar and OUS.StatsBar.SlashHandler then
+        OUS.StatsBar.SlashHandler(msg)
     end
 end
 
