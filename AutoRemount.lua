@@ -101,6 +101,21 @@ local function IsProfessionCraftingContext()
     return false
 end
 
+local function IsMountSpell(spellID)
+    if not spellID or not C_MountJournal or not C_MountJournal.GetMountFromSpell then
+        return false
+    end
+
+    local mountID = C_MountJournal.GetMountFromSpell(spellID)
+    return mountID ~= nil
+end
+
+-- Returns true if the spell is obviously not useful for AutoRemount spy detection.
+local function IsIgnoredSpyCategorySpell(spellID)
+    if not spellID then return false end
+    return IsMountSpell(spellID)
+end
+
 -- Returns true if all safety conditions allow remounting.
 local function CanRemount()
     local db = OdysseusDB.autoRemount
@@ -341,7 +356,7 @@ spyCopyBtn:SetScript("OnClick", function()
         end
         local lines = {}
         for _, entry in ipairs(discovered) do
-            table.insert(lines, string.format("%-12s -- %s", entry.id .. ",", entry.name))
+            table.insert(lines, string.format("    [%d] = true,   -- %s", spellID, spellName or "Unknown"))
         end
         spyMsgFrame:Hide()
         spyCopyEditBox:SetText(table.concat(lines, "\n"))
@@ -374,6 +389,7 @@ frame:SetScript("OnEvent", function(self, event, ...)
         if IsExcludedSpell(spellID) then
             pendingSpySpellID = nil  -- Clear any pending spy spell to prevent false confirmations
             OUS.LogDebug("AutoRemount", "Excluded spell ignored: " .. tostring(spellID))
+
         elseif IsGatherSpell(spellID) then
             -- Known gather spell — trigger remount path.
             isGathering = true
@@ -381,6 +397,11 @@ frame:SetScript("OnEvent", function(self, event, ...)
             pendingSpySpellID = nil
             OUS.LogDebug("AutoRemount", "Gather spell detected: " .. tostring(spellID))
             StartNoLootTimer()
+
+        elseif IsIgnoredSpyCategorySpell(spellID) then
+            pendingSpySpellID = nil
+            OUS.LogDebug("AutoRemount", "Spy ignored non-gather spell: " .. tostring(spellID))
+
         elseif OdysseusDB.autoRemount.spyMode and not IsSpyBlacklisted(spellID) then
             -- Spy mode: track unknown spell as pending but do NOT set isGathering.
             -- Only records if LOOT_CLOSED fires — no remount triggered.
@@ -596,8 +617,19 @@ function AR.SlashHandler(msg)
             print("|cFFFF0000[AutoRemount]|r Custom spell list is empty — nothing to export.")
             return
         end
+
+        local lines = {}
+        table.sort(custom)
+
+        for _, spellID in ipairs(custom) do
+            local spellName = C_Spell and C_Spell.GetSpellName and C_Spell.GetSpellName(spellID) or ("Spell " .. tostring(spellID))
+            table.insert(lines, string.format("    [%d] = true,   -- %s", spellID, spellName or "Unknown"))
+        end
+
         print("|cFF00CCFFOdysseus AutoRemount Custom SpellIDs:|r")
-        print(table.concat(custom, ", "))
+        for _, line in ipairs(lines) do
+            print(line)
+        end
 
     elseif command == "spyfilter" then
         local sub, subarg = arg:match("^(%S+)%s*(.*)$")

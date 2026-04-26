@@ -71,4 +71,7 @@ OUS.AutoRemountExcludeSpells = {
     [1280992] = true,   -- Studying: Midnight crafting/research (variant)
     [421177]  = true,   -- Disable ALL Mounts
     [195126]  = true,   -- Tailoring
+    [105174]  = true,   -- Hand of Gul'dan
+    [264178]  = true,   -- Demonbolt
+    [686]     = true,   -- Shadow Bolt
 }
