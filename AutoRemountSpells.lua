@@ -75,4 +75,7 @@ OUS.AutoRemountExcludeSpells = {
     [264178]  = true,   -- Demonbolt
     [686]     = true,   -- Shadow Bolt
     [1224771] = true,   -- Void Hole Fishing
+    [1265750] = true,   -- [DNT] Sniping
+    [1236931] = true,   -- [DNT] Battle Ring Attacker Ping
+    [1225385] = true,   -- Grasping Shadows
 }

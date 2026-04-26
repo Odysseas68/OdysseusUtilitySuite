@@ -981,6 +981,11 @@ OUS.FactionData = {
         paragonQuestID = 93811,
         rewardNPC = { mapID = 2395, x = 43.4, y = 47.4, npcName = "Caeris Fairdawn" },
     },
+    [2742] = {
+        name = "Delves: Season 1",
+        isParagon = false,
+        rewardNPC = { mapID = 2393, x = 52.7, y = 77.8, npcName = "Naleidea Rivergleam" },
+    },
     [2764] = {
         name = "Prey: Season 1",
         isParagon = false,
