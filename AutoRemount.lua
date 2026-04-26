@@ -141,6 +141,10 @@ local function CanRemount()
     return true
 end
 
+local function FormatSpellEntry(entry)
+    return string.format("    [%d] = true,   -- %s", entry.id, entry.name or "Unknown")
+end
+
 -- ==========================================
 -- 3. MOUNT LOGIC
 -- ==========================================
@@ -334,9 +338,7 @@ function AR.RefreshSpyFrame()
 
     local discovered = OdysseusDB.autoRemount.discoveredSpells or {}
     for _, entry in ipairs(discovered) do
-        spyMsgFrame:AddMessage(
-            string.format("|cFFFFD100%-12s|r -- %s", entry.id .. ",", entry.name)
-        )
+        spyMsgFrame:AddMessage(FormatSpellEntry(entry))
     end
 
     local count = #discovered
@@ -356,7 +358,7 @@ spyCopyBtn:SetScript("OnClick", function()
         end
         local lines = {}
         for _, entry in ipairs(discovered) do
-            table.insert(lines, string.format("    [%d] = true,   -- %s", spellID, spellName or "Unknown"))
+            table.insert(lines, FormatSpellEntry(entry))
         end
         spyMsgFrame:Hide()
         spyCopyEditBox:SetText(table.concat(lines, "\n"))
@@ -623,7 +625,7 @@ function AR.SlashHandler(msg)
 
         for _, spellID in ipairs(custom) do
             local spellName = C_Spell and C_Spell.GetSpellName and C_Spell.GetSpellName(spellID) or ("Spell " .. tostring(spellID))
-            table.insert(lines, string.format("    [%d] = true,   -- %s", spellID, spellName or "Unknown"))
+            table.insert(lines, FormatSpellEntry({ id = spellID, name = spellName }))
         end
 
         print("|cFF00CCFFOdysseus AutoRemount Custom SpellIDs:|r")

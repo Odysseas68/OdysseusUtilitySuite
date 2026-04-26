@@ -74,4 +74,5 @@ OUS.AutoRemountExcludeSpells = {
     [105174]  = true,   -- Hand of Gul'dan
     [264178]  = true,   -- Demonbolt
     [686]     = true,   -- Shadow Bolt
+    [1224771] = true,   -- Void Hole Fishing
 }
