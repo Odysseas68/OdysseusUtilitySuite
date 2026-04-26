@@ -163,17 +163,41 @@ local function CancelNoLootTimer()
     end
 end
 
--- Records a pending spy spell as confirmed gather after loot trigger.
+-- Confirms a pending spy spell after loot trigger — prints to chat and adds to spy frame.
 local function ConfirmSpySpell()
     if not pendingSpySpellID then return end
     if not OdysseusDB.autoRemount.spyMode then return end
 
-    local spellName = C_Spell.GetSpellName(pendingSpySpellID) or "Unknown"
-    -- Print to chat only — user decides whether to /ar add <id>
-    print("|cFF00CCFFOdysseus AutoRemount Spy:|r Loot-confirmed spell: "
-        .. spellName .. " (spellID: " .. tostring(pendingSpySpellID) .. ") — use /ar add "
-        .. tostring(pendingSpySpellID) .. " to track it")
+    local spellID = pendingSpySpellID
     pendingSpySpellID = nil
+
+    -- Silently ignore excluded spells.
+    if IsExcludedSpell(spellID) then return end
+
+    -- Also ignore if already in custom list.
+    if IsInCustomSpells(spellID) then return end
+
+    local spellName = C_Spell.GetSpellName(spellID) or "Unknown"
+
+    -- Add to spy frame discovered list if not already there.
+    if not IsInDiscoveredSpells(spellID) then
+        if not OdysseusDB.autoRemount.discoveredSpells then
+            OdysseusDB.autoRemount.discoveredSpells = {}
+        end
+        table.insert(OdysseusDB.autoRemount.discoveredSpells, {
+            id   = spellID,
+            name = spellName,
+        })
+        if OUS.AutoRemount and OUS.AutoRemount.RefreshSpyFrame then
+            OUS.AutoRemount.RefreshSpyFrame()
+        end
+    end
+
+    -- Print to chat.
+    print("|cFF00CCFFOdysseus AutoRemount Spy:|r Loot-confirmed: "
+        .. spellName .. " (" .. tostring(spellID) .. ") — /ar add "
+        .. tostring(spellID) .. " to track | /ar spyfilter add "
+        .. tostring(spellID) .. " to exclude")
 end
 
 -- Starts the no-loot fallback timer after a gather spell with no loot window.
