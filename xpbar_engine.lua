@@ -39,6 +39,30 @@ function OUS.ApplyXPBarBorders()
     ApplyToFrame(delveBar)
 end
 
+-- Cache of Journeys faction name (normalized) → factionID.
+-- Built at load time from C_MajorFactions — covers any season automatically.
+local journeysFactionCache = {}
+
+local function BuildJourneysFactionCache()
+    if not C_MajorFactions then return end
+    -- Check expansions 1-20 to future-proof across patches.
+    for expansionID = 1, 20 do
+        local ids = C_MajorFactions.GetMajorFactionIDs(expansionID)
+        if ids then
+            for _, factionID in ipairs(ids) do
+                if C_MajorFactions.ShouldDisplayMajorFactionAsJourney(factionID) then
+                    local data = C_MajorFactions.GetMajorFactionData(factionID)
+                    if data and data.name and data.factionID then
+                        local normalized = string.lower(string.gsub(data.name or "", "%s+", " "))
+                        journeysFactionCache[normalized] = data.factionID
+                        OUS.LogDebug("XPBar", "Journeys faction cached: " .. data.name .. " = " .. data.factionID)
+                    end
+                end
+            end
+        end
+    end
+end
+
 -- ==========================================
 -- 2. CORE VISUAL HELPERS
 -- ==========================================
@@ -250,6 +274,34 @@ end
 function OUS.GetFactionDetails(factionID)
     if not factionID then return nil end
     local data = C_Reputation.GetFactionDataByID(factionID)
+
+    -- Journeys factions (e.g. Delves: Season 1) are not in the standard reputation API.
+    -- Fall back to C_MajorFactions for name and renown data.
+    if not data and C_MajorFactions and C_MajorFactions.GetMajorFactionData then
+        local majorData = C_MajorFactions.GetMajorFactionData(factionID)
+        if majorData then
+            local curRep = majorData.renownReputationEarned or 0
+            local maxRep = majorData.renownLevelThreshold or 1
+            local renownLevel = majorData.renownLevel or 0
+            local isMaxed = C_MajorFactions.HasMaximumRenown and C_MajorFactions.HasMaximumRenown(factionID) or false
+            if isMaxed then curRep = 1; maxRep = 1 end
+            local iconPath = majorData.textureKit and ("Interface\\Icons\\UI_MajorFaction_" .. majorData.textureKit) or "Interface\\Icons\\Achievement_Reputation_01"
+            return {
+                name          = majorData.name,
+                standingText  = isMaxed and "Max Renown" or ("Renown " .. renownLevel),
+                curRep        = curRep,
+                maxRep        = maxRep,
+                repPC         = maxRep > 0 and math.floor((curRep / maxRep) * 100) or 0,
+                isMaxed       = isMaxed,
+                hasRewardPending = false,
+                description   = majorData.description or "",
+                reaction      = nil,
+                icon          = iconPath,
+                textureKit    = majorData.textureKit,
+            }
+        end
+    end
+
     if not data then return nil end
 
     local name = data.name
@@ -417,6 +469,11 @@ local function ResolveTargetFactionID()
             if guildData and guildData.factionID then
                 return guildData.factionID
             end
+        end
+
+        -- Journeys factions (Delves, Prey, etc.) — dynamically cached at load time.
+        if journeysFactionCache[targetName] then
+            return journeysFactionCache[targetName]
         end
 
         if C_Reputation and C_Reputation.GetNumFactions then
@@ -675,6 +732,7 @@ local function HandleAddonLoaded(loadedAddonName)
     Session.lastMaxXP = UnitXPMax("player")
     Session.lastGainedFactionName = OdysseusDB.xpBar.lastRepFactionName
 
+    BuildJourneysFactionCache()
     OUS.WakeBars()
     OUS.SleepBars()
 

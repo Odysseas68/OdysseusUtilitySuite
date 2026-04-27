@@ -15,6 +15,11 @@ OUS.AutoRemountSpells = {
     [98324]   = true,   -- Void-Tainted Remains: special lootable object
     [6478]    = true,   -- Tools: knowledge point nodes
     [6247]    = true,   -- Coalesced Light: special interactable
+    [134065]  = true,   -- Trap??
+    [247077]  = true,   -- Trap??
+    [1259286] = true,   -- Attempting to Disarm Trap
+    [1242005] = true,   -- Attempting to Disarm Trap
+    [1259477] = true,   -- Attempting to Disarm Trap
 
     -- ==========================================
     -- LUMBER / LOGGING (all expansions share one ID)
