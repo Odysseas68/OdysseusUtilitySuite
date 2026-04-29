@@ -29,11 +29,15 @@ f:SetScript("OnEvent", function(self, event, arg1)
         if OdysseusDB.modules.statsBar == nil then OdysseusDB.modules.statsBar = true end
 
         OdysseusCharDB = OdysseusCharDB or {}
+        OdysseusDB.statsBar = OdysseusDB.statsBar or {
+            fontSize     = 12,
+            tableWidth   = 150,
+            locked       = false,
+            tableLocked  = false,
+        }
         OdysseusCharDB.statsBar = OdysseusCharDB.statsBar or {
             enabled      = true,
             template     = "{ilvl} | {spec}",
-            fontSize     = 12,
-            locked       = false,
             x            = 0,
             y            = 0,
             point        = "CENTER",
@@ -43,8 +47,6 @@ f:SetScript("OnEvent", function(self, event, arg1)
             tableY       = 0,
             tablePoint   = "CENTER",
             tableRelPoint = "CENTER",
-            tableLocked  = false,
-            tableWidth   = 150,
         }
 
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}
@@ -129,11 +131,15 @@ function OUS.ResetAllSettings()
     OdysseusCharDB.autoRemountChar = { mountID = nil }
 
     OdysseusCharDB = OdysseusCharDB or {}
+    OdysseusDB.statsBar = {
+        fontSize     = 12,
+        tableWidth   = 150,
+        locked       = false,
+        tableLocked  = false,
+    }
     OdysseusCharDB.statsBar = {
         enabled      = true,
         template     = "{ilvl} | {spec}",
-        fontSize     = 12,
-        locked       = false,
         x            = 0,
         y            = 0,
         point        = "CENTER",
@@ -143,8 +149,6 @@ function OUS.ResetAllSettings()
         tableY       = 0,
         tablePoint   = "CENTER",
         tableRelPoint = "CENTER",
-        tableLocked  = false,
-        tableWidth   = 150,
     }
 
     C_Timer.After(0.5, ReloadUI)

@@ -292,9 +292,10 @@ UpdateTable = function()
         return
     end
 
-        local fontSize = charDB.fontSize or 12
+    local gdb = OdysseusDB and OdysseusDB.statsBar
+    local fontSize = (gdb and gdb.fontSize) or 12
     local lineHeight = fontSize + 2
-    local frameWidth = (OdysseusCharDB and OdysseusCharDB.statsBar and OdysseusCharDB.statsBar.tableWidth) or 150
+    local frameWidth = (OdysseusDB and OdysseusDB.statsBar and OdysseusDB.statsBar.tableWidth) or 150
     local gap = 2
 
     -- Hide old multiline columns in table mode
@@ -441,7 +442,8 @@ function SB.UpdateDisplay()
     local template = charDB.template or "{ilvl} | {spec}"
     local rendered = ParseTemplate(template)
     sbText:SetText(rendered)
-    sbText:SetFont(sbText:GetFont(), charDB.fontSize or 12)
+    local gdb = OdysseusDB and OdysseusDB.statsBar
+    sbText:SetFont(sbText:GetFont(), (gdb and gdb.fontSize) or 12)
     sbFrame:SetWidth(sbText:GetStringWidth() + 10)
     sbFrame:Show()
 end
@@ -488,8 +490,9 @@ frame:SetScript("OnEvent", function(self, event, unit, ...)
     if event == "PLAYER_ENTERING_WORLD" then
         ApplyPosition()
         ApplyTablePosition()
-        SB.SetLocked(OdysseusCharDB.statsBar and OdysseusCharDB.statsBar.locked or false)
-        SB.SetTableLocked(OdysseusCharDB.statsBar and OdysseusCharDB.statsBar.tableLocked or false)
+        local gdb = OdysseusDB and OdysseusDB.statsBar
+        SB.SetLocked(gdb and gdb.locked or false)
+        SB.SetTableLocked(gdb and gdb.tableLocked or false)
         RefreshCache()
 
     elseif event == "PLAYER_REGEN_DISABLED" then
@@ -573,7 +576,7 @@ function SB.SlashHandler(msg)
     elseif command == "size" then
         local size = tonumber(arg)
         if size and size >= 8 and size <= 24 then
-            charDB.fontSize = size
+            if OdysseusDB and OdysseusDB.statsBar then OdysseusDB.statsBar.fontSize = size end
             SB.UpdateDisplay()
             UpdateTable()
             print("|cFF00CCFFOdysseus StatsBar:|r Font size set to " .. size)
@@ -582,35 +585,46 @@ function SB.SlashHandler(msg)
         end
 
     elseif command == "lock" then
-        charDB.locked = true
+        local gdb = OdysseusDB and OdysseusDB.statsBar
+        if gdb then gdb.locked = true end
         SB.SetLocked(true)
         print("|cFF00CCFFOdysseus StatsBar:|r |cFF00FF00Locked|r")
 
     elseif command == "unlock" then
-        charDB.locked = false
+        local gdb = OdysseusDB and OdysseusDB.statsBar
+        if gdb then gdb.locked = false end
         SB.SetLocked(false)
         print("|cFF00CCFFOdysseus StatsBar:|r |cFFFF0000Unlocked — drag to reposition|r")
 
     elseif command == "table" then
         charDB.tableEnabled = not charDB.tableEnabled
         if charDB.tableEnabled then
-            stFrame:EnableMouse(not charDB.tableLocked)
+            local gdb = OdysseusDB and OdysseusDB.statsBar
+            stFrame:EnableMouse(not (gdb and gdb.tableLocked))
         end
         SB.UpdateDisplay()
         UpdateTable()
         print("|cFF00CCFFOdysseus StatsBar:|r Table " .. (charDB.tableEnabled and "|cFF00FF00Enabled|r" or "|cFFFF0000Disabled|r"))
 
     elseif command == "tlock" then
-        charDB.tableLocked = true
+        local gdb = OdysseusDB and OdysseusDB.statsBar
+        if gdb then gdb.tableLocked = true end
         SB.SetTableLocked(true)
         print("|cFF00CCFFOdysseus StatsBar:|r Table |cFF00FF00Locked|r")
 
     elseif command == "tunlock" then
-        charDB.tableLocked = false
+        local gdb = OdysseusDB and OdysseusDB.statsBar
+        if gdb then gdb.tableLocked = false end
         SB.SetTableLocked(false)
         print("|cFF00CCFFOdysseus StatsBar:|r Table |cFFFF0000Unlocked — drag to reposition|r")
 
     elseif command == "reset" then
+        if OdysseusDB and OdysseusDB.statsBar then
+            OdysseusDB.statsBar.fontSize   = 12
+            OdysseusDB.statsBar.tableWidth = 150
+            OdysseusDB.statsBar.locked     = false
+            OdysseusDB.statsBar.tableLocked = false
+        end
         charDB.template      = "{ilvl} | {spec}"
         charDB.fontSize      = 12
         charDB.locked        = false

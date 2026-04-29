@@ -658,6 +658,12 @@ local function CreateModuleToggle(parent, label, yOffset, dbKey)
                 if OUS.favHoverFrame then OUS.favHoverFrame:Hide() end
             end
         end
+        if dbKey == "statsBar" then
+            if OUS.StatsBar then
+                OUS.StatsBar.UpdateDisplay()
+                OUS.StatsBar.UpdateTable()
+            end
+        end
     end)
 end
 
@@ -665,6 +671,7 @@ CreateModuleToggle(tabs.General, " Enable Flight Master", -60, "flightMaster")
 CreateModuleToggle(tabs.General, " Enable Faster Loot", -95, "fasterLoot")
 CreateModuleToggle(tabs.General, " Enable Fishing Tracker", -130, "fishingTracker")
 CreateModuleToggle(tabs.General, " Enable Exp & Rep Bar", -165, "xpBar")
+CreateModuleToggle(tabs.General, " Enable Stats Bar", -200, "statsBar")
 
 local resetAllBtn = CreateFrame("Button", nil, tabs.General, "UIPanelButtonTemplate")
 resetAllBtn:SetSize(180, 28)
@@ -1177,27 +1184,27 @@ local function CreateStatsBarWidgets()
 
     CreateContentHeader(tabs.StatsBar, -15, "Stats Bar Settings")
 
-    local function CreateSBToggle(label, yOffset, dbKey)
+    local function CreateSBToggle(label, yOffset, dbKey, useGlobalDB)
         local frameName = "OdysseusSBToggle_" .. dbKey
         local cb = CreateFrame("CheckButton", frameName, tabs.StatsBar, "ChatConfigCheckButtonTemplate")
         cb:SetPoint("TOPLEFT", 20, yOffset)
         _G[cb:GetName().."Text"]:SetText(label)
         cb:SetScript("OnShow", function(self)
-            local charDB = OdysseusCharDB and OdysseusCharDB.statsBar
-            if charDB then self:SetChecked(charDB[dbKey]) end
+            local db = useGlobalDB and (OdysseusDB and OdysseusDB.statsBar) or (OdysseusCharDB and OdysseusCharDB.statsBar)
+            if db then self:SetChecked(db[dbKey]) end
         end)
         cb:SetScript("OnClick", function(self)
-            local charDB = OdysseusCharDB and OdysseusCharDB.statsBar
-            if charDB then
-                charDB[dbKey] = self:GetChecked()
+            local db = useGlobalDB and (OdysseusDB and OdysseusDB.statsBar) or (OdysseusCharDB and OdysseusCharDB.statsBar)
+            if db then
+                db[dbKey] = self:GetChecked()
                 if OUS.StatsBar then
                     if dbKey == "tableEnabled" then
                         OUS.StatsBar.UpdateDisplay()
                         OUS.StatsBar.UpdateTable()
                     elseif dbKey == "locked" then
-                        OUS.StatsBar.SetLocked(charDB[dbKey])
+                        OUS.StatsBar.SetLocked(db[dbKey])
                     elseif dbKey == "tableLocked" then
-                        OUS.StatsBar.SetTableLocked(charDB[dbKey])
+                        OUS.StatsBar.SetTableLocked(db[dbKey])
                     else
                         OUS.StatsBar.UpdateDisplay()
                     end
@@ -1207,19 +1214,22 @@ local function CreateStatsBarWidgets()
         return cb
     end
 
-    CreateSBToggle(" Enable Stats Bar", -55, "enabled")
-    CreateSBToggle(" Table mode (vertical layout)", -85, "tableEnabled")
-    CreateSBToggle(" Lock single-line bar position", -115, "locked")
-    CreateSBToggle(" Lock table position", -145, "tableLocked")
+    CreateSBToggle(" Table mode (vertical layout)", -55, "tableEnabled", false)
+    CreateSBToggle(" Lock single-line bar position", -85, "locked", true)
+    CreateSBToggle(" Lock table position", -115, "tableLocked", true)
 
     -- Font size slider
-    local statsBarDB = OdysseusCharDB and OdysseusCharDB.statsBar or {}
+    local statsBarDB = OdysseusDB and OdysseusDB.statsBar or {}
     sbDelaySlider, sbDelayBox = OUS.CreatePremiumSlider(
         tabs.StatsBar, statsBarDB,
-        "Font Size", -185, "fontSize", 8, 24, 1
+        "Font Size", -155, "fontSize", 8, 24, 1
     )
     if sbDelaySlider then
-        sbDelaySlider:HookScript("OnValueChanged", function()
+        sbDelaySlider:HookScript("OnValueChanged", function(self)
+            local val = self:GetValue()
+            if OdysseusDB and OdysseusDB.statsBar then
+                OdysseusDB.statsBar.fontSize = val
+            end
             if OUS.StatsBar then
                 OUS.StatsBar.UpdateDisplay()
                 OUS.StatsBar.UpdateTable()
@@ -1228,20 +1238,24 @@ local function CreateStatsBarWidgets()
     end
 
     -- Table width slider
-    local statsBarDBW = OdysseusCharDB and OdysseusCharDB.statsBar or {}
+    local statsBarDBW = OdysseusDB and OdysseusDB.statsBar or {}
     sbWidthSlider, sbWidthBox = OUS.CreatePremiumSlider(
         tabs.StatsBar, statsBarDBW,
-        "Table Width", -220, "tableWidth", 100, 300, 5
+        "Table Width", -215, "tableWidth", 100, 300, 5
     )
     if sbWidthSlider then
-        sbWidthSlider:HookScript("OnValueChanged", function()
+        sbWidthSlider:HookScript("OnValueChanged", function(self)
+            local val = self:GetValue()
+            if OdysseusDB and OdysseusDB.statsBar then
+                OdysseusDB.statsBar.tableWidth = val
+            end
             if OUS.StatsBar then OUS.StatsBar.UpdateTable() end
         end)
     end
 
     -- Template label
     local templateLabel = tabs.StatsBar:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-    templateLabel:SetPoint("TOPLEFT", 20, -275)
+    templateLabel:SetPoint("TOPLEFT", 20, -280)
     templateLabel:SetText("Single-line Template:")
 
     -- Template EditBox
@@ -1266,7 +1280,7 @@ local function CreateStatsBarWidgets()
 
     -- Token hint
     local tokenHint = tabs.StatsBar:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    tokenHint:SetPoint("TOPLEFT", 20, -318)
+    tokenHint:SetPoint("TOPLEFT", 20, -333)
     tokenHint:SetTextColor(0.7, 0.7, 0.7)
     tokenHint:SetText("{ilvl} {spec} {crit} {haste} {mast} {vers} {int} {agi} {str}")
 
@@ -1275,33 +1289,53 @@ local function CreateStatsBarWidgets()
     resetBtn:SetSize(120, 24)
     resetBtn:SetPoint("BOTTOMRIGHT", -12, 12)
     resetBtn:SetText("Reset Defaults")
+    StaticPopupDialogs["ODYSSEUS_CONFIRM_RESET_STATSBAR"] = {
+        text = "Reset all Stats Bar settings to defaults? This cannot be undone.",
+        button1 = "Reset",
+        button2 = "Cancel",
+        OnAccept = function()
+            local charDB = OdysseusCharDB and OdysseusCharDB.statsBar
+            local gdb = OdysseusDB and OdysseusDB.statsBar
+            if charDB then
+                charDB.enabled       = true
+                charDB.tableEnabled  = false
+                charDB.template      = "{ilvl} | {spec}"
+                charDB.x, charDB.y  = 0, 0
+                charDB.point, charDB.relPoint = "CENTER", "CENTER"
+                charDB.tableX        = 200
+                charDB.tableY        = 0
+                charDB.tablePoint, charDB.tableRelPoint = "CENTER", "CENTER"
+            end
+            if gdb then
+                gdb.fontSize    = 12
+                gdb.tableWidth  = 150
+                gdb.locked      = false
+                gdb.tableLocked = false
+            end
+            if sbDelaySlider then sbDelaySlider:SetValue(12) end
+            if sbDelayBox then sbDelayBox:SetText("12") end
+            if sbWidthSlider then sbWidthSlider:SetValue(150) end
+            if sbWidthBox then sbWidthBox:SetText("150") end
+            if _G["OdysseusSBToggle_enabled"] then _G["OdysseusSBToggle_enabled"]:SetChecked(true) end
+            if _G["OdysseusSBToggle_tableEnabled"] then _G["OdysseusSBToggle_tableEnabled"]:SetChecked(false) end
+            if _G["OdysseusSBToggle_locked"] then _G["OdysseusSBToggle_locked"]:SetChecked(false) end
+            if _G["OdysseusSBToggle_tableLocked"] then _G["OdysseusSBToggle_tableLocked"]:SetChecked(false) end
+            if _G["OdysseusSBTemplateBox"] then _G["OdysseusSBTemplateBox"]:SetText("{ilvl} | {spec}") end
+            if OUS.StatsBar then
+                OUS.StatsBar.UpdateDisplay()
+                OUS.StatsBar.UpdateTable()
+                OUS.StatsBar.SetLocked(false)
+                OUS.StatsBar.SetTableLocked(false)
+            end
+            if OUS.LogDebug then OUS.LogDebug("StatsBar", "Settings restored to default.") end
+        end,
+        timeout = 0,
+        whileDead = true,
+        hideOnEscape = true,
+        preferredIndex = 3,
+    }
     resetBtn:SetScript("OnClick", function()
-        local charDB = OdysseusCharDB and OdysseusCharDB.statsBar
-        if not charDB then return end
-        charDB.enabled       = true
-        charDB.tableEnabled  = false
-        charDB.locked        = false
-        charDB.tableLocked   = false
-        charDB.fontSize      = 12
-        charDB.template      = "{ilvl} | {spec}"
-        charDB.x, charDB.y  = 0, 0
-        charDB.point, charDB.relPoint = "CENTER", "CENTER"
-        charDB.tableX        = 200
-        charDB.tableY        = 0
-        charDB.tablePoint, charDB.tableRelPoint = "CENTER", "CENTER"
-        if sbDelaySlider then sbDelaySlider:SetValue(12) end
-        if sbDelayBox then sbDelayBox:SetText("12") end
-        if _G["OdysseusSBToggle_enabled"] then _G["OdysseusSBToggle_enabled"]:SetChecked(true) end
-        if _G["OdysseusSBToggle_tableEnabled"] then _G["OdysseusSBToggle_tableEnabled"]:SetChecked(false) end
-        if _G["OdysseusSBToggle_locked"] then _G["OdysseusSBToggle_locked"]:SetChecked(false) end
-        if _G["OdysseusSBToggle_tableLocked"] then _G["OdysseusSBToggle_tableLocked"]:SetChecked(false) end
-        if _G["OdysseusSBTemplateBox"] then _G["OdysseusSBTemplateBox"]:SetText("{ilvl} | {spec}") end
-        if OUS.StatsBar then
-            OUS.StatsBar.UpdateDisplay()
-            OUS.StatsBar.SetLocked(false)
-            OUS.StatsBar.SetTableLocked(false)
-        end
-        if OUS.LogDebug then OUS.LogDebug("StatsBar", "Settings restored to default.") end
+        StaticPopup_Show("ODYSSEUS_CONFIRM_RESET_STATSBAR")
     end)
 
     sbWidgetsCreated = true
@@ -1313,12 +1347,13 @@ tabs.StatsBar:SetScript("OnShow", function()
     if charDB then
         if _G["OdysseusSBToggle_enabled"] then _G["OdysseusSBToggle_enabled"]:SetChecked(charDB.enabled) end
         if _G["OdysseusSBToggle_tableEnabled"] then _G["OdysseusSBToggle_tableEnabled"]:SetChecked(charDB.tableEnabled) end
-        if _G["OdysseusSBToggle_locked"] then _G["OdysseusSBToggle_locked"]:SetChecked(charDB.locked) end
-        if _G["OdysseusSBToggle_tableLocked"] then _G["OdysseusSBToggle_tableLocked"]:SetChecked(charDB.tableLocked) end
-        local fs = charDB.fontSize or 12
+        local gdb = OdysseusDB and OdysseusDB.statsBar
+        if _G["OdysseusSBToggle_locked"] then _G["OdysseusSBToggle_locked"]:SetChecked(gdb and gdb.locked or false) end
+        if _G["OdysseusSBToggle_tableLocked"] then _G["OdysseusSBToggle_tableLocked"]:SetChecked(gdb and gdb.tableLocked or false) end
+        local fs = (gdb and gdb.fontSize) or 12
         if sbDelaySlider then sbDelaySlider:SetValue(fs) end
         if sbDelayBox then sbDelayBox:SetText(tostring(fs)) end
-        local tw = charDB.tableWidth or 150
+        local tw = (gdb and gdb.tableWidth) or 150
         if sbWidthSlider then sbWidthSlider:SetValue(tw) end
         if sbWidthBox then sbWidthBox:SetText(tostring(tw)) end
         if _G["OdysseusSBTemplateBox"] then _G["OdysseusSBTemplateBox"]:SetText(charDB.template or "{ilvl} | {spec}") end
@@ -1329,7 +1364,7 @@ end)
 -- ON-SCREEN HELP FRAME
 -- =====================================
 local helpFrame = CreateFrame("Frame", "OdysseusHelpFrame", UIParent, "BackdropTemplate")
-helpFrame:SetSize(380, 380)
+helpFrame:SetSize(380, 460)
 helpFrame:SetPoint("CENTER")
 helpFrame:SetFrameStrata("DIALOG")
 helpFrame:SetBackdrop({
