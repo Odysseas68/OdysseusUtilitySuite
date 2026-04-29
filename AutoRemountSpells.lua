@@ -15,11 +15,12 @@ OUS.AutoRemountSpells = {
     [98324]   = true,   -- Void-Tainted Remains: special lootable object
     [6478]    = true,   -- Tools: knowledge point nodes
     [6247]    = true,   -- Coalesced Light: special interactable
-    [134065]  = true,   -- Trap??
-    [247077]  = true,   -- Trap??
+    [134065]  = true,   -- Trap disarm (generic)
+    [247077]  = true,   -- Trap disarm (generic)
     [1259286] = true,   -- Attempting to Disarm Trap
     [1242005] = true,   -- Attempting to Disarm Trap
     [1259477] = true,   -- Attempting to Disarm Trap
+    [179665] = true,    -- Disable ALL Mounts
 
     -- ==========================================
     -- LUMBER / LOGGING (all expansions share one ID)
@@ -83,4 +84,14 @@ OUS.AutoRemountExcludeSpells = {
     [1265750] = true,   -- [DNT] Sniping
     [1236931] = true,   -- [DNT] Battle Ring Attacker Ping
     [1225385] = true,   -- Grasping Shadows
+    [179665]  = true,   -- Disable ALL Mounts
+    [1254138] = true,   -- Arcane Charge
+    [430229]  = true,   -- Unlocking
+    [1251677] = true,   -- [DNT] Bonus Event - Active Aura
+    [198137]  = true,   -- Divine Hammer
+    [431398]  = true,   -- Empyrean Hammer
+    [1234109] = true,   -- Rummaging
+    [184575]  = true,   -- Blade of Justice
+    [32606]   = true,   -- Mining
+    [1236467] = true,   -- Gleeful Glamour - Gnome
 }
