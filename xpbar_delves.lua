@@ -59,10 +59,12 @@ local BRANN_EXCEPTION_MAP_IDS      = { [2484]=true }
 local NON_DELVE_INSTANCE_IDS = {
     [3022] = true, -- Decor Duel
     [3074] = true, -- Eversong Woods Ritual Site
+    [3018] = true, -- Broken throne Ritual Site
 }
 local NON_DELVE_MAP_IDS = {
     [2537] = true, -- Decor Duel
     [2594] = true, -- Eversong Woods Ritual Site
+    [2585] = true, -- Broken throne Ritual Site
 }
 
 local function IsPlayerInDelve()

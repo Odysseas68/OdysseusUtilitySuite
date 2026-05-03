@@ -50,7 +50,8 @@ f:SetScript("OnEvent", function(self, event, arg1)
         }
 
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}
-        OdysseusDB.fishingSettings = OdysseusDB.fishingSettings or { history = {} }
+        OdysseusDB.fishingSettings = OdysseusDB.fishingSettings or {}
+        OdysseusFishingDB = OdysseusFishingDB or { history = {} }
         OdysseusDB.autoRemount = OdysseusDB.autoRemount or {
             enabled = true,
             delay = 0.5,
@@ -102,10 +103,9 @@ function OUS.ResetAllSettings()
         OdysseusDB.flightSettings.times = {} -- Explicitly wipe flight times
     end
 
-    -- Reset Fishing Tracker
+    -- Reset Fishing Tracker settings only (history preserved in OdysseusFishingDB)
     if OUS.fishingDefaults then
         OdysseusDB.fishingSettings = OUS.DeepCopyTable(OUS.fishingDefaults)
-        OdysseusDB.fishingSettings.history = {} -- Explicitly wipe fishing history
     end
 
     -- Reset XP Bar

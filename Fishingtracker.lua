@@ -30,7 +30,8 @@ OUS.fishingDefaults = {
 local sessionData = {
     total = 0,
     currencyTotal = 0,
-    catches = {}
+    catches = {},
+    catchLinks = {}
 }
 
 -- ==========================================
@@ -179,6 +180,11 @@ local ZONE_FISHING_NAMES = {
     [107] = "Outland Fishing", -- Netherstorm
     [108] = "Outland Fishing", -- Shadowmoon Valley (Old)
     [111] = "Outland Fishing", -- Shattrath City
+
+    -- ======================================
+    -- SPECIAL CASES
+    -- ======================================
+    [407] = "Midnight Fishing", -- Darkmoon Island
 }
 
 local function FormatTimer(diff)
@@ -613,7 +619,7 @@ local function UpdateGlobalStatsFrame()
     if not statsFrame:IsShown() then return end
     if not OdysseusDB or not OdysseusDB.fishingSettings then return end
 
-    local history = OdysseusDB.fishingSettings.history or {}
+    local history = OdysseusFishingDB.history or {}
     local globalTotal = 0
     local globalCurrencyTotal = 0
     local globalFish = {}
@@ -629,8 +635,18 @@ local function UpdateGlobalStatsFrame()
         table.insert(zoneDataList, { name = zone, count = zoneTotal })
 
         if data.catches then
-            for link, count in pairs(data.catches) do
-                globalFish[link] = (globalFish[link] or 0) + count
+            for key, count in pairs(data.catches) do
+                globalFish[key] = (globalFish[key] or 0) + count
+                -- Store display link from any zone that has it
+                if data.catchLinks and data.catchLinks[key] and not globalFishLinks then
+                    globalFishLinks = {}
+                end
+                if data.catchLinks and data.catchLinks[key] then
+                    globalFishLinks = globalFishLinks or {}
+                    if not globalFishLinks[key] then
+                        globalFishLinks[key] = data.catchLinks[key]
+                    end
+                end
             end
         end
         if data.subZones then
@@ -642,9 +658,10 @@ local function UpdateGlobalStatsFrame()
 
     local fishTypesCount = 0
     local fishDataList = {}
-    for link, count in pairs(globalFish) do
+    for key, count in pairs(globalFish) do
         fishTypesCount = fishTypesCount + 1
-        table.insert(fishDataList, { link = link, count = count })
+        local displayLink = (globalFishLinks and globalFishLinks[key]) or key
+        table.insert(fishDataList, { link = displayLink, count = count })
     end
 
     stat1:SetText(string.format("Total Fish Caught: |cFF87CEEB%d|r", globalTotal))
@@ -845,8 +862,8 @@ function OUS.UpdateFishingUI()
     zoneText:SetText(currentZone)
     subZoneText:SetText(currentSubZone)
 
-    OdysseusDB.fishingSettings.history[currentZone] = OdysseusDB.fishingSettings.history[currentZone] or { total = 0, currencyTotal = 0, catches = {}, subZones = {} }
-    local areaData = OdysseusDB.fishingSettings.history[currentZone]
+    OdysseusFishingDB.history[currentZone] = OdysseusFishingDB.history[currentZone] or { total = 0, currencyTotal = 0, catches = {}, subZones = {} }
+    local areaData = OdysseusFishingDB.history[currentZone]
 
     locTotalText:SetText(string.format("Fish caught in this location: |cFF87CEEB%d|r", areaData.total or 0))
     locCurrencyText:SetText(string.format("Currencies in this location: |cFF87CEEB%d|r", areaData.currencyTotal or 0))
@@ -886,8 +903,9 @@ function OUS.UpdateFishingUI()
 
     if areaData.catches then
         local sortedAreaCatches = {}
-        for itemLink, count in pairs(areaData.catches) do
-            table.insert(sortedAreaCatches, { link = itemLink, count = count })
+        for key, count in pairs(areaData.catches) do
+            local displayLink = (areaData.catchLinks and areaData.catchLinks[key]) or key
+            table.insert(sortedAreaCatches, { link = displayLink, count = count })
         end
         table.sort(sortedAreaCatches, function(a, b) return a.count > b.count end)
 
@@ -921,8 +939,9 @@ function OUS.UpdateFishingUI()
     local sessIdx = 1
 
     local sortedSessionCatches = {}
-    for itemLink, count in pairs(sessionData.catches) do
-        table.insert(sortedSessionCatches, { link = itemLink, count = count })
+    for key, count in pairs(sessionData.catches) do
+        local displayLink = sessionData.catchLinks[key] or key
+        table.insert(sortedSessionCatches, { link = displayLink, count = count })
     end
     table.sort(sortedSessionCatches, function(a, b) return a.count > b.count end)
 
@@ -984,18 +1003,29 @@ local function RecordCatch(itemLink, quantity)
     currentZone = GetRealZoneText() or "Unknown Zone"
     currentSubZone = GetMinimapZoneText() or ""
 
-    OdysseusDB.fishingSettings.history[currentZone] = OdysseusDB.fishingSettings.history[currentZone] or { total = 0, currencyTotal = 0, catches = {}, subZones = {} }
-    OdysseusDB.fishingSettings.history[currentZone].subZones = OdysseusDB.fishingSettings.history[currentZone].subZones or {}
+    OdysseusFishingDB.history[currentZone] = OdysseusFishingDB.history[currentZone] or { total = 0, currencyTotal = 0, catches = {}, subZones = {} }
+    OdysseusFishingDB.history[currentZone].subZones = OdysseusFishingDB.history[currentZone].subZones or {}
 
-    OdysseusDB.fishingSettings.history[currentZone].total = (OdysseusDB.fishingSettings.history[currentZone].total or 0) + quantity
-    OdysseusDB.fishingSettings.history[currentZone].catches[itemLink] = (OdysseusDB.fishingSettings.history[currentZone].catches[itemLink] or 0) + quantity
+    OdysseusFishingDB.history[currentZone].total = (OdysseusFishingDB.history[currentZone].total or 0) + quantity
+    local catchKey = itemID or itemLink
+    OdysseusFishingDB.history[currentZone].catches[catchKey] = (OdysseusFishingDB.history[currentZone].catches[catchKey] or 0) + quantity
+    -- Store the canonical link for display (first seen wins)
+    if not OdysseusFishingDB.history[currentZone].catchLinks then
+        OdysseusFishingDB.history[currentZone].catchLinks = {}
+    end
+    if not OdysseusFishingDB.history[currentZone].catchLinks[catchKey] then
+        OdysseusFishingDB.history[currentZone].catchLinks[catchKey] = itemLink
+    end
 
     if currentSubZone ~= "" then
-        OdysseusDB.fishingSettings.history[currentZone].subZones[currentSubZone] = true
+        OdysseusFishingDB.history[currentZone].subZones[currentSubZone] = true
     end
 
 sessionData.total = (sessionData.total or 0) + quantity
-sessionData.catches[itemLink] = (sessionData.catches[itemLink] or 0) + quantity
+    sessionData.catches[catchKey] = (sessionData.catches[catchKey] or 0) + quantity
+    if not sessionData.catchLinks[catchKey] then
+        sessionData.catchLinks[catchKey] = itemLink
+    end
 
     fphUpdateTimer = 15
     OUS.UpdateFishingUI()
@@ -1026,14 +1056,14 @@ local function RecordCurrencyCatch(currencyID, quantity)
     currentZone = GetRealZoneText() or "Unknown Zone"
     currentSubZone = GetMinimapZoneText() or ""
 
-    OdysseusDB.fishingSettings.history[currentZone] = OdysseusDB.fishingSettings.history[currentZone] or { total = 0, currencyTotal = 0, catches = {}, subZones = {} }
-    OdysseusDB.fishingSettings.history[currentZone].subZones = OdysseusDB.fishingSettings.history[currentZone].subZones or {}
+    OdysseusFishingDB.history[currentZone] = OdysseusFishingDB.history[currentZone] or { total = 0, currencyTotal = 0, catches = {}, subZones = {} }
+    OdysseusFishingDB.history[currentZone].subZones = OdysseusFishingDB.history[currentZone].subZones or {}
 
-    OdysseusDB.fishingSettings.history[currentZone].currencyTotal = (OdysseusDB.fishingSettings.history[currentZone].currencyTotal or 0) + quantity
-    OdysseusDB.fishingSettings.history[currentZone].catches[displayLink] = (OdysseusDB.fishingSettings.history[currentZone].catches[displayLink] or 0) + quantity
+    OdysseusFishingDB.history[currentZone].currencyTotal = (OdysseusFishingDB.history[currentZone].currencyTotal or 0) + quantity
+    OdysseusFishingDB.history[currentZone].catches[displayLink] = (OdysseusFishingDB.history[currentZone].catches[displayLink] or 0) + quantity
 
     if currentSubZone ~= "" then
-        OdysseusDB.fishingSettings.history[currentZone].subZones[currentSubZone] = true
+        OdysseusFishingDB.history[currentZone].subZones[currentSubZone] = true
     end
 
 sessionData.currencyTotal = (sessionData.currencyTotal or 0) + quantity

@@ -456,8 +456,8 @@ StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE_FISHING"] = {
     button1 = "Yes, Wipe",
     button2 = "Cancel",
     OnAccept = function()
-        if OdysseusDB and OdysseusDB.fishingSettings then
-            OdysseusDB.fishingSettings.history = {}
+        if OdysseusFishingDB then
+            OdysseusFishingDB.history = {}
             print("|cFF00CCFFOdysseus:|r All recorded fishing history |cFFFF0000wiped|r!")
             if OUS.UpdateFishingUI then OUS.UpdateFishingUI() end
         end

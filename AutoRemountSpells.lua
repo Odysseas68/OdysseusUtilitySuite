@@ -62,6 +62,11 @@ OUS.AutoRemountSpells = {
     [366252]  = true,   -- Herbalism: Dragonflight
     [441327]  = true,   -- Herbalism: The War Within
     [471009]  = true,   -- Herbalism: Midnight
+    [451190] = true,    -- Collecting
+    [6477] = true,      -- Opening
+    [409086] = true,    -- Collecting
+    [396468] = true,    -- Collecting
+    [32605] = true,     -- Herb Gathering
 }
 
 -- ==========================================
@@ -94,4 +99,32 @@ OUS.AutoRemountExcludeSpells = {
     [184575]  = true,   -- Blade of Justice
     [32606]   = true,   -- Mining
     [1236467] = true,   -- Gleeful Glamour - Gnome
+    [1241675] = true,   -- 12.0 Delves - DevouringHost01 - V01 - Injured Solider: Interact (Hufton)
+    [1243709] = true,   -- Punt!
+    [434635] = true,    -- Ruination
+    [104316] = true,    -- Call Dreadstalkers
+    [1239318] = true,   -- Heavy Mists
+    [1239227] = true,   -- Fishing
+    [1263680] = true,   -- Light Spores
+    [20271] = true,     -- Judgment
+    [24275] = true,     -- Hammer of Wrath
+    [383328] = true,    -- Final Verdict
+    [408385] = true,    -- Crusading Strikes
+    [255937] = true,    -- Wake of Ashes
+    [454351] = true,    -- Avenging Wrath
+    [434506] = true,    -- Infernal Bolt
+    [1288478] = true,   -- Activate
+    [30146] = true,     -- Summon Felguard
+    [119914] = true,    -- Axe Toss
+    [1231411] = true,   -- Recuperate
+    [1288474] = true,   -- Analyzing
+    [8386] = true,      -- Attacking
+    [1247818] = true,   -- [DNT] Altar - Auto-Collect
+    [1236942] = true,   -- Divine Hammer
+    [1270789] = true,   -- Kill Credit [DNT]
+    [115750] = true,    -- Blinding Light
+    [1236535] = true,   -- [DNT] Add to Scenario Defense
+    [295727] = true,    -- Compressed Ocean Fishing
+    [1270530] = true,   -- Studying
+    [131474] = true,    -- Fishing
 }

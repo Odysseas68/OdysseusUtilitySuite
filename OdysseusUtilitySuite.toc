@@ -3,7 +3,7 @@
 ## Notes: A modular suite of highly optimized utility tools.
 ## Author: Odysseus
 ## Version: 1.0
-## SavedVariables: OdysseusDB
+## SavedVariables: OdysseusDB OdysseusFishingDB
 ## SavedVariablesPerCharacter: OdysseusCharDB
 ## IconTexture: 133853
 ## AddonCompartmentFunc: Odysseus_ToggleConfig
