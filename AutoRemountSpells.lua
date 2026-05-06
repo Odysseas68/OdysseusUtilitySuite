@@ -66,6 +66,7 @@ OUS.AutoRemountSpells = {
     [6477] = true,      -- Opening
     [409086] = true,    -- Collecting
     [396468] = true,    -- Collecting
+    [291920] = true,    -- Collecting
     [32605] = true,     -- Herb Gathering
 }
 
@@ -127,4 +128,13 @@ OUS.AutoRemountExcludeSpells = {
     [295727] = true,    -- Compressed Ocean Fishing
     [1270530] = true,   -- Studying
     [131474] = true,    -- Fishing
+    [101847] = true,    -- Shoe Baby
+    [467455] = true,    -- NoCho
+    [783] = true,       -- Travel Form
+    [149653] = true,    -- Jump Forward - Land
+    [1227965] = true,   -- Alndust Toss
+    [361652] = true,    -- Demonic Gateway
+    [132411] = true,    -- Singe Magic
+    [259072] = true,    -- Bonus Roll 3.0
+    [1248091] = true,   -- Unlocking
 }

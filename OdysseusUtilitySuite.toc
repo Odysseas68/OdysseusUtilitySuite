@@ -5,9 +5,9 @@
 ## Version: 1.0
 ## SavedVariables: OdysseusDB OdysseusFishingDB
 ## SavedVariablesPerCharacter: OdysseusCharDB
-## IconTexture: 133853
+## IconTexture: Interface\AddOns\OdysseusUtilitySuite\media\icon\OUS_icon_128.tga
 ## AddonCompartmentFunc: Odysseus_ToggleConfig
-## AddonCompartmentIcon: 133853
+## AddonCompartmentIcon: Interface\AddOns\OdysseusUtilitySuite\media\icon\OUS_icon_128.tga
 
 # ==========================================
 # 1. LIBRARIES (Must load absolutely first)

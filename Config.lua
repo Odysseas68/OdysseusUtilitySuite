@@ -627,7 +627,36 @@ end
 -- =====================================
 -- TAB 1: GENERAL (Module Toggles)
 -- =====================================
-local genHeader = CreateContentHeader(tabs.General, -15, "Module Management")
+-- Logo image
+local genLogo = tabs.General:CreateTexture(nil, "ARTWORK")
+genLogo:SetSize(360, 180)
+genLogo:SetPoint("TOP", tabs.General, "TOP", 0, -10)
+genLogo:SetTexture("Interface\\AddOns\\OdysseusUtilitySuite\\Media\\icon\\OUS_banner")
+
+-- Title next to logo
+local genTitle = tabs.General:CreateFontString(nil, "OVERLAY")
+genTitle:SetFont("Fonts\\FRIZQT__.TTF", 18, "OUTLINE")
+genTitle:SetPoint("TOP", genLogo, "BOTTOM", 0, -8)
+genTitle:SetText("|cFF00FFFFOdysseus|r |cFFAA88FFUtility Suite|r")
+
+-- Subtitle
+local genSubTitle = tabs.General:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+genSubTitle:SetPoint("TOP", genTitle, "BOTTOM", 0, -4)
+genSubTitle:SetTextColor(0.6, 0.6, 0.6)
+genSubTitle:SetText("Modular Quality-of-Life Suite for WoW Retail 12.0+")
+
+-- Separator line
+local genSep = tabs.General:CreateTexture(nil, "ARTWORK")
+genSep:SetHeight(1)
+genSep:SetPoint("TOPLEFT", 10, -245)
+genSep:SetPoint("TOPRIGHT", -10, -245)
+genSep:SetColorTexture(0.4, 0.2, 0.6, 0.8)
+
+-- Section header below separator
+local genHeader = tabs.General:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+genHeader:SetPoint("TOPLEFT", 20, -258)
+genHeader:SetTextColor(0.7, 0.5, 1)
+genHeader:SetText("MODULE TOGGLES")
 
 local function CreateModuleToggle(parent, label, yOffset, dbKey)
     local frameName = "OdysseusToggle_" .. dbKey
@@ -667,11 +696,11 @@ local function CreateModuleToggle(parent, label, yOffset, dbKey)
     end)
 end
 
-CreateModuleToggle(tabs.General, " Enable Flight Master", -60, "flightMaster")
-CreateModuleToggle(tabs.General, " Enable Faster Loot", -95, "fasterLoot")
-CreateModuleToggle(tabs.General, " Enable Fishing Tracker", -130, "fishingTracker")
-CreateModuleToggle(tabs.General, " Enable Exp & Rep Bar", -165, "xpBar")
-CreateModuleToggle(tabs.General, " Enable Stats Bar", -200, "statsBar")
+CreateModuleToggle(tabs.General, " Enable Flight Master", -270, "flightMaster")
+CreateModuleToggle(tabs.General, " Enable Faster Loot", -305, "fasterLoot")
+CreateModuleToggle(tabs.General, " Enable Fishing Tracker", -340, "fishingTracker")
+CreateModuleToggle(tabs.General, " Enable Exp & Rep Bar", -375, "xpBar")
+CreateModuleToggle(tabs.General, " Enable Stats Bar", -410, "statsBar")
 
 local resetAllBtn = CreateFrame("Button", nil, tabs.General, "UIPanelButtonTemplate")
 resetAllBtn:SetSize(180, 28)
