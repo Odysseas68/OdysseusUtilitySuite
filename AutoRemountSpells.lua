@@ -68,6 +68,7 @@ OUS.AutoRemountSpells = {
     [396468] = true,    -- Collecting
     [291920] = true,    -- Collecting
     [32605] = true,     -- Herb Gathering
+    [262151] = true,    -- Collecting
 }
 
 -- ==========================================
@@ -137,4 +138,16 @@ OUS.AutoRemountExcludeSpells = {
     [132411] = true,    -- Singe Magic
     [259072] = true,    -- Bonus Roll 3.0
     [1248091] = true,   -- Unlocking
+    [432573] = true,    -- Cozy Fire
+    [1270531] = true,   -- Studying
+    [1286595] = true,   -- Investigating
+    [1270421] = true,   -- Destroy
+    [258303] = true,    -- Burning
+    [461749] = true,    -- Opening
+    [234153] = true,    -- Drain Life
+    [250491] = true,    -- Destroying
+    [6201] = true,      -- Create Healthstone
+    [1244973] = true,   -- Anomaly Collector
+    [1265824] = true,   -- [DNT] Void Power Credit - T1
+    [1225292] = true,   -- Fishing Journal - Looted - Learn - Entry
 }

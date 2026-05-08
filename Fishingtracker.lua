@@ -45,7 +45,7 @@ local ZONE_FISHING_NAMES = {
     [2443] = "Midnight Fishing", [2480] = "Midnight Fishing", [2405] = "Midnight Fishing",
     [2479] = "Midnight Fishing", [2437] = "Midnight Fishing", [2568] = "Midnight Fishing",
     [2531] = "Midnight Fishing", [2532] = "Midnight Fishing", [2529] = "Midnight Fishing",
-    [2530] = "Midnight Fishing",
+    [2530] = "Midnight Fishing", [2444] = "Midnight Fishing",
 
     -- ======================================
     -- KHAZ ALGAR (The War Within)
@@ -262,7 +262,7 @@ end
 local mainFrame = CreateFrame("Frame", "OdysseusFishingMain", UIParent, "BackdropTemplate")
 -- WIDENED: Increased from 340 to 360 to prevent text clipping
 mainFrame:SetSize(370, 220)
-mainFrame:SetPoint("RIGHT", UIParent, "RIGHT", -250, 0)
+mainFrame:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", -250, -200)
 mainFrame:Hide()
 
 mainFrame:SetMovable(true)
@@ -271,9 +271,13 @@ mainFrame:RegisterForDrag("LeftButton")
 mainFrame:SetScript("OnDragStart", mainFrame.StartMoving)
 mainFrame:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
-    local point, _, relativePoint, xOfs, yOfs = self:GetPoint()
+    -- Always save as TOPLEFT so frame grows downward only
+    local x, y = self:GetLeft(), self:GetTop()
+    local scale = self:GetEffectiveScale() / UIParent:GetEffectiveScale()
+    x = x * scale
+    y = -(UIParent:GetHeight() - y * scale)
     if OdysseusDB and OdysseusDB.fishingSettings then
-        OdysseusDB.fishingSettings.pos = {point, relativePoint, xOfs, yOfs}
+        OdysseusDB.fishingSettings.pos = {"TOPLEFT", "TOPLEFT", x, y}
     end
 end)
 
@@ -928,7 +932,18 @@ function OUS.UpdateFishingUI()
             rowIndex = rowIndex + 1
         end
     end
-    mainFrame:SetHeight(math.max(220, math.abs(yOffset) + 35))
+    local newHeight = math.max(220, math.abs(yOffset) + 35)
+    if mainFrame:GetHeight() ~= newHeight then
+        mainFrame:SetHeight(newHeight)
+        -- Re-anchor after resize to prevent bidirectional growth
+        local p = OdysseusDB and OdysseusDB.fishingSettings and OdysseusDB.fishingSettings.pos
+        mainFrame:ClearAllPoints()
+        if p then
+            mainFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", p[3], p[4])
+        else
+            mainFrame:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", -250, -200)
+        end
+    end
 
     -- Update Session Rows
     for _, row in ipairs(sessRows) do
@@ -969,66 +984,56 @@ function OUS.UpdateFishingUI()
 end
 
 local function RecordCatch(itemLink, quantity)
-    if not OdysseusDB or not OdysseusDB.fishingSettings then
-        return
-    end
-
+    if not OdysseusDB or not OdysseusDB.fishingSettings then return end
     quantity = quantity or 1
 
-    local itemName, _, itemQuality = C_Item.GetItemInfo(itemLink)
-    local exactName = string.match(itemLink, "%[(.-)%]") or itemName or "Unknown"
+    local exactName = string.match(itemLink, "%[(.-)%]") or "Unknown"
     local itemID = string.match(itemLink, "item:(%d+)")
-    local _, _, _, hex = C_Item.GetItemQualityColor(itemQuality or 1)
-    local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
-
-    local coloredName = colorPrefix .. "[" .. exactName .. "]|r"
-    local statusText = ""
-
-    -- Filter out trash (Grey items)
-    if itemQuality and itemQuality == 0 then
-        statusText = "|cFFFF0000not saved.|r"
-        lastCatchText:SetText(coloredName .. " (|cFFFFFFFFx" .. quantity .. "|r) |cFF87CEEB[ID: " .. tostring(itemID) .. "]|r " .. statusText)
-        if OUS and OUS.LogDebug then
-            OUS.LogDebug("Fishing", "Ignored trash catch: " .. exactName)
-        end
-        return
-    else
-        statusText = "|cFF87CEEBsaved.|r"
-        lastCatchText:SetText(coloredName .. " (|cFFFFFFFFx" .. quantity .. "|r) |cFF87CEEB[ID: " .. tostring(itemID) .. "]|r " .. statusText)
-        if OUS and OUS.LogDebug then
-            OUS.LogDebug("Fishing", "Saved catch: " .. exactName .. " x" .. quantity)
-        end
-    end
-
-    currentZone = GetRealZoneText() or "Unknown Zone"
-    currentSubZone = GetMinimapZoneText() or ""
-
-    OdysseusFishingDB.history[currentZone] = OdysseusFishingDB.history[currentZone] or { total = 0, currencyTotal = 0, catches = {}, subZones = {} }
-    OdysseusFishingDB.history[currentZone].subZones = OdysseusFishingDB.history[currentZone].subZones or {}
-
-    OdysseusFishingDB.history[currentZone].total = (OdysseusFishingDB.history[currentZone].total or 0) + quantity
     local catchKey = itemID or itemLink
-    OdysseusFishingDB.history[currentZone].catches[catchKey] = (OdysseusFishingDB.history[currentZone].catches[catchKey] or 0) + quantity
-    -- Store the canonical link for display (first seen wins)
-    if not OdysseusFishingDB.history[currentZone].catchLinks then
-        OdysseusFishingDB.history[currentZone].catchLinks = {}
-    end
-    if not OdysseusFishingDB.history[currentZone].catchLinks[catchKey] then
-        OdysseusFishingDB.history[currentZone].catchLinks[catchKey] = itemLink
-    end
+    local zone = GetRealZoneText() or "Unknown Zone"
+    local subZone = GetMinimapZoneText() or ""
 
-    if currentSubZone ~= "" then
-        OdysseusFishingDB.history[currentZone].subZones[currentSubZone] = true
-    end
+    local item = Item:CreateFromItemLink(itemLink)
+    item:ContinueOnItemLoad(function()
+        local itemName, _, itemQuality = C_Item.GetItemInfo(itemLink)
+        local _, _, _, hex = C_Item.GetItemQualityColor(itemQuality or 1)
+        local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
+        local coloredName = colorPrefix .. "[" .. exactName .. "]|r"
 
-sessionData.total = (sessionData.total or 0) + quantity
-    sessionData.catches[catchKey] = (sessionData.catches[catchKey] or 0) + quantity
-    if not sessionData.catchLinks[catchKey] then
-        sessionData.catchLinks[catchKey] = itemLink
-    end
+        -- Filter out trash (Grey items)
+        if itemQuality and itemQuality == 0 then
+            lastCatchText:SetText(coloredName .. " (|cFFFFFFFFx" .. quantity .. "|r) |cFF87CEEB[ID: " .. tostring(itemID) .. "]|r |cFFFF0000not saved.|r")
+            OUS.LogDebug("Fishing", "Ignored trash catch: " .. exactName)
+            OUS.UpdateFishingUI()
+            return
+        end
 
-    fphUpdateTimer = 15
-    OUS.UpdateFishingUI()
+        lastCatchText:SetText(coloredName .. " (|cFFFFFFFFx" .. quantity .. "|r) |cFF87CEEB[ID: " .. tostring(itemID) .. "]|r |cFF87CEEBsaved.|r")
+        OUS.LogDebug("Fishing", "Saved catch: " .. exactName .. " x" .. quantity)
+
+        OdysseusFishingDB.history[zone] = OdysseusFishingDB.history[zone] or { total = 0, currencyTotal = 0, catches = {}, catchLinks = {}, subZones = {} }
+        OdysseusFishingDB.history[zone].subZones = OdysseusFishingDB.history[zone].subZones or {}
+        OdysseusFishingDB.history[zone].total = (OdysseusFishingDB.history[zone].total or 0) + quantity
+        OdysseusFishingDB.history[zone].catches[catchKey] = (OdysseusFishingDB.history[zone].catches[catchKey] or 0) + quantity
+        if not OdysseusFishingDB.history[zone].catchLinks then
+            OdysseusFishingDB.history[zone].catchLinks = {}
+        end
+        if not OdysseusFishingDB.history[zone].catchLinks[catchKey] then
+            OdysseusFishingDB.history[zone].catchLinks[catchKey] = itemLink
+        end
+        if subZone ~= "" then
+            OdysseusFishingDB.history[zone].subZones[subZone] = true
+        end
+
+        sessionData.total = (sessionData.total or 0) + quantity
+        sessionData.catches[catchKey] = (sessionData.catches[catchKey] or 0) + quantity
+        if not sessionData.catchLinks[catchKey] then
+            sessionData.catchLinks[catchKey] = itemLink
+        end
+
+        fphUpdateTimer = 15
+        OUS.UpdateFishingUI()
+    end)
 end
 
 local function RecordCurrencyCatch(currencyID, quantity)
@@ -1049,25 +1054,22 @@ local function RecordCurrencyCatch(currencyID, quantity)
     local displayLink = currencyLink or ("currency:" .. tostring(currencyID))
 
     lastCatchText:SetText("|cFFFFFFFF[" .. currencyName .. "]|r (|cFFFFFFFFx" .. quantity .. "|r) |cFF87CEEB[Currency ID: " .. tostring(currencyID) .. "]|r |cFF87CEEBsaved.|r")
-    if OUS and OUS.LogDebug then
-        OUS.LogDebug("Fishing", "Saved currency catch: " .. currencyName .. " x" .. quantity)
+    OUS.LogDebug("Fishing", "Saved currency catch: " .. currencyName .. " x" .. quantity)
+
+    local zone = GetRealZoneText() or "Unknown Zone"
+    local subZone = GetMinimapZoneText() or ""
+
+    OdysseusFishingDB.history[zone] = OdysseusFishingDB.history[zone] or { total = 0, currencyTotal = 0, catches = {}, catchLinks = {}, subZones = {} }
+    OdysseusFishingDB.history[zone].subZones = OdysseusFishingDB.history[zone].subZones or {}
+    OdysseusFishingDB.history[zone].currencyTotal = (OdysseusFishingDB.history[zone].currencyTotal or 0) + quantity
+    OdysseusFishingDB.history[zone].catches[displayLink] = (OdysseusFishingDB.history[zone].catches[displayLink] or 0) + quantity
+
+    if subZone ~= "" then
+        OdysseusFishingDB.history[zone].subZones[subZone] = true
     end
 
-    currentZone = GetRealZoneText() or "Unknown Zone"
-    currentSubZone = GetMinimapZoneText() or ""
-
-    OdysseusFishingDB.history[currentZone] = OdysseusFishingDB.history[currentZone] or { total = 0, currencyTotal = 0, catches = {}, subZones = {} }
-    OdysseusFishingDB.history[currentZone].subZones = OdysseusFishingDB.history[currentZone].subZones or {}
-
-    OdysseusFishingDB.history[currentZone].currencyTotal = (OdysseusFishingDB.history[currentZone].currencyTotal or 0) + quantity
-    OdysseusFishingDB.history[currentZone].catches[displayLink] = (OdysseusFishingDB.history[currentZone].catches[displayLink] or 0) + quantity
-
-    if currentSubZone ~= "" then
-        OdysseusFishingDB.history[currentZone].subZones[currentSubZone] = true
-    end
-
-sessionData.currencyTotal = (sessionData.currencyTotal or 0) + quantity
-sessionData.catches[displayLink] = (sessionData.catches[displayLink] or 0) + quantity
+    sessionData.currencyTotal = (sessionData.currencyTotal or 0) + quantity
+    sessionData.catches[displayLink] = (sessionData.catches[displayLink] or 0) + quantity
 
     fphUpdateTimer = 15
     OUS.UpdateFishingUI()
@@ -1110,7 +1112,7 @@ f:SetScript("OnEvent", function(self, event, ...)
             if OdysseusDB.fishingSettings.pos then
                 local p = OdysseusDB.fishingSettings.pos
                 mainFrame:ClearAllPoints()
-                mainFrame:SetPoint(p[1], UIParent, p[2], p[3], p[4])
+                mainFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", p[3], p[4])
             end
 
             if OUS.UpdateFishingAlpha then
@@ -1202,6 +1204,7 @@ f:SetScript("OnEvent", function(self, event, ...)
 
             if not mainFrame:IsShown() then
                 mainFrame:Show()
+                OUS.UpdateFishingUI()
             end
         end
     end
