@@ -20,6 +20,36 @@ Features include:
 
 ---
 
+### Openables
+Scans your bags after every bag update and surfaces a single-click button for the first openable item found. No more hunting through bags for tier tokens, crest pouches, or coffer key shards.
+
+Highlights:
+- built-in database of 700+ items spanning Classic through TWW 11.2: tier tokens, crest pouches, sparks, delve keys, coffer key shards, contracts, profession knowledge, gems, enchanting materials, rep insignia, and legacy crafting fragments
+- custom item list — add by ID, drag-and-drop, or remove individually
+- per-item minimum quantity threshold so small stacks don't trigger the button
+- session blacklist (right-click) and permanent blacklist (Shift+right-click)
+- auto-open mode: uses the item automatically 0.3s after a bag update
+- draggable, scalable button with lock/unlock positioning
+- gold tooltip-style border with hover and push feedback
+- cooldown sweep overlay
+- blacklist management frame and custom list management frame
+- mass add frame: queue multiple items via drag-and-drop, set quantities, commit all at once
+- export frame: outputs custom list as ready-to-paste `OpenablesDB.lua` lines
+- combat-safe: hides on combat entry, rescans on exit
+
+Commands:
+- `/op add <itemID> [qty]` — add item to custom list
+- `/op remove <itemID>` — remove from custom list
+- `/op list` — open blacklist management frame
+- `/op clist` — open custom items management frame
+- `/op madd` — open drag-and-drop mass add frame
+- `/op unblacklist <itemID>` — remove from permanent blacklist
+- `/op auto` — toggle auto-open
+- `/op lock` / `/op unlock` — lock/unlock button position
+- `/op status` — show current settings
+
+---
+
 ### Stats Bar
 A movable character statistics overlay with two display modes.
 
@@ -131,6 +161,9 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 - `/ous` — open the main configuration window
 - `/ous help` — open the on-screen help window
 
+### Openables
+- `/op` / `/openables` — full command set (see Openables section above)
+
 ### Stats Bar
 - `/sb` / `/statsbar` — full command set (see Stats Bar section above)
 
@@ -172,6 +205,7 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 ## Current Focus
 
 The addon is in an active feature phase, with recent work on:
+- Openables module with 700+ item database, drag-and-drop mass add, blacklist and custom list management
 - Stats Bar module with combat-safe stat caching and spec priority display
 - Auto Remount module with spy mode for discovering new gather spell IDs
 - Config UI polish and Midnight-theme improvements

@@ -2,6 +2,29 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-05-10] - Openables Module
+
+### Added
+- **Openables**: New module — scans bags and surfaces a single-click button for any openable item found.
+  - Built-in database (`OpenablesDB.lua`) with 700+ items spanning Classic through TWW 11.2: tier tokens, crest pouches, sparks, delve keys, coffer key shards, contracts, profession knowledge, gems, enchanting materials, rep insignia, and legacy crafting fragments
+  - Custom item list — add items via `/op add <itemID> [minQty]`, drag-and-drop via `/op madd`, or remove via `/op remove <itemID>`
+  - Per-item minimum quantity threshold — button only appears when stack meets the minimum
+  - Session blacklist (right-click to skip for session) and permanent blacklist (Shift+right-click)
+  - Auto-open mode: automatically uses the item 0.3s after a bag update
+  - Draggable button with lock/unlock via `/op lock` / `/op unlock` — shows a test icon when unlocked with no item present
+  - Scalable button via Config slider (0.5×–2.0×) with live preview
+  - Gold tooltip-style border with hover and push color feedback
+  - Cooldown sweep overlay on the button
+  - Blacklist management frame (`/op list`) — scrollable list with per-item Remove button and Clear All
+  - Custom list management frame (`/op clist`) — scrollable list showing item name, min quantity, and per-item Remove button
+  - Mass add frame (`/op madd`) — drag-and-drop queue: drop multiple items, set per-item quantity, commit all at once
+  - Full slash command set via `/op` and `/openables`
+  - **Openables** tab in `/ous` config: enable toggle, auto-open toggle, button scale slider, reset position button, blacklist count and clear, custom DB count, export and wipe
+  - Export frame: outputs custom list as ready-to-paste `OpenablesDB.lua` lines with item names, pre-selected for Ctrl+C
+  - Combat-safe: hides on `PLAYER_REGEN_DISABLED`, rescans on `PLAYER_REGEN_ENABLED`
+
+---
+
 ## [2026-04-25] - Stats Bar
 
 ### Added

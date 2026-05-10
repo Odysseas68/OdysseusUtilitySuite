@@ -208,6 +208,7 @@ tabs.Fishing = CreateFrame("Frame", nil, contentPanel)
 tabs.XPBar = CreateFrame("Frame", nil, contentPanel)
 tabs.AutoRemount = CreateFrame("Frame", nil, contentPanel)
 tabs.StatsBar = CreateFrame("Frame", nil, contentPanel)
+tabs.Openables = CreateFrame("Frame", nil, contentPanel)
 
 OUS.XPBarTab = tabs.XPBar
 
@@ -419,6 +420,7 @@ CreateNavButton("Fishing Tracker", -115, "Fishing")
 CreateNavButton("Exp & Rep Bar", -150, "XPBar")
 CreateNavButton("Auto Remount", -185, "AutoRemount")
 CreateNavButton("Stats Bar", -220, "StatsBar")
+CreateNavButton("Openables", -255, "Openables")
 
 StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE_ALL"] = {
     text = "Are you sure you want to reset ALL Odysseus settings to their defaults? This will require a UI reload and cannot be undone.",
@@ -693,6 +695,11 @@ local function CreateModuleToggle(parent, label, yOffset, dbKey)
                 OUS.StatsBar.UpdateTable()
             end
         end
+        if dbKey == "openables" then
+            if OUS.Openables then
+                OUS.Openables.UpdateDisplay()
+            end
+        end
     end)
 end
 
@@ -701,6 +708,7 @@ CreateModuleToggle(tabs.General, " Enable Faster Loot", -305, "fasterLoot")
 CreateModuleToggle(tabs.General, " Enable Fishing Tracker", -340, "fishingTracker")
 CreateModuleToggle(tabs.General, " Enable Exp & Rep Bar", -375, "xpBar")
 CreateModuleToggle(tabs.General, " Enable Stats Bar", -410, "statsBar")
+CreateModuleToggle(tabs.General, " Enable Openables", -445, "openables")
 
 local resetAllBtn = CreateFrame("Button", nil, tabs.General, "UIPanelButtonTemplate")
 resetAllBtn:SetSize(180, 28)
@@ -1390,6 +1398,311 @@ tabs.StatsBar:SetScript("OnShow", function()
 end)
 
 -- =====================================
+-- TAB 8: OPENABLES
+-- =====================================
+local opWidgetsCreated = false
+local opScaleSlider, opScaleBox
+
+local function CreateOpenablesWidgets()
+    if opWidgetsCreated then return end
+
+    CreateContentHeader(tabs.Openables, -8, "Openables")
+
+    -- Enable toggle
+    local opEnableCheck = CreateFrame("CheckButton", "OdysseusOPToggle_enabled", tabs.Openables, "ChatConfigCheckButtonTemplate")
+    opEnableCheck:SetPoint("TOPLEFT", 20, -55)
+    _G[opEnableCheck:GetName().."Text"]:SetText(" Enable Openables")
+    opEnableCheck:SetScript("OnShow", function(self)
+        self:SetChecked(OdysseusDB and OdysseusDB.modules and OdysseusDB.modules.openables)
+    end)
+    opEnableCheck:SetScript("OnClick", function(self)
+        if OdysseusDB and OdysseusDB.modules then
+            OdysseusDB.modules.openables = self:GetChecked()
+            if OUS.Openables then OUS.Openables.UpdateDisplay() end
+        end
+    end)
+
+    -- Auto-open toggle
+    local opAutoCheck = CreateFrame("CheckButton", "OdysseusOPToggle_autoOpen", tabs.Openables, "ChatConfigCheckButtonTemplate")
+    opAutoCheck:SetPoint("TOPLEFT", 20, -90)
+    _G[opAutoCheck:GetName().."Text"]:SetText(" Auto-open on bag update")
+    opAutoCheck:SetScript("OnShow", function(self)
+        local db = OdysseusDB and OdysseusDB.openables
+        self:SetChecked(db and db.autoOpen)
+    end)
+    opAutoCheck:SetScript("OnClick", function(self)
+        local db = OdysseusDB and OdysseusDB.openables
+        if db then
+            db.autoOpen = self:GetChecked()
+            if OUS.Openables then OUS.Openables.UpdateDisplay() end
+        end
+    end)
+
+    -- Button scale slider
+    local scaleHeader = tabs.Openables:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    scaleHeader:SetPoint("TOPLEFT", 20, -135)
+    scaleHeader:SetTextColor(0.7, 0.5, 1)
+    scaleHeader:SetText("BUTTON SCALE")
+
+    local opScaleDB = setmetatable({}, {
+        __index = function()
+            return (OdysseusDB and OdysseusDB.openables and OdysseusDB.openables.scale) or 1.0
+        end,
+        __newindex = function(_, _, v)
+            if OdysseusDB and OdysseusDB.openables then
+                OdysseusDB.openables.scale = v
+                -- Apply scale live
+                local btn = _G["OdysseusOpenablesContainer"]
+                if btn then btn:SetScale(v) end
+            end
+        end,
+    })
+
+    opScaleSlider, opScaleBox = OUS.CreatePremiumSlider(
+        tabs.Openables, opScaleDB,
+        "Button Scale", -155,
+        1, 0.5, 2.0, 0.05,
+        nil
+    )
+
+    -- Reset position button
+    local resetPosBtn = CreateFrame("Button", nil, tabs.Openables, "UIPanelButtonTemplate")
+    resetPosBtn:SetSize(160, 24)
+    resetPosBtn:SetPoint("TOPLEFT", 20, -230)
+    resetPosBtn:SetText("Reset Button Position")
+    resetPosBtn:SetScript("OnClick", function()
+        local db = OdysseusDB and OdysseusDB.openables
+        if db then
+            db.x, db.y = 300, 0
+            db.point, db.relPoint = "CENTER", "CENTER"
+            local btn = _G["OdysseusOpenablesContainer"]
+            if btn then
+                btn:ClearAllPoints()
+                btn:SetPoint("CENTER", UIParent, "CENTER", 300, 0)
+            end
+        end
+    end)
+
+    -- Blacklist info line
+    local blHeader = tabs.Openables:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    blHeader:SetPoint("TOPLEFT", 20, -275)
+    blHeader:SetTextColor(0.7, 0.5, 1)
+    blHeader:SetText("BLACKLIST")
+
+    local blDesc = tabs.Openables:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    blDesc:SetPoint("TOPLEFT", 20, -295)
+    blDesc:SetTextColor(0.6, 0.6, 0.6)
+    blDesc:SetText("Manage via /op list  ·  Shift+Right-click button to blacklist an item")
+
+    local blCountLabel = tabs.Openables:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    blCountLabel:SetPoint("TOPLEFT", 20, -318)
+
+    local function RefreshBlCount()
+        local db = OdysseusDB and OdysseusDB.openables
+        local count = 0
+        if db and db.blacklist then
+            for _ in pairs(db.blacklist) do count = count + 1 end
+        end
+        blCountLabel:SetText("Permanently blacklisted items: |cFFFFD100" .. count .. "|r")
+    end
+
+    local clearBlBtn = CreateFrame("Button", nil, tabs.Openables, "UIPanelButtonTemplate")
+    clearBlBtn:SetSize(140, 24)
+    clearBlBtn:SetPoint("TOPLEFT", 20, -345)
+    clearBlBtn:SetText("Clear All Blacklist")
+
+    StaticPopupDialogs["ODYSSEUS_CONFIRM_CLEAR_OP_BLACKLIST"] = {
+        text = "Clear the entire Openables permanent blacklist? This cannot be undone.",
+        button1 = "Yes, Clear",
+        button2 = "Cancel",
+        OnAccept = function()
+            local db = OdysseusDB and OdysseusDB.openables
+            if db then
+                db.blacklist = {}
+                print("|cFF00CCFFOdysseus Openables:|r Permanent blacklist cleared.")
+                RefreshBlCount()
+                if OUS.Openables then OUS.Openables.UpdateDisplay() end
+            end
+        end,
+        timeout = 0, whileDead = true, hideOnEscape = true, preferredIndex = 3,
+    }
+    clearBlBtn:SetScript("OnClick", function()
+        StaticPopup_Show("ODYSSEUS_CONFIRM_CLEAR_OP_BLACKLIST")
+    end)
+
+    -- ----------------------------------------
+    -- CUSTOM ITEMS DB
+    -- ----------------------------------------
+    local customHeader = tabs.Openables:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    customHeader:SetPoint("TOPLEFT", 20, -385)
+    customHeader:SetTextColor(0.7, 0.5, 1)
+    customHeader:SetText("CUSTOM ITEMS DB")
+
+    local customDesc = tabs.Openables:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    customDesc:SetPoint("TOPLEFT", 20, -403)
+    customDesc:SetTextColor(0.6, 0.6, 0.6)
+    customDesc:SetText("Items added via /op add or /op madd")
+
+    local customCountLabel = tabs.Openables:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    customCountLabel:SetPoint("TOPLEFT", 20, -422)
+    tabs.Openables._customCountLabel = customCountLabel
+
+    local function RefreshCustomCount()
+        local db = OdysseusDB and OdysseusDB.openables
+        local count = 0
+        if db and db.customItems then
+            for _ in pairs(db.customItems) do count = count + 1 end
+        end
+        customCountLabel:SetText("Custom items: |cFFFFD100" .. count .. "|r")
+    end
+    tabs.Openables._refreshCustomCount = RefreshCustomCount
+
+    -- Export frame (lazy-created)
+    local opExportFrame
+    local opExportEditBox
+
+    local function OpenExportFrame()
+        if not opExportFrame then
+            opExportFrame = CreateFrame("Frame", "OdysseusOpenablesExportFrame", UIParent, "BackdropTemplate")
+            opExportFrame:SetSize(450, 380)
+            opExportFrame:SetPoint("CENTER")
+            opExportFrame:SetFrameStrata("FULLSCREEN_DIALOG")
+            opExportFrame:SetMovable(true)
+            opExportFrame:EnableMouse(true)
+            opExportFrame:RegisterForDrag("LeftButton")
+            opExportFrame:SetScript("OnDragStart", opExportFrame.StartMoving)
+            opExportFrame:SetScript("OnDragStop", opExportFrame.StopMovingOrSizing)
+            tinsert(UISpecialFrames, opExportFrame:GetName())
+
+            opExportFrame:SetBackdrop({
+                bgFile   = "Interface\\ChatFrame\\ChatFrameBackground",
+                edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+                tile = false, edgeSize = 16,
+                insets = { left = 4, right = 4, top = 4, bottom = 4 }
+            })
+            opExportFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.98)
+            opExportFrame:SetBackdropBorderColor(0.5, 0.3, 0.7, 1)
+
+            local hdrBg = opExportFrame:CreateTexture(nil, "BACKGROUND", nil, 2)
+            hdrBg:SetPoint("TOPLEFT", 4, -4)
+            hdrBg:SetPoint("TOPRIGHT", -4, -4)
+            hdrBg:SetHeight(26)
+            hdrBg:SetColorTexture(1, 1, 1, 1)
+            hdrBg:SetGradient("HORIZONTAL", CreateColor(0.3, 0.1, 0.5, 0.8), CreateColor(0.07, 0.05, 0.1, 0.8))
+
+            local hdrTitle = opExportFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+            hdrTitle:SetPoint("TOP", opExportFrame, "TOP", 0, -8)
+            hdrTitle:SetText("Openables — Custom Items Export")
+            hdrTitle:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE")
+
+            local expCloseBtn = CreateFrame("Button", nil, opExportFrame, "UIPanelCloseButton")
+            expCloseBtn:SetPoint("TOPRIGHT", opExportFrame, "TOPRIGHT", -2, -2)
+            expCloseBtn:SetScript("OnClick", function() opExportFrame:Hide() end)
+
+            local expScroll = CreateFrame("ScrollFrame", nil, opExportFrame, "UIPanelScrollFrameTemplate")
+            expScroll:SetPoint("TOPLEFT", 15, -40)
+            expScroll:SetPoint("BOTTOMRIGHT", -35, 45)
+
+            opExportEditBox = CreateFrame("EditBox", nil, expScroll)
+            opExportEditBox:SetSize(expScroll:GetSize())
+            opExportEditBox:SetMultiLine(true)
+            opExportEditBox:SetAutoFocus(false)
+            opExportEditBox:SetFontObject("ChatFontNormal")
+            opExportEditBox:SetScript("OnEscapePressed", function(self)
+                self:ClearFocus()
+                opExportFrame:Hide()
+            end)
+            expScroll:SetScrollChild(opExportEditBox)
+
+            local selectAllBtn = CreateFrame("Button", nil, opExportFrame, "UIPanelButtonTemplate")
+            selectAllBtn:SetSize(120, 25)
+            selectAllBtn:SetPoint("BOTTOMLEFT", 15, 10)
+            selectAllBtn:SetText("Select All")
+            selectAllBtn:SetScript("OnClick", function()
+                opExportEditBox:HighlightText()
+                opExportEditBox:SetFocus()
+            end)
+
+            local expClose2Btn = CreateFrame("Button", nil, opExportFrame, "UIPanelButtonTemplate")
+            expClose2Btn:SetSize(120, 25)
+            expClose2Btn:SetPoint("BOTTOMRIGHT", -15, 10)
+            expClose2Btn:SetText("Close")
+            expClose2Btn:SetScript("OnClick", function() opExportFrame:Hide() end)
+        end
+
+        -- Build export text
+        local db = OdysseusDB and OdysseusDB.openables
+        if not db or not next(db.customItems) then
+            opExportEditBox:SetText("-- Custom list is empty.")
+        else
+            local lines = {}
+            for itemID, qty in pairs(db.customItems) do
+                local name = C_Item.GetItemNameByID(itemID) or "Unknown"
+                table.insert(lines, string.format("    [%d] = %d,   -- %s", itemID, qty, name))
+            end
+            table.sort(lines)
+            opExportEditBox:SetText(table.concat(lines, "\n"))
+        end
+        opExportEditBox:HighlightText()
+        opExportFrame:Show()
+    end
+
+    -- Export button
+    local exportCustomBtn = CreateFrame("Button", nil, tabs.Openables, "UIPanelButtonTemplate")
+    exportCustomBtn:SetSize(110, 24)
+    exportCustomBtn:SetPoint("TOPLEFT", 20, -445)
+    exportCustomBtn:SetText("Export DB")
+    exportCustomBtn:SetScript("OnClick", OpenExportFrame)
+
+    -- Wipe custom DB button
+    local wipeCustomBtn = CreateFrame("Button", nil, tabs.Openables, "UIPanelButtonTemplate")
+    wipeCustomBtn:SetSize(110, 24)
+    wipeCustomBtn:SetPoint("LEFT", exportCustomBtn, "RIGHT", 8, 0)
+    wipeCustomBtn:SetText("Wipe Custom DB")
+
+    StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE_OP_CUSTOM"] = {
+        text = "Wipe ALL custom Openables items? This cannot be undone.",
+        button1 = "Yes, Wipe",
+        button2 = "Cancel",
+        OnAccept = function()
+            local db = OdysseusDB and OdysseusDB.openables
+            if db then
+                db.customItems = {}
+                print("|cFF00CCFFOdysseus Openables:|r Custom items wiped.")
+                if tabs.Openables._refreshCustomCount then tabs.Openables._refreshCustomCount() end
+                if OUS.Openables then OUS.Openables.UpdateDisplay() end
+            end
+        end,
+        timeout = 0, whileDead = true, hideOnEscape = true, preferredIndex = 3,
+    }
+    wipeCustomBtn:SetScript("OnClick", function()
+        StaticPopup_Show("ODYSSEUS_CONFIRM_WIPE_OP_CUSTOM")
+    end)
+
+    opWidgetsCreated = true
+
+    -- Store refs for OnShow refresh
+    tabs.Openables._blCountLabel = blCountLabel
+    tabs.Openables._refreshBlCount = RefreshBlCount
+end
+
+tabs.Openables:SetScript("OnShow", function()
+    CreateOpenablesWidgets()
+    local db = OdysseusDB and OdysseusDB.openables
+    if _G["OdysseusOPToggle_enabled"] then
+        _G["OdysseusOPToggle_enabled"]:SetChecked(OdysseusDB and OdysseusDB.modules and OdysseusDB.modules.openables)
+    end
+    if _G["OdysseusOPToggle_autoOpen"] then
+        _G["OdysseusOPToggle_autoOpen"]:SetChecked(db and db.autoOpen)
+    end
+    local scale = (db and db.scale) or 1.0
+    if opScaleSlider then opScaleSlider:SetValue(scale) end
+    if opScaleBox then opScaleBox:SetText(string.format("%.2f", scale):gsub("0+$",""):gsub("%.$","")) end
+    if tabs.Openables._refreshBlCount then tabs.Openables._refreshBlCount() end
+    if tabs.Openables._refreshCustomCount then tabs.Openables._refreshCustomCount() end
+end)
+
+-- =====================================
 -- ON-SCREEN HELP FRAME
 -- =====================================
 local helpFrame = CreateFrame("Frame", "OdysseusHelpFrame", UIParent, "BackdropTemplate")
@@ -1481,6 +1794,19 @@ AddHelpCmd("/ar export", "Print custom spell IDs")
 AddHelpCmd("/ar wipe", "Clear custom spell IDs")
 AddHelpCmd("/ar status", "Show current settings")
 AddHelpCmd("/ar help", "Show all AR commands")
+AddHelpLine("")
+
+-- Openables
+AddHelpSection("— Openables —")
+AddHelpCmd("/op add <itemID> [qty]", "Add item to custom list")
+AddHelpCmd("/op remove <itemID>", "Remove from custom list")
+AddHelpCmd("/op unblacklist <itemID>", "Remove from blacklist")
+AddHelpCmd("/op list", "Open blacklist management frame")
+AddHelpCmd("/op clist", "Open custom items management frame")
+AddHelpCmd("/op madd", "Open drag-and-drop item add frame")
+AddHelpCmd("/op auto", "Toggle auto-open")
+AddHelpCmd("/op lock / unlock", "Lock/unlock button position")
+AddHelpCmd("/op status", "Show current settings")
 AddHelpLine("")
 
 -- Stats Bar

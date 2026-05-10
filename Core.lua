@@ -27,6 +27,7 @@ f:SetScript("OnEvent", function(self, event, arg1)
         if OdysseusDB.modules.xpBar == nil then OdysseusDB.modules.xpBar = true end
         if OdysseusDB.modules.autoRemount == nil then OdysseusDB.modules.autoRemount = true end
         if OdysseusDB.modules.statsBar == nil then OdysseusDB.modules.statsBar = true end
+        if OdysseusDB.modules.openables == nil then OdysseusDB.modules.openables = true end
 
         OdysseusCharDB = OdysseusCharDB or {}
         OdysseusDB.statsBar = OdysseusDB.statsBar or {
@@ -47,6 +48,17 @@ f:SetScript("OnEvent", function(self, event, arg1)
             tableY       = 0,
             tablePoint   = "CENTER",
             tableRelPoint = "CENTER",
+        }
+
+        OdysseusDB.openables = OdysseusDB.openables or {
+            autoOpen   = false,
+            blacklist  = {},
+            customItems = {},
+            x          = 300,
+            y          = 0,
+            point      = "CENTER",
+            relPoint   = "CENTER",
+            scale = 1.0,
         }
 
         if OdysseusDB.minimapAngle == nil then OdysseusDB.minimapAngle = 225 end
@@ -96,6 +108,7 @@ function OUS.ResetAllSettings()
         xpBar = true,
         autoRemount = true,
         statsBar = true,
+        openables = true,
     }
 
     OdysseusDB.minimapAngle = 225
@@ -132,6 +145,17 @@ function OUS.ResetAllSettings()
         spyFilter = {},
     }
     OdysseusCharDB.autoRemountChar = { mountID = nil }
+
+    OdysseusDB.openables = {
+        autoOpen    = false,
+        blacklist   = {},
+        customItems = {},
+        x           = 300,
+        y           = 0,
+        point       = "CENTER",
+        relPoint    = "CENTER",
+        scale = 1.0,
+    }
 
     OdysseusCharDB = OdysseusCharDB or {}
     OdysseusDB.statsBar = {
@@ -328,6 +352,14 @@ SLASH_AUTOREMOUNT2 = "/autoremount"
 SlashCmdList["AUTOREMOUNT"] = function(msg)
     if OUS.AutoRemount and OUS.AutoRemount.SlashHandler then
         OUS.AutoRemount.SlashHandler(msg)
+    end
+end
+
+SLASH_OPENABLES1 = "/op"
+SLASH_OPENABLES2 = "/openables"
+SlashCmdList["OPENABLES"] = function(msg)
+    if OUS.Openables and OUS.Openables.SlashHandler then
+        OUS.Openables.SlashHandler(msg)
     end
 end
 
