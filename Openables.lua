@@ -220,12 +220,6 @@ opContainer:EnableMouse(true)
 opContainer:RegisterForDrag("LeftButton")
 opContainer:Hide()
 
--- Pushed depress — darken border on click
-local opPushed = false  -- state flag only, visual handled via border color
-
--- Hover glow — brighten border on hover
-local opBorder = false  -- state flag only
-
 -- Clickable button — 40x40 centered, mouse-passthrough for drag events
 local opBtn = CreateFrame("Button", "OdysseusOpenablesButton", opContainer, "BackdropTemplate")
 opBtn:SetSize(40, 40)
@@ -249,13 +243,13 @@ opBtn:SetScript("OnMouseDown", function(self, button)
     if button == "LeftButton" and not isLocked then
         opContainer:GetScript("OnDragStart")(opContainer)
     end
-    opPushed:Show()
+    opBtn:SetBackdropBorderColor(1, 1, 0.5, 1)
 end)
 opBtn:SetScript("OnMouseUp", function(self, button)
     if button == "LeftButton" and not isLocked then
         opContainer:GetScript("OnDragStop")(opContainer)
     end
-    opPushed:Hide()
+    opBtn:SetBackdropBorderColor(1, 0.82, 0, 1)
 end)
 
 -- Icon inset so corners sit inside the border
