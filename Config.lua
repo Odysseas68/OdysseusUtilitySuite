@@ -1452,8 +1452,15 @@ local function CreateOpenablesWidgets()
             if OdysseusDB and OdysseusDB.openables then
                 OdysseusDB.openables.scale = v
                 -- Apply scale live
-                local btn = _G["OdysseusOpenablesContainer"]
-                if btn then btn:SetScale(v) end
+                local container = _G["OdysseusOpenablesContainer"]
+                local btn = _G["OdysseusOpenablesButton"]
+                if container and btn then
+                    container:SetSize(64 * v, 64 * v)
+                    btn:SetSize(40 * v, 40 * v)
+                    if OdysseusDB and OdysseusDB.openables then
+                        OdysseusDB.openables.scale = v
+                    end
+                end
             end
         end,
     })

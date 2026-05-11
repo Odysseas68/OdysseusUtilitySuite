@@ -21,16 +21,19 @@ Features include:
 ---
 
 ### Openables
-Scans your bags after every bag update and surfaces a single-click button for the first openable item found. No more hunting through bags for tier tokens, crest pouches, or coffer key shards.
+Scans your bags after every bag update and surfaces a single-click button for the first actionable item found. No more hunting through bags for tier tokens, crest pouches, mounts, or pets.
 
 Highlights:
 - built-in database of 700+ items spanning Classic through TWW 11.2: tier tokens, crest pouches, sparks, delve keys, coffer key shards, contracts, profession knowledge, gems, enchanting materials, rep insignia, and legacy crafting fragments
+- smart collection filtering — already-learned mounts, collected pets, and known toys are automatically skipped via Blizzard collection APIs (`C_MountJournal`, `C_PetJournal`, `C_ToyBox`)
+- dynamic category classification at scan time — no static mapping required
+- category-colored border: purple (mount), blue (pet), green (toy), orange (knowledge), grey (currency), gold (cache)
+- category badge overlay: M / P / T / K / G — hidden for generic caches
 - custom item list — add by ID, drag-and-drop, or remove individually
 - per-item minimum quantity threshold so small stacks don't trigger the button
 - session blacklist (right-click) and permanent blacklist (Shift+right-click)
 - auto-open mode: uses the item automatically 0.3s after a bag update
 - draggable, scalable button with lock/unlock positioning
-- gold tooltip-style border with hover and push feedback
 - cooldown sweep overlay
 - blacklist management frame and custom list management frame
 - mass add frame: queue multiple items via drag-and-drop, set quantities, commit all at once
@@ -190,6 +193,7 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 - Event-driven design — no polling loops or `OnUpdate` for state checks
 - No taint — never hooks or replaces protected Blizzard frames
 - Character stats cached safely — never read live in combat or restricted contexts
+- Collection filtering via Blizzard APIs only — no static itemID→collectibleID mapping databases
 
 ---
 
@@ -205,7 +209,8 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 ## Current Focus
 
 The addon is in an active feature phase, with recent work on:
-- Openables module with 700+ item database, drag-and-drop mass add, blacklist and custom list management
+- Openables module: smart collection filtering for mounts, pets, and toys via Blizzard APIs
+- Openables module: category-colored borders and badge overlay
 - Stats Bar module with combat-safe stat caching and spec priority display
 - Auto Remount module with spy mode for discovering new gather spell IDs
 - Config UI polish and Midnight-theme improvements

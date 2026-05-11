@@ -2,6 +2,26 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-05-11] - Openables: Collection Filtering & Polish
+
+### Added
+- **Openables**: Smart collection filtering — known mounts, collected pets, and learned toys are automatically skipped
+  - Mount filtering via `C_MountJournal.GetMountFromItem` + `GetMountInfoByID` — async-safe with item load retry
+  - Pet filtering via `C_PetJournal.GetPetInfoByItemID` + `GetNumCollectedInfo` — handles direct-learn pet items
+  - Toy filtering via `C_ToyBox.GetToyInfo` + `PlayerHasToy` — inline, no cache needed
+  - Refreshes on `NEW_MOUNT_ADDED`, `MOUNT_JOURNAL_USABILITY_CHANGED`, `PET_JOURNAL_LIST_UPDATE`
+- **Openables**: Dynamic category classification — every item (built-in DB or custom) is automatically classified at scan time via Blizzard collection APIs, no static mapping required
+- **Openables**: Category-colored border — border color changes per item type: purple (mount), blue (pet), green (toy), orange (knowledge), grey (currency), gold (cache/generic)
+- **Openables**: Category badge — small letter overlay bottom-left of icon: M (mount), P (pet), T (toy), K (knowledge), G (currency); hidden for generic caches
+- **Openables**: Button scale now correctly restored on login/reload — position no longer shifts when scaling
+
+### Fixed
+- **Openables**: Button scale not persisted across sessions
+- **Openables**: Icon corners no longer visible outside the border
+- **Openables**: Removed unused `PrintBlacklist` chat function — blacklist management is frame-only via `/op list`
+
+---
+
 ## [2026-05-10] - Openables Module
 
 ### Added
@@ -13,7 +33,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
   - Auto-open mode: automatically uses the item 0.3s after a bag update
   - Draggable button with lock/unlock via `/op lock` / `/op unlock` — shows a test icon when unlocked with no item present
   - Scalable button via Config slider (0.5×–2.0×) with live preview
-  - Gold tooltip-style border with hover and push color feedback
+  - Category-colored tooltip-style border with hover and push feedback
   - Cooldown sweep overlay on the button
   - Blacklist management frame (`/op list`) — scrollable list with per-item Remove button and Clear All
   - Custom list management frame (`/op clist`) — scrollable list showing item name, min quantity, and per-item Remove button

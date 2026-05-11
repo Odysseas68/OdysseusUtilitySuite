@@ -19,6 +19,128 @@ local scanPending = false
 local isLocked = false
 
 -- ==========================================
+-- COLLECTION FILTER CACHE
+-- ==========================================
+
+local function IsPetCollected(itemID)
+    local speciesID = select(13, C_PetJournal.GetPetInfoByItemID(itemID))
+    if not speciesID then return false end
+    return C_PetJournal.GetNumCollectedInfo(speciesID) > 0
+end
+
+-- Returns true if item should be skipped due to collection state
+-- Tracks itemIDs where GetMountFromItem returned nil — retried after item load
+local pendingMountCheck = {}
+
+local function IsAlreadyCollected(itemID, category)
+    if category == "mount" then
+        local mountID = C_MountJournal.GetMountFromItem(itemID)
+        if not mountID then
+            -- Schedule a rescan once item data is available
+            if not pendingMountCheck[itemID] then
+                pendingMountCheck[itemID] = true
+                local item = Item:CreateFromItemID(itemID)
+                item:ContinueOnItemLoad(function()
+                    pendingMountCheck[itemID] = nil
+                    OP.Refresh()
+                end)
+            end
+            return false  -- show for now, rescan will correct it
+        end
+        local isCollected = select(11, C_MountJournal.GetMountInfoByID(mountID))
+        return isCollected == true
+    elseif category == "pet" then
+        return IsPetCollected(itemID)
+    elseif category == "toy" then
+        return PlayerHasToy(itemID)
+    end
+    return false
+end
+
+-- ==========================================
+-- CATEGORY SYSTEM
+-- ==========================================
+local CATEGORY_COLORS = {
+    mount     = {0.75, 0.20, 1.00},  -- purple
+    pet       = {0.20, 0.60, 1.00},  -- blue
+    toy       = {0.20, 1.00, 0.20},  -- green
+    cache     = {1.00, 0.82, 0.00},  -- gold
+    knowledge = {1.00, 0.50, 0.10},  -- orange
+    currency  = {0.60, 0.60, 0.60},  -- grey
+    generic   = {1.00, 0.82, 0.00},  -- gold (same as cache, no badge)
+}
+
+local CATEGORY_BADGES = {
+    mount     = "M",
+    pet       = "P",
+    toy       = "T",
+    cache     = nil,   -- no badge
+    knowledge = "K",
+    currency  = "G",
+    generic   = nil,   -- no badge
+}
+
+-- Explicit category overrides for known itemIDs
+-- Format: [itemID] = "category"
+local CATEGORY_OVERRIDES = {
+    -- Pets
+    [ 82800] = "pet",    -- Pet Cage
+    [118697] = "cache",  -- Pet Supplies
+    [122535] = "cache",  -- Traveler's Pet Supplies
+    [142447] = "cache",  -- Torn Sack of Pet Supplies
+    [221495] = "cache",  -- TWW pet cage (opens to reveal pet, no learn spell)
+}
+
+-- Category sets by itemID range / known sets
+local MOUNT_ITEMS = {}   -- populated below if needed; mostly handled by spell check later
+local PET_ITEMS   = {}  -- dynamic via C_PetJournal.GetPetInfoByItemID
+local TOY_ITEMS   = {}
+local KNOWLEDGE_ITEMS = {
+    [224982]=true,  -- Delver's Dirigible Schematic
+    [263467]=true,  -- Avid Learner's Supply Pack
+    -- DF profession knowledge
+    [198614]=true,[198675]=true,[198689]=true,[198694]=true,
+    [198799]=true,[198800]=true,[198798]=true,[210234]=true,[210231]=true,
+    [200939]=true,[200940]=true,[200941]=true,[200942]=true,[200943]=true,
+    [200944]=true,[200945]=true,[200946]=true,[200947]=true,
+    [201356]=true,[201357]=true,[201358]=true,[201359]=true,
+    -- TWW knowledge
+    [217707]=true,[226258]=true,
+}
+local CURRENCY_ITEMS = {
+    -- Crest pouches TWW 11.0
+    [221268]=true,[221373]=true,[220767]=true,[221375]=true,[220773]=true,[220776]=true,
+    -- Crest pouches TWW 11.1
+    [231153]=true,[231270]=true,[231154]=true,[231269]=true,[231264]=true,[231267]=true,
+    -- Sparks
+    [211297]=true,[230905]=true,[231757]=true,
+    -- Gallybux (tier currency)
+    [228802]=true,[228806]=true,[228810]=true,[228814]=true,[228818]=true,
+    -- TWW 11.2 tier tokens
+    [237592]=true,[237588]=true,[237596]=true,[237584]=true,[237600]=true,
+    -- TWW 11.0 tier tokens
+    [225617]=true,[225621]=true,[225625]=true,[225629]=true,[225633]=true,
+}
+
+local function GetItemCategory(itemID)
+    if CATEGORY_OVERRIDES[itemID] then
+        return CATEGORY_OVERRIDES[itemID]
+    end
+    if PET_ITEMS[itemID] then return "pet" end
+    if TOY_ITEMS[itemID] then return "toy" end
+    if KNOWLEDGE_ITEMS[itemID] then return "knowledge" end
+    if CURRENCY_ITEMS[itemID] then return "currency" end
+    -- Check mount journal
+    if C_MountJournal.GetMountFromItem(itemID) then return "mount" end
+    -- Check toy collection
+    if C_ToyBox.GetToyInfo(itemID) then return "toy" end
+    -- Check pet journal
+    if C_PetJournal.GetPetInfoByItemID(itemID) then return "pet" end
+    -- User-added or generic cache
+    return "cache"
+end
+
+-- ==========================================
 -- 1. DATABASE HELPERS
 -- ==========================================
 
@@ -61,13 +183,17 @@ local function FindOpenableItem()
                     local minQty = GetOpenableMinQty(itemID)
                     if minQty and info.stackCount >= minQty then
                         if C_PlayerInfo.CanUseItem(itemID) then
-                            return {
-                                itemID = itemID,
-                                bag    = bag,
-                                slot   = slot,
-                                icon   = info.iconFileID,
-                                count  = info.stackCount,
-                            }
+                            local cat = GetItemCategory(itemID)
+                            if not IsAlreadyCollected(itemID, cat) then
+                                return {
+                                    itemID   = itemID,
+                                    bag      = bag,
+                                    slot     = slot,
+                                    icon     = info.iconFileID,
+                                    count    = info.stackCount,
+                                    category = cat,
+                                }
+                            end
                         end
                     end
                 end
@@ -141,6 +267,12 @@ opIcon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
 -- Count text
 local opCount = opBtn:CreateFontString(nil, "OVERLAY", "NumberFontNormal")
 opCount:SetPoint("BOTTOMRIGHT", opBtn, "BOTTOMRIGHT", -2, 2)
+
+-- Category badge — lower left, hidden for generic/cache
+local opBadge = opBtn:CreateFontString(nil, "OVERLAY")
+opBadge:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE")
+opBadge:SetPoint("BOTTOMLEFT", opBtn, "BOTTOMLEFT", 2, 2)
+opBadge:Hide()
 
 -- Cooldown frame on button
 local opCooldown = CreateFrame("Cooldown", nil, opBtn, "CooldownFrameTemplate")
@@ -238,6 +370,8 @@ end)
 local function UpdateButton()
     if not currentItem then
         opContainer:Hide()
+        opBtn:SetBackdropBorderColor(1, 0.82, 0, 1)  -- restore default gold
+        opBadge:Hide()
         return
     end
     if InCombatLockdown() then return end
@@ -248,6 +382,20 @@ local function UpdateButton()
 
     opIcon:SetTexture(currentItem.icon)
     opCount:SetText(currentItem.count > 1 and currentItem.count or "")
+
+    -- Category border color and badge
+    local cat = currentItem.category or "generic"
+    local col = CATEGORY_COLORS[cat] or CATEGORY_COLORS.generic
+    opBtn:SetBackdropBorderColor(col[1], col[2], col[3], 1)
+
+    local badge = CATEGORY_BADGES[cat]
+    if badge then
+        opBadge:SetText(badge)
+        opBadge:SetTextColor(col[1], col[2], col[3], 1)
+        opBadge:Show()
+    else
+        opBadge:Hide()
+    end
 
     local start, duration = C_Container.GetContainerItemCooldown(currentItem.bag, currentItem.slot)
     if start and start > 0 then
@@ -271,6 +419,9 @@ local function ApplyPosition()
         db.x        or 300,
         db.y        or 0
     )
+    local s = db.scale or 1.0
+    opContainer:SetSize(64 * s, 64 * s)
+    opBtn:SetSize(40 * s, 40 * s)
     isLocked = db.locked or false
     if isLocked then
         opContainer:SetMovable(false)
@@ -350,6 +501,9 @@ frame:RegisterEvent("BAG_UPDATE_DELAYED")
 frame:RegisterEvent("PLAYER_REGEN_DISABLED")
 frame:RegisterEvent("PLAYER_REGEN_ENABLED")
 frame:RegisterEvent("ITEM_LOCK_CHANGED")
+frame:RegisterEvent("NEW_MOUNT_ADDED")
+frame:RegisterEvent("MOUNT_JOURNAL_USABILITY_CHANGED")
+frame:RegisterEvent("PET_JOURNAL_LIST_UPDATE")
 
 frame:SetScript("OnEvent", function(self, event, arg1)
     if event == "ADDON_LOADED" and arg1 == addonName then
@@ -369,7 +523,9 @@ frame:SetScript("OnEvent", function(self, event, arg1)
 
     elseif event == "PLAYER_ENTERING_WORLD" then
         ApplyPosition()
-        C_Timer.After(2, OP.Refresh)
+        C_Timer.After(4, function()
+            OP.Refresh()
+        end)
 
     elseif event == "BAG_UPDATE_DELAYED" then
         DebouncedRefresh()
@@ -382,28 +538,19 @@ frame:SetScript("OnEvent", function(self, event, arg1)
         C_Timer.After(0.5, OP.Refresh)
 
     elseif event == "ITEM_LOCK_CHANGED" then
-        -- Item being used — rescan shortly after
         C_Timer.After(1, OP.Refresh)
+
+    elseif event == "NEW_MOUNT_ADDED"
+        or event == "MOUNT_JOURNAL_USABILITY_CHANGED"
+        or event == "PET_JOURNAL_LIST_UPDATE" then
+        wipe(pendingMountCheck)
+        OP.Refresh()
     end
 end)
 
 -- ==========================================
 -- 6. SLASH COMMANDS
 -- ==========================================
-
--- Prints current blacklist to chat.
-local function PrintBlacklist()
-    local db = OdysseusDB and OdysseusDB.openables
-    if not db or not db.blacklist or not next(db.blacklist) then
-        print("|cFF00CCFFOdysseus Openables:|r Permanent blacklist is empty.")
-        return
-    end
-    print("|cFF00CCFFOdysseus Openables Blacklist:|r")
-    for itemID in pairs(db.blacklist) do
-        local name = C_Item.GetItemNameByID(itemID) or "Unknown"
-        print(string.format("  [%d] %s  — /op unblacklist %d to remove", itemID, name, itemID))
-    end
-end
 
 -- Opens the blacklist management frame.
 local blFrame
