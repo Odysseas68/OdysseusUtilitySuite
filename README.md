@@ -21,24 +21,25 @@ Features include:
 ---
 
 ### Openables
-Scans your bags after every bag update and surfaces a single-click button for the first actionable item found. No more hunting through bags for tier tokens, crest pouches, mounts, or pets.
+Scans your bags after every bag update and surfaces a single-click button for the first actionable item found. No more hunting through bags for tier tokens, crest pouches, mounts, pets, or unlearned recipes.
 
 Highlights:
 - built-in database of 700+ items spanning Classic through TWW 11.2: tier tokens, crest pouches, sparks, delve keys, coffer key shards, contracts, profession knowledge, gems, enchanting materials, rep insignia, and legacy crafting fragments
 - smart collection filtering — already-learned mounts, collected pets, and known toys are automatically skipped via Blizzard collection APIs (`C_MountJournal`, `C_PetJournal`, `C_ToyBox`)
+- recipe scanning — unlearned recipes detected dynamically via item class API, no static recipe DB required; already-known recipes filtered via `C_TradeSkillUI` and tooltip data
 - dynamic category classification at scan time — no static mapping required
-- category-colored border: purple (mount), blue (pet), green (toy), orange (knowledge), grey (currency), gold (cache)
-- category badge overlay: M / P / T / K / G — hidden for generic caches
+- category-colored border: purple (mount), blue (pet), green (toy), pink (recipe), orange (knowledge), grey (currency), gold (cache)
+- category badge overlay: M / P / T / R / K / G — hidden for generic caches
 - custom item list — add by ID, drag-and-drop, or remove individually
 - per-item minimum quantity threshold so small stacks don't trigger the button
 - session blacklist (right-click) and permanent blacklist (Shift+right-click)
 - auto-open mode: uses the item automatically 0.3s after a bag update
-- draggable, scalable button with lock/unlock positioning
+- scalable button (0.5×–2.0×) with lock/unlock positioning — drag handle shown when unlocked
 - cooldown sweep overlay
 - blacklist management frame and custom list management frame
 - mass add frame: queue multiple items via drag-and-drop, set quantities, commit all at once
 - export frame: outputs custom list as ready-to-paste `OpenablesDB.lua` lines
-- combat-safe: hides on combat entry, rescans on exit
+- combat-safe: hides on combat entry, rescans on exit; taint-free secure button implementation
 
 Commands:
 - `/op add <itemID> [qty]` — add item to custom list
@@ -191,7 +192,7 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 - Midnight-themed standalone configuration UI
 - Modular structure with minimal coupling between systems
 - Event-driven design — no polling loops or `OnUpdate` for state checks
-- No taint — never hooks or replaces protected Blizzard frames
+- No taint — secure button implementation via `SecureActionButtonTemplate` with macro attributes; zero `OnMouseDown` scripts on secure frames
 - Character stats cached safely — never read live in combat or restricted contexts
 - Collection filtering via Blizzard APIs only — no static itemID→collectibleID mapping databases
 
@@ -208,9 +209,8 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 
 ## Current Focus
 
-The addon is in an active feature phase, with recent work on:
-- Openables module: smart collection filtering for mounts, pets, and toys via Blizzard APIs
+The addon is in active refinement, with recent work on:
+- Openables module: recipe filtering, secure button taint resolution, drag handle UX
+- Openables module: smart collection filtering for mounts, pets, toys, and recipes
 - Openables module: category-colored borders and badge overlay
-- Stats Bar module with combat-safe stat caching and spec priority display
-- Auto Remount module with spy mode for discovering new gather spell IDs
-- Config UI polish and Midnight-theme improvements
+- Stats Bar and Auto Remount modules in maintenance/stable phase

@@ -1454,9 +1454,11 @@ local function CreateOpenablesWidgets()
                 -- Apply scale live
                 local container = _G["OdysseusOpenablesContainer"]
                 local btn = _G["OdysseusOpenablesButton"]
+                local handle = _G["OdysseusOpenablesDragHandle"]
                 if container and btn then
                     container:SetSize(64 * v, 64 * v)
                     btn:SetSize(40 * v, 40 * v)
+                    if handle then handle:SetSize(40 * v, 40 * v) end
                     if OdysseusDB and OdysseusDB.openables then
                         OdysseusDB.openables.scale = v
                     end

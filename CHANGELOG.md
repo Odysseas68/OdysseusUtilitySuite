@@ -2,6 +2,26 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-05-12] - Openables: Recipe Filtering & Secure Button
+
+### Added
+- **Openables**: Recipe scanning — unlearned recipes detected dynamically via `Enum.ItemClass.Recipe` (classID 9), no static DB required
+  - `C_TradeSkillUI.GetRecipeInfo(spellID)` checked first for professions the character has initialized
+  - Tooltip fallback via `C_TooltipInfo.GetBagItem` + `ITEM_SPELL_KNOWN` string match for classic-era recipes using generic "Learning" spell
+  - Recipe category badge `R` with pink-red border color
+  - Async item cache retry via `Item:ContinueOnItemLoad` when `C_Item.GetItemInfo` returns nil at scan time
+- **Openables**: Drag handle frame — when unlocked, button is replaced by a distinct blue drag-handle frame (move icon + "drag" label) to prevent accidental item use while repositioning
+- **Openables**: Combat safety hardened — `UpdateButton` now hides container and button on `InCombatLockdown()` rather than returning early with button still visible; `PostClick` also guards against combat
+
+### Fixed
+- **Openables**: Secure button click now works correctly in Retail 12.0+ — uses `SecureActionButtonTemplate` with `type=macro` and `/use item:ID`; all `OnMouseDown` scripts removed from `opBtn` to prevent taint interference
+- **Openables**: Button position drag restored — `opContainer` handles all dragging; `opBtn` has zero drag scripts
+- **Openables**: `GetItemCategory` now correctly reads classID from return position 12 of `C_Item.GetItemInfo` (was incorrectly reading position 6 which returns the localized string, not the numeric enum)
+- **Openables**: `/op clist` and `/op list` frames now pre-load uncached item names before building rows — no more empty list on first open
+- **Openables**: Scale correctly applied to drag handle frame on login and via Config slider
+
+---
+
 ## [2026-05-11] - Openables: Collection Filtering & Polish
 
 ### Added
@@ -31,7 +51,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
   - Per-item minimum quantity threshold — button only appears when stack meets the minimum
   - Session blacklist (right-click to skip for session) and permanent blacklist (Shift+right-click)
   - Auto-open mode: automatically uses the item 0.3s after a bag update
-  - Draggable button with lock/unlock via `/op lock` / `/op unlock` — shows a test icon when unlocked with no item present
+  - Draggable button with lock/unlock via `/op lock` / `/op unlock`
   - Scalable button via Config slider (0.5×–2.0×) with live preview
   - Category-colored tooltip-style border with hover and push feedback
   - Cooldown sweep overlay on the button

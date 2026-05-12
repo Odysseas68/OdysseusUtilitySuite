@@ -18,6 +18,9 @@ local scanPending = false
 -- Lock state
 local isLocked = false
 
+-- Forward reference — defined in section 4
+local pendingItemLoad = {}
+
 -- ==========================================
 -- COLLECTION FILTER CACHE
 -- ==========================================
@@ -32,11 +35,10 @@ end
 -- Tracks itemIDs where GetMountFromItem returned nil — retried after item load
 local pendingMountCheck = {}
 
-local function IsAlreadyCollected(itemID, category)
+local function IsAlreadyCollected(itemID, category, bag, slot)
     if category == "mount" then
         local mountID = C_MountJournal.GetMountFromItem(itemID)
         if not mountID then
-            -- Schedule a rescan once item data is available
             if not pendingMountCheck[itemID] then
                 pendingMountCheck[itemID] = true
                 local item = Item:CreateFromItemID(itemID)
@@ -45,7 +47,7 @@ local function IsAlreadyCollected(itemID, category)
                     OP.Refresh()
                 end)
             end
-            return false  -- show for now, rescan will correct it
+            return false
         end
         local isCollected = select(11, C_MountJournal.GetMountInfoByID(mountID))
         return isCollected == true
@@ -53,6 +55,36 @@ local function IsAlreadyCollected(itemID, category)
         return IsPetCollected(itemID)
     elseif category == "toy" then
         return PlayerHasToy(itemID)
+    elseif category == "recipe" then
+        -- First try TradeSkillUI — only trust it for non-generic spells
+        local _, spellID = C_Item.GetItemSpell(itemID)
+        if spellID then
+            local recipeInfo = C_TradeSkillUI.GetRecipeInfo(spellID)
+            if recipeInfo and recipeInfo.name and recipeInfo.name ~= "Learning" then
+                return recipeInfo.learned == true
+            end
+        end
+        -- Fallback: tooltip scan for "Already Known" line
+        if bag and slot then
+            local data = C_TooltipInfo.GetBagItem(bag, slot)
+            if data and data.lines then
+                for _, line in ipairs(data.lines) do
+                    if line.leftText == ITEM_SPELL_KNOWN then
+                        return true
+                    end
+                end
+                return false
+            end
+            -- Tooltip not ready yet — schedule rescan and show for now
+            if not pendingMountCheck[itemID] then
+                pendingMountCheck[itemID] = true
+                C_Timer.After(2, function()
+                    pendingMountCheck[itemID] = nil
+                    OP.Refresh()
+                end)
+            end
+        end
+        return false
     end
     return false
 end
@@ -67,6 +99,7 @@ local CATEGORY_COLORS = {
     cache     = {1.00, 0.82, 0.00},  -- gold
     knowledge = {1.00, 0.50, 0.10},  -- orange
     currency  = {0.60, 0.60, 0.60},  -- grey
+    recipe    = {1.00, 0.40, 0.40},  -- pink-red
     generic   = {1.00, 0.82, 0.00},  -- gold (same as cache, no badge)
 }
 
@@ -77,6 +110,7 @@ local CATEGORY_BADGES = {
     cache     = nil,   -- no badge
     knowledge = "K",
     currency  = "G",
+    recipe    = "R",
     generic   = nil,   -- no badge
 }
 
@@ -136,6 +170,18 @@ local function GetItemCategory(itemID)
     if C_ToyBox.GetToyInfo(itemID) then return "toy" end
     -- Check pet journal
     if C_PetJournal.GetPetInfoByItemID(itemID) then return "pet" end
+    -- Check recipe class (classID 9) — no DB needed
+    -- Return positions: name,link,quality,iLevel,reqLevel,class,subclass,maxStack,equipSlot,icon,vendorPrice,classID
+    local _, _, _, _, _, _, _, _, _, _, _, classID = C_Item.GetItemInfo(itemID)
+    if classID == Enum.ItemClass.Recipe then return "recipe" end
+    if classID == nil and not pendingItemLoad[itemID] then
+        pendingItemLoad[itemID] = true
+        local item = Item:CreateFromItemID(itemID)
+        item:ContinueOnItemLoad(function()
+            pendingItemLoad[itemID] = nil
+            OP.Refresh()
+        end)
+    end
     -- User-added or generic cache
     return "cache"
 end
@@ -180,11 +226,12 @@ local function FindOpenableItem()
             if info and info.itemID then
                 local itemID = info.itemID
                 if not IsBlacklisted(itemID) then
+                    local cat = GetItemCategory(itemID)
                     local minQty = GetOpenableMinQty(itemID)
-                    if minQty and info.stackCount >= minQty then
+                    -- Recipes bypass minQty (not in DB) — all others need DB entry
+                    if (minQty and info.stackCount >= minQty) or cat == "recipe" then
                         if C_PlayerInfo.CanUseItem(itemID) then
-                            local cat = GetItemCategory(itemID)
-                            if not IsAlreadyCollected(itemID, cat) then
+                            if not IsAlreadyCollected(itemID, cat, bag, slot) then
                                 return {
                                     itemID   = itemID,
                                     bag      = bag,
@@ -216,15 +263,18 @@ opContainer:SetSize(64, 64)
 opContainer:SetPoint("CENTER", UIParent, "CENTER", 300, 0)
 opContainer:SetFrameStrata("MEDIUM")
 opContainer:SetMovable(true)
-opContainer:EnableMouse(true)
-opContainer:RegisterForDrag("LeftButton")
+opContainer:EnableMouse(false)  -- transparent to mouse — opBtn handles everything
 opContainer:Hide()
 
 -- Clickable button — 40x40 centered, mouse-passthrough for drag events
-local opBtn = CreateFrame("Button", "OdysseusOpenablesButton", opContainer, "BackdropTemplate")
+local opBtn = CreateFrame("Button", "OdysseusOpenablesButton", opContainer, "SecureActionButtonTemplate,BackdropTemplate")
+opBtn:SetNormalTexture("")
+opBtn:SetPushedTexture("")
+opBtn:SetHighlightTexture("")
+opBtn:SetDisabledTexture("")
 opBtn:SetSize(40, 40)
 opBtn:SetPoint("CENTER", opContainer, "CENTER", 0, 0)
-opBtn:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+opBtn:RegisterForClicks("LeftButtonUp", "LeftButtonDown", "RightButtonUp")
 opBtn:EnableMouse(true)
 
 -- Border on the button
@@ -237,20 +287,6 @@ opBtn:SetBackdrop({
     insets   = { left = -6, right = -6, top = -6, bottom = -6 }
 })
 opBtn:SetBackdropBorderColor(1, 0.82, 0, 1)
-
--- Forward drag to container so ghost doesn't appear on the button
-opBtn:SetScript("OnMouseDown", function(self, button)
-    if button == "LeftButton" and not isLocked then
-        opContainer:GetScript("OnDragStart")(opContainer)
-    end
-    opBtn:SetBackdropBorderColor(1, 1, 0.5, 1)
-end)
-opBtn:SetScript("OnMouseUp", function(self, button)
-    if button == "LeftButton" and not isLocked then
-        opContainer:GetScript("OnDragStop")(opContainer)
-    end
-    opBtn:SetBackdropBorderColor(1, 0.82, 0, 1)
-end)
 
 -- Icon inset so corners sit inside the border
 local opIcon = opBtn:CreateTexture(nil, "BACKGROUND")
@@ -274,7 +310,31 @@ opCooldown:SetAllPoints()
 opCooldown:SetDrawEdge(false)
 opCooldown:SetDrawBling(false)
 
--- Drag on container — manual offset, no StartMoving ghost
+-- Drag handle — shown when unlocked, replaces the button
+local dragHandle = CreateFrame("Frame", "OdysseusOpenablesDragHandle", opContainer, "BackdropTemplate")
+dragHandle:SetPoint("CENTER", opContainer, "CENTER", 0, 0)
+dragHandle:SetSize(40, 40)
+dragHandle:SetBackdrop({
+    bgFile   = "Interface\\ChatFrame\\ChatFrameBackground",
+    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = false, edgeSize = 12,
+    insets = { left = 3, right = 3, top = 3, bottom = 3 }
+})
+dragHandle:SetBackdropColor(0.1, 0.1, 0.3, 0.9)
+dragHandle:SetBackdropBorderColor(0.5, 0.5, 1, 1)
+
+local dragIcon = dragHandle:CreateTexture(nil, "ARTWORK")
+dragIcon:SetSize(24, 24)
+dragIcon:SetPoint("CENTER", dragHandle, "CENTER", 0, 6)
+dragIcon:SetTexture("Interface\\Cursor\\UI-Cursor-Move")
+
+local dragLabel = dragHandle:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+dragLabel:SetPoint("CENTER", dragHandle, "CENTER", 0, -10)
+dragLabel:SetText("drag")
+dragLabel:SetTextColor(0.7, 0.7, 1)
+dragHandle:Hide()
+
+-- Drag on container — active only when unlocked
 local dragOffsetX, dragOffsetY = 0, 0
 opContainer:SetScript("OnDragStart", function(self)
     local scale = UIParent:GetEffectiveScale()
@@ -302,25 +362,9 @@ opContainer:SetScript("OnDragStop", function(self)
     end
 end)
 
--- Forward drag from button to container
-opBtn:SetScript("OnMouseDown", function(self, button)
-    if button == "LeftButton" and not isLocked then
-        opContainer:GetScript("OnDragStart")(opContainer)
-    end
-    opBtn:SetBackdropBorderColor(1, 1, 0.5, 1)
-end)
-opBtn:SetScript("OnMouseUp", function(self, button)
-    if button == "LeftButton" and not isLocked then
-        opContainer:GetScript("OnDragStop")(opContainer)
-    end
-    opBtn:SetBackdropBorderColor(1, 0.82, 0, 1)
-end)
-
--- Hover: white-gold on enter, normal gold on leave
 opBtn:HookScript("OnEnter", function() opBtn:SetBackdropBorderColor(1, 1, 0.7, 1) end)
 opBtn:HookScript("OnLeave", function() opBtn:SetBackdropBorderColor(1, 0.82, 0, 1) end)
 
--- Tooltip on hover
 opBtn:SetScript("OnEnter", function(self)
     if not currentItem then return end
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
@@ -335,14 +379,10 @@ opBtn:SetScript("OnLeave", function()
     GameTooltip:Hide()
 end)
 
--- Click handler
-opBtn:SetScript("OnClick", function(self, button)
-    if InCombatLockdown() then return end
+opBtn:SetScript("PostClick", function(self, button)
     if not currentItem then return end
-
-    if button == "LeftButton" then
-        C_Container.UseContainerItem(currentItem.bag, currentItem.slot)
-    elseif button == "RightButton" then
+    if InCombatLockdown() then return end
+    if button == "RightButton" then
         if IsShiftKeyDown() then
             local db = OdysseusDB and OdysseusDB.openables
             if db then
@@ -364,18 +404,26 @@ end)
 local function UpdateButton()
     if not currentItem then
         opContainer:Hide()
+        opBtn:Hide()
         opBtn:SetBackdropBorderColor(1, 0.82, 0, 1)  -- restore default gold
         opBadge:Hide()
         return
     end
-    if InCombatLockdown() then return end
+    if InCombatLockdown() then
+        opContainer:Hide()
+        opBtn:Hide()
+        return
+    end
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.openables then
         opContainer:Hide()
         return
     end
+    opBtn:Show()
 
     opIcon:SetTexture(currentItem.icon)
     opCount:SetText(currentItem.count > 1 and currentItem.count or "")
+    opBtn:SetAttribute("type", "macro")
+    opBtn:SetAttribute("macrotext", string.format("/use item:%d", currentItem.itemID))
 
     -- Category border color and badge
     local cat = currentItem.category or "generic"
@@ -416,13 +464,20 @@ local function ApplyPosition()
     local s = db.scale or 1.0
     opContainer:SetSize(64 * s, 64 * s)
     opBtn:SetSize(40 * s, 40 * s)
+    dragHandle:SetSize(40 * s, 40 * s)
     isLocked = db.locked or false
     if isLocked then
         opContainer:SetMovable(false)
+        opContainer:EnableMouse(false)
         opContainer:RegisterForDrag()
+        dragHandle:Hide()
     else
         opContainer:SetMovable(true)
+        opContainer:EnableMouse(true)
         opContainer:RegisterForDrag("LeftButton")
+        opBtn:Hide()
+        dragHandle:Show()
+        opContainer:Show()
     end
 end
 
@@ -433,17 +488,19 @@ local function SetLocked(state)
     end
     if state then
         opContainer:SetMovable(false)
+        opContainer:EnableMouse(false)
         opContainer:RegisterForDrag()
+        dragHandle:Hide()
+        opBtn:Show()
         if not currentItem then opContainer:Hide() end
         print("|cFF00CCFFOdysseus Openables:|r Button |cFFFF8800locked|r.")
     else
         opContainer:SetMovable(true)
+        opContainer:EnableMouse(true)
         opContainer:RegisterForDrag("LeftButton")
-        if not currentItem then
-            opIcon:SetTexture("Interface\\Icons\\INV_Misc_Bag_07")
-            opCount:SetText("")
-            opContainer:Show()
-        end
+        opBtn:Hide()
+        dragHandle:Show()
+        opContainer:Show()
         print("|cFF00CCFFOdysseus Openables:|r Button |cFF00FF00unlocked|r — drag to reposition, /op lock when done.")
     end
 end
@@ -526,6 +583,7 @@ frame:SetScript("OnEvent", function(self, event, arg1)
 
     elseif event == "PLAYER_REGEN_DISABLED" then
         opContainer:Hide()
+        opBtn:Hide()
 
     elseif event == "PLAYER_REGEN_ENABLED" then
         -- Rescan after combat
@@ -622,6 +680,22 @@ local function OpenBlacklistFrame()
         local db = OdysseusDB and OdysseusDB.openables
         if not db or not db.blacklist then return end
 
+        -- Pre-load all item names, then rebuild
+        -- Pre-request uncached items, retry after 1s
+        local needsRetry = false
+        for itemID in pairs(db.blacklist) do
+            if not C_Item.GetItemNameByID(itemID) then
+                needsRetry = true
+                Item:CreateFromItemID(itemID)
+            end
+        end
+        if needsRetry then
+            C_Timer.After(1, function()
+                if blFrame:IsShown() then PopulateList() end
+            end)
+            return
+        end
+
         local y = 0
         for itemID in pairs(db.blacklist) do
             local row = rows[#rows + 1] or CreateFrame("Frame", nil, content)
@@ -659,7 +733,12 @@ local function OpenBlacklistFrame()
         content:SetHeight(math.max(y, 1))
     end
 
-    blFrame:SetScript("OnShow", PopulateList)
+    blFrame:SetScript("OnShow", function()
+        PopulateList()
+        C_Timer.After(0.5, function()
+            if blFrame:IsShown() then PopulateList() end
+        end)
+    end)
     blFrame:Show()
 end
 
@@ -735,6 +814,21 @@ local function OpenCustomListFrame()
         local db = OdysseusDB and OdysseusDB.openables
         if not db or not db.customItems then return end
 
+        -- Pre-request uncached items, retry after 1s
+        local needsRetry = false
+        for itemID in pairs(db.customItems) do
+            if not C_Item.GetItemNameByID(itemID) then
+                needsRetry = true
+                Item:CreateFromItemID(itemID)  -- triggers cache load
+            end
+        end
+        if needsRetry then
+            C_Timer.After(1, function()
+                if clFrame:IsShown() then PopulateCustomList() end
+            end)
+            return
+        end
+
         local y = 0
         local i = 0
         for itemID, qty in pairs(db.customItems) do
@@ -756,6 +850,8 @@ local function OpenCustomListFrame()
             end
             local name = C_Item.GetItemNameByID(itemID) or ("ID: " .. itemID)
             row.label:SetText(name)
+
+            -- Remove button
 
             if not row.qty then
                 row.qty = row:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
