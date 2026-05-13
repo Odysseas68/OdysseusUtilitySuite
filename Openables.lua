@@ -35,6 +35,18 @@ end
 -- Tracks itemIDs where GetMountFromItem returned nil — retried after item load
 local pendingMountCheck = {}
 
+-- Crest pack itemID → currencyID mapping
+local CREST_CURRENCY = {
+    [246751] = 3343,  -- Triumphant Satchel of Champion Dawncrests
+    [246752] = 3345,  -- Celebratory Pack of Hero Dawncrests
+    [246753] = 3347,  -- Glorious Cluster of Myth Dawncrests
+    [246754] = 3341,  -- Pouch of Veteran Dawncrests
+    [246755] = 3343,  -- Satchel of Champion Dawncrests
+    [246756] = 3345,  -- Pack of Hero Dawncrests
+    [263976] = 3383,  -- Bundle of Adventurer Dawncrests
+    [263977] = 3341,  -- Venerable Satchel of Veteran Dawncrests
+}
+
 local function IsAlreadyCollected(itemID, category, bag, slot)
     if category == "mount" then
         local mountID = C_MountJournal.GetMountFromItem(itemID)
@@ -86,6 +98,15 @@ local function IsAlreadyCollected(itemID, category, bag, slot)
         end
         return false
     end
+    -- Crest pack cap check
+    local currencyID = CREST_CURRENCY[itemID]
+    if currencyID then
+        local info = C_CurrencyInfo.GetCurrencyInfo(currencyID)
+        if info and info.maxQuantity > 0 and info.totalEarned >= info.maxQuantity then
+            return true
+        end
+    end
+
     return false
 end
 
@@ -1253,6 +1274,170 @@ function OP.OpenMassAddFrame()
     cancelBtn:SetScript("OnClick", function() maddFrame:Hide() end)
 
     maddFrame:Show()
+end
+
+local dcFrame
+
+SLASH_DAWNCRESTS1 = "/dc"
+SlashCmdList["DAWNCRESTS"] = function()
+    local ids = {3341, 3343, 3345, 3347, 3383}
+
+    -- Collect data
+    local entries = {}
+    for _, id in ipairs(ids) do
+        local info = C_CurrencyInfo.GetCurrencyInfo(id)
+        if info then
+            table.insert(entries, {
+                name        = info.name,
+                icon        = info.iconFileID,
+                quantity    = info.quantity,
+                maxQuantity = info.maxQuantity,
+                totalEarned = info.totalEarned,
+                canGet      = math.max(0, info.maxQuantity - info.totalEarned),
+            })
+        end
+    end
+
+    -- Build frame once
+    if not dcFrame then
+        dcFrame = CreateFrame("Frame", "OdysseusDcFrame", UIParent, "BackdropTemplate")
+        dcFrame:SetSize(680, 40 + #entries * 36 + 20)
+        dcFrame:SetPoint("CENTER")
+        dcFrame:SetFrameStrata("DIALOG")
+        dcFrame:SetMovable(true)
+        dcFrame:EnableMouse(true)
+        dcFrame:RegisterForDrag("LeftButton")
+        dcFrame:SetScript("OnDragStart", dcFrame.StartMoving)
+        dcFrame:SetScript("OnDragStop", dcFrame.StopMovingOrSizing)
+        dcFrame:SetClampedToScreen(true)
+        tinsert(UISpecialFrames, "OdysseusDcFrame")
+        dcFrame:SetAttribute("UIPanelLayout-enabled", true)
+        dcFrame:SetBackdrop({
+            bgFile   = "Interface\\ChatFrame\\ChatFrameBackground",
+            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+            tile = false, edgeSize = 16,
+            insets = { left = 4, right = 4, top = 4, bottom = 4 }
+        })
+        dcFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.97)
+        dcFrame:SetBackdropBorderColor(0.0, 0.8, 1.0, 1)
+
+        -- Title
+        local title = dcFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+        title:SetPoint("TOP", 0, -10)
+        title:SetText("|cFF00FFFFDawncrest Tracker|r")
+
+        -- Column headers
+        local headers = {"", "Currency", "Held", "Weekly", "Can Earn", "Season Cap"}
+        local colX     = {14, 46, 310, 390, 470, 555}
+        for i, h in ipairs(headers) do
+            local fs = dcFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+            fs:SetPoint("TOPLEFT", colX[i], -32)
+            fs:SetTextColor(0.7, 0.5, 1)
+            fs:SetText(h)
+        end
+
+        -- Separator line
+        local sep = dcFrame:CreateTexture(nil, "ARTWORK")
+        sep:SetColorTexture(0.3, 0.2, 0.5, 0.8)
+        sep:SetPoint("TOPLEFT", 10, -44)
+        sep:SetPoint("TOPRIGHT", -10, -44)
+        sep:SetHeight(1)
+
+        -- Row widgets
+        dcFrame.rows = {}
+        for i = 1, #entries do
+            local y = -50 - (i - 1) * 36
+            local row = {}
+
+            row.icon = dcFrame:CreateTexture(nil, "ARTWORK")
+            row.icon:SetSize(28, 28)
+            row.icon:SetPoint("TOPLEFT", 14, y - 2)
+            row.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+
+            row.name = dcFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            row.name:SetPoint("TOPLEFT", 46, y)
+            row.name:SetWidth(225)
+            row.name:SetJustifyH("LEFT")
+            row.name:SetWordWrap(false)
+
+            row.qty = dcFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            row.qty:SetPoint("TOPLEFT", 310, y)
+            row.qty:SetWidth(70)
+            row.qty:SetJustifyH("CENTER")
+
+            row.weekly = dcFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            row.weekly:SetPoint("TOPLEFT", 390, y)
+            row.weekly:SetWidth(70)
+            row.weekly:SetJustifyH("CENTER")
+
+            row.canGet = dcFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            row.canGet:SetPoint("TOPLEFT", 470, y)
+            row.canGet:SetWidth(70)
+            row.canGet:SetJustifyH("CENTER")
+
+            row.cap = dcFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            row.cap:SetPoint("TOPLEFT", 555, y)
+            row.cap:SetWidth(110) -- wider to fit "1064/1200"
+            row.cap:SetJustifyH("CENTER")
+
+            -- Row separator
+            if i < #entries then
+                local rsep = dcFrame:CreateTexture(nil, "ARTWORK")
+                rsep:SetColorTexture(0.2, 0.1, 0.3, 0.5)
+                rsep:SetPoint("TOPLEFT", 10, y - 30)
+                rsep:SetPoint("TOPRIGHT", -10, y - 30)
+                rsep:SetHeight(1)
+            end
+
+            dcFrame.rows[i] = row
+        end
+
+        -- Close button
+        local closeBtn = CreateFrame("Button", nil, dcFrame, "UIPanelCloseButton")
+        closeBtn:SetPoint("TOPRIGHT", -2, -2)
+        closeBtn:SetScript("OnClick", function() dcFrame:Hide() end)
+
+        -- Refresh button
+        local refreshBtn = CreateFrame("Button", nil, dcFrame, "UIPanelButtonTemplate")
+        refreshBtn:SetSize(80, 22)
+        refreshBtn:SetPoint("BOTTOM", 0, 3)
+        refreshBtn:SetText("Refresh")
+        refreshBtn:SetScript("OnClick", function()
+            SlashCmdList["DAWNCRESTS"]()
+        end)
+    end
+
+    -- Populate rows
+    for i, entry in ipairs(entries) do
+        local row = dcFrame.rows[i]
+        if row then
+            row.icon:SetTexture(entry.icon)
+            row.name:SetText(entry.name)
+            row.qty:SetText(tostring(entry.quantity))
+
+            -- Weekly earned this week
+            local weeklyInfo = C_CurrencyInfo.GetCurrencyInfo(ids[i])
+            local weeklyEarned = weeklyInfo and weeklyInfo.quantityEarnedThisWeek or 0
+            row.weekly:SetText(tostring(weeklyEarned))
+
+            -- Can earn = season cap - total earned
+            local canGet = entry.canGet
+            if canGet == 0 then
+                row.canGet:SetText("|cFFFF4444" .. canGet .. "|r")
+            elseif canGet <= 100 then
+                row.canGet:SetText("|cFFFF8800" .. canGet .. "|r")
+            else
+                row.canGet:SetText("|cFF00FF00" .. canGet .. "|r")
+            end
+
+            -- Season: totalEarned / maxQuantity
+            local pct = entry.maxQuantity > 0 and (entry.totalEarned / entry.maxQuantity) or 0
+            local capColor = pct >= 1 and "|cFFFF4444" or pct >= 0.8 and "|cFFFF8800" or "|cFFFFFFFF"
+            row.cap:SetText(capColor .. entry.totalEarned .. "/" .. entry.maxQuantity .. "|r")
+        end
+    end
+
+    dcFrame:Show()
 end
 
 -- ==========================================

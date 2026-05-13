@@ -9,6 +9,20 @@ local addonName, OUS = ...
 
 OUS.OpenablesDB = {
 
+-- ==========================================
+    -- MIDNIGHT (12.0 - S1)
+    -- ==========================================
+
+    -- Dawncrest Packs
+    [246751] = 1,   -- Triumphant Satchel of Champion Dawncrests
+    [246752] = 1,   -- Celebratory Pack of Hero Dawncrests
+    [246753] = 1,   -- Glorious Cluster of Myth Dawncrests
+    [246754] = 1,   -- Pouch of Veteran Dawncrests
+    [246755] = 1,   -- Satchel of Champion Dawncrests
+    [246756] = 1,   -- Pack of Hero Dawncrests
+    [263976] = 1,   -- Bundle of Adventurer Dawncrests
+    [263977] = 1,   -- Venerable Satchel of Veteran Dawncrests
+
     -- ==========================================
     -- THE WAR WITHIN (11.2)
     -- ==========================================
@@ -46,14 +60,6 @@ OUS.OpenablesDB = {
     -- Sparks
     [230905] = 2,   -- Fractured Spark of Fortunes
 
-    -- Crest Pouches
-    [231153] = 1,   -- Triumphant Satchel of Carved Undermine Crests
-    [231154] = 1,   -- Celebratory Pack of Runed Undermine Crests
-    [231264] = 1,   -- Glorious Cluster of Gilded Undermine Crests
-    [231267] = 1,   -- Pouch of Weathered Undermine Crests
-    [231269] = 1,   -- Satchel of Carved Undermine Crests
-    [231270] = 1,   -- Pack of Runed Undermine Crests
-
     -- Delves
     [233555] = 1,   -- Restored Coffer Key
     [235531] = 1,   -- Restored Coffer Key
@@ -75,14 +81,6 @@ OUS.OpenablesDB = {
 
     -- Sparks
     [211297] = 2,   -- Fractured Spark of Omens
-
-    -- Crest Pouches
-    [220767] = 1,   -- Triumphant Satchel of Carved Harbinger Crests
-    [220773] = 1,   -- Celebratory Pack of Runed Harbinger Crests
-    [220776] = 1,   -- Glorious Cluster of Gilded Harbinger Crests
-    [221268] = 1,   -- Pouch of Weathered Harbinger Crests
-    [221373] = 1,   -- Satchel of Carved Harbinger Crests
-    [221375] = 1,   -- Pack of Runed Harbinger Crests
 
     -- Contracts
     [222597] = 1,   -- Contract: Council of Dornogal
@@ -828,8 +826,6 @@ OUS.OpenablesDB = {
     [243342] = 10,   -- Bloom Bauble
     [245653] = 100,   -- Coffer Key Shard
     [245925] = 1,   -- Artifactium Sand
-    [246751] = 1,   -- Triumphant Satchel of Champion Dawncrests
-    [246752] = 1,   -- Celebratory Pack of Hero Dawncrests
     [246815] = 1,   -- Lesser Bronze Cache
     [246936] = 1,   -- Resonant Epoch Memento
     [246937] = 1,   -- Perfected Epoch Memento
@@ -860,7 +856,6 @@ OUS.OpenablesDB = {
     [262798] = 20,   -- Stranded Glimmerline
     [262964] = 1,   -- Death's Hope
     [263287] = 1,   -- Reliquary-Keeper's Lost Shortbow
-    [263977] = 1,   -- Venerable Satchel of Veteran Dawncrests
     [267061] = 1,   -- Pattern: Thalassian Herbalist's Cowl
     [268297] = 1,   -- Rattling Bag o' Gold
     [274069] = 1,   -- Warbound Pack of Hero Dawncrests
