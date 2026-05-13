@@ -122,6 +122,7 @@ local CATEGORY_COLORS = {
     currency  = {0.60, 0.60, 0.60},  -- grey
     recipe    = {1.00, 0.40, 0.40},  -- pink-red
     generic   = {1.00, 0.82, 0.00},  -- gold (same as cache, no badge)
+    decor     = {0.90, 0.75, 0.50},  -- warm tan
 }
 
 local CATEGORY_BADGES = {
@@ -133,6 +134,7 @@ local CATEGORY_BADGES = {
     currency  = "G",
     recipe    = "R",
     generic   = nil,   -- no badge
+    decor     = "H",
 }
 
 -- Explicit category overrides for known itemIDs
@@ -191,10 +193,11 @@ local function GetItemCategory(itemID)
     if C_ToyBox.GetToyInfo(itemID) then return "toy" end
     -- Check pet journal
     if C_PetJournal.GetPetInfoByItemID(itemID) then return "pet" end
-    -- Check recipe class (classID 9) — no DB needed
-    -- Return positions: name,link,quality,iLevel,reqLevel,class,subclass,maxStack,equipSlot,icon,vendorPrice,classID
-    local _, _, _, _, _, _, _, _, _, _, _, classID = C_Item.GetItemInfo(itemID)
+    -- Check item class for recipe and housing decor — no DB needed
+    -- Return positions: name,link,quality,iLevel,reqLevel,class,subclass,maxStack,equipSlot,icon,vendorPrice,classID,subClassID
+    local _, _, _, _, _, _, _, _, _, _, _, classID, subClassID = C_Item.GetItemInfo(itemID)
     if classID == Enum.ItemClass.Recipe then return "recipe" end
+    if classID == Enum.ItemClass.Housing and subClassID == Enum.ItemHousingSubclass.Decor then return "decor" end
     if classID == nil and not pendingItemLoad[itemID] then
         pendingItemLoad[itemID] = true
         local item = Item:CreateFromItemID(itemID)
@@ -249,8 +252,8 @@ local function FindOpenableItem()
                 if not IsBlacklisted(itemID) then
                     local cat = GetItemCategory(itemID)
                     local minQty = GetOpenableMinQty(itemID)
-                    -- Recipes bypass minQty (not in DB) — all others need DB entry
-                    if (minQty and info.stackCount >= minQty) or cat == "recipe" then
+                    -- Recipes and housing decor bypass minQty (not in DB)
+                    if (minQty and info.stackCount >= minQty) or cat == "recipe" or cat == "decor" then
                         if C_PlayerInfo.CanUseItem(itemID) then
                             if not IsAlreadyCollected(itemID, cat, bag, slot) then
                                 return {

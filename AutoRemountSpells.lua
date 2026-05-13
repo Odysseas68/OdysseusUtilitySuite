@@ -150,4 +150,8 @@ OUS.AutoRemountExcludeSpells = {
     [1244973] = true,   -- Anomaly Collector
     [1265824] = true,   -- [DNT] Void Power Credit - T1
     [1225292] = true,   -- Fishing Journal - Looted - Learn - Entry
+    [1286388] = true,   -- Deactivate
+    [383419] = true,   -- Searching
+    [1234969] = true,   -- Ethereal Augmentation
+    [460002] = true,   -- Switch Flight Style
 }
