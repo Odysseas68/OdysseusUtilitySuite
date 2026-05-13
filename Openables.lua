@@ -252,8 +252,8 @@ local function FindOpenableItem()
                 if not IsBlacklisted(itemID) then
                     local cat = GetItemCategory(itemID)
                     local minQty = GetOpenableMinQty(itemID)
-                    -- Recipes and housing decor bypass minQty (not in DB)
-                    if (minQty and info.stackCount >= minQty) or cat == "recipe" or cat == "decor" then
+                    -- Dynamic categories bypass minQty — DB only needed for caches/currency/knowledge
+                    if (minQty and info.stackCount >= minQty) or cat == "recipe" or cat == "decor" or cat == "mount" or cat == "pet" or cat == "toy" then
                         if C_PlayerInfo.CanUseItem(itemID) then
                             if not IsAlreadyCollected(itemID, cat, bag, slot) then
                                 return {
