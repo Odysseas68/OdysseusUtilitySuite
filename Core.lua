@@ -200,6 +200,7 @@ debugFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.95)
 debugFrame:SetBackdropBorderColor(0.0, 0.8, 1.0, 1)
 
 debugFrame:SetMovable(true)
+debugFrame:SetClampedToScreen(true)
 debugFrame:EnableMouse(true)
 debugFrame:RegisterForDrag("LeftButton")
 debugFrame:SetScript("OnDragStart", debugFrame.StartMoving)

@@ -119,6 +119,7 @@ function OUS.ApplyFlightBorder()
 end
 
 timerBar:SetMovable(true)
+timerBar:SetClampedToScreen(true)
 timerBar:EnableMouse(false)
 timerBar:RegisterForDrag("LeftButton")
 timerBar:SetScript("OnDragStart", timerBar.StartMoving)

@@ -123,6 +123,7 @@ xpBar.text = xpBar.progressBar:CreateFontString(nil, "OVERLAY", "GameFontHighlig
 xpBar.text:SetPoint("CENTER", xpBar, "CENTER", 0, 0)
 
 xpBar:SetMovable(true)
+xpBar:SetClampedToScreen(true)
 xpBar:EnableMouse(true)
 xpBar:RegisterForDrag("LeftButton")
 xpBar:SetScript("OnDragStart", function(self) if IsShiftKeyDown() then self:StartMoving() end end)
@@ -158,6 +159,7 @@ delveBar.jourText = delveBar.jourBar:CreateFontString(nil, "OVERLAY", "GameFontH
 delveBar.jourText:SetPoint("CENTER")
 
 delveBar:SetMovable(true)
+delveBar:SetClampedToScreen(true)
 delveBar:EnableMouse(true)
 delveBar:RegisterForDrag("LeftButton")
 delveBar:SetScript("OnDragStart", function(self) if IsShiftKeyDown() then self:StartMoving() end end)
@@ -185,6 +187,7 @@ toast:Hide()
 toast:SetAlpha(0)
 
 toast:SetMovable(true)
+toast:SetClampedToScreen(true)
 toast:EnableMouse(true)
 toast:RegisterForDrag("LeftButton")
 toast:SetScript("OnDragStart", function(self) if IsShiftKeyDown() then self:StartMoving() end end)
@@ -324,6 +327,7 @@ stats:SetBackdropBorderColor(0.5, 0.3, 0.7, 1)
 stats:Hide()
 
 stats:SetMovable(true)
+stats:SetClampedToScreen(true)
 stats:EnableMouse(true)
 
 stats:RegisterForDrag("LeftButton")
