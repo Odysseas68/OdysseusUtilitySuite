@@ -659,6 +659,7 @@ local function OpenBlacklistFrame()
     })
     blFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.95)
     blFrame:SetBackdropBorderColor(0.0, 0.8, 1.0, 1)
+    tinsert(UISpecialFrames, "OdysseusOpenablesListFrame")
 
     local title = blFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
     title:SetPoint("TOP", 0, -12)
@@ -763,13 +764,9 @@ local function OpenBlacklistFrame()
         content:SetHeight(math.max(y, 1))
     end
 
-    blFrame:SetScript("OnShow", function()
-        PopulateList()
-        C_Timer.After(0.5, function()
-            if blFrame:IsShown() then PopulateList() end
-        end)
-    end)
+    blFrame:SetScript("OnShow", PopulateList)
     blFrame:Show()
+    C_Timer.After(0, PopulateList)
 end
 
 -- Opens the custom items management frame.
@@ -798,6 +795,7 @@ local function OpenCustomListFrame()
     })
     clFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.95)
     clFrame:SetBackdropBorderColor(0.0, 0.8, 1.0, 1)
+    tinsert(UISpecialFrames, "OdysseusOpenablesCustomListFrame")
 
     local title = clFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
     title:SetPoint("TOP", 0, -12)
@@ -854,11 +852,22 @@ local function OpenCustomListFrame()
             end
         end
         if needsRetry then
-            C_Timer.After(1, function()
-                if clFrame:IsShown() then PopulateCustomList() end
+            if not clFrame._loadingText then
+                clFrame._loadingText = clFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+                clFrame._loadingText:SetPoint("CENTER", clFrame, "CENTER", 0, 0)
+                clFrame._loadingText:SetTextColor(1, 0.82, 0)
+            end
+            clFrame._loadingText:SetText("|cFFFFD100Loading item names, please wait...|r")
+            clFrame._loadingText:Show()
+            C_Timer.After(2, function()
+                if clFrame:IsShown() then
+                    if clFrame._loadingText then clFrame._loadingText:Hide() end
+                    PopulateCustomList()
+                end
             end)
             return
         end
+        if clFrame._loadingText then clFrame._loadingText:Hide() end
 
         local y = 0
         local i = 0
@@ -913,6 +922,8 @@ local function OpenCustomListFrame()
 
     clFrame:SetScript("OnShow", PopulateCustomList)
     clFrame:Show()
+    -- Defer first population to next frame to ensure scroll child is ready
+    C_Timer.After(0, PopulateCustomList)
 end
 
 -- Main slash handler
@@ -1054,6 +1065,7 @@ function OP.OpenMassAddFrame()
     })
     maddFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.95)
     maddFrame:SetBackdropBorderColor(0.0, 0.8, 1.0, 1)
+    tinsert(UISpecialFrames, "OdysseusOpenablesMaddFrame")
 
     -- Title
     local title = maddFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
