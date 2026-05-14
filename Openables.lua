@@ -28,7 +28,9 @@ local pendingItemLoad = {}
 local function IsPetCollected(itemID)
     local speciesID = select(13, C_PetJournal.GetPetInfoByItemID(itemID))
     if not speciesID then return false end
-    return C_PetJournal.GetNumCollectedInfo(speciesID) > 0
+    local owned, limit = C_PetJournal.GetNumCollectedInfo(speciesID)
+    if not owned or not limit or limit == 0 then return false end
+    return owned >= limit
 end
 
 -- Returns true if item should be skipped due to collection state
