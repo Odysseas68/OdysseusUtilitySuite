@@ -41,12 +41,14 @@ end
 
 -- Formats a float to one decimal place.
 local function Fmt1(n)
-    return string.format("%.1f", n or 0)
+    local ok, result = pcall(string.format, "%.1f", n or 0)
+    return ok and result or "—"
 end
 
 -- Formats a number with thousands separator.
 local function FmtNum(n)
-    return tostring(math.floor(n or 0))
+    local ok, result = pcall(function() return tostring(math.floor(n or 0)) end)
+    return ok and result or "—"
 end
 
 -- Returns a color code string for a stat name.

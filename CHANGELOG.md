@@ -28,10 +28,16 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 - **Config**: General tab module toggle checkboxes spacing tightened from 35px to 28px to accommodate Toolbox toggle
 - **Help**: Moved from `Config.lua` into standalone `Help.lua` (section 5, loads after `xpbar_config.lua`)
 
+---
 
+## [2026-05-15] - Stats Bar: Secret Value Fix
 
-### Added
-- **Openables**: Recipe scanning — unlearned recipes detected dynamically via `Enum.ItemClass.Recipe` (classID 9), no static DB required
+### Fixed
+- **Stats Bar**: `Fmt1` and `FmtNum` display helpers now use `pcall` around `string.format`/`math.floor` — `tonumber()` does not neutralize secret number values in Retail 12.0+ and passes them through unchanged, causing taint errors in instanced content (Timewalking, M+, encounters). Stats display `"—"` when values are restricted.
+
+---
+
+## [2026-05-12] - Openables: Recipe Filtering & Secure Button
   - `C_TradeSkillUI.GetRecipeInfo(spellID)` checked first for professions the character has initialized
   - Tooltip fallback via `C_TooltipInfo.GetBagItem` + `ITEM_SPELL_KNOWN` string match for classic-era recipes using generic "Learning" spell
   - Recipe category badge `R` with pink-red border color
