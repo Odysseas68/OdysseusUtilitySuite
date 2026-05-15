@@ -41,14 +41,12 @@ end
 
 -- Formats a float to one decimal place.
 local function Fmt1(n)
-    local ok, result = pcall(string.format, "%.1f", n or 0)
-    return ok and result or "—"
+    return string.format("%.1f", n or 0)
 end
 
 -- Formats a number with thousands separator.
 local function FmtNum(n)
-    local ok, result = pcall(function() return tostring(math.floor(n or 0)) end)
-    return ok and result or "—"
+    return tostring(math.floor(n or 0))
 end
 
 -- Returns a color code string for a stat name.
@@ -108,67 +106,80 @@ local function RefreshCache()
 
     local db = OdysseusCharDB and OdysseusCharDB.statsBar
 
-    -- Item level
+    -- Item level (not secret-gated)
     local _, equipped = GetAverageItemLevel()
     cache.ilvl = equipped and equipped > 0 and string.format("%.2f", equipped) or "—"
 
-    -- Primary stats
-    local str  = UnitStat("player", 1) or 0
-    local agi  = UnitStat("player", 2) or 0
-    local stam = UnitStat("player", 3) or 0
-    local int  = UnitStat("player", 4) or 0
-    cache.str  = FmtNum(str)
-    cache.agi  = FmtNum(agi)
-    cache.stam = FmtNum(stam)
-    cache.int  = FmtNum(int)
+    -- All stat reads are secret-gated in restricted contexts — wrap in pcall
+    -- to prevent taint errors from arithmetic on secret values
+    local ok = pcall(function()
+        -- Primary stats
+        local str  = UnitStat("player", 1) or 0
+        local agi  = UnitStat("player", 2) or 0
+        local stam = UnitStat("player", 3) or 0
+        local int  = UnitStat("player", 4) or 0
+        cache.str  = FmtNum(str)
+        cache.agi  = FmtNum(agi)
+        cache.stam = FmtNum(stam)
+        cache.int  = FmtNum(int)
 
-    -- Secondary stats — ratings and percentages
-    local critR  = GetCombatRating(CR_CRIT_MELEE)   or 0
-    local hasteR = GetCombatRating(CR_HASTE_MELEE)  or 0
-    local mastR  = GetCombatRating(CR_MASTERY)       or 0
-    local versR  = GetCombatRating(CR_VERSATILITY_DAMAGE_DONE) or 0
+        -- Secondary stats — ratings and percentages
+        local critR  = GetCombatRating(CR_CRIT_MELEE)   or 0
+        local hasteR = GetCombatRating(CR_HASTE_MELEE)  or 0
+        local mastR  = GetCombatRating(CR_MASTERY)       or 0
+        local versR  = GetCombatRating(CR_VERSATILITY_DAMAGE_DONE) or 0
 
-    local critP  = GetCritChance()    or 0
-    local hasteP = GetHaste()         or 0
-    local mastP  = GetMasteryEffect() or 0
-    local versP  = (GetCombatRatingBonus(CR_VERSATILITY_DAMAGE_DONE) or 0)
-                 + (GetVersatilityBonus(CR_VERSATILITY_DAMAGE_DONE)  or 0)
+        local critP  = GetCritChance()    or 0
+        local hasteP = GetHaste()         or 0
+        local mastP  = GetMasteryEffect() or 0
+        local versP  = (GetCombatRatingBonus(CR_VERSATILITY_DAMAGE_DONE) or 0)
+                     + (GetVersatilityBonus(CR_VERSATILITY_DAMAGE_DONE)  or 0)
 
-    cache.critr  = FmtNum(critR)
-    cache.haster = FmtNum(hasteR)
-    cache.mastr  = FmtNum(mastR)
-    cache.versr  = FmtNum(versR)
-    cache.crit   = Fmt1(critP)  .. "%"
-    cache.haste  = Fmt1(hasteP) .. "%"
-    cache.mast   = Fmt1(mastP)  .. "%"
-    cache.vers   = Fmt1(versP)  .. "%"
+        cache.critr  = FmtNum(critR)
+        cache.haster = FmtNum(hasteR)
+        cache.mastr  = FmtNum(mastR)
+        cache.versr  = FmtNum(versR)
+        cache.crit   = Fmt1(critP)  .. "%"
+        cache.haste  = Fmt1(hasteP) .. "%"
+        cache.mast   = Fmt1(mastP)  .. "%"
+        cache.vers   = Fmt1(versP)  .. "%"
 
-    -- Tertiary stats
-    cache.leech = Fmt1(GetLifesteal()  or 0) .. "%"
-    cache.avoid = Fmt1(GetAvoidance()  or 0) .. "%"
-    cache.speed = Fmt1(GetSpeed()      or 0) .. "%"
+        -- Tertiary stats
+        cache.leech = Fmt1(GetLifesteal()  or 0) .. "%"
+        cache.avoid = Fmt1(GetAvoidance()  or 0) .. "%"
+        cache.speed = Fmt1(GetSpeed()      or 0) .. "%"
 
-    -- Defensive stats
-    cache.dodge = Fmt1(GetDodgeChance() or 0) .. "%"
-    cache.parry = Fmt1(GetParryChance() or 0) .. "%"
-    cache.block = Fmt1(GetBlockChance() or 0) .. "%"
-    local _, effectiveArmor = UnitArmor("player")
-    cache.armor = FmtNum(effectiveArmor or 0)
+        -- Defensive stats
+        cache.dodge = Fmt1(GetDodgeChance() or 0) .. "%"
+        cache.parry = Fmt1(GetParryChance() or 0) .. "%"
+        cache.block = Fmt1(GetBlockChance() or 0) .. "%"
+        local _, effectiveArmor = UnitArmor("player")
+        cache.armor = FmtNum(effectiveArmor or 0)
 
-    -- Spec priority display
-    local priority = GetSpecPriority()
-    local statValues = {
-        Crit    = critP,
-        Haste   = hasteP,
-        Mastery = mastP,
-        Vers    = versP,
-    }
-    local parts = {}
-    for _, statName in ipairs(priority) do
-        local val = Fmt1(statValues[statName] or 0) .. "%"
-        table.insert(parts, StatColor(statName, statName .. " " .. val))
+        -- Spec priority display
+        local priority = GetSpecPriority()
+        local statValues = {
+            Crit    = critP,
+            Haste   = hasteP,
+            Mastery = mastP,
+            Vers    = versP,
+        }
+        local parts = {}
+        for _, statName in ipairs(priority) do
+            local val = Fmt1(statValues[statName] or 0) .. "%"
+            table.insert(parts, StatColor(statName, statName .. " " .. val))
+        end
+        cache.spec = table.concat(parts, " ")
+    end)
+
+    if not ok then
+        -- Stats restricted — fill cache with dashes to avoid stale data
+        for _, k in ipairs({"str","agi","stam","int","critr","haster","mastr","versr",
+                             "crit","haste","mast","vers","leech","avoid","speed",
+                             "dodge","parry","block","armor","spec"}) do
+            cache[k] = "—"
+        end
     end
-    cache.spec = table.concat(parts, " ")
 
     SB.UpdateDisplay()
     UpdateTable()
