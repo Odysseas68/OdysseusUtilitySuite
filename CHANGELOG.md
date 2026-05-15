@@ -2,7 +2,33 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
-## [2026-05-12] - Openables: Recipe Filtering & Secure Button
+## [2026-05-15] - Toolbox & Help Frame
+
+### Added
+- **Toolbox**: New module — floating icon bar giving one-click access to all OUS module panels
+  - One icon per active module: OUS Config, XP Bar Stats, Flight Master, Fishing Tracker, Auto Remount, Stats Bar, Openables
+  - Horizontal and vertical layout modes (`/tb ver` / `/tb hor`)
+  - Drag handle overlay when unlocked — all icon buttons disabled during repositioning to prevent accidental clicks
+  - Smart screen-aware positioning: layout direction determines popup axis, available space determines side
+  - Openables quick-action popup: Mass Add, Custom List, Blacklist — Midnight-themed buttons, auto-positions to stay on screen
+  - Stats Bar toggle respects current display mode (table vs single-line) — pure show/hide, mode preserved
+  - Flight Master and Auto Remount buttons open Config on their respective tab; click again to close
+  - Persists position, scale, direction, lock state, and visibility across sessions via `OdysseusDB.toolbox`
+  - Module enable/disable checkbox in Config General tab
+  - Full slash command set via `/tb` and `/toolbox`
+- **Help Frame**: Reworked from single scrolling list to tabbed frame matching Config nav aesthetic
+  - 6 tabs: General, Toolbox, XP & Rep, Auto Remount, Stats Bar, Openables
+  - Midnight-themed nav buttons (accent strip, sheen, hover/active states)
+  - `ScrollFrame` + `FontString` per tab — top-down rendering, lazy-created on first visit
+  - Compact banner (200×100) + title + separator shared across all tabs
+  - Extracted to standalone `Help.lua` — no Config.lua dependency
+- **Config**: `OUS.ConfigFrame.ShowTab` and `OUS.ConfigFrame.currentNavTab` exposed for external callers
+
+### Changed
+- **Config**: General tab module toggle checkboxes spacing tightened from 35px to 28px to accommodate Toolbox toggle
+- **Help**: Moved from `Config.lua` into standalone `Help.lua` (section 5, loads after `xpbar_config.lua`)
+
+
 
 ### Added
 - **Openables**: Recipe scanning — unlearned recipes detected dynamically via `Enum.ItemClass.Recipe` (classID 9), no static DB required

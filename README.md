@@ -149,6 +149,29 @@ Enhances taxi destination previews with itinerary sidebar, route hop breakdown, 
 
 ---
 
+### Toolbox
+A floating icon bar giving one-click access to all active OUS module panels.
+
+Highlights:
+- one icon per active module — OUS Config, XP Bar Stats, Flight Master, Fishing Tracker, Auto Remount, Stats Bar, Openables
+- horizontal and vertical layout modes, toggleable live
+- drag handle overlay when unlocked — icon buttons disabled during repositioning
+- smart screen-aware popup positioning — layout orientation drives the direction, available screen space drives the side
+- Openables quick-action popup: Mass Add, Custom List, Blacklist — Midnight-themed, anchors intelligently relative to bar position
+- Stats Bar toggle is mode-aware — hides whichever frame is currently active without changing mode
+- Flight Master and Auto Remount buttons open Config on their respective tab; click again to close
+- scale, position, direction, and lock state persisted across sessions
+- enable/disable toggle in Config General tab
+
+Commands:
+- `/tb toggle` — show/hide toolbox
+- `/tb lock` / `/tb unlock` — lock or unlock position
+- `/tb scale [0.5-2.0]` — set icon scale
+- `/tb ver` / `/tb hor` — switch layout direction
+- `/toolbox` — alias for `/tb`
+
+---
+
 ### Faster Loot
 A fast auto-loot module that respects group loot, locked items, and bag-full situations.
 
@@ -160,6 +183,9 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 ---
 
 ## Commands
+
+### Toolbox
+- `/tb` / `/toolbox` — full command set (see Toolbox section above)
 
 ### Main
 - `/ous` — open the main configuration window
@@ -210,7 +236,7 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 ## Current Focus
 
 The addon is in active refinement, with recent work on:
-- Openables module: recipe filtering, secure button taint resolution, drag handle UX
-- Openables module: smart collection filtering for mounts, pets, toys, and recipes
-- Openables module: category-colored borders and badge overlay
-- Stats Bar and Auto Remount modules in maintenance/stable phase
+- Toolbox module: floating icon bar, smart popup positioning, Midnight-themed quick-action popup
+- Help frame: reworked to tabbed layout with Midnight nav, extracted to standalone Help.lua
+- Config: ShowTab API exposed for external callers, General tab checkbox spacing tightened
+- Openables module: recipe filtering, secure button taint resolution, drag handle UX, collection filtering

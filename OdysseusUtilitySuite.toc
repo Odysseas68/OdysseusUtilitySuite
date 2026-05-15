@@ -45,9 +45,11 @@ FlightRouting.lua
 AutoRemount.lua
 StatsBar.lua
 Openables.lua
+Toolbox.lua
 
 # ==========================================
 # 5. CONFIGURATION UI (Loads last to attach to engines)
 # ==========================================
 Config.lua
 xpbar_config.lua
+Help.lua

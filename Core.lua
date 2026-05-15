@@ -28,6 +28,7 @@ f:SetScript("OnEvent", function(self, event, arg1)
         if OdysseusDB.modules.autoRemount == nil then OdysseusDB.modules.autoRemount = true end
         if OdysseusDB.modules.statsBar == nil then OdysseusDB.modules.statsBar = true end
         if OdysseusDB.modules.openables == nil then OdysseusDB.modules.openables = true end
+        if OdysseusDB.modules.toolbox  == nil then OdysseusDB.modules.toolbox  = true end
 
         OdysseusCharDB = OdysseusCharDB or {}
         OdysseusDB.statsBar = OdysseusDB.statsBar or {
@@ -59,6 +60,17 @@ f:SetScript("OnEvent", function(self, event, arg1)
             point      = "CENTER",
             relPoint   = "CENTER",
             scale = 1.0,
+        }
+
+        OdysseusDB.toolbox = OdysseusDB.toolbox or {
+            x         = 0,
+            y         = 0,
+            point     = "CENTER",
+            relPoint  = "CENTER",
+            locked    = true,
+            shown     = true,
+            scale     = 1.0,
+            direction = "horizontal",
         }
 
         if OdysseusDB.minimapAngle == nil then OdysseusDB.minimapAngle = 225 end
@@ -102,13 +114,14 @@ function OUS.ResetAllSettings()
 
     -- Reset Modules
     OdysseusDB.modules = {
-        flightMaster = true,
-        fasterLoot = true,
+        flightMaster   = true,
+        fasterLoot     = true,
         fishingTracker = true,
-        xpBar = true,
-        autoRemount = true,
-        statsBar = true,
-        openables = true,
+        xpBar          = true,
+        autoRemount    = true,
+        statsBar       = true,
+        openables      = true,
+        toolbox        = true,
     }
 
     OdysseusDB.minimapAngle = 225
@@ -155,6 +168,17 @@ function OUS.ResetAllSettings()
         point       = "CENTER",
         relPoint    = "CENTER",
         scale = 1.0,
+    }
+
+    OdysseusDB.toolbox = {
+        x         = 0,
+        y         = 0,
+        point     = "CENTER",
+        relPoint  = "CENTER",
+        locked    = true,
+        shown     = true,
+        scale     = 1.0,
+        direction = "horizontal",
     }
 
     OdysseusCharDB = OdysseusCharDB or {}
@@ -369,6 +393,14 @@ SLASH_STATSBAR2 = "/statsbar"
 SlashCmdList["STATSBAR"] = function(msg)
     if OUS.StatsBar and OUS.StatsBar.SlashHandler then
         OUS.StatsBar.SlashHandler(msg)
+    end
+end
+
+SLASH_TOOLBOX1 = "/tb"
+SLASH_TOOLBOX2 = "/toolbox"
+SlashCmdList["TOOLBOX"] = function(msg)
+    if OUS.Toolbox and OUS.Toolbox.SlashHandler then
+        OUS.Toolbox.SlashHandler(msg)
     end
 end
 

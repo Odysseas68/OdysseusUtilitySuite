@@ -271,8 +271,12 @@ local function ShowTab(tabName)
     end
 
     currentNavTab = tabName
+    OUS.ConfigFrame.currentNavTab = tabName
     RefreshNavButtonStates(tabName)
 end
+
+-- Expose for external callers (e.g. Toolbox buttons)
+OUS.ConfigFrame.ShowTab = ShowTab
 
 local function CreateNavButton(label, yOffset, targetTab)
     local btn = CreateFrame("Button", nil, navPanel, "BackdropTemplate")
@@ -701,15 +705,25 @@ local function CreateModuleToggle(parent, label, yOffset, dbKey)
                 OUS.Openables.UpdateDisplay()
             end
         end
+        if dbKey == "toolbox" then
+            if OUSToolboxFrame then
+                if self:GetChecked() then
+                    OUSToolboxFrame:Show()
+                else
+                    OUSToolboxFrame:Hide()
+                end
+            end
+        end
     end)
 end
 
-CreateModuleToggle(tabs.General, " Enable Flight Master", -270, "flightMaster")
-CreateModuleToggle(tabs.General, " Enable Faster Loot", -305, "fasterLoot")
-CreateModuleToggle(tabs.General, " Enable Fishing Tracker", -340, "fishingTracker")
-CreateModuleToggle(tabs.General, " Enable Exp & Rep Bar", -375, "xpBar")
-CreateModuleToggle(tabs.General, " Enable Stats Bar", -410, "statsBar")
-CreateModuleToggle(tabs.General, " Enable Openables", -445, "openables")
+CreateModuleToggle(tabs.General, " Enable Flight Master",   -270, "flightMaster")
+CreateModuleToggle(tabs.General, " Enable Faster Loot",     -298, "fasterLoot")
+CreateModuleToggle(tabs.General, " Enable Fishing Tracker", -326, "fishingTracker")
+CreateModuleToggle(tabs.General, " Enable Exp & Rep Bar",   -354, "xpBar")
+CreateModuleToggle(tabs.General, " Enable Stats Bar",       -382, "statsBar")
+CreateModuleToggle(tabs.General, " Enable Openables",       -410, "openables")
+CreateModuleToggle(tabs.General, " Enable Toolbox",         -438, "toolbox")
 
 local resetAllBtn = CreateFrame("Button", nil, tabs.General, "UIPanelButtonTemplate")
 resetAllBtn:SetSize(180, 28)
@@ -1713,122 +1727,4 @@ tabs.Openables:SetScript("OnShow", function()
     if tabs.Openables._refreshCustomCount then tabs.Openables._refreshCustomCount() end
 end)
 
--- =====================================
--- ON-SCREEN HELP FRAME
--- =====================================
-local helpFrame = CreateFrame("Frame", "OdysseusHelpFrame", UIParent, "BackdropTemplate")
-helpFrame:SetSize(380, 460)
-helpFrame:SetPoint("CENTER")
-helpFrame:SetFrameStrata("DIALOG")
-helpFrame:SetBackdrop({
-    bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
-    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-    tile = false, edgeSize = 16,
-    insets = { left = 4, right = 4, top = 4, bottom = 4 }
-})
-helpFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.98)
-helpFrame:SetBackdropBorderColor(0.5, 0.3, 0.7, 1)
-helpFrame:Hide()
-helpFrame:SetMovable(true)
-helpFrame:SetClampedToScreen(true)
-helpFrame:EnableMouse(true)
-helpFrame:RegisterForDrag("LeftButton")
-helpFrame:SetScript("OnDragStart", helpFrame.StartMoving)
-helpFrame:SetScript("OnDragStop", helpFrame.StopMovingOrSizing)
-tinsert(UISpecialFrames, helpFrame:GetName())
-
-helpFrame.headerBg = helpFrame:CreateTexture(nil, "BACKGROUND", nil, 2)
-helpFrame.headerBg:SetPoint("TOPLEFT", 4, -4)
-helpFrame.headerBg:SetPoint("TOPRIGHT", -4, -4)
-helpFrame.headerBg:SetHeight(26)
-helpFrame.headerBg:SetColorTexture(1, 1, 1, 1)
-helpFrame.headerBg:SetGradient("HORIZONTAL", CreateColor(0.3, 0.1, 0.5, 0.8), CreateColor(0.07, 0.05, 0.1, 0.8))
-
-helpFrame.title = helpFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-helpFrame.title:SetPoint("TOP", helpFrame, "TOP", 0, -8)
-helpFrame.title:SetText("Odysseus Commands")
-helpFrame.title:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE")
-
-local helpCloseBtn = CreateFrame("Button", nil, helpFrame, "UIPanelCloseButton")
-helpCloseBtn:SetPoint("TOPRIGHT", helpFrame, "TOPRIGHT", -2, -2)
-
-local helpMsgFrame = CreateFrame("ScrollingMessageFrame", nil, helpFrame)
-helpMsgFrame:SetPoint("TOPLEFT", 14, -38)
-helpMsgFrame:SetPoint("BOTTOMRIGHT", -14, 10)
-helpMsgFrame:SetFontObject(GameFontNormalSmall)
-helpMsgFrame:SetJustifyH("LEFT")
-helpMsgFrame:SetFading(false)
-helpMsgFrame:SetMaxLines(200)
-
-local function AddHelpSection(title)
-    helpMsgFrame:AddMessage("|cFFAA88FF" .. title .. "|r")
-end
-
-local function AddHelpCmd(cmd, desc)
-    helpMsgFrame:AddMessage("|cFF00FF00" .. cmd .. "|r - " .. desc)
-end
-
-local function AddHelpLine(text)
-    helpMsgFrame:AddMessage("|cFF888888" .. text .. "|r")
-end
-
--- Main
-AddHelpSection("— Main —")
-AddHelpCmd("/ous", "Open Main Configuration Panel")
-AddHelpCmd("/ous help", "Show This Window")
-AddHelpCmd("/ousdebug", "Toggle Global Debug Mode")
-AddHelpLine("")
-
--- XP / Rep Bar
-AddHelpSection("— XP / Rep Bar —")
-AddHelpCmd("/xpstats", "Show Session XP & Rep Data")
-AddHelpCmd("/ousxp", "Toggle XP Bar")
-AddHelpCmd("/toasttest", "Test Reward Popup")
-AddHelpCmd("/delvetest", "Toggle Fake Delve Bar")
-AddHelpCmd("/delvedebug", "Print Advanced Delve IDs")
-AddHelpLine("")
-
--- Auto Remount
-AddHelpSection("— Auto Remount —")
-AddHelpCmd("/ar mount <n>", "Set character mount")
-AddHelpCmd("/ar account <n>", "Set account-wide mount")
-AddHelpCmd("/ar reset", "Clear character mount override")
-AddHelpCmd("/ar reset account", "Clear account mount override")
-AddHelpCmd("/ar toggle", "Toggle on/off")
-AddHelpCmd("/ar druid", "Toggle druid form skip")
-AddHelpCmd("/ar delay <sec>", "Set remount delay (0.1-5.0)")
-AddHelpCmd("/ar silent", "Toggle error notifications")
-AddHelpCmd("/ar spy", "Print loot-confirmed unknown spells to chat")
-AddHelpCmd("/ar spyfilter", "Manage spy filter blacklist")
-AddHelpCmd("/ar add <id>", "Add custom spell ID")
-AddHelpCmd("/ar remove <id>", "Remove custom spell ID")
-AddHelpCmd("/ar export", "Print custom spell IDs")
-AddHelpCmd("/ar wipe", "Clear custom spell IDs")
-AddHelpCmd("/ar status", "Show current settings")
-AddHelpCmd("/ar help", "Show all AR commands")
-AddHelpLine("")
-
--- Openables
-AddHelpSection("— Openables —")
-AddHelpCmd("/op add <itemID> [qty]", "Add item to custom list")
-AddHelpCmd("/op remove <itemID>", "Remove from custom list")
-AddHelpCmd("/op unblacklist <itemID>", "Remove from blacklist")
-AddHelpCmd("/op list", "Open blacklist management frame")
-AddHelpCmd("/op clist", "Open custom items management frame")
-AddHelpCmd("/op madd", "Open drag-and-drop item add frame")
-AddHelpCmd("/op auto", "Toggle auto-open")
-AddHelpCmd("/op lock / unlock", "Lock/unlock button position")
-AddHelpCmd("/op status", "Show current settings")
-AddHelpLine("")
-
--- Stats Bar
-AddHelpSection("— Stats Bar —")
-AddHelpCmd("/sb toggle", "Toggle on/off")
-AddHelpCmd("/sb table", "Toggle table view")
-AddHelpCmd("/sb template <text>", "Set single-line template")
-AddHelpCmd("/sb size <8-24>", "Set font size")
-AddHelpCmd("/sb lock / unlock", "Lock/unlock bar position")
-AddHelpCmd("/sb tlock / tunlock", "Lock/unlock table position")
-AddHelpCmd("/sb tokens", "Show all template tokens")
-AddHelpCmd("/sb reset", "Reset to defaults")
-AddHelpCmd("/sb status", "Show current settings")
+-- Help frame lives in Help.lua (section 5, loads after Config.lua)
