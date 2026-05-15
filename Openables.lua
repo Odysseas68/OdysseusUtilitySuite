@@ -99,6 +99,28 @@ local function IsAlreadyCollected(itemID, category, bag, slot)
             end
         end
         return false
+    elseif category == "cosmetic" then
+        -- Tooltip scan for "Already known." — most reliable for appearance items
+        if bag and slot then
+            local data = C_TooltipInfo.GetBagItem(bag, slot)
+            if data and data.lines then
+                for _, line in ipairs(data.lines) do
+                    if line.leftText == ITEM_ALREADY_KNOWN then
+                        return true
+                    end
+                end
+                return false
+            end
+            -- Tooltip not ready yet — schedule rescan and show for now
+            if not pendingMountCheck[itemID] then
+                pendingMountCheck[itemID] = true
+                C_Timer.After(2, function()
+                    pendingMountCheck[itemID] = nil
+                    OP.Refresh()
+                end)
+            end
+        end
+        return false
     end
     -- Crest pack cap check
     local currencyID = CREST_CURRENCY[itemID]
@@ -125,6 +147,7 @@ local CATEGORY_COLORS = {
     recipe    = {1.00, 0.40, 0.40},  -- pink-red
     generic   = {1.00, 0.82, 0.00},  -- gold (same as cache, no badge)
     decor     = {0.90, 0.75, 0.50},  -- warm tan
+    cosmetic  = {0.90, 0.75, 1.00},  -- soft lavender
 }
 
 local CATEGORY_BADGES = {
@@ -137,6 +160,7 @@ local CATEGORY_BADGES = {
     recipe    = "R",
     generic   = nil,   -- no badge
     decor     = "H",
+    cosmetic  = "A",   -- Appearance
 }
 
 -- Explicit category overrides for known itemIDs
@@ -181,9 +205,20 @@ local CURRENCY_ITEMS = {
     [225617]=true,[225621]=true,[225625]=true,[225629]=true,[225633]=true,
 }
 
-local function GetItemCategory(itemID)
+local function GetItemCategory(itemID, bag, slot)
     if CATEGORY_OVERRIDES[itemID] then
         return CATEGORY_OVERRIDES[itemID]
+    end
+    -- Tooltip-driven cosmetic detection — catches any item with the "Cosmetic" label
+    if bag and slot then
+        local data = C_TooltipInfo.GetBagItem(bag, slot)
+        if data and data.lines then
+            for _, line in ipairs(data.lines) do
+                if line.leftText == ITEM_COSMETIC then
+                    return "cosmetic"
+                end
+            end
+        end
     end
     if PET_ITEMS[itemID] then return "pet" end
     if TOY_ITEMS[itemID] then return "toy" end
@@ -252,10 +287,10 @@ local function FindOpenableItem()
             if info and info.itemID then
                 local itemID = info.itemID
                 if not IsBlacklisted(itemID) then
-                    local cat = GetItemCategory(itemID)
+                    local cat = GetItemCategory(itemID, bag, slot)
                     local minQty = GetOpenableMinQty(itemID)
                     -- Dynamic categories bypass minQty — DB only needed for caches/currency/knowledge
-                    if (minQty and info.stackCount >= minQty) or cat == "recipe" or cat == "decor" or cat == "mount" or cat == "pet" or cat == "toy" then
+                    if (minQty and info.stackCount >= minQty) or cat == "recipe" or cat == "decor" or cat == "mount" or cat == "pet" or cat == "toy" or cat == "cosmetic" then
                         if C_PlayerInfo.CanUseItem(itemID) then
                             if not IsAlreadyCollected(itemID, cat, bag, slot) then
                                 return {

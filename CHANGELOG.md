@@ -37,7 +37,21 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ---
 
+## [2026-05-15] - Openables: Cosmetic Item Detection
+
+### Added
+- **Openables**: Cosmetic/appearance item detection — scans tooltip for `ITEM_COSMETIC` global string (Blizzard's "Cosmetic" label) to automatically identify appearance items without any database; no manual item IDs needed
+  - Collection filtering via `ITEM_ALREADY_KNOWN` tooltip scan — button disappears after the appearance is learned
+  - Soft lavender border color and `"A"` badge for cosmetic items
+  - `GetItemCategory` extended to accept `bag`/`slot` for tooltip-driven detection at scan time
+  - Approach mirrors NOP addon — zero database maintenance, works for any current and future cosmetic items
+
+---
+
 ## [2026-05-12] - Openables: Recipe Filtering & Secure Button
+
+### Added
+- **Openables**: Recipe scanning — unlearned recipes detected dynamically via `Enum.ItemClass.Recipe` (classID 9), no static DB required
   - `C_TradeSkillUI.GetRecipeInfo(spellID)` checked first for professions the character has initialized
   - Tooltip fallback via `C_TooltipInfo.GetBagItem` + `ITEM_SPELL_KNOWN` string match for classic-era recipes using generic "Learning" spell
   - Recipe category badge `R` with pink-red border color
