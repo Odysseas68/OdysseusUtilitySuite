@@ -100,12 +100,12 @@ local function IsAlreadyCollected(itemID, category, bag, slot)
         end
         return false
     elseif category == "cosmetic" then
-        -- Tooltip scan for "Already known." — most reliable for appearance items
+        -- Tooltip scan for "Already Known" — confirmed string for cosmetic appearance items
         if bag and slot then
             local data = C_TooltipInfo.GetBagItem(bag, slot)
             if data and data.lines then
                 for _, line in ipairs(data.lines) do
-                    if line.leftText == ITEM_ALREADY_KNOWN then
+                    if line.leftText == "Already Known" then
                         return true
                     end
                 end
