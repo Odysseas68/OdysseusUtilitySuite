@@ -1332,7 +1332,7 @@ local dcFrame
 
 SLASH_DAWNCRESTS1 = "/dc"
 SlashCmdList["DAWNCRESTS"] = function()
-    local ids = {3341, 3343, 3345, 3347, 3383}
+    local ids = {3383, 3341, 3343, 3345, 3347}
 
     -- Collect data
     local entries = {}
