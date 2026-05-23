@@ -280,7 +280,7 @@ end
 
 -- Scans all bags and returns the first valid openable item found.
 local function FindOpenableItem()
-    for bag = 0, 4 do
+    for bag = 0, 5 do
         local numSlots = C_Container.GetContainerNumSlots(bag)
         for slot = 1, numSlots do
             local info = C_Container.GetContainerItemInfo(bag, slot)
@@ -813,7 +813,7 @@ local function OpenCustomListFrame()
     end
 
     clFrame = CreateFrame("Frame", "OdysseusOpenablesCustomListFrame", UIParent, "BackdropTemplate")
-    clFrame:SetSize(320, 350)
+    clFrame:SetSize(420, 350)
     clFrame:SetPoint("CENTER")
     clFrame:SetFrameStrata("DIALOG")
     clFrame:SetMovable(true)
@@ -845,7 +845,7 @@ local function OpenCustomListFrame()
     scrollFrame:SetPoint("BOTTOMRIGHT", -30, 50)
 
     local content = CreateFrame("Frame", nil, scrollFrame)
-    content:SetSize(275, 1)
+    content:SetSize(375, 1)
     scrollFrame:SetScrollChild(content)
 
     local clearBtn = CreateFrame("Button", nil, clFrame, "UIPanelButtonTemplate")
@@ -912,19 +912,40 @@ local function OpenCustomListFrame()
                 rows[i] = CreateFrame("Frame", nil, content)
             end
             local row = rows[i]
-            row:SetSize(270, 24)
+            row:SetSize(370, 26)
             row:SetPoint("TOPLEFT", 0, -y)
             row:Show()
 
+            if not row.icon then
+                row.icon = row:CreateTexture(nil, "ARTWORK")
+                row.icon:SetSize(22, 22)
+                row.icon:SetPoint("LEFT", 4, 0)
+                row.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+
+                -- Invisible button over icon for tooltip
+                row.iconBtn = CreateFrame("Button", nil, row)
+                row.iconBtn:SetSize(22, 22)
+                row.iconBtn:SetPoint("LEFT", 4, 0)
+                row.iconBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
+            end
+
             if not row.label then
                 row.label = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-                row.label:SetPoint("LEFT", 4, 0)
-                row.label:SetWidth(155)
+                row.label:SetPoint("LEFT", row.icon, "RIGHT", 4, 0)
+                row.label:SetWidth(220)
                 row.label:SetJustifyH("LEFT")
                 row.label:SetWordWrap(false)
             end
             local name = C_Item.GetItemNameByID(itemID) or ("ID: " .. itemID)
+            local _, _, _, _, _, _, _, _, _, iconID = C_Item.GetItemInfo(itemID)
             row.label:SetText(name)
+            if iconID then row.icon:SetTexture(iconID) end
+            local capturedID = itemID
+            row.iconBtn:SetScript("OnEnter", function(self)
+                GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+                GameTooltip:SetItemByID(capturedID)
+                GameTooltip:Show()
+            end)
 
             -- Remove button
 

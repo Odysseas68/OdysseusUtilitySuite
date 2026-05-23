@@ -76,6 +76,7 @@ OUS.AutoRemountSpells = {
 -- ==========================================
 -- Spells that open a loot window but should never trigger remount.
 -- Add here when a spell is confirmed as a false positive.
+
 OUS.AutoRemountExcludeSpells = {
     [13262]   = true,   -- Disenchant
     [31252]   = true,   -- Milling
@@ -151,7 +152,27 @@ OUS.AutoRemountExcludeSpells = {
     [1265824] = true,   -- [DNT] Void Power Credit - T1
     [1225292] = true,   -- Fishing Journal - Looted - Learn - Entry
     [1286388] = true,   -- Deactivate
-    [383419] = true,   -- Searching
+    [383419] = true,    -- Searching
     [1234969] = true,   -- Ethereal Augmentation
-    [460002] = true,   -- Switch Flight Style
+    [460002] = true,    -- Switch Flight Style
+    [1241734] = true,   -- Studying
+    [1272711] = true,   -- Veiled Blessing
+    [1271299] = true,   -- Dazzled
+    [1245733] = true,   -- Clone [DNT]
+    [1270533] = true,   -- Studying
+    [1241741] = true,   -- Studying
+    [464862] = true,    -- DNT Fishing Lure Dummy
+    [1241748] = true,   -- Studying
+    [1241747] = true,   -- Studying
+    [1241749] = true,   -- Studying
+    [1286199] = true,   -- [DNT] Exit - Kick Out Sequence
+    [1234587] = true,   -- Extinguishing
+    [1239454] = true,   -- Coal of Jan'alai
+    [1239300] = true,   -- Gather Apples
+    [1225978] = true,   -- Bandaging
+    [1235702] = true,   -- Kill Credit (DNT)
+    [1235700] = true,   -- Kill Credit (DNT)
+    [1235618] = true,   -- Channeling Halazzi's Might
+    [1235186] = true,   -- Blessing of Jan'alai
+    [5697] = true,      -- Unending Breath
 }

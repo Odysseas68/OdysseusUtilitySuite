@@ -18,6 +18,8 @@ f:RegisterEvent("ADDON_LOADED")
 
 f:SetScript("OnEvent", function(self, event, arg1)
     if event == "ADDON_LOADED" and arg1 == addonName then
+        OUS.Version = C_AddOns.GetAddOnMetadata(addonName, "Version") or "unknown"
+
         OdysseusDB = OdysseusDB or {}
         OdysseusDB.modules = OdysseusDB.modules or {}
 
@@ -93,6 +95,8 @@ f:SetScript("OnEvent", function(self, event, arg1)
         OdysseusCharDB.autoRemountChar = OdysseusCharDB.autoRemountChar or {
             mountID = nil,
         }
+
+        print(string.format("|cFF00CCFFOdysseus Utility Suite|r |cFF888888v%s|r loaded.", OUS.Version))
     end
 end)
 

@@ -1,8 +1,11 @@
 ## Interface: 120000, 120001, 120005
 ## Title: Odysseus Utility Suite
-## Notes: A modular suite of highly optimized utility tools.
-## Author: Odysseus
-## Version: 1.0
+## Notes: A modular suite of quality-of-life tools for WoW Retail 12.0+ (Midnight). Includes XP/Rep tracking, Flight Master timing, Auto Remount, Stats Bar, Openables, Fishing Tracker, Faster Loot, and a Toolbox icon bar — all in one Midnight-themed UI.
+## Author: Odysseus68
+## Version: 2026.05.23
+## X-Category: Interface Enhancements
+## X-Website: https://github.com/Odysseas68/OdysseusUtilitySuite
+## X-License: All Rights Reserved
 ## SavedVariables: OdysseusDB OdysseusFishingDB
 ## SavedVariablesPerCharacter: OdysseusCharDB
 ## IconTexture: Interface\AddOns\OdysseusUtilitySuite\media\icon\OUS_icon_128.tga

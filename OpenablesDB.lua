@@ -1881,4 +1881,7 @@ OUS.OpenablesDB = {
     [263462] = 1,   -- Thalassian Herbalist's Notes
     [263463] = 1,   -- Thalassian Miner's Notes
     [267653] = 1,   -- Glimmering Powder
+    [219191] = 15,   -- Hastily Scrawled Notes
+    [257026] = 1,   -- Preyseeker's Veteran Chest
+    [262938] = 1,   -- Preyseeker's Champion Sack
 }

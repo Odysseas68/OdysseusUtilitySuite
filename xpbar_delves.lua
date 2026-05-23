@@ -181,16 +181,23 @@ function OUS.UpdateDelveBar()
             if journeyFactionID then
                 local renownInfo = C_MajorFactions.GetMajorFactionRenownInfo(journeyFactionID)
                 if renownInfo then
-                    jRep = renownInfo.renownReputationEarned or 0
-                    jMax = renownInfo.renownLevelThreshold or 1
                     jLvl = renownInfo.renownLevel or "?" ---@diagnostic disable-line: cast-local-type
 
-                    if jMax == 0 then jMax = 1 end
+                    local level     = renownInfo.renownLevel or 0
+                    local earned    = renownInfo.renownReputationEarned or 0
+                    local threshold = renownInfo.renownLevelThreshold or 0
 
-                    if jRep < jMax then
-                        jNextLvl = (renownInfo.renownLevel or 0) + 1 ---@diagnostic disable-line: cast-local-type
-                    else
+                    -- At max renown Blizzard returns earned=0 with threshold>0 and level>0
+                    local isJourneyMaxed = (level > 0) and (earned == 0) and (threshold > 0)
+
+                    if isJourneyMaxed then
+                        jRep     = threshold
+                        jMax     = threshold
                         jNextLvl = "Max"
+                    else
+                        jRep  = earned
+                        jMax  = threshold > 0 and threshold or 1
+                        jNextLvl = level + 1 ---@diagnostic disable-line: cast-local-type
                     end
                 end
             end
@@ -213,7 +220,11 @@ function OUS.UpdateDelveBar()
         delveBar.jourBar:SetMinMaxValues(0, jMax)
         delveBar.jourBar:SetValue(jRep)
         delveBar.jourBar:SetStatusBarColor(db.delveJourColor.r, db.delveJourColor.g, db.delveJourColor.b, 1)
-        delveBar.jourText:SetText(OUS.ParseRepText(db.delveJourTemplate, "Journey", "Active", jRep, jMax, false, jLvl, jNextLvl))
+        if jNextLvl == "Max" then
+            delveBar.jourText:SetText(string.format("Journey: (Lvl: %s) :: |cFFFFD100MAX|r", tostring(jLvl)))
+        else
+            delveBar.jourText:SetText(OUS.ParseRepText(db.delveJourTemplate, "Journey", "Active", jRep, jMax, false, jLvl, jNextLvl))
+        end
 
         delveBar:Show()
     else
