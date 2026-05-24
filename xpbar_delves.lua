@@ -16,8 +16,14 @@ local function DelveBarClickHandler(_, button)
 end
 
 delveBar.compBar:EnableMouse(true)
+delveBar.compBar:RegisterForDrag("LeftButton")
+delveBar.compBar:SetScript("OnDragStart", function() if IsShiftKeyDown() then delveBar:StartMoving() end end)
+delveBar.compBar:SetScript("OnDragStop", function() delveBar:StopMovingOrSizing() end)
 delveBar.compBar:SetScript("OnMouseUp", DelveBarClickHandler)
 delveBar.jourBar:EnableMouse(true)
+delveBar.jourBar:RegisterForDrag("LeftButton")
+delveBar.jourBar:SetScript("OnDragStart", function() if IsShiftKeyDown() then delveBar:StartMoving() end end)
+delveBar.jourBar:SetScript("OnDragStop", function() delveBar:StopMovingOrSizing() end)
 delveBar.jourBar:SetScript("OnMouseUp", DelveBarClickHandler)
 
 -- ==========================================
