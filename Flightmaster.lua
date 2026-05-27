@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : Flightmaster.lua
+-- Version : 2026.05.27
+-- Desc    : Flight timer bar, distance display, taxi map tooltip with time and cost
+-- ============================================================
+
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: FLIGHT MASTER
 -- ==========================================
@@ -19,6 +26,8 @@ local currentStartFull = "Unknown"
 local currentDestShort = "Unknown"
 local currentStartShort = "Unknown"
 local activeKnownTime = nil
+
+local cachedTotalDist = nil   -- total distance in map units (0-1 space), set at tooltip hover
 
 OUS.isFlightBarUnlocked = false
 
@@ -86,12 +95,17 @@ OUS.timerText:SetPoint("CENTER")
 OUS.timerTopText = timerBar:CreateFontString(nil, "OVERLAY")
 OUS.timerTopText:SetPoint("BOTTOM", timerBar, "TOP", 0, 4)
 
+OUS.timerBottomText = timerBar:CreateFontString(nil, "OVERLAY")
+OUS.timerBottomText:SetPoint("TOP", timerBar, "BOTTOM", 0, -4)
+OUS.timerBottomText:Hide()
+
 function OUS.ApplyFlightFonts()
     local fName = OdysseusDB.flightSettings.fontName or "Friz Quadrata TT"
     local fPath = LSM:Fetch("font", fName) or LSM:Fetch("font", "Friz Quadrata TT") or "Fonts\\FRIZQT__.TTF"
     local fSize = OdysseusDB.flightSettings.fontSize or 12
     OUS.timerText:SetFont(fPath, fSize, "OUTLINE")
     OUS.timerTopText:SetFont(fPath, math.max(8, fSize - 3), "OUTLINE")
+    OUS.timerBottomText:SetFont(fPath, math.max(8, fSize - 3), "OUTLINE")
 end
 
 function OUS.ApplyFlightTexture()
@@ -212,6 +226,10 @@ mapTooltip.timeText:SetPoint("TOP", mapTooltip.title, "BOTTOM", 0, -6)
 mapTooltip.costText = mapTooltip:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 mapTooltip.costText:SetPoint("TOP", mapTooltip.timeText, "BOTTOM", 0, -4)
 
+mapTooltip.distText = mapTooltip:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+mapTooltip.distText:SetPoint("TOP", mapTooltip.costText, "BOTTOM", 0, -4)
+mapTooltip.distText:SetTextColor(0.6, 0.8, 1)
+
 -- Exhaustive Database Lookup
 local function GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
     local function SearchTable(db)
@@ -252,6 +270,25 @@ local function GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
     return nil
 end
 
+--- Formats a yard distance as meters or km for display.
+--- 1 yard = 0.9144 meters.
+local YARDS_TO_METERS = 0.9144
+
+local function FormatDist(yards)
+    local meters = math.floor(yards * YARDS_TO_METERS)
+    if meters >= 1000 then
+        return string.format("%.1f km", meters / 1000)
+    end
+    return string.format("%d m", meters)
+end
+
+--- Returns straight-line distance in yards between two world positions.
+local function CalcWorldDist(wx1, wy1, wx2, wy2)
+    local dx = wx2 - wx1
+    local dy = wy2 - wy1
+    return math.sqrt(dx * dx + dy * dy)
+end
+
 local function UpdateCustomFlightTooltip()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then
         mapTooltip:Hide()
@@ -282,6 +319,8 @@ local function UpdateCustomFlightTooltip()
     local nodeID = nil
     local startFull = "Unknown"
 
+    local startNodeIdx = nil
+    local destNodeIdx  = nil
     for i = 1, NumTaxiNodes() do
         local rawNode = TaxiNodeName(i)
         if rawNode then
@@ -289,9 +328,39 @@ local function UpdateCustomFlightTooltip()
             if TaxiNodeGetType(i) == "CURRENT" then
                 startFull = nodeName
                 cachedStartFull = nodeName
+                startNodeIdx = i
             elseif nodeName == destFull or string.find(destFull, nodeName, 1, true) then
                 nodeID = i
+                destNodeIdx = i
                 destFull = nodeName
+            end
+        end
+    end
+
+    -- Cache node positions for distance display while taxi map is open
+    cachedTotalDist = nil
+    if startNodeIdx and destNodeIdx then
+        local uiMapID = C_Map.GetBestMapForUnit("player")
+        local allNodes = C_TaxiMap.GetAllTaxiNodes(uiMapID)
+        if allNodes then
+            local sPos, dPos
+            for _, node in ipairs(allNodes) do
+                if node.name then
+                    local nn = CleanString(node.name)
+                    if nn == startFull and node.position then
+                        sPos = node.position
+                    elseif nn == destFull and node.position then
+                        dPos = node.position
+                    end
+                end
+            end
+            if sPos and dPos then
+                -- Convert 0-1 map positions to world yards via Blizzard API
+                local _, sWorld = C_Map.GetWorldPosFromMapPos(uiMapID, sPos)
+                local _, dWorld = C_Map.GetWorldPosFromMapPos(uiMapID, dPos)
+                if sWorld and dWorld then
+                    cachedTotalDist = CalcWorldDist(sWorld.x, sWorld.y, dWorld.x, dWorld.y)
+                end
             end
         end
     end
@@ -347,8 +416,14 @@ local function UpdateCustomFlightTooltip()
         mapTooltip.costText:SetText("")
     end
 
+    local distLine = cachedTotalDist and ("~" .. FormatDist(cachedTotalDist)) or "Unknown"
+    mapTooltip.distText:SetText("Distance: " .. distLine)
+
+    local tooltipHeight = 48
+    if showCost then tooltipHeight = tooltipHeight + 17 end
+    tooltipHeight = tooltipHeight + 17   -- always show distance line
     mapTooltip:SetWidth(220)
-    mapTooltip:SetHeight(showCost and 65 or 48)
+    mapTooltip:SetHeight(tooltipHeight)
 
     mapTooltip:ClearAllPoints()
 
@@ -387,13 +462,23 @@ timerUpdateFrame:SetScript("OnUpdate", function()
         if timeLeft > 0 then
             timerBar:SetValue(timeLeft)
             OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeLeft / 60), math.floor(timeLeft % 60)))
+            -- interpolate remaining distance linearly against time
+            if cachedTotalDist then
+                local ratio = timeLeft / knownTime
+                local remaining = cachedTotalDist * ratio
+                OUS.timerBottomText:SetText("Dist: " .. FormatDist(remaining))
+            end
         else
             OUS.timerText:SetText("Arrival Imminent")
             timerBar:SetValue(0)
+            if cachedTotalDist then
+                OUS.timerBottomText:SetText("Dist: 0 m")
+            end
         end
     else
         OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeElapsed / 60), math.floor(timeElapsed % 60)))
         timerBar:SetValue(1)
+        -- no known time = can't interpolate, keep static display
     end
 end)
 timerUpdateFrame:Hide() -- activated only while on taxi
@@ -408,6 +493,13 @@ local function HandleLiftoff()
 
     activeKnownTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
     OUS.LogDebug("Flight", "Liftoff! Known Time: " .. (activeKnownTime and tostring(math.floor(activeKnownTime)) .. "s" or "Unknown"))
+
+    if cachedTotalDist then
+        OUS.timerBottomText:SetText("Dist: ~" .. FormatDist(cachedTotalDist))
+        OUS.timerBottomText:Show()
+    else
+        OUS.timerBottomText:Hide()
+    end
 
     if activeKnownTime then
         timerBar:SetMinMaxValues(0, activeKnownTime)
@@ -468,6 +560,10 @@ local function HandleLanding()
     currentDestShort = "Unknown"
     currentStartShort = "Unknown"
     startTime = 0
+
+    cachedTotalDist = nil
+    OUS.timerBottomText:SetText("")
+    OUS.timerBottomText:Hide()
 end
 
 -- ==========================================
