@@ -97,6 +97,7 @@ OUS.timerTopText:SetPoint("BOTTOM", timerBar, "TOP", 0, 4)
 
 OUS.timerBottomText = timerBar:CreateFontString(nil, "OVERLAY")
 OUS.timerBottomText:SetPoint("TOP", timerBar, "BOTTOM", 0, -4)
+OUS.timerBottomText:SetTextColor(0.4, 0.8, 1.0)
 OUS.timerBottomText:Hide()
 
 function OUS.ApplyFlightFonts()
@@ -228,7 +229,7 @@ mapTooltip.costText:SetPoint("TOP", mapTooltip.timeText, "BOTTOM", 0, -4)
 
 mapTooltip.distText = mapTooltip:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 mapTooltip.distText:SetPoint("TOP", mapTooltip.costText, "BOTTOM", 0, -4)
-mapTooltip.distText:SetTextColor(0.6, 0.8, 1)
+mapTooltip.distText:SetTextColor(0.4, 0.8, 1.0)
 
 -- Exhaustive Database Lookup
 local function GetKnownTimeFromDB(startFull, destFull, startShort, destShort)
@@ -277,9 +278,11 @@ local YARDS_TO_METERS = 0.9144
 local function FormatDist(yards)
     local meters = math.floor(yards * YARDS_TO_METERS)
     if meters >= 1000 then
-        return string.format("%.1f km", meters / 1000)
+        local km  = math.floor(meters / 1000)
+        local rem = meters % 1000
+        return string.format("%dkm %dm", km, rem)
     end
-    return string.format("%d m", meters)
+    return string.format("%dm", meters)
 end
 
 --- Returns straight-line distance in yards between two world positions.
@@ -416,7 +419,7 @@ local function UpdateCustomFlightTooltip()
         mapTooltip.costText:SetText("")
     end
 
-    local distLine = cachedTotalDist and ("~" .. FormatDist(cachedTotalDist)) or "Unknown"
+    local distLine = cachedTotalDist and FormatDist(cachedTotalDist) or "Unknown"
     mapTooltip.distText:SetText("Distance: " .. distLine)
 
     local tooltipHeight = 48
@@ -466,19 +469,24 @@ timerUpdateFrame:SetScript("OnUpdate", function()
             if cachedTotalDist then
                 local ratio = timeLeft / knownTime
                 local remaining = cachedTotalDist * ratio
-                OUS.timerBottomText:SetText("Dist: " .. FormatDist(remaining))
+                OUS.timerBottomText:SetText("Distance: " .. FormatDist(remaining))
             end
         else
             OUS.timerText:SetText("Arrival Imminent")
             timerBar:SetValue(0)
             if cachedTotalDist then
-                OUS.timerBottomText:SetText("Dist: 0 m")
+                OUS.timerBottomText:SetText("Distance: 0m")
             end
         end
     else
         OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeElapsed / 60), math.floor(timeElapsed % 60)))
         timerBar:SetValue(1)
-        -- no known time = can't interpolate, keep static display
+        -- no known time — estimate remaining distance using avg taxi speed (~28 yards/sec)
+        if cachedTotalDist then
+            local covered   = timeElapsed * 28
+            local remaining = math.max(0, cachedTotalDist - covered)
+            OUS.timerBottomText:SetText("Distance: " .. FormatDist(remaining))
+        end
     end
 end)
 timerUpdateFrame:Hide() -- activated only while on taxi
@@ -495,7 +503,7 @@ local function HandleLiftoff()
     OUS.LogDebug("Flight", "Liftoff! Known Time: " .. (activeKnownTime and tostring(math.floor(activeKnownTime)) .. "s" or "Unknown"))
 
     if cachedTotalDist then
-        OUS.timerBottomText:SetText("Dist: ~" .. FormatDist(cachedTotalDist))
+        OUS.timerBottomText:SetText("Distance: " .. FormatDist(cachedTotalDist))
         OUS.timerBottomText:Show()
     else
         OUS.timerBottomText:Hide()
