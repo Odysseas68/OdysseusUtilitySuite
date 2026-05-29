@@ -455,19 +455,29 @@ end)
 -- 5. FLIGHT DETECTION & TIMER UPDATE
 -- ==========================================
 local timerUpdateFrame = CreateFrame("Frame")
+local lastTextUpdate = 0
+local lastDistUpdate = 0
+
 timerUpdateFrame:SetScript("OnUpdate", function()
     if not isFlying or OUS.isFlightBarUnlocked then return end
-    local timeElapsed = GetTime() - startTime
-    local knownTime = activeKnownTime
+    local now         = GetTime()
+    local timeElapsed = now - startTime
+    local knownTime   = activeKnownTime
 
     if knownTime then
         local timeLeft = knownTime - timeElapsed
         if timeLeft > 0 then
+            -- bar updates every frame for smooth progression
             timerBar:SetValue(timeLeft)
-            OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeLeft / 60), math.floor(timeLeft % 60)))
-            -- interpolate remaining distance linearly against time
-            if cachedTotalDist then
-                local ratio = timeLeft / knownTime
+            -- timer text updates once per second
+            if now - lastTextUpdate >= 1.0 then
+                lastTextUpdate = now
+                OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeLeft / 60), math.floor(timeLeft % 60)))
+            end
+            -- distance text updates every 0.5s to avoid layout hiccups on threshold crossings
+            if cachedTotalDist and now - lastDistUpdate >= 0.5 then
+                lastDistUpdate = now
+                local ratio     = timeLeft / knownTime
                 local remaining = cachedTotalDist * ratio
                 OUS.timerBottomText:SetText("Distance: " .. FormatDist(remaining))
             end
@@ -479,10 +489,16 @@ timerUpdateFrame:SetScript("OnUpdate", function()
             end
         end
     else
-        OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeElapsed / 60), math.floor(timeElapsed % 60)))
+        -- bar stays at 1 for unknown time flights
         timerBar:SetValue(1)
-        -- no known time — estimate remaining distance using avg taxi speed (~28 yards/sec)
-        if cachedTotalDist then
+        -- timer text updates once per second
+        if now - lastTextUpdate >= 1.0 then
+            lastTextUpdate = now
+            OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeElapsed / 60), math.floor(timeElapsed % 60)))
+        end
+        -- distance text updates every 0.5s
+        if cachedTotalDist and now - lastDistUpdate >= 0.5 then
+            lastDistUpdate = now
             local covered   = timeElapsed * 28
             local remaining = math.max(0, cachedTotalDist - covered)
             OUS.timerBottomText:SetText("Distance: " .. FormatDist(remaining))
