@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : Help.lua
+-- Version : 2026.05.29
+-- Desc    : Tabbed help frame — slash commands and module documentation
+-- ============================================================
+
 local addonName, OUS = ...
 
 -- =====================================

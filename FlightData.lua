@@ -292,6 +292,7 @@ SFT_FlightData = {
         ["Sanctum of Light, Silvermoon City"] = 231,
         ["Shadebasin Watch, Zul'Aman"] = 90,
         ["Torntusk Overlook, Zul'Aman"] = 50,
+        ["Tranquillien, Eversong Woods"] = 146,
         ["Witherbark Bluffs, Zul'Aman"] = 122,
     },
     ["Amber Ledge"] = {
@@ -752,6 +753,7 @@ SFT_FlightData = {
         ["Sanctum of Light, Silvermoon City"] = 177,
         ["Shadebasin Watch, Zul'Aman"] = 74,
         ["Torntusk Overlook, Zul'Aman"] = 55,
+        ["Tranquillien, Eversong Woods"] = 91,
         ["Witherbark Bluffs, Zul'Aman"] = 68,
     },
     ["Atal'Dazar"] = {
@@ -1723,6 +1725,8 @@ SFT_FlightData = {
     },
     ["Brumewood Hollow, Founder's Point"] = {
         ["Gilded Oaks, Founder's Point"] = 24,
+        ["Small Aerie, Founder's Point"] = 25,
+        ["Stoneveil Ridge, Founder's Point"] = 22,
     },
     ["Camber Alcove"] = {
         ["Arcae Locus"] = 2,
@@ -1911,6 +1915,7 @@ SFT_FlightData = {
         ["Atal'Aman, Zul'Aman"] = 87,
         ["Sanctum of Light, Silvermoon City"] = 165,
         ["Shadebasin Watch, Zul'Aman"] = 22,
+        ["Witherbark Bluffs, Zul'Aman"] = 54,
     },
     ["Camp Tunka'lo"] = {
         ["Agmar's Hammer"] = 299,
@@ -3662,6 +3667,9 @@ SFT_FlightData = {
         ["The Incursion"] = 185,
         ["Tian Monastery"] = 22,
     },
+    ["Entrance Portal, Founder's Point"] = {
+        ["Brumewood Hollow, Founder's Point"] = 28,
+    },
     ["Ephemeral Plains Alpha"] = {
         ["Genesis Cradle Alpha"] = 35,
         ["Genesis Cradle Omega"] = 68,
@@ -4018,6 +4026,7 @@ SFT_FlightData = {
     ["Fairbreeze Village, Eversong Woods"] = {
         ["Amani'Zar Village, Zul'Aman"] = 196,
         ["Andorhal, Western Plaguelands"] = 318,
+        ["Atal'Aman, Zul'Aman"] = 148,
         ["Bogpaddle, Swamp of Sorrows"] = 702,
         ["Booty Bay, Stranglethorn"] = 832,
         ["Chiselgrip, Burning Steppes"] = 612,
@@ -4033,10 +4042,12 @@ SFT_FlightData = {
         ["Plaguewood Tower, Eastern Plaguelands"] = 248,
         ["Sanctum of Light, Silvermoon City"] = 49,
         ["Sandy Beach, Vashj'ir"] = 688,
+        ["Shadebasin Watch, Zul'Aman"] = 146,
         ["The Menders' Stead, Western Plaguelands"] = 292,
         ["Thondroril River, Eastern Plaguelands"] = 254,
         ["Thorium Point, Searing Gorge"] = 593,
         ["Tranquillien, Eversong Woods"] = 57,
+        ["Witherbark Bluffs, Zul'Aman"] = 123,
     },
     ["Faith's Repose"] = {
         ["Haven"] = 20,
@@ -5385,6 +5396,8 @@ SFT_FlightData = {
         ["Genesis Cradle Beta"] = 18,
     },
     ["Gilded Oaks, Founder's Point"] = {
+        ["Small Aerie, Founder's Point"] = 23,
+        ["The Outer Banks, Founder's Point"] = 18,
         ["Town Center, Founder's Point"] = 36,
     },
     ["Glitterfall Basin"] = {
@@ -5744,7 +5757,6 @@ SFT_FlightData = {
     },
     ["Gundargaz"] = {
         ["Camp Murroch"] = 43,
-        ["Dornogal"] = 55,
         ["Dunelle's Kindness"] = 38,
         ["Durgaz Cabin"] = 97,
         ["Faerin's Advance"] = 84,
@@ -5765,6 +5777,9 @@ SFT_FlightData = {
         ["Weaver's Lair"] = 114,
         ["Wildcamp Or'lay"] = 148,
         ["Wildcamp Ul'ar"] = 138,
+    },
+    ["Gundargaz, The Ringing Deeps"] = {
+        ["Dornogal, Isle of Dorn"] = 61,
     },
     ["Gundrak"] = {
         ["Agmar's Hammer"] = 319,
@@ -6005,11 +6020,22 @@ SFT_FlightData = {
     ["Har'alnor"] = {
         ["The Den"] = 65,
     },
+    ["Har'alnor, Harandar"] = {
+        ["Har'athir, Harandar"] = 72,
+    },
     ["Har'athir"] = {
         ["The Den"] = 28,
     },
+    ["Har'athir, Harandar"] = {
+        ["Har'alnor, Harandar"] = 70,
+    },
+    ["Har'kuai, Harandar"] = {
+        ["Har'alnor, Harandar"] = 75,
+    },
     ["Har'mara, Harandar"] = {
         ["Har'alnor, Harandar"] = 68,
+        ["Har'athir, Harandar"] = 66,
+        ["The Den, Harandar"] = 65,
     },
     ["Hardwrench Hideaway"] = {
         ["Andorhal"] = 655,
@@ -6461,6 +6487,9 @@ SFT_FlightData = {
     ["Howling Ridge"] = {
         ["Locus Point"] = 33,
         ["The Ingress"] = 40,
+    },
+    ["Howling Ridge, Voidstorm"] = {
+        ["Masters' Perch, Voidstorm"] = 52,
     },
     ["Hunter's Hill"] = {
         ["Bloodhoof Village"] = 117,
@@ -7560,6 +7589,7 @@ SFT_FlightData = {
     },
     ["Locus Point, Voidstorm"] = {
         ["Howling Ridge, Voidstorm"] = 34,
+        ["The Ingress, Voidstorm"] = 31,
     },
     ["Longying Outpost"] = {
         ["Binan Village"] = 66,
@@ -7950,10 +7980,17 @@ SFT_FlightData = {
     },
     ["Masters' Perch, Voidstorm"] = {
         ["Howling Ridge, Voidstorm"] = 54,
+        ["Locus Point, Voidstorm"] = 51,
+        ["The Ingress, Voidstorm"] = 39,
     },
     ["Mear's Farm"] = {
         ["Brumewood Hollow"] = 35,
         ["Town Center"] = 25,
+    },
+    ["Mear's Farm, Founder's Point"] = {
+        ["Entrance Portal, Founder's Point"] = 34,
+        ["Small Aerie, Founder's Point"] = 17,
+        ["The Outer Banks, Founder's Point"] = 15,
     },
     ["Menagerie of the Master"] = {
         ["Bleak Redoubt"] = 183,
@@ -10423,6 +10460,7 @@ SFT_FlightData = {
         ["Amani'Zar Village, Zul'Aman"] = 232,
         ["Atal'Aman, Zul'Aman"] = 183,
         ["Camp Stonewash, Zul'Aman"] = 161,
+        ["Eastwall Tower, Eastern Plaguelands"] = 256,
         ["Fairbreeze Village, Eversong Woods"] = 50,
         ["Light's Hope Chapel, Eastern Plaguelands"] = 240,
         ["Shadebasin Watch, Zul'Aman"] = 149,
@@ -10845,6 +10883,7 @@ SFT_FlightData = {
     },
     ["Shadebasin Watch, Zul'Aman"] = {
         ["Amani'Zar Village, Zul'Aman"] = 90,
+        ["Atal'Aman, Zul'Aman"] = 73,
         ["Camp Stonewash, Zul'Aman"] = 21,
         ["Sanctum of Light, Silvermoon City"] = 151,
         ["Torntusk Overlook, Zul'Aman"] = 126,
@@ -11491,6 +11530,7 @@ SFT_FlightData = {
     },
     ["Silverglade Refuge, Eversong Woods"] = {
         ["Sanctum of Light, Silvermoon City"] = 162,
+        ["Torntusk Overlook, Zul'Aman"] = 187,
         ["Tranquillien, Eversong Woods"] = 77,
     },
     ["Silvermoon City"] = {
@@ -11740,6 +11780,9 @@ SFT_FlightData = {
         ["The Gallagio"] = 18,
         ["The Heaps"] = 14,
         ["The Incontinental Hotel"] = 10,
+    },
+    ["Small Aerie, Founder's Point"] = {
+        ["Town Center, Founder's Point"] = 18,
     },
     ["Smuggler's Scar"] = {
         ["Legion's Rest"] = 129,
@@ -12243,6 +12286,11 @@ SFT_FlightData = {
         ["Whitegrove Chapel"] = 110,
         ["Windfall Cavern"] = 70,
         ["Wolf's Den"] = 52,
+    },
+    ["Stoneveil Ridge, Founder's Point"] = {
+        ["Brumewood Hollow, Founder's Point"] = 18,
+        ["Entrance Portal, Founder's Point"] = 17,
+        ["Town Center, Founder's Point"] = 17,
     },
     ["Stormfeather Outpost"] = {
         ["Acherus: The Ebon Hold"] = 149,
@@ -13429,6 +13477,7 @@ SFT_FlightData = {
     },
     ["The Den, Harandar"] = {
         ["Har'alnor, Harandar"] = 64,
+        ["Har'mara, Harandar"] = 67,
     },
     ["The Draakorium"] = {
         ["Darktide Roost"] = 37,
@@ -13681,6 +13730,7 @@ SFT_FlightData = {
     },
     ["The Ingress, Voidstorm"] = {
         ["Locus Point, Voidstorm"] = 26,
+        ["Masters' Perch, Voidstorm"] = 35,
     },
     ["The Iron Front"] = {
         ["Aktar's Post"] = 37,
@@ -13828,6 +13878,7 @@ SFT_FlightData = {
     },
     ["The Outer Banks, Founder's Point"] = {
         ["Entrance Portal, Founder's Point"] = 40,
+        ["Gilded Oaks, Founder's Point"] = 19,
     },
     ["The Pulsing Pit"] = {
         ["Grand Rampart"] = 19,
@@ -14816,6 +14867,8 @@ SFT_FlightData = {
         ["Brumewood Hollow"] = 20,
     },
     ["Town Center, Founder's Point"] = {
+        ["Entrance Portal, Founder's Point"] = 19,
+        ["Stoneveil Ridge, Founder's Point"] = 28,
         ["The Outer Banks, Founder's Point"] = 24,
     },
     ["Tradewinds Market"] = {
@@ -14927,6 +14980,7 @@ SFT_FlightData = {
         ["Silverglade Refuge, Eversong Woods"] = 87,
         ["The Menders' Stead, Western Plaguelands"] = 248,
         ["Thondroril River, Eastern Plaguelands"] = 211,
+        ["Torntusk Overlook, Zul'Aman"] = 141,
     },
     ["Transitus Shield"] = {
         ["Agmar's Hammer"] = 137,

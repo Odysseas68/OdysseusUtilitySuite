@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : xpbar_engine.lua
+-- Version : 2026.05.29
+-- Desc    : XP/rep bar tracking logic and event handling
+-- ============================================================
+
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: XP & REP ENGINE
 -- ==========================================

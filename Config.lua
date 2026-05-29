@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : Config.lua
+-- Version : 2026.05.29
+-- Desc    : Main config UI — module toggles and settings panels
+-- ============================================================
+
 local addonName, OUS = ...
 local LSM = LibStub("LibSharedMedia-3.0")
 

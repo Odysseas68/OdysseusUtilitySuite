@@ -1,3 +1,9 @@
+-- Addon   : OdysseusUtilitySuite
+-- File    : FlightRouting.lua
+-- Version : 2026.05.29
+-- Desc    : Multi-hop flight routing engine, itinerary panel, and map line drawing
+-- ============================================================
+
 local addonName, OUS = ...
 
 -- Ensure our routing database exists before proceeding
@@ -222,6 +228,62 @@ local function FormatFlightTime(seconds)
     return string.format("%d:%02d", mins, secs)
 end
 
+local YARDS_TO_METERS = 0.9144
+
+--- Formats a yard distance as meters or km for display.
+local function FormatRouteDist(yards)
+    local meters = math.floor(yards * YARDS_TO_METERS)
+    if meters >= 1000 then
+        local km  = math.floor(meters / 1000)
+        local rem = meters % 1000
+        return string.format("%dkm %dm", km, rem)
+    end
+    return string.format("%dm", meters)
+end
+
+--- Returns straight-line distance in yards between two world positions.
+local function CalcWorldDist(wx1, wy1, wx2, wy2)
+    local dx = wx2 - wx1
+    local dy = wy2 - wy1
+    return math.sqrt(dx * dx + dy * dy)
+end
+
+--- Returns total route distance in yards by matching node names to
+--- C_TaxiMap world positions and summing segment distances.
+local function CalcTotalRouteDist(nodeNames)
+    if not nodeNames or #nodeNames < 2 then return nil end
+    local uiMapID  = C_Map.GetBestMapForUnit("player")
+    local allNodes = C_TaxiMap.GetAllTaxiNodes(uiMapID)
+    if not allNodes then return nil end
+
+    -- Build name -> world position lookup
+    local posLookup = {}
+    for _, node in ipairs(allNodes) do
+        if node.name and node.position then
+            local _, worldPos = C_Map.GetWorldPosFromMapPos(uiMapID, node.position)
+            if worldPos then
+                -- strip color codes for matching
+                local clean = node.name:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", "")
+                posLookup[clean] = worldPos
+            end
+        end
+    end
+
+    local total = 0
+    for i = 1, #nodeNames - 1 do
+        local fromName = nodeNames[i]:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", "")
+        local toName   = nodeNames[i + 1]:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", "")
+        local fromPos  = posLookup[fromName]
+        local toPos    = posLookup[toName]
+        if fromPos and toPos then
+            total = total + CalcWorldDist(fromPos.x, fromPos.y, toPos.x, toPos.y)
+        else
+            return nil   -- missing position = can't compute total
+        end
+    end
+    return total
+end
+
 -- ==========================================
 -- 6. MAP LINE DRAWING ENGINE (INVISIBLE ANCHORS)
 -- ==========================================
@@ -441,6 +503,8 @@ for i = 1, #routeNodeNames - 1 do
     end
 end
 
+local totalRouteDist = CalcTotalRouteDist(routeNodeNames)
+
     local listText = "|cFF00FF00Start:|r " .. startName
     if startZone ~= "" then
         listText = listText .. "\n  |cFF999999" .. startZone .. "|r"
@@ -473,12 +537,18 @@ end
     if destZone ~= "" then
         listText = listText .. "\n  |cFF999999" .. destZone .. "|r"
     end
-    listText = listText .. "\n\n|cFF888888Total Hops: " .. numHops .. "|r"
+    listText = listText .. "\n\n|cFFFFD100Total Hops: " .. numHops .. "|r"
 
     if totalRouteTimeKnown then
-        listText = listText .. "\n|cFF888888Estimated Time: " .. FormatFlightTime(totalRouteTime) .. "|r"
+        listText = listText .. "\n|cFF00CC44Estimated Time: " .. FormatFlightTime(totalRouteTime) .. "|r"
     else
-        listText = listText .. "\n|cFF888888Estimated Time: Unknown|r"
+        listText = listText .. "\n|cFF00CC44Estimated Time: Unknown|r"
+    end
+
+    if totalRouteDist then
+        listText = listText .. "\n|cFF66CCFFDistance: " .. FormatRouteDist(totalRouteDist) .. "|r"
+    else
+        listText = listText .. "\n|cFF66CCFFDistance: Unknown|r"
     end
 
     itineraryFrame.routeList:SetText(listText)

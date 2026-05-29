@@ -1,29 +1,36 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : xpbar_config.lua
+-- Version : 2026.05.29
+-- Desc    : XP/rep bar config panel — attached to main OUS config UI
+-- ============================================================
+
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: XP CONFIG UI
 -- ==========================================
 local addonName, OUS = ...
 
-StaticPopupDialogs["ODYSSEUS_RELOAD_PROMPT"] = { 
-    text = "Changing this setting requires a UI reload to avoid errors. Reload now?", 
-    button1 = "Yes", 
-    button2 = "No", 
-    OnAccept = function() ReloadUI() end, 
-    timeout = 0, 
-    whileDead = true, 
-    hideOnEscape = true, 
-    preferredIndex = 3 
+StaticPopupDialogs["ODYSSEUS_RELOAD_PROMPT"] = {
+    text = "Changing this setting requires a UI reload to avoid errors. Reload now?",
+    button1 = "Yes",
+    button2 = "No",
+    OnAccept = function() ReloadUI() end,
+    timeout = 0,
+    whileDead = true,
+    hideOnEscape = true,
+    preferredIndex = 3
 }
 
 function OUS.BuildXPConfigUI()
     if not OUS.XPBarTab then return end
-    
+
     local pageContainer = CreateFrame("Frame", nil, OUS.XPBarTab, "BackdropTemplate")
     pageContainer:SetPoint("TOPLEFT", 5, -35)
     pageContainer:SetPoint("BOTTOMRIGHT", -5, 5)
-    pageContainer:SetBackdrop({ 
-        bgFile = "Interface\\ChatFrame\\ChatFrameBackground", 
-        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", 
-        tile = false, edgeSize = 12, 
+    pageContainer:SetBackdrop({
+        bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+        tile = false, edgeSize = 12,
         insets = { left = 2, right = 2, top = 2, bottom = 2 }
     })
     pageContainer:SetBackdropColor(0.07, 0.05, 0.1, 0.5)
@@ -32,20 +39,20 @@ function OUS.BuildXPConfigUI()
     -- 2. INTERNAL TAB SYSTEM
     -- ==========================================
     local tabs, pages = {}, {}
-    
+
     local function SelectTab(id)
-        for i = 1, #tabs do 
-            if i == id then 
+        for i = 1, #tabs do
+            if i == id then
                 tabs[i]:SetBackdropColor(0.6, 0.2, 0.8, 0.5)
                 tabs[i]:SetBackdropBorderColor(0.6, 0.2, 0.8, 1)
                 tabs[i].text:SetTextColor(1, 1, 1, 1)
-                pages[i]:Show() 
-            else 
+                pages[i]:Show()
+            else
                 tabs[i]:SetBackdropColor(0.05, 0.03, 0.05, 0.8)
                 tabs[i]:SetBackdropBorderColor(0.3, 0.3, 0.3, 1)
                 tabs[i].text:SetTextColor(0.5, 0.5, 0.5, 1)
-                pages[i]:Hide() 
-            end 
+                pages[i]:Hide()
+            end
         end
     end
 
@@ -53,33 +60,33 @@ function OUS.BuildXPConfigUI()
         local tab = CreateFrame("Button", nil, OUS.XPBarTab, "BackdropTemplate")
         tab:SetID(id)
         tab:SetSize(85, 22)
-        tab:SetBackdrop({ 
-            bgFile = "Interface\\ChatFrame\\ChatFrameBackground", 
-            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", 
-            tile = false, edgeSize = 12, 
+        tab:SetBackdrop({
+            bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+            tile = false, edgeSize = 12,
             insets = { left = 2, right = 2, top = 2, bottom = 2 }
         })
-        
+
         tab.text = tab:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
         tab.text:SetPoint("CENTER")
         tab.text:SetText(label)
-        
-        if id == 1 then 
-            tab:SetPoint("BOTTOMLEFT", pageContainer, "TOPLEFT", 10, -1) 
-        else 
-            tab:SetPoint("LEFT", tabs[id-1], "RIGHT", 4, 0) 
+
+        if id == 1 then
+            tab:SetPoint("BOTTOMLEFT", pageContainer, "TOPLEFT", 10, -1)
+        else
+            tab:SetPoint("LEFT", tabs[id-1], "RIGHT", 4, 0)
         end
-        
-        tab:SetScript("OnClick", function(self) 
+
+        tab:SetScript("OnClick", function(self)
             SelectTab(self:GetID())
-            PlaySound(SOUNDKIT.IG_CHARACTER_INFO_TAB) 
+            PlaySound(SOUNDKIT.IG_CHARACTER_INFO_TAB)
         end)
-        
+
         local page = CreateFrame("Frame", nil, pageContainer)
         page:SetPoint("TOPLEFT", 4, -4)
         page:SetPoint("BOTTOMRIGHT", -4, 4)
         page:Hide()
-        
+
         tabs[id], pages[id] = tab, page
     end
 
@@ -97,31 +104,31 @@ function OUS.BuildXPConfigUI()
         local title = parent:CreateFontString(nil, "OVERLAY", "GameFontNormal")
         title:SetPoint("TOPLEFT", 12, yOffset)
         title:SetText(titleText)
-        
+
         local bg = CreateFrame("Frame", nil, parent, "BackdropTemplate")
         bg:SetSize(450, 26)
         bg:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -4)
-        bg:SetBackdrop({ 
-            bgFile = "Interface\\ChatFrame\\ChatFrameBackground", 
-            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border", 
-            tile = false, edgeSize = 12, 
+        bg:SetBackdrop({
+            bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+            tile = false, edgeSize = 12,
             insets = { left = 2, right = 2, top = 2, bottom = 2 }
         })
         bg:SetBackdropColor(0.03, 0.02, 0.05, 0.8)
-        
+
         local editBox = CreateFrame("EditBox", nil, bg)
         editBox:SetFontObject("GameFontHighlightSmall")
         editBox:SetPoint("TOPLEFT", 6, -4)
         editBox:SetPoint("BOTTOMRIGHT", -6, 4)
         editBox:SetAutoFocus(false)
-        
+
         editBox:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
-        editBox:SetScript("OnEnterPressed", function(self) 
+        editBox:SetScript("OnEnterPressed", function(self)
             self:ClearFocus()
             OdysseusDB.xpBar[dbKey] = self:GetText()
             OUS.WakeBars()
             OUS.UpdateBar()
-            OUS.SleepBars() 
+            OUS.SleepBars()
         end)
         return editBox
     end
@@ -130,44 +137,44 @@ function OUS.BuildXPConfigUI()
     -- 4. TAB 1: GLOBAL SETTINGS
     -- ==========================================
     local fontSizeSlider, fontSizeBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Global Font Size", -10, "xpFontSize", 8, 32, 1, OUS.ApplyFonts)
-    
+
     local fontLbl = pages[1]:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     fontLbl:SetPoint("TOPLEFT", 12, -60)
     fontLbl:SetText("Global Font (Requires LibSharedMedia):")
-    
+
     local fontBtn = CreateFrame("Button", nil, pages[1], "UIPanelButtonTemplate")
     fontBtn:SetSize(200, 24)
     fontBtn:SetPoint("TOPLEFT", 12, -75)
     fontBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.xpFont or "Friz Quadrata TT"), 1, 25))
-    fontBtn:SetScript("OnClick", function(self) 
-        if OUS.OpenDropDown then 
-            OUS.OpenDropDown("font", OdysseusDB.xpBar.xpFont, function(name) 
+    fontBtn:SetScript("OnClick", function(self)
+        if OUS.OpenDropDown then
+            OUS.OpenDropDown("font", OdysseusDB.xpBar.xpFont, function(name)
                 OdysseusDB.xpBar.xpFont = name
                 self:SetText(string.sub(tostring(name), 1, 25))
-                OUS.ApplyFonts() 
-            end) 
-        end 
+                OUS.ApplyFonts()
+            end)
+        end
     end)
-    
+
     local hideBlizzCheck = CreateFrame("CheckButton", nil, pages[1], "UICheckButtonTemplate")
     hideBlizzCheck:SetPoint("TOPLEFT", 12, -110)
     hideBlizzCheck.text = hideBlizzCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     hideBlizzCheck.text:SetPoint("LEFT", hideBlizzCheck, "RIGHT", 4, 0)
     hideBlizzCheck.text:SetText("Hide Default Blizzard UI (Requires Reload)")
-    hideBlizzCheck:SetScript("OnClick", function(self) 
+    hideBlizzCheck:SetScript("OnClick", function(self)
         OdysseusDB.xpBar.hideBlizz = self:GetChecked()
-        StaticPopup_Show("ODYSSEUS_RELOAD_PROMPT") 
+        StaticPopup_Show("ODYSSEUS_RELOAD_PROMPT")
     end)
-    
+
     local autoHideCheck = CreateFrame("CheckButton", nil, pages[1], "UICheckButtonTemplate")
     autoHideCheck:SetPoint("TOPLEFT", 12, -140)
     autoHideCheck.text = autoHideCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     autoHideCheck.text:SetPoint("LEFT", autoHideCheck, "RIGHT", 4, 0)
     autoHideCheck.text:SetText("Enable Auto-Hide / Mouseover Engine")
-    autoHideCheck:SetScript("OnClick", function(self) 
+    autoHideCheck:SetScript("OnClick", function(self)
         OdysseusDB.xpBar.autoHide = self:GetChecked()
         OUS.WakeBars()
-        OUS.SleepBars() 
+        OUS.SleepBars()
     end)
 
     local shortNumCheck = CreateFrame("CheckButton", nil, pages[1], "UICheckButtonTemplate")
@@ -175,15 +182,15 @@ function OUS.BuildXPConfigUI()
     shortNumCheck.text = shortNumCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     shortNumCheck.text:SetPoint("LEFT", shortNumCheck, "RIGHT", 4, 0)
     shortNumCheck.text:SetText("Abbreviate Numbers")
-    shortNumCheck:SetScript("OnClick", function(self) 
+    shortNumCheck:SetScript("OnClick", function(self)
         OdysseusDB.xpBar.shortNumbers = self:GetChecked()
-        OUS.UpdateBar() 
+        OUS.UpdateBar()
     end)
 
     local repTimeSlider, repTimeBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Auto-Switch Display Time (Seconds)", -180, "repDisplayTime", 5, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
     local fadeDelaySlider, fadeDelayBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Auto-Hide Fade Delay (Seconds)", -230, "fadeDelay", 0, 60, 1, function() OUS.WakeBars(); OUS.SleepBars() end)
     local activeAlphaSlider, activeAlphaBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Active Opacity (%)", -280, "activeAlpha", 10, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)
-    local fadedAlphaSlider, fadedAlphaBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Faded Opacity (%)", -330, "fadedAlpha", 0, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)    
+    local fadedAlphaSlider, fadedAlphaBox = OUS.CreatePremiumSlider(pages[1], OdysseusDB.xpBar, "Faded Opacity (%)", -330, "fadedAlpha", 0, 100, 5, function() OUS.WakeBars(); OUS.SleepBars() end)
 
     local borderLbl = pages[1]:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     borderLbl:SetPoint("TOPLEFT", 12, -380)
@@ -209,7 +216,7 @@ function OUS.BuildXPConfigUI()
     resetGlobalBtn:SetSize(120, 24)
     resetGlobalBtn:SetPoint("BOTTOMRIGHT", -12, 12)
     resetGlobalBtn:SetText("Reset Defaults")
-    resetGlobalBtn:SetScript("OnClick", function() 
+    resetGlobalBtn:SetScript("OnClick", function()
         OdysseusDB.xpBar.hideBlizz = OUS.defaults.hideBlizz
         OdysseusDB.xpBar.autoHide = OUS.defaults.autoHide
         OdysseusDB.xpBar.repDisplayTime = OUS.defaults.repDisplayTime
@@ -221,7 +228,7 @@ function OUS.BuildXPConfigUI()
         OdysseusDB.xpBar.barBorderName = OUS.defaults.barBorderName
         OdysseusDB.xpBar.barBorderSize = OUS.defaults.barBorderSize
         OdysseusDB.xpBar.barBorderColor = OUS.DeepCopyTable(OUS.defaults.barBorderColor)
-        
+
         hideBlizzCheck:SetChecked(OUS.defaults.hideBlizz)
         autoHideCheck:SetChecked(OUS.defaults.autoHide)
         repTimeSlider:SetValue(OUS.defaults.repDisplayTime)
@@ -239,26 +246,26 @@ function OUS.BuildXPConfigUI()
         borderSizeSlider:SetValue(OUS.defaults.barBorderSize)
         borderSizeBox:SetText(OUS.defaults.barBorderSize)
         borderColorBox:SetBackdropColor(OUS.defaults.barBorderColor.r, OUS.defaults.barBorderColor.g, OUS.defaults.barBorderColor.b, 1)
-        
+
         if OUS.ApplyBlizzardKiller then OUS.ApplyBlizzardKiller() end
         OUS.ApplyFonts()
         if OUS.ApplyXPBarBorders then OUS.ApplyXPBarBorders() end
         OUS.WakeBars()
-        OUS.SleepBars() 
+        OUS.SleepBars()
         OUS.LogDebug("XPBar", "Global defaults restored.")
     end)
-    
-    pages[1]:SetScript("OnShow", function() 
-        if IsInInstance() then 
+
+    pages[1]:SetScript("OnShow", function()
+        if IsInInstance() then
             hideBlizzCheck:Disable()
-            hideBlizzCheck.text:SetTextColor(0.5, 0.5, 0.5) 
-        else 
+            hideBlizzCheck.text:SetTextColor(0.5, 0.5, 0.5)
+        else
             hideBlizzCheck:Enable()
-            hideBlizzCheck.text:SetTextColor(1, 1, 1) 
-        end 
-        if fontBtn then 
-            fontBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.xpFont or "Friz Quadrata TT"), 1, 25)) 
-        end 
+            hideBlizzCheck.text:SetTextColor(1, 1, 1)
+        end
+        if fontBtn then
+            fontBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.xpFont or "Friz Quadrata TT"), 1, 25))
+        end
         if borderBtn then
             borderBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.barBorderName or "None"), 1, 25))
         end
@@ -268,7 +275,7 @@ function OUS.BuildXPConfigUI()
     -- 5. TAB 2: EXPERIENCE SETTINGS
     -- ==========================================
     local xpEditBox = CreateTemplateBox(pages[2], "Text Format", -10, "xpTemplate")
-    
+
     -- Row 1 of Colors
     local xpColorBox = OUS.CreateColorBox(pages[2], "Main EXP Bar", 12, -70, OdysseusDB.xpBar.xpColor, OUS.UpdateBar)
     local xpTextColorBox = OUS.CreateColorBox(pages[2], "Text Color", 180, -70, OdysseusDB.xpBar.xpTextColor, OUS.UpdateBar)
@@ -288,7 +295,7 @@ function OUS.BuildXPConfigUI()
     restIconCheck.text:SetText("Show 'Zzzz' Icon when Resting")
     restIconCheck:SetChecked(OdysseusDB.xpBar.showRestIcon)
     restIconCheck:SetScript("OnClick", function(self) OdysseusDB.xpBar.showRestIcon = self:GetChecked(); OUS.UpdateBar() end)
-    
+
     local resetXPBtn = CreateFrame("Button", nil, pages[2], "UIPanelButtonTemplate")
     resetXPBtn:SetSize(120, 24)
     resetXPBtn:SetPoint("BOTTOMRIGHT", -12, 12)
@@ -324,31 +331,31 @@ function OUS.BuildXPConfigUI()
     -- 6. TAB 3: REPUTATION SETTINGS
     -- ==========================================
     local repEditBox = CreateTemplateBox(pages[3], "Text Format", -10, "repTemplate")
-    
+
     -- Clean 2-Column Grid for Dynamic Reputation Colors
     local repTextColorBox = OUS.CreateColorBox(pages[3], "Rep Text Color", 12, -65, OdysseusDB.xpBar.repTextColor, OUS.UpdateBar)
-    
+
     local cGrid = OdysseusDB.xpBar.repColors
     local h_box = OUS.CreateColorBox(pages[3], "Hated", 12, -95, cGrid.hated, OUS.UpdateBar)
     local ho_box = OUS.CreateColorBox(pages[3], "Hostile", 120, -95, cGrid.hostile, OUS.UpdateBar)
     local u_box = OUS.CreateColorBox(pages[3], "Unfriendly", 220, -95, cGrid.unfriendly, OUS.UpdateBar)
-    
+
     local n_box = OUS.CreateColorBox(pages[3], "Neutral", 12, -120, cGrid.neutral, OUS.UpdateBar)
     local f_box = OUS.CreateColorBox(pages[3], "Friendly", 120, -120, cGrid.friendly, OUS.UpdateBar)
     local hn_box = OUS.CreateColorBox(pages[3], "Honored", 220, -120, cGrid.honored, OUS.UpdateBar)
-    
+
     local r_box = OUS.CreateColorBox(pages[3], "Revered", 12, -145, cGrid.revered, OUS.UpdateBar)
     local e_box = OUS.CreateColorBox(pages[3], "Exalted", 120, -145, cGrid.exalted, OUS.UpdateBar)
     local rn_box = OUS.CreateColorBox(pages[3], "Renown", 220, -145, cGrid.renown, OUS.UpdateBar)
     local p_box = OUS.CreateColorBox(pages[3], "Paragon", 320, -145, cGrid.paragon, OUS.UpdateBar)
-    
+
     local toastEnableCheck = CreateFrame("CheckButton", nil, pages[3], "UICheckButtonTemplate")
     toastEnableCheck:SetPoint("TOPLEFT", 12, -175)
     toastEnableCheck.text = toastEnableCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     toastEnableCheck.text:SetPoint("LEFT", toastEnableCheck, "RIGHT", 4, 0)
     toastEnableCheck.text:SetText("Enable Renown & Paragon Reward Popups")
     toastEnableCheck:SetScript("OnClick", function(self) OdysseusDB.xpBar.toastEnabled = self:GetChecked() end)
-    
+
     local toastSoundCheck = CreateFrame("CheckButton", nil, pages[3], "UICheckButtonTemplate")
     toastSoundCheck:SetPoint("TOPLEFT", 32, -200)
     toastSoundCheck.text = toastSoundCheck:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
@@ -359,11 +366,11 @@ function OUS.BuildXPConfigUI()
     local modLbl = pages[3]:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     modLbl:SetPoint("TOPLEFT", 12, -235)
     modLbl:SetText("Right-Click Modifier for Faction Menu:")
-    
+
     local modBtn = CreateFrame("Button", nil, pages[3], "UIPanelButtonTemplate")
     modBtn:SetSize(120, 24)
     modBtn:SetPoint("TOPLEFT", 12, -250)
-    modBtn:SetScript("OnClick", function(self) 
+    modBtn:SetScript("OnClick", function(self)
         local modifiers = {"CTRL", "SHIFT", "ALT", "NONE"}
         local currentMod = self:GetText()
         local currentIndex = 1
@@ -413,19 +420,19 @@ function OUS.BuildXPConfigUI()
     -- ==========================================
     local delveCompEditBox = CreateTemplateBox(pages[4], "Companion Text Format", -10, "delveCompTemplate")
     local delveJourEditBox = CreateTemplateBox(pages[4], "Journey Text Format", -65, "delveJourTemplate")
-    
+
     local delveCompColorBox = OUS.CreateColorBox(pages[4], "Companion Color", 12, -120, OdysseusDB.xpBar.delveCompColor, OUS.UpdateDelveBar)
     local delveJourColorBox = OUS.CreateColorBox(pages[4], "Journey Color", 220, -120, OdysseusDB.xpBar.delveJourColor, OUS.UpdateDelveBar)
-    
+
     local delveWidthSlider, delveWidthBox = OUS.CreatePremiumSlider(pages[4], OdysseusDB.xpBar, "Delve Bar Width", -160, "delveBarWidth", 100, 1000, 10, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
     local delveHeightSlider, delveHeightBox = OUS.CreatePremiumSlider(pages[4], OdysseusDB.xpBar, "Delve Bar Height", -210, "delveBarHeight", 20, 100, 2, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
     local delveScaleSlider, delveScaleBox = OUS.CreatePremiumSlider(pages[4], OdysseusDB.xpBar, "Delve Bar Scale", -260, "delveBarScale", 0.5, 2.0, 0.05, function() OUS.ApplyDimensions(); OUS.WakeBars(); OUS.SleepBars() end)
-    
+
     local resetDelveBtn = CreateFrame("Button", nil, pages[4], "UIPanelButtonTemplate")
     resetDelveBtn:SetSize(120, 24)
     resetDelveBtn:SetPoint("BOTTOMRIGHT", -12, 12)
     resetDelveBtn:SetText("Reset Defaults")
-    resetDelveBtn:SetScript("OnClick", function() 
+    resetDelveBtn:SetScript("OnClick", function()
         OdysseusDB.xpBar.delveCompTemplate = OUS.defaults.delveCompTemplate
         OdysseusDB.xpBar.delveJourTemplate = OUS.defaults.delveJourTemplate
         OdysseusDB.xpBar.delveCompColor = OUS.DeepCopyTable(OUS.defaults.delveCompColor)
@@ -434,7 +441,7 @@ function OUS.BuildXPConfigUI()
         OdysseusDB.xpBar.delveBarHeight = OUS.defaults.delveBarHeight
         OdysseusDB.xpBar.delveBarScale = OUS.defaults.delveBarScale
         OdysseusDB.xpBar.delveBarPos = OUS.DeepCopyTable(OUS.defaults.delveBarPos)
-        
+
         delveCompEditBox:SetText(OUS.defaults.delveCompTemplate)
         delveCompEditBox:SetCursorPosition(0)
         delveJourEditBox:SetText(OUS.defaults.delveJourTemplate)
@@ -447,13 +454,13 @@ function OUS.BuildXPConfigUI()
         delveHeightBox:SetText(OUS.defaults.delveBarHeight)
         delveScaleSlider:SetValue(OUS.defaults.delveBarScale)
         delveScaleBox:SetText(OUS.defaults.delveBarScale)
-        
+
         OUS.delveBarFrame:ClearAllPoints()
         OUS.delveBarFrame:SetPoint(OUS.defaults.delveBarPos.p, UIParent, OUS.defaults.delveBarPos.rP, OUS.defaults.delveBarPos.x, OUS.defaults.delveBarPos.y)
         OUS.ApplyDimensions()
         OUS.WakeBars()
         OUS.UpdateBar()
-        OUS.SleepBars() 
+        OUS.SleepBars()
         OUS.LogDebug("XPBar", "Delve defaults restored.")
     end)
 
@@ -463,7 +470,7 @@ function OUS.BuildXPConfigUI()
     local helpText = pages[5]:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     helpText:SetPoint("TOPLEFT", 12, -12)
     helpText:SetJustifyH("LEFT")
-    
+
     local helpString = "|cFFFFD100EXPERIENCE TAGS:|r\n" ..
         "|cFFFFFF00[curXP]|r - Current XP  |  |cFFFFFF00[maxXP]|r - Max XP\n" ..
         "|cFFFFFF00[needXP]|r - Remaining XP  |  |cFFFFFF00[curPC]|r - Current %\n" ..
@@ -483,9 +490,9 @@ function OUS.BuildXPConfigUI()
         "|cFF00FF00/toasttest|r - Test Popup (Hold Shift to Move!)\n" ..
         "|cFF888888(Tip: Shift+Drag to move the bars!)|r\n" ..
         "|cFF888888(Tip: Mod+Right-Click the XP Bar for the Faction Menu!)|r"
-        
+
     helpText:SetText(helpString)
-    
+
     -- ==========================================
     -- 9. PRE-FILL UI WITH SAVED DATA
     -- ==========================================
@@ -493,7 +500,7 @@ function OUS.BuildXPConfigUI()
     autoHideCheck:SetChecked(OdysseusDB.xpBar.autoHide)
     shortNumCheck:SetChecked(OdysseusDB.xpBar.shortNumbers)
     toastEnableCheck:SetChecked(OdysseusDB.xpBar.toastEnabled)
-    toastSoundCheck:SetChecked(OdysseusDB.xpBar.toastSound)    
+    toastSoundCheck:SetChecked(OdysseusDB.xpBar.toastSound)
     borderBtn:SetText(string.sub(tostring(OdysseusDB.xpBar.barBorderName or "None"), 1, 25))
 
     xpEditBox:SetText(OdysseusDB.xpBar.xpTemplate or "")

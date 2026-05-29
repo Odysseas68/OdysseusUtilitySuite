@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : Fishingtracker.lua
+-- Version : 2026.05.29
+-- Desc    : Fishing session tracker — catch counts, session timer, loot log
+-- ============================================================
+
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: FISHING TRACKER
 -- ==========================================

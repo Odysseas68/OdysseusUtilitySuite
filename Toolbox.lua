@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : Toolbox.lua
+-- Version : 2026.05.29
+-- Desc    : Floating icon toolbar engine — toggleable module shortcuts
+-- ============================================================
+
 local addonName, OUS = ...
 
 -- ==========================================

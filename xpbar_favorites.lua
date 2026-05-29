@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : xpbar_favorites.lua
+-- Version : 2026.05.29
+-- Desc    : Favorite reputation pinning for XP/rep bar
+-- ============================================================
+
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: XP FAVORITES & SMART HOVER
 -- ==========================================

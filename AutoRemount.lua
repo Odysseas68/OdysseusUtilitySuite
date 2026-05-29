@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : AutoRemount.lua
+-- Version : 2026.05.29
+-- Desc    : Auto remount engine — detects dismount and re-applies last mount
+-- ============================================================
+
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: AUTO REMOUNT ENGINE
 -- ==========================================

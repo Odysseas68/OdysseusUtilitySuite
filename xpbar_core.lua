@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : xpbar_core.lua
+-- Version : 2026.05.29
+-- Desc    : XP/rep bar frame layout and base rendering
+-- ============================================================
+
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: XP & REP ENGINE
 -- ==========================================

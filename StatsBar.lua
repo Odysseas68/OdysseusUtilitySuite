@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : StatsBar.lua
+-- Version : 2026.05.29
+-- Desc    : Stats bar engine — displays character stats by spec priority
+-- ============================================================
+
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: STATS BAR ENGINE
 -- ==========================================
