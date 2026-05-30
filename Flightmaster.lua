@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Flightmaster.lua
--- Version : 2026.05.27
+-- Version : 2026.05.30
 -- Desc    : Flight timer bar, distance display, taxi map tooltip with time and cost
 -- ============================================================
 
@@ -75,7 +75,7 @@ end
 -- ==========================================
 -- 2. CREATE THE VISUAL TIMER BAR
 -- ==========================================
-OUS.timerBar = CreateFrame("StatusBar", nil, UIParent)
+OUS.timerBar = CreateFrame("Frame", nil, UIParent)
 local timerBar = OUS.timerBar
 timerBar:SetSize(200, 20)
 timerBar:SetPoint("TOP", UIParent, "TOP", 0, -150)
@@ -85,20 +85,50 @@ local bg = timerBar:CreateTexture(nil, "BACKGROUND")
 bg:SetAllPoints(timerBar)
 bg:SetColorTexture(0, 0, 0, 0.5)
 
-OUS.timerBorderFrame = CreateFrame("Frame", nil, timerBar, "BackdropTemplate")
+-- Plain texture fill — resized manually each frame for smooth animation
+local barFill = timerBar:CreateTexture(nil, "BORDER")
+barFill:SetPoint("TOPLEFT", timerBar, "TOPLEFT", 0, 0)
+barFill:SetPoint("BOTTOMLEFT", timerBar, "BOTTOMLEFT", 0, 0)
+barFill:SetWidth(200)
+local barMaxWidth = 200
+
+OUS.timerBorderFrame = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
 local borderFrame = OUS.timerBorderFrame
 borderFrame:SetFrameLevel(timerBar:GetFrameLevel() + 2)
+borderFrame:SetPoint("TOPLEFT", timerBar, "TOPLEFT", 0, 0)
+borderFrame:SetPoint("BOTTOMRIGHT", timerBar, "BOTTOMRIGHT", 0, 0)
 
-OUS.timerText = timerBar:CreateFontString(nil, "OVERLAY")
-OUS.timerText:SetPoint("CENTER")
+-- Text frames parented to UIParent and anchored to timerBar
+-- Decoupled from StatusBar redraws for smooth independent updates
+local timerTextFrame = CreateFrame("Frame", nil, UIParent)
+timerTextFrame:SetAllPoints(timerBar)
+timerTextFrame:SetFrameLevel(timerBar:GetFrameLevel() + 3)
 
-OUS.timerTopText = timerBar:CreateFontString(nil, "OVERLAY")
-OUS.timerTopText:SetPoint("BOTTOM", timerBar, "TOP", 0, 4)
+OUS.timerText = timerTextFrame:CreateFontString(nil, "OVERLAY")
+OUS.timerText:SetPoint("CENTER", timerBar, "CENTER", 0, 0)
 
-OUS.timerBottomText = timerBar:CreateFontString(nil, "OVERLAY")
-OUS.timerBottomText:SetPoint("TOP", timerBar, "BOTTOM", 0, -4)
+local timerTopFrame = CreateFrame("Frame", nil, UIParent)
+timerTopFrame:SetPoint("BOTTOM", timerBar, "TOP", 0, 0)
+timerTopFrame:SetSize(300, 20)
+timerTopFrame:SetFrameLevel(timerBar:GetFrameLevel() + 3)
+
+OUS.timerTopText = timerTopFrame:CreateFontString(nil, "OVERLAY")
+OUS.timerTopText:SetPoint("CENTER", timerTopFrame, "CENTER", 0, 0)
+
+local timerBottomFrame = CreateFrame("Frame", nil, UIParent)
+timerBottomFrame:SetPoint("TOP", timerBar, "BOTTOM", 0, 0)
+timerBottomFrame:SetSize(300, 20)
+timerBottomFrame:SetFrameLevel(timerBar:GetFrameLevel() + 3)
+
+OUS.timerBottomText = timerBottomFrame:CreateFontString(nil, "OVERLAY")
+OUS.timerBottomText:SetPoint("CENTER", timerBottomFrame, "CENTER", 0, 0)
 OUS.timerBottomText:SetTextColor(0.4, 0.8, 1.0)
 OUS.timerBottomText:Hide()
+
+borderFrame:Hide()
+timerTextFrame:Hide()
+timerTopFrame:Hide()
+timerBottomFrame:Hide()
 
 function OUS.ApplyFlightFonts()
     local fName = OdysseusDB.flightSettings.fontName or "Friz Quadrata TT"
@@ -112,16 +142,51 @@ end
 function OUS.ApplyFlightTexture()
     local tName = OdysseusDB.flightSettings.textureName or "Blizzard"
     local tPath = LSM:Fetch("statusbar", tName) or LSM:Fetch("statusbar", "Blizzard") or "Interface\\TargetingFrame\\UI-StatusBar"
-    timerBar:SetStatusBarTexture(tPath)
+    barFill:SetTexture(tPath)
+end
+
+--- Sets bar fill color — called from Config color picker.
+function OUS.SetFlightBarColor(r, g, b)
+    barFill:SetVertexColor(r, g, b)
+end
+
+--- Sets border color — called from Config border color picker.
+function OUS.SetFlightBorderColor(r, g, b)
+    -- update in place to preserve colorTableRef in Config.lua color box
+    local bc = OdysseusDB.flightSettings.borderColor
+    bc.r, bc.g, bc.b = r, g, b
+    borderFrame:SetBackdropBorderColor(r, g, b, 1)
+end
+
+--- Shows bar at full width for unlock/preview mode in Config.
+function OUS.PreviewFlightBar()
+    barMaxWidth = timerBar:GetWidth() or 200
+    barFill:SetWidth(barMaxWidth)
+end
+
+--- Shows all decoupled text frames — called from Config unlock mode.
+function OUS.ShowFlightTextFrames()
+    timerTextFrame:Show()
+    timerTopFrame:Show()
+    timerBottomFrame:Show()
+end
+
+--- Hides all decoupled text frames — called from Config lock mode.
+function OUS.HideFlightTextFrames()
+    timerTextFrame:Hide()
+    timerTopFrame:Hide()
+    timerBottomFrame:Hide()
 end
 
 function OUS.ApplyFlightBorder()
     local bName = OdysseusDB.flightSettings.borderName or "None"
     local bPath = LSM:Fetch("border", bName)
     local bSize = OdysseusDB.flightSettings.borderSize or 16
+    local bc    = OdysseusDB.flightSettings.borderColor or { r = 1, g = 1, b = 1 }
 
     if bPath and bName ~= "None" then
         borderFrame:SetBackdrop({ edgeFile = bPath, edgeSize = bSize })
+        borderFrame:SetBackdropBorderColor(bc.r, bc.g, bc.b, 1)
         local offset = math.floor(bSize / 3)
         borderFrame:ClearAllPoints()
         borderFrame:SetPoint("TOPLEFT", timerBar, "TOPLEFT", -offset, offset)
@@ -467,37 +532,35 @@ timerUpdateFrame:SetScript("OnUpdate", function()
     if knownTime then
         local timeLeft = knownTime - timeElapsed
         if timeLeft > 0 then
-            -- bar updates every frame for smooth progression
-            timerBar:SetValue(timeLeft)
+            -- smooth fill: resize texture width directly each frame
+            local ratio = math.max(0, math.min(1, timeLeft / knownTime))
+            barFill:SetWidth(math.max(1, barMaxWidth * ratio))
             -- timer text updates once per second
             if now - lastTextUpdate >= 1.0 then
                 lastTextUpdate = now
                 OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeLeft / 60), math.floor(timeLeft % 60)))
             end
-            -- distance text updates every 0.5s to avoid layout hiccups on threshold crossings
-            if cachedTotalDist and now - lastDistUpdate >= 0.5 then
+            -- distance text updates every 0.1s
+            if cachedTotalDist and now - lastDistUpdate >= 0.1 then
                 lastDistUpdate = now
-                local ratio     = timeLeft / knownTime
                 local remaining = cachedTotalDist * ratio
                 OUS.timerBottomText:SetText("Distance: " .. FormatDist(remaining))
             end
         else
+            barFill:SetWidth(1)
             OUS.timerText:SetText("Arrival Imminent")
-            timerBar:SetValue(0)
             if cachedTotalDist then
                 OUS.timerBottomText:SetText("Distance: 0m")
             end
         end
     else
-        -- bar stays at 1 for unknown time flights
-        timerBar:SetValue(1)
-        -- timer text updates once per second
+        -- unknown time — fill stays full
+        barFill:SetWidth(barMaxWidth)
         if now - lastTextUpdate >= 1.0 then
             lastTextUpdate = now
             OUS.timerText:SetText(string.format("Flying: %d:%02d", math.floor(timeElapsed / 60), math.floor(timeElapsed % 60)))
         end
-        -- distance text updates every 0.5s
-        if cachedTotalDist and now - lastDistUpdate >= 0.5 then
+        if cachedTotalDist and now - lastDistUpdate >= 0.1 then
             lastDistUpdate = now
             local covered   = timeElapsed * 28
             local remaining = math.max(0, cachedTotalDist - covered)
@@ -513,6 +576,10 @@ local function HandleLiftoff()
     startTime = GetTime()
     OUS.ApplyFlightBorder()
     timerBar:Show()
+    borderFrame:Show()
+    timerTextFrame:Show()
+    timerTopFrame:Show()
+    timerBottomFrame:Show()
     OUS.timerTopText:SetText(currentStartFull .. " -> " .. currentDestFull)
 
     activeKnownTime = GetKnownTimeFromDB(currentStartFull, currentDestFull, currentStartShort, currentDestShort)
@@ -525,12 +592,9 @@ local function HandleLiftoff()
         OUS.timerBottomText:Hide()
     end
 
-    if activeKnownTime then
-        timerBar:SetMinMaxValues(0, activeKnownTime)
-    else
-        timerBar:SetMinMaxValues(0, 1)
-        timerBar:SetValue(1)
-    end
+    -- barMaxWidth set at liftoff from actual rendered width
+    barMaxWidth = timerBar:GetWidth() or 200
+    barFill:SetWidth(barMaxWidth)
 
     timerUpdateFrame:Show()
 end
@@ -541,10 +605,14 @@ local function HandleLanding()
     isFlying = false
     OUS.timerText:SetText("")
     OUS.timerTopText:SetText("")
-    timerBar:SetValue(0)
+    barFill:SetWidth(1)
 
     if not OUS.isFlightBarUnlocked then
         timerBar:Hide()
+        borderFrame:Hide()
+        timerTextFrame:Hide()
+        timerTopFrame:Hide()
+        timerBottomFrame:Hide()
     end
 
     local duration = math.floor((GetTime() - startTime) + 0.5)
@@ -648,7 +716,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
 
         -- Now we can safely apply the color from the (now guaranteed) keyed table
         local finalColor = OdysseusDB.flightSettings.color
-        timerBar:SetStatusBarColor(finalColor.r, finalColor.g, finalColor.b)
+        barFill:SetVertexColor(finalColor.r, finalColor.g, finalColor.b)
 
         OUS.LogDebug("Flight", "Database loaded successfully.")
     end

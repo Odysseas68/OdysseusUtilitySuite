@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config.lua
--- Version : 2026.05.29
+-- Version : 2026.05.30
 -- Desc    : Main config UI — module toggles and settings panels
 -- ============================================================
 
@@ -172,15 +172,17 @@ end
 
 function OUS.OpenColorPicker(dbColor, colorBoxFrame, onUpdateFunc)
     local onUpdate = onUpdateFunc or function() end
+    local function applyColor()
+        local r, g, b = ColorPickerFrame:GetColorRGB()
+        dbColor.r, dbColor.g, dbColor.b = r, g, b
+        colorBoxFrame:SetBackdropColor(r, g, b, 1)
+        onUpdate()
+    end
     ColorPickerFrame:SetupColorPickerAndShow({
         r = dbColor.r, g = dbColor.g, b = dbColor.b,
         hasOpacity = false,
-        swatchFunc = function()
-            local r, g, b = ColorPickerFrame:GetColorRGB()
-            dbColor.r, dbColor.g, dbColor.b = r, g, b
-            colorBoxFrame:SetBackdropColor(r, g, b, 1)
-            onUpdate()
-        end,
+        colorPickerFunc = applyColor,
+        swatchFunc = applyColor,
         cancelFunc = function(previousValues)
             dbColor.r, dbColor.g, dbColor.b = previousValues.r, previousValues.g, previousValues.b
             colorBoxFrame:SetBackdropColor(previousValues.r, previousValues.g, previousValues.b, 1)
@@ -758,7 +760,7 @@ local function EscapeLuaString(text)
 end
 
 local fmWidgetsCreated = false
-local lockBtn, texBtn, fontBtn, borderBtn, colorBox, tooltipCB, expBtn, wipeBtn
+local lockBtn, texBtn, fontBtn, borderBtn, colorBox, borderColorBox, tooltipCB, expBtn, wipeBtn
 local widthSlider, widthBox, heightSlider, heightBox, scaleSlider, scaleBox, fontSlider, fontBox, borderSlider, borderBox
 
 local function CreateFlightMasterWidgets()
@@ -775,16 +777,19 @@ local function CreateFlightMasterWidgets()
         if OUS.isFlightBarUnlocked then
             self:SetText("Lock Timer Bar")
             OUS.ApplyFlightBorder()
+            OUS.timerBorderFrame:Show()
             OUS.timerBar:EnableMouse(true)
             OUS.timerBar:Show()
-            OUS.timerBar:SetMinMaxValues(0, 1)
-            OUS.timerBar:SetValue(1)
+            OUS.PreviewFlightBar()
+            OUS.ShowFlightTextFrames()
             OUS.timerText:SetText("Drag to move")
             OUS.timerTopText:SetText("Config Mode")
         else
             self:SetText("Unlock Timer Bar")
             OUS.timerBar:EnableMouse(false)
             OUS.timerBar:Hide()
+            OUS.timerBorderFrame:Hide()
+            OUS.HideFlightTextFrames()
             OUS.timerText:SetText("")
             OUS.timerTopText:SetText("")
         end
@@ -832,9 +837,24 @@ local function CreateFlightMasterWidgets()
         end)
     end)
 
+    -- init borderColor default if missing
+    if not OdysseusDB.flightSettings.borderColor then
+        OdysseusDB.flightSettings.borderColor = { r = 1, g = 1, b = 1 }
+    else
+        -- ensure all fields exist in case of partial saves
+        local bc = OdysseusDB.flightSettings.borderColor
+        bc.r = bc.r or 1
+        bc.g = bc.g or 1
+        bc.b = bc.b or 1
+    end
+    borderColorBox = OUS.CreateColorBox(tabs.FlightMaster, "Border Color", 230, -195, OdysseusDB.flightSettings.borderColor, function()
+        local c = OdysseusDB.flightSettings.borderColor
+        OUS.SetFlightBorderColor(c.r, c.g, c.b)
+    end)
+
     colorBox = OUS.CreateColorBox(tabs.FlightMaster, "Bar Color", 230, -100, OdysseusDB.flightSettings.color, function()
         local c = OdysseusDB.flightSettings.color
-        OUS.timerBar:SetStatusBarColor(c.r, c.g, c.b)
+        OUS.SetFlightBarColor(c.r, c.g, c.b)
     end)
 
     tooltipCB = CreateFrame("CheckButton", "OdysseusTooltipCheckButton", tabs.FlightMaster, "ChatConfigCheckButtonTemplate")
@@ -948,7 +968,7 @@ local function CreateFlightMasterWidgets()
         OUS.ApplyFlightFonts()
         OUS.ApplyFlightBorder()
         local c = OUS.flightDefaults.color
-        OUS.timerBar:SetStatusBarColor(c.r, c.g, c.b)
+        OUS.SetFlightBarColor(c.r, c.g, c.b)
         if OUS.LogDebug then
             OUS.LogDebug("Flight", "Flight Master settings restored to default.")
         end
