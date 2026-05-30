@@ -2,6 +2,34 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-05-29] - Flightmaster Distance & Bar Overhaul
+
+### Added
+- **Flightmaster**: Live distance countdown below the timer bar — straight-line world coordinate distance using `C_Map.GetWorldPosFromMapPos()`, auto-switches between meters (`743m`) and kilometers (`1km 345m`), light blue color matching the map tooltip
+- **Flightmaster**: Distance interpolates live during flight (known time) or estimates using avg taxi speed ~28 yards/sec (unknown time)
+- **Flightmaster**: Border color picker added next to the border selector — live drag preview, persists across reloads
+- **Flightmaster**: `OUS.SetFlightBarColor`, `OUS.SetFlightBorderColor`, `OUS.PreviewFlightBar`, `OUS.ShowFlightTextFrames`, `OUS.HideFlightTextFrames` — Config.lua now calls all bar operations through the OUS table (no direct StatusBar method calls from Config)
+- **FlightRouting**: Total route distance in the itinerary panel — sum of all hop segments using world coordinates. Summary lines recolored: Total Hops (gold), Estimated Time (green), Distance (light blue)
+- **FlightData**: Updated to FlyTravelTimes v1.1.6 + 37 personal Midnight routes — 13,062 total routes, 538 nodes (1,421 routes recovered from pre-1.1.2 parser bug)
+
+### Changed
+- **Flightmaster**: Replaced `StatusBar` with plain `Frame` + `Texture` fill — `SetWidth()` each frame eliminates StatusBar texture redraw hiccup
+- **Flightmaster**: Decoupled `borderFrame`, `timerTextFrame`, `timerTopFrame`, `timerBottomFrame` from `timerBar` — all parented to `UIParent`, anchored to bar, independent redraws
+- **Flightmaster**: Timer text throttled to 1s updates, distance text to 0.1s — bar fill still updates every frame
+- **Config**: `OpenColorPicker` now includes `colorPickerFunc` for live drag preview on all color pickers (bar color and border color)
+
+### Fixed
+- **Flightmaster**: Distance display static during unknown-time flights — now counts down using estimated average taxi speed
+- **Flightmaster**: Border color not updating live — `SetFlightBorderColor` now calls `SetBackdropBorderColor` directly without resetting the backdrop
+- **Flightmaster**: Border color not persisting on reload — color table updated in-place to preserve `colorTableRef` reference held by the color box
+- **Flightmaster**: Decoupled frames not showing on unlock — explicit show/hide added for all decoupled frames in lock/unlock toggle
+
+### Infrastructure
+- Standard file headers added to 13 engine/config files: `Fasterloot.lua`, `Fishingtracker.lua`, `xpbar_core.lua`, `xpbar_engine.lua`, `xpbar_delves.lua`, `xpbar_favorites.lua`, `AutoRemount.lua`, `StatsBar.lua`, `Openables.lua`, `Toolbox.lua`, `Config.lua`, `xpbar_config.lua`, `Help.lua`
+- `FlightRouting.lua` standard header added
+
+---
+
 ## [2026-05-15] - Toolbox & Help Frame
 
 ### Added
