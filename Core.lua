@@ -1,3 +1,9 @@
+-- Addon   : OdysseusUtilitySuite
+-- File    : Core.lua
+-- Version : 2026.06.02
+-- Desc    : Namespace, DB init, module defaults, slash commands
+-- ============================================================
+
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: CORE NAMESPACE
 -- ==========================================
@@ -30,7 +36,8 @@ f:SetScript("OnEvent", function(self, event, arg1)
         if OdysseusDB.modules.autoRemount == nil then OdysseusDB.modules.autoRemount = true end
         if OdysseusDB.modules.statsBar == nil then OdysseusDB.modules.statsBar = true end
         if OdysseusDB.modules.openables == nil then OdysseusDB.modules.openables = true end
-        if OdysseusDB.modules.toolbox  == nil then OdysseusDB.modules.toolbox  = true end
+        if OdysseusDB.modules.toolbox    == nil then OdysseusDB.modules.toolbox    = true end
+        if OdysseusDB.modules.utilities  == nil then OdysseusDB.modules.utilities  = true end
 
         OdysseusCharDB = OdysseusCharDB or {}
         OdysseusDB.statsBar = OdysseusDB.statsBar or {
@@ -73,6 +80,13 @@ f:SetScript("OnEvent", function(self, event, arg1)
             shown     = true,
             scale     = 1.0,
             direction = "horizontal",
+        }
+
+        OdysseusDB.utilities = OdysseusDB.utilities or {
+            rareEnabled    = true,
+            repairEnabled  = true,
+            guildRepair    = true,
+            announceRepair = true,
         }
 
         if OdysseusDB.minimapAngle == nil then OdysseusDB.minimapAngle = 225 end

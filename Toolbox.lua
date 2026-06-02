@@ -119,6 +119,21 @@ local BUTTONS = {
         end,
     },
     {
+        key     = "utilities",
+        icon    = "Interface\\Icons\\ability_repair",
+        tooltip = "Utilities",
+        action  = function()
+            if not OUS.ConfigFrame then return end
+            if OUS.ConfigFrame:IsShown()
+                and (OUS.ConfigFrame.currentNavTab == "Utilities") then
+                OUS.ConfigFrame:Hide()
+            else
+                OUS.ConfigFrame:Show()
+                if OUS.ConfigFrame.ShowTab then OUS.ConfigFrame.ShowTab("Utilities") end
+            end
+        end,
+    },
+    {
         key     = "openables",
         icon    = "Interface\\Icons\\inv_misc_bag_10_blue",
         tooltip = "Openables",
