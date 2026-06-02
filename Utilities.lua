@@ -86,11 +86,6 @@ local function AnnounceRare()
         return
     end
 
-    -- TomTom support
-    if TomTom then
-        TomTom:AddWaypoint(mapID, pos.x, pos.y, { title = "Rare: " .. mobName })
-    end
-
     -- Color codes for local display only — stripped for chat (blocked in 12.0+)
     local TAGS_CHAT = {
         rare      = "[Rare]",
@@ -102,9 +97,17 @@ local function AnnounceRare()
     local msg = tag .. " " .. mobName .. " " .. waypointLink
 
     -- TODO: switch to General for live use
-    -- local index = GetGeneralChannelIndex()
-    -- if index then C_ChatInfo.SendChatMessage(msg, "CHANNEL", nil, index) end
-    C_ChatInfo.SendChatMessage(msg, "GUILD")
+     local index = GetGeneralChannelIndex()
+     if index then C_ChatInfo.SendChatMessage(msg, "CHANNEL", nil, index) end
+    -- C_ChatInfo.SendChatMessage(msg, "GUILD")
+    -- TomTom after chat send — avoids conflict with temporary native waypoint
+    if TomTom then
+        TomTom:AddWaypoint(mapID, pos.x, pos.y, {
+            title  = "Rare: " .. mobName,
+            source = "OUS",
+            crazy  = true,   -- activate the crazy arrow automatically
+        })
+    end
     OUS.LogDebug("Utilities", "Rare announced: " .. mobName)
 end
 
