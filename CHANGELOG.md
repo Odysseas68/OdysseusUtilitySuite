@@ -2,6 +2,26 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-06-03] - Utilities Module + Config Polish
+
+### Added
+- **Utilities**: New module — `Utilities.lua` — rare announcer, auto repair, junk seller
+- **Utilities → Rare Announcer** (`/ous_rare`): target any mob and announce to General chat with classification tag (`[Rare]`, `[Rare Elite]`, `[Elite]`, `[World Boss]`, `[Normal]`), native Blizzard waypoint hyperlink via `C_Map.SetUserWaypoint` + `GetUserWaypointHyperlink()` (restores previous pin after 0.1s), TomTom support (`AddWaypoint` with `source="OUS"`, `crazy=true`), open world only guard, localized General channel table (Leatrix Plus pattern, 10 locales)
+- **Utilities → Auto Repair**: auto-repairs on `MERCHANT_SHOW`; guild repair first (`GetGuildBankWithdrawMoney` permission check), own gold fallback; announces cost in chat with coin icons (`UI-GoldIcon`, `UI-SilverIcon`, `UI-CopperIcon` at 14×14); colored fund source (green = guild, amber = own)
+- **Utilities → Junk Seller**: scans bags on `MERCHANT_SHOW`, collects grey quality non-blacklisted items into `junkPending`; sells one item per 0.2s timer chain via `C_Container.UseContainerItem`; `limitTo12` option batches 12 at a time with `Sell Next 12 (X left)` button; button always visible when junk present, anchored to `MerchantFrame BOTTOMRIGHT`; `requireShift` shows button and waits for click; `UI_ERROR_MESSAGE` stops selling on `ERR_VENDOR_DOESNT_BUY`; combat guard on both `OnMerchantShow` and `SellNextItem`
+- **Config → Utilities tab**: new tab with Rare Announcer, Auto Repair, and Junk Seller sections; per-section checkboxes for all settings
+- **Core**: `utilities` module default; `OdysseusDB.utilities` settings (`rareEnabled`, `repairEnabled`, `guildRepair`, `announceRepair`); `OdysseusDB.utilities.junkSell` sub-table (`enabled`, `requireShift`, `announceJunk`, `limitTo12`, `blacklist`); migration guard for `limitTo12` on older saved data
+- **Toolbox**: Utilities button added before Openables (`ability_repair` icon)
+
+### Changed
+- **Config → General**: module toggles reformatted to 2-column layout (4 rows instead of 8, saves ~140px vertical space); uses `ChatConfigCheckButtonTemplate` with named frame pattern matching existing toggles
+
+### Infrastructure
+- `Utilities.lua` added to TOC before `Toolbox.lua`
+- TOC version bumped to `2026.06.03`
+
+---
+
 ## [2026-05-29] - Flightmaster Distance & Bar Overhaul
 
 ### Added
@@ -55,204 +75,3 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 ### Changed
 - **Config**: General tab module toggle checkboxes spacing tightened from 35px to 28px to accommodate Toolbox toggle
 - **Help**: Moved from `Config.lua` into standalone `Help.lua` (section 5, loads after `xpbar_config.lua`)
-
----
-
-## [2026-05-15] - Stats Bar: Secret Value Fix
-
-### Fixed
-- **Stats Bar**: `Fmt1` and `FmtNum` display helpers now use `pcall` around `string.format`/`math.floor` — `tonumber()` does not neutralize secret number values in Retail 12.0+ and passes them through unchanged, causing taint errors in instanced content (Timewalking, M+, encounters). Stats display `"—"` when values are restricted.
-
----
-
-## [2026-05-15] - Openables: Cosmetic Item Detection
-
-### Added
-- **Openables**: Cosmetic/appearance item detection — scans tooltip for `ITEM_COSMETIC` global string (Blizzard's "Cosmetic" label) to automatically identify appearance items without any database; no manual item IDs needed
-  - Collection filtering via `ITEM_ALREADY_KNOWN` tooltip scan — button disappears after the appearance is learned
-  - Soft lavender border color and `"A"` badge for cosmetic items
-  - `GetItemCategory` extended to accept `bag`/`slot` for tooltip-driven detection at scan time
-  - Approach mirrors NOP addon — zero database maintenance, works for any current and future cosmetic items
-
----
-
-## [2026-05-12] - Openables: Recipe Filtering & Secure Button
-
-### Added
-- **Openables**: Recipe scanning — unlearned recipes detected dynamically via `Enum.ItemClass.Recipe` (classID 9), no static DB required
-  - `C_TradeSkillUI.GetRecipeInfo(spellID)` checked first for professions the character has initialized
-  - Tooltip fallback via `C_TooltipInfo.GetBagItem` + `ITEM_SPELL_KNOWN` string match for classic-era recipes using generic "Learning" spell
-  - Recipe category badge `R` with pink-red border color
-  - Async item cache retry via `Item:ContinueOnItemLoad` when `C_Item.GetItemInfo` returns nil at scan time
-- **Openables**: Drag handle frame — when unlocked, button is replaced by a distinct blue drag-handle frame (move icon + "drag" label) to prevent accidental item use while repositioning
-- **Openables**: Combat safety hardened — `UpdateButton` now hides container and button on `InCombatLockdown()` rather than returning early with button still visible; `PostClick` also guards against combat
-
-### Fixed
-- **Openables**: Secure button click now works correctly in Retail 12.0+ — uses `SecureActionButtonTemplate` with `type=macro` and `/use item:ID`; all `OnMouseDown` scripts removed from `opBtn` to prevent taint interference
-- **Openables**: Button position drag restored — `opContainer` handles all dragging; `opBtn` has zero drag scripts
-- **Openables**: `GetItemCategory` now correctly reads classID from return position 12 of `C_Item.GetItemInfo` (was incorrectly reading position 6 which returns the localized string, not the numeric enum)
-- **Openables**: `/op clist` and `/op list` frames now pre-load uncached item names before building rows — no more empty list on first open
-- **Openables**: Scale correctly applied to drag handle frame on login and via Config slider
-
----
-
-## [2026-05-11] - Openables: Collection Filtering & Polish
-
-### Added
-- **Openables**: Smart collection filtering — known mounts, collected pets, and learned toys are automatically skipped
-  - Mount filtering via `C_MountJournal.GetMountFromItem` + `GetMountInfoByID` — async-safe with item load retry
-  - Pet filtering via `C_PetJournal.GetPetInfoByItemID` + `GetNumCollectedInfo` — handles direct-learn pet items
-  - Toy filtering via `C_ToyBox.GetToyInfo` + `PlayerHasToy` — inline, no cache needed
-  - Refreshes on `NEW_MOUNT_ADDED`, `MOUNT_JOURNAL_USABILITY_CHANGED`, `PET_JOURNAL_LIST_UPDATE`
-- **Openables**: Dynamic category classification — every item (built-in DB or custom) is automatically classified at scan time via Blizzard collection APIs, no static mapping required
-- **Openables**: Category-colored border — border color changes per item type: purple (mount), blue (pet), green (toy), orange (knowledge), grey (currency), gold (cache/generic)
-- **Openables**: Category badge — small letter overlay bottom-left of icon: M (mount), P (pet), T (toy), K (knowledge), G (currency); hidden for generic caches
-- **Openables**: Button scale now correctly restored on login/reload — position no longer shifts when scaling
-
-### Fixed
-- **Openables**: Button scale not persisted across sessions
-- **Openables**: Icon corners no longer visible outside the border
-- **Openables**: Removed unused `PrintBlacklist` chat function — blacklist management is frame-only via `/op list`
-
----
-
-## [2026-05-10] - Openables Module
-
-### Added
-- **Openables**: New module — scans bags and surfaces a single-click button for any openable item found.
-  - Built-in database (`OpenablesDB.lua`) with 700+ items spanning Classic through TWW 11.2: tier tokens, crest pouches, sparks, delve keys, coffer key shards, contracts, profession knowledge, gems, enchanting materials, rep insignia, and legacy crafting fragments
-  - Custom item list — add items via `/op add <itemID> [minQty]`, drag-and-drop via `/op madd`, or remove via `/op remove <itemID>`
-  - Per-item minimum quantity threshold — button only appears when stack meets the minimum
-  - Session blacklist (right-click to skip for session) and permanent blacklist (Shift+right-click)
-  - Auto-open mode: automatically uses the item 0.3s after a bag update
-  - Draggable button with lock/unlock via `/op lock` / `/op unlock`
-  - Scalable button via Config slider (0.5×–2.0×) with live preview
-  - Category-colored tooltip-style border with hover and push feedback
-  - Cooldown sweep overlay on the button
-  - Blacklist management frame (`/op list`) — scrollable list with per-item Remove button and Clear All
-  - Custom list management frame (`/op clist`) — scrollable list showing item name, min quantity, and per-item Remove button
-  - Mass add frame (`/op madd`) — drag-and-drop queue: drop multiple items, set per-item quantity, commit all at once
-  - Full slash command set via `/op` and `/openables`
-  - **Openables** tab in `/ous` config: enable toggle, auto-open toggle, button scale slider, reset position button, blacklist count and clear, custom DB count, export and wipe
-  - Export frame: outputs custom list as ready-to-paste `OpenablesDB.lua` lines with item names, pre-selected for Ctrl+C
-  - Combat-safe: hides on `PLAYER_REGEN_DISABLED`, rescans on `PLAYER_REGEN_ENABLED`
-
----
-
-## [2026-04-25] - Stats Bar
-
-### Added
-- **Stats Bar**: New module displaying character statistics as a movable overlay.
-  - Two display modes: single-line template and vertical table view
-  - **Single-line mode**: fully customizable template with tokens (`{ilvl}`, `{spec}`, `{crit}`, `{haste}`, `{mast}`, `{vers}`, `{int}`, `{agi}`, `{str}`, and more)
-  - **Table mode**: vertical two-column layout showing iLvl, primary stat, and secondaries in spec priority order with real texture separators
-  - Spec priority database (`StatsBarSpecPriority.lua`) covering all specs and hero talent trees from murloc.io (Mythic+)
-  - Combat-safe: all stats cached on stat events, never read live during combat/M+/encounter/PvP (`ADDON_RESTRICTION_STATE_CHANGED` handled)
-  - Per-character settings via `OdysseusCharDB.statsBar` — template, font size, table width, position
-  - Both frames independently movable, lockable, and position-persistent across sessions
-  - Font size and table width adjustable live via config or `/sb size` command
-  - Full slash command set via `/sb` and `/statsbar`
-  - **Stats Bar** tab added to `/ous` config panel with all toggles, sliders, template editor, and reset
-
----
-
-## [2026-04-24] - AutoRemount Refinements
-
-### Changed
-- **Auto Remount**: Converted spell databases to fast set-style lookup tables.
-- **Auto Remount**: Added broad profession-crafting suppression via `ProfessionsFrame` check.
-
-### Fixed
-- **Auto Remount**: Spy mode no longer auto-saves discovered spells — prints to chat only.
-- **Auto Remount**: Character mount now correctly per-character via `SavedVariablesPerCharacter`.
-- **Auto Remount**: Config tab correctly displays current mount name on open.
-
-### Added
-- **Auto Remount**: Permanent exclude list for false-positive loot-window spells.
-- **Auto Remount**: Spy filter blacklist (`/ar spyfilter`) persisted in DB.
-- **Auto Remount**: `/ous help` frame rewritten as scrollable `ScrollingMessageFrame`.
-
----
-
-## [2026-04-23] - Auto Remount
-
-### Added
-- **Auto Remount**: New module — automatically remounts after gathering herbs, mining ore, or logging lumber.
-  - Spell ID database covering all gathering professions from Classic through Midnight
-  - Configurable remount delay, per-character and account-wide mount override
-  - Druid Travel Form skip, silent mode, full safety checks
-  - Spy mode: prints loot-confirmed unknown spells to chat for manual review
-  - Custom spell list via `/ar add` / `/ar remove` / `/ar export` / `/ar wipe`
-  - Full slash command set via `/ar` and `/autoremount`
-
----
-
-## [2026-04-19] - Flightmaster & Delves bar
-
-### Fixed
-- **Flightmaster**: Fix tooltip persisting after mouse-off and spurious show after delve exit.
-- **Delves bar**: Fix bar hiding after final boss, sticky companion detection, correct Midnight Valeera delve IDs.
-
-## [2026-04-15] - Code Quality & XP Bar
-
-### Fixed
-- **XP Bar**: Replaced `GetXPExhaustion()` (Classic-only, nil in Retail 12.0+).
-
-### Changed
-- **Flight Master**: Replaced polling frames with event-driven handlers.
-- **XP Bar defaults**: Lightened default colors for better visibility.
-
-### Added
-- **XP Bar config**: Background color picker and layout improvements.
-
----
-
-## [2026-04-13] - XP / Reputation
-
-### Fixed
-- Replaced deprecated `GetText()`, removed nil APIs, fixed max level detection, fixed crashes.
-
-## [2026-04-11] - Flight Master
-
-### Fixed
-- Fixed custom flight-map tooltip errors, fallback anchor, route timing updates.
-
----
-
-## [2026-04-07] - Flight Master / XP / Reputation / Delves
-
-### Fixed
-- Fixed Flightmaster tooltip, max-level rep bar regression, Delve bar post-boss disappear.
-
-## [Unreleased / Current] - 2026-04-04
-
-### Changed
-- Refined Midnight-themed configuration UI, nav buttons, content headers.
-- Improved Flight Master export workflow and slider formatting.
-
-### Core
-- Hardened `ResetAllSettings()`, added session log history cap.
-
----
-
-## [2026-03-24] - Flight Routing & Map Update
-
-### Added
-- Route itinerary sidebar, custom route-line drawing, generated route database, learned-flight export.
-
----
-
-## [2026-03-21] - Midnight, XP/Rep & Delves Update
-
-### Added
-- Unified `/ous` configuration panel, modular Experience/Reputation Bar, Delves support, reward toasts, `/xpstats`.
-
----
-
-## [2026-03-18] - Faster Loot & Fishing Tracker Update
-
-### Faster Loot
-- Safer group loot handling, locked-item checks, improved bag-full behavior.
-
-### Fishing Tracker
-- `LOOT_READY`-based tracking, expansion-aware naming, statistics frame, fish-per-hour, currency tracking.

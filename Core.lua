@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Core.lua
--- Version : 2026.06.02
+-- Version : 2026.06.03
 -- Desc    : Namespace, DB init, module defaults, slash commands
 -- ============================================================
 
@@ -88,6 +88,17 @@ f:SetScript("OnEvent", function(self, event, arg1)
             guildRepair    = true,
             announceRepair = true,
         }
+        OdysseusDB.utilities.junkSell = OdysseusDB.utilities.junkSell or {
+            enabled      = true,
+            requireShift = false,
+            announceJunk = true,
+            limitTo12    = true,
+            blacklist    = {},
+        }
+        -- ensure limitTo12 exists on older saved data
+        if OdysseusDB.utilities.junkSell.limitTo12 == nil then
+            OdysseusDB.utilities.junkSell.limitTo12 = true
+        end
 
         if OdysseusDB.minimapAngle == nil then OdysseusDB.minimapAngle = 225 end
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}

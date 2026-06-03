@@ -1,11 +1,11 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Utilities.lua
--- Version : 2026.06.02
+-- Version : 2026.06.03
 -- Desc    : Utility commands — rare announcer (/ous_rare), auto repair
 -- ============================================================
 
-local addonName, OUS = ...
+local _, OUS = ...
 
 -- ============================================================
 -- Localized General channel names (from Leatrix Plus pattern)
@@ -96,10 +96,8 @@ local function AnnounceRare()
     local tag = TAGS_CHAT[classification] or "[Normal]"
     local msg = tag .. " " .. mobName .. " " .. waypointLink
 
-    -- TODO: switch to General for live use
-     local index = GetGeneralChannelIndex()
-     if index then C_ChatInfo.SendChatMessage(msg, "CHANNEL", nil, index) end
-    -- C_ChatInfo.SendChatMessage(msg, "GUILD")
+    local index = GetGeneralChannelIndex()
+    if index then C_ChatInfo.SendChatMessage(msg, "CHANNEL", nil, index --[[@as string]]) end
     -- TomTom after chat send — avoids conflict with temporary native waypoint
     if TomTom then
         TomTom:AddWaypoint(mapID, pos.x, pos.y, {
@@ -187,3 +185,152 @@ SlashCmdList["OUSRARE"] = function()
     if not OdysseusDB.modules.utilities then return end
     AnnounceRare()
 end
+
+-- ============================================================
+-- Junk Seller
+-- ============================================================
+
+local junkPending    = {}   -- { {bag, slot}, ... } remaining items to sell
+local junkSellBtn    = nil  -- "Sell Next 12" floating button
+local isMerchantOpen = false
+
+--- Collects all grey quality non-blacklisted bag items into a list.
+local function CollectJunkItems()
+    local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+    if not db then return {} end
+    local blacklist = db.blacklist or {}
+    local items = {}
+    for bag = 0, NUM_BAG_SLOTS do
+        local slots = C_Container.GetContainerNumSlots(bag)
+        for slot = 1, slots do
+            local info = C_Container.GetContainerItemInfo(bag, slot)
+            if info and info.itemID then
+                local quality = select(3, C_Item.GetItemInfo(info.itemID))
+                if quality == 0 and not blacklist[info.itemID] then
+                    items[#items + 1] = { bag = bag, slot = slot, itemID = info.itemID }
+                end
+            end
+        end
+    end
+    return items
+end
+
+local batchSold   = 0   -- items sold in current batch
+local batchCopper = 0   -- copper earned in current batch
+local batchLimit  = 12  -- items per batch
+
+--- Sells one item from junkPending then schedules the next via timer.
+local function SellNextItem()
+    if not isMerchantOpen then return end
+    if InCombatLockdown() then return end
+    if not MerchantFrame:IsShown() then return end
+    if #junkPending == 0 then
+        -- All done — announce and hide button
+        local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+        if db and batchSold > 0 and db.announceJunk then
+            print(string.format("|cffA78BFA[OUS]:|r Sold %d junk item(s) for %s",
+                batchSold, FormatCost(batchCopper)))
+        end
+        if junkSellBtn then junkSellBtn:Hide() end
+        batchSold   = 0
+        batchCopper = 0
+        return
+    end
+
+    local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+    if not db then return end
+
+    -- Batch limit reached — announce and show button for remainder
+    if db.limitTo12 and batchSold >= batchLimit then
+        if db.announceJunk and batchSold > 0 then
+            print(string.format("|cffA78BFA[OUS]:|r Sold %d junk item(s) for %s",
+                batchSold, FormatCost(batchCopper)))
+        end
+        if junkSellBtn then
+            junkSellBtn:SetText("Sell Next 12 (" .. #junkPending .. " left)")
+            junkSellBtn:Show()
+        end
+        batchSold   = 0
+        batchCopper = 0
+        return
+    end
+
+    -- Sell directly from pending list — slots stable during vendor session
+    -- Blacklist already applied in CollectJunkItems, no rescan needed
+    local item = table.remove(junkPending, 1)
+    if item then
+        local _, sellPrice = select(10, C_Item.GetItemInfo(item.itemID))
+        C_Container.UseContainerItem(item.bag, item.slot)
+        batchSold = batchSold + 1
+        if sellPrice then
+            local info = C_Container.GetContainerItemInfo(item.bag, item.slot)
+            local stackCount = (info and info.stackCount) or 1
+            batchCopper = batchCopper + (sellPrice * stackCount)
+        end
+    end
+
+    -- Schedule next item after 0.2s delay
+    C_Timer.After(0.2, SellNextItem)
+end
+
+--- Starts selling the current batch — entry point.
+local function SellNextBatch()
+    if not isMerchantOpen then return end
+    if InCombatLockdown() then return end
+    batchSold   = 0
+    batchCopper = 0
+    SellNextItem()
+end
+
+--- Entry point called on MERCHANT_SHOW.
+local function OnMerchantShow()
+    if InCombatLockdown() then return end
+    local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+    if not db then return end
+    if not db.enabled then return end
+    isMerchantOpen = true
+    junkPending = CollectJunkItems()
+
+    if #junkPending == 0 then return end
+
+    if not junkSellBtn then
+        junkSellBtn = CreateFrame("Button", "OUSJunkSellBtn", MerchantFrame, "UIPanelButtonTemplate")
+        junkSellBtn:SetSize(160, 22)
+        junkSellBtn:SetPoint("BOTTOMRIGHT", MerchantFrame, "BOTTOMRIGHT", -160, 4)
+        junkSellBtn:SetScript("OnClick", SellNextBatch)
+    end
+    local btnLabel = db.limitTo12
+        and ("Sell Junk (" .. #junkPending .. ")")
+        or  ("Sell All Junk (" .. #junkPending .. ")")
+    junkSellBtn:SetText(btnLabel)
+    junkSellBtn:Show()
+
+    -- Auto-sell unless Shift is required
+    if db.requireShift and not IsShiftKeyDown() then
+        return
+    end
+
+    C_Timer.After(0.3, SellNextBatch)
+end
+
+-- Register merchant events
+local junkFrame = CreateFrame("Frame")
+junkFrame:RegisterEvent("MERCHANT_SHOW")
+junkFrame:RegisterEvent("MERCHANT_CLOSED")
+junkFrame:RegisterEvent("UI_ERROR_MESSAGE")
+junkFrame:SetScript("OnEvent", function(_, event, _, msg)
+    if event == "MERCHANT_SHOW" then
+        OnMerchantShow()
+    elseif event == "MERCHANT_CLOSED" then
+        isMerchantOpen = false
+        junkPending = {}
+        if junkSellBtn then junkSellBtn:Hide() end
+    elseif event == "UI_ERROR_MESSAGE" then
+        -- Stop selling if vendor refuses or gold cap reached
+        if msg == ERR_VENDOR_DOESNT_BUY or msg == ERR_TOO_MUCH_GOLD then
+            isMerchantOpen = false
+            junkPending = {}
+            if junkSellBtn then junkSellBtn:Hide() end
+        end
+    end
+end)

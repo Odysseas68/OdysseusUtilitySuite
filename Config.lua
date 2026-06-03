@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config.lua
--- Version : 2026.05.30
+-- Version : 2026.06.03
 -- Desc    : Main config UI — module toggles and settings panels
 -- ============================================================
 
@@ -218,7 +218,8 @@ tabs.Fishing = CreateFrame("Frame", nil, contentPanel)
 tabs.XPBar = CreateFrame("Frame", nil, contentPanel)
 tabs.AutoRemount = CreateFrame("Frame", nil, contentPanel)
 tabs.StatsBar = CreateFrame("Frame", nil, contentPanel)
-tabs.Openables = CreateFrame("Frame", nil, contentPanel)
+tabs.Openables  = CreateFrame("Frame", nil, contentPanel)
+tabs.Utilities  = CreateFrame("Frame", nil, contentPanel)
 
 OUS.XPBarTab = tabs.XPBar
 
@@ -435,6 +436,7 @@ CreateNavButton("Exp & Rep Bar", -150, "XPBar")
 CreateNavButton("Auto Remount", -185, "AutoRemount")
 CreateNavButton("Stats Bar", -220, "StatsBar")
 CreateNavButton("Openables", -255, "Openables")
+CreateNavButton("Utilities", -290, "Utilities")
 
 StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE_ALL"] = {
     text = "Are you sure you want to reset ALL Odysseus settings to their defaults? This will require a UI reload and cannot be undone.",
@@ -726,13 +728,30 @@ local function CreateModuleToggle(parent, label, yOffset, dbKey)
     end)
 end
 
-CreateModuleToggle(tabs.General, " Enable Flight Master",   -270, "flightMaster")
-CreateModuleToggle(tabs.General, " Enable Faster Loot",     -298, "fasterLoot")
-CreateModuleToggle(tabs.General, " Enable Fishing Tracker", -326, "fishingTracker")
-CreateModuleToggle(tabs.General, " Enable Exp & Rep Bar",   -354, "xpBar")
-CreateModuleToggle(tabs.General, " Enable Stats Bar",       -382, "statsBar")
-CreateModuleToggle(tabs.General, " Enable Openables",       -410, "openables")
-CreateModuleToggle(tabs.General, " Enable Toolbox",         -438, "toolbox")
+-- Two-column layout using existing CreateModuleToggle — temporarily override anchor x
+local function CreateModuleToggle2Col(parent, label, x, yOffset, dbKey)
+    local frameName = "OdysseusToggle_" .. dbKey
+    local cb = CreateFrame("CheckButton", frameName, parent, "ChatConfigCheckButtonTemplate")
+    cb:SetPoint("TOPLEFT", parent, "TOPLEFT", x, yOffset)
+    _G[cb:GetName().."Text"]:SetText(label)
+    cb:SetScript("OnShow", function(self)
+        if OdysseusDB and OdysseusDB.modules then
+            self:SetChecked(OdysseusDB.modules[dbKey])
+        end
+    end)
+    cb:SetScript("OnClick", function(self)
+        OdysseusDB.modules[dbKey] = self:GetChecked()
+    end)
+end
+
+CreateModuleToggle2Col(tabs.General, " Enable Flight Master",   4,   -270, "flightMaster")
+CreateModuleToggle2Col(tabs.General, " Enable Faster Loot",     230, -270, "fasterLoot")
+CreateModuleToggle2Col(tabs.General, " Enable Fishing Tracker", 4,   -298, "fishingTracker")
+CreateModuleToggle2Col(tabs.General, " Enable Exp & Rep Bar",   230, -298, "xpBar")
+CreateModuleToggle2Col(tabs.General, " Enable Stats Bar",       4,   -326, "statsBar")
+CreateModuleToggle2Col(tabs.General, " Enable Openables",       230, -326, "openables")
+CreateModuleToggle2Col(tabs.General, " Enable Utilities",       4,   -354, "utilities")
+CreateModuleToggle2Col(tabs.General, " Enable Toolbox",         230, -354, "toolbox")
 
 local resetAllBtn = CreateFrame("Button", nil, tabs.General, "UIPanelButtonTemplate")
 resetAllBtn:SetSize(180, 28)
@@ -1249,6 +1268,113 @@ tabs.AutoRemount:SetScript("OnShow", function()
 end)
 
 cfg:SetScript("OnHide", function() dropDown:Hide() end)
+
+-- =====================================
+-- TAB: UTILITIES
+-- =====================================
+
+CreateContentHeader(tabs.Utilities, -15, "Utilities")
+
+-- Helper: creates a settings checkbox for OdysseusDB.utilities keys
+local function CreateUtilCheck(label, yOffset, dbKey)
+    local cb = CreateFrame("CheckButton", nil, tabs.Utilities, "ChatConfigCheckButtonTemplate")
+    cb:SetPoint("TOPLEFT", 20, yOffset)
+    local txt = cb:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    txt:SetPoint("LEFT", cb, "RIGHT", 2, 0)
+    txt:SetText(label)
+    cb:SetScript("OnShow", function(self)
+        self:SetChecked(OdysseusDB.utilities and OdysseusDB.utilities[dbKey])
+    end)
+    cb:SetScript("OnClick", function(self)
+        if OdysseusDB.utilities then
+            OdysseusDB.utilities[dbKey] = self:GetChecked()
+        end
+    end)
+    return cb
+end
+
+-- Rare Announcer section
+local utilRareHeader = tabs.Utilities:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+utilRareHeader:SetPoint("TOPLEFT", 20, -58)
+utilRareHeader:SetTextColor(0.7, 0.5, 1)
+utilRareHeader:SetText("Rare Announcer  —  /ous_rare")
+
+CreateUtilCheck("Enable Rare Announcer", -80, "rareEnabled")
+
+local utilRareDesc = tabs.Utilities:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+utilRareDesc:SetPoint("TOPLEFT", 20, -108)
+utilRareDesc:SetWidth(420)
+utilRareDesc:SetJustifyH("LEFT")
+utilRareDesc:SetTextColor(0.6, 0.6, 0.6)
+utilRareDesc:SetText("Target a mob and use /ous_rare to announce its name and location to General chat.\nIf TomTom is installed, also activates the navigation arrow.")
+
+-- Separator
+local utilSep = tabs.Utilities:CreateTexture(nil, "ARTWORK")
+utilSep:SetHeight(1)
+utilSep:SetPoint("TOPLEFT", 10, -138)
+utilSep:SetPoint("TOPRIGHT", -10, -138)
+utilSep:SetColorTexture(0.25, 0.20, 0.40, 0.8)
+
+-- Auto Repair section
+local utilRepairHeader = tabs.Utilities:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+utilRepairHeader:SetPoint("TOPLEFT", 20, -150)
+utilRepairHeader:SetTextColor(0.7, 0.5, 1)
+utilRepairHeader:SetText("Auto Repair")
+
+CreateUtilCheck("Enable Auto Repair",         -172, "repairEnabled")
+CreateUtilCheck("Use Guild Repair first",      -200, "guildRepair")
+CreateUtilCheck("Announce repair cost in chat",-228, "announceRepair")
+
+local utilRepairDesc = tabs.Utilities:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+utilRepairDesc:SetPoint("TOPLEFT", 20, -258)
+utilRepairDesc:SetWidth(420)
+utilRepairDesc:SetJustifyH("LEFT")
+utilRepairDesc:SetTextColor(0.6, 0.6, 0.6)
+utilRepairDesc:SetText("Automatically repairs all items when a merchant is opened.\nAttempts guild repair first, then falls back to own gold.")
+
+    -- Junk Seller separator
+    local utilJunkSep = tabs.Utilities:CreateTexture(nil, "ARTWORK")
+    utilJunkSep:SetHeight(1)
+    utilJunkSep:SetPoint("TOPLEFT", 10, -280)
+    utilJunkSep:SetPoint("TOPRIGHT", -10, -280)
+    utilJunkSep:SetColorTexture(0.25, 0.20, 0.40, 0.8)
+
+    -- Junk Seller header
+    local utilJunkHeader = tabs.Utilities:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    utilJunkHeader:SetPoint("TOPLEFT", 20, -292)
+    utilJunkHeader:SetTextColor(0.7, 0.5, 1)
+    utilJunkHeader:SetText("Junk Seller")
+
+    -- Helper for junkSell sub-settings
+    local function CreateJunkCheck(label, yOffset, dbKey)
+        local cb = CreateFrame("CheckButton", nil, tabs.Utilities, "ChatConfigCheckButtonTemplate")
+        cb:SetPoint("TOPLEFT", 20, yOffset)
+        local txt = cb:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+        txt:SetPoint("LEFT", cb, "RIGHT", 2, 0)
+        txt:SetText(label)
+        cb:SetScript("OnShow", function(self)
+            local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+            self:SetChecked(db and db[dbKey])
+        end)
+        cb:SetScript("OnClick", function(self)
+            local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+            if db then db[dbKey] = self:GetChecked() end
+        end)
+        return cb
+    end
+
+    CreateJunkCheck("Enable Junk Seller",           -314, "enabled")
+    CreateJunkCheck("Require Shift to sell",         -342, "requireShift")
+    CreateJunkCheck("Announce junk sale in chat",    -370, "announceJunk")
+    CreateJunkCheck("Limit to 12 items per batch",   -398, "limitTo12")
+
+    local utilJunkDesc = tabs.Utilities:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    utilJunkDesc:SetPoint("TOPLEFT", 20, -428)
+    utilJunkDesc:SetWidth(420)
+    utilJunkDesc:SetJustifyH("LEFT")
+    utilJunkDesc:SetTextColor(0.6, 0.6, 0.6)
+    utilJunkDesc:SetText("Automatically sells grey quality items when a merchant is opened.\nSells up to 12 items at once. If more remain, a 'Sell Next 12' button appears.\nHold Shift when opening vendor to trigger (if Require Shift is enabled).")
+
 ShowTab("General")
 
 -- =====================================

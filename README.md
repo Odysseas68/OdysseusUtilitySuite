@@ -149,6 +149,35 @@ Enhances taxi destination previews with itinerary sidebar, route hop breakdown, 
 
 ---
 
+### Utilities
+A collection of small but powerful QoL tools bundled into one module.
+
+**Rare Announcer** (`/ous_rare`):
+- Target any mob and announce its name, classification, and location to General chat
+- Classification tags: `[Rare]`, `[Rare Elite]`, `[Elite]`, `[World Boss]`, `[Normal]`
+- Native Blizzard waypoint hyperlink — click in chat to open world map at the location
+- TomTom support — activates the navigation arrow automatically if TomTom is installed
+- Open world only guard
+
+**Auto Repair**:
+- Automatically repairs all items when a merchant is opened
+- Tries guild repair first (respects withdrawal permission), falls back to own gold
+- Announces repair cost in chat with coin icons and colored fund source
+
+**Junk Seller**:
+- Automatically sells grey quality items when a merchant is opened
+- Sells one item per 0.2s to avoid "Item is busy" errors
+- Limit to 12 items per batch (configurable) — `Sell Next 12 (X left)` button for remainder
+- Button always visible when junk present, anchored to merchant frame
+- Shift modifier option — shows button and waits for manual click
+- Per-item blacklist to exclude specific items from selling
+- Combat safe — stops immediately on combat lockdown
+
+Commands:
+- `/ous_rare` — announce targeted mob to General chat with waypoint
+
+---
+
 ### Toolbox
 A floating icon bar giving one-click access to all active OUS module panels.
 
@@ -236,7 +265,6 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 ## Current Focus
 
 The addon is in active refinement, with recent work on:
-- Toolbox module: floating icon bar, smart popup positioning, Midnight-themed quick-action popup
-- Help frame: reworked to tabbed layout with Midnight nav, extracted to standalone Help.lua
-- Config: ShowTab API exposed for external callers, General tab checkbox spacing tightened
-- Openables module: recipe filtering, secure button taint resolution, drag handle UX, collection filtering
+- Utilities module: rare announcer, auto repair, junk seller with timer-based selling
+- Config: General tab module toggles reformatted to 2-column layout
+- Junk Seller: `limitTo12` option, always-visible button, requireShift mode

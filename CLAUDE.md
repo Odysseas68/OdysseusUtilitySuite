@@ -30,10 +30,11 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 19. `AutoRemount.lua` — auto remount engine
 20. `StatsBar.lua` — stats bar engine
 21. `Openables.lua` — openables button engine
-22. `Toolbox.lua` — floating icon toolbar engine
-23. `Config.lua` — main config UI (loads last)
-24. `xpbar_config.lua` — xpbar config panel (loads last)
-25. `Help.lua` — tabbed help frame (loads last)
+22. `Utilities.lua` — utility commands (rare announcer, auto repair, junk seller)
+23. `Toolbox.lua` — floating icon toolbar engine
+24. `Config.lua` — main config UI (loads last)
+25. `xpbar_config.lua` — xpbar config panel (loads last)
+26. `Help.lua` — tabbed help frame (loads last)
 
 ---
 
@@ -52,6 +53,16 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 **Config wiring:** New module config panels attach to `OUS.ConfigFrame` (built in `Config.lua`). Config always loads last so it can reference any module's state.
 
 **Per-character settings:** Use `OdysseusCharDB` (declared as `SavedVariablesPerCharacter` in the TOC). Account-wide settings go in `OdysseusDB`, character-specific settings go in `OdysseusCharDB` under a module key e.g. `OdysseusCharDB.autoRemountChar`, `OdysseusCharDB.statsBar`. Initialize in `Core.lua` ADDON_LOADED block.
+
+---
+
+## Utilities Module Notes
+- `OdysseusDB.utilities` — settings: `rareEnabled`, `repairEnabled`, `guildRepair`, `announceRepair`
+- `OdysseusDB.utilities.junkSell` — settings: `enabled`, `requireShift`, `announceJunk`, `limitTo12`, `blacklist = {[itemID]=true}`
+- **Rare Announcer**: uses `C_Map.SetUserWaypoint` + `GetUserWaypointHyperlink()` to get a native waypoint link — always restore the previous pin via `C_Map.GetUserWaypointFromHyperlink` after 0.1s. TomTom: `TomTom:AddWaypoint(mapID, x, y, { title, source="OUS", crazy=true })` — `source` and `crazy` are required fields. Color codes stripped from chat message (blocked in 12.0+). Open world only: `IsInInstance()` guard.
+- **Auto Repair**: `MERCHANT_SHOW` event; guild repair check via `GetGuildBankWithdrawMoney()` (returns player withdrawal limit, not bank balance); `RepairAllItems(true)` for guild, `RepairAllItems()` for own gold. Coin icons: `Interface\\MoneyFrame\\UI-GoldIcon` etc. at 14×14 with `|T...:14:14:2:0|t` format.
+- **Junk Seller**: `junkPending` built once via `CollectJunkItems()` at `MERCHANT_SHOW` — blacklist applied at collection time only, no rescanning. Sells via `table.remove(junkPending, 1)` + `C_Container.UseContainerItem(bag, slot)` — slots stable during vendor session. One item per 0.2s timer chain. `MerchantFrame:IsShown()` returns false at `MERCHANT_SHOW` event time — use 0.3s delay before starting. Button parented to `MerchantFrame` (not UIParent, not child frames that addons may hide like `MerchantMoneyFrame`). `limitTo12` batches 12 items at a time.
+- **Localized General channel**: `GENERAL_CHANNEL` table with 10 locales (Leatrix Plus pattern); `GetChannelName(name)` to get index; send via `C_ChatInfo.SendChatMessage(msg, "CHANNEL", nil, index)`.
 
 ---
 
@@ -152,6 +163,7 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 - `/sb`, `/statsbar` — StatsBar module commands
 - `/op`, `/openables` — Openables module commands
 - `/tb`, `/toolbox` — Toolbox module commands (`toggle`, `lock`, `unlock`, `scale [n]`, `ver`, `hor`)
+- `/ous_rare` — Utilities rare announcer (target a mob first)
 
 ---
 
