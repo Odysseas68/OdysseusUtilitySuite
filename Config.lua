@@ -1375,6 +1375,28 @@ utilRepairDesc:SetText("Automatically repairs all items when a merchant is opene
     utilJunkDesc:SetTextColor(0.6, 0.6, 0.6)
     utilJunkDesc:SetText("Automatically sells grey quality items when a merchant is opened.\nSells up to 12 items at once. If more remain, a 'Sell Next 12' button appears.\nHold Shift when opening vendor to trigger (if Require Shift is enabled).")
 
+    -- Blacklist button
+    local blBtn = CreateFrame("Button", nil, tabs.Utilities, "UIPanelButtonTemplate")
+    blBtn:SetSize(160, 24)
+    blBtn:SetPoint("TOPLEFT", 20, -468)
+    blBtn:SetText("Manage Blacklist")
+    blBtn:SetScript("OnClick", function()
+        if OUS.ToggleJunkBlacklist then OUS.ToggleJunkBlacklist() end
+    end)
+
+    -- Blacklist count label
+    local junkBlCountLabel = tabs.Utilities:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    junkBlCountLabel:SetPoint("LEFT", blBtn, "RIGHT", 10, 0)
+    junkBlCountLabel:SetTextColor(0.7, 0.7, 0.7)
+    tabs.Utilities:SetScript("OnShow", function()
+        local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+        local count = 0
+        if db and db.blacklist then
+            for _ in pairs(db.blacklist) do count = count + 1 end
+        end
+        junkBlCountLabel:SetText(count .. " item(s) blacklisted")
+    end)
+
 ShowTab("General")
 
 -- =====================================

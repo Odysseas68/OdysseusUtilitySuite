@@ -81,9 +81,41 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 - `Help.lua` is standalone — no dependency on Config.lua internals
 - `OdysseusHelpFrame` global name preserved for Core.lua `/ous help` handler
 - Tabbed layout: 6 tabs (General, Toolbox, XP & Rep, Auto Remount, Stats Bar, Openables)
-- `ScrollingMessageFrame` replaced with `ScrollFrame` + `FontString` for top-down rendering
-- Content frames lazy-created per tab on first visit
+- Legacy `UIPanelScrollFrameTemplate` replaced with `WowScrollBox` + `MinimalScrollBar` (modern 12.0.5 pattern)
+- Content frames lazy-created per tab on first visit; `helpScrollFrames[index]` stores `{ box, bar, child }` — all three must be shown/hidden together on tab switch because `WowScrollBox` reparents `child` internally via `ReparentScrollChildren`, so hiding `box` alone does not hide `child`
 - Compact banner (200×100) + title + separator on `helpContent` panel, shared across all tabs
+
+---
+
+## Scrollbar API (Retail 12.0.5 — verified from wow-ui-source)
+**Confirmed vertical templates:** `MinimalScrollBar`, `WowTrimScrollBar`
+**Confirmed horizontal template:** `WowTrimHorizontalScrollBar`
+**Does NOT exist in 12.0.5:** `WowScrollBar` — do not use
+
+**Standard wiring pattern for static content:**
+```lua
+local scrollBox = CreateFrame("Frame", nil, parent, "WowScrollBox")
+local scrollBar = CreateFrame("EventFrame", nil, parent, "MinimalScrollBar")
+scrollBar:SetPoint("TOPLEFT", scrollBox, "TOPRIGHT", 2, 0)
+scrollBar:SetPoint("BOTTOMLEFT", scrollBox, "BOTTOMRIGHT", 2, 0)
+local child = CreateFrame("Frame", nil, scrollBox)
+child.scrollable = true  -- required: ReparentScrollChildren only picks up frames with this flag
+-- populate child with content here
+local view = CreateScrollBoxLinearView()
+view:SetPanExtent(20)
+ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
+```
+- `child.scrollable = true` is mandatory — without it `ReparentScrollChildren` ignores the frame and nothing scrolls
+- Do NOT use `CreateScrollBoxListLinearView` for static content — that requires a `DataProvider` and is for data-driven lists only
+- Do NOT call `ScrollUtil.InitScrollBoxListWithScrollBar` for static content — use `InitScrollBoxWithScrollBar`
+- When using in a tabbed UI, store `{ box, bar, child }` and hide/show all three on tab switch
+
+**MinimalScrollBar texture key paths** (verified via in-game dump):
+- `scrollBar.Track.Begin/Middle/End` — direct textures (track rail background); call `:SetVertexColor(r, g, b)`
+- `scrollBar.Track.Thumb.Begin/Middle/End` — sub-textures one level deeper (draggable thumb); call `:SetVertexColor(r, g, b)`
+- `scrollBar.Back.Texture` — up arrow texture
+- `scrollBar.Forward.Texture` — down arrow texture
+- Always guard each access with `if` checks against nil before calling `:SetVertexColor`
 
 ---
 

@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Utilities.lua
--- Version : 2026.06.03
+-- Version : 2026.06.07
 -- Desc    : Utility commands — rare announcer (/ous_rare), auto repair
 -- ============================================================
 
@@ -311,6 +311,338 @@ local function OnMerchantShow()
     end
 
     C_Timer.After(0.3, SellNextBatch)
+end
+
+-- ============================================================
+-- Junk Seller Blacklist Frame
+-- ============================================================
+
+local junkBLFrame  = nil  -- main blacklist frame
+local junkAddQueue = {}   -- pending items to add { [itemID] = { name, icon, ilvl } }
+
+--- Refreshes the right panel list of currently blacklisted items.
+local function RefreshBlacklist()
+    if not junkBLFrame or not junkBLFrame.rightScrollChild then return end
+    local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+    if not db then return end
+
+    local scrollChild = junkBLFrame.rightScrollChild
+    -- Clear existing rows
+    for _, child in ipairs({ scrollChild:GetChildren() }) do child:Hide() end
+
+    local yOff = -8
+    local ROW_H = 28
+    local sorted = {}
+    for itemID, data in pairs(db.blacklist or {}) do
+        sorted[#sorted + 1] = { itemID = itemID, name = data.name or tostring(itemID), icon = data.icon }
+    end
+    table.sort(sorted, function(a, b) return a.name < b.name end)
+
+    for _, entry in ipairs(sorted) do
+        local row = CreateFrame("Frame", nil, scrollChild)
+        row:SetSize(220, ROW_H)
+        row:SetPoint("TOPLEFT", 0, yOff)
+
+        -- Icon
+        local icon = row:CreateTexture(nil, "ARTWORK")
+        icon:SetSize(20, 20)
+        icon:SetPoint("LEFT", 2, 0)
+        if entry.icon then icon:SetTexture(entry.icon) end
+
+        -- Name
+        local lbl = row:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        lbl:SetPoint("LEFT", icon, "RIGHT", 4, 0)
+        lbl:SetWidth(160)
+        lbl:SetJustifyH("LEFT")
+        lbl:SetText(entry.name)
+
+        -- X button
+        local removeBtn = CreateFrame("Button", nil, row, "UIPanelCloseButton")
+        removeBtn:SetSize(20, 20)
+        removeBtn:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+        removeBtn:SetScript("OnClick", function()
+            db.blacklist[entry.itemID] = nil
+            RefreshBlacklist()
+        end)
+
+        yOff = yOff - ROW_H
+    end
+    scrollChild:SetHeight(math.max(300, math.abs(yOff) + 10))
+end
+
+--- Refreshes the left panel queue of pending items to add.
+local function RefreshAddQueue()
+    if not junkBLFrame or not junkBLFrame.leftScrollChild then return end
+    local scrollChild = junkBLFrame.leftScrollChild
+    -- (guard valid — leftScrollChild set on container)
+
+    for _, child in ipairs({ scrollChild:GetChildren() }) do child:Hide() end
+
+    local yOff = -8
+    local ROW_H = 28
+    local sorted = {}
+    for itemID, data in pairs(junkAddQueue) do
+        sorted[#sorted + 1] = { itemID = itemID, name = data.name, icon = data.icon }
+    end
+    table.sort(sorted, function(a, b) return a.name < b.name end)
+
+    for _, entry in ipairs(sorted) do
+        local row = CreateFrame("Frame", nil, scrollChild)
+        row:SetSize(220, ROW_H)
+        row:SetPoint("TOPLEFT", 0, yOff)
+
+        local icon = row:CreateTexture(nil, "ARTWORK")
+        icon:SetSize(20, 20)
+        icon:SetPoint("LEFT", 2, 0)
+        if entry.icon then icon:SetTexture(entry.icon) end
+
+        local lbl = row:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        lbl:SetPoint("LEFT", icon, "RIGHT", 4, 0)
+        lbl:SetWidth(160)
+        lbl:SetJustifyH("LEFT")
+        lbl:SetText(entry.name)
+
+        local removeBtn = CreateFrame("Button", nil, row, "UIPanelCloseButton")
+        removeBtn:SetSize(20, 20)
+        removeBtn:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+        removeBtn:SetScript("OnClick", function()
+            junkAddQueue[entry.itemID] = nil
+            RefreshAddQueue()
+        end)
+
+        yOff = yOff - ROW_H
+    end
+    scrollChild:SetHeight(math.max(300, math.abs(yOff) + 10))
+end
+
+--- Builds the blacklist frame (lazy — created once on first open).
+local function BuildJunkBlacklistFrame()
+    local FRAME_W  = 260
+    local FRAME_H  = 420
+    local FRAME_GAP = 8
+
+    -- Invisible container — handles drag for both panels
+    local container = CreateFrame("Frame", "OUSJunkBLContainer", UIParent)
+    container:SetSize(FRAME_W * 2 + FRAME_GAP, FRAME_H)
+    container:SetPoint("CENTER")
+    container:SetFrameStrata("DIALOG")
+    container:SetMovable(true)
+    container:EnableMouse(false)   -- children handle mouse
+
+    local function StartDrag() container:StartMoving() end
+    local function StopDrag()  container:StopMovingOrSizing() end
+
+    -- ── LEFT FRAME (Add Items) ───────────────────────────────
+    local lf = CreateFrame("Frame", "OUSJunkBLAdd", container, "BackdropTemplate")
+    lf:SetSize(FRAME_W, FRAME_H)
+    lf:SetPoint("TOPLEFT", container, "TOPLEFT", 0, 0)
+    lf:SetBackdrop({
+        bgFile   = "Interface\\ChatFrame\\ChatFrameBackground",
+        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+        tile = false, edgeSize = 14,
+        insets = { left = 4, right = 4, top = 4, bottom = 4 }
+    })
+    lf:SetBackdropColor(0.08, 0.06, 0.14, 0.97)
+    lf:SetBackdropBorderColor(0.4, 0.3, 0.6, 1)
+    lf:SetMovable(true)
+    lf:EnableMouse(true)
+    lf:RegisterForDrag("LeftButton")
+    lf:SetScript("OnDragStart", StartDrag)
+    lf:SetScript("OnDragStop",  StopDrag)
+
+    -- Left title
+    local lTitle = lf:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    lTitle:SetPoint("TOP", 0, -10)
+    lTitle:SetTextColor(1, 0.82, 0)
+    lTitle:SetText("Add Items")
+
+    -- Left separator
+    local lSep = lf:CreateTexture(nil, "ARTWORK")
+    lSep:SetHeight(1)
+    lSep:SetPoint("TOPLEFT", 8, -26)
+    lSep:SetPoint("TOPRIGHT", -8, -26)
+    lSep:SetColorTexture(0.4, 0.3, 0.6, 0.8)
+
+    -- Close button (closes both)
+    local closeBtn = CreateFrame("Button", nil, lf, "UIPanelCloseButton")
+    closeBtn:SetPoint("TOPRIGHT", -2, -2)
+    closeBtn:SetScript("OnClick", function() container:Hide() end)
+
+    -- Drop zone
+    local dropZone = CreateFrame("Frame", nil, lf, "BackdropTemplate")
+    dropZone:SetSize(FRAME_W - 20, 52)
+    dropZone:SetPoint("TOP", 0, -34)
+    dropZone:SetBackdrop({
+        bgFile   = "Interface\\ChatFrame\\ChatFrameBackground",
+        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+        tile = false, edgeSize = 10,
+        insets = { left = 3, right = 3, top = 3, bottom = 3 }
+    })
+    dropZone:SetBackdropColor(0.10, 0.08, 0.18, 0.9)
+    dropZone:SetBackdropBorderColor(0.55, 0.35, 0.85, 0.9)
+    dropZone:EnableMouse(true)
+
+    local dropLabel = dropZone:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    dropLabel:SetAllPoints()
+    dropLabel:SetJustifyH("CENTER")
+    dropLabel:SetTextColor(0.5, 0.4, 0.7)
+    dropLabel:SetText("Drag an item here\nto add to blacklist")
+
+    local function TryAddItem()
+        local cursorType, itemID = GetCursorInfo()
+        if cursorType == "item" and itemID then
+            local name, _, _, ilvl, _, _, _, _, _, icon = C_Item.GetItemInfo(itemID)
+            if name then
+                junkAddQueue[itemID] = { name = name, icon = icon, ilvl = ilvl or 0 }
+                ClearCursor()
+                RefreshAddQueue()
+            end
+        end
+    end
+    dropZone:SetScript("OnMouseDown", TryAddItem)
+    dropZone:SetScript("OnReceiveDrag", TryAddItem)
+
+    -- Pending header
+    local pendingHdr = lf:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    pendingHdr:SetPoint("TOPLEFT", 10, -94)
+    pendingHdr:SetTextColor(1, 0.82, 0)
+    pendingHdr:SetText("Pending:")
+
+    -- Left scroll — stops above Cancel/Add buttons (buttons at bottom 38px)
+    local SCROLL_TOP    = -110
+    local BUTTON_AREA   = 44   -- buttons 22px + 14px margin top + 8px bottom
+    local SCROLL_H      = FRAME_H + SCROLL_TOP - BUTTON_AREA
+
+    local leftScroll = CreateFrame("ScrollFrame", nil, lf, "UIPanelScrollFrameTemplate")
+    leftScroll:SetSize(FRAME_W - 30, SCROLL_H)
+    leftScroll:SetPoint("TOPLEFT", 4, SCROLL_TOP)
+
+    local leftScrollChild = CreateFrame("Frame", nil, leftScroll)
+    leftScrollChild:SetSize(FRAME_W - 46, SCROLL_H)
+    leftScroll:SetScrollChild(leftScrollChild)
+
+    -- Cancel button
+    local cancelBtn = CreateFrame("Button", nil, lf, "UIPanelButtonTemplate")
+    cancelBtn:SetSize(100, 22)
+    cancelBtn:SetPoint("BOTTOMLEFT", 10, 10)
+    cancelBtn:SetText("Cancel")
+    cancelBtn:SetScript("OnClick", function()
+        wipe(junkAddQueue)
+        RefreshAddQueue()
+    end)
+
+    -- Add button
+    local addBtn = CreateFrame("Button", nil, lf, "UIPanelButtonTemplate")
+    addBtn:SetSize(100, 22)
+    addBtn:SetPoint("BOTTOMRIGHT", -10, 10)
+    addBtn:SetText("Add")
+    addBtn:SetScript("OnClick", function()
+        local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+        if not db then return end
+        db.blacklist = db.blacklist or {}
+        for itemID, data in pairs(junkAddQueue) do
+            db.blacklist[itemID] = { name = data.name, icon = data.icon }
+        end
+        wipe(junkAddQueue)
+        RefreshAddQueue()
+        RefreshBlacklist()
+    end)
+
+    -- Esc handled by Cancel button — OnKeyDown removed to avoid blocking game keybinds
+
+    -- ── RIGHT FRAME (Blacklist Items) ────────────────────────
+    local rf = CreateFrame("Frame", "OUSJunkBLList", container, "BackdropTemplate")
+    rf:SetSize(FRAME_W, FRAME_H)
+    rf:SetPoint("TOPLEFT", lf, "TOPRIGHT", FRAME_GAP, 0)
+    rf:SetBackdrop({
+        bgFile   = "Interface\\ChatFrame\\ChatFrameBackground",
+        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+        tile = false, edgeSize = 14,
+        insets = { left = 4, right = 4, top = 4, bottom = 4 }
+    })
+    rf:SetBackdropColor(0.08, 0.06, 0.14, 0.97)
+    rf:SetBackdropBorderColor(0.4, 0.3, 0.6, 1)
+    rf:SetMovable(true)
+    rf:EnableMouse(true)
+    rf:RegisterForDrag("LeftButton")
+    rf:SetScript("OnDragStart", StartDrag)
+    rf:SetScript("OnDragStop",  StopDrag)
+
+    -- Right title
+    local rTitle = rf:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    rTitle:SetPoint("TOP", 0, -10)
+    rTitle:SetTextColor(1, 0.82, 0)
+    rTitle:SetText("Blacklisted Items")
+
+    -- Right separator
+    local rSep = rf:CreateTexture(nil, "ARTWORK")
+    rSep:SetHeight(1)
+    rSep:SetPoint("TOPLEFT", 8, -26)
+    rSep:SetPoint("TOPRIGHT", -8, -26)
+    rSep:SetColorTexture(0.4, 0.3, 0.6, 0.8)
+
+    -- Right scroll
+    local rightScroll = CreateFrame("ScrollFrame", nil, rf, "UIPanelScrollFrameTemplate")
+    rightScroll:SetSize(FRAME_W - 30, FRAME_H - 70)
+    rightScroll:SetPoint("TOPLEFT", 4, -34)
+
+    local rightScrollChild = CreateFrame("Frame", nil, rightScroll)
+    rightScrollChild:SetSize(FRAME_W - 46, FRAME_H - 70)
+    rightScroll:SetScrollChild(rightScrollChild)
+
+    -- Wipe button
+    local wipeBtn = CreateFrame("Button", nil, rf, "UIPanelButtonTemplate")
+    wipeBtn:SetSize(140, 22)
+    wipeBtn:SetPoint("BOTTOM", 0, 10)
+    wipeBtn:SetText("|cffFF6666Wipe Blacklist|r")
+    wipeBtn:SetScript("OnClick", function()
+        StaticPopupDialogs["OUS_JUNK_WIPE_BL"] = {
+            text      = "Wipe the entire junk seller blacklist? This cannot be undone.",
+            button1   = "Wipe",
+            button2   = "Cancel",
+            OnAccept  = function()
+                local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+                if db then db.blacklist = {} end
+                RefreshBlacklist()
+            end,
+            timeout      = 0,
+            whileDead    = true,
+            hideOnEscape = true,
+        }
+        StaticPopup_Show("OUS_JUNK_WIPE_BL")
+    end)
+
+    -- Wire scroll children to module-level refs
+    container.leftScrollChild  = leftScrollChild
+    container.rightScrollChild = rightScrollChild
+    container.rightScroll      = rightScroll
+
+    container:SetScript("OnShow", function()
+        wipe(junkAddQueue)
+        RefreshAddQueue()
+        RefreshBlacklist()
+    end)
+
+    container:Hide()
+    return container
+end
+
+--- Toggles the junk blacklist frame — called from Config and /js command.
+function OUS.ToggleJunkBlacklist()
+    if not junkBLFrame then
+        junkBLFrame = BuildJunkBlacklistFrame()
+    end
+    if junkBLFrame:IsShown() then
+        junkBLFrame:Hide()
+    else
+        junkBLFrame:Show()
+    end
+end
+
+-- Slash command
+SLASH_JSSELLER1 = "/js"
+SlashCmdList["JSSELLER"] = function()
+    OUS.ToggleJunkBlacklist()
 end
 
 -- Register merchant events

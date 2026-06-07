@@ -202,7 +202,7 @@ helpBannerSep:SetColorTexture(0.4, 0.2, 0.6, 0.7)
 -- =====================================
 local helpNavBtns   = {}
 local helpCurrentTab = nil
-local helpScrollFrames = {}  -- lazy-created per tab
+local helpScrollFrames = {}  -- lazy-created per tab, stores {box, bar}
 
 local function SetHelpNavBtnState(btn, active)
     if active then
@@ -235,24 +235,37 @@ local function ShowHelpTab(index)
         SetHelpNavBtnState(btn, i == index)
     end
 
-    for i, sf in pairs(helpScrollFrames) do
-        if i == index then sf:Show() else sf:Hide() end
+    for i, t in pairs(helpScrollFrames) do
+        if i == index then
+            t.box:Show()
+            t.bar:Show()
+            t.child:Show()
+        else
+            t.box:Hide()
+            t.bar:Hide()
+            t.child:Hide()
+        end
     end
 
     if helpScrollFrames[index] then return end
 
-    -- Lazy-create ScrollFrame + FontString for this tab, below banner
-    local sf = CreateFrame("ScrollFrame", nil, helpContent, "UIPanelScrollFrameTemplate")
-    sf:SetPoint("TOPLEFT", 10, -122)
-    sf:SetPoint("BOTTOMRIGHT", -30, 10)
+    -- Lazy-create ScrollBox + MinimalScrollBar for this tab, below banner
+    local scrollBox = CreateFrame("Frame", nil, helpContent, "WowScrollBox")
+    scrollBox:SetPoint("TOPLEFT", 10, -122)
+    scrollBox:SetPoint("BOTTOMRIGHT", -14, 10)
 
-    local child = CreateFrame("Frame", nil, sf)
-    child:SetWidth(sf:GetWidth())
-    sf:SetScrollChild(child)
+    local scrollBar = CreateFrame("EventFrame", nil, helpContent, "MinimalScrollBar")
+    scrollBar:SetWidth(12)
+    scrollBar:SetPoint("TOPLEFT",    scrollBox, "TOPRIGHT",    2, 0)
+    scrollBar:SetPoint("BOTTOMLEFT", scrollBox, "BOTTOMRIGHT", 2, 0)
+
+    local child = CreateFrame("Frame", nil, scrollBox)
+    child:SetWidth(scrollBox:GetWidth() - 4)
+    child.scrollable = true
 
     local fs = child:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     fs:SetPoint("TOPLEFT", 0, 0)
-    fs:SetWidth(sf:GetWidth() - 4)
+    fs:SetWidth(child:GetWidth())
     fs:SetJustifyH("LEFT")
     fs:SetJustifyV("TOP")
     fs:SetSpacing(3)
@@ -268,9 +281,35 @@ local function ShowHelpTab(index)
     fs:SetText(table.concat(lines, "\n"))
     child:SetHeight(fs:GetStringHeight() + 20)
 
-    helpScrollFrames[index] = sf
-    sf:Show()
-    sf:SetVerticalScroll(0)
+    local view = CreateScrollBoxLinearView()
+    view:SetPanExtent(20)
+    ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
+
+    -- Tint MinimalScrollBar to OUS purple theme
+    local tr = scrollBar.Track
+    if tr then
+        -- Track background textures (direct textures)
+        if tr.Begin  then tr.Begin:SetVertexColor(0.4, 0.2, 0.6) end
+        if tr.Middle then tr.Middle:SetVertexColor(0.4, 0.2, 0.6) end
+        if tr.End    then tr.End:SetVertexColor(0.4, 0.2, 0.6) end
+        -- Thumb sub-textures (one level deeper)
+        local th = tr.Thumb
+        if th then
+            if th.Begin  then th.Begin:SetVertexColor(0.7, 0.4, 1.0) end
+            if th.Middle then th.Middle:SetVertexColor(0.7, 0.4, 1.0) end
+            if th.End    then th.End:SetVertexColor(0.7, 0.4, 1.0) end
+        end
+    end
+    if scrollBar.Back   and scrollBar.Back.Texture   then
+        scrollBar.Back.Texture:SetVertexColor(0.7, 0.4, 1.0)
+    end
+    if scrollBar.Forward and scrollBar.Forward.Texture then
+        scrollBar.Forward.Texture:SetVertexColor(0.7, 0.4, 1.0)
+    end
+
+    helpScrollFrames[index] = { box = scrollBox, bar = scrollBar, child = child }
+    scrollBox:Show()
+    scrollBar:Show()
 end
 
 local function CreateHelpNavBtn(tabIndex, yOffset)

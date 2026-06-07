@@ -1884,4 +1884,11 @@ OUS.OpenablesDB = {
     [219191] = 15,   -- Hastily Scrawled Notes
     [257026] = 1,   -- Preyseeker's Veteran Chest
     [262938] = 1,   -- Preyseeker's Champion Sack
+    [223245] = 1,   -- Ensemble: Abyss Angler
+    [251970] = 1,   -- Overflowing Amani Trove
+    [259334] = 1,   -- Overflowing Singularity Trove
+    [262951] = 1,   -- Sin'dorei Gravestone
+    [264895] = 1,   -- Trials of the Florafaun Hunter
+    [269701] = 1,   -- Surplus Bag of Party Favors
+    [270934] = 1,   -- Recruit's Field Pouch
 }
