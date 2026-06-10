@@ -22,6 +22,7 @@ TODO.md
 .claude/
 .agents/
 /Scripts/
+/media/Textures/
 *.sublime-workspace
 *.code-workspace
 
