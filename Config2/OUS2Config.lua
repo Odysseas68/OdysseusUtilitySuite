@@ -13,11 +13,12 @@ local T = OUS.Theme
 OUS.Config2 = {}
 local C = OUS.Config2
 
-C.frame         = nil
-C.currentPage   = nil
-C.pages         = {}        -- [pageName] = { frame, navBtn }
-C.navButtons    = {}        -- ordered list of nav button frames
-C.locked        = false     -- frame resize lock state
+C.frame            = nil
+C.currentPage      = nil
+C.pages            = {}        -- [pageName] = { frame, sidebarFrame, navBtn }
+C.navButtons       = {}        -- ordered list of nav button frames
+C.sidebarContainer = nil
+C.locked           = false     -- frame resize lock state
 
 -- ---------------------------------------------------------------------------
 -- Page order (drives nav button creation order)
@@ -263,6 +264,7 @@ local function SwitchPage(pageName)
     if C.currentPage and C.pages[C.currentPage] then
         local prev = C.pages[C.currentPage]
         if prev.frame then prev.frame:Hide() end
+        if prev.sidebarFrame then prev.sidebarFrame:Hide() end
     end
 
     C.currentPage = pageName
@@ -270,9 +272,8 @@ local function SwitchPage(pageName)
     -- Show or create new page
     local entry = C.pages[pageName]
     if entry then
-        if entry.frame then
-            entry.frame:Show()
-        end
+        if entry.frame then entry.frame:Show() end
+        if entry.sidebarFrame then entry.sidebarFrame:Show() end
         if entry.Refresh then
             entry.Refresh()
         end
@@ -469,6 +470,13 @@ local function BuildHelpPanel(frame)
     helpBg:SetColorTexture(col.helpBg[1], col.helpBg[2], col.helpBg[3], col.helpBg[4])
     helpBg:SetAllPoints()
 
+    -- Optional page-specific content lives below the persistent Help area.
+    local sidebarContainer = CreateFrame("Frame", nil, helpPanel)
+    sidebarContainer:SetPoint("TOPLEFT", helpPanel, "TOPLEFT", 0, -220)
+    sidebarContainer:SetPoint("BOTTOMRIGHT", helpPanel, "BOTTOMRIGHT", 0, 0)
+
+    C.sidebarContainer = sidebarContainer
+
     -- Help panel title
     local helpTitle = helpPanel:CreateFontString(nil, "OVERLAY", T.Fonts.small)
     helpTitle:SetPoint("TOPLEFT", helpPanel, "TOPLEFT", 8, -8)
@@ -479,6 +487,7 @@ local function BuildHelpPanel(frame)
     local helpText = helpPanel:CreateFontString(nil, "OVERLAY", T.Fonts.dimmed)
     helpText:SetPoint("TOPLEFT",  helpPanel, "TOPLEFT",  8, -24)
     helpText:SetPoint("TOPRIGHT", helpPanel, "TOPRIGHT", -8, -24)
+    helpText:SetPoint("BOTTOMRIGHT", sidebarContainer, "TOPRIGHT", -8, 12)
     helpText:SetJustifyH("LEFT")
     helpText:SetJustifyV("TOP")
     helpText:SetWordWrap(true)
@@ -502,30 +511,49 @@ end
 -- ---------------------------------------------------------------------------
 
 local function BuildResizeHandles(frame)
+    local resizeFrameLevel = frame:GetFrameLevel() + 10
+
+    local function StartResize(direction)
+        if C.locked or not frame:IsShown() then return end
+
+        local left = frame:GetLeft()
+        local top = frame:GetTop()
+        if left and top then
+            frame:ClearAllPoints()
+            frame:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", left, top)
+        end
+
+        frame:StopMovingOrSizing()
+        frame:StartSizing(direction)
+    end
+
     -- Right edge
     local resizeRight = CreateFrame("Button", nil, frame)
+    resizeRight:SetFrameLevel(resizeFrameLevel)
     resizeRight:SetPoint("TOPRIGHT",    frame, "TOPRIGHT",    0, -90)
     resizeRight:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 0,  90)
     resizeRight:SetWidth(12)
-    resizeRight:SetScript("OnMouseDown", function() frame:StartSizing("RIGHT") end)
+    resizeRight:SetScript("OnMouseDown", function() StartResize("RIGHT") end)
     resizeRight:SetScript("OnMouseUp",   function() frame:StopMovingOrSizing() end)
 
     -- Bottom edge
     local resizeBottom = CreateFrame("Button", nil, frame)
+    resizeBottom:SetFrameLevel(resizeFrameLevel)
     resizeBottom:SetPoint("BOTTOMLEFT",  frame, "BOTTOMLEFT",  90, 0)
     resizeBottom:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -90, 0)
     resizeBottom:SetHeight(12)
-    resizeBottom:SetScript("OnMouseDown", function() frame:StartSizing("BOTTOM") end)
+    resizeBottom:SetScript("OnMouseDown", function() StartResize("BOTTOM") end)
     resizeBottom:SetScript("OnMouseUp",   function() frame:StopMovingOrSizing() end)
 
     -- Bottom-right corner
     local resizeCorner = CreateFrame("Button", nil, frame)
-    resizeCorner:SetSize(28, 28)
+    resizeCorner:SetFrameLevel(resizeFrameLevel)
+    resizeCorner:SetSize(20, 20)
     resizeCorner:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -8, 8)
     resizeCorner:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Up")
     resizeCorner:SetHighlightTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Highlight")
     resizeCorner:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIM-SizeGrabber-Down")
-    resizeCorner:SetScript("OnMouseDown", function() frame:StartSizing("BOTTOMRIGHT") end)
+    resizeCorner:SetScript("OnMouseDown", function() StartResize("BOTTOMRIGHT") end)
     resizeCorner:SetScript("OnMouseUp",   function() frame:StopMovingOrSizing() end)
 end
 
@@ -597,21 +625,24 @@ end
 -- Public API
 -- ---------------------------------------------------------------------------
 
--- Register a page from an external page file
--- usage: OUS.Config2.RegisterPage("Utilities", pageFrame, RefreshFn)
-function C.RegisterPage(pageName, pageFrame, refreshFn)
+-- Register a page and optional page-specific sidebar from an external file.
+-- usage: OUS.Config2.RegisterPage("Utilities", pageFrame, RefreshFn, sidebarFrame)
+function C.RegisterPage(pageName, pageFrame, refreshFn, sidebarFrame)
     if not C.pages[pageName] then
         C.pages[pageName] = {}
     end
-    C.pages[pageName].frame   = pageFrame
-    C.pages[pageName].Refresh = refreshFn
+    C.pages[pageName].frame        = pageFrame
+    C.pages[pageName].Refresh      = refreshFn
+    C.pages[pageName].sidebarFrame = sidebarFrame
 
     -- If this is the current page, show it immediately
     if C.currentPage == pageName then
         if pageFrame then pageFrame:Show() end
-        if refreshFn  then refreshFn() end
+        if sidebarFrame then sidebarFrame:Show() end
+        if refreshFn then refreshFn() end
     else
         if pageFrame then pageFrame:Hide() end
+        if sidebarFrame then sidebarFrame:Hide() end
     end
 end
 
