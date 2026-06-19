@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS Flightmaster Safe Edit"
+  short_description: "Protect routing learning and timing behavior"
+  default_prompt: "Use $ous-flightmaster-safe-edit to make this flight-system change safely."

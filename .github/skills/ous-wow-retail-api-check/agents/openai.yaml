@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS WoW Retail API Check"
+  short_description: "Verify Retail APIs before OUS changes"
+  default_prompt: "Use $ous-wow-retail-api-check to verify this OUS API change."

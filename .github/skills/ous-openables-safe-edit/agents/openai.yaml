@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS Openables Safe Edit"
+  short_description: "Preserve secure Openables button behavior"
+  default_prompt: "Use $ous-openables-safe-edit to modify Openables safely."

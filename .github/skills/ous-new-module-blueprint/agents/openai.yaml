@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS New Module Blueprint"
+  short_description: "Add independent modules with correct wiring"
+  default_prompt: "Use $ous-new-module-blueprint to add this OUS module."

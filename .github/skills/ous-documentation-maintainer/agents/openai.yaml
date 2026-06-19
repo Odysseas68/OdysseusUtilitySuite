@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS Documentation Maintainer"
+  short_description: "Keep OUS documentation accurate and aligned"
+  default_prompt: "Use $ous-documentation-maintainer to update these OUS documents."

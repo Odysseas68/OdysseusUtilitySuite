@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS Utilities Safe Edit"
+  short_description: "Preserve merchant queues and waypoint state"
+  default_prompt: "Use $ous-utilities-safe-edit to modify Utilities safely."

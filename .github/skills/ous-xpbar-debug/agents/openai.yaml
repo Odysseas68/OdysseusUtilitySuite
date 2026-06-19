@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS XPBar Debug"
+  short_description: "Debug XPBar, reputation, and Delves safely"
+  default_prompt: "Use $ous-xpbar-debug to diagnose and fix this XPBar issue."

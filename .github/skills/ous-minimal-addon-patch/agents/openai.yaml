@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS Minimal Addon Patch"
+  short_description: "Make focused architecture-preserving OUS edits"
+  default_prompt: "Use $ous-minimal-addon-patch to make this focused OUS change."

@@ -426,12 +426,6 @@ local function BuildContentPanel(frame, navPanel, helpPanel)
     contentPanel:SetPoint("BOTTOMLEFT",  navPanel,  "BOTTOMRIGHT", F.panelGap,  0)
     contentPanel:SetPoint("BOTTOMRIGHT", helpPanel, "BOTTOMLEFT", -F.panelGap,  0)
 
-    -- DEBUG: 1px cyan border to visualise content panel bounds — remove when done
-    local debugBorder = CreateFrame("Frame", nil, contentPanel, "BackdropTemplate")
-    debugBorder:SetAllPoints()
-    debugBorder:SetBackdrop({ edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 })
-    debugBorder:SetBackdropBorderColor(0, 1, 1, 0.8)
-
     -- Scroll frame fills content panel minus space for scrollbar on the right
     local scrollFrame = CreateFrame("ScrollFrame", nil, contentPanel)
     scrollFrame:SetPoint("TOPLEFT", contentPanel, "TOPLEFT", 0, 0)
@@ -540,10 +534,7 @@ end
 -- ---------------------------------------------------------------------------
 
 local function CreateConfig2Frame()
-    if C.frame then
-        C.frame:SetShown(not C.frame:IsShown())
-        return
-    end
+    if C.frame then return C.frame end
 
     local F = T.Frame
     local col = T.Colors
@@ -560,6 +551,7 @@ local function CreateConfig2Frame()
     frame:SetResizable(true)
     frame:SetResizeBounds(F.minW, F.minH, F.maxW, F.maxH)
     frame:SetFrameStrata("DIALOG")
+    frame:Hide()
     tinsert(UISpecialFrames, "OUS2ConfigFrame")
 
     C.frame = frame
@@ -601,6 +593,8 @@ local function CreateConfig2Frame()
 
     -- Open to General page by default
     SwitchPage("General")
+
+    return frame
 end
 
 -- ---------------------------------------------------------------------------
@@ -627,16 +621,19 @@ end
 
 -- Open config to a specific page (called from Toolbox or slash commands)
 function C.OpenPage(pageName)
-    if C.frame then
-        C.frame:Show()
-    end
+    local frame = CreateConfig2Frame()
+    frame:Show()
     SwitchPage(pageName)
 end
 
 -- Toggle the config window
 function C.Toggle()
-    CreateConfig2Frame()
+    local frame = CreateConfig2Frame()
+    frame:SetShown(not frame:IsShown())
 end
+
+-- Page files load after this file and require a valid parent immediately.
+CreateConfig2Frame()
 
 -- ---------------------------------------------------------------------------
 -- Slash command

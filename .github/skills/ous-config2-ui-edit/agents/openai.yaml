@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS2 Config UI Edit"
+  short_description: "Build OUS2 pages with shared theme APIs"
+  default_prompt: "Use $ous-config2-ui-edit to implement this OUS2 interface change."

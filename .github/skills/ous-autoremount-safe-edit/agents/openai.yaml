@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS AutoRemount Safe Edit"
+  short_description: "Edit remount logic without protected calls"
+  default_prompt: "Use $ous-autoremount-safe-edit to modify AutoRemount safely."
