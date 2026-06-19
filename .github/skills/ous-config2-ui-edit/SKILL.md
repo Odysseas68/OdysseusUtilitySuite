@@ -13,6 +13,8 @@ description: Build or edit the next-generation OUS2 configuration UI. Use for Co
 6. Wire hover help through `C.SetHelpText` and `C.ClearHelpText`.
 7. Use manual NineSlice placement. Never call `NineSliceUtil.ApplyLayout` for custom TGA files.
 8. Follow the documented Retail ScrollBox pattern for static scrollable content.
-9. Remove debug grids, underlays, and cyan borders before completion. Do not use emoji.
-10. Keep the legacy `/ous` config untouched unless explicitly requested.
-11. Apply `$ous-minimal-addon-patch` and verify uncertain frame APIs with `$ous-wow-retail-api-check`.
+9. For manually resizable OUS2 frames, capture `GetLeft()` and `GetTop()`, normalize to a stable `UIParent` `TOPLEFT` anchor, call `StopMovingOrSizing()`, then call `StartSizing()`.
+10. Guard resize handlers when the frame is locked or hidden, keep resize handles above page and sidebar content, prevent overlap with interactive controls, and retest all handles after adding overlays or sidebars.
+11. Remove debug grids, underlays, and cyan borders before completion. Do not use emoji.
+12. Keep the legacy `/ous` config untouched unless explicitly requested.
+13. Apply `$ous-minimal-addon-patch` and verify uncertain frame APIs with `$ous-wow-retail-api-check`.

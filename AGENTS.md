@@ -347,6 +347,22 @@ Temporary debug grid, underlay, and cyan `BackdropTemplate` debug borders must b
 
 ---
 
+### OUS2 Resizable Frame Rules
+
+For manually resizable OUS2 frames:
+
+* Do not rely on a persistent CENTER anchor during `StartSizing()`.
+* Before calling `StartSizing()`, normalize the frame to a stable screen anchor.
+* Capture the current frame position with `GetLeft()` and `GetTop()`.
+* Re-anchor the frame to `UIParent` using `TOPLEFT` before resizing.
+* Call `StopMovingOrSizing()` before starting a new resize operation.
+* Guard resize handlers when the frame is locked or hidden.
+* Give resize handles an explicit frame level above content, sidebar, and page frames.
+* Resize handles must not overlap interactive buttons or controls.
+* After adding sidebars, overlays, page containers, or footer controls, test resize from right, bottom, and bottom-right handles.
+
+---
+
 ## Modern ScrollBox Rules
 
 For static scrollable content in Retail 12.0.5+:

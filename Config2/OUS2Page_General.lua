@@ -38,6 +38,48 @@ local function AddPanelBackground(parent, textureKey, alpha)
     return background
 end
 
+local function AddModuleCardStyle(parent)
+    local background = parent:CreateTexture(nil, "BACKGROUND")
+    background:SetColorTexture(
+        T.Colors.bgDark[1],
+        T.Colors.bgDark[2],
+        T.Colors.bgDark[3],
+        0.62
+    )
+    background:SetAllPoints()
+
+    local borderTop = parent:CreateTexture(nil, "BORDER")
+    borderTop:SetColorTexture(unpack(T.Colors.border))
+    borderTop:SetPoint("TOPLEFT")
+    borderTop:SetPoint("TOPRIGHT")
+    borderTop:SetHeight(1)
+
+    local borderBottom = parent:CreateTexture(nil, "BORDER")
+    borderBottom:SetColorTexture(unpack(T.Colors.border))
+    borderBottom:SetPoint("BOTTOMLEFT")
+    borderBottom:SetPoint("BOTTOMRIGHT")
+    borderBottom:SetHeight(1)
+
+    local borderLeft = parent:CreateTexture(nil, "BORDER")
+    borderLeft:SetColorTexture(unpack(T.Colors.border))
+    borderLeft:SetPoint("TOPLEFT", 0, -1)
+    borderLeft:SetPoint("BOTTOMLEFT", 0, 1)
+    borderLeft:SetWidth(1)
+
+    local borderRight = parent:CreateTexture(nil, "BORDER")
+    borderRight:SetColorTexture(unpack(T.Colors.border))
+    borderRight:SetPoint("TOPRIGHT", 0, -1)
+    borderRight:SetPoint("BOTTOMRIGHT", 0, 1)
+    borderRight:SetWidth(1)
+
+    local accent = parent:CreateTexture(nil, "ARTWORK")
+    accent:SetColorTexture(unpack(T.Colors.accent))
+    accent:SetPoint("TOPLEFT", 10, -1)
+    accent:SetPoint("TOPRIGHT", -10, -1)
+    accent:SetHeight(1)
+    accent:SetAlpha(0.45)
+end
+
 local function CreateSectionHeader(parent, text, yOffset)
     local star = parent:CreateTexture(nil, "ARTWORK")
     star:SetTexture(T.Tex("SectionStar"))
@@ -112,7 +154,7 @@ for index, moduleInfo in ipairs(MODULES) do
     card:SetPoint("TOPLEFT", columnFrame, "TOPLEFT", 0, yOffset)
     card:SetPoint("TOPRIGHT", columnFrame, "TOPRIGHT", 0, yOffset)
 
-    AddPanelBackground(card, "ButtonNormal", 0.58)
+    AddModuleCardStyle(card)
 
     local icon = card:CreateTexture(nil, "ARTWORK")
     icon:SetTexture(T.Tex(moduleInfo.icon))
