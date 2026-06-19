@@ -311,12 +311,12 @@ local function BuildNavPanel(frame, navPanel, contentPanel)
         local indicator = navPanel:CreateTexture(nil, "OVERLAY")
         indicator:SetTexture(T.Tex("TabIndicator"))
         indicator:SetSize(8, btnH - 6)
-        indicator:SetPoint("LEFT", btn, "LEFT", -6, 0)
+        indicator:SetPoint("LEFT", btn, "LEFT", 6, 0)
         indicator:Hide()
 
         -- Button label
         local label = btn:CreateFontString(nil, "OVERLAY", T.Fonts.navButton)
-        label:SetPoint("LEFT", btn, "LEFT", 14, 0)
+        label:SetPoint("LEFT", btn, "LEFT", 32, 1)
         label:SetText(PAGE_LABELS[pageName] or pageName)
         label:SetTextColor(col.text[1], col.text[2], col.text[3], 1)
 
@@ -565,8 +565,8 @@ local function CreateConfig2Frame()
     -- Left nav panel
     local navPanel = CreateFrame("Frame", nil, frame)
     navPanel:SetWidth(F.navWidth)
-    navPanel:SetPoint("TOPLEFT",    frame, "TOPLEFT",    F.cornerSize - F.sideWidth - 4, -F.headerHeight)
-    navPanel:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", F.cornerSize - F.sideWidth - 4,  F.footerHeight)
+    navPanel:SetPoint("TOPLEFT",    frame, "TOPLEFT",    F.cornerSize - F.sideWidth - 26, -F.headerHeight)
+    navPanel:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", F.cornerSize - F.sideWidth - 26,  F.footerHeight)
 
     local navBg = navPanel:CreateTexture(nil, "BACKGROUND")
     navBg:SetColorTexture(col.navBg[1], col.navBg[2], col.navBg[3], col.navBg[4])

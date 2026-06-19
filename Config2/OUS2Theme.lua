@@ -117,7 +117,7 @@ T.Frame = {
     gemOffsetBottom = 15,
 
     -- Panel widths
-    navWidth        = 140,      -- left navigation panel
+    navWidth        = 180,      -- left navigation panel
     helpWidth       = 150,      -- right help panel
     panelGap        = 8,        -- gap between panels
 
@@ -153,8 +153,8 @@ T.Colors = {
     header          = { 1.00, 0.82, 0.00, 1.0 },   -- gold section headers
     border          = { 0.40, 0.30, 0.60, 1.0 },   -- dark purple border
     bgDark          = { 0.08, 0.06, 0.14, 0.97 },  -- main frame background
-    navBg           = { 0.06, 0.04, 0.10, 0.90 },  -- left nav panel background
-    helpBg          = { 0.06, 0.04, 0.10, 0.85 },  -- help panel background
+    navBg           = { 0.06, 0.04, 0.10, 0.10 },  -- left nav panel background
+    helpBg          = { 0.06, 0.04, 0.10, 0.10 },  -- help panel background
     separator       = { 0.35, 0.28, 0.50, 0.80 },  -- nav separator line
     highlight       = { 0.80, 0.70, 1.00, 0.15 },  -- hover highlight overlay
     enabled         = { 0.40, 1.00, 0.40, 1.0 },   -- module enabled indicator
