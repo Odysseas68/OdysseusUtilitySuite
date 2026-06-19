@@ -1891,4 +1891,9 @@ OUS.OpenablesDB = {
     [264895] = 1,   -- Trials of the Florafaun Hunter
     [269701] = 1,   -- Surplus Bag of Party Favors
     [270934] = 1,   -- Recruit's Field Pouch
+    [124670] = 1,   -- Sealed Darkmoon Crate
+    [257023] = 1,   -- Preyseeker's Adventurer Chest
+    [262928] = 1,   -- Preyseeker's Adventurer Sack
+    [262936] = 1,   -- Preyseeker's Veteran Sack
+    [265020] = 1,   -- Ensemble: Courtier's Umbral Vestments
 }

@@ -1724,9 +1724,11 @@ SFT_FlightData = {
         ["Town Center"] = 30,
     },
     ["Brumewood Hollow, Founder's Point"] = {
+        ["Entrance Portal, Founder's Point"] = 37,
         ["Gilded Oaks, Founder's Point"] = 24,
         ["Small Aerie, Founder's Point"] = 25,
         ["Stoneveil Ridge, Founder's Point"] = 22,
+        ["The Outer Banks, Founder's Point"] = 37,
     },
     ["Camber Alcove"] = {
         ["Arcae Locus"] = 2,
@@ -1915,6 +1917,7 @@ SFT_FlightData = {
         ["Atal'Aman, Zul'Aman"] = 87,
         ["Sanctum of Light, Silvermoon City"] = 165,
         ["Shadebasin Watch, Zul'Aman"] = 22,
+        ["Torntusk Overlook, Zul'Aman"] = 139,
         ["Witherbark Bluffs, Zul'Aman"] = 54,
     },
     ["Camp Tunka'lo"] = {
@@ -3669,6 +3672,7 @@ SFT_FlightData = {
     },
     ["Entrance Portal, Founder's Point"] = {
         ["Brumewood Hollow, Founder's Point"] = 28,
+        ["Town Center, Founder's Point"] = 13,
     },
     ["Ephemeral Plains Alpha"] = {
         ["Genesis Cradle Alpha"] = 35,
@@ -4036,7 +4040,7 @@ SFT_FlightData = {
         ["Fuselight, Badlands"] = 483,
         ["Hearthglen, Western Plaguelands"] = 308,
         ["Iron Summit, Searing Gorge"] = 618,
-        ["Light's Hope Chapel, Eastern Plaguelands"] = 167,
+        ["Light's Hope Chapel, Eastern Plaguelands"] = 205,
         ["Light's Shield Tower, Eastern Plaguelands"] = 195,
         ["Northpass Tower, Eastern Plaguelands"] = 213,
         ["Plaguewood Tower, Eastern Plaguelands"] = 248,
@@ -13166,6 +13170,7 @@ SFT_FlightData = {
         ["Tirna Vaal"] = 223,
     },
     ["Terrace of the Sun, Isle of Quel'Danas"] = {
+        ["Light's Hope Chapel, Eastern Plaguelands"] = 335,
         ["Sanctum of Light, Silvermoon City"] = 100,
     },
     ["Thal'darah Overlook"] = {

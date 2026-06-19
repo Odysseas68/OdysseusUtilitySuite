@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Core.lua
--- Version : 2026.06.03
+-- Version : 2026.06.16
 -- Desc    : Namespace, DB init, module defaults, slash commands
 -- ============================================================
 
@@ -398,6 +398,13 @@ SlashCmdList["ODYSSEUS"] = function(msg)
         if OUS.ConfigFrame then
             if OUS.ConfigFrame:IsShown() then OUS.ConfigFrame:Hide() else OUS.ConfigFrame:Show() end
         end
+    end
+end
+
+SLASH_OUS2CONFIG1 = "/ous2"
+SlashCmdList["OUS2CONFIG"] = function(msg)
+    if OUS.Config2 and OUS.Config2.Toggle then
+        OUS.Config2.Toggle()
     end
 end
 

@@ -22,7 +22,7 @@ TODO.md
 .claude/
 .agents/
 /Scripts/
-/media/Textures/
+/Documentation/
 *.sublime-workspace
 *.code-workspace
 
@@ -30,6 +30,7 @@ TODO.md
 *.zip
 *.rar
 *.csv
+*.png
 /release/
 /build/
 /out/

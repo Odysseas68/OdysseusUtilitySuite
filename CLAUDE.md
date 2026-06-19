@@ -1,7 +1,7 @@
 # Odysseus Utility Suite — Claude Code Context
 
 ## Project Overview
-A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tools into a single suite. Modules are independently toggled from a shared Midnight-themed config UI opened with `/ous`.
+A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tools into a single suite. Modules are independently toggled from a shared Midnight-themed config UI opened with `/ous`. A next-generation config UI (OUS2) is under active development, opened with `/ous2`.
 
 **SavedVariables:** `OdysseusDB` (account-wide), `OdysseusCharDB` (per-character)
 **Namespace:** `local addonName, OUS = ...` — the `OUS` table is the global shared namespace.
@@ -35,6 +35,8 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 24. `Config.lua` — main config UI (loads last)
 25. `xpbar_config.lua` — xpbar config panel (loads last)
 26. `Help.lua` — tabbed help frame (loads last)
+27. `Config2\OUS2Theme.lua` — OUS2 theme registry (textures, colors, fonts, constants)
+28. `Config2\OUS2Config.lua` — OUS2 main config frame (loads last)
 
 ---
 
@@ -53,6 +55,78 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 **Config wiring:** New module config panels attach to `OUS.ConfigFrame` (built in `Config.lua`). Config always loads last so it can reference any module's state.
 
 **Per-character settings:** Use `OdysseusCharDB` (declared as `SavedVariablesPerCharacter` in the TOC). Account-wide settings go in `OdysseusDB`, character-specific settings go in `OdysseusCharDB` under a module key e.g. `OdysseusCharDB.autoRemountChar`, `OdysseusCharDB.statsBar`. Initialize in `Core.lua` ADDON_LOADED block.
+
+---
+
+## OUS2 Config UI Notes
+
+OUS2 is the next-generation configuration window. Files live in `Config2\`.
+
+**Namespaces:**
+- `OUS.Theme` (alias `local T = OUS.Theme`) — texture registry, colors, fonts, constants
+- `OUS.Config2` (alias `local C = OUS.Config2`) — frame state, page system, public API
+
+**Texture path:** `Interface\\AddOns\\OdysseusUtilitySuite\\media\\Textures\\`
+All TGA files sit flat in this directory — no `Assets/` subfolder.
+Always access via `T.Tex(key)` helper — never hardcode paths in page files.
+
+**Slash command:** `/ous2` — handler registered in `Core.lua` (not OUS2Config.lua), calls `OUS.Config2.Toggle()`.
+
+**Public API:**
+```lua
+OUS.Config2.RegisterPage(pageName, pageFrame, refreshFn)  -- wire a page into the nav
+OUS.Config2.OpenPage(pageName)    -- show window and switch to named page
+OUS.Config2.Toggle()              -- show/hide window
+OUS.Config2.SetHelpText(text)     -- update help panel (call on setting hover)
+OUS.Config2.ClearHelpText()       -- reset help panel (call on mouse leave)
+C.pageContainer                   -- scroll child frame; parent all page content here
+```
+
+**Page file pattern:**
+```lua
+local addonName, OUS = ...
+local T = OUS.Theme
+local C = OUS.Config2
+
+local pageFrame = CreateFrame("Frame", nil, C.pageContainer)
+pageFrame:SetAllPoints()
+pageFrame:Hide()
+
+local function Refresh()
+    -- read OdysseusDB and update widget states
+end
+
+-- Wire hover help text on any setting widget:
+widget:SetScript("OnEnter", function() C.SetHelpText("Description.") end)
+widget:SetScript("OnLeave", function() C.ClearHelpText() end)
+
+OUS.Config2.RegisterPage("PageName", pageFrame, Refresh)
+```
+
+**Internal page name keys** (use exactly these strings):
+`General, XPBar, Delves, FlightMaster, FlightRouting, Utilities, Openables, StatsBar, AutoRemount, FasterLoot, FishingTracker, Toolbox, Help, Changelog`
+
+**NineSlice:** Manual placement only. `NineSliceUtil.ApplyLayout` is atlas-only and does NOT work with custom TGA files — never use it.
+
+**Emoji in WoW:** Emoji characters (🔒🔓 etc.) render as blank boxes in WoW's font system. Never use emoji for UI state or button labels — use textures (`Checkbox_Checked/Unchecked.tga`) and font strings with plain ASCII text instead.
+
+**Scrollbar architecture (OUS2):**
+- `scrollTest` container is parented to `contentPanel`, anchored `TOPRIGHT`/`BOTTOMRIGHT` — NOT to `frame`
+- Track height = `scrollTest:GetHeight()` (auto-follows panel height via anchors)
+- Thumb position recalculated in `UpdateCustomThumb()` on `OnVerticalScroll`
+- `trackW = 10`, `thumbMinH = 60`, `thumbRatio = 0.30`, `scrollStep = 18`
+
+**Debug border:** A temporary cyan 1px `BackdropTemplate` border exists on `contentPanel` for layout verification — remove before committing the General page.
+
+**Frame constants (from OUS2Theme.lua — do not hardcode in page files):**
+```lua
+T.Frame.navWidth     = 140    -- left nav panel width
+T.Frame.helpWidth    = 150    -- right help panel width
+T.Frame.panelGap     = 8      -- gap between panels
+T.Frame.headerHeight = 60     -- reserved top area
+T.Frame.footerHeight = 40     -- reserved bottom area
+T.Frame.cornerSize   = 80     -- NineSlice corner display size
+```
 
 ---
 
@@ -151,8 +225,8 @@ ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
 ---
 
 ## Hard Constraints (never violate)
-- WoW Retail 12.0+ API only — interfaces: `120000, 120001, 120005`
-- No deprecated functions (no `UnitXP` alternatives that are Classic-only, etc.)
+- WoW Retail 12.0+ API only — current interface: `120007`
+- No deprecated functions (verify in wow-ui-source before using any unfamiliar API)
 - No taint — never hook or replace protected Blizzard frames/functions directly
 - No `loadstring`, no `pcall` wrappers around core logic (only around logging, as in Core.lua)
 - No multi-file changes in a single task — work one file at a time
@@ -166,6 +240,8 @@ ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
 - `GetXPExhaustion()` is valid in Retail 12.0+ — returns rested XP amount or `nil` when not rested. `C_XP` namespace does not exist — do not use it. Safe pattern: `(GetXPExhaustion and GetXPExhaustion()) or 0`
 - `tonumber()` does NOT neutralize secret number values in Retail 12.0+ — it passes them through unchanged; use `pcall` around stat reads and format/math operations on stat values (permitted exception: display helpers and stat cache population only, not core logic)
 - Secure buttons: never set `OnMouseDown`/`OnMouseUp` on `SecureActionButtonTemplate` frames — use `PostClick` for post-action logic only; use `type=macro` with `/use item:ID` for item use
+- **Emoji characters render as blank boxes in WoW's font system** — never use emoji for UI state, button labels, or any in-game text; use textures or plain ASCII text instead
+- **NineSlice:** `NineSliceUtil.ApplyLayout` is atlas-only — does NOT work with custom TGA files; always use manual SetPoint placement for custom frame borders
 - All files must have a standard header comment block at the top: `-- Addon : OdysseusUtilitySuite / -- File : FileName.lua / -- Version : YYYY.MM.DD / -- Desc : brief description`
 - Before every commit, update the TOC `## Version:` field to the current date in `YYYY.MM.DD` format — no commit without a version bump
 
@@ -180,11 +256,28 @@ ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
 6. Add config panel wiring in `Config.lua` or a dedicated `newmodule_config.lua` loaded after the engine
 7. Add a Toolbox button entry to `BUTTONS` table in `Toolbox.lua` if the module has a toggleable frame or opens a config tab
 8. Add slash commands to the relevant tab in `Help.lua`
+9. Create `Config2\OUS2Page_NewModule.lua` and call `OUS.Config2.RegisterPage("NewModule", frame, Refresh)`
+10. Add `Config2\OUS2Page_NewModule.lua` to TOC after `Config2\OUS2Config.lua`
+
+---
+
+## Adding a New OUS2 Page (checklist)
+1. Create `Config2\OUS2Page_<Name>.lua`
+2. Add standard file header comment
+3. Parent page frame to `OUS.Config2.pageContainer`, call `SetAllPoints()`, `Hide()`
+4. Add module icon (32x32 from `T.Tex("Icon<Name)")`) at top left
+5. Add enable/disable checkbox at top right
+6. Build settings using `T.Colors`, `T.Fonts`, `T.Tex()` — never hardcode values
+7. Wire `OnEnter`/`OnLeave` on every setting row to `C.SetHelpText` / `C.ClearHelpText`
+8. Implement `Refresh()` function — reads from `OdysseusDB` and updates widget states
+9. Call `OUS.Config2.RegisterPage("Name", pageFrame, Refresh)` at end of file
+10. Add `Config2\OUS2Page_<Name>.lua` to TOC in section 6
 
 ---
 
 ## Slash Commands (existing — don't duplicate)
-- `/ous` — toggle config window
+- `/ous` — toggle legacy config window
+- `/ous2` — toggle OUS2 config window (new)
 - `/ous help` — help frame
 - `/ous debug` — alias for ousdebug
 - `/ous fish` — toggle fishing tracker
