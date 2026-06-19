@@ -6,9 +6,9 @@ Odysseus Utility Suite (OUS) is a modular World of Warcraft Retail addon for Ret
 
 It combines quality-of-life utility tools into a single addon suite. Existing modules are independently toggled from the legacy Midnight-themed configuration UI opened with `/ous`. A next-generation configuration framework, OUS2, is under active development and opened with `/ous2`.
 
-**Current WoW Interface target:** `120007`  
-**SavedVariables:** `OdysseusDB` account-wide, `OdysseusCharDB` per-character  
-**Namespace pattern:** `local addonName, OUS = ...`  
+**Current WoW Interface target:** `120007`
+**SavedVariables:** `OdysseusDB` account-wide, `OdysseusCharDB` per-character
+**Namespace pattern:** `local addonName, OUS = ...`
 **Shared namespace:** all exported functions, module state, defaults, and shared helpers live on the `OUS` table.
 
 This project is in refinement and feature-expansion phase, not rewrite phase.
@@ -515,12 +515,17 @@ Documentation is part of the project, not an afterthought.
 
 Maintain and update when behavior changes:
 
-- `README.md` / `README_v2.md`
-- `ARCHITECTURE.md`
-- `TODO.md` / `TODO_v2.md`
-- `CLAUDE.md`
-- `CHANGELOG.md` if present
-- `AGENTS.md`
+- README.md
+- Documentation/README_v2.md
+- Documentation/ARCHITECTURE.md
+- Documentation/TODO_v2.md
+- CHANGELOG.md (if present)
+
+CLAUDE.md is reference material only.
+Do not modify CLAUDE.md unless explicitly instructed.
+
+AGENTS.md should only be modified when development rules,
+architecture conventions, workflows, or project standards change.
 
 When documentation and code disagree, inspect the code and report the mismatch.
 
@@ -530,6 +535,10 @@ For documentation-only tasks:
 - Do not invent completed features.
 - Mark uncertain or inferred items clearly.
 - Keep current phase/status accurate.
+
+When a new file is created, determine whether documentation updates
+are actually required before modifying documentation.
+Avoid documentation-only churn for cosmetic or internal changes.
 
 ---
 
@@ -560,6 +569,17 @@ When producing code for the user to paste manually:
 - Give clear insertion/replacement location.
 - Avoid tiny ambiguous snippets when a full replacement block is safer.
 
+## File Header Rule
+
+Every new Lua file must start with this header format:
+
+```
+-- Addon   : OdysseusUtilitySuite
+-- File    : Relative\Path\Filename.lua
+-- Version : YYYY.MM.DD
+-- Desc    : Short description of the file purpose
+-- =========================================
+```
 ---
 
 ## Skill Trigger Patterns
@@ -719,7 +739,8 @@ Rules:
 - Do not modify code.
 - Do not invent features.
 - Keep current phase/status accurate.
-- Update `ARCHITECTURE.md`, `TODO.md`, `README.md`, `CLAUDE.md`, and `AGENTS.md` consistently when needed.
+- Update related documentation consistently when needed.
+- Treat `CLAUDE.md` as reference-only; do not modify it unless explicitly instructed.
 - Report code/doc mismatches.
 
 ### Pattern: New Module Blueprint

@@ -19,7 +19,6 @@ TODO.md
 .idea/
 .claude/
 /Scripts/
-/Documentation/
 *.sublime-workspace
 *.code-workspace
 

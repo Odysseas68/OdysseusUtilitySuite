@@ -63,3 +63,4 @@ Help.lua
 # ==========================================
 Config2\OUS2Theme.lua
 Config2\OUS2Config.lua
+Config2\OUS2Page_General.lua

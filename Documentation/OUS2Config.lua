@@ -311,12 +311,12 @@ local function BuildNavPanel(frame, navPanel, contentPanel)
         local indicator = navPanel:CreateTexture(nil, "OVERLAY")
         indicator:SetTexture(T.Tex("TabIndicator"))
         indicator:SetSize(8, btnH - 6)
-        indicator:SetPoint("LEFT", btn, "LEFT", 6, 0)
+        indicator:SetPoint("LEFT", btn, "LEFT", -6, 0)
         indicator:Hide()
 
         -- Button label
         local label = btn:CreateFontString(nil, "OVERLAY", T.Fonts.navButton)
-        label:SetPoint("LEFT", btn, "LEFT", 32, 1)
+        label:SetPoint("LEFT", btn, "LEFT", 14, 0)
         label:SetText(PAGE_LABELS[pageName] or pageName)
         label:SetTextColor(col.text[1], col.text[2], col.text[3], 1)
 
@@ -352,10 +352,10 @@ local function BuildScrollbar(frame, contentPanel, scrollFrame)
 
     -- Scrollbar container — mirrors prototype pattern: centered vertically on frame,
     -- horizontally positioned between content panel right edge and help panel
-    local scrollTest = CreateFrame("Frame", nil, contentPanel)
-    scrollTest:SetWidth(S.trackW)
-    scrollTest:SetPoint("TOPRIGHT", contentPanel, "TOPRIGHT", 0, 0)
-    scrollTest:SetPoint("BOTTOMRIGHT", contentPanel, "BOTTOMRIGHT", 0, 0)
+    local scrollTest = CreateFrame("Frame", nil, frame)
+    scrollTest:SetWidth(S.trackW + 10)
+    scrollTest:SetPoint("TOPRIGHT",    frame, "TOPRIGHT", -(F.helpWidth + F.panelGap * 2), -F.headerHeight)
+    scrollTest:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -(F.helpWidth + F.panelGap * 2),  F.footerHeight)
 
     local track = scrollTest:CreateTexture(nil, "ARTWORK")
     track:SetTexture(T.Tex("ScrollTrack"))
@@ -423,13 +423,19 @@ local function BuildContentPanel(frame, navPanel, helpPanel)
     local contentPanel = CreateFrame("Frame", nil, frame)
     contentPanel:SetPoint("TOPLEFT",     navPanel,  "TOPRIGHT",    F.panelGap,  0)
     contentPanel:SetPoint("TOPRIGHT",    helpPanel, "TOPLEFT",    -F.panelGap,  0)
-    contentPanel:SetPoint("BOTTOMLEFT",  navPanel,  "BOTTOMRIGHT", F.panelGap,  0)
-    contentPanel:SetPoint("BOTTOMRIGHT", helpPanel, "BOTTOMLEFT", -F.panelGap,  0)
+    contentPanel:SetPoint("BOTTOMLEFT",  navPanel,  "BOTTOMRIGHT", F.panelGap,  F.footerHeight)
+    contentPanel:SetPoint("BOTTOMRIGHT", helpPanel, "BOTTOMLEFT", -F.panelGap,  F.footerHeight)
+
+    -- DEBUG: 1px cyan border to visualise content panel bounds — remove when done
+    local debugBorder = CreateFrame("Frame", nil, contentPanel, "BackdropTemplate")
+    debugBorder:SetAllPoints()
+    debugBorder:SetBackdrop({ edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 })
+    debugBorder:SetBackdropBorderColor(0, 1, 1, 0.8)
 
     -- Scroll frame fills content panel minus space for scrollbar on the right
     local scrollFrame = CreateFrame("ScrollFrame", nil, contentPanel)
-    scrollFrame:SetPoint("TOPLEFT", contentPanel, "TOPLEFT", 0, 0)
-    scrollFrame:SetPoint("BOTTOMRIGHT", contentPanel, "BOTTOMRIGHT", -(S.trackW + S.contentGap), 0)
+    scrollFrame:SetPoint("TOPLEFT",     contentPanel, "TOPLEFT",     0,                            -F.headerHeight)
+    scrollFrame:SetPoint("BOTTOMRIGHT", contentPanel, "BOTTOMRIGHT", -(S.trackW + S.contentGap),   0)
 
     scrollFrame:EnableMouseWheel(true)
     scrollFrame:SetScript("OnMouseWheel", function(self, delta)
@@ -534,7 +540,10 @@ end
 -- ---------------------------------------------------------------------------
 
 local function CreateConfig2Frame()
-    if C.frame then return C.frame end
+    if C.frame then
+        C.frame:SetShown(not C.frame:IsShown())
+        return
+    end
 
     local F = T.Frame
     local col = T.Colors
@@ -551,7 +560,6 @@ local function CreateConfig2Frame()
     frame:SetResizable(true)
     frame:SetResizeBounds(F.minW, F.minH, F.maxW, F.maxH)
     frame:SetFrameStrata("DIALOG")
-    frame:Hide()
     tinsert(UISpecialFrames, "OUS2ConfigFrame")
 
     C.frame = frame
@@ -565,8 +573,12 @@ local function CreateConfig2Frame()
     -- Left nav panel
     local navPanel = CreateFrame("Frame", nil, frame)
     navPanel:SetWidth(F.navWidth)
-    navPanel:SetPoint("TOPLEFT",    frame, "TOPLEFT",    F.cornerSize - F.sideWidth - 26, -F.headerHeight)
-    navPanel:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", F.cornerSize - F.sideWidth - 26,  F.footerHeight)
+    navPanel:SetPoint("TOPLEFT",    frame, "TOPLEFT",    F.cornerSize - F.sideWidth - 4, -F.headerHeight)
+    navPanel:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", F.cornerSize - F.sideWidth - 4,  F.footerHeight)
+
+    local navBg = navPanel:CreateTexture(nil, "BACKGROUND")
+    navBg:SetColorTexture(col.navBg[1], col.navBg[2], col.navBg[3], col.navBg[4])
+    navBg:SetAllPoints()
 
     -- Content + scroll
     local contentPanel, scrollFrame, scrollChild = BuildContentPanel(frame, navPanel, helpPanel)
@@ -589,8 +601,6 @@ local function CreateConfig2Frame()
 
     -- Open to General page by default
     SwitchPage("General")
-
-    return frame
 end
 
 -- ---------------------------------------------------------------------------
@@ -617,19 +627,16 @@ end
 
 -- Open config to a specific page (called from Toolbox or slash commands)
 function C.OpenPage(pageName)
-    local frame = CreateConfig2Frame()
-    frame:Show()
+    if C.frame then
+        C.frame:Show()
+    end
     SwitchPage(pageName)
 end
 
 -- Toggle the config window
 function C.Toggle()
-    local frame = CreateConfig2Frame()
-    frame:SetShown(not frame:IsShown())
+    CreateConfig2Frame()
 end
-
--- Page files load after this file and require a valid parent immediately.
-CreateConfig2Frame()
 
 -- ---------------------------------------------------------------------------
 -- Slash command

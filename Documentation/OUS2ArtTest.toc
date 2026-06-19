@@ -1,0 +1,7 @@
+## Interface: 120000, 120001, 120005, 120007
+## Title: OUS2 Art Test
+## Notes: Test addon for Odysseus Utility Suite v2 frame artwork.
+## Author: Odysseus68
+## Version: 0.1
+
+OUS2ArtTest.lua
