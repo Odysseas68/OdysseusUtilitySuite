@@ -257,20 +257,32 @@ Do not hardcode texture paths in page files.
 
 - Use `T.Colors.*`; do not hardcode RGB values in page files.
 - Use `T.Fonts.*`; do not hardcode font objects unless required.
-- Use `T.Frame.*`, `T.Scroll.*`, and `T.Icons.*`; do not duplicate constants.
+- Use `T.Frame.*`, `T.Scroll.*`, `T.Icons.*`, and `T.Card.*`; do not duplicate constants.
+- `T.Card.*` contains reusable dashboard card sizing, spacing, and layout constants.
 - OUS2 visual identity is Midnight Arcane: dark metallic charcoal, deep midnight blue, pale readable text, soft lavender crystal accents.
 - Do not stretch logos. Center large branding assets.
+- Module card backgrounds are theme assets.
+  Use:
+  - T.Tex("CardNormal")
+  - T.Tex("CardHover")
+  - T.Tex("CardSelected")
+
+Do not hardcode card texture filenames or paths in page files.
+
+Icons, titles, descriptions, and chevrons remain Lua UI elements layered above the card texture.
 
 ### OUS2 Public API
 
 ```lua
-OUS.Config2.RegisterPage(pageName, pageFrame, refreshFn)
+OUS.Config2.RegisterPage(pageName, pageFrame, refreshFn, sidebarFrame)
 OUS.Config2.OpenPage(pageName)
 OUS.Config2.Toggle()
 OUS.Config2.SetHelpText(text)
 OUS.Config2.ClearHelpText()
 C.pageContainer
+C.sidebarContainer
 ```
+sidebarFrame is optional and is used for page-specific content inside C.sidebarContainer.
 
 ### OUS2 Page Keys
 
@@ -304,20 +316,34 @@ Each page file should:
 5. Build UI using `T.Tex`, `T.Colors`, `T.Fonts`, and frame constants.
 6. Wire setting hover text with `C.SetHelpText(text)` and `C.ClearHelpText()`.
 7. Implement `Refresh()` to read from `OdysseusDB` / `OdysseusCharDB`.
-8. Register with `OUS.Config2.RegisterPage("PageKey", pageFrame, Refresh)`.
-9. Add the file to the TOC after `Config2\OUS2Config.lua`.
+8. Register with `OUS.Config2.RegisterPage("PageKey", pageFrame, Refresh, sidebarFrame)`.
+   `sidebarFrame` is optional and should be used only for page-specific right-sidebar content.
+9. If the page uses page-specific sidebar content, parent it to
+   `C.sidebarContainer` and register it through the current OUS2
+    page/sidebar pattern.
+10. Add the file to the TOC after `Config2\OUS2Config.lua`.
 
 ### OUS2 Current Focus
 
-Current focus is Phase 3: General page dashboard.
+Current focus is Phase 3: General dashboard refinement.
 
-Tasks:
+Completed:
+- OUS2Page_General.lua created and registered
+- General dashboard layout implemented
+- Shared card asset system implemented
+- T.Card theme constants added
+- Sidebar architecture implemented
+- Resize framework stabilized
 
-1. Remove temporary debug border from content panel.
-2. Create `Config2\OUS2Page_General.lua`.
-3. Build General dashboard with version info, module count, and module cards.
-4. Wire module cards to `OUS.Config2.OpenPage(pageName)`.
-5. Add the new file to the TOC after `Config2\OUS2Config.lua`.
+Remaining:
+- Module card navigation
+- Module count summary
+- Enabled/disabled module state display
+- Global Options functionality
+- Reset to Defaults functionality
+
+Next major milestone:
+- Utilities OUS2 page
 
 ### OUS2 Manual NineSlice
 
@@ -594,7 +620,7 @@ Every new Lua file must start with this header format:
 -- File    : Relative\Path\Filename.lua
 -- Version : YYYY.MM.DD
 -- Desc    : Short description of the file purpose
--- =========================================
+-- ================================================
 ```
 ---
 
@@ -698,7 +724,7 @@ Use when editing:
 
 Rules:
 
-- Use `T.Tex`, `T.Colors`, `T.Fonts`, `T.Frame`, `T.Scroll`, and `T.Icons`.
+- Use T.Tex, T.Colors, T.Fonts, T.Frame, T.Scroll, T.Icons, and T.Card.
 - Do not hardcode texture paths, RGB colors, or frame constants in page files.
 - Parent pages to `C.pageContainer`.
 - Register pages with `OUS.Config2.RegisterPage`.

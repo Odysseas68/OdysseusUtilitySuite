@@ -79,6 +79,11 @@ T.Assets = {
     IconToolbox         = "Icon_Toolbox.tga",
     IconHelp            = "Icon_Help.tga",
     IconChangelog       = "Icon_Changelog.tga",
+
+    -- Module cards
+    CardNormal          = "CardBG_Normal.tga",
+    CardHover           = "CardBG_Hover.tga",
+    CardSelected        = "CardBG_Selected.tga",
 }
 
 -- Returns the full texture path for a given asset key
@@ -139,6 +144,17 @@ T.Scroll = {
     -- Track height is dynamic and follows contentPanel height.
     trackHeightBase = 260,      -- subtracted from frame height to get track height
     scrollStep      = 18,       -- pixels per mouse wheel tick
+}
+
+-- ---------------------------------------------------------------------------
+-- Module card layout
+-- ---------------------------------------------------------------------------
+
+T.Card = {
+    Height      = 72,   -- default dashboard card height
+    IconSize    = 32,   -- module icon size inside card
+    ChevronSize = 14,   -- right-side navigation chevron size
+    Padding     = 10,   -- inner spacing from card edges
 }
 
 -- ---------------------------------------------------------------------------

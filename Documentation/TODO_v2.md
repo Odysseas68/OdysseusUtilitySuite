@@ -1,189 +1,289 @@
 # OUS2 TODO
 
-## Phase 1 — Foundation ✅ COMPLETE
+## Phase 1 — Foundation COMPLETE
 
 ### Frame System
 * [x] Create OUS2ArtTest addon
-* [x] Build NineSlice frame prototype (manual placement)
-* [x] Create custom artwork pack (Midnight Arcane — AISure.uk)
-* [x] Verify corners, borders, gems and background alignment
+* [x] Build NineSlice frame prototype with manual placement
+* [x] Create Midnight Arcane artwork pack
+* [x] Verify frame corners, borders, gems, and background alignment
 * [x] Add ESC key support via UISpecialFrames
 * [x] Test custom scrollbar artwork
-* [x] Verify thumb movement with scroll position
-* [x] Add resizable frame (right edge, bottom edge, corner handles)
-* [x] Add dynamic scroll layout (recalculates on OnSizeChanged)
-* [x] Add debug flag system (DEBUG_GRID, DEBUG_UNDERLAY, DEBUG_SCROLLBOX)
-* [x] Validate final frame constants (corner=80, topH=25, sideW=20, edgeInset=64, VedgeInset=5)
+* [x] Verify scrollbar thumb movement
+* [x] Add resizable frame prototype
+* [x] Add dynamic scroll layout
+* [x] Add debug flag workflow
+* [x] Validate base frame constants
 
 ### Asset Organization
 * [x] Design icon system
-* [x] Create module icon pack (16 icons — 128x128)
-* [x] Create navigation button artwork (Normal/Hover/Selected)
-* [x] Create action button artwork (Normal/Hover/Pressed)
-* [x] Create close button artwork (Normal/Hover/Pressed)
-* [x] Create section marker artwork (Icon_SectionStar)
-* [x] Create status indicator artwork (Checkbox_Checked/Unchecked)
-* [x] Create OUS branding assets (Logo 512x512, Minimap button)
-* [x] Create scrollbar artwork (ScrollTrack, ScrollThumb)
-* [x] Create utility assets (Divider_Horizontal, TabIndicator)
-* [x] Convert all PNG assets to 32-bit TGA with alpha (ImageMagick)
-* [x] Store converted TGA files in Media/Textures/ (flat, no Assets/ subfolder)
-* [x] Document ImageMagick conversion commands (ASSET_PROMPTS_v2.md)
-* [x] Update TOC interface to 120007
-* [ ] Recreate OUSBanner.tga (current proportions wrong)
+* [x] Create module icon pack
+* [x] Create navigation button artwork
+* [x] Create action button artwork
+* [x] Create close button artwork
+* [x] Create section marker artwork
+* [x] Create checkbox/status artwork
+* [x] Create OUS branding assets
+* [x] Create scrollbar artwork
+* [x] Create utility assets
+* [x] Convert PNG assets to TGA
+* [x] Store TGA files in `media\Textures\`
+* [x] Document asset workflow
+* [x] Update TOC interface target to 120007
+* [x] Create dashboard card assets:
+  * [x] `CardBG_Normal.tga`
+  * [x] `CardBG_Hover.tga`
+  * [x] `CardBG_Selected.tga`
+* [ ] Recreate or review `OUSBanner.tga`
 
 ---
 
-## Phase 2 — OUS2 Window Layout ✅ COMPLETE
+## Phase 2 — OUS2 Window Layout COMPLETE
 
 ### File Setup
-* [x] Create Config2\ subdirectory
-* [x] OUS2Theme.lua — texture registry, colors, fonts, frame constants
-* [x] OUS2Config.lua — three-panel production frame
-* [x] Add Config2\OUS2Theme.lua and Config2\OUS2Config.lua to TOC (section 6)
-* [x] Add /ous2 slash command to Core.lua
+* [x] Create `Config2\` subdirectory
+* [x] Create `Config2\OUS2Theme.lua`
+* [x] Create `Config2\OUS2Config.lua`
+* [x] Add OUS2 files to TOC
+* [x] Add `/ous2` command path
 
 ### Main Frame
-* [x] Three-panel layout (Left Nav / Content / Help)
-* [x] Header bar (Lock/Unlock button + Title + Close button)
-* [x] Footer bar (Reset to Defaults + Close buttons)
-* [x] Custom close button in header (CloseButton_Normal/Hover/Pressed TGA)
-* [x] Lock/Unlock button (Checkbox_Checked/Unchecked TGA + label text — NOT emoji)
-* [x] Resize handles (right edge, bottom edge, corner)
-* [x] Resize bounds (min 1050x700, max 1600x1000)
-* [x] ESC key support via UISpecialFrames
+* [x] Three-panel layout
+* [x] Header bar
+* [x] Footer bar
+* [x] Custom close button
+* [x] Lock/Unlock button
+* [x] Resize handles
+* [x] Resize bounds
+* [x] ESC close support
+* [x] Cold-start-safe OUS2 lifecycle
+* [x] Eager `C.pageContainer` creation
+* [x] Stable resize-anchor handling before `StartSizing()`
+* [x] Resize handle guards for locked/hidden frame
+* [x] Explicit resize handle frame levels
+* [x] Remove temporary cyan debug border
 
 ### Left Navigation Panel
-* [x] Text-only navigation buttons (Button_Normal/Hover/Selected TGA)
-* [x] TabIndicator on active button left edge
-* [x] Separator line before Help/Changelog entries
-* [x] Page switching system (SwitchPage — show/hide + Refresh call)
-* [x] SetNavButtonActive — texture + label color + indicator state
+* [x] Text-only navigation buttons
+* [x] Wider navigation geometry
+* [x] Transparent nav background
+* [x] Active `TabIndicator`
+* [x] Separator before Help/Changelog
+* [x] Page switching
+* [x] Active nav visual state
 
 ### Content Panel
-* [x] Scrollable content area (ScrollFrame + scroll child)
-* [x] Custom scrollbar (ScrollTrack + ScrollThumb TGA)
-* [x] Scrollbar parented to contentPanel — TOPRIGHT/BOTTOMRIGHT anchors
-* [x] Dynamic scrollbar height (follows contentPanel height via anchors)
-* [x] Thumb position synced to scroll position (UpdateCustomThumb)
-* [x] Mouse wheel scrolling (scrollStep = 18px)
-* [x] Page container (C.pageContainer = scrollChild)
-* [ ] Remove debug border (cyan 1px BackdropTemplate outline — temporary)
+* [x] Scrollable content area
+* [x] Custom scrollbar
+* [x] Dynamic scrollbar height
+* [x] Thumb position sync
+* [x] Mouse wheel scrolling
+* [x] `C.pageContainer` as page parent
 
-### Help Panel
-* [x] Static text panel (right side, helpWidth = 150px)
-* [x] C.SetHelpText(text) / C.ClearHelpText() public API
-* [x] Default message: "Hover a setting to see its description here."
+### Help Panel and Sidebar
+* [x] Persistent Help text area
+* [x] `C.SetHelpText(text)`
+* [x] `C.ClearHelpText()`
+* [x] Optional page-specific sidebar container
+* [x] Hide/show sidebar frame with active page
 
 ### Public API
-* [x] OUS.Config2.RegisterPage(name, frame, refreshFn)
-* [x] OUS.Config2.OpenPage(pageName)
-* [x] OUS.Config2.Toggle()
-* [x] OUS.Config2.SetHelpText(text)
-* [x] OUS.Config2.ClearHelpText()
-* [x] C.pageContainer — scroll child, parent for all page frames
+* [x] `OUS.Config2.RegisterPage(name, frame, refreshFn, sidebarFrame)`
+* [x] `OUS.Config2.OpenPage(pageName)`
+* [x] `OUS.Config2.Toggle()`
+* [x] `OUS.Config2.SetHelpText(text)`
+* [x] `OUS.Config2.ClearHelpText()`
+* [x] `C.pageContainer`
+* [x] `C.sidebarContainer`
 
 ---
 
-## Phase 3 — General Page (Dashboard)
+## Phase 3 — General Page Dashboard IN PROGRESS
 
-### Addon Info
-* [ ] General page frame + RegisterPage wiring
-* [ ] Addon version + build date display
-* [ ] Module count summary (loaded / enabled / disabled)
+### Page Setup
+* [x] Create `Config2\OUS2Page_General.lua`
+* [x] Add standard OUS file header
+* [x] Add page file to TOC after `Config2\OUS2Config.lua`
+* [x] Register page with OUS2
+* [x] Keep page visual-only during layout phase
+
+### Dashboard Header
+* [x] General page icon
+* [x] General title
+* [x] Dashboard subtitle
+* [x] Divider
+* [ ] Final header micro-adjustments
 
 ### Module Cards
-* [ ] Module card grid layout (3 columns)
-* [ ] Each card: Icon (40x40) + Module name + setting count
+* [x] 3-column dashboard card grid
+* [x] Current 11 module cards
+* [x] Support room for future modules
+* [x] Use existing module icons
+* [x] Use module names
+* [x] Use wrapped module descriptions
+* [x] Use shared card textures:
+  * [x] `CardNormal`
+  * [x] `CardHover`
+* [x] Add `T.Card` constants
+* [x] Use `T.Card.Height`
+* [x] Use `T.Card.IconSize`
+* [x] Use `T.Card.ChevronSize`
+* [x] Use `T.Card.Padding`
+* [x] Keep `CardSelected` available for future state
 * [ ] Enabled/disabled visual state per card
-* [ ] Click card → OUS.Config2.OpenPage(pageName)
+* [ ] Module count summary
+* [ ] Click card -> `OUS.Config2.OpenPage(pageName)`
+* [ ] Optional selected/current-page visual state
 
-### Future
-* [ ] Search box (Phase 5+) — filter settings across all pages
+### Information Panel
+* [x] Wide Information panel below module grid
+* [x] Version display
+* [x] Addon description
+* [ ] Build/date display if available
+* [ ] Final text/content pass
+
+### General Sidebar
+* [x] General page sidebar frame
+* [x] Global Options card
+* [x] Reset card
+* [x] Sidebar blocks use `CardNormal`
+* [x] Keep sidebar visual-only
+* [ ] Micro-adjust Global Options spacing
+* [ ] Micro-adjust Reset card spacing
+* [ ] Add hover help later if needed
+
+### Global Options
+* [x] Visual-only Show Minimap Button row
+* [x] Visual-only Enable Debug Logging row
+* [ ] Wire Show Minimap Button to real setting
+* [ ] Wire Enable Debug Logging to real setting
+
+### Reset
+* [x] Visual-only Reset sidebar explanation
+* [x] Keep footer Reset to Defaults button
+* [ ] Audit reset semantics before exposing more functionality
+* [ ] Ensure Utilities reset/toggle coverage is fixed before relying on OUS2 reset controls
+
+### Current Polish
+* [ ] Review module card vertical alignment
+* [ ] Review right sidebar card padding
+* [ ] Review Information panel balance
+* [ ] Review layout at minimum size
+* [ ] Review layout after resizing wider/taller
+* [ ] Screenshot final General page before functionality phase
 
 ---
 
 ## Phase 4 — Module Pages
 
-Each module page follows the same pattern:
-- Parent frame to `OUS.Config2.pageContainer`, `SetAllPoints()`
-- Enable/disable checkbox at top of page
-- Module icon (32x32) at top left
-- Section headers (Icon_SectionStar)
-- Divider_Horizontal between sections
-- Hover any setting → `C.SetHelpText(text)` / leave → `C.ClearHelpText()`
-- Call `OUS.Config2.RegisterPage(name, frame, Refresh)` at end of file
+Recommended order:
 
-### Pages (in order)
-* [ ] Utilities
-* [ ] Openables
-* [ ] Stats Bar
-* [ ] Auto Remount
-* [ ] Flight Master
-* [ ] XP Bar
-* [ ] Toolbox
-* [ ] Faster Loot
-* [ ] Fishing Tracker
-* [ ] Delves
-* [ ] Flight Routing
+1. Utilities
+2. Openables
+3. Stats Bar
+4. Auto Remount
+5. Flight Master
+6. XP Bar
+7. Toolbox
+8. Faster Loot
+9. Fishing Tracker
+10. Delves
+11. Flight Routing
+
+Each module page should include:
+
+* [ ] Page frame parented to `C.pageContainer`
+* [ ] Optional sidebar content only if useful
+* [ ] Module icon/header
+* [ ] Module enable/disable control
+* [ ] Section headers
+* [ ] Divider lines
+* [ ] Setting rows
+* [ ] Hover help via `C.SetHelpText()` / `C.ClearHelpText()`
+* [ ] `Refresh()` function
+* [ ] `C.RegisterPage(...)`
+* [ ] TOC entry after `Config2\OUS2Config.lua`
 
 ---
 
-## Phase 5 — Help & Changelog Pages
+## Phase 5 — Help and Changelog Pages
 
 ### Help Page
+* [ ] OUS2 Help page frame
 * [ ] Overview section
 * [ ] Module documentation
 * [ ] Slash command reference
-* [ ] OUSBanner at top (pending recreation)
+* [ ] Scrollable layout
+* [ ] OUSBanner at top after banner is recreated/reviewed
 
 ### Changelog Page
+* [ ] OUS2 Changelog page frame
 * [ ] Scrollable version history
 * [ ] Current version highlighted
-* [ ] OUSBanner at top (pending recreation)
+* [ ] OUSBanner at top after banner is recreated/reviewed
 
 ---
 
-## Phase 6 — Polish & Migration
+## Phase 6 — Polish and Migration
 
-### OUS2Utils.lua (extract after patterns emerge)
-* [ ] CreateStyledButton(parent, text, w, h)
-* [ ] CreateSectionHeader(parent, text, yOffset)
-* [ ] CreateDivider(parent, yOffset)
-* [ ] AttachHelpText(frame, text) — wires OnEnter/OnLeave
-* [ ] CreateCustomScrollbar(parent, ...)
+### OUS2Utils.lua
+
+Extract only after patterns stabilize across multiple pages:
+
+* [ ] Create styled card helper
+* [ ] Create styled button helper
+* [ ] Create section header helper
+* [ ] Create divider helper
+* [ ] Create hover help attach helper
+* [ ] Create reusable scrollbar helper if needed
 
 ### Migration
-* [ ] Full folder restructure (Core/, UI/, Modules/, Data/)
-* [ ] Migrate legacy Config.lua functionality
-* [ ] Migrate xpbar_config.lua functionality
+* [ ] Audit module master-toggle behavior
+* [ ] Fix Utilities master toggle coverage
+* [ ] Fix Utilities reset coverage
+* [ ] Resolve `/ous2` slash ownership if still duplicated
+* [ ] Review `FlightData.lua` / `flightdata.lua` casing and TOC consistency
+* [ ] Review legacy flight data global access
+* [ ] Migrate legacy Config.lua functionality where appropriate
+* [ ] Migrate `xpbar_config.lua` functionality where appropriate
 * [ ] Integrate Help.lua content into OUS2 Help page
-* [ ] Deprecation review (/ous → /ous2 redirect or maintain both)
-* [ ] Replace legacy configuration window
+* [ ] Decide whether `/ous` remains separate or redirects to `/ous2`
+* [ ] Optional folder restructure only after OUS2 is stable
 
 ---
 
 ## Optional Features
+
 * [ ] Search box in General tab
 * [ ] Theme variants
-* [ ] Minimap icon configuration in General tab
 * [ ] Favorites/pinned settings page
-* [ ] Profile system
+* [ ] Profile system, only if truly needed later
+* [ ] Import/export, only if truly needed later
 
 ---
 
 ## Long-Term Goals
-* [ ] Shared module registration system — future modules auto-integrate
-* [ ] Dynamic page generation
-* [ ] Stable architecture through future Retail expansions
+
+* [ ] Shared module registration system
+* [ ] Dynamic page generation where safe
+* [ ] Stable UI architecture through future Retail expansions
+* [ ] OUS2 becomes the primary configuration surface
 
 ---
 
 ## Current Focus
 
-**Phase 3 — General Page:**
-1. Remove debug border from content panel
-2. Create `Config2\OUS2Page_General.lua`
-3. Build General dashboard (version info + module count + module cards)
-4. Wire card clicks to `OUS.Config2.OpenPage(pageName)`
-5. Add `Config2\OUS2Page_General.lua` to TOC after OUS2Config.lua
+**Phase 3 — General Dashboard polish**
+
+Immediate next work:
+
+1. Micro-adjust the General sidebar cards.
+2. Micro-adjust the Information panel.
+3. Test General layout at default, min, and resized sizes.
+4. Keep General page visual-only until toggle/reset semantics are audited.
+5. Then wire safe dashboard functionality:
+   - module count summary
+   - enabled/disabled card states
+   - card navigation
+   - Global Options
+   - Reset behavior after audit

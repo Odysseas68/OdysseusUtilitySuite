@@ -40,44 +40,9 @@ end
 
 local function AddModuleCardStyle(parent)
     local background = parent:CreateTexture(nil, "BACKGROUND")
-    background:SetColorTexture(
-        T.Colors.bgDark[1],
-        T.Colors.bgDark[2],
-        T.Colors.bgDark[3],
-        0.62
-    )
+    background:SetTexture(T.Tex("CardNormal"))
     background:SetAllPoints()
-
-    local borderTop = parent:CreateTexture(nil, "BORDER")
-    borderTop:SetColorTexture(unpack(T.Colors.border))
-    borderTop:SetPoint("TOPLEFT")
-    borderTop:SetPoint("TOPRIGHT")
-    borderTop:SetHeight(1)
-
-    local borderBottom = parent:CreateTexture(nil, "BORDER")
-    borderBottom:SetColorTexture(unpack(T.Colors.border))
-    borderBottom:SetPoint("BOTTOMLEFT")
-    borderBottom:SetPoint("BOTTOMRIGHT")
-    borderBottom:SetHeight(1)
-
-    local borderLeft = parent:CreateTexture(nil, "BORDER")
-    borderLeft:SetColorTexture(unpack(T.Colors.border))
-    borderLeft:SetPoint("TOPLEFT", 0, -1)
-    borderLeft:SetPoint("BOTTOMLEFT", 0, 1)
-    borderLeft:SetWidth(1)
-
-    local borderRight = parent:CreateTexture(nil, "BORDER")
-    borderRight:SetColorTexture(unpack(T.Colors.border))
-    borderRight:SetPoint("TOPRIGHT", 0, -1)
-    borderRight:SetPoint("BOTTOMRIGHT", 0, 1)
-    borderRight:SetWidth(1)
-
-    local accent = parent:CreateTexture(nil, "ARTWORK")
-    accent:SetColorTexture(unpack(T.Colors.accent))
-    accent:SetPoint("TOPLEFT", 10, -1)
-    accent:SetPoint("TOPRIGHT", -10, -1)
-    accent:SetHeight(1)
-    accent:SetAlpha(0.45)
+    return background
 end
 
 local function CreateSectionHeader(parent, text, yOffset)
@@ -122,7 +87,7 @@ headerDivider:SetHeight(6)
 CreateSectionHeader(page, "Modules", -78)
 
 local cardStartY = -106
-local cardHeight = 84
+local cardHeight = T.Card.Height
 local cardGap = 10
 local columnGap = 10
 local gridHeight = cardHeight * 4 + cardGap * 3
@@ -154,21 +119,34 @@ for index, moduleInfo in ipairs(MODULES) do
     card:SetPoint("TOPLEFT", columnFrame, "TOPLEFT", 0, yOffset)
     card:SetPoint("TOPRIGHT", columnFrame, "TOPRIGHT", 0, yOffset)
 
-    AddModuleCardStyle(card)
+    local cardBackground = AddModuleCardStyle(card)
+    card:EnableMouse(true)
+    card:SetScript("OnEnter", function()
+        cardBackground:SetTexture(T.Tex("CardHover"))
+    end)
+    card:SetScript("OnLeave", function()
+        cardBackground:SetTexture(T.Tex("CardNormal"))
+    end)
 
     local icon = card:CreateTexture(nil, "ARTWORK")
     icon:SetTexture(T.Tex(moduleInfo.icon))
-    icon:SetSize(T.Icons.card, T.Icons.card)
-    icon:SetPoint("LEFT", card, "LEFT", 10, 0)
+    icon:SetSize(T.Card.IconSize, T.Card.IconSize)
+    icon:SetPoint("LEFT", card, "LEFT", T.Card.Padding, 0)
 
     local name = card:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
-    name:SetPoint("TOPLEFT", icon, "TOPRIGHT", 8, -14)
+    name:SetPoint("TOPLEFT", icon, "TOPRIGHT", 8, -6)
     name:SetText(moduleInfo.name)
     SetTextColor(name, T.Colors.text)
 
     local detail = card:CreateFontString(nil, "OVERLAY", T.Fonts.small)
-    detail:SetPoint("TOPLEFT", name, "BOTTOMLEFT", 0, -7)
-    detail:SetPoint("BOTTOMRIGHT", card, "BOTTOMRIGHT", -24, 10)
+    detail:SetPoint("TOPLEFT", name, "BOTTOMLEFT", 0, -3)
+    detail:SetPoint(
+        "BOTTOMRIGHT",
+        card,
+        "BOTTOMRIGHT",
+        -(T.Card.Padding + T.Card.ChevronSize),
+        4
+    )
     detail:SetJustifyH("LEFT")
     detail:SetJustifyV("TOP")
     detail:SetWordWrap(true)
@@ -176,7 +154,9 @@ for index, moduleInfo in ipairs(MODULES) do
     SetTextColor(detail, T.Colors.textDim)
 
     local chevron = card:CreateFontString(nil, "OVERLAY", T.Fonts.highlight)
-    chevron:SetPoint("RIGHT", card, "RIGHT", -9, 0)
+    chevron:SetSize(T.Card.ChevronSize, T.Card.ChevronSize)
+    chevron:SetPoint("RIGHT", card, "RIGHT", -T.Card.Padding, 0)
+    chevron:SetJustifyH("CENTER")
     chevron:SetText(">")
     SetTextColor(chevron, T.Colors.accent)
 end
@@ -221,16 +201,16 @@ local optionsPanel = CreateFrame("Frame", nil, sidebar)
 optionsPanel:SetHeight(158)
 optionsPanel:SetPoint("TOPLEFT", sidebar, "TOPLEFT", 0, 0)
 optionsPanel:SetPoint("TOPRIGHT", sidebar, "TOPRIGHT", 0, 0)
-AddPanelBackground(optionsPanel, "ButtonNormal", 0.40)
+AddPanelBackground(optionsPanel, "CardNormal", 1)
 
 local optionsTitle = optionsPanel:CreateFontString(nil, "OVERLAY", T.Fonts.sectionHeader)
-optionsTitle:SetPoint("TOPLEFT", optionsPanel, "TOPLEFT", 12, -14)
+optionsTitle:SetPoint("TOPLEFT", optionsPanel, "TOPLEFT", T.Card.Padding, -14)
 optionsTitle:SetText("Global Options")
 SetTextColor(optionsTitle, T.Colors.header)
 
 local optionsDescription = optionsPanel:CreateFontString(nil, "OVERLAY", T.Fonts.small)
-optionsDescription:SetPoint("TOPLEFT", optionsTitle, "BOTTOMLEFT", 0, -10)
-optionsDescription:SetPoint("RIGHT", optionsPanel, "RIGHT", -12, 0)
+optionsDescription:SetPoint("TOPLEFT", optionsTitle, "BOTTOMLEFT", 0, -T.Card.Padding)
+optionsDescription:SetPoint("RIGHT", optionsPanel, "RIGHT", -T.Card.Padding, 0)
 optionsDescription:SetJustifyH("LEFT")
 optionsDescription:SetText("Configure general addon behavior.")
 SetTextColor(optionsDescription, T.Colors.textDim)
@@ -254,24 +234,36 @@ local resetPanel = CreateFrame("Frame", nil, sidebar)
 resetPanel:SetHeight(170)
 resetPanel:SetPoint("TOPLEFT", optionsPanel, "BOTTOMLEFT", 0, -12)
 resetPanel:SetPoint("TOPRIGHT", optionsPanel, "BOTTOMRIGHT", 0, -12)
-AddPanelBackground(resetPanel, "ButtonNormal", 0.40)
+AddPanelBackground(resetPanel, "CardNormal", 1)
 
 local resetTitle = resetPanel:CreateFontString(nil, "OVERLAY", T.Fonts.highlight)
-resetTitle:SetPoint("TOPLEFT", resetPanel, "TOPLEFT", 14, -16)
+resetTitle:SetPoint("TOPLEFT", resetPanel, "TOPLEFT", T.Card.Padding, -16)
 resetTitle:SetText("Reset")
 SetTextColor(resetTitle, T.Colors.header)
 
 local resetDescription = resetPanel:CreateFontString(nil, "OVERLAY", T.Fonts.small)
 resetDescription:SetPoint("TOPLEFT", resetTitle, "BOTTOMLEFT", 0, -12)
-resetDescription:SetPoint("RIGHT", resetPanel, "RIGHT", -14, 0)
+resetDescription:SetPoint("RIGHT", resetPanel, "RIGHT", -T.Card.Padding, 0)
 resetDescription:SetJustifyH("LEFT")
 resetDescription:SetText("Restore all OUS settings to their default values.")
 SetTextColor(resetDescription, T.Colors.textDim)
 
 local resetPreview = CreateFrame("Frame", nil, resetPanel)
 resetPreview:SetHeight(32)
-resetPreview:SetPoint("BOTTOMLEFT", resetPanel, "BOTTOMLEFT", 14, 14)
-resetPreview:SetPoint("BOTTOMRIGHT", resetPanel, "BOTTOMRIGHT", -14, 14)
+resetPreview:SetPoint(
+    "BOTTOMLEFT",
+    resetPanel,
+    "BOTTOMLEFT",
+    T.Card.Padding,
+    T.Card.Padding
+)
+resetPreview:SetPoint(
+    "BOTTOMRIGHT",
+    resetPanel,
+    "BOTTOMRIGHT",
+    -T.Card.Padding,
+    T.Card.Padding
+)
 AddPanelBackground(resetPreview, "ActionNormal", 1)
 
 local resetLabel = resetPreview:CreateFontString(nil, "OVERLAY", T.Fonts.normal)

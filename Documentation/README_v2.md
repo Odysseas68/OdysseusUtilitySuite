@@ -133,6 +133,16 @@ Thumb:
 
 ---
 
+## Module Card Assets
+
+| Asset | Size | Purpose |
+|---------------------|---------|--------------------------------------|
+| CardBG_Normal.tga   | 512x128 | Default dashboard module card        |
+| CardBG_Hover.tga    | 512x128 | Mouse-over dashboard module card     |
+| CardBG_Selected.tga | 512x128 | Active/current dashboard module card |
+
+---
+
 ## Branding Assets
 
 | File               | Canvas  | Purpose           |
