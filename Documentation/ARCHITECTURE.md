@@ -10,34 +10,41 @@ OUS2 is the next-generation configuration and UI framework for OUS. It is being 
 
 ## Current Status
 
-OUS2 is in **Phase 3 — General Dashboard**.
+OUS2 is transitioning from **Phase 3 — General Dashboard** into **Phase 4 — Module Pages**.
 
 Implemented:
 
-- `Config2\OUS2Theme.lua`
-- `Config2\OUS2Config.lua`
-- `Config2\OUS2Page_General.lua`
-- Manual NineSlice shell
-- Left navigation panel
-- Scrollable content area
-- Help panel with `C.SetHelpText()` / `C.ClearHelpText()`
-- Optional page-specific sidebar area
-- Resizable frame with stable resize-anchor handling
-- General dashboard visual page
-- 3-column module card grid
-- Shared module card assets:
-  - `CardBG_Normal.tga`
-  - `CardBG_Hover.tga`
-  - `CardBG_Selected.tga`
-- Shared card constants in `T.Card`
+* `Config2\OUS2Theme.lua`
+* `Config2\OUS2Config.lua`
+* `Config2\OUS2ScaleControl.lua`
+* `Config2\OUS2Page_General.lua`
+* `Config2\OUS2Page_Utilities.lua`
+* `Config2\OUS2Page_Openables.lua`
+* Manual NineSlice shell
+* Left navigation panel
+* Scrollable content area
+* Help panel with `C.SetHelpText()` / `C.ClearHelpText()`
+* Optional page-specific sidebar area
+* Resizable frame with stable resize-anchor handling
+* General dashboard visual page
+* First functional module pages:
 
-Still visual-only:
+  * Utilities
+  * Openables
+* Shared module card assets
+* Shared dashboard card constants in `T.Card`
+* Shared scale-control assets and sizing constants in `T.Scale`
+* Reusable `C.CreateScaleControl()` widget
+* Openables scale-control integration
 
-- General module cards do not yet navigate.
-- General module enabled/disabled state is not wired.
-- Global Options are not functional yet.
-- Reset sidebar card is visual-only.
-- Footer Reset to Defaults button exists, but reset semantics still need audit before exposing more OUS2 controls.
+Still pending:
+
+* General dashboard final polish and card navigation
+* General module enabled/disabled state display
+* Global Options functionality
+* Reset semantics audit
+* Additional module pages
+* Helper extraction after more page patterns stabilize
 
 ---
 
@@ -74,15 +81,21 @@ OUS2 files live in `Config2\`.
 OdysseusUtilitySuite
 │
 ├─ Config2\
-│   ├─ OUS2Theme.lua          ← theme registry, colors, fonts, frame/card constants
+│   ├─ OUS2Theme.lua          ← theme registry, colors, fonts, frame/card/scale constants
 │   ├─ OUS2Config.lua         ← main OUS2 shell, nav, content, help/sidebar, resize
-│   └─ OUS2Page_General.lua   ← General dashboard visual page
+│   ├─ OUS2ScaleControl.lua    ← reusable numeric scale control
+│   ├─ OUS2Page_General.lua   ← General dashboard visual page
+│   ├─ OUS2Page_Utilities.lua ← functional Utilities settings page
+│   └─ OUS2Page_Openables.lua ← functional Openables settings page
 │
 ├─ media\
 │   └─ Textures\
 │       ├─ CardBG_Normal.tga
 │       ├─ CardBG_Hover.tga
 │       ├─ CardBG_Selected.tga
+│       ├─ ScaleTrack.tga
+│       ├─ ScaleFill.tga
+│       ├─ ScaleThumb.tga
 │       └─ all other OUS2 TGA assets flat in this folder
 │
 ├─ Documentation\
@@ -113,7 +126,10 @@ OUS2 currently loads after the legacy config/help files:
 ```text
 Config2\OUS2Theme.lua
 Config2\OUS2Config.lua
+Config2\OUS2ScaleControl.lua
 Config2\OUS2Page_General.lua
+Config2\OUS2Page_Utilities.lua
+Config2\OUS2Page_Openables.lua
 ```
 
 Rules:
@@ -144,6 +160,7 @@ Responsibilities:
 - Texture resolver: `T.Tex(key)`
 - Main frame constants: `T.Frame`
 - Scrollbar constants: `T.Scroll`
+- Scale control constants: `T.Scale`
 - Dashboard card constants: `T.Card`
 - Colors: `T.Colors`
 - Fonts: `T.Fonts`
@@ -159,6 +176,7 @@ T.Colors.*
 T.Fonts.*
 T.Frame.*
 T.Scroll.*
+T.Scale.*
 T.Icons.*
 T.Card.*
 ```
@@ -315,7 +333,7 @@ Each OUS2 page file should:
 5. Create the page frame parented to `C.pageContainer`.
 6. Call `SetAllPoints()` and `Hide()`.
 7. Optionally create a sidebar frame parented to `C.sidebarContainer`.
-8. Build UI using `T.Tex`, `T.Colors`, `T.Fonts`, `T.Frame`, `T.Scroll`, `T.Icons`, and `T.Card`.
+8. Build UI using `T.Tex`, `T.Colors`, `T.Fonts`, `T.Frame`, `T.Scroll`, `T.Scale`, `T.Icons`, and `T.Card`.
 9. Implement `Refresh()` for DB-backed state when functionality is added.
 10. Register with `C.RegisterPage("PageKey", page, Refresh, sidebarFrame)`.
 11. Add the page file to the TOC after `Config2\OUS2Config.lua`.
@@ -424,7 +442,7 @@ The footer-level Reset to Defaults button remains the actual shell-level action 
 
 # Module Page Design
 
-Each module page should eventually follow this pattern:
+Current and future module pages follow this pattern:
 
 ```text
 ┌─────────────────────────────────────────────────────┐
@@ -446,7 +464,8 @@ Rules:
 - Settings use hover help:
   - `C.SetHelpText(text)`
   - `C.ClearHelpText()`
-- Do not wire settings until module toggle/reset semantics are confirmed
+- Wire settings only after their module toggle, live-update, and reset semantics are confirmed
+- Utilities and Openables are the first functional module-page implementations
 
 ---
 
@@ -455,17 +474,17 @@ Rules:
 Known issues to resolve in focused patches:
 
 1. Some modules do not consistently enforce the master `OdysseusDB.modules.*` toggle.
-2. Utilities reset/toggle coverage needs audit before exposing OUS2 controls.
+2. Utilities reset/master-toggle coverage still needs audit before relying on OUS2 reset semantics.
 3. `/ous2` command ownership should be confirmed and kept unambiguous.
 4. Flight data naming/casing should be reviewed:
    - tree shows `FlightData.lua`
    - old docs mention `flightdata.lua`
 5. Flight timing data still uses legacy global access patterns.
-6. OUS2 module pages are not implemented yet.
+6. Additional OUS2 module pages remain to be implemented after Utilities and Openables.
 7. General page is still mostly visual-only.
 8. `OUS2Utils.lua` is intentionally deferred until multiple pages reveal stable helper patterns.
 9. `OUSBanner.tga` remains pending recreation.
-10. Documentation should be synchronized again after Phase 3 stabilizes.
+10. Documentation should remain synchronized as Phase 4 module pages and shared controls evolve.
 
 ---
 
@@ -530,12 +549,15 @@ Pending:
 - Final micro-adjustments
 - Documentation sync after visual layout is stable
 
-## Phase 4 — Module Pages
+## Phase 4 — Module Pages IN PROGRESS
 
-Planned first pages:
+Completed:
 
 1. Utilities
-2. Openables
+2. Openables — functional; reusable scale control integrated, visual polish/testing pending
+
+Next planned pages:
+
 3. Stats Bar
 4. Auto Remount
 5. Flight Master
@@ -625,6 +647,25 @@ Purpose:
 ScrollTrack.tga
 ScrollThumb.tga
 ```
+
+## Scale Control Assets
+
+```text
+ScaleTrack.tga
+ScaleFill.tga
+ScaleThumb.tga
+ScaleArrow_Left_Normal.tga
+ScaleArrow_Left_Hover.tga
+ScaleArrow_Right_Normal.tga
+ScaleArrow_Right_Hover.tga
+ScaleEditBox_Background.tga
+```
+
+Purpose:
+
+* Reusable OUS2 numeric scale/slider control
+* First integrated into the Openables button-scale setting
+* Planned reuse for future module controls such as XP Bar size, Stats Bar sizing, opacity, delay, and similar numeric settings
 
 ## Icons
 

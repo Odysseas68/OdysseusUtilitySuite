@@ -178,8 +178,8 @@
 
 Recommended order:
 
-1. Utilities
-2. Openables
+1. Utilities — COMPLETE
+2. Openables — COMPLETE / polish pending
 3. Stats Bar
 4. Auto Remount
 5. Flight Master
@@ -203,6 +203,23 @@ Each module page should include:
 * [ ] `Refresh()` function
 * [ ] `C.RegisterPage(...)`
 * [ ] TOC entry after `Config2\OUS2Config.lua`
+
+### Completed Module Pages
+
+* [x] Utilities page
+  * [x] DB-backed checkbox rows
+  * [x] Hover help
+  * [x] Refresh function
+  * [x] TOC entry
+
+* [x] Openables page
+  * [x] DB-backed settings
+  * [x] Existing Openables command integration
+  * [x] Lock/unlock fixed through existing slash handler path
+  * [x] Management buttons for blacklist, custom list, mass add, and status
+  * [x] Replace temporary scale control with reusable custom OUS2 scale control
+  * [ ] Complete scale-control visual polish and in-game testing
+  * [ ] Review management frame strata/anchoring when OUS2 is open
 
 ---
 
@@ -273,17 +290,30 @@ Extract only after patterns stabilize across multiple pages:
 
 ## Current Focus
 
-**Phase 3 — General Dashboard polish**
+**Phase 4 — Module Pages and OUS2 control polish**
 
 Immediate next work:
 
-1. Micro-adjust the General sidebar cards.
-2. Micro-adjust the Information panel.
-3. Test General layout at default, min, and resized sizes.
-4. Keep General page visual-only until toggle/reset semantics are audited.
-5. Then wire safe dashboard functionality:
-   - module count summary
-   - enabled/disabled card states
-   - card navigation
-   - Global Options
-   - Reset behavior after audit
+1. Reusable OUS2 scale control implementation:
+   * [x] Add scale assets to `T.Assets`
+   * [x] Add `T.Scale` sizing/constants
+   * [x] Build the reusable `OUS2ScaleControl` widget
+   * [x] Integrate the reusable control into Openables
+
+2. Test Openables page:
+   * lock/unlock behavior
+   * scale adjustment
+   * management buttons
+   * persistence after reload
+
+3. Defer General final polish:
+   * module count summary
+   * card selected state
+   * card navigation
+   * enabled/disabled card states
+
+4. Later:
+   * management frame strata/side-anchor behavior
+   * centralized OUS2 help-description table
+   * two-column setting-row polish where useful
+   * helper extraction after more module pages

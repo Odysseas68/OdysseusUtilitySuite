@@ -145,11 +145,11 @@ Thumb:
 
 ## Branding Assets
 
-| File               | Canvas  | Purpose           |
-| ------------------ | ------- | ----------------- |
-| Minimap_button.tga | 128x128 | Minimap icon      |
-| Icon_OUS.tga       | 128x128 | OUS branding icon |
-| OUS_Logo.tga       | 512x512 | Full OUS logo     |
+| File               | Canvas  | Purpose                                 |
+| ------------------ | ------- | ----------------------------------------|
+| Minimap_button.tga | 128x128 | Minimap icon                            |
+| Icon_OUS.tga       | 128x128 | OUS branding icon                       |
+| OUS_Logo.tga       | 512x512 | Full OUS logo                           |
 | OUSBanner.tga      | 512x64  | Page header banner (pending recreation) |
 
 Recommended display sizes:

@@ -12,9 +12,10 @@ description: Maintain Odysseus Utility Suite documentation without changing addo
 5. Modify `AGENTS.md` only when development rules, architecture conventions, workflows, or project standards change.
 6. Do not invent completed features, APIs, architecture, or status.
 7. Mark uncertain or inferred details clearly.
-8. Keep phase and current-focus statements accurate.
+8. Keep phase and current-focus statements accurate: OUS2 is transitioning from Phase 3 General Dashboard into Phase 4 Module Pages and OUS2 control polish.
 9. Update only the related documents required by the requested behavior.
 10. For a newly created file, determine whether documentation changes are actually necessary before editing documentation.
 11. Avoid cosmetic documentation churn and unrelated prose rewrites.
+12. Treat the Utilities and Openables OUS2 pages as completed module pages. Record Openables custom scale-control replacement and management-frame layering review as pending polish, not missing page implementation.
 
 Report files inspected, documentation changes, mismatches, and remaining uncertainties.

@@ -257,7 +257,7 @@ Do not hardcode texture paths in page files.
 
 - Use `T.Colors.*`; do not hardcode RGB values in page files.
 - Use `T.Fonts.*`; do not hardcode font objects unless required.
-- Use `T.Frame.*`, `T.Scroll.*`, `T.Icons.*`, and `T.Card.*`; do not duplicate constants.
+- Use `T.Frame.*`, `T.Scroll.*`, `T.Scale.*`, `T.Icons.*`, and `T.Card.*`; do not duplicate constants.
 - `T.Card.*` contains reusable dashboard card sizing, spacing, and layout constants.
 - OUS2 visual identity is Midnight Arcane: dark metallic charcoal, deep midnight blue, pale readable text, soft lavender crystal accents.
 - Do not stretch logos. Center large branding assets.
@@ -325,7 +325,7 @@ Each page file should:
 
 ### OUS2 Current Focus
 
-Current focus is Phase 3: General dashboard refinement.
+Current focus is Phase 4: Module Pages and OUS2 control polish.
 
 Completed:
 - OUS2Page_General.lua created and registered
@@ -334,8 +334,14 @@ Completed:
 - T.Card theme constants added
 - Sidebar architecture implemented
 - Resize framework stabilized
+- Utilities OUS2 page
+- Openables OUS2 page
 
 Remaining:
+- Reusable OUS2ScaleControl widget
+- Openables scale-control integration
+- Additional module pages
+- Openables management-frame strata/anchoring review
 - Module card navigation
 - Module count summary
 - Enabled/disabled module state display
@@ -343,7 +349,7 @@ Remaining:
 - Reset to Defaults functionality
 
 Next major milestone:
-- Utilities OUS2 page
+- Build the reusable OUS2ScaleControl widget and integrate it into the Openables page
 
 ### OUS2 Manual NineSlice
 
@@ -615,13 +621,23 @@ When producing code for the user to paste manually:
 
 Every new Lua file must start with this header format:
 
-```
+```lua
 -- Addon   : OdysseusUtilitySuite
 -- File    : Relative\Path\Filename.lua
 -- Version : YYYY.MM.DD
 -- Desc    : Short description of the file purpose
 -- ================================================
 ```
+
+Rules:
+
+* New Lua files must include this header.
+* Existing files that already contain a header should preserve the header format.
+* When making meaningful changes to an existing file, update the `Version` date to the current modification date.
+* Do not change the `File` path unless the file is actually moved or renamed.
+* Keep the `Desc` field concise and accurate.
+* Cosmetic formatting changes alone do not require a version date update.
+
 ---
 
 ## Skill Trigger Patterns
@@ -724,7 +740,7 @@ Use when editing:
 
 Rules:
 
-- Use T.Tex, T.Colors, T.Fonts, T.Frame, T.Scroll, T.Icons, and T.Card.
+- Use T.Tex, T.Colors, T.Fonts, T.Frame, T.Scroll, T.Scale, T.Icons, and T.Card.
 - Do not hardcode texture paths, RGB colors, or frame constants in page files.
 - Parent pages to `C.pageContainer`.
 - Register pages with `OUS.Config2.RegisterPage`.
@@ -733,6 +749,7 @@ Rules:
 - Do not use emoji.
 - Remove debug borders before production commit.
 - Keep `/ous` legacy config untouched unless explicitly asked.
+- Reusable numeric slider controls should use the OUS2 scale-control assets and `T.Scale` constants instead of Blizzard `OptionsSliderTemplate`, unless explicitly requested.
 
 ### Pattern: Openables Safe Edit
 

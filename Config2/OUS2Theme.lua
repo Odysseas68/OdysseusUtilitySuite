@@ -51,6 +51,19 @@ T.Assets = {
     ScrollTrack     = "ScrollTrack.tga",
     ScrollThumb     = "ScrollThumb.tga",
 
+    -- Scale controls
+    ScaleTrack         = "ScaleTrack.tga",
+    ScaleFill          = "ScaleFill.tga",
+    ScaleThumb         = "ScaleThumb.tga",
+
+    ScaleArrowLeft     = "ScaleArrow_Left_Normal.tga",
+    ScaleArrowLeftH    = "ScaleArrow_Left_Hover.tga",
+
+    ScaleArrowRight    = "ScaleArrow_Right_Normal.tga",
+    ScaleArrowRightH   = "ScaleArrow_Right_Hover.tga",
+
+    ScaleEditBox       = "ScaleEditBox_Background.tga",
+
     -- Utility
     SectionStar     = "Icon_SectionStar.tga",
     CheckboxOn      = "Checkbox_Checked.tga",
@@ -144,6 +157,29 @@ T.Scroll = {
     -- Track height is dynamic and follows contentPanel height.
     trackHeightBase = 260,      -- subtracted from frame height to get track height
     scrollStep      = 18,       -- pixels per mouse wheel tick
+}
+
+-- ---------------------------------------------------------------------------
+-- Scale control widget (custom OUS2 slider)
+-- Used by Openables and future OUS2 pages for numeric settings.
+-- ---------------------------------------------------------------------------
+
+T.Scale = {
+    minValue       = 0.5,   -- minimum allowed value
+    maxValue       = 2.0,   -- maximum allowed value
+    step           = 0.1,   -- increment/decrement amount
+
+    trackW         = 160,   -- track texture width
+    trackH         = 12,    -- track texture height
+
+    thumbW         = 12,    -- thumb texture width
+    thumbH         = 18,    -- thumb texture height
+
+    arrowW         = 20,    -- left/right button width
+    arrowH         = 20,    -- left/right button height
+
+    editW          = 60,    -- value edit box width
+    editH          = 20,    -- value edit box height
 }
 
 -- ---------------------------------------------------------------------------

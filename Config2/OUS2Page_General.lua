@@ -1,7 +1,7 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_General.lua
--- Version : 2026.06.19
--- Desc    : OUS2 General dashboard visual layout
+-- Version : 2026.06.21
+-- Desc    : OUS2 General dashboard layout and module navigation
 -- =========================================
 
 local addonName, OUS = ...
@@ -17,8 +17,8 @@ local MODULES = {
     { name = "Delves",          detail = "Companion and journey tracking", icon = "IconDelves" },
     { name = "Flight Master",   detail = "Flight timer and learned routes", icon = "IconFlightMaster" },
     { name = "Flight Routing",  detail = "Taxi route visualization",     icon = "IconFlightRouting" },
-    { name = "Utilities",       detail = "Repair, junk, and rare tools", icon = "IconUtilities" },
-    { name = "Openables",       detail = "Container item helper",        icon = "IconOpenables" },
+    { name = "Utilities",       detail = "Repair, junk, and rare tools", icon = "IconUtilities", pageKey = "Utilities" },
+    { name = "Openables",       detail = "Container item helper",        icon = "IconOpenables", pageKey = "Openables" },
     { name = "Stats Bar",       detail = "Character statistics display", icon = "IconStatsBar" },
     { name = "Auto Remount",    detail = "Gathering remount helper",     icon = "IconAutoRemount" },
     { name = "Faster Loot",     detail = "Streamlined loot handling",    icon = "IconFasterLoot" },
@@ -127,6 +127,15 @@ for index, moduleInfo in ipairs(MODULES) do
     card:SetScript("OnLeave", function()
         cardBackground:SetTexture(T.Tex("CardNormal"))
     end)
+
+    local pageKey = moduleInfo.pageKey
+    if pageKey then
+        card:SetScript("OnMouseUp", function(_, button)
+            if button == "LeftButton" then
+                OUS.Config2.OpenPage(pageKey)
+            end
+        end)
+    end
 
     local icon = card:CreateTexture(nil, "ARTWORK")
     icon:SetTexture(T.Tex(moduleInfo.icon))

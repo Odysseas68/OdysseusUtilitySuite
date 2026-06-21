@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Openables.lua
--- Version : 2026.05.29
+-- Version : 2026.06.21
 -- Desc    : Openables button engine — detects and opens bags, boxes, and containers
 -- ============================================================
 
@@ -1541,6 +1541,11 @@ end
 -- ==========================================
 -- 8. PUBLIC API (for Config.lua)
 -- ==========================================
+
+-- Reapplies saved position, scale, and lock state without rescanning bags.
+function OUS.Openables.ApplyPosition()
+    ApplyPosition()
+end
 
 -- Exposes refresh for config toggles.
 function OUS.Openables.UpdateDisplay()
