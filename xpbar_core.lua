@@ -383,7 +383,6 @@ end
 -- 4. MODULE SLASH COMMANDS
 -- ==========================================
 SLASH_XPSTATS1 = "/xpstats"
-SLASH_XPSTATS2 = "/ousxp"
 SlashCmdList["XPSTATS"] = function()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
     if OUS.statsFrame:IsShown() then

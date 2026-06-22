@@ -4,13 +4,13 @@
 
 This document defines the current OUS2 architecture, coding standards, UI layout, and migration plan for Odysseus Utility Suite.
 
-OUS2 is the next-generation configuration and UI framework for OUS. It is being developed alongside the existing legacy `/ous` configuration window. The legacy UI remains the functional configuration surface until individual module pages are migrated.
+OUS2 is the next-generation configuration and UI framework for OUS. It is being developed alongside the existing legacy `/ous` configuration window. Module-page migration is complete; the legacy UI remains available while Phase 5 polish and advanced-control parity continue.
 
 ---
 
 ## Current Status
 
-OUS2 is transitioning from **Phase 3 — General Dashboard** into **Phase 4 — Module Pages**.
+Phase 4 module-page migration is complete. Current focus is **Phase 5 — Polish & Advanced Controls**.
 
 Implemented:
 
@@ -20,6 +20,15 @@ Implemented:
 * `Config2\OUS2Page_General.lua`
 * `Config2\OUS2Page_Utilities.lua`
 * `Config2\OUS2Page_Openables.lua`
+* `Config2\OUS2Page_StatsBar.lua`
+* `Config2\OUS2Page_AutoRemount.lua`
+* `Config2\OUS2Page_FishingTracker.lua`
+* `Config2\OUS2Page_FlightMaster.lua`
+* `Config2\OUS2Page_FlightRouting.lua`
+* `Config2\OUS2Page_FasterLoot.lua`
+* `Config2\OUS2Page_Toolbox.lua`
+* `Config2\OUS2Page_XPBar.lua`
+* `Config2\OUS2Page_Delves.lua`
 * Manual NineSlice shell
 * Left navigation panel
 * Scrollable content area
@@ -27,24 +36,29 @@ Implemented:
 * Optional page-specific sidebar area
 * Resizable frame with stable resize-anchor handling
 * General dashboard visual page
-* First functional module pages:
-
-  * Utilities
-  * Openables
+* Completed pages: General, Utilities, Openables, Stats Bar, Auto Remount, Fishing Tracker, Flightmaster, Flight Routing, Faster Loot, Toolbox, XP Bar, and Delves
 * Shared module card assets
 * Shared dashboard card constants in `T.Card`
 * Shared scale-control assets and sizing constants in `T.Scale`
 * Reusable `C.CreateScaleControl()` widget
 * Openables scale-control integration
 
-Still pending:
+Phase 5 follow-up work:
 
-* General dashboard final polish and card navigation
-* General module enabled/disabled state display
+* General page polish
+* Enabled/disabled card states
+* Module count summary
 * Global Options functionality
-* Reset semantics audit
-* Additional module pages
-* Helper extraction after more page patterns stabilize
+* Reset semantics review
+* XP Bar color controls
+* Favorites management API review
+* Delves lock/unlock review
+* Flightmaster advanced controls
+* Toolbox expansion
+* Faster Loot rules
+* Help page
+* Changelog page
+* Helper extraction
 
 ---
 
@@ -84,9 +98,18 @@ OdysseusUtilitySuite
 │   ├─ OUS2Theme.lua          ← theme registry, colors, fonts, frame/card/scale constants
 │   ├─ OUS2Config.lua         ← main OUS2 shell, nav, content, help/sidebar, resize
 │   ├─ OUS2ScaleControl.lua    ← reusable numeric scale control
-│   ├─ OUS2Page_General.lua   ← General dashboard visual page
-│   ├─ OUS2Page_Utilities.lua ← functional Utilities settings page
-│   └─ OUS2Page_Openables.lua ← functional Openables settings page
+│   ├─ OUS2Page_General.lua
+│   ├─ OUS2Page_Utilities.lua
+│   ├─ OUS2Page_Openables.lua
+│   ├─ OUS2Page_StatsBar.lua
+│   ├─ OUS2Page_AutoRemount.lua
+│   ├─ OUS2Page_FishingTracker.lua
+│   ├─ OUS2Page_FlightMaster.lua
+│   ├─ OUS2Page_FlightRouting.lua
+│   ├─ OUS2Page_FasterLoot.lua
+│   ├─ OUS2Page_Toolbox.lua
+│   ├─ OUS2Page_XPBar.lua
+│   └─ OUS2Page_Delves.lua
 │
 ├─ media\
 │   └─ Textures\
@@ -130,6 +153,15 @@ Config2\OUS2ScaleControl.lua
 Config2\OUS2Page_General.lua
 Config2\OUS2Page_Utilities.lua
 Config2\OUS2Page_Openables.lua
+Config2\OUS2Page_StatsBar.lua
+Config2\OUS2Page_AutoRemount.lua
+Config2\OUS2Page_FishingTracker.lua
+Config2\OUS2Page_FlightMaster.lua
+Config2\OUS2Page_FlightRouting.lua
+Config2\OUS2Page_FasterLoot.lua
+Config2\OUS2Page_Toolbox.lua
+Config2\OUS2Page_XPBar.lua
+Config2\OUS2Page_Delves.lua
 ```
 
 Rules:
@@ -465,7 +497,7 @@ Rules:
   - `C.SetHelpText(text)`
   - `C.ClearHelpText()`
 - Wire settings only after their module toggle, live-update, and reset semantics are confirmed
-- Utilities and Openables are the first functional module-page implementations
+- Completed module pages follow the shared registration, refresh, theme, and hover-help patterns
 
 ---
 
@@ -480,11 +512,11 @@ Known issues to resolve in focused patches:
    - tree shows `FlightData.lua`
    - old docs mention `flightdata.lua`
 5. Flight timing data still uses legacy global access patterns.
-6. Additional OUS2 module pages remain to be implemented after Utilities and Openables.
+6. Completed OUS2 module pages still require focused visual polish and in-game testing.
 7. General page is still mostly visual-only.
 8. `OUS2Utils.lua` is intentionally deferred until multiple pages reveal stable helper patterns.
 9. `OUSBanner.tga` remains pending recreation.
-10. Documentation should remain synchronized as Phase 4 module pages and shared controls evolve.
+10. Documentation should remain synchronized as Phase 5 polish and advanced controls evolve.
 
 ---
 
@@ -522,7 +554,7 @@ Completed:
 - `C.pageContainer`
 - `C.sidebarContainer`
 
-## Phase 3 — General Dashboard IN PROGRESS
+## Phase 3 — General Dashboard COMPLETED
 
 Completed:
 
@@ -539,7 +571,7 @@ Completed:
 - Global Options visual block
 - Reset visual block
 
-Pending:
+Phase 5 follow-up carried forward:
 
 - Module count summary
 - Enabled/disabled card state
@@ -549,33 +581,61 @@ Pending:
 - Final micro-adjustments
 - Documentation sync after visual layout is stable
 
-## Phase 4 — Module Pages IN PROGRESS
+## Phase 4 — Module Page Migration COMPLETED
 
 Completed:
 
-1. Utilities
-2. Openables — functional; reusable scale control integrated, visual polish/testing pending
+1. General
+2. Utilities
+3. Openables — reusable scale control integrated; visual polish/testing pending
+4. Stats Bar
+5. Auto Remount
+6. Fishing Tracker
+7. Flightmaster
+8. Flight Routing
+9. Faster Loot
+10. Toolbox
+11. XP Bar
+12. Delves
 
-Next planned pages:
+XP Bar OUS2 architecture:
 
-3. Stats Bar
-4. Auto Remount
-5. Flight Master
-6. XP Bar
-7. Toolbox
-8. Faster Loot
-9. Fishing Tracker
-10. Delves
-11. Flight Routing
+- `XPBar` is the registered hub page.
+- Global, Experience, Reputation, Favorites, and Help are internal child views of the XP Bar page.
+- Switching to the top-level XP Bar page returns navigation to the hub.
+- `Delves` is a separate registered OUS2 page reached from the XP Bar hub and provides a Back to XP Bar action.
 
-## Phase 5 — Help and Changelog Pages
+Phase 5 follow-up work:
 
-Planned:
+- General page polish
+- Enabled/disabled card states
+- Module count summary
+- Global Options functionality
+- Reset semantics review
+- XP Bar color controls
+- Favorites management API review
+- Delves lock/unlock review
+- Flightmaster advanced controls
+- Toolbox expansion
+- Faster Loot rules
+- Help page
+- Changelog page
+- Helper extraction
 
-- OUS2 Help page
-- OUS2 Changelog page
-- OUSBanner recreation
-- Scrollable documentation-style pages
+## Phase 5 — Polish & Advanced Controls
+
+Current:
+
+- General, card-state, module-summary, Global Options, and reset-semantics polish
+- XP Bar color controls and Favorites API review
+- Delves lock/unlock review
+- Flightmaster, Toolbox, and Faster Loot advanced controls
+- Shared helper extraction
+
+Pending OUS2 left-navigation pages:
+
+- Help page
+- Changelog page
 
 ## Phase 6 — Polish and Migration
 

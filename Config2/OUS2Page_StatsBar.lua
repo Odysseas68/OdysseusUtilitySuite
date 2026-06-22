@@ -22,6 +22,32 @@ local function SetTextColor(fontString, color)
     fontString:SetTextColor(color[1], color[2], color[3], color[4])
 end
 
+local function AddSlicedEditBoxBackground(editBox)
+    local capWidth = 10
+    local leftCut = capWidth / T.Scale.editW
+    local rightCut = 1 - leftCut
+
+    local left = editBox:CreateTexture(nil, "BACKGROUND")
+    left:SetTexture(T.Tex("ScaleEditBox"))
+    left:SetTexCoord(0, leftCut, 0, 1)
+    left:SetPoint("TOPLEFT")
+    left:SetPoint("BOTTOMLEFT")
+    left:SetWidth(capWidth)
+
+    local right = editBox:CreateTexture(nil, "BACKGROUND")
+    right:SetTexture(T.Tex("ScaleEditBox"))
+    right:SetTexCoord(rightCut, 1, 0, 1)
+    right:SetPoint("TOPRIGHT")
+    right:SetPoint("BOTTOMRIGHT")
+    right:SetWidth(capWidth)
+
+    local middle = editBox:CreateTexture(nil, "BACKGROUND")
+    middle:SetTexture(T.Tex("ScaleEditBox"))
+    middle:SetTexCoord(leftCut, rightCut, 0, 1)
+    middle:SetPoint("TOPLEFT", left, "TOPRIGHT")
+    middle:SetPoint("BOTTOMRIGHT", right, "BOTTOMLEFT")
+end
+
 local function CreateSectionHeader(text, yOffset)
     local star = page:CreateTexture(nil, "ARTWORK")
     star:SetTexture(T.Tex("SectionStar"))
@@ -184,6 +210,7 @@ local function CreateTemplateRow(yOffset)
     templateBox:SetAutoFocus(false)
     templateBox:SetFontObject(_G[T.Fonts.highlight])
     templateBox:SetMaxLetters(200)
+    templateBox:SetTextInsets(12, 12, 0, 0)
     templateBox:SetTextColor(
         T.Colors.text[1],
         T.Colors.text[2],
@@ -191,9 +218,7 @@ local function CreateTemplateRow(yOffset)
         T.Colors.text[4]
     )
 
-    local editBackground = templateBox:CreateTexture(nil, "BACKGROUND")
-    editBackground:SetTexture(T.Tex("ScaleEditBox"))
-    editBackground:SetAllPoints()
+    AddSlicedEditBoxBackground(templateBox)
 
     local tokenHint = row:CreateFontString(nil, "OVERLAY", T.Fonts.small)
     tokenHint:SetPoint("TOPLEFT", templateBox, "BOTTOMLEFT", 0, -6)

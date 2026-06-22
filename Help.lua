@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Help.lua
--- Version : 2026.05.29
+-- Version : 2026.06.22
 -- Desc    : Tabbed help frame — slash commands and module documentation
 -- ============================================================
 
@@ -41,7 +41,6 @@ local HELP_TABS = {
         label = "XP & Rep",
         lines = {
             {s = "— XP & Rep Bar —"},
-            {c = "/ousxp",            d = "Toggle XP bar"},
             {c = "/xpstats",          d = "Show session XP & rep data"},
             {s = "— Debug —"},
             {c = "/toasttest",        d = "Test reward popup"},

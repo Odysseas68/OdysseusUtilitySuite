@@ -72,6 +72,14 @@ Always access via `T.Tex(key)` helper — never hardcode paths in page files.
 
 **Slash command:** `/ous2` — handler registered in `Core.lua` (not OUS2Config.lua), calls `OUS.Config2.Toggle()`.
 
+**Current status:** Phase 4 module-page migration is complete. Current focus is Phase 5 — Polish & Advanced Controls.
+
+**Completed OUS2 pages:** General, Utilities, Openables, Stats Bar, Auto Remount, Fishing Tracker, Flightmaster, Flight Routing, Faster Loot, Toolbox, XP Bar, and Delves.
+
+**XP Bar migration:** Complete. The registered `XPBar` page is a hub with internal Global, Experience, Reputation, Favorites, and Help views. The separate registered `Delves` page is complete and provides Back to XP Bar navigation.
+
+**Phase 5 follow-up:** General page polish, enabled/disabled card states, module count summary, Global Options functionality, reset semantics review, XP Bar color controls, Favorites management API review, Delves lock/unlock review, Flightmaster advanced controls, Toolbox expansion, Faster Loot rules, pending OUS2 left-navigation Help page and Changelog page, and helper extraction.
+
 **Public API:**
 ```lua
 OUS.Config2.RegisterPage(pageName, pageFrame, refreshFn)  -- wire a page into the nav
@@ -282,7 +290,8 @@ ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
 - `/ous debug` — alias for ousdebug
 - `/ous fish` — toggle fishing tracker
 - `/ousdebug` — toggle debug console
-- `/xpstats`, `/ousxp` — xpbar commands
+- `/xpstats` — XP Bar session statistics command
+- Legacy `/ousxp` alias removed; do not register it again
 - `/toasttest`, `/delvetest`, `/delvedebug` — xpbar debug
 - `/ar`, `/autoremount` — AutoRemount module commands
 - `/sb`, `/statsbar` — StatsBar module commands

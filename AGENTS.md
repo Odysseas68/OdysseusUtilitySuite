@@ -199,7 +199,6 @@ Known commands:
 - `/ous fish`
 - `/ousdebug`
 - `/xpstats`
-- `/ousxp`
 - `/toasttest`
 - `/delvetest`
 - `/delvedebug`
@@ -325,7 +324,7 @@ Each page file should:
 
 ### OUS2 Current Focus
 
-Current focus is Phase 4: Module Pages and OUS2 control polish.
+Current focus is Phase 5 — Polish & Advanced Controls.
 
 Completed:
 - OUS2Page_General.lua created and registered
@@ -334,22 +333,45 @@ Completed:
 - T.Card theme constants added
 - Sidebar architecture implemented
 - Resize framework stabilized
-- Utilities OUS2 page
-- Openables OUS2 page
-
-Remaining:
 - Reusable OUS2ScaleControl widget
 - Openables scale-control integration
-- Additional module pages
-- Openables management-frame strata/anchoring review
-- Module card navigation
+- Completed OUS2 pages:
+  - General
+  - Utilities
+  - Openables
+  - Stats Bar
+  - Auto Remount
+  - Fishing Tracker
+  - Flightmaster
+  - Flight Routing
+  - Faster Loot
+  - Toolbox
+  - XP Bar
+  - Delves
+- XP Bar hub with internal Global, Experience, Reputation, Favorites, and Help views
+- Delves implemented as a separate OUS2 page linked from the XP Bar hub
+- Phase 4 module-page migration completed
+- XP Bar migration completed
+- Delves page completed
+
+Phase 5 follow-up work:
+- General page polish
+- Enabled/disabled card states
 - Module count summary
-- Enabled/disabled module state display
 - Global Options functionality
-- Reset to Defaults functionality
+- Reset semantics review
+- XP Bar color controls
+- Favorites management API review
+- Delves lock/unlock review
+- Flightmaster advanced controls
+- Toolbox expansion
+- Faster Loot rules
+- Pending OUS2 left-navigation Help page
+- Pending OUS2 left-navigation Changelog page
+- Helper extraction
 
 Next major milestone:
-- Build the reusable OUS2ScaleControl widget and integrate it into the Openables page
+- Complete Phase 5 polish and advanced-control follow-up work
 
 ### OUS2 Manual NineSlice
 

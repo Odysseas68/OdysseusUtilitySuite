@@ -74,3 +74,5 @@ Config2\OUS2Page_FlightMaster.lua
 Config2\OUS2Page_FlightRouting.lua
 Config2\OUS2Page_FasterLoot.lua
 Config2\OUS2Page_Toolbox.lua
+Config2\OUS2Page_XPBar.lua
+Config2\OUS2Page_Delves.lua

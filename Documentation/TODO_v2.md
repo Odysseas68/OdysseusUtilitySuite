@@ -174,35 +174,35 @@
 
 ---
 
-## Phase 4 — Module Pages
+## Phase 4 — Module Page Migration COMPLETE
 
 Recommended order:
 
 1. Utilities — COMPLETE
-2. Openables — COMPLETE / polish pending
-3. Stats Bar — COMPLETE / polish pending
-4. Auto Remount
-5. Flight Master
-6. XP Bar
-7. Toolbox
-8. Faster Loot
+2. Openables — COMPLETE
+3. Stats Bar — COMPLETE
+4. Auto Remount — COMPLETE
+5. Flightmaster — COMPLETE
+6. XP Bar — COMPLETE
+7. Toolbox — COMPLETE
+8. Faster Loot — COMPLETE
 9. Fishing Tracker — COMPLETE
-10. Delves
-11. Flight Routing
+10. Delves — COMPLETE
+11. Flight Routing — COMPLETE
 
-Each module page should include:
+Completed module-page baseline, where applicable:
 
-* [ ] Page frame parented to `C.pageContainer`
-* [ ] Optional sidebar content only if useful
-* [ ] Module icon/header
-* [ ] Module enable/disable control
-* [ ] Section headers
-* [ ] Divider lines
-* [ ] Setting rows
-* [ ] Hover help via `C.SetHelpText()` / `C.ClearHelpText()`
-* [ ] `Refresh()` function
-* [ ] `C.RegisterPage(...)`
-* [ ] TOC entry after `Config2\OUS2Config.lua`
+* [x] Page frame parented to `C.pageContainer`
+* [x] Optional sidebar content considered only where useful
+* [x] Module icon/header
+* [x] Safe controls or intentionally read-only status
+* [x] Section headers
+* [x] Divider lines
+* [x] Setting rows or informational cards
+* [x] Hover help via `C.SetHelpText()` / `C.ClearHelpText()`
+* [x] `Refresh()` function where settings are exposed
+* [x] `C.RegisterPage(...)`
+* [x] TOC entry after `Config2\OUS2Config.lua`
 
 ### Completed Module Pages
 
@@ -218,26 +218,50 @@ Each module page should include:
   * [x] Lock/unlock fixed through existing slash handler path
   * [x] Management buttons for blacklist, custom list, mass add, and status
   * [x] Replace temporary scale control with reusable custom OUS2 scale control
-  * [ ] Complete scale-control visual polish and in-game testing
-  * [ ] Review management frame strata/anchoring when OUS2 is open
+
+* [x] General page
+* [x] Stats Bar page
+* [x] Auto Remount page
+* [x] Fishing Tracker page
+* [x] Flightmaster page
+* [x] Flight Routing page
+* [x] Faster Loot page
+* [x] Toolbox page
+
+* [x] XP Bar page
+  * [x] Registered XP Bar hub
+  * [x] Global child settings
+  * [x] Experience child settings
+  * [x] Reputation child settings
+  * [x] Read-only Favorites child
+  * [x] Scrollable Help child
+  * [x] Sliced template edit boxes
+
+* [x] Delves page
+  * [x] Separate registered `Delves` page
+  * [x] Companion and Journey template settings
+  * [x] Delves dimension settings
+  * [x] Back to XP Bar navigation
 
 ---
 
-## Phase 5 — Help and Changelog Pages
+## Phase 5 — Polish & Advanced Controls
 
-### Help Page
-* [ ] OUS2 Help page frame
-* [ ] Overview section
-* [ ] Module documentation
-* [ ] Slash command reference
-* [ ] Scrollable layout
-* [ ] OUSBanner at top after banner is recreated/reviewed
+### OUS2 Left-Navigation Pages
 
-### Changelog Page
-* [ ] OUS2 Changelog page frame
-* [ ] Scrollable version history
-* [ ] Current version highlighted
-* [ ] OUSBanner at top after banner is recreated/reviewed
+* [ ] Help Page
+  * [ ] OUS2 Help page frame
+  * [ ] Overview section
+  * [ ] Module documentation
+  * [ ] Slash command reference
+  * [ ] Scrollable layout
+  * [ ] OUSBanner at top after banner is recreated/reviewed
+
+* [ ] Changelog Page
+  * [ ] OUS2 Changelog page frame
+  * [ ] Scrollable version history
+  * [ ] Current version highlighted
+  * [ ] OUSBanner at top after banner is recreated/reviewed
 
 ---
 
@@ -262,7 +286,7 @@ Extract only after patterns stabilize across multiple pages:
 * [ ] Review `FlightData.lua` / `flightdata.lua` casing and TOC consistency
 * [ ] Review legacy flight data global access
 * [ ] Migrate legacy Config.lua functionality where appropriate
-* [ ] Migrate `xpbar_config.lua` functionality where appropriate
+* [x] Migrate supported `xpbar_config.lua` functionality into the XP Bar and Delves OUS2 pages
 * [ ] Integrate Help.lua content into OUS2 Help page
 * [ ] Decide whether `/ous` remains separate or redirects to `/ous2`
 * [ ] Optional folder restructure only after OUS2 is stable
@@ -345,32 +369,41 @@ Expose only after safe public APIs exist and OUS2 controls are available.
 
 ---
 
+### XP Bar Follow-Up Review
+
+- [ ] Color controls
+- [ ] Favorites management API
+- [ ] Delves lock/unlock review
+- [ ] Reset review
+
+---
+
 ## Current Focus
 
-**Phase 4 — Module Pages and OUS2 control polish**
+**Phase 4 — Completed**
 
-Immediate next work:
+- Module page migration completed.
+- XP Bar migration completed.
+- Delves page completed.
+- Openables page implemented and tested.
+- Shared scale control implemented and adopted.
+- Documentation synchronized.
 
-1. Reusable OUS2 scale control implementation:
-   * [x] Add scale assets to `T.Assets`
-   * [x] Add `T.Scale` sizing/constants
-   * [x] Build the reusable `OUS2ScaleControl` widget
-   * [x] Integrate the reusable control into Openables
+**Phase 5 — Polish & Advanced Controls**
 
-2. Test Openables page:
-   * lock/unlock behavior
-   * scale adjustment
-   * management buttons
-   * persistence after reload
+Current focus is Phase 5 — Polish & Advanced Controls.
 
-3. Defer General final polish:
-   * module count summary
-   * card selected state
-   * card navigation
-   * enabled/disabled card states
-
-4. Later:
-   * management frame strata/side-anchor behavior
-   * centralized OUS2 help-description table
-   * two-column setting-row polish where useful
-   * helper extraction after more module pages
+1. General page polish
+2. Enabled/disabled card states
+3. Module count summary
+4. Global Options functionality
+5. Reset semantics review
+6. XP Bar color controls
+7. Favorites management API review
+8. Delves lock/unlock review
+9. Flightmaster advanced controls
+10. Toolbox expansion
+11. Faster Loot rules
+12. Help page
+13. Changelog page
+14. Helper extraction

@@ -1,0 +1,1285 @@
+-- Addon   : OdysseusUtilitySuite
+-- File    : Config2\OUS2Page_XPBar.lua
+-- Version : 2026.06.22
+-- Desc    : OUS2 XP Bar navigation hub and placeholder child views
+-- ================================================
+
+local addonName, OUS = ...
+local T = OUS.Theme
+local C = OUS.Config2
+
+local page = CreateFrame("Frame", nil, C.pageContainer)
+page:SetAllPoints()
+page:Hide()
+
+local hub = CreateFrame("Frame", nil, page)
+hub:SetAllPoints()
+
+local childFrames = {}
+local globalCheckboxes = {}
+local globalScaleControls = {}
+local experienceScaleControls = {}
+local experienceTemplateBox
+local reputationCheckboxes = {}
+local reputationModifierButtons = {}
+local reputationTemplateBox
+local Refresh
+local RefreshGlobal
+local RefreshExperience
+local RefreshReputation
+
+local RELOAD_POPUP_KEY = "OUS2_XPBAR_HIDE_BLIZZARD_RELOAD"
+if not StaticPopupDialogs[RELOAD_POPUP_KEY] then
+    StaticPopupDialogs[RELOAD_POPUP_KEY] = {
+        text = "Changing the Blizzard XP/Rep bar setting requires a UI reload to fully apply.",
+        button1 = "Reload UI",
+        button2 = "Later",
+        OnAccept = function()
+            ReloadUI()
+        end,
+        timeout = 0,
+        whileDead = true,
+        hideOnEscape = true,
+        preferredIndex = 3,
+    }
+end
+
+local function SetTextColor(fontString, color)
+    fontString:SetTextColor(color[1], color[2], color[3], color[4])
+end
+
+local function AddSlicedEditBoxBackground(editBox)
+    local capWidth = 10
+    local leftCut = capWidth / T.Scale.editW
+    local rightCut = 1 - leftCut
+
+    local left = editBox:CreateTexture(nil, "BACKGROUND")
+    left:SetTexture(T.Tex("ScaleEditBox"))
+    left:SetTexCoord(0, leftCut, 0, 1)
+    left:SetPoint("TOPLEFT")
+    left:SetPoint("BOTTOMLEFT")
+    left:SetWidth(capWidth)
+
+    local right = editBox:CreateTexture(nil, "BACKGROUND")
+    right:SetTexture(T.Tex("ScaleEditBox"))
+    right:SetTexCoord(rightCut, 1, 0, 1)
+    right:SetPoint("TOPRIGHT")
+    right:SetPoint("BOTTOMRIGHT")
+    right:SetWidth(capWidth)
+
+    local middle = editBox:CreateTexture(nil, "BACKGROUND")
+    middle:SetTexture(T.Tex("ScaleEditBox"))
+    middle:SetTexCoord(leftCut, rightCut, 0, 1)
+    middle:SetPoint("TOPLEFT", left, "TOPRIGHT")
+    middle:SetPoint("BOTTOMRIGHT", right, "BOTTOMLEFT")
+end
+
+local function CreateHeader(parent, titleText, subtitleText)
+    local icon = parent:CreateTexture(nil, "ARTWORK")
+    icon:SetTexture(T.Tex("IconXPBar"))
+    icon:SetSize(T.Icons.pageHeader, T.Icons.pageHeader)
+    icon:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, -14)
+
+    local title = parent:CreateFontString(nil, "OVERLAY", T.Fonts.title)
+    title:SetPoint("TOPLEFT", icon, "TOPRIGHT", 10, 0)
+    title:SetText(titleText)
+    SetTextColor(title, T.Colors.accent)
+
+    local subtitle = parent:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+    subtitle:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -3)
+    subtitle:SetText(subtitleText)
+    SetTextColor(subtitle, T.Colors.textDim)
+
+    local divider = parent:CreateTexture(nil, "ARTWORK")
+    divider:SetTexture(T.Tex("Divider"))
+    divider:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, -58)
+    divider:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, -58)
+    divider:SetHeight(6)
+end
+
+local function CreateSectionHeader(parent, text, yOffset)
+    local star = parent:CreateTexture(nil, "ARTWORK")
+    star:SetTexture(T.Tex("SectionStar"))
+    star:SetSize(14, 14)
+    star:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+
+    local label = parent:CreateFontString(nil, "OVERLAY", T.Fonts.sectionHeader)
+    label:SetPoint("LEFT", star, "RIGHT", 6, 0)
+    label:SetText(text)
+    SetTextColor(label, T.Colors.header)
+
+    local divider = parent:CreateTexture(nil, "ARTWORK")
+    divider:SetTexture(T.Tex("Divider"))
+    divider:SetPoint("LEFT", label, "RIGHT", 10, 0)
+    divider:SetPoint("RIGHT", parent, "RIGHT", -18, 0)
+    divider:SetHeight(4)
+end
+
+local function ShowHub()
+    for _, child in pairs(childFrames) do
+        child:Hide()
+    end
+    hub:Show()
+    C.ClearHelpText()
+end
+
+local function ShowChild(childKey)
+    hub:Hide()
+    for key, child in pairs(childFrames) do
+        child:SetShown(key == childKey)
+    end
+    if childKey == "Global" and RefreshGlobal then
+        RefreshGlobal()
+    elseif childKey == "Experience" and RefreshExperience then
+        RefreshExperience()
+    elseif childKey == "Reputation" and RefreshReputation then
+        RefreshReputation()
+    end
+    C.ClearHelpText()
+end
+
+local function CreateInfoCard(parent, text, helpText, yOffset, height)
+    local card = CreateFrame("Frame", nil, parent)
+    card:SetHeight(height or 90)
+    card:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset or -166)
+    card:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset or -166)
+    card:EnableMouse(true)
+
+    local background = card:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local body = card:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    body:SetPoint("TOPLEFT", card, "TOPLEFT", T.Card.Padding, -T.Card.Padding)
+    body:SetPoint("BOTTOMRIGHT", card, "BOTTOMRIGHT", -T.Card.Padding, T.Card.Padding)
+    body:SetJustifyH("LEFT")
+    body:SetJustifyV("MIDDLE")
+    body:SetWordWrap(true)
+    body:SetText(text)
+    SetTextColor(body, T.Colors.textDim)
+
+    card:SetScript("OnEnter", function()
+        background:SetTexture(T.Tex("CardHover"))
+        C.SetHelpText(helpText)
+    end)
+    card:SetScript("OnLeave", function()
+        background:SetTexture(T.Tex("CardNormal"))
+        C.ClearHelpText()
+    end)
+end
+
+local function CreateChildView(childKey, titleText, placeholderText)
+    local child = CreateFrame("Frame", nil, page)
+    child:SetAllPoints()
+    child:Hide()
+    childFrames[childKey] = child
+
+    CreateHeader(child, titleText, "XP Bar settings section")
+
+    local backButton = CreateFrame("Button", nil, child)
+    backButton:SetHeight(36)
+    backButton:SetPoint("TOPLEFT", child, "TOPLEFT", 18, -78)
+    backButton:SetPoint("TOPRIGHT", child, "TOPRIGHT", -18, -78)
+    backButton:SetNormalTexture(T.Tex("ActionNormal"))
+    backButton:SetHighlightTexture(T.Tex("ActionHover"))
+    backButton:SetPushedTexture(T.Tex("ActionPressed"))
+
+    local backLabel = backButton:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    backLabel:SetPoint("CENTER")
+    backLabel:SetText("Back to XP Bar")
+    SetTextColor(backLabel, T.Colors.text)
+
+    backButton:SetScript("OnEnter", function()
+        C.SetHelpText("Return to the XP Bar settings hub.")
+    end)
+    backButton:SetScript("OnLeave", function()
+        C.ClearHelpText()
+    end)
+    backButton:SetScript("OnClick", ShowHub)
+
+    if placeholderText then
+        CreateSectionHeader(child, "Planned Settings", -140)
+        CreateInfoCard(
+            child,
+            placeholderText,
+            "This section is read-only until its existing settings are migrated to OUS2."
+        )
+    end
+
+    return child
+end
+
+local function GetModulesDB()
+    return OdysseusDB and OdysseusDB.modules
+end
+
+local function GetXPBarDB()
+    return OdysseusDB and OdysseusDB.xpBar
+end
+
+local function WakeAndSleepBars()
+    if OUS.WakeBars then
+        OUS.WakeBars()
+    end
+    if OUS.SleepBars then
+        OUS.SleepBars()
+    end
+end
+
+local function AttachControlHelp(frame, background, helpText)
+    frame:HookScript("OnEnter", function()
+        background:SetTexture(T.Tex("CardHover"))
+        C.SetHelpText(helpText)
+    end)
+    frame:HookScript("OnLeave", function()
+        background:SetTexture(T.Tex("CardNormal"))
+        C.ClearHelpText()
+    end)
+end
+
+local function CreateGlobalCheckbox(
+    parent,
+    labelText,
+    helpText,
+    yOffset,
+    getDB,
+    dbKey,
+    onChanged,
+    leftSide,
+    noteText,
+    checkboxList
+)
+    local row = CreateFrame("Button", nil, parent)
+    row:SetHeight(44)
+    if leftSide == nil then
+        row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+        row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    elseif leftSide then
+        row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+        row:SetPoint("TOPRIGHT", parent, "TOP", -5, yOffset)
+    else
+        row:SetPoint("TOPLEFT", parent, "TOP", 5, yOffset)
+        row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    end
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local checkbox = row:CreateTexture(nil, "ARTWORK")
+    checkbox:SetSize(20, 20)
+    checkbox:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("LEFT", checkbox, "RIGHT", 7, 0)
+    label:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+    label:SetJustifyH("LEFT")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    if noteText then
+        label:ClearAllPoints()
+        label:SetPoint("TOPLEFT", checkbox, "TOPRIGHT", 7, 2)
+        label:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+
+        local note = row:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+        note:SetPoint("TOPLEFT", label, "BOTTOMLEFT", 0, -2)
+        note:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+        note:SetJustifyH("LEFT")
+        note:SetText(noteText)
+        SetTextColor(note, T.Colors.textDim)
+    end
+
+    row:SetScript("OnEnter", function()
+        background:SetTexture(T.Tex("CardHover"))
+        C.SetHelpText(helpText)
+    end)
+    row:SetScript("OnLeave", function()
+        background:SetTexture(T.Tex("CardNormal"))
+        C.ClearHelpText()
+    end)
+    row:SetScript("OnClick", function()
+        local db = getDB()
+        if not db then return end
+
+        local newValue = not db[dbKey]
+        db[dbKey] = newValue
+        if onChanged then
+            onChanged(newValue)
+        end
+        Refresh()
+    end)
+
+    local entries = checkboxList or globalCheckboxes
+    entries[#entries + 1] = {
+        checkbox = checkbox,
+        getDB = getDB,
+        dbKey = dbKey,
+    }
+end
+
+local function CreateGlobalScale(
+    parent,
+    labelText,
+    helpText,
+    yOffset,
+    minValue,
+    maxValue,
+    step,
+    initialValue,
+    onChanged
+)
+    local row = CreateFrame("Frame", nil, parent)
+    row:SetHeight(56)
+    row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+    row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    row:EnableMouse(true)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    local control = C.CreateScaleControl(
+        row,
+        minValue,
+        maxValue,
+        step,
+        initialValue,
+        onChanged
+    )
+    control:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+
+    AttachControlHelp(row, background, helpText)
+    AttachControlHelp(control, background, helpText)
+    AttachControlHelp(control.leftButton, background, helpText)
+    AttachControlHelp(control.rightButton, background, helpText)
+    AttachControlHelp(control.slider, background, helpText)
+    AttachControlHelp(control.editBox, background, helpText)
+
+    return control
+end
+
+local function ApplyExperienceDimensions()
+    if OUS.ApplyDimensions then OUS.ApplyDimensions() end
+    if OUS.UpdateBar then OUS.UpdateBar() end
+    if OUS.WakeBars then OUS.WakeBars() end
+    if OUS.SleepBars then OUS.SleepBars() end
+end
+
+local function CreateExperienceTemplateRow(parent, yOffset)
+    local helpText = "Set the token-based text shown on the XP Bar."
+
+    local row = CreateFrame("Frame", nil, parent)
+    row:SetHeight(82)
+    row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+    row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    row:EnableMouse(true)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("TOPLEFT", row, "TOPLEFT", T.Card.Padding, -10)
+    label:SetText("XP Text Template")
+    SetTextColor(label, T.Colors.text)
+
+    experienceTemplateBox = CreateFrame("EditBox", nil, row)
+    experienceTemplateBox:SetHeight(T.Scale.editH)
+    experienceTemplateBox:SetPoint("TOPLEFT", label, "BOTTOMLEFT", 0, -9)
+    experienceTemplateBox:SetPoint("TOPRIGHT", row, "TOPRIGHT", -T.Card.Padding, -34)
+    experienceTemplateBox:SetAutoFocus(false)
+    experienceTemplateBox:SetFontObject(_G[T.Fonts.highlight])
+    experienceTemplateBox:SetMaxLetters(300)
+    experienceTemplateBox:SetTextInsets(12, 12, 0, 0)
+    experienceTemplateBox:SetTextColor(
+        T.Colors.text[1],
+        T.Colors.text[2],
+        T.Colors.text[3],
+        T.Colors.text[4]
+    )
+
+    AddSlicedEditBoxBackground(experienceTemplateBox)
+
+    local skipFocusCommit
+
+    local function CommitTemplate()
+        local db = GetXPBarDB()
+        if not db then return end
+
+        db.xpTemplate = experienceTemplateBox:GetText()
+        if OUS.UpdateBar then
+            OUS.UpdateBar()
+        end
+    end
+
+    experienceTemplateBox:SetScript("OnEnterPressed", function()
+        CommitTemplate()
+        skipFocusCommit = true
+        experienceTemplateBox:ClearFocus()
+    end)
+    experienceTemplateBox:SetScript("OnEditFocusLost", function()
+        if skipFocusCommit then
+            skipFocusCommit = nil
+        else
+            CommitTemplate()
+        end
+        Refresh()
+    end)
+    experienceTemplateBox:SetScript("OnEscapePressed", function()
+        local db = GetXPBarDB()
+        experienceTemplateBox:SetText(db and db.xpTemplate or "")
+        skipFocusCommit = true
+        experienceTemplateBox:ClearFocus()
+    end)
+
+    AttachControlHelp(row, background, helpText)
+    AttachControlHelp(experienceTemplateBox, background, helpText)
+end
+
+local function CreateReputationTemplateRow(parent, yOffset)
+    local helpText = "Set the token-based text shown for reputation progress."
+
+    local row = CreateFrame("Frame", nil, parent)
+    row:SetHeight(82)
+    row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+    row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    row:EnableMouse(true)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("TOPLEFT", row, "TOPLEFT", T.Card.Padding, -10)
+    label:SetText("Reputation Text Template")
+    SetTextColor(label, T.Colors.text)
+
+    reputationTemplateBox = CreateFrame("EditBox", nil, row)
+    reputationTemplateBox:SetHeight(T.Scale.editH)
+    reputationTemplateBox:SetPoint("TOPLEFT", label, "BOTTOMLEFT", 0, -9)
+    reputationTemplateBox:SetPoint("TOPRIGHT", row, "TOPRIGHT", -T.Card.Padding, -34)
+    reputationTemplateBox:SetAutoFocus(false)
+    reputationTemplateBox:SetFontObject(_G[T.Fonts.highlight])
+    reputationTemplateBox:SetMaxLetters(300)
+    reputationTemplateBox:SetTextInsets(12, 12, 0, 0)
+    reputationTemplateBox:SetTextColor(
+        T.Colors.text[1],
+        T.Colors.text[2],
+        T.Colors.text[3],
+        T.Colors.text[4]
+    )
+
+    AddSlicedEditBoxBackground(reputationTemplateBox)
+
+    local skipFocusCommit
+
+    local function CommitTemplate()
+        local db = GetXPBarDB()
+        if not db then return end
+
+        db.repTemplate = reputationTemplateBox:GetText()
+        if OUS.UpdateBar then
+            OUS.UpdateBar()
+        end
+    end
+
+    reputationTemplateBox:SetScript("OnEnterPressed", function()
+        CommitTemplate()
+        skipFocusCommit = true
+        reputationTemplateBox:ClearFocus()
+    end)
+    reputationTemplateBox:SetScript("OnEditFocusLost", function()
+        if skipFocusCommit then
+            skipFocusCommit = nil
+        else
+            CommitTemplate()
+        end
+        Refresh()
+    end)
+    reputationTemplateBox:SetScript("OnEscapePressed", function()
+        local db = GetXPBarDB()
+        reputationTemplateBox:SetText(db and db.repTemplate or "")
+        skipFocusCommit = true
+        reputationTemplateBox:ClearFocus()
+    end)
+
+    AttachControlHelp(row, background, helpText)
+    AttachControlHelp(reputationTemplateBox, background, helpText)
+end
+
+local function CreateReputationModifierButton(parent, labelText, value, yOffset, leftSide)
+    local helpText
+    if value == "NONE" then
+        helpText = "Open the existing faction selector with right-click and no modifier."
+    else
+        helpText = "Use " .. labelText .. " with right-click to open the existing faction selector."
+    end
+
+    local button = CreateFrame("Button", nil, parent)
+    button:SetHeight(44)
+    if leftSide then
+        button:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+        button:SetPoint("TOPRIGHT", parent, "TOP", -5, yOffset)
+    else
+        button:SetPoint("TOPLEFT", parent, "TOP", 5, yOffset)
+        button:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    end
+
+    local background = button:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local label = button:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("CENTER")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    button.background = background
+    button.label = label
+    button.selected = false
+
+    button:SetScript("OnEnter", function(self)
+        if not self.selected then
+            background:SetTexture(T.Tex("CardHover"))
+        end
+        C.SetHelpText(helpText)
+    end)
+    button:SetScript("OnLeave", function(self)
+        background:SetTexture(T.Tex(self.selected and "CardSelected" or "CardNormal"))
+        C.ClearHelpText()
+    end)
+    button:SetScript("OnClick", function()
+        local db = GetXPBarDB()
+        if not db then return end
+
+        db.repMenuMod = value
+        Refresh()
+    end)
+
+    reputationModifierButtons[value] = button
+end
+
+local function UpdateReputationModifierButton(button, selected)
+    button.selected = selected
+    button.background:SetTexture(T.Tex(selected and "CardSelected" or "CardNormal"))
+    SetTextColor(button.label, selected and T.Colors.accent or T.Colors.text)
+end
+
+local function CreateHelpRow(parent, text, helpText, yOffset, height)
+    local row = CreateFrame("Frame", nil, parent)
+    row:SetHeight(height or 38)
+    row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, -yOffset)
+    row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, -yOffset)
+    row:EnableMouse(true)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local body = row:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+    body:SetPoint("TOPLEFT", row, "TOPLEFT", T.Card.Padding, -T.Card.Padding)
+    body:SetPoint("BOTTOMRIGHT", row, "BOTTOMRIGHT", -T.Card.Padding, T.Card.Padding)
+    body:SetJustifyH("LEFT")
+    body:SetJustifyV("MIDDLE")
+    body:SetWordWrap(true)
+    body:SetText(text)
+    SetTextColor(body, T.Colors.text)
+
+    row:SetScript("OnEnter", function()
+        background:SetTexture(T.Tex("CardHover"))
+        C.SetHelpText(helpText)
+    end)
+    row:SetScript("OnLeave", function()
+        background:SetTexture(T.Tex("CardNormal"))
+        C.ClearHelpText()
+    end)
+
+    return yOffset + (height or 38) + 6
+end
+
+local function AddHelpSection(parent, text, yOffset)
+    CreateSectionHeader(parent, text, -yOffset)
+    return yOffset + 26
+end
+
+local function AddTokenRows(parent, entries, yOffset)
+    for _, entry in ipairs(entries) do
+        yOffset = CreateHelpRow(
+            parent,
+            entry[1] .. " - " .. entry[2],
+            entry[2],
+            yOffset
+        )
+    end
+    return yOffset
+end
+
+local function CreateHelpScrollContent(parent)
+    local scrollBox = CreateFrame("Frame", nil, parent, "WowScrollBox")
+    scrollBox:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, -130)
+    scrollBox:SetPoint("BOTTOMRIGHT", parent, "BOTTOMRIGHT", -34, 10)
+
+    local scrollBar = CreateFrame("EventFrame", nil, parent, "MinimalScrollBar")
+    scrollBar:SetWidth(12)
+    scrollBar:SetPoint("TOPLEFT", scrollBox, "TOPRIGHT", 2, 0)
+    scrollBar:SetPoint("BOTTOMLEFT", scrollBox, "BOTTOMRIGHT", 2, 0)
+
+    local content = CreateFrame("Frame", nil, scrollBox)
+    content:SetWidth(math.max(1, scrollBox:GetWidth() - 4))
+    content.scrollable = true
+
+    scrollBox:HookScript("OnSizeChanged", function(_, width)
+        content:SetWidth(math.max(1, width - 4))
+    end)
+
+    local yOffset = 6
+
+    yOffset = AddHelpSection(content, "XP Template Tokens", yOffset)
+    yOffset = AddTokenRows(content, {
+        { "[curXP]", "Current XP" },
+        { "[maxXP]", "Maximum XP" },
+        { "[needXP]", "Remaining XP" },
+        { "[curPC]", "Current percentage" },
+        { "[needPC]", "Remaining percentage" },
+        { "[restPC]", "Rested percentage" },
+        { "[pLVL]", "Current level" },
+        { "[nLVL]", "Next level" },
+        { "[mLVL]", "Maximum level" },
+        { "[restXP]", "Rested XP" },
+        { "[restLVL]", "Rested XP measured in levels" },
+        { "[KTL]", "Kills to level" },
+    }, yOffset)
+
+    yOffset = yOffset + 8
+    yOffset = AddHelpSection(content, "Reputation Template Tokens", yOffset)
+    yOffset = AddTokenRows(content, {
+        { "[faction]", "Faction name" },
+        { "[standing]", "Current standing" },
+        { "[curRep]", "Current reputation" },
+        { "[maxRep]", "Maximum reputation for the current level" },
+        { "[needRep]", "Remaining reputation" },
+        { "[repPC]", "Current reputation percentage" },
+        { "[needPC]", "Remaining reputation percentage" },
+        { "[curLVL]", "Current reputation or journey level" },
+        { "[nextLVL]", "Next reputation or journey level" },
+    }, yOffset)
+
+    yOffset = yOffset + 8
+    yOffset = AddHelpSection(content, "Delves Template Tokens", yOffset)
+    yOffset = AddTokenRows(content, {
+        { "[compName]", "Companion name" },
+        { "[pLVL]", "Companion level" },
+        { "[curXP]", "Current companion XP" },
+        { "[maxXP]", "Maximum companion XP" },
+        { "[needXP]", "Remaining companion XP" },
+        { "[curPC]", "Current companion XP percentage" },
+        { "[needPC]", "Remaining companion XP percentage" },
+        { "[curLVL]", "Current journey level" },
+        { "[nextLVL]", "Next journey level" },
+        { "[curRep]", "Current journey reputation" },
+        { "[maxRep]", "Maximum journey reputation for the current level" },
+        { "[needRep]", "Remaining journey reputation" },
+        { "[repPC]", "Current journey percentage" },
+        { "[needPC]", "Remaining journey percentage" },
+        { "[faction]", "Journey name" },
+        { "[standing]", "Journey state" },
+    }, yOffset)
+
+    yOffset = yOffset + 8
+    yOffset = AddHelpSection(content, "Favorites", yOffset)
+    yOffset = CreateHelpRow(
+        content,
+        "Modifier-right-click the XP Bar to open the existing Reputation Favorites selector.",
+        "The modifier is configured on the Reputation child page.",
+        yOffset,
+        52
+    )
+    yOffset = CreateHelpRow(
+        content,
+        "Clicking a saved Favorite can set it as watched; normal max-level display prefers the currently watched faction.",
+        "Watched-faction behavior remains owned by the XP Bar engine.",
+        yOffset,
+        58
+    )
+    yOffset = CreateHelpRow(
+        content,
+        "Save Favorites commits the temporary selection. Cancel closes the selector without saving changes.",
+        "The existing selector keeps edits temporary until Save Favorites is clicked.",
+        yOffset,
+        58
+    )
+    yOffset = CreateHelpRow(
+        content,
+        "OUS2 Favorites management is planned for a future version when a public selector API exists.",
+        "OUS2 does not manipulate Favorites data directly.",
+        yOffset,
+        52
+    )
+
+    yOffset = yOffset + 8
+    yOffset = AddHelpSection(content, "Commands", yOffset)
+    yOffset = CreateHelpRow(
+        content,
+        "/xpstats - Show session XP and reputation statistics.",
+        "Open the XP Bar session statistics frame.",
+        yOffset
+    )
+    yOffset = CreateHelpRow(
+        content,
+        "/toasttest - Test the reputation reward popup.",
+        "Show the XP Bar reward toast test.",
+        yOffset
+    )
+
+    yOffset = yOffset + 8
+    yOffset = AddHelpSection(content, "Movement", yOffset)
+    yOffset = CreateHelpRow(
+        content,
+        "Hold Shift and drag the XP Bar frame to reposition it.",
+        "The XP Bar saves its position when its drag operation stops.",
+        yOffset,
+        46
+    )
+    yOffset = CreateHelpRow(
+        content,
+        "Hold Shift and drag the Delves frame to reposition it.",
+        "The Delves frame uses Shift-drag movement.",
+        yOffset,
+        46
+    )
+
+    yOffset = yOffset + 8
+    yOffset = AddHelpSection(content, "Notes", yOffset)
+    yOffset = CreateHelpRow(
+        content,
+        "Reputation display may temporarily switch after reputation gains.",
+        "Recent reputation gains can temporarily force reputation display.",
+        yOffset,
+        46
+    )
+    yOffset = CreateHelpRow(
+        content,
+        "At max level, the last reputation faction is used as a fallback only when no faction is watched.",
+        "A currently watched faction takes priority over the remembered fallback.",
+        yOffset,
+        58
+    )
+    yOffset = CreateHelpRow(
+        content,
+        "Delves visibility depends on the existing Delves detection logic.",
+        "OUS2 does not change or preview Delves detection state.",
+        yOffset,
+        46
+    )
+
+    content:SetHeight(yOffset + 14)
+
+    local view = CreateScrollBoxLinearView()
+    view:SetPanExtent(T.Scroll.scrollStep)
+    ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
+end
+
+CreateHeader(
+    hub,
+    "XP Bar",
+    "Experience, reputation, Delves, and progress display"
+)
+CreateSectionHeader(hub, "Settings", -78)
+
+local cardData = {
+    {
+        name = "Global",
+        detail = "Shared appearance and behavior",
+        help = "Open the planned global XP Bar settings section.",
+        childKey = "Global",
+    },
+    {
+        name = "Experience",
+        detail = "Experience display settings",
+        help = "Open the planned experience settings section.",
+        childKey = "Experience",
+    },
+    {
+        name = "Reputation",
+        detail = "Reputation display settings",
+        help = "Open the planned reputation settings section.",
+        childKey = "Reputation",
+    },
+    {
+        name = "Favorites",
+        detail = "Pinned faction management",
+        help = "Open the planned Favorites settings section.",
+        childKey = "Favorites",
+    },
+    {
+        name = "Delves",
+        detail = "Companion and journey settings",
+        help = "Delves settings will be implemented as a separate OUS2 page.",
+        isDelves = true,
+    },
+    {
+        name = "Help",
+        detail = "Tokens, commands, and guidance",
+        help = "Open the planned XP Bar help section.",
+        childKey = "Help",
+    },
+}
+
+local function CreateHubCard(info, index)
+    local row = math.floor((index - 1) / 2)
+    local yOffset = -106 - row * (T.Card.Height + 10)
+    local leftSide = index % 2 == 1
+
+    local card = CreateFrame("Button", nil, hub)
+    card:SetHeight(T.Card.Height)
+    if leftSide then
+        card:SetPoint("TOPLEFT", hub, "TOPLEFT", 18, yOffset)
+        card:SetPoint("TOPRIGHT", hub, "TOP", -5, yOffset)
+    else
+        card:SetPoint("TOPLEFT", hub, "TOP", 5, yOffset)
+        card:SetPoint("TOPRIGHT", hub, "TOPRIGHT", -18, yOffset)
+    end
+
+    local background = card:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local name = card:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    name:SetPoint("TOPLEFT", card, "TOPLEFT", T.Card.Padding, -12)
+    name:SetText(info.name)
+    SetTextColor(name, T.Colors.text)
+
+    local detail = card:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+    detail:SetPoint("TOPLEFT", name, "BOTTOMLEFT", 0, -5)
+    detail:SetPoint("RIGHT", card, "RIGHT", -(T.Card.Padding + T.Card.ChevronSize), 0)
+    detail:SetJustifyH("LEFT")
+    detail:SetText(info.detail)
+    SetTextColor(detail, T.Colors.textDim)
+
+    local chevron = card:CreateFontString(nil, "OVERLAY", T.Fonts.highlight)
+    chevron:SetSize(T.Card.ChevronSize, T.Card.ChevronSize)
+    chevron:SetPoint("RIGHT", card, "RIGHT", -T.Card.Padding, 0)
+    chevron:SetJustifyH("CENTER")
+    chevron:SetText(">")
+    SetTextColor(chevron, T.Colors.accent)
+
+    card:SetScript("OnEnter", function()
+        background:SetTexture(T.Tex("CardHover"))
+        C.SetHelpText(info.help)
+    end)
+    card:SetScript("OnLeave", function()
+        background:SetTexture(T.Tex("CardNormal"))
+        C.ClearHelpText()
+    end)
+    card:SetScript("OnClick", function()
+        if info.isDelves then
+            if C.pages and C.pages.Delves and C.pages.Delves.frame then
+                C.OpenPage("Delves")
+            else
+                C.SetHelpText("Delves settings will be implemented as a separate OUS2 page.")
+            end
+            return
+        end
+
+        ShowChild(info.childKey)
+    end)
+end
+
+for index, info in ipairs(cardData) do
+    CreateHubCard(info, index)
+end
+
+local globalChild = CreateChildView(
+    "Global",
+    "XP Bar - Global",
+    nil
+)
+
+CreateSectionHeader(globalChild, "Module", -130)
+CreateGlobalCheckbox(
+    globalChild,
+    "Enable XP Bar Module",
+    "Enable or disable the XP Bar module.",
+    -156,
+    GetModulesDB,
+    "xpBar",
+    function(enabled)
+        if enabled then
+            if OUS.UpdateBar then OUS.UpdateBar() end
+            if OUS.UpdateDelveBar then OUS.UpdateDelveBar() end
+            if OUS.WakeBars then OUS.WakeBars() end
+        else
+            if OUS.xpBarFrame then OUS.xpBarFrame:Hide() end
+            if OUS.delveBarFrame then OUS.delveBarFrame:Hide() end
+            if OUS.favHoverFrame then OUS.favHoverFrame:Hide() end
+        end
+    end
+)
+
+CreateSectionHeader(globalChild, "Behavior", -214)
+CreateGlobalCheckbox(
+    globalChild,
+    "Hide Blizzard XP/Rep Bars",
+    "Hide the Blizzard XP and reputation bars. A UI reload may be required for this change to apply fully.",
+    -240,
+    GetXPBarDB,
+    "hideBlizz",
+    function()
+        StaticPopup_Show(RELOAD_POPUP_KEY)
+    end,
+    true,
+    "Requires /reload to fully apply."
+)
+CreateGlobalCheckbox(
+    globalChild,
+    "Abbreviate Large Numbers",
+    "Use abbreviated values for large XP and reputation numbers.",
+    -240,
+    GetXPBarDB,
+    "shortNumbers",
+    function()
+        if OUS.UpdateBar then OUS.UpdateBar() end
+    end,
+    false
+)
+CreateGlobalCheckbox(
+    globalChild,
+    "Auto-hide Bars",
+    "Fade the XP Bar displays after the configured delay.",
+    -288,
+    GetXPBarDB,
+    "autoHide",
+    WakeAndSleepBars,
+    true
+)
+CreateGlobalCheckbox(
+    globalChild,
+    "Show Rested Icon",
+    "Show the rested-state icon on the XP Bar when applicable.",
+    -288,
+    GetXPBarDB,
+    "showRestIcon",
+    function()
+        if OUS.UpdateBar then OUS.UpdateBar() end
+    end,
+    false
+)
+
+CreateSectionHeader(globalChild, "Display", -350)
+
+globalScaleControls.xpFontSize = CreateGlobalScale(
+    globalChild,
+    "Font Size",
+    "Adjust the XP Bar font size.",
+    -376,
+    6,
+    40,
+    1,
+    15,
+    function(value)
+        local db = GetXPBarDB()
+        if not db then return end
+        db.xpFontSize = value
+        if OUS.ApplyFonts then OUS.ApplyFonts() end
+        if OUS.UpdateBar then OUS.UpdateBar() end
+        if OUS.UpdateDelveBar then OUS.UpdateDelveBar() end
+    end
+)
+
+globalScaleControls.repDisplayTime = CreateGlobalScale(
+    globalChild,
+    "Reputation Display Time",
+    "Set how long reputation progress remains active after a reputation gain.",
+    -436,
+    1,
+    30,
+    1,
+    15,
+    function(value)
+        local db = GetXPBarDB()
+        if db then
+            db.repDisplayTime = value
+        end
+    end
+)
+
+globalScaleControls.fadeDelay = CreateGlobalScale(
+    globalChild,
+    "Fade Delay",
+    "Set the delay before auto-hide fades the bars.",
+    -496,
+    1,
+    60,
+    1,
+    5,
+    function(value)
+        local db = GetXPBarDB()
+        if not db then return end
+        db.fadeDelay = value
+        WakeAndSleepBars()
+    end
+)
+
+globalScaleControls.activeAlpha = CreateGlobalScale(
+    globalChild,
+    "Active Alpha",
+    "Set bar opacity while the XP Bar is active.",
+    -556,
+    0.1,
+    1.0,
+    0.05,
+    1.0,
+    function(value)
+        local db = GetXPBarDB()
+        if not db then return end
+        db.activeAlpha = math.floor((value * 100) + 0.5)
+        WakeAndSleepBars()
+    end
+)
+
+globalScaleControls.fadedAlpha = CreateGlobalScale(
+    globalChild,
+    "Faded Alpha",
+    "Set bar opacity after auto-hide fades the bars.",
+    -616,
+    0.0,
+    1.0,
+    0.05,
+    0.0,
+    function(value)
+        local db = GetXPBarDB()
+        if not db then return end
+        db.fadedAlpha = math.floor((value * 100) + 0.5)
+        WakeAndSleepBars()
+    end
+)
+
+local experienceChild = CreateChildView(
+    "Experience",
+    "XP Bar - Experience",
+    nil
+)
+
+CreateSectionHeader(experienceChild, "Text", -130)
+CreateExperienceTemplateRow(experienceChild, -156)
+
+CreateSectionHeader(experienceChild, "Dimensions", -262)
+
+experienceScaleControls.xpBarWidth = CreateGlobalScale(
+    experienceChild,
+    "XP Bar Width",
+    "Adjust the width of the XP Bar.",
+    -288,
+    100,
+    800,
+    10,
+    650,
+    function(value)
+        local db = GetXPBarDB()
+        if not db then return end
+        db.xpBarWidth = value
+        ApplyExperienceDimensions()
+    end
+)
+
+experienceScaleControls.xpBarHeight = CreateGlobalScale(
+    experienceChild,
+    "XP Bar Height",
+    "Adjust the height of the XP Bar.",
+    -348,
+    4,
+    80,
+    1,
+    25,
+    function(value)
+        local db = GetXPBarDB()
+        if not db then return end
+        db.xpBarHeight = value
+        ApplyExperienceDimensions()
+    end
+)
+
+experienceScaleControls.xpBarScale = CreateGlobalScale(
+    experienceChild,
+    "XP Bar Scale",
+    "Adjust the overall scale of the XP Bar.",
+    -408,
+    0.5,
+    3.0,
+    0.05,
+    1.0,
+    function(value)
+        local db = GetXPBarDB()
+        if not db then return end
+        db.xpBarScale = value
+        ApplyExperienceDimensions()
+    end
+)
+
+CreateSectionHeader(experienceChild, "Future Settings", -488)
+CreateInfoCard(
+    experienceChild,
+    "Color settings will be added later when OUS2 color-picker rows are available.",
+    "XP Bar color controls remain in the legacy configuration until reusable OUS2 color-picker rows are available.",
+    -514,
+    70
+)
+local reputationChild = CreateChildView(
+    "Reputation",
+    "XP Bar - Reputation",
+    nil
+)
+
+CreateSectionHeader(reputationChild, "Text", -130)
+CreateReputationTemplateRow(reputationChild, -156)
+
+CreateSectionHeader(reputationChild, "Toast", -262)
+CreateGlobalCheckbox(
+    reputationChild,
+    "Toast Enabled",
+    "Show the existing reputation reward toast when applicable.",
+    -288,
+    GetXPBarDB,
+    "toastEnabled",
+    nil,
+    true,
+    nil,
+    reputationCheckboxes
+)
+CreateGlobalCheckbox(
+    reputationChild,
+    "Toast Sound",
+    "Play the configured sound with reputation reward toasts.",
+    -288,
+    GetXPBarDB,
+    "toastSound",
+    nil,
+    false,
+    nil,
+    reputationCheckboxes
+)
+
+CreateSectionHeader(reputationChild, "Faction Menu Modifier", -350)
+CreateReputationModifierButton(reputationChild, "CTRL", "CTRL", -376, true)
+CreateReputationModifierButton(reputationChild, "SHIFT", "SHIFT", -376, false)
+CreateReputationModifierButton(reputationChild, "ALT", "ALT", -426, true)
+CreateReputationModifierButton(reputationChild, "NONE", "NONE", -426, false)
+
+CreateSectionHeader(reputationChild, "Notes", -492)
+CreateInfoCard(
+    reputationChild,
+    "Reputation colors will be added later when OUS2 color-picker rows exist.",
+    "Reputation color controls remain in the legacy configuration for now.",
+    -518,
+    58
+)
+CreateInfoCard(
+    reputationChild,
+    "Favorites/faction selection remains handled by the existing modifier-right-click selector for now.",
+    "This page changes only the modifier used to open the existing faction selector.",
+    -584,
+    70
+)
+local favoritesChild = CreateChildView(
+    "Favorites",
+    "XP Bar - Favorites",
+    nil
+)
+
+CreateSectionHeader(favoritesChild, "Favorites", -130)
+CreateInfoCard(
+    favoritesChild,
+    "Favorites are managed through the existing Reputation Favorites selector.\n\n" ..
+    "How to use:\n\n" ..
+    "1. Open the Reputation bar menu.\n" ..
+    "2. Use the configured modifier key.\n" ..
+    "3. Select favorite factions.\n" ..
+    "4. Save changes.",
+    "Favorites continue to use the existing Reputation Favorites selector.",
+    -156,
+    210
+)
+
+CreateSectionHeader(favoritesChild, "Notes", -390)
+CreateInfoCard(
+    favoritesChild,
+    "- Favorites are stored in OdysseusDB.xpBar.favFactions.\n" ..
+    "- Watched factions remain managed by the XP Bar engine.\n" ..
+    "- OUS2 Favorites management will be added when a public selector API exists.",
+    "Favorites and watched-faction state remain read-only in OUS2.",
+    -416,
+    130
+)
+local helpChild = CreateChildView(
+    "Help",
+    "XP Bar - Help",
+    nil
+)
+CreateHelpScrollContent(helpChild)
+
+RefreshGlobal = function()
+    for _, entry in ipairs(globalCheckboxes) do
+        local db = entry.getDB()
+        local checked = db and db[entry.dbKey] == true
+        entry.checkbox:SetTexture(T.Tex(checked and "CheckboxOn" or "CheckboxOff"))
+    end
+
+    local db = GetXPBarDB()
+    globalScaleControls.xpFontSize:SetValue(db and db.xpFontSize or 15, true)
+    globalScaleControls.repDisplayTime:SetValue(db and db.repDisplayTime or 15, true)
+    globalScaleControls.fadeDelay:SetValue(db and db.fadeDelay or 5, true)
+    globalScaleControls.activeAlpha:SetValue((db and db.activeAlpha or 100) / 100, true)
+    globalScaleControls.fadedAlpha:SetValue((db and db.fadedAlpha or 0) / 100, true)
+end
+
+RefreshExperience = function()
+    local db = GetXPBarDB()
+    experienceScaleControls.xpBarWidth:SetValue(db and db.xpBarWidth or 650, true)
+    experienceScaleControls.xpBarHeight:SetValue(db and db.xpBarHeight or 25, true)
+    experienceScaleControls.xpBarScale:SetValue(db and db.xpBarScale or 1.0, true)
+
+    if not experienceTemplateBox:HasFocus() then
+        local defaultTemplate = OUS.defaults and OUS.defaults.xpTemplate or ""
+        experienceTemplateBox:SetText(db and db.xpTemplate or defaultTemplate)
+    end
+end
+
+RefreshReputation = function()
+    for _, entry in ipairs(reputationCheckboxes) do
+        local db = entry.getDB()
+        local checked = db and db[entry.dbKey] == true
+        entry.checkbox:SetTexture(T.Tex(checked and "CheckboxOn" or "CheckboxOff"))
+    end
+
+    local db = GetXPBarDB()
+    if not reputationTemplateBox:HasFocus() then
+        local defaultTemplate = OUS.defaults and OUS.defaults.repTemplate or ""
+        reputationTemplateBox:SetText(db and db.repTemplate or defaultTemplate)
+    end
+
+    local currentModifier = db and db.repMenuMod or "CTRL"
+    for value, button in pairs(reputationModifierButtons) do
+        UpdateReputationModifierButton(button, value == currentModifier)
+    end
+end
+
+Refresh = function()
+    RefreshGlobal()
+    RefreshExperience()
+    RefreshReputation()
+end
+
+local function RefreshForOpen()
+    ShowHub()
+    RefreshGlobal()
+    RefreshExperience()
+    RefreshReputation()
+end
+
+C.RegisterPage("XPBar", page, RefreshForOpen)

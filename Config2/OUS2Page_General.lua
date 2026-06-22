@@ -13,7 +13,7 @@ page:SetAllPoints()
 page:Hide()
 
 local MODULES = {
-    { name = "XP Bar",          detail = "Experience and reputation",    icon = "IconXPBar" },
+    { name = "XP Bar",          detail = "Experience and reputation",    icon = "IconXPBar", pageKey = "XPBar" },
     { name = "Delves",          detail = "Companion and journey tracking", icon = "IconDelves" },
     { name = "Flight Master",   detail = "Flight timer and learned routes", icon = "IconFlightMaster", pageKey = "FlightMaster" },
     { name = "Flight Routing",  detail = "Taxi route visualization",     icon = "IconFlightRouting", pageKey = "FlightRouting" },

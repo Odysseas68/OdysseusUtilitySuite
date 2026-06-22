@@ -281,40 +281,50 @@ local DEBUG_SCROLLBOX = false   -- cyan border around scroll content area
 
 ---
 
-# Current Status
+## Current Status
 
-## Completed
+### Completed
 
-* Full Midnight Arcane artwork pack (AISure.uk — Fantasy preset)
-* All assets converted to 32-bit TGA with alpha (ImageMagick)
-* NineSlice frame — manual placement, all pieces aligned
-* Border alignment — corners, edges, gems all pixel-perfect
-* Background fits cleanly inside frame
-* Custom scrollbar — track + thumb, synced to content scroll position
-* Dynamic scroll layout — recalculates on frame resize
-* Resizable frame — right edge, bottom edge, bottom-right corner handles
-* Resize bounds — min 1050x700, max 1600x1000
-* ESC key support via UISpecialFrames
-* Mouse wheel scrolling
-* Debug flag system (grid, underlay, scrollbox)
-* Navigation button set
-* Action button set
-* Close button set
-* Module icon pack (16 icons)
-* Utility icon pack (SectionStar, Checkbox x2, Divider, TabIndicator)
-* OUS branding assets (Logo 512x512, Minimap button)
-* Architecture documentation (ARCHITECTURE.md)
-* Asset prompt reference (ASSET_PROMPTS_v2.md)
+* OUS2Theme.lua
+* OUS2Config.lua
+* OUS2ScaleControl.lua
+* General page
+* Utilities page
+* Openables page
+* Stats Bar page
+* Auto Remount page
+* Fishing Tracker page
+* Flightmaster page
+* Flight Routing page
+* Faster Loot page
+* Toolbox page
+* XP Bar hub page
+* Delves page
+* Shared OUS2 page framework
+* Shared card system
+* Shared scale-control system
+* Shared help-panel system
+* Midnight Arcane theme implementation
+* Documentation synchronization
 
-## Pending
+### Current Phase
 
-* OUSBanner.tga — needs recreation (current proportions wrong)
+Phase 5 — Polish & Advanced Controls
 
-## Next Milestone
+### Remaining Work
 
-* OUS2Theme.lua — texture registry, color constants, font constants
-* OUS2Config.lua — production frame with nav panel + content panel
-* Navigation framework — left panel with custom buttons
-* General page — first functional settings page
+* General page polish
+* Enabled/disabled module card states
+* Module count summary
+* Global Options functionality
+* Reset semantics review
+* XP Bar color controls
+* Favorites management API review
+* Delves lock/unlock review
+* Flightmaster advanced controls
+* Toolbox expansion features
+* Faster Loot rules system
 * Help page
 * Changelog page
+* OUSBanner recreation/review
+* Shared helper extraction after patterns stabilize

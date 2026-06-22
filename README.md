@@ -127,7 +127,6 @@ Highlights:
 
 Commands:
 - `/xpstats`
-- `/ousxp`
 
 ---
 
@@ -231,7 +230,6 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 
 ### XP / Reputation
 - `/xpstats`
-- `/ousxp`
 
 ### Utility / Debug
 - `/toasttest`
@@ -264,7 +262,36 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 
 ## Current Focus
 
-The addon is in active refinement, with recent work on:
-- Utilities module: rare announcer, auto repair, junk seller with timer-based selling
-- Config: General tab module toggles reformatted to 2-column layout
-- Junk Seller: `limitTo12` option, always-visible button, requireShift mode
+Phase 4 module-page migration is complete. Current focus is Phase 5 — Polish & Advanced Controls.
+
+Completed OUS2 pages:
+- General
+- Utilities
+- Openables
+- Stats Bar
+- Auto Remount
+- Fishing Tracker
+- Flightmaster
+- Flight Routing
+- Faster Loot
+- Toolbox
+- XP Bar
+- Delves
+
+XP Bar migration is complete: its OUS2 page is a hub for Global, Experience, Reputation, Favorites, and Help child views. The separate Delves page is also complete and provides Back to XP Bar navigation.
+
+Phase 5 follow-up work:
+- General page polish
+- Enabled/disabled card states
+- Module count summary
+- Global Options functionality
+- Reset semantics review
+- XP Bar color controls
+- Favorites management API review
+- Delves lock/unlock review
+- Flightmaster advanced controls
+- Toolbox expansion
+- Faster Loot rules
+- Pending OUS2 left-navigation Help page
+- Pending OUS2 left-navigation Changelog page
+- Helper extraction
