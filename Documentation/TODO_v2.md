@@ -180,13 +180,13 @@ Recommended order:
 
 1. Utilities — COMPLETE
 2. Openables — COMPLETE / polish pending
-3. Stats Bar
+3. Stats Bar — COMPLETE / polish pending
 4. Auto Remount
 5. Flight Master
 6. XP Bar
 7. Toolbox
 8. Faster Loot
-9. Fishing Tracker
+9. Fishing Tracker — COMPLETE
 10. Delves
 11. Flight Routing
 
@@ -285,6 +285,63 @@ Extract only after patterns stabilize across multiple pages:
 * [ ] Dynamic page generation where safe
 * [ ] Stable UI architecture through future Retail expansions
 * [ ] OUS2 becomes the primary configuration surface
+
+---
+
+### Stats Bar Follow-Up Review
+
+Future design review required:
+
+- Audit legacy Stats Bar enable semantics.
+- Determine whether OUS2 should expose:
+  - Account-wide module enable (`OdysseusDB.modules.statsBar`)
+  - Per-character single-line bar enable (`OdysseusCharDB.statsBar.enabled`)
+  - Per-character table enable (`OdysseusCharDB.statsBar.tableEnabled`)
+- Document intended interaction between account-wide and character-specific visibility settings.
+- Add OUS2 controls only after behavior and persistence rules are fully defined and verified.
+
+---
+
+### Fishing Tracker Follow-Up Review
+
+- Wipe history UI
+- Confirmation flow
+- History statistics page
+- Reset settings behavior
+- Position management review
+
+---
+
+### Flightmaster Follow-Up Review
+
+- Add OUS2 font/texture/border selectors.
+- Add OUS2 color picker rows.
+- Add safe unlock/drag preview behavior.
+- Add export learned data UI.
+- Add wipe learned data confirmation.
+- Add reset defaults after reset semantics audit.
+- Audit master module toggle behavior during active flight before exposing it.
+
+---
+
+### Toolbox Follow-Up Review
+
+Future Toolbox expansion ideas:
+
+- Toolbox scale control.
+- Position reset.
+- Button visibility management.
+- Button ordering / drag-to-reorder.
+- Horizontal / vertical layouts (expanded options).
+- Button spacing control.
+- Button size control.
+- Icon-only / icon+text display modes.
+- Popup positioning and behavior options.
+- Auto-hide / always-show modes.
+- Per-module button enable/disable.
+- Profiles / layout presets (future consideration).
+
+Expose only after safe public APIs exist and OUS2 controls are available.
 
 ---
 

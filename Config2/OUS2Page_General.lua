@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_General.lua
--- Version : 2026.06.21
+-- Version : 2026.06.22
 -- Desc    : OUS2 General dashboard layout and module navigation
 -- =========================================
 
@@ -15,15 +15,15 @@ page:Hide()
 local MODULES = {
     { name = "XP Bar",          detail = "Experience and reputation",    icon = "IconXPBar" },
     { name = "Delves",          detail = "Companion and journey tracking", icon = "IconDelves" },
-    { name = "Flight Master",   detail = "Flight timer and learned routes", icon = "IconFlightMaster" },
-    { name = "Flight Routing",  detail = "Taxi route visualization",     icon = "IconFlightRouting" },
+    { name = "Flight Master",   detail = "Flight timer and learned routes", icon = "IconFlightMaster", pageKey = "FlightMaster" },
+    { name = "Flight Routing",  detail = "Taxi route visualization",     icon = "IconFlightRouting", pageKey = "FlightRouting" },
     { name = "Utilities",       detail = "Repair, junk, and rare tools", icon = "IconUtilities", pageKey = "Utilities" },
     { name = "Openables",       detail = "Container item helper",        icon = "IconOpenables", pageKey = "Openables" },
-    { name = "Stats Bar",       detail = "Character statistics display", icon = "IconStatsBar" },
-    { name = "Auto Remount",    detail = "Gathering remount helper",     icon = "IconAutoRemount" },
-    { name = "Faster Loot",     detail = "Streamlined loot handling",    icon = "IconFasterLoot" },
-    { name = "Fishing Tracker", detail = "Fishing session history",     icon = "IconFishingTracker" },
-    { name = "Toolbox",         detail = "Quick-access utility bar",     icon = "IconToolbox" },
+    { name = "Stats Bar",       detail = "Character statistics display", icon = "IconStatsBar", pageKey = "StatsBar" },
+    { name = "Auto Remount",    detail = "Gathering remount helper",     icon = "IconAutoRemount", pageKey = "AutoRemount" },
+    { name = "Faster Loot",     detail = "Streamlined loot handling",    icon = "IconFasterLoot", pageKey = "FasterLoot" },
+    { name = "Fishing Tracker", detail = "Fishing session history",     icon = "IconFishingTracker", pageKey = "FishingTracker" },
+    { name = "Toolbox",         detail = "Quick-access utility bar",     icon = "IconToolbox", pageKey = "Toolbox" },
 }
 
 local function SetTextColor(fontString, color)

@@ -67,3 +67,10 @@ Config2\OUS2ScaleControl.lua
 Config2\OUS2Page_General.lua
 Config2\OUS2Page_Utilities.lua
 Config2\OUS2Page_Openables.lua
+Config2\OUS2Page_StatsBar.lua
+Config2\OUS2Page_AutoRemount.lua
+Config2\OUS2Page_FishingTracker.lua
+Config2\OUS2Page_FlightMaster.lua
+Config2\OUS2Page_FlightRouting.lua
+Config2\OUS2Page_FasterLoot.lua
+Config2\OUS2Page_Toolbox.lua
