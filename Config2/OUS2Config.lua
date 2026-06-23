@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Config.lua
--- Version : 2026.06.16
+-- Version : 2026.06.23
 -- Desc    : OUS2 main configuration frame — three-panel layout, nav system, page switching
 
 local addonName, OUS = ...
@@ -253,11 +253,9 @@ local function SetNavButtonActive(pageName)
         if isActive then
             entry.btn:SetNormalTexture(T.Tex("ButtonSelected"))
             entry.label:SetTextColor(col.accent[1], col.accent[2], col.accent[3], 1)
-            entry.indicator:Show()
         else
             entry.btn:SetNormalTexture(T.Tex("ButtonNormal"))
             entry.label:SetTextColor(col.text[1], col.text[2], col.text[3], 1)
-            entry.indicator:Hide()
         end
     end
 end
@@ -287,10 +285,11 @@ local function SwitchPage(pageName)
     SetNavButtonActive(pageName)
 end
 
-local function BuildNavPanel(frame, navPanel, contentPanel)
+local function BuildNavPanel(navPanel)
     local F = T.Frame
     local col = T.Colors
-    local btnW = F.navWidth - 16
+    local btnW = F.navButtonWidth
+    local btnInset = F.navButtonInset
     local btnH = 28
     local btnSpacing = 4
     local yOffset = -F.headerHeight - 35
@@ -302,27 +301,20 @@ local function BuildNavPanel(frame, navPanel, contentPanel)
             local sep = navPanel:CreateTexture(nil, "ARTWORK")
             sep:SetColorTexture(col.separator[1], col.separator[2], col.separator[3], col.separator[4])
             sep:SetSize(btnW - 16, 1)
-            sep:SetPoint("TOPLEFT", navPanel, "TOPLEFT", 8, yOffset - 6)
+            sep:SetPoint("TOPLEFT", navPanel, "TOPLEFT", btnInset, yOffset - 6)
             yOffset = yOffset - 14
         end
 
         -- Nav button
         local btn = CreateFrame("Button", nil, navPanel)
         btn:SetSize(btnW, btnH)
-        btn:SetPoint("TOPLEFT", navPanel, "TOPLEFT", 8, yOffset)
+        btn:SetPoint("TOPLEFT", navPanel, "TOPLEFT", btnInset, yOffset)
         btn:SetNormalTexture(T.Tex("ButtonNormal"))
         btn:SetHighlightTexture(T.Tex("ButtonHover"))
 
-        -- TabIndicator on left edge (active state only)
-        local indicator = navPanel:CreateTexture(nil, "OVERLAY")
-        indicator:SetTexture(T.Tex("TabIndicator"))
-        indicator:SetSize(8, btnH - 6)
-        indicator:SetPoint("LEFT", btn, "LEFT", 6, 0)
-        indicator:Hide()
-
         -- Button label
         local label = btn:CreateFontString(nil, "OVERLAY", T.Fonts.navButton)
-        label:SetPoint("LEFT", btn, "LEFT", 32, 1)
+        label:SetPoint("LEFT", btn, "LEFT", 28, 1)
         label:SetText(PAGE_LABELS[pageName] or pageName)
         label:SetTextColor(col.text[1], col.text[2], col.text[3], 1)
 
@@ -335,13 +327,11 @@ local function BuildNavPanel(frame, navPanel, contentPanel)
             C.pages[pageName] = {}
         end
         C.pages[pageName].navBtn    = btn
-        C.pages[pageName].indicator = indicator
 
         table.insert(C.navButtons, {
             pageName  = pageName,
             btn       = btn,
             label     = label,
-            indicator = indicator,
         })
 
         yOffset = yOffset - (btnH + btnSpacing)
@@ -608,7 +598,7 @@ local function CreateConfig2Frame()
     BuildScrollbar(frame, contentPanel, scrollFrame)
 
     -- Nav buttons
-    BuildNavPanel(frame, navPanel, contentPanel)
+    BuildNavPanel(navPanel)
 
     -- Header and footer
     BuildHeader(frame, navPanel)

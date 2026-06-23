@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Theme.lua
--- Version : 2026.06.16
+-- Version : 2026.06.23
 -- Desc    : OUS2 theme registry — textures, colors, fonts, frame layout constants
 
 local addonName, OUS = ...
@@ -68,7 +68,9 @@ T.Assets = {
     SectionStar     = "Icon_SectionStar.tga",
     CheckboxOn      = "Checkbox_Checked.tga",
     CheckboxOff     = "Checkbox_Unchecked.tga",
-    Divider         = "Divider_Horizontal.tga",
+    -- Divider         = "Divider_Horizontal.tga",
+    Divider         = "Divider_Horizontal1.tga",
+    -- Divider         = "Divider_Horizontal2.tga",
     DividerOrnament = "Divider_Ornament.tga",
     TabIndicator    = "TabIndicator.tga",
 
@@ -137,9 +139,11 @@ T.Frame = {
     gemOffsetBottom = 15,
 
     -- Panel widths
-    navWidth        = 180,      -- left navigation panel
+    navWidth        = 155,      -- left navigation panel
     helpWidth       = 165,      -- right help panel
-    panelGap        = 8,        -- gap between panels
+    panelGap        = 4,        -- gap between panels
+    navButtonWidth  = 148,      -- left navigation button width
+    navButtonInset  = 8,        -- left navigation button inset
 
     -- Header / footer reserved height
     headerHeight    = 60,

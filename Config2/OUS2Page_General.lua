@@ -70,7 +70,7 @@ end
 local headerIcon = page:CreateTexture(nil, "ARTWORK")
 headerIcon:SetTexture(T.Tex("IconGeneral"))
 headerIcon:SetSize(T.Icons.pageHeader, T.Icons.pageHeader)
-headerIcon:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -14)
+headerIcon:SetPoint("TOPLEFT", page, "TOPLEFT", 6, -14)
 
 local title = page:CreateFontString(nil, "OVERLAY", T.Fonts.title)
 title:SetPoint("TOPLEFT", headerIcon, "TOPRIGHT", 10, 0)
@@ -84,7 +84,7 @@ SetTextColor(subtitle, T.Colors.textDim)
 
 local headerDivider = page:CreateTexture(nil, "ARTWORK")
 headerDivider:SetTexture(T.Tex("Divider"))
-headerDivider:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -58)
+headerDivider:SetPoint("TOPLEFT", page, "TOPLEFT", 6, -58)
 headerDivider:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -58)
 headerDivider:SetHeight(6)
 
@@ -101,7 +101,7 @@ local reservedModules = totalModules - configuredModules
 
 local statsFrame = CreateFrame("Frame", nil, page)
 statsFrame:SetHeight(44)
-statsFrame:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -70)
+statsFrame:SetPoint("TOPLEFT", page, "TOPLEFT", 6, -70)
 statsFrame:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -70)
 
 local function CreateStatCard(parent, labelText, valueText, index)
@@ -141,7 +141,7 @@ local gridHeight = cardHeight * gridRows + cardGap * (gridRows - 1)
 
 -- Wrapper frame for the module grid to ensure proper layout and spacing
 local moduleGrid = CreateFrame("Frame", nil, page)
-moduleGrid:SetPoint("TOPLEFT", page, "TOPLEFT", 18, cardStartY)
+moduleGrid:SetPoint("TOPLEFT", page, "TOPLEFT", 6, cardStartY)
 moduleGrid:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, cardStartY)
 moduleGrid:SetHeight(gridHeight)
 
