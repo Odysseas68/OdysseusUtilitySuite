@@ -13,17 +13,21 @@ page:SetAllPoints()
 page:Hide()
 
 local MODULES = {
-    { name = "XP Bar",          detail = "Experience and reputation",    icon = "IconXPBar", pageKey = "XPBar" },
-    { name = "Delves",          detail = "Companion and journey tracking", icon = "IconDelves" },
+    { name = "XP Bar",          detail = "Experience and reputation",       icon = "IconXPBar", pageKey = "XPBar" },
+    { name = "Delves",          detail = "Companion and journey tracking",  icon = "IconDelves" },
     { name = "Flight Master",   detail = "Flight timer and learned routes", icon = "IconFlightMaster", pageKey = "FlightMaster" },
-    { name = "Flight Routing",  detail = "Taxi route visualization",     icon = "IconFlightRouting", pageKey = "FlightRouting" },
-    { name = "Utilities",       detail = "Repair, junk, and rare tools", icon = "IconUtilities", pageKey = "Utilities" },
-    { name = "Openables",       detail = "Container item helper",        icon = "IconOpenables", pageKey = "Openables" },
-    { name = "Stats Bar",       detail = "Character statistics display", icon = "IconStatsBar", pageKey = "StatsBar" },
-    { name = "Auto Remount",    detail = "Gathering remount helper",     icon = "IconAutoRemount", pageKey = "AutoRemount" },
-    { name = "Faster Loot",     detail = "Streamlined loot handling",    icon = "IconFasterLoot", pageKey = "FasterLoot" },
-    { name = "Fishing Tracker", detail = "Fishing session history",     icon = "IconFishingTracker", pageKey = "FishingTracker" },
-    { name = "Toolbox",         detail = "Quick-access utility bar",     icon = "IconToolbox", pageKey = "Toolbox" },
+    { name = "Flight Routing",  detail = "Taxi route visualization",        icon = "IconFlightRouting", pageKey = "FlightRouting" },
+    { name = "Utilities",       detail = "Repair, junk, and rare tools",    icon = "IconUtilities", pageKey = "Utilities" },
+    { name = "Openables",       detail = "Container item helper",           icon = "IconOpenables", pageKey = "Openables" },
+    { name = "Stats Bar",       detail = "Character statistics display",    icon = "IconStatsBar", pageKey = "StatsBar" },
+    { name = "Auto Remount",    detail = "Gathering remount helper",        icon = "IconAutoRemount", pageKey = "AutoRemount" },
+    { name = "Faster Loot",     detail = "Streamlined loot handling",       icon = "IconFasterLoot", pageKey = "FasterLoot" },
+    { name = "Fishing Tracker", detail = "Fishing session history",         icon = "IconFishingTracker", pageKey = "FishingTracker" },
+    { name = "Toolbox",         detail = "Quick-access utility bar",        icon = "IconToolbox", pageKey = "Toolbox" },
+    { name = "Future Reserved", detail = "Coming in a future update",       icon = "IconComingSoon"},
+    { name = "Future Reserved", detail = "Coming in a future update",       icon = "IconComingSoon"},
+    { name = "Future Reserved", detail = "Coming in a future update",       icon = "IconComingSoon"},
+    { name = "Future Reserved", detail = "Coming in a future update",       icon = "IconComingSoon"},
 }
 
 local function SetTextColor(fontString, color)
@@ -84,30 +88,81 @@ headerDivider:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -58)
 headerDivider:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -58)
 headerDivider:SetHeight(6)
 
-CreateSectionHeader(page, "Modules", -78)
+local totalModules = #MODULES
+local configuredModules = 0
 
-local cardStartY = -106
+for _, moduleInfo in ipairs(MODULES) do
+    if moduleInfo.pageKey then
+        configuredModules = configuredModules + 1
+    end
+end
+
+local reservedModules = totalModules - configuredModules
+
+local statsFrame = CreateFrame("Frame", nil, page)
+statsFrame:SetHeight(44)
+statsFrame:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -70)
+statsFrame:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -70)
+
+local function CreateStatCard(parent, labelText, valueText, index)
+    local cardWidth = 120
+    local gap = 10
+
+    local card = CreateFrame("Frame", nil, parent)
+    card:SetSize(cardWidth, 44)
+    card:SetPoint("TOPLEFT", parent, "TOPLEFT", (index - 1) * (cardWidth + gap), 0)
+    AddPanelBackground(card, "CardNormal", 1)
+
+    local value = card:CreateFontString(nil, "OVERLAY", T.Fonts.highlight)
+    value:SetPoint("TOP", card, "TOP", 0, -5)
+    value:SetText(valueText)
+    SetTextColor(value, T.Colors.accent)
+
+    local label = card:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+    label:SetPoint("TOP", value, "BOTTOM", 0, -2)
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.textDim)
+
+    return card
+end
+
+CreateStatCard(statsFrame, "Modules", tostring(totalModules), 1)
+CreateStatCard(statsFrame, "Configured", tostring(configuredModules), 2)
+CreateStatCard(statsFrame, "Reserved", tostring(reservedModules), 3)
+
+CreateSectionHeader(page, "Modules", -124)
+
+local cardStartY = -152
 local cardHeight = T.Card.Height
-local cardGap = 10
+local cardGap = 6
 local columnGap = 10
-local gridHeight = cardHeight * 4 + cardGap * 3
+local gridRows = math.ceil(#MODULES / 3)
+local gridHeight = cardHeight * gridRows + cardGap * (gridRows - 1)
 
-local middleColumn = CreateFrame("Frame", nil, page)
+-- Wrapper frame for the module grid to ensure proper layout and spacing
+local moduleGrid = CreateFrame("Frame", nil, page)
+moduleGrid:SetPoint("TOPLEFT", page, "TOPLEFT", 18, cardStartY)
+moduleGrid:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, cardStartY)
+moduleGrid:SetHeight(gridHeight)
+
+-- Columns for the module cards
+local middleColumn = CreateFrame("Frame", nil, moduleGrid)
 middleColumn:SetSize(180, gridHeight)
-middleColumn:SetPoint("TOP", page, "TOP", 0, cardStartY)
+middleColumn:SetPoint("TOP", moduleGrid, "TOP", 0, 0)
 
-local leftColumn = CreateFrame("Frame", nil, page)
+local leftColumn = CreateFrame("Frame", nil, moduleGrid)
 leftColumn:SetHeight(gridHeight)
-leftColumn:SetPoint("TOPLEFT", page, "TOPLEFT", 18, cardStartY)
+leftColumn:SetPoint("TOPLEFT", moduleGrid, "TOPLEFT", 0, 0)
 leftColumn:SetPoint("TOPRIGHT", middleColumn, "TOPLEFT", -columnGap / 2, 0)
 
-local rightModuleColumn = CreateFrame("Frame", nil, page)
+local rightModuleColumn = CreateFrame("Frame", nil, moduleGrid)
 rightModuleColumn:SetHeight(gridHeight)
 rightModuleColumn:SetPoint("TOPLEFT", middleColumn, "TOPRIGHT", columnGap / 2, 0)
-rightModuleColumn:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, cardStartY)
+rightModuleColumn:SetPoint("TOPRIGHT", moduleGrid, "TOPRIGHT", 0, 0)
 
 local moduleColumns = { leftColumn, middleColumn, rightModuleColumn }
 
+-- Module loop to create cards for each modules
 for index, moduleInfo in ipairs(MODULES) do
     local row = math.floor((index - 1) / 3)
     local column = ((index - 1) % 3) + 1
@@ -170,46 +225,90 @@ for index, moduleInfo in ipairs(MODULES) do
     SetTextColor(chevron, T.Colors.accent)
 end
 
-CreateSectionHeader(page, "Information", -494)
+local informationGap = T.Card.Padding
+local informationTopGap = 14
+local informationCardHeight = 135
 
-local informationPanel = CreateFrame("Frame", nil, page)
-informationPanel:SetHeight(140)
-informationPanel:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -522)
-informationPanel:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -522)
-AddPanelBackground(informationPanel, "ButtonNormal", 0.40)
+local informationCard = CreateFrame("Frame", nil, page)
+informationCard:SetHeight(informationCardHeight)
+informationCard:SetPoint("TOPLEFT", moduleGrid, "BOTTOMLEFT", 0, -informationTopGap)
+informationCard:SetPoint("TOPRIGHT", moduleGrid, "BOTTOM", -(informationGap / 2), -informationTopGap)
+AddPanelBackground(informationCard, "CardNormal", 1)
 
-local logo = informationPanel:CreateTexture(nil, "ARTWORK")
-logo:SetTexture(T.Tex("Logo"))
-logo:SetSize(T.Icons.card * 2, T.Icons.card * 2)
-logo:SetPoint("LEFT", informationPanel, "LEFT", 20, 0)
+local welcomeCard = CreateFrame("Frame", nil, page)
+welcomeCard:SetHeight(informationCardHeight)
+welcomeCard:SetPoint("TOPLEFT", moduleGrid, "BOTTOM", informationGap / 2, -informationTopGap)
+welcomeCard:SetPoint("TOPRIGHT", moduleGrid, "BOTTOMRIGHT", 0, -informationTopGap)
+AddPanelBackground(welcomeCard, "CardNormal", 1)
 
-local addonTitle = informationPanel:CreateFontString(nil, "OVERLAY", T.Fonts.highlight)
-addonTitle:SetPoint("TOPLEFT", logo, "TOPRIGHT", 20, -6)
-addonTitle:SetPoint("RIGHT", informationPanel, "RIGHT", -20, 0)
-addonTitle:SetJustifyH("LEFT")
-addonTitle:SetText("Odysseus Utility Suite")
-SetTextColor(addonTitle, T.Colors.accent)
+local function AddCardTitle(parent, text)
+    local title = parent:CreateFontString(nil, "OVERLAY", T.Fonts.sectionHeader)
+    title:SetPoint("TOP", parent, "TOP", 0, -14)
+    title:SetText(text)
+    SetTextColor(title, T.Colors.header)
 
-local aboutText = informationPanel:CreateFontString(nil, "OVERLAY", T.Fonts.small)
-aboutText:SetPoint("TOPLEFT", addonTitle, "BOTTOMLEFT", 0, -12)
-aboutText:SetPoint("RIGHT", informationPanel, "RIGHT", -20, 0)
-aboutText:SetJustifyH("LEFT")
-aboutText:SetText("A modular quality-of-life suite for WoW Retail.")
-SetTextColor(aboutText, T.Colors.textDim)
+    local ornament = parent:CreateTexture(nil, "ARTWORK")
+    ornament:SetTexture(T.Tex("DividerOrnament"))
+    ornament:SetPoint("TOPLEFT", parent, "TOPLEFT", 10, -36)
+    ornament:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -10, -36)
+    ornament:SetHeight(16)
 
-local version = informationPanel:CreateFontString(nil, "OVERLAY", T.Fonts.small)
-version:SetPoint("TOPLEFT", aboutText, "BOTTOMLEFT", 0, -12)
-version:SetText("Version " .. tostring(OUS.Version or "unknown"))
-SetTextColor(version, T.Colors.textDim)
+    return ornament
+end
+
+local informationOrnament = AddCardTitle(informationCard, "Information")
+
+local addonVersion =
+    C_AddOns.GetAddOnMetadata(addonName, "Version")
+    or "unknown"
+local buildDateText = C_AddOns.GetAddOnMetadata(addonName, "X-Build-Date")
+if not buildDateText and addonVersion:match("^%d%d%d%d%.%d%d%.%d%d$") then
+    buildDateText = addonVersion
+end
+buildDateText = buildDateText or "unknown"
+
+local gameVersionText = select(1, GetBuildInfo()) or "unknown"
+
+local version = informationCard:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+version:SetPoint("TOPLEFT", informationOrnament, "BOTTOMLEFT", 0, -12)
+version:SetText("Version: " .. addonVersion)
+SetTextColor(version, T.Colors.text)
+
+local buildDate = informationCard:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+buildDate:SetPoint("TOPLEFT", version, "BOTTOMLEFT", 0, -10)
+buildDate:SetText("Build Date: " .. tostring(buildDateText))
+SetTextColor(buildDate, T.Colors.textDim)
+
+local gameVersion = informationCard:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+gameVersion:SetPoint("TOPLEFT", buildDate, "BOTTOMLEFT", 0, -10)
+gameVersion:SetText("Game Version: " .. tostring(gameVersionText))
+SetTextColor(gameVersion, T.Colors.textDim)
+
+local welcomeOrnament = AddCardTitle(welcomeCard, "Welcome")
+
+local welcomeText = welcomeCard:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+welcomeText:SetPoint("TOPLEFT", welcomeOrnament, "BOTTOMLEFT", 0, -12)
+welcomeText:SetPoint("BOTTOMRIGHT", welcomeCard, "BOTTOMRIGHT", -T.Card.Padding, T.Card.Padding)
+welcomeText:SetJustifyH("LEFT")
+welcomeText:SetJustifyV("TOP")
+welcomeText:SetWordWrap(true)
+welcomeText:SetText(
+    "Thank you for using Odysseus Utility Suite.\n" ..
+    "Built for adventurers, by adventurers."
+)
+SetTextColor(welcomeText, T.Colors.textDim)
 
 local sidebar = CreateFrame("Frame", nil, C.sidebarContainer)
-sidebar:SetAllPoints()
+sidebar:SetPoint("TOPLEFT", C.sidebarContainer, "TOPLEFT", 0, 0)
+sidebar:SetPoint("TOPRIGHT", C.sidebarContainer, "TOPRIGHT", 0, 0)
+sidebar:SetHeight(360)
 sidebar:Hide()
 
+local sidebarCardWidth = 165
+
 local optionsPanel = CreateFrame("Frame", nil, sidebar)
-optionsPanel:SetHeight(158)
-optionsPanel:SetPoint("TOPLEFT", sidebar, "TOPLEFT", 0, 0)
-optionsPanel:SetPoint("TOPRIGHT", sidebar, "TOPRIGHT", 0, 0)
+optionsPanel:SetSize(sidebarCardWidth, 158)
+optionsPanel:SetPoint("TOP", sidebar, "TOP", 0, 0)
 AddPanelBackground(optionsPanel, "CardNormal", 1)
 
 local optionsTitle = optionsPanel:CreateFontString(nil, "OVERLAY", T.Fonts.sectionHeader)
@@ -225,13 +324,21 @@ optionsDescription:SetText("Configure general addon behavior.")
 SetTextColor(optionsDescription, T.Colors.textDim)
 
 local function CreateOptionPreview(text, yOffset)
-    local checkbox = optionsPanel:CreateTexture(nil, "ARTWORK")
-    checkbox:SetTexture(T.Tex("CheckboxOff"))
-    checkbox:SetSize(20, 20)
-    checkbox:SetPoint("TOPLEFT", optionsPanel, "TOPLEFT", 18, yOffset)
+    local row = CreateFrame("Frame", nil, optionsPanel)
+    row:SetHeight(22)
+    row:SetPoint("TOPLEFT", optionsPanel, "TOPLEFT", 12, yOffset)
+    row:SetPoint("TOPRIGHT", optionsPanel, "TOPRIGHT", -12, yOffset)
 
-    local label = optionsPanel:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    local checkbox = row:CreateTexture(nil, "ARTWORK")
+    checkbox:SetTexture(T.Tex("CheckboxOff"))
+    checkbox:SetSize(16, 16)
+    checkbox:SetPoint("LEFT", row, "LEFT", 0, 0)
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.small)
     label:SetPoint("LEFT", checkbox, "RIGHT", 7, 0)
+    label:SetPoint("RIGHT", row, "RIGHT", 0, 0)
+    label:SetJustifyH("LEFT")
+    label:SetWordWrap(false)
     label:SetText(text)
     SetTextColor(label, T.Colors.text)
 end
@@ -239,49 +346,54 @@ end
 CreateOptionPreview("Show Minimap Button", -86)
 CreateOptionPreview("Enable Debug Logging", -120)
 
-local resetPanel = CreateFrame("Frame", nil, sidebar)
-resetPanel:SetHeight(170)
-resetPanel:SetPoint("TOPLEFT", optionsPanel, "BOTTOMLEFT", 0, -12)
-resetPanel:SetPoint("TOPRIGHT", optionsPanel, "BOTTOMRIGHT", 0, -12)
-AddPanelBackground(resetPanel, "CardNormal", 1)
+local function CreateSidebarPlaceholder(parent, titleText, detailText, anchorTo)
+    local card = CreateFrame("Frame", nil, parent)
+    card:SetSize(sidebarCardWidth, 86)
 
-local resetTitle = resetPanel:CreateFontString(nil, "OVERLAY", T.Fonts.highlight)
-resetTitle:SetPoint("TOPLEFT", resetPanel, "TOPLEFT", T.Card.Padding, -16)
-resetTitle:SetText("Reset")
-SetTextColor(resetTitle, T.Colors.header)
+    if anchorTo then
+        card:SetPoint("TOP", anchorTo, "BOTTOM", 0, -12)
+    else
+        card:SetPoint("TOP", parent, "TOP", 0, 0)
+    end
 
-local resetDescription = resetPanel:CreateFontString(nil, "OVERLAY", T.Fonts.small)
-resetDescription:SetPoint("TOPLEFT", resetTitle, "BOTTOMLEFT", 0, -12)
-resetDescription:SetPoint("RIGHT", resetPanel, "RIGHT", -T.Card.Padding, 0)
-resetDescription:SetJustifyH("LEFT")
-resetDescription:SetText("Restore all OUS settings to their default values.")
-SetTextColor(resetDescription, T.Colors.textDim)
+    AddPanelBackground(card, "CardNormal", 1)
 
-local resetPreview = CreateFrame("Frame", nil, resetPanel)
-resetPreview:SetHeight(32)
-resetPreview:SetPoint(
-    "BOTTOMLEFT",
-    resetPanel,
-    "BOTTOMLEFT",
-    T.Card.Padding,
-    T.Card.Padding
+    local title = card:CreateFontString(nil, "OVERLAY", T.Fonts.sectionHeader)
+    title:SetPoint("TOP", card, "TOP", 0, -12)
+    title:SetText(titleText)
+    SetTextColor(title, T.Colors.header)
+
+    local detail = card:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+    detail:SetPoint("TOPLEFT", card, "TOPLEFT", T.Card.Padding, -38)
+    detail:SetPoint("RIGHT", card, "RIGHT", -T.Card.Padding, 0)
+    detail:SetJustifyH("CENTER")
+    detail:SetWordWrap(true)
+    detail:SetText(detailText)
+    SetTextColor(detail, T.Colors.textDim)
+
+    return card
+end
+
+local profileToolsPanel = CreateSidebarPlaceholder(
+    sidebar,
+    "Profile Tools",
+    "Import / Export profiles\nComing soon",
+    optionsPanel
 )
-resetPreview:SetPoint(
-    "BOTTOMRIGHT",
-    resetPanel,
-    "BOTTOMRIGHT",
-    -T.Card.Padding,
-    T.Card.Padding
-)
-AddPanelBackground(resetPreview, "ActionNormal", 1)
 
-local resetLabel = resetPreview:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
-resetLabel:SetPoint("CENTER")
-resetLabel:SetText("Reset to Defaults")
-SetTextColor(resetLabel, T.Colors.text)
+CreateSidebarPlaceholder(
+    sidebar,
+    "Search Index",
+    "Find modules and settings\nComing soon",
+    profileToolsPanel
+)
 
 local function Refresh()
-    version:SetText("Version " .. tostring(OUS.Version or "unknown"))
+    local addonVersion =
+        C_AddOns.GetAddOnMetadata(addonName, "Version")
+        or "unknown"
+
+    version:SetText("Version: " .. addonVersion)
 end
 
 C.RegisterPage("General", page, Refresh, sidebar)

@@ -401,13 +401,6 @@ SlashCmdList["ODYSSEUS"] = function(msg)
     end
 end
 
-SLASH_OUS2CONFIG1 = "/ous2"
-SlashCmdList["OUS2CONFIG"] = function(msg)
-    if OUS.Config2 and OUS.Config2.Toggle then
-        OUS.Config2.Toggle()
-    end
-end
-
 SLASH_AUTOREMOUNT1 = "/ar"
 SLASH_AUTOREMOUNT2 = "/autoremount"
 SlashCmdList["AUTOREMOUNT"] = function(msg)

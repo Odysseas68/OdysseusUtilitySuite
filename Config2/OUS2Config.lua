@@ -133,7 +133,7 @@ end
 -- Header bar
 -- ---------------------------------------------------------------------------
 
-local function BuildHeader(frame, contentPanel)
+local function BuildHeader(frame, navPanel)
     local F = T.Frame
     local col = T.Colors
 
@@ -154,7 +154,7 @@ local function BuildHeader(frame, contentPanel)
         frame:Hide()
     end)
 
-    -- Lock / Unlock button top-left — checkbox texture + text label
+    -- Lock / Unlock button top-left — checkbox texture + text label + Logo
     local lockBtn = CreateFrame("Button", nil, frame)
     lockBtn:SetSize(120, 24)
     lockBtn:SetPoint("TOPLEFT", frame, "TOPLEFT", 28, -32)
@@ -166,6 +166,11 @@ local function BuildHeader(frame, contentPanel)
     local lockLabel = lockBtn:CreateFontString(nil, "OVERLAY", T.Fonts.small)
     lockLabel:SetPoint("LEFT", lockCheck, "RIGHT", 6, 0)
     lockLabel:SetTextColor(col.text[1], col.text[2], col.text[3], 1)
+
+    local sidebarLogo = navPanel:CreateTexture(nil, "ARTWORK")
+    sidebarLogo:SetTexture(T.Tex("Logo"))
+    sidebarLogo:SetSize(80, 80)
+    sidebarLogo:SetPoint("TOP", navPanel, "TOP", 0, 0)
 
     local function UpdateLockState()
         if C.locked then
@@ -288,7 +293,7 @@ local function BuildNavPanel(frame, navPanel, contentPanel)
     local btnW = F.navWidth - 16
     local btnH = 28
     local btnSpacing = 4
-    local yOffset = -F.headerHeight
+    local yOffset = -F.headerHeight - 35
 
     for _, pageName in ipairs(PAGE_ORDER) do
 
@@ -462,8 +467,8 @@ local function BuildHelpPanel(frame)
 
     local helpPanel = CreateFrame("Frame", nil, frame)
     helpPanel:SetWidth(F.helpWidth)
-    helpPanel:SetPoint("TOPRIGHT",    frame, "TOPRIGHT",    -F.cornerSize + F.sideWidth + 4, -F.headerHeight)
-    helpPanel:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -F.cornerSize + F.sideWidth + 4,  F.footerHeight)
+    helpPanel:SetPoint("TOPRIGHT",    frame, "TOPRIGHT",    -F.cornerSize + F.sideWidth + 28, -F.headerHeight)
+    helpPanel:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -F.cornerSize + F.sideWidth + 28,  F.footerHeight)
 
     -- Background tint
     local helpBg = helpPanel:CreateTexture(nil, "BACKGROUND")
@@ -472,7 +477,7 @@ local function BuildHelpPanel(frame)
 
     -- Optional page-specific content lives below the persistent Help area.
     local sidebarContainer = CreateFrame("Frame", nil, helpPanel)
-    sidebarContainer:SetPoint("TOPLEFT", helpPanel, "TOPLEFT", 0, -220)
+    sidebarContainer:SetPoint("TOPLEFT", helpPanel, "TOPLEFT", 0, -84)
     sidebarContainer:SetPoint("BOTTOMRIGHT", helpPanel, "BOTTOMRIGHT", 0, 0)
 
     C.sidebarContainer = sidebarContainer
@@ -487,7 +492,7 @@ local function BuildHelpPanel(frame)
     local helpText = helpPanel:CreateFontString(nil, "OVERLAY", T.Fonts.dimmed)
     helpText:SetPoint("TOPLEFT",  helpPanel, "TOPLEFT",  8, -24)
     helpText:SetPoint("TOPRIGHT", helpPanel, "TOPRIGHT", -8, -24)
-    helpText:SetPoint("BOTTOMRIGHT", sidebarContainer, "TOPRIGHT", -8, 12)
+    helpText:SetPoint("BOTTOMRIGHT", sidebarContainer, "TOPRIGHT", -8, 8)
     helpText:SetJustifyH("LEFT")
     helpText:SetJustifyV("TOP")
     helpText:SetWordWrap(true)
@@ -606,7 +611,7 @@ local function CreateConfig2Frame()
     BuildNavPanel(frame, navPanel, contentPanel)
 
     -- Header and footer
-    BuildHeader(frame, contentPanel)
+    BuildHeader(frame, navPanel)
     BuildFooter(frame)
 
     -- Resize handles

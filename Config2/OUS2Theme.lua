@@ -69,6 +69,7 @@ T.Assets = {
     CheckboxOn      = "Checkbox_Checked.tga",
     CheckboxOff     = "Checkbox_Unchecked.tga",
     Divider         = "Divider_Horizontal.tga",
+    DividerOrnament = "Divider_Ornament.tga",
     TabIndicator    = "TabIndicator.tga",
 
     -- Branding
@@ -92,6 +93,7 @@ T.Assets = {
     IconToolbox         = "Icon_Toolbox.tga",
     IconHelp            = "Icon_Help.tga",
     IconChangelog       = "Icon_Changelog.tga",
+    IconComingSoon      = "Icon_ComingSoon.tga",
 
     -- Module cards
     CardNormal          = "CardBG_Normal.tga",
@@ -136,7 +138,7 @@ T.Frame = {
 
     -- Panel widths
     navWidth        = 180,      -- left navigation panel
-    helpWidth       = 150,      -- right help panel
+    helpWidth       = 165,      -- right help panel
     panelGap        = 8,        -- gap between panels
 
     -- Header / footer reserved height
@@ -187,7 +189,7 @@ T.Scale = {
 -- ---------------------------------------------------------------------------
 
 T.Card = {
-    Height      = 72,   -- default dashboard card height
+    Height      = 66,   -- default dashboard card height
     IconSize    = 32,   -- module icon size inside card
     ChevronSize = 14,   -- right-side navigation chevron size
     Padding     = 10,   -- inner spacing from card edges
