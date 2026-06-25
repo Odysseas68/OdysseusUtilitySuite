@@ -10,8 +10,9 @@ description: Safely edit OUS flight timing, taxi routing, route display, or lear
 3. Preserve learned-route behavior, route timing, and arrival thresholds.
 4. Consider both bundled and newly learned routes when changing route matching.
 5. Preserve the independent tooltip because third-party tooltip changes may introduce taint or conflicts.
-6. Keep display-only fixes out of learning and storage logic.
-7. Verify taxi, map, frame, and tooltip APIs with `$ous-wow-retail-api-check` when uncertain.
-8. Apply `$ous-minimal-addon-patch` constraints to the final edit.
+6. Prefer standard integration APIs over third-party addon internals and keep compatibility boundaries documented.
+7. Keep display-only fixes out of learning and storage logic.
+8. Verify taxi, map, frame, and tooltip APIs with `$ous-wow-retail-api-check` when uncertain.
+9. Apply `$ous-minimal-addon-patch` constraints to the final edit.
 
 Test bundled routes, learned routes, arrival handling, route display, and tooltip isolation as relevant.

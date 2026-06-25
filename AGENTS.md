@@ -25,6 +25,17 @@ When uncertain, stop and report the uncertainty instead of inventing APIs, behav
 
 ---
 
+## Engineering Philosophy
+
+When multiple valid solutions exist:
+
+- Prefer Blizzard-supported APIs and established WoW addon ecosystem standards.
+- Prefer reusable patterns over one-off implementations.
+- Prefer long-term maintainability over short-term convenience.
+- Prefer the smallest safe change that preserves existing behavior.
+- Validate assumptions before writing compatibility code.
+
+---
 ## Hard Constraints
 
 Never violate these rules:
@@ -48,6 +59,46 @@ Never violate these rules:
 - Never use emoji characters in WoW UI text; WoW fonts render them as blank boxes.
 - For secure buttons, never set `OnMouseDown` or `OnMouseUp` on `SecureActionButtonTemplate` frames.
 - Use `OUS.LogDebug("ModuleName", "message")` for debug output; do not use `print()` for normal debug logging.
+
+---
+
+## Code Commenting Rules
+
+- Add a short one-line comment before every major helper function, public API, or non-obvious integration block.
+- Comments should explain why the block exists or what boundary it protects.
+- Do not add obvious comments that restate the code.
+- Keep comments concise; one line is preferred.
+- Preserve existing comments unless they are stale or misleading.
+- Update stale comments when behavior changes.
+- Public OUS APIs should have a one-line purpose comment.
+- Compatibility code should clearly name the external addon/library boundary.
+
+## Third-Party Addon Compatibility Rules
+
+- Do not modify third-party addon files.
+- Prefer standard integration APIs before addon-specific internals.
+- For minimap/launcher buttons, prefer LibDataBroker-1.1 + LibDBIcon-1.0 over raw manual minimap button ownership.
+- Third-party minimap managers own broker launcher visibility and presentation; do not add HidingBar-specific or similar addon-specific workarounds.
+- Avoid fighting another addon's hooks or overridden methods.
+- Do not call third-party internal functions unless there is no standard API alternative.
+- Keep compatibility logic isolated in one helper/function when possible.
+- Guard optional integrations with nil checks and load-order-safe checks.
+- Preserve OUS behavior when the third-party addon is not installed.
+- Document why compatibility logic exists.
+- Never introduce a hard dependency on an optional third-party addon unless explicitly approved.
+
+### Third-Party Compatibility Investigation
+
+Before implementing compatibility code:
+
+1. Reproduce the issue.
+2. Check the third-party addon's user-facing options, settings, and documentation.
+3. Verify the behavior with at least one additional mature addon implementing the same feature.
+4. If multiple addons exhibit the same behavior, treat it as ecosystem behavior rather than an OUS bug.
+5. Prefer ecosystem standards (LibDataBroker, LibDBIcon, Ace libraries, etc.) over addon-specific integrations.
+6. Only implement addon-specific compatibility when no standards-based solution exists.
+7. Document the architectural decision and reasoning.
+8. Record important lessons learned in CLAUDE.md when they affect future development.
 
 ---
 
@@ -590,9 +641,11 @@ Maintain and update when behavior changes:
 - Documentation/ARCHITECTURE.md
 - Documentation/TODO_v2.md
 - CHANGELOG.md (if present)
+- CLAUDE.md
 
-CLAUDE.md is reference material only.
-Do not modify CLAUDE.md unless explicitly instructed.
+CLAUDE.md is part of the project's long-term engineering documentation.
+Keep CLAUDE.md synchronized with important architectural decisions, coding standards, reusable patterns, and project rules.
+Do not store temporary debugging sessions or transient implementation experiments in CLAUDE.md.
 
 AGENTS.md should only be modified when development rules,
 architecture conventions, workflows, or project standards change.
@@ -710,7 +763,7 @@ Patch style:
 
 - Show exact replacement blocks.
 - Specify exact insertion spot.
-- Keep comments minimal.
+- Keep comments concise and explain the boundary or reason, especially for public OUS APIs and compatibility code.
 - Preserve non-obvious existing comments.
 - Mention edge cases briefly.
 
@@ -821,7 +874,7 @@ Rules:
 - Do not invent features.
 - Keep current phase/status accurate.
 - Update related documentation consistently when needed.
-- Treat `CLAUDE.md` as reference-only; do not modify it unless explicitly instructed.
+- Keep `CLAUDE.md` synchronized with important long-term architecture, standards, reusable patterns, and project rules.
 - Report code/doc mismatches.
 
 ### Pattern: New Module Blueprint

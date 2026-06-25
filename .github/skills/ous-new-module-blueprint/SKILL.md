@@ -15,6 +15,7 @@ description: Add a new independent module to Odysseus Utility Suite with correct
 8. Place the engine before config files in the TOC without reordering existing entries.
 9. Add legacy config, OUS2 page, Help or slash-command documentation, and Toolbox integration only when applicable.
 10. Place OUS2 page files after `Config2\\OUS2Config.lua` and follow `$ous-config2-ui-edit`.
-11. Verify unfamiliar APIs with `$ous-wow-retail-api-check` and apply `$ous-minimal-addon-patch` per file.
+11. For launcher/minimap features, prefer LibDataBroker-1.1 + LibDBIcon-1.0 and keep optional compatibility isolated.
+12. Verify unfamiliar APIs with `$ous-wow-retail-api-check` and apply `$ous-minimal-addon-patch` per file.
 
 Review the module file, toggle default, database defaults, reset integration, TOC, config surfaces, Help, and Toolbox before completion.

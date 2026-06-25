@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Flightmaster.lua
--- Version : 2026.05.30
+-- Version : 2026.06.24
 -- Desc    : Flight timer bar, distance display, taxi map tooltip with time and cost
 -- ============================================================
 
@@ -130,15 +130,6 @@ timerTextFrame:Hide()
 timerTopFrame:Hide()
 timerBottomFrame:Hide()
 
-function OUS.ApplyFlightFonts()
-    local fName = OdysseusDB.flightSettings.fontName or "Friz Quadrata TT"
-    local fPath = LSM:Fetch("font", fName) or LSM:Fetch("font", "Friz Quadrata TT") or "Fonts\\FRIZQT__.TTF"
-    local fSize = OdysseusDB.flightSettings.fontSize or 12
-    OUS.timerText:SetFont(fPath, fSize, "OUTLINE")
-    OUS.timerTopText:SetFont(fPath, math.max(8, fSize - 3), "OUTLINE")
-    OUS.timerBottomText:SetFont(fPath, math.max(8, fSize - 3), "OUTLINE")
-end
-
 function OUS.ApplyFlightTexture()
     local tName = OdysseusDB.flightSettings.textureName or "Blizzard"
     local tPath = LSM:Fetch("statusbar", tName) or LSM:Fetch("statusbar", "Blizzard") or "Interface\\TargetingFrame\\UI-StatusBar"
@@ -152,7 +143,7 @@ end
 
 --- Sets border color — called from Config border color picker.
 function OUS.SetFlightBorderColor(r, g, b)
-    -- update in place to preserve colorTableRef in Config.lua color box
+    OdysseusDB.flightSettings.borderColor = OdysseusDB.flightSettings.borderColor or {}
     local bc = OdysseusDB.flightSettings.borderColor
     bc.r, bc.g, bc.b = r, g, b
     borderFrame:SetBackdropBorderColor(r, g, b, 1)
@@ -176,6 +167,108 @@ function OUS.HideFlightTextFrames()
     timerTextFrame:Hide()
     timerTopFrame:Hide()
     timerBottomFrame:Hide()
+end
+
+local function ApplyFlightDimensions()
+    local db = OdysseusDB and OdysseusDB.flightSettings
+    if not db then return end
+
+    local scale = db.scale or OUS.flightDefaults.scale
+    local width = (db.width or OUS.flightDefaults.width) * scale
+    local height = (db.height or OUS.flightDefaults.height) * scale
+
+    timerBar:SetScale(1)
+    timerBar:SetWidth(width)
+    timerBar:SetHeight(height)
+
+    timerTopFrame:SetSize(width + 100, 20 * scale)
+    timerBottomFrame:SetSize(width + 100, 20 * scale)
+
+    local fontScale = math.max(0.5, scale)
+    local fName = db.fontName or "Friz Quadrata TT"
+    local fPath = LSM:Fetch("font", fName) or LSM:Fetch("font", "Friz Quadrata TT") or "Fonts\\FRIZQT__.TTF"
+    local fSize = db.fontSize or OUS.flightDefaults.fontSize
+
+    OUS.timerText:SetFont(fPath, math.max(6, fSize * fontScale), "OUTLINE")
+    OUS.timerTopText:SetFont(fPath, math.max(6, (fSize - 3) * fontScale), "OUTLINE")
+    OUS.timerBottomText:SetFont(fPath, math.max(6, (fSize - 3) * fontScale), "OUTLINE")
+
+    barMaxWidth = timerBar:GetWidth() or width
+    if not isFlying then
+        barFill:SetWidth(barMaxWidth)
+    end
+end
+
+function OUS.ApplyFlightFonts()
+    ApplyFlightDimensions()
+end
+
+function OUS.ApplyFlightSettings()
+    local db = OdysseusDB and OdysseusDB.flightSettings
+    if not db then return end
+
+    ApplyFlightDimensions()
+    OUS.ApplyFlightTexture()
+    OUS.ApplyFlightBorder()
+
+    local c = db.color or OUS.flightDefaults.color
+    barFill:SetVertexColor(c.r or 1, c.g or 0.7, c.b or 0)
+end
+
+function OUS.SetFlightBarUnlocked(unlocked)
+    OUS.isFlightBarUnlocked = unlocked == true
+    timerBar:EnableMouse(OUS.isFlightBarUnlocked)
+
+    if OUS.isFlightBarUnlocked then
+        OUS.ApplyFlightSettings()
+        OUS.PreviewFlightBar()
+        OUS.timerTopText:SetText("Flight Master Preview")
+        OUS.timerText:SetText("Drag to move")
+        OUS.timerBottomText:SetText("Lock the bar when finished")
+        timerBar:Show()
+        borderFrame:Show()
+        OUS.ShowFlightTextFrames()
+    elseif not isFlying then
+        timerBar:Hide()
+        borderFrame:Hide()
+        OUS.HideFlightTextFrames()
+        OUS.timerText:SetText("")
+        OUS.timerTopText:SetText("")
+        OUS.timerBottomText:SetText("")
+    end
+end
+
+function OUS.ResetFlightBarPosition()
+    if not OdysseusDB or not OdysseusDB.flightSettings then return end
+
+    timerBar:ClearAllPoints()
+    timerBar:SetPoint("TOP", UIParent, "TOP", 0, -150)
+    OdysseusDB.flightSettings.pos = {"TOP", "TOP", 0, -150}
+    OUS.ApplyFlightBorder()
+end
+
+function OUS.ResetFlightBarAppearance()
+    local db = OdysseusDB and OdysseusDB.flightSettings
+    if not db then return end
+
+    db.width = OUS.flightDefaults.width
+    db.height = OUS.flightDefaults.height
+    db.scale = OUS.flightDefaults.scale
+    db.fontSize = OUS.flightDefaults.fontSize
+    db.borderSize = OUS.flightDefaults.borderSize
+    db.borderName = OUS.flightDefaults.borderName
+    db.fontName = OUS.flightDefaults.fontName
+    db.textureName = OUS.flightDefaults.textureName
+    db.color = db.color or {}
+    db.color.r = OUS.flightDefaults.color.r
+    db.color.g = OUS.flightDefaults.color.g
+    db.color.b = OUS.flightDefaults.color.b
+    db.borderColor = db.borderColor or {}
+    db.borderColor.r = OUS.flightDefaults.borderColor and OUS.flightDefaults.borderColor.r or 1
+    db.borderColor.g = OUS.flightDefaults.borderColor and OUS.flightDefaults.borderColor.g or 1
+    db.borderColor.b = OUS.flightDefaults.borderColor and OUS.flightDefaults.borderColor.b or 1
+
+    OUS.ApplyFlightSettings()
 end
 
 function OUS.ApplyFlightBorder()
@@ -722,12 +815,6 @@ f:SetScript("OnEvent", function(_, event, arg1)
     end
 
     if event == "PLAYER_LOGIN" then
-        OUS.ApplyFlightFonts()
-        OUS.ApplyFlightTexture()
-        OUS.ApplyFlightBorder()
-
-        if OdysseusDB.flightSettings.width then timerBar:SetWidth(OdysseusDB.flightSettings.width) end
-        if OdysseusDB.flightSettings.height then timerBar:SetHeight(OdysseusDB.flightSettings.height) end
-        if OdysseusDB.flightSettings.scale then timerBar:SetScale(OdysseusDB.flightSettings.scale) end
+        OUS.ApplyFlightSettings()
     end
 end)

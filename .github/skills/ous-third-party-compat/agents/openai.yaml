@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS Third-Party Addon Compatibility"
+  short_description: "Keep OUS compatible with optional WoW addons and shared libraries"
+  default_prompt: "Use $ous-third-party-compat to design or patch this OUS compatibility boundary."

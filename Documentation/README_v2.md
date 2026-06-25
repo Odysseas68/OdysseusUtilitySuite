@@ -295,6 +295,7 @@ local DEBUG_SCROLLBOX = false   -- cyan border around scroll content area
 * Auto Remount page
 * Fishing Tracker page
 * Flightmaster page
+* Flight Master OUS2 advanced controls and legacy parity
 * Flight Routing page
 * Faster Loot page
 * Toolbox page
@@ -304,6 +305,8 @@ local DEBUG_SCROLLBOX = false   -- cyan border around scroll content area
 * Shared card system
 * Shared scale-control system
 * Shared help-panel system
+* Broker-compatible launcher/minimap guidance for third-party addon compatibility
+* Minimap launcher migration to LibDataBroker-1.1 + LibDBIcon-1.0
 * Midnight Arcane theme implementation
 * Documentation synchronization
 
@@ -321,7 +324,6 @@ Phase 5 — Polish & Advanced Controls
 * XP Bar color controls
 * Favorites management API review
 * Delves lock/unlock review
-* Flightmaster advanced controls
 * Toolbox expansion features
 * Faster Loot rules system
 * Help page

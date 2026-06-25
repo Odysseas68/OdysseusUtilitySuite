@@ -41,7 +41,9 @@ Implemented:
 * Shared dashboard card constants in `T.Card`
 * Shared scale-control assets and sizing constants in `T.Scale`
 * Reusable `C.CreateScaleControl()` widget
+* Shared OUS2 media dropdown, color picker, and copy-text dialog helpers
 * Openables scale-control integration
+* Flightmaster OUS2 advanced controls
 
 Phase 5 follow-up work:
 
@@ -53,7 +55,6 @@ Phase 5 follow-up work:
 * XP Bar color controls
 * Favorites management API review
 * Delves lock/unlock review
-* Flightmaster advanced controls
 * Toolbox expansion
 * Faster Loot rules
 * Help page
@@ -466,6 +467,19 @@ Current Global Options are visual-only:
 - Show Minimap Button
 - Enable Debug Logging
 
+Launcher/minimap compatibility uses a broker-compatible architecture through LibDataBroker-1.1 + LibDBIcon-1.0. Third-party minimap managers own broker launcher visibility and presentation, and OUS intentionally follows the standard broker implementation instead of adding HidingBar-specific or similar addon-specific workarounds.
+
+Minimap launcher state lives in:
+
+```lua
+OdysseusDB.minimap = {
+    hide = false,
+    minimapPos = 225,
+}
+```
+
+Legacy values migrate from `OdysseusDB.showMinimapButton` and `OdysseusDB.minimapAngle` during Core initialization.
+
 Current Reset sidebar block is visual-only and explains reset behavior.
 
 The footer-level Reset to Defaults button remains the actual shell-level action surface.
@@ -605,6 +619,14 @@ XP Bar OUS2 architecture:
 - Switching to the top-level XP Bar page returns navigation to the hub.
 - `Delves` is a separate registered OUS2 page reached from the XP Bar hub and provides a Back to XP Bar action.
 
+Flightmaster OUS2 architecture:
+
+- `Config2\OUS2Page_FlightMaster.lua` provides legacy-parity settings for tooltips, timer bar unlock, dimensions, scale, font size, border size, media selectors, color rows, export, wipe, position reset, and appearance reset.
+- Flight Master controls update `OdysseusDB.flightSettings` and call public engine APIs in `Flightmaster.lua`: `ApplyFlightSettings`, `ApplyFlightFonts`, `ApplyFlightTexture`, `ApplyFlightBorder`, `SetFlightBarUnlocked`, `ResetFlightBarPosition`, `ResetFlightBarAppearance`, `SetFlightBarColor`, and `SetFlightBorderColor`.
+- User scale is applied by resizing the timer bar dimensions; the timer frame itself remains at scale `1` to avoid redraw and anchoring issues.
+- `ResetFlightBarAppearance()` restores visual settings only. Learned flight times remain in `OdysseusDB.flightSettings.times` unless the user explicitly wipes them or uses the global reset flow.
+- OUS2 uses shared helpers from `OUS2Config.lua`: `C.OpenMediaDropdown()`, `C.OpenColorPicker()`, and `C.ShowCopyTextDialog()`. These helpers are independent of legacy `Config.lua` dropdowns.
+
 Phase 5 follow-up work:
 
 - General page polish
@@ -615,7 +637,6 @@ Phase 5 follow-up work:
 - XP Bar color controls
 - Favorites management API review
 - Delves lock/unlock review
-- Flightmaster advanced controls
 - Toolbox expansion
 - Faster Loot rules
 - Help page
@@ -629,7 +650,7 @@ Current:
 - General, card-state, module-summary, Global Options, and reset-semantics polish
 - XP Bar color controls and Favorites API review
 - Delves lock/unlock review
-- Flightmaster, Toolbox, and Faster Loot advanced controls
+- Toolbox and Faster Loot advanced controls
 - Shared helper extraction
 
 Pending OUS2 left-navigation pages:
@@ -782,6 +803,10 @@ OUSBanner.tga
 - Keep OUS2 changes focused and reviewable
 - Keep page files visual-first until module behavior is ready
 - Use `OUS.LogDebug()` for normal debug output
+- Add one-line comments before major helpers, public OUS APIs, and non-obvious integration boundaries
+- Prefer standard third-party integration APIs over addon internals; keep optional compatibility isolated and nil-guarded
+- Use LibDataBroker-1.1 + LibDBIcon-1.0 for launcher/minimap integration instead of raw manual minimap button ownership
+- Let third-party minimap managers own broker launcher visibility and avoid addon-specific minimap workarounds
 
 ---
 

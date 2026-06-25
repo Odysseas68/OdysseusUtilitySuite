@@ -11,8 +11,9 @@ description: Make small, safe, reviewable Odysseus Utility Suite code changes. U
 4. Identify the root cause and verify uncertain Retail APIs with `$ous-wow-retail-api-check`.
 5. Preserve stable functions, tables, frames, modules, SavedVariables keys, slash commands, formatting, and TOC order.
 6. Prefer a targeted edit or helper over a refactor. Do not add dependencies or invent a helper system.
-7. Keep enUS text and minimal comments that explain only non-obvious reasons.
-8. Use `OUS.LogDebug("ModuleName", "message")` for routine debug output.
-9. Check relevant edge cases and run focused static or available tests.
+7. Keep enUS text and add concise one-line comments before major helpers, public OUS APIs, and non-obvious integration boundaries.
+8. Prefer standard third-party integration APIs over addon internals; isolate optional compatibility behind nil-guarded helpers.
+9. Use `OUS.LogDebug("ModuleName", "message")` for routine debug output.
+10. Check relevant edge cases and run focused static or available tests.
 
 Report the change, files changed, safety rationale, edge cases, and in-game testing steps.

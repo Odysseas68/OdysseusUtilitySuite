@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_General.lua
--- Version : 2026.06.22
+-- Version : 2026.06.25
 -- Desc    : OUS2 General dashboard layout and module navigation
 -- =========================================
 
@@ -11,6 +11,10 @@ local C = OUS.Config2
 local page = CreateFrame("Frame", nil, C.pageContainer)
 page:SetAllPoints()
 page:Hide()
+
+local minimapOptionCheckbox
+local debugOptionCheckbox
+local Refresh
 
 local MODULES = {
     { name = "XP Bar",          detail = "Experience and reputation",       icon = "IconXPBar", pageKey = "XPBar" },
@@ -323,8 +327,8 @@ optionsDescription:SetJustifyH("LEFT")
 optionsDescription:SetText("Configure general addon behavior.")
 SetTextColor(optionsDescription, T.Colors.textDim)
 
-local function CreateOptionPreview(text, yOffset)
-    local row = CreateFrame("Frame", nil, optionsPanel)
+local function CreateOptionToggle(text, helpText, yOffset, isChecked, onClick)
+    local row = CreateFrame("Button", nil, optionsPanel)
     row:SetHeight(22)
     row:SetPoint("TOPLEFT", optionsPanel, "TOPLEFT", 12, yOffset)
     row:SetPoint("TOPRIGHT", optionsPanel, "TOPRIGHT", -12, yOffset)
@@ -341,10 +345,75 @@ local function CreateOptionPreview(text, yOffset)
     label:SetWordWrap(false)
     label:SetText(text)
     SetTextColor(label, T.Colors.text)
+
+    row:SetScript("OnEnter", function()
+        C.SetHelpText(helpText)
+    end)
+    row:SetScript("OnLeave", function()
+        C.ClearHelpText()
+    end)
+    row:SetScript("OnClick", function()
+        if onClick then
+            onClick()
+        end
+        Refresh()
+    end)
+
+    function row:SetChecked(checked)
+        checkbox:SetTexture(T.Tex(checked and "CheckboxOn" or "CheckboxOff"))
+    end
+
+    row:SetChecked(isChecked and isChecked() or false)
+    return row
 end
 
-CreateOptionPreview("Show Minimap Button", -86)
-CreateOptionPreview("Enable Debug Logging", -120)
+minimapOptionCheckbox = CreateOptionToggle(
+    "Show Minimap Button",
+    "Show or hide the Odysseus minimap launcher. If a minimap manager controls it, manage visibility there.",
+    -86,
+    function()
+        if OUS.IsMinimapButtonShown then
+            return OUS.IsMinimapButtonShown()
+        end
+        return not OdysseusDB or not OdysseusDB.minimap or OdysseusDB.minimap.hide ~= true
+    end,
+    function()
+        local shown = true
+        if OUS.IsMinimapButtonShown then
+            shown = OUS.IsMinimapButtonShown()
+        elseif OdysseusDB then
+            shown = not OdysseusDB.minimap or OdysseusDB.minimap.hide ~= true
+        end
+
+        if OUS.SetMinimapButtonShown then
+            OUS.SetMinimapButtonShown(not shown)
+        else
+            OdysseusDB = OdysseusDB or {}
+            OdysseusDB.minimap = OdysseusDB.minimap or { minimapPos = 225 }
+            OdysseusDB.minimap.hide = shown == true
+        end
+    end
+)
+
+debugOptionCheckbox = CreateOptionToggle(
+    "Enable Debug Logging",
+    "Enable the Odysseus debug console and diagnostic log output for the current session.",
+    -120,
+    function()
+        if OUS.IsDebugModeOn then
+            return OUS.IsDebugModeOn()
+        end
+        return OUS.Session and OUS.Session.isDebugOn == true
+    end,
+    function()
+        local enabled = OUS.Session and OUS.Session.isDebugOn == true
+        if OUS.SetDebugMode then
+            OUS.SetDebugMode(not enabled)
+        elseif OUS.Session then
+            OUS.Session.isDebugOn = not enabled
+        end
+    end
+)
 
 local function CreateSidebarPlaceholder(parent, titleText, detailText, anchorTo)
     local card = CreateFrame("Frame", nil, parent)
@@ -388,12 +457,32 @@ CreateSidebarPlaceholder(
     profileToolsPanel
 )
 
-local function Refresh()
+Refresh = function()
     local addonVersion =
         C_AddOns.GetAddOnMetadata(addonName, "Version")
         or "unknown"
 
     version:SetText("Version: " .. addonVersion)
+
+    if minimapOptionCheckbox then
+        local shown
+        if OUS.IsMinimapButtonShown then
+            shown = OUS.IsMinimapButtonShown()
+        else
+            shown = not OdysseusDB or not OdysseusDB.minimap or OdysseusDB.minimap.hide ~= true
+        end
+        minimapOptionCheckbox:SetChecked(shown)
+    end
+
+    if debugOptionCheckbox then
+        local enabled
+        if OUS.IsDebugModeOn then
+            enabled = OUS.IsDebugModeOn()
+        else
+            enabled = OUS.Session and OUS.Session.isDebugOn == true
+        end
+        debugOptionCheckbox:SetChecked(enabled)
+    end
 end
 
 C.RegisterPage("General", page, Refresh, sidebar)

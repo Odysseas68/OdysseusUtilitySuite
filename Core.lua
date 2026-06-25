@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Core.lua
--- Version : 2026.06.16
+-- Version : 2026.06.25
 -- Desc    : Namespace, DB init, module defaults, slash commands
 -- ============================================================
 
@@ -100,7 +100,15 @@ f:SetScript("OnEvent", function(self, event, arg1)
             OdysseusDB.utilities.junkSell.limitTo12 = true
         end
 
-        if OdysseusDB.minimapAngle == nil then OdysseusDB.minimapAngle = 225 end
+        OdysseusDB.minimap = OdysseusDB.minimap or {}
+        if OdysseusDB.minimap.hide == nil then
+            OdysseusDB.minimap.hide = OdysseusDB.showMinimapButton == false
+        end
+        if OdysseusDB.minimap.minimapPos == nil then
+            OdysseusDB.minimap.minimapPos = type(OdysseusDB.minimapAngle) == "number" and (OdysseusDB.minimapAngle % 360) or 225
+        end
+        OdysseusDB.showMinimapButton = nil
+        OdysseusDB.minimapAngle = nil
         OdysseusDB.flightSettings = OdysseusDB.flightSettings or {}
         OdysseusDB.fishingSettings = OdysseusDB.fishingSettings or {}
         OdysseusFishingDB = OdysseusFishingDB or { history = {} }
@@ -153,7 +161,12 @@ function OUS.ResetAllSettings()
         toolbox        = true,
     }
 
-    OdysseusDB.minimapAngle = 225
+    OdysseusDB.minimap = {
+        hide = false,
+        minimapPos = 225,
+    }
+    OdysseusDB.showMinimapButton = nil
+    OdysseusDB.minimapAngle = nil
 
     -- Reset Flight Master
     if OUS.flightDefaults then
@@ -369,17 +382,30 @@ end
 -- ==========================================
 -- 5. MAIN COMMANDS & GLOBALS
 -- ==========================================
-SLASH_ODYSSEUSDEBUG1 = "/ousdebug"
-SlashCmdList["ODYSSEUSDEBUG"] = function()
-    OUS.Session.isDebugOn = not OUS.Session.isDebugOn
+function OUS.SetDebugMode(enabled, silent)
+    OUS.Session.isDebugOn = enabled == true
+
     if OUS.Session.isDebugOn then
         debugFrame:Show()
-        print("|cFF00FFFF[Odysseus]|r Debug Mode |cFF00FF00ENABLED|r.")
+        if not silent then
+            print("|cFF00FFFF[Odysseus]|r Debug Mode |cFF00FF00ENABLED|r.")
+        end
         OUS.LogDebug("Core", "Debug session started.")
     else
         debugFrame:Hide()
-        print("|cFF00FFFF[Odysseus]|r Debug Mode |cFFFF0000DISABLED|r.")
+        if not silent then
+            print("|cFF00FFFF[Odysseus]|r Debug Mode |cFFFF0000DISABLED|r.")
+        end
     end
+end
+
+function OUS.IsDebugModeOn()
+    return OUS.Session and OUS.Session.isDebugOn == true
+end
+
+SLASH_ODYSSEUSDEBUG1 = "/ousdebug"
+SlashCmdList["ODYSSEUSDEBUG"] = function()
+    OUS.SetDebugMode(not OUS.IsDebugModeOn())
 end
 
 SLASH_ODYSSEUS1 = "/ous"
@@ -436,42 +462,15 @@ end
 -- ==========================================
 -- 6. MINIMAP BUTTON
 -- ==========================================
-local minimapBtn = CreateFrame("Button", "OdysseusMinimapButton", Minimap)
-minimapBtn:SetSize(32, 32)
-minimapBtn:SetFrameStrata("MEDIUM")
-minimapBtn:SetFrameLevel(8)
+f:RegisterEvent("PLAYER_LOGIN")
 
--- Icon texture
-local minimapIcon = minimapBtn:CreateTexture(nil, "BACKGROUND")
-minimapIcon:SetSize(20, 20)
-minimapIcon:SetPoint("CENTER")
-minimapIcon:SetTexture("Interface\\AddOns\\OdysseusUtilitySuite\\Media\\icon\\OUS_icon_128")
+local MINIMAP_LDB_NAME = "OdysseusUtilitySuite"
+local MINIMAP_ICON = "Interface\\AddOns\\OdysseusUtilitySuite\\media\\icon\\OUS_icon_128.tga"
+local minimapFallbackButton
+local minimapRegistered = false
 
--- Circular mask to match minimap style
-local minimapMask = minimapBtn:CreateMaskTexture()
-minimapMask:SetAllPoints(minimapIcon)
-minimapMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
-minimapIcon:AddMaskTexture(minimapMask)
-
--- Highlight ring on hover
-local minimapHighlight = minimapBtn:CreateTexture(nil, "HIGHLIGHT")
-minimapHighlight:SetSize(32, 32)
-minimapHighlight:SetPoint("CENTER")
-minimapHighlight:SetTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
-
--- Position on minimap edge
-local minimapAngle = 225 -- degrees, adjust to taste
-local function UpdateMinimapPosition()
-    local angle = math.rad(minimapAngle)
-    local radius = 80
-    minimapBtn:SetPoint("CENTER", Minimap, "CENTER",
-        radius * math.cos(angle),
-        radius * math.sin(angle))
-end
-UpdateMinimapPosition()
-
--- Left click — toggle config
-minimapBtn:SetScript("OnClick", function(self, button)
+-- Shared launcher click behavior preserves the legacy minimap button actions.
+local function HandleMinimapLauncherClick(button)
     if button == "LeftButton" then
         if OUS.ConfigFrame then
             if OUS.ConfigFrame:IsShown() then
@@ -489,54 +488,162 @@ minimapBtn:SetScript("OnClick", function(self, button)
             end
         end
     end
-end)
-
-minimapBtn:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
--- Tooltip
-minimapBtn:SetScript("OnEnter", function(self)
-    GameTooltip:SetOwner(self, "ANCHOR_LEFT")
-    GameTooltip:AddLine("|cFF00FFFFOdysseus Utility Suite|r")
-    GameTooltip:AddLine("Left click: Open Config", 0.8, 0.8, 0.8)
-    GameTooltip:AddLine("Right click: Open Help", 0.8, 0.8, 0.8)
-    GameTooltip:Show()
-end)
-minimapBtn:SetScript("OnLeave", function()
-    GameTooltip:Hide()
-end)
-
--- Draggable position around minimap
-minimapBtn:SetMovable(true)
-minimapBtn:RegisterForDrag("LeftButton")
-minimapBtn:SetScript("OnDragStart", function(self)
-    self:SetScript("OnUpdate", function(self)
-        local mx, my = Minimap:GetCenter()
-        local cx, cy = GetCursorPosition()
-        local scale = UIParent:GetEffectiveScale()
-        cx, cy = cx / scale, cy / scale
-        minimapAngle = math.deg(math.atan2(cy - my, cx - mx))
-        UpdateMinimapPosition()
-    end)
-end)
-minimapBtn:SetScript("OnDragStop", function(self)
-    self:SetScript("OnUpdate", nil)
-    -- Save position
-    if OdysseusDB then
-        OdysseusDB.minimapAngle = minimapAngle
-    end
-end)
-
--- Restore saved position
-local function InitMinimapButton()
-    if OdysseusDB and OdysseusDB.minimapAngle then
-        minimapAngle = OdysseusDB.minimapAngle
-        UpdateMinimapPosition()
-    end
 end
 
--- Hook into ADDON_LOADED to restore position after DB is ready
+-- LibDataBroker launcher lets display addons own presentation without OUS-specific hooks.
+local minimapLauncher = {
+    type = "launcher",
+    text = "Odysseus Utility Suite",
+    label = "Odysseus Utility Suite",
+    icon = MINIMAP_ICON,
+    OnClick = function(_, button)
+        HandleMinimapLauncherClick(button)
+    end,
+    OnTooltipShow = function(tooltip)
+        tooltip:AddLine("|cFF00FFFFOdysseus Utility Suite|r")
+        tooltip:AddLine("Left click: Open Config", 0.8, 0.8, 0.8)
+        tooltip:AddLine("Right click: Open Help", 0.8, 0.8, 0.8)
+    end,
+}
+
+-- Minimap DB migration keeps old visibility and angle values on the new LibDBIcon schema.
+local function EnsureMinimapDB()
+    OdysseusDB = OdysseusDB or {}
+    OdysseusDB.minimap = OdysseusDB.minimap or {}
+
+    if OdysseusDB.minimap.hide == nil then
+        OdysseusDB.minimap.hide = OdysseusDB.showMinimapButton == false
+    end
+
+    if OdysseusDB.minimap.minimapPos == nil then
+        OdysseusDB.minimap.minimapPos = type(OdysseusDB.minimapAngle) == "number" and (OdysseusDB.minimapAngle % 360) or 225
+    end
+
+    OdysseusDB.showMinimapButton = nil
+    OdysseusDB.minimapAngle = nil
+
+    return OdysseusDB.minimap
+end
+
+-- Manual fallback only runs when LibDBIcon is unavailable.
+local function CreateFallbackMinimapButton()
+    if minimapFallbackButton then
+        return minimapFallbackButton
+    end
+
+    local button = CreateFrame("Button", "OdysseusMinimapButton", Minimap)
+    button:SetSize(32, 32)
+    button:SetFrameStrata("MEDIUM")
+    button:SetFrameLevel(8)
+    button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+    button:SetMovable(true)
+    button:RegisterForDrag("LeftButton")
+
+    local icon = button:CreateTexture(nil, "BACKGROUND")
+    icon:SetSize(20, 20)
+    icon:SetPoint("CENTER")
+    icon:SetTexture(MINIMAP_ICON)
+
+    local mask = button:CreateMaskTexture()
+    mask:SetAllPoints(icon)
+    mask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+    icon:AddMaskTexture(mask)
+
+    local highlight = button:CreateTexture(nil, "HIGHLIGHT")
+    highlight:SetSize(32, 32)
+    highlight:SetPoint("CENTER")
+    highlight:SetTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
+
+    button:SetScript("OnClick", function(_, buttonName)
+        HandleMinimapLauncherClick(buttonName)
+    end)
+    button:SetScript("OnEnter", function(self)
+        GameTooltip:SetOwner(self, "ANCHOR_LEFT")
+        minimapLauncher.OnTooltipShow(GameTooltip)
+        GameTooltip:Show()
+    end)
+    button:SetScript("OnLeave", function()
+        GameTooltip:Hide()
+    end)
+    button:SetScript("OnDragStart", function(self)
+        self:SetScript("OnUpdate", function(self)
+            local db = EnsureMinimapDB()
+            local mx, my = Minimap:GetCenter()
+            local cx, cy = GetCursorPosition()
+            local scale = Minimap:GetEffectiveScale()
+            cx, cy = cx / scale, cy / scale
+            db.minimapPos = math.deg(math.atan2(cy - my, cx - mx)) % 360
+            local angle = math.rad(db.minimapPos)
+            self:ClearAllPoints()
+            self:SetPoint("CENTER", Minimap, "CENTER", 80 * math.cos(angle), 80 * math.sin(angle))
+        end)
+    end)
+    button:SetScript("OnDragStop", function(self)
+        self:SetScript("OnUpdate", nil)
+    end)
+
+    minimapFallbackButton = button
+    return button
+end
+
+-- Fallback positioning mirrors the old minimap button when broker libraries are unavailable.
+local function RefreshFallbackMinimapButton(db)
+    local button = CreateFallbackMinimapButton()
+    local angle = math.rad(db.minimapPos or 225)
+    button:ClearAllPoints()
+    button:SetPoint("CENTER", Minimap, "CENTER", 80 * math.cos(angle), 80 * math.sin(angle))
+    button:SetShown(db.hide ~= true)
+    button:EnableMouse(db.hide ~= true)
+end
+
+-- Broker registration hands minimap ownership to LibDBIcon and display addons.
+local function RefreshMinimapLauncher()
+    local db = EnsureMinimapDB()
+    local ldb = LibStub and LibStub("LibDataBroker-1.1", true)
+    local dbIcon = LibStub and LibStub("LibDBIcon-1.0", true)
+
+    if ldb and dbIcon then
+        local dataObject = ldb:GetDataObjectByName(MINIMAP_LDB_NAME) or ldb:NewDataObject(MINIMAP_LDB_NAME, minimapLauncher)
+        if dataObject then
+            dataObject.icon = MINIMAP_ICON
+        end
+
+        if not minimapRegistered and dataObject then
+            dbIcon:Register(MINIMAP_LDB_NAME, dataObject, db)
+            minimapRegistered = true
+        end
+
+        dbIcon:Refresh(MINIMAP_LDB_NAME, db)
+        if minimapFallbackButton then
+            minimapFallbackButton:Hide()
+            minimapFallbackButton:EnableMouse(false)
+        end
+        return
+    end
+
+    RefreshFallbackMinimapButton(db)
+end
+
+local function InitMinimapButton()
+    RefreshMinimapLauncher()
+end
+
+-- Public OUS API used by OUS2 to persist and refresh launcher visibility.
+function OUS.SetMinimapButtonShown(shown)
+    local db = EnsureMinimapDB()
+    db.hide = shown ~= true
+    RefreshMinimapLauncher()
+end
+
+-- Public OUS API used by config surfaces to read launcher visibility.
+function OUS.IsMinimapButtonShown()
+    local db = EnsureMinimapDB()
+    return db.hide ~= true
+end
+
+-- Event hook waits for saved variables before registering or refreshing the launcher.
 f:HookScript("OnEvent", function(self, event, arg1)
-    if event == "ADDON_LOADED" and arg1 == addonName then
+    if (event == "ADDON_LOADED" and arg1 == addonName) or event == "PLAYER_LOGIN" then
         InitMinimapButton()
     end
 end)

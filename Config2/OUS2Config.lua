@@ -5,6 +5,7 @@
 
 local addonName, OUS = ...
 local T = OUS.Theme
+local LSM = LibStub("LibSharedMedia-3.0")
 
 -- ---------------------------------------------------------------------------
 -- State
@@ -73,6 +74,265 @@ local function AddTexture(parent, file, layer, width, height)
     tex:SetTexture(T.TEX .. file)
     tex:SetSize(width, height)
     return tex
+end
+
+local mediaDropdown
+local mediaDropdownButtons = {}
+
+local function EnsureMediaDropdown()
+    if mediaDropdown then
+        return mediaDropdown
+    end
+
+    mediaDropdown = CreateFrame("Frame", "OUS2MediaDropdown", UIParent, "BackdropTemplate")
+    mediaDropdown:SetSize(220, 300)
+    mediaDropdown:SetFrameStrata("FULLSCREEN_DIALOG")
+    mediaDropdown:Hide()
+
+    mediaDropdown:SetBackdrop({
+        bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+        tile = false,
+        edgeSize = 14,
+        insets = { left = 4, right = 4, top = 4, bottom = 4 },
+    })
+    mediaDropdown:SetBackdropColor(0.05, 0.04, 0.08, 0.98)
+    mediaDropdown:SetBackdropBorderColor(T.Colors.accent[1], T.Colors.accent[2], T.Colors.accent[3], 0.9)
+
+    mediaDropdown.title = mediaDropdown:CreateFontString(nil, "OVERLAY", T.Fonts.sectionHeader)
+    mediaDropdown.title:SetPoint("TOP", mediaDropdown, "TOP", 0, -10)
+    mediaDropdown.title:SetTextColor(T.Colors.header[1], T.Colors.header[2], T.Colors.header[3], T.Colors.header[4])
+
+    local scrollFrame = CreateFrame("ScrollFrame", nil, mediaDropdown, "UIPanelScrollFrameTemplate")
+    scrollFrame:SetPoint("TOPLEFT", mediaDropdown, "TOPLEFT", 12, -34)
+    scrollFrame:SetPoint("BOTTOMRIGHT", mediaDropdown, "BOTTOMRIGHT", -28, 10)
+
+    mediaDropdown.scrollChild = CreateFrame("Frame", nil, scrollFrame)
+    mediaDropdown.scrollChild:SetSize(190, 1)
+    scrollFrame:SetScrollChild(mediaDropdown.scrollChild)
+
+    return mediaDropdown
+end
+
+function C.OpenMediaDropdown(owner, mediaType, currentName, onSelect)
+    local dropdown = EnsureMediaDropdown()
+    local titleText = "Select " .. (mediaType == "font" and "Font" or (mediaType == "statusbar" and "Texture" or "Border"))
+
+    if dropdown:IsShown() and dropdown.owner == owner and dropdown.mediaType == mediaType then
+        dropdown:Hide()
+        return
+    end
+
+    dropdown.owner = owner
+    dropdown.mediaType = mediaType
+    dropdown.title:SetText(titleText)
+    dropdown:ClearAllPoints()
+    dropdown:SetPoint("TOPRIGHT", owner, "BOTTOMRIGHT", 0, -4)
+
+    for _, btn in ipairs(mediaDropdownButtons) do
+        btn:Hide()
+    end
+
+    local list = LSM:List(mediaType)
+    local yOffset = 0
+
+    for i, name in ipairs(list) do
+        local btn = mediaDropdownButtons[i]
+        if not btn then
+            btn = CreateFrame("Button", nil, dropdown.scrollChild)
+            btn:SetSize(190, 24)
+
+            btn.bg = btn:CreateTexture(nil, "BACKGROUND")
+            btn.bg:SetAllPoints()
+
+            btn.label = btn:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+            btn.label:SetPoint("LEFT", btn, "LEFT", 6, 0)
+            btn.label:SetPoint("RIGHT", btn, "RIGHT", -6, 0)
+            btn.label:SetJustifyH("LEFT")
+            btn.label:SetWordWrap(false)
+
+            btn.highlight = btn:CreateTexture(nil, "HIGHLIGHT")
+            btn.highlight:SetAllPoints()
+            btn.highlight:SetColorTexture(1, 1, 1, 0.10)
+
+            table.insert(mediaDropdownButtons, btn)
+        end
+
+        btn:ClearAllPoints()
+        btn:SetPoint("TOPLEFT", dropdown.scrollChild, "TOPLEFT", 0, -yOffset)
+        btn.bg:SetTexture(nil)
+        btn.bg:SetColorTexture(0.08, 0.07, 0.11, 0.92)
+        btn.label:SetFontObject(_G[T.Fonts.small] or GameFontNormalSmall)
+
+        local path = LSM:Fetch(mediaType, name)
+        if mediaType == "statusbar" and path then
+            btn.bg:SetColorTexture(1, 1, 1, 1)
+            btn.bg:SetTexture(path)
+            btn.label:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+        elseif mediaType == "font" and path then
+            local ok = pcall(function()
+                btn.label:SetFont(path, 11, "OUTLINE")
+            end)
+            if not ok then
+                btn.label:SetFont("Fonts\\FRIZQT__.TTF", 11, "OUTLINE")
+            end
+        elseif mediaType == "border" then
+            btn.label:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+        end
+
+        btn.label:SetText(name)
+        if name == currentName then
+            btn.label:SetTextColor(T.Colors.accent[1], T.Colors.accent[2], T.Colors.accent[3], 1)
+        else
+            btn.label:SetTextColor(T.Colors.text[1], T.Colors.text[2], T.Colors.text[3], 1)
+        end
+
+        btn:SetScript("OnClick", function()
+            if onSelect then
+                onSelect(name)
+            end
+            dropdown:Hide()
+        end)
+
+        btn:Show()
+        yOffset = yOffset + 26
+    end
+
+    dropdown.scrollChild:SetHeight(math.max(1, yOffset))
+    dropdown:Show()
+end
+
+function C.OpenColorPicker(colorTable, swatchFrame, onUpdate)
+    if type(colorTable) ~= "table" or not swatchFrame then
+        return
+    end
+
+    colorTable.r = colorTable.r or 1
+    colorTable.g = colorTable.g or 1
+    colorTable.b = colorTable.b or 1
+
+    local previous = {
+        r = colorTable.r,
+        g = colorTable.g,
+        b = colorTable.b,
+    }
+
+    local function ApplyColor()
+        local r, g, b = ColorPickerFrame:GetColorRGB()
+        colorTable.r, colorTable.g, colorTable.b = r, g, b
+        swatchFrame:SetColorTexture(r, g, b, 1)
+        if onUpdate then
+            onUpdate(r, g, b)
+        end
+    end
+
+    ColorPickerFrame:SetupColorPickerAndShow({
+        r = colorTable.r,
+        g = colorTable.g,
+        b = colorTable.b,
+        hasOpacity = false,
+        colorPickerFunc = ApplyColor,
+        swatchFunc = ApplyColor,
+        cancelFunc = function()
+            colorTable.r, colorTable.g, colorTable.b = previous.r, previous.g, previous.b
+            swatchFrame:SetColorTexture(previous.r, previous.g, previous.b, 1)
+            if onUpdate then
+                onUpdate(previous.r, previous.g, previous.b)
+            end
+        end,
+    })
+end
+
+local copyDialog
+local copyDialogEditBox
+
+function C.ShowCopyTextDialog(titleText, bodyText)
+    if not copyDialog then
+        copyDialog = CreateFrame("Frame", "OUS2CopyTextDialog", UIParent, "BackdropTemplate")
+        copyDialog:SetSize(520, 420)
+        copyDialog:SetPoint("CENTER")
+        copyDialog:SetFrameStrata("FULLSCREEN_DIALOG")
+        copyDialog:Hide()
+        tinsert(UISpecialFrames, "OUS2CopyTextDialog")
+
+        copyDialog:SetBackdrop({
+            bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+            tile = false,
+            edgeSize = 14,
+            insets = { left = 4, right = 4, top = 4, bottom = 4 },
+        })
+        copyDialog:SetBackdropColor(0.05, 0.04, 0.08, 0.98)
+        copyDialog:SetBackdropBorderColor(T.Colors.accent[1], T.Colors.accent[2], T.Colors.accent[3], 0.9)
+
+        local title = copyDialog:CreateFontString(nil, "OVERLAY", T.Fonts.sectionHeader)
+        title:SetPoint("TOP", copyDialog, "TOP", 0, -14)
+        title:SetTextColor(T.Colors.header[1], T.Colors.header[2], T.Colors.header[3], T.Colors.header[4])
+        copyDialog.title = title
+
+        local closeBtn = CreateFrame("Button", nil, copyDialog)
+        closeBtn:SetSize(28, 28)
+        closeBtn:SetPoint("TOPRIGHT", copyDialog, "TOPRIGHT", -8, -8)
+        closeBtn:SetNormalTexture(T.Tex("CloseNormal"))
+        closeBtn:SetHighlightTexture(T.Tex("CloseHover"))
+        closeBtn:SetPushedTexture(T.Tex("ClosePressed"))
+        closeBtn:SetScript("OnClick", function()
+            copyDialog:Hide()
+        end)
+
+        local scrollFrame = CreateFrame("ScrollFrame", nil, copyDialog, "UIPanelScrollFrameTemplate")
+        scrollFrame:SetPoint("TOPLEFT", copyDialog, "TOPLEFT", 18, -46)
+        scrollFrame:SetPoint("BOTTOMRIGHT", copyDialog, "BOTTOMRIGHT", -34, 54)
+
+        copyDialogEditBox = CreateFrame("EditBox", nil, scrollFrame)
+        copyDialogEditBox:SetMultiLine(true)
+        copyDialogEditBox:SetAutoFocus(false)
+        copyDialogEditBox:SetFontObject(ChatFontNormal)
+        copyDialogEditBox:SetWidth(450)
+        copyDialogEditBox:SetScript("OnEscapePressed", function(self)
+            self:ClearFocus()
+            copyDialog:Hide()
+        end)
+        scrollFrame:SetScrollChild(copyDialogEditBox)
+
+        local selectAllBtn = CreateFrame("Button", nil, copyDialog)
+        selectAllBtn:SetSize(120, 28)
+        selectAllBtn:SetPoint("BOTTOMLEFT", copyDialog, "BOTTOMLEFT", 18, 16)
+        selectAllBtn:SetNormalTexture(T.Tex("ActionNormal"))
+        selectAllBtn:SetHighlightTexture(T.Tex("ActionHover"))
+        selectAllBtn:SetPushedTexture(T.Tex("ActionPressed"))
+
+        local selectAllText = selectAllBtn:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+        selectAllText:SetAllPoints()
+        selectAllText:SetText("Select All")
+        selectAllText:SetTextColor(T.Colors.text[1], T.Colors.text[2], T.Colors.text[3], T.Colors.text[4])
+
+        selectAllBtn:SetScript("OnClick", function()
+            copyDialogEditBox:HighlightText()
+            copyDialogEditBox:SetFocus()
+        end)
+
+        local closeActionBtn = CreateFrame("Button", nil, copyDialog)
+        closeActionBtn:SetSize(120, 28)
+        closeActionBtn:SetPoint("BOTTOMRIGHT", copyDialog, "BOTTOMRIGHT", -18, 16)
+        closeActionBtn:SetNormalTexture(T.Tex("ActionNormal"))
+        closeActionBtn:SetHighlightTexture(T.Tex("ActionHover"))
+        closeActionBtn:SetPushedTexture(T.Tex("ActionPressed"))
+
+        local closeActionText = closeActionBtn:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+        closeActionText:SetAllPoints()
+        closeActionText:SetText("Close")
+        closeActionText:SetTextColor(T.Colors.text[1], T.Colors.text[2], T.Colors.text[3], T.Colors.text[4])
+
+        closeActionBtn:SetScript("OnClick", function()
+            copyDialog:Hide()
+        end)
+    end
+
+    copyDialog.title:SetText(titleText or "Copy Text")
+    copyDialogEditBox:SetText(bodyText or "")
+    copyDialogEditBox:SetCursorPosition(0)
+    copyDialog:Show()
 end
 
 -- ---------------------------------------------------------------------------

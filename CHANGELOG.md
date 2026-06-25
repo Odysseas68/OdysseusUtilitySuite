@@ -2,6 +2,36 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-06-25] - Broker Minimap Launcher Migration
+
+### Changed
+- Migrated the OUS minimap launcher from a manually owned minimap button to LibDataBroker-1.1 + LibDBIcon-1.0.
+- Migrated minimap SavedVariables from `showMinimapButton` / `minimapAngle` to `OdysseusDB.minimap.hide` / `OdysseusDB.minimap.minimapPos`.
+- Preserved OUS2 Show Minimap Button behavior through the existing public Core APIs.
+- Documented that third-party minimap managers own broker launcher visibility and OUS will not add HidingBar-specific minimap workarounds.
+
+---
+
+## [2026-06-25] - Project Guidance Updates
+
+### Documentation
+- Added coding-comment guidance for major helpers, public OUS APIs, and non-obvious integration boundaries.
+- Added third-party addon compatibility guidance, including broker-compatible launcher/minimap preference via LibDataBroker-1.1 + LibDBIcon-1.0.
+
+---
+
+## [2026-06-25] - OUS2 Flight Master Phase 5 Advanced Controls
+
+### Added
+- **OUS2 Flight Master**: advanced-control parity for map tooltips, timer bar unlock/drag preview, width, height, scale, font size, border size, texture/font/border selectors, bar color, border color, export, wipe confirmation, reset position, and reset appearance.
+- **OUS2 shared helpers**: reusable media dropdown, color picker, and copy-text dialog helpers in `Config2\OUS2Config.lua`.
+
+### Changed
+- **Flightmaster**: OUS2 scale changes call `OUS.ApplyFlightSettings()` and use the engine's dimension-based scaling path instead of applying user scale with `timerBar:SetScale()`.
+- **Flightmaster reset**: OUS2 Reset Appearance restores visual settings while preserving learned flight times.
+
+---
+
 ## [2026-06-03] - Utilities Module + Config Polish
 
 ### Added

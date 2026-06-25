@@ -10,33 +10,35 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 
 ## TOC Load Order (strict — do not reorder)
 1. `Libs\LibStub\LibStub.lua`
-2. `Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua`
-3. `Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua`
-4. `Core.lua` — creates OUS namespace, DB init, debug engine, slash commands
-5. `flightdata.lua` — flight timing database
-6. `xpbar_data.lua` — XP/rep data tables
-7. `Odysseus_RoutingDB.lua` — flight routing database
-8. `AutoRemountSpells.lua` — AutoRemount spell ID database (gather + exclude lists)
-9. `StatsBarSpecPriority.lua` — StatsBar spec priority database
-10. `OpenablesDB.lua` — Openables item database (700+ itemIDs with min quantities)
-11. `Flightmaster.lua` — flight timer/routing engine
-12. `Fasterloot.lua` — auto-loot module
-13. `Fishingtracker.lua` — fishing session tracker
-14. `xpbar_core.lua` — XP/rep bar frame and layout
-15. `xpbar_engine.lua` — XP/rep tracking logic
-16. `xpbar_delves.lua` — Delves companion tracking
-17. `xpbar_favorites.lua` — favorite rep pinning
-18. `FlightRouting.lua` — taxi map route rendering
-19. `AutoRemount.lua` — auto remount engine
-20. `StatsBar.lua` — stats bar engine
-21. `Openables.lua` — openables button engine
-22. `Utilities.lua` — utility commands (rare announcer, auto repair, junk seller)
-23. `Toolbox.lua` — floating icon toolbar engine
-24. `Config.lua` — main config UI (loads last)
-25. `xpbar_config.lua` — xpbar config panel (loads last)
-26. `Help.lua` — tabbed help frame (loads last)
-27. `Config2\OUS2Theme.lua` — OUS2 theme registry (textures, colors, fonts, constants)
-28. `Config2\OUS2Config.lua` — OUS2 main config frame (loads last)
+2. `Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml`
+3. `Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua`
+4. `Libs\LibDBIcon-1.0\lib.xml`
+5. `Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua`
+6. `Core.lua` — creates OUS namespace, DB init, debug engine, slash commands
+7. `flightdata.lua` — flight timing database
+8. `xpbar_data.lua` — XP/rep data tables
+9. `Odysseus_RoutingDB.lua` — flight routing database
+10. `AutoRemountSpells.lua` — AutoRemount spell ID database (gather + exclude lists)
+11. `StatsBarSpecPriority.lua` — StatsBar spec priority database
+12. `OpenablesDB.lua` — Openables item database (700+ itemIDs with min quantities)
+13. `Flightmaster.lua` — flight timer/routing engine
+14. `Fasterloot.lua` — auto-loot module
+15. `Fishingtracker.lua` — fishing session tracker
+16. `xpbar_core.lua` — XP/rep bar frame and layout
+17. `xpbar_engine.lua` — XP/rep tracking logic
+18. `xpbar_delves.lua` — Delves companion tracking
+19. `xpbar_favorites.lua` — favorite rep pinning
+20. `FlightRouting.lua` — taxi map route rendering
+21. `AutoRemount.lua` — auto remount engine
+22. `StatsBar.lua` — stats bar engine
+23. `Openables.lua` — openables button engine
+24. `Utilities.lua` — utility commands (rare announcer, auto repair, junk seller)
+25. `Toolbox.lua` — floating icon toolbar engine
+26. `Config.lua` — main config UI (loads last)
+27. `xpbar_config.lua` — xpbar config panel (loads last)
+28. `Help.lua` — tabbed help frame (loads last)
+29. `Config2\OUS2Theme.lua` — OUS2 theme registry (textures, colors, fonts, constants)
+30. `Config2\OUS2Config.lua` — OUS2 main config frame (loads last)
 
 ---
 
@@ -55,6 +57,19 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 **Config wiring:** New module config panels attach to `OUS.ConfigFrame` (built in `Config.lua`). Config always loads last so it can reference any module's state.
 
 **Per-character settings:** Use `OdysseusCharDB` (declared as `SavedVariablesPerCharacter` in the TOC). Account-wide settings go in `OdysseusDB`, character-specific settings go in `OdysseusCharDB` under a module key e.g. `OdysseusCharDB.autoRemountChar`, `OdysseusCharDB.statsBar`. Initialize in `Core.lua` ADDON_LOADED block.
+
+**Documentation:** `CLAUDE.md` is long-term engineering documentation. Keep it synchronized with important architectural decisions, coding standards, reusable patterns, and project rules. Do not store temporary debugging sessions or transient implementation experiments here.
+
+**Third-party compatibility:** Prefer addon ecosystem standards over addon-specific workarounds. OUS uses LibDataBroker-1.1 + LibDBIcon-1.0 for the minimap launcher; third-party minimap managers own launcher visibility and presentation. Do not add HidingBar-specific or similar addon-specific minimap workarounds.
+
+**Minimap launcher SavedVariables:**
+```lua
+OdysseusDB.minimap = {
+    hide = false,
+    minimapPos = 225,
+}
+```
+Legacy `OdysseusDB.showMinimapButton` and `OdysseusDB.minimapAngle` migrate to this structure in `Core.lua`.
 
 ---
 
@@ -78,7 +93,7 @@ Always access via `T.Tex(key)` helper — never hardcode paths in page files.
 
 **XP Bar migration:** Complete. The registered `XPBar` page is a hub with internal Global, Experience, Reputation, Favorites, and Help views. The separate registered `Delves` page is complete and provides Back to XP Bar navigation.
 
-**Phase 5 follow-up:** General page polish, enabled/disabled card states, module count summary, Global Options functionality, reset semantics review, XP Bar color controls, Favorites management API review, Delves lock/unlock review, Flightmaster advanced controls, Toolbox expansion, Faster Loot rules, pending OUS2 left-navigation Help page and Changelog page, and helper extraction.
+**Phase 5 follow-up:** General page polish, enabled/disabled card states, module count summary, Global Options functionality, reset semantics review, XP Bar color controls, Favorites management API review, Delves lock/unlock review, Toolbox expansion, Faster Loot rules, pending OUS2 left-navigation Help page and Changelog page, and helper extraction.
 
 **Public API:**
 ```lua

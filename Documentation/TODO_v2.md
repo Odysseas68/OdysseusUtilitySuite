@@ -155,8 +155,10 @@
 ### Global Options
 * [x] Visual-only Show Minimap Button row
 * [x] Visual-only Enable Debug Logging row
-* [ ] Wire Show Minimap Button to real setting
+* [x] Wire Show Minimap Button to real setting
 * [ ] Wire Enable Debug Logging to real setting
+* [x] Migrate manual minimap button to LibDataBroker-1.1 + LibDBIcon-1.0 for broker-compatible launcher support
+  * [x] Treat third-party minimap manager visibility as owned by the manager; avoid addon-specific workarounds
 
 ### Reset
 * [x] Visual-only Reset sidebar explanation
@@ -224,6 +226,12 @@ Completed module-page baseline, where applicable:
 * [x] Auto Remount page
 * [x] Fishing Tracker page
 * [x] Flightmaster page
+  * [x] OUS2 font/texture/border selectors
+  * [x] OUS2 bar and border color picker rows
+  * [x] Safe unlock/drag preview behavior
+  * [x] Export learned flight data UI
+  * [x] Wipe learned flight data confirmation
+  * [x] Reset position and visual appearance controls
 * [x] Flight Routing page
 * [x] Faster Loot page
 * [x] Toolbox page
@@ -338,13 +346,8 @@ Future design review required:
 
 ### Flightmaster Follow-Up Review
 
-- Add OUS2 font/texture/border selectors.
-- Add OUS2 color picker rows.
-- Add safe unlock/drag preview behavior.
-- Add export learned data UI.
-- Add wipe learned data confirmation.
-- Add reset defaults after reset semantics audit.
-- Audit master module toggle behavior during active flight before exposing it.
+- Completed OUS2 advanced-control parity: media selectors, color rows, unlock/drag preview, export, wipe confirmation, reset position, and reset appearance.
+- Remaining: audit master module toggle behavior during active flight before exposing it in OUS2.
 
 ---
 
@@ -401,9 +404,31 @@ Current focus is Phase 5 — Polish & Advanced Controls.
 6. XP Bar color controls
 7. Favorites management API review
 8. Delves lock/unlock review
-9. Flightmaster advanced controls
-10. Toolbox expansion
-11. Faster Loot rules
-12. Help page
-13. Changelog page
-14. Helper extraction
+9. Toolbox expansion
+10. Faster Loot rules
+11. Help page
+12. Changelog page
+13. Helper extraction
+
+**Phase 5.5 — Framework Consolidation**
+
+Purpose:
+Consolidate the OUS2 framework and engineering infrastructure after Phase 5 feature completion before starting Phase 6.
+
+Tasks:
+- Review Codex skills for overlap and consistency.
+- Extract stable shared helpers after patterns have stabilized.
+- Remove obsolete compatibility code and stale comments.
+- Verify all OUS2 pages follow the same architecture and coding patterns.
+- Audit documentation for consistency (README_v2, ARCHITECTURE, TODO, CHANGELOG, CLAUDE, AGENTS).
+- Review file headers and version dates.
+- Perform a lightweight Retail API audit against the current Interface version.
+- Review event registrations, timers, and helper reuse for maintainability.
+
+Exit Criteria:
+
+- Documentation synchronized.
+- Codex skills synchronized.
+- No duplicate helper functions.
+- Shared UI patterns stabilized.
+- No known architectural debt blocking Phase 6.

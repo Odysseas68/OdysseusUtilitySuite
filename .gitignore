@@ -20,6 +20,7 @@ Directory_List.txt
 .idea/
 .claude/
 /Scripts/
+/tmp/
 *.sublime-workspace
 *.code-workspace
 
