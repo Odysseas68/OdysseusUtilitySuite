@@ -8,7 +8,7 @@
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: AUTO REMOUNT ENGINE
 -- ==========================================
-local addonName, OUS = ...
+local _, OUS = ...
 
 OUS.AutoRemount = {}
 local AR = OUS.AutoRemount

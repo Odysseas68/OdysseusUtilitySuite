@@ -8,7 +8,7 @@
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: XP CONFIG UI
 -- ==========================================
-local addonName, OUS = ...
+local _, OUS = ...
 
 StaticPopupDialogs["ODYSSEUS_RELOAD_PROMPT"] = {
     text = "Changing this setting requires a UI reload to avoid errors. Reload now?",

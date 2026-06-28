@@ -4,7 +4,7 @@
 -- Gathering spell IDs by profession and expansion.
 -- Add new IDs here when Blizzard adds new content.
 -- Collect unknown spellIDs via /ar spy in-game.
-local addonName, OUS = ...
+local _, OUS = ...
 
 OUS.AutoRemountSpells = {
 

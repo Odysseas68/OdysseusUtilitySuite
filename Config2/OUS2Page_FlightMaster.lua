@@ -4,7 +4,7 @@
 -- Desc    : OUS2 Flight Master display settings page
 -- ================================================
 
-local addonName, OUS = ...
+local _, OUS = ...
 local T = OUS.Theme
 local C = OUS.Config2
 

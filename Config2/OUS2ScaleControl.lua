@@ -4,7 +4,7 @@
 -- Desc    : Reusable OUS2 numeric scale control
 -- ================================================
 
-local addonName, OUS = ...
+local _, OUS = ...
 local T = OUS.Theme
 local C = OUS.Config2
 

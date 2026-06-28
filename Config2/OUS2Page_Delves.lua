@@ -4,7 +4,7 @@
 -- Desc    : OUS2 Delves companion and journey settings page
 -- ================================================
 
-local addonName, OUS = ...
+local _, OUS = ...
 local T = OUS.Theme
 local C = OUS.Config2
 

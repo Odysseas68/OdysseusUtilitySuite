@@ -5,7 +5,7 @@
 -- Desc    : Tabbed help frame — slash commands and module documentation
 -- ============================================================
 
-local addonName, OUS = ...
+local _, OUS = ...
 
 -- =====================================
 -- ODYSSEUS HELP FRAME (tabbed)

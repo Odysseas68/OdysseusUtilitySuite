@@ -8,7 +8,7 @@
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: XP & REP ENGINE
 -- ==========================================
-local addonName, OUS = ...
+local _, OUS = ...
 
 -- ==========================================
 -- 2. DEFAULTS & SESSION STATE

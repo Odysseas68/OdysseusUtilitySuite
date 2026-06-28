@@ -4,7 +4,7 @@
 -- Desc    : OUS2 XP Bar navigation hub and placeholder child views
 -- ================================================
 
-local addonName, OUS = ...
+local _, OUS = ...
 local T = OUS.Theme
 local C = OUS.Config2
 

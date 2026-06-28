@@ -5,7 +5,7 @@
 -- Desc    : Main config UI — module toggles and settings panels
 -- ============================================================
 
-local addonName, OUS = ...
+local _, OUS = ...
 local LSM = LibStub("LibSharedMedia-3.0")
 
 local cfg = CreateFrame("Frame", "OdysseusConfigFrame", UIParent, "BackdropTemplate")

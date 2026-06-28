@@ -3,7 +3,7 @@
 -- Version : 2026.06.23
 -- Desc    : OUS2 theme registry — textures, colors, fonts, frame layout constants
 
-local addonName, OUS = ...
+local _, OUS = ...
 
 OUS.Theme = {}
 local T = OUS.Theme

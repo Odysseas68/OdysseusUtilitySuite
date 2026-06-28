@@ -8,7 +8,7 @@
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: XP DELVES ENGINE
 -- ==========================================
-local addonName, OUS = ...
+local _, OUS = ...
 local Session = OUS.XPBarSession
 local delveBar = OUS.delveBarFrame
 

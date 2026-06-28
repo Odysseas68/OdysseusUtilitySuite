@@ -1,5 +1,7 @@
 std = "lua51"
 
+max_line_length = false
+
 globals = {
   "CreateFrame",
   "UIParent",
@@ -22,6 +24,8 @@ globals = {
   "OdysseusUtilitySuite",
   "OdysseusDB",
   "OdysseusCharDB",
+  "OdysseusFishingDB",
+  "Odysseus_ToggleConfig",
 }
 
 read_globals = {
@@ -59,4 +63,8 @@ read_globals = {
 ignore = {
   "212", -- unused argument
   "213", -- unused loop variable
+}
+
+exclude_files = {
+  "Scripts/**",
 }

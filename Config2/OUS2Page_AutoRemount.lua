@@ -4,7 +4,7 @@
 -- Desc    : OUS2 Auto Remount module settings page
 -- ================================================
 
-local addonName, OUS = ...
+local _, OUS = ...
 local T = OUS.Theme
 local C = OUS.Config2
 

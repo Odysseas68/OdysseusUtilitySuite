@@ -1,7 +1,7 @@
 -- ==========================================
 -- ODYSSEUS AUTO-GENERATED ROUTING DATABASE
 -- ==========================================
-local addonName, OUS = ...
+local _, OUS = ...
 
 OUS.TaxiNodes = {
     [1] = "Northshire Abbey",

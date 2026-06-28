@@ -4,7 +4,7 @@
 -- Desc    : Multi-hop flight routing engine, itinerary panel, and map line drawing
 -- ============================================================
 
-local addonName, OUS = ...
+local _, OUS = ...
 
 -- Ensure our routing database exists before proceeding
 if not OUS.TaxiNodes or not OUS.TaxiRoutes then return end

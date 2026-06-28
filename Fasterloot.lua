@@ -8,7 +8,7 @@
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: FASTER LOOT
 -- ==========================================
-local addonName, OUS = ...
+local _, OUS = ...
 local f = CreateFrame("Frame")
 
 -- ==========================================

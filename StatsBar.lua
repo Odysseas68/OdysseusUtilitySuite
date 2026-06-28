@@ -8,7 +8,7 @@
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: STATS BAR ENGINE
 -- ==========================================
-local addonName, OUS = ...
+local _, OUS = ...
 
 OUS.StatsBar = {}
 local SB = OUS.StatsBar

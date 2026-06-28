@@ -5,7 +5,7 @@
 -- minQuantity = minimum stack count required before showing on button
 -- Add items with: /op add <itemID> [minQuantity]
 
-local addonName, OUS = ...
+local _, OUS = ...
 
 OUS.OpenablesDB = {
 

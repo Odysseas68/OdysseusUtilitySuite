@@ -3,7 +3,7 @@
 -- Version : 2026.06.23
 -- Desc    : OUS2 main configuration frame — three-panel layout, nav system, page switching
 
-local addonName, OUS = ...
+local _, OUS = ...
 local T = OUS.Theme
 local LSM = LibStub("LibSharedMedia-3.0")
 

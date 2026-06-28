@@ -4,7 +4,7 @@
 -- Secondary stat priorities by spec ID from murloc.io (Mythic+).
 -- heroTalents entries preserved for future hero talent tree detection.
 -- Engine currently uses 'default' priority only.
-local addonName, OUS = ...
+local _, OUS = ...
 
 OUS.StatsBarSpecPriority = {
     [62] = { -- Mage - Arcane

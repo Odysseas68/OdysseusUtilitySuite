@@ -1,7 +1,7 @@
 -- ==========================================
 -- ODYSSEUS AUTO-GENERATED FACTION DATABASE
 -- ==========================================
-local addonName, OUS = ...
+local _, OUS = ...
 
 OUS.FactionData = {
     [1828] = {

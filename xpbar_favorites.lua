@@ -8,7 +8,7 @@
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: XP FAVORITES & SMART HOVER
 -- ==========================================
-local addonName, OUS = ...
+local _, OUS = ...
 local Session = OUS.XPBarSession
 local xpBar = OUS.xpBarFrame
 local GetFactionDetails = OUS.GetFactionDetails
