@@ -2,6 +2,15 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-06-28] - BuffBars Design Documentation
+
+### Documentation
+- Added initial `Documentation\BUFFBARS_DESIGN.md` for the validated BuffBars reference audit.
+- Tracked BuffBars as a future Phase 6 candidate without adding production module files or TOC entries.
+- Added long-term Retail-safe aura lessons to `CLAUDE.md`.
+
+---
+
 ## [2026-06-25] - Broker Minimap Launcher Migration
 
 ### Changed

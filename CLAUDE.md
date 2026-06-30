@@ -71,6 +71,8 @@ OdysseusDB.minimap = {
 ```
 Legacy `OdysseusDB.showMinimapButton` and `OdysseusDB.minimapAngle` migrate to this structure in `Core.lua`.
 
+**Retail-safe aura lessons:** Future BuffBars work should follow the validated `Reference\OdysseusBuffBarsTest\` proof-of-concept without copying it wholesale. Use `C_UnitAuras.GetAuraDataByIndex`, cache by `auraInstanceID`, preserve previous readable values when aura fields become secret, gate unsafe aura values with `issecretvalue` / `canaccessvalue`, use `C_UnitAuras.GetAuraDuration` plus `DurationObject:FormatRemainingDuration`, and use `C_UnitAuras.GetUnitAuraInstanceIDs` for sorting instead of sorting secret fields in Lua. Avoid secure cancel overlay mutation and anchor rebuilds in combat.
+
 ---
 
 ## OUS2 Config UI Notes

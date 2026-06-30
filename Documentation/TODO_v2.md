@@ -299,6 +299,14 @@ Extract only after patterns stabilize across multiple pages:
 * [ ] Decide whether `/ous` remains separate or redirects to `/ous2`
 * [ ] Optional folder restructure only after OUS2 is stable
 
+### Future Module Candidate: BuffBars
+* [x] Create initial `Documentation/BUFFBARS_DESIGN.md`
+* [ ] Review validated `Reference\OdysseusBuffBarsTest\` proof-of-concept for production OUS boundaries
+* [ ] Decide whether BuffBars should enter Phase 6 as a gated or disabled-by-default module skeleton
+* [ ] Design `OdysseusDB.buffBars` defaults before adding code
+* [ ] Port the Retail-safe aura engine only after the design contract is approved
+* [ ] Add conservative OUS2 page only after stable public module APIs exist
+
 ---
 
 ## Optional Features
