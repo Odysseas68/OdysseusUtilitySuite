@@ -2,6 +2,25 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-07-04] - Phase 5.6 XP Bar Parity Planning
+
+### Documentation
+- Added `Documentation\OUS2_XPBAR_PARITY.md`.
+- Established the dedicated engineering checklist for XP Bar, Reputation, and Delves OUS2 parity.
+- Synchronized OUS2 documentation so remaining XP Bar parity work is tracked from the dedicated plan.
+- No production Lua code changed.
+
+---
+
+## [2026-07-03] - BuffBars 12.1 Aura API Planning
+
+### Documentation
+- Documented the BuffBars reference addon as a validated Retail 12.0.x proof-of-concept that should remain frozen until 12.1 aura API behavior is researched.
+- Marked BuffBars production integration as blocked pending `ManagedAuraContainer` / `AuraContainer` / `AuraButton` research and a separate 12.1 prototype.
+- Updated long-term engineering notes to preserve the 12.0.x aura lessons while avoiding premature production porting.
+
+---
+
 ## [2026-06-28] - BuffBars Design Documentation
 
 ### Documentation

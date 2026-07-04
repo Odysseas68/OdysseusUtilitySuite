@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Delves.lua
--- Version : 2026.06.22
+-- Version : 2026.07.04
 -- Desc    : OUS2 Delves companion and journey settings page
 -- ================================================
 
@@ -17,6 +17,7 @@ local journeyTemplateBox
 local widthControl
 local heightControl
 local scaleControl
+local colorSwatches = {}
 
 local function SetTextColor(fontString, color)
     fontString:SetTextColor(color[1], color[2], color[3], color[4])
@@ -24,6 +25,18 @@ end
 
 local function GetXPBarDB()
     return OdysseusDB and OdysseusDB.xpBar
+end
+
+local function SetSwatchColor(swatch, color, fallback)
+    if not swatch then return end
+
+    color = color or fallback
+    swatch:SetColorTexture(
+        (color and color.r) or 1,
+        (color and color.g) or 1,
+        (color and color.b) or 1,
+        1
+    )
 end
 
 local function AddSlicedEditBoxBackground(editBox)
@@ -158,6 +171,12 @@ local function ApplyDelveDimensions()
     if OUS.SleepBars then OUS.SleepBars() end
 end
 
+local function ApplyDelveColors()
+    if OUS.UpdateDelveBar then
+        OUS.UpdateDelveBar()
+    end
+end
+
 local function CreateScaleRow(labelText, helpText, yOffset, minValue, maxValue, step, initialValue, dbKey)
     local row = CreateFrame("Frame", nil, page)
     row:SetHeight(56)
@@ -198,6 +217,56 @@ local function CreateScaleRow(labelText, helpText, yOffset, minValue, maxValue, 
     AttachControlHelp(control.editBox, background, helpText)
 
     return control
+end
+
+local function CreateColorRow(labelText, helpText, yOffset, dbKey, leftSide)
+    local row = CreateFrame("Frame", nil, page)
+    row:SetHeight(44)
+    if leftSide then
+        row:SetPoint("TOPLEFT", page, "TOPLEFT", 18, yOffset)
+        row:SetPoint("TOPRIGHT", page, "TOP", -5, yOffset)
+    else
+        row:SetPoint("TOPLEFT", page, "TOP", 5, yOffset)
+        row:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
+    end
+    row:EnableMouse(true)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    local swatchButton = CreateFrame("Button", nil, row)
+    swatchButton:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+    swatchButton:SetSize(28, 28)
+    swatchButton:SetNormalTexture(T.Tex("ActionNormal"))
+    swatchButton:SetHighlightTexture(T.Tex("ActionHover"))
+    swatchButton:SetPushedTexture(T.Tex("ActionPressed"))
+
+    local swatch = swatchButton:CreateTexture(nil, "ARTWORK")
+    swatch:SetPoint("TOPLEFT", swatchButton, "TOPLEFT", 5, -5)
+    swatch:SetPoint("BOTTOMRIGHT", swatchButton, "BOTTOMRIGHT", -5, 5)
+    swatch:SetColorTexture(0.8, 0.4, 0.0, 1)
+
+    swatchButton:SetScript("OnClick", function()
+        local db = GetXPBarDB()
+        if not db or type(db[dbKey]) ~= "table" then return end
+
+        C.OpenColorPicker(db[dbKey], swatch, ApplyDelveColors)
+
+        local colorPickerFrame = _G.ColorPickerFrame
+        if colorPickerFrame and colorPickerFrame.SetFrameStrata then
+            colorPickerFrame:SetFrameStrata("FULLSCREEN_DIALOG")
+        end
+    end)
+
+    AttachControlHelp(row, background, helpText)
+    AttachControlHelp(swatchButton, background, helpText)
+    colorSwatches[dbKey] = swatch
 end
 
 local headerIcon = page:CreateTexture(nil, "ARTWORK")
@@ -290,33 +359,21 @@ scaleControl = CreateScaleRow(
     "delveBarScale"
 )
 
-CreateSectionHeader("Future Settings", -578)
-local note = CreateFrame("Frame", nil, page)
-note:SetHeight(60)
-note:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -604)
-note:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -604)
-note:EnableMouse(true)
-
-local noteBackground = note:CreateTexture(nil, "BACKGROUND")
-noteBackground:SetTexture(T.Tex("CardNormal"))
-noteBackground:SetAllPoints()
-
-local noteText = note:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
-noteText:SetPoint("TOPLEFT", note, "TOPLEFT", T.Card.Padding, -T.Card.Padding)
-noteText:SetPoint("BOTTOMRIGHT", note, "BOTTOMRIGHT", -T.Card.Padding, T.Card.Padding)
-noteText:SetJustifyH("LEFT")
-noteText:SetJustifyV("MIDDLE")
-noteText:SetText("Delves colors and companion overrides will be added later.")
-SetTextColor(noteText, T.Colors.textDim)
-
-note:SetScript("OnEnter", function()
-    noteBackground:SetTexture(T.Tex("CardHover"))
-    C.SetHelpText("Color and companion override controls remain deferred.")
-end)
-note:SetScript("OnLeave", function()
-    noteBackground:SetTexture(T.Tex("CardNormal"))
-    C.ClearHelpText()
-end)
+CreateSectionHeader("Colors", -578)
+CreateColorRow(
+    "Companion Color",
+    "Choose the Delves companion progress color.",
+    -604,
+    "delveCompColor",
+    true
+)
+CreateColorRow(
+    "Journey Color",
+    "Choose the Delves journey progress color.",
+    -604,
+    "delveJourColor",
+    false
+)
 
 local function Refresh()
     local db = GetXPBarDB()
@@ -324,6 +381,16 @@ local function Refresh()
     widthControl:SetValue(db and db.delveBarWidth or 300, true)
     heightControl:SetValue(db and db.delveBarHeight or 40, true)
     scaleControl:SetValue(db and db.delveBarScale or 1.0, true)
+    SetSwatchColor(
+        colorSwatches.delveCompColor,
+        db and db.delveCompColor,
+        OUS.defaults and OUS.defaults.delveCompColor or { r = 0.8, g = 0.4, b = 0.0 }
+    )
+    SetSwatchColor(
+        colorSwatches.delveJourColor,
+        db and db.delveJourColor,
+        OUS.defaults and OUS.defaults.delveJourColor or { r = 0.0, g = 0.6, b = 0.8 }
+    )
 
     if not companionTemplateBox:HasFocus() then
         local defaultTemplate = OUS.defaults and OUS.defaults.delveCompTemplate or ""

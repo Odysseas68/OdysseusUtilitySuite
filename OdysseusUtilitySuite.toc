@@ -79,3 +79,5 @@ Config2\OUS2Page_FasterLoot.lua
 Config2\OUS2Page_Toolbox.lua
 Config2\OUS2Page_XPBar.lua
 Config2\OUS2Page_Delves.lua
+Config2\OUS2Page_Help.lua
+Config2\OUS2Page_Changelog.lua

@@ -4,25 +4,46 @@
 
 BuffBars is a future Odysseus Utility Suite module candidate for Retail-safe buff, debuff, and enhancement bar display.
 
-The validated reference addon in `Reference\OdysseusBuffBarsTest\` proves that a Retail 12.0+ aura bar approach can remain stable in open-world, dungeon, and raid testing. The reference passed testing with no Lua errors captured by BugGrabber, but it should be treated as a proof-of-concept and design source, not code to copy directly into OUS.
+The validated reference addon in `Reference\OdysseusBuffBarsTest\` proves that a Retail 12.0.x aura bar approach can remain stable in open-world, dungeon, raid, battleground, death/resurrection, and heavy aura-churn testing. The reference passed testing with no Lua errors captured by BugGrabber, but it should be treated as a frozen 12.0.x proof-of-concept and design source, not code to copy directly into OUS.
 
-## 2. Goals
+## 2. 12.1 Aura API Risk / Blocker
+
+BuffBars production integration is blocked pending WoW 12.1 PTR aura API research.
+
+The current design is validated for Retail 12.0.x, but current PTR guidance indicates that WoW 12.1 may make aura APIs much more restricted while aura data is secret. The reported 12.1 PTR behavior is that aura data APIs by index, slot, instance ID, and tooltip-derived aura data paths may Lua error while aura data is secret. The PTR note also says `UNIT_AURA` can deliver a fully secret payload and `AuraData` structs may be fully secret.
+
+The following direct-scanning paths from the 12.0.x reference must be treated as risky until verified against 12.1 PTR:
+
+- `C_UnitAuras.GetAuraDataByIndex(...)`
+- `C_UnitAuras.GetAuraDuration(...)`
+- `C_UnitAuras.GetUnitAuraInstanceIDs(...)`
+- index-based aura access
+- aura-instance-ID-based access
+- tooltip aura data paths such as unit-aura tooltip inspection
+
+Future OUS BuffBars architecture may need to use Blizzard-managed aura surfaces such as `ManagedAuraContainer`, `AuraContainer`, and `AuraButton` patterns instead of direct aura data scanning. A separate 12.1 aura-container prototype is required before any production OUS module files or TOC entries are added.
+
+This section is based on PTR planning information and must be verified against the local 12.1 Blizzard UI/API source when it becomes available.
+
+## 3. Goals
 
 - Provide Retail-safe buff and debuff bars.
 - Use secret-value-safe aura scanning and display rules.
 - Build a reusable aura engine that can serve bars, filters, and future UI surfaces.
 - Integrate with OUS2 through a conservative first settings page.
 - Keep the first OUS release small, safe, and reviewable.
+- Research 12.1 aura-container APIs before scheduling production implementation.
 
-## 3. Non-Goals
+## 4. Non-Goals
 
 - Do not port ElkBuffBars wholesale.
 - Do not port the standalone test configuration UI.
 - Do not add Classic, MoP, or other legacy compatibility branches.
 - Do not add profiles initially.
 - Do not expose Blizzard aura-frame hiding until the behavior is reviewed for OUS.
+- Do not port BuffBars into OUS before 12.1 aura API and aura-container behavior is researched.
 
-## 4. Proposed File Architecture
+## 5. Proposed File Architecture
 
 ### `BuffBars.lua`
 
@@ -44,7 +65,9 @@ Legacy `/ous` integration only if needed after the module engine is stable. The 
 
 Conservative OUS2 page for safe first-release controls and status. Advanced filters and overrides should wait until public APIs stabilize.
 
-## 5. Retail-Safe Aura Rules
+## 6. Retail-Safe Aura Rules
+
+These rules are validated for the 12.0.x reference addon. They remain useful as design history and safety principles, but the direct aura API calls listed here must be rechecked for 12.1 before production OUS integration.
 
 - Use `C_UnitAuras.GetAuraDataByIndex(unit, index, filter)` for aura scans.
 - Use `auraInstanceID` as the stable cache key.
@@ -59,7 +82,7 @@ Conservative OUS2 page for safe first-release controls and status. Advanced filt
 - Pass non-nil texture tokens through to `Texture:SetTexture(...)`; do not require texture IDs to be readable first.
 - Avoid secure cancel overlay creation, attribute changes, or anchor mutation in combat.
 
-## 6. Proposed OUS DB Shape
+## 7. Proposed OUS DB Shape
 
 BuffBars should use account-wide settings under:
 
@@ -69,7 +92,7 @@ OdysseusDB.buffBars
 
 Keep the first DB shape high-level and migration-friendly. Initial settings should likely cover module enablement, anchor lock/show state, group visibility, and simple group display defaults. Do not invent full filter, override, profile, or color tables until the production module API is designed.
 
-## 7. Event Flow
+## 8. Event Flow
 
 Likely events:
 
@@ -83,7 +106,9 @@ Likely events:
 
 `UNIT_AURA` should refresh only affected configured units. Combat events should lock or defer unsafe configuration and secure overlay work.
 
-## 8. Frame Ownership and Combat Safety
+In 12.1, `UNIT_AURA` payloads may be fully secret while aura data is restricted. Event handling must not assume readable aura update payloads until PTR behavior is verified.
+
+## 9. Frame Ownership and Combat Safety
 
 - Aura groups should be parented to `UIParent`.
 - Bar frames should be pooled and reused.
@@ -92,7 +117,7 @@ Likely events:
 - Combat should not rebuild group anchors or clear/reapply protected-adjacent frame structure.
 - Existing anchors can continue to follow parent group height changes, but structural anchor changes should wait until out of combat.
 
-## 9. OUS2 Integration Plan
+## 10. OUS2 Integration Plan
 
 The first OUS2 BuffBars page should be conservative:
 
@@ -105,8 +130,10 @@ The first OUS2 BuffBars page should be conservative:
 
 Defer filters, overrides, routing, Blizzard aura-frame hiding, and advanced visual controls until stable public APIs exist.
 
-## 10. Risks / Unknowns
+## 11. Risks / Unknowns
 
+- WoW 12.1 may invalidate direct aura scanning by index, slot, aura instance ID, or aura tooltip data while auras are secret.
+- A production OUS module may need `ManagedAuraContainer`, `AuraContainer`, or `AuraButton` integration instead of a standalone scan loop.
 - `C_UnitAuras.GetAuraDataByIndex` may need a small guarded wrapper before production use.
 - Weapon enchant timer behavior should be verified in Retail 12.0+.
 - Name-based enhancement classification should remain a fallback heuristic only.
@@ -115,36 +142,41 @@ Defer filters, overrides, routing, Blizzard aura-frame hiding, and advanced visu
 - Sorting edge cases may occur if Blizzard sorted aura IDs omit scanned aura IDs.
 - Very short combat-generated proc/passive auras may briefly show near-expired timer text.
 
-## 11. Staged Implementation Plan
+## 12. Staged Implementation Plan
 
 ### Phase A: Documentation and Design Only
 
-Capture the validated reference rules, production architecture, risks, and acceptance criteria.
+Capture the validated 12.0.x reference rules, production architecture, risks, and acceptance criteria.
 
-### Phase B: OUS Module Skeleton
+### Phase B: 12.1 PTR Aura-Container Research
+
+Verify 12.1 aura restrictions, inspect Blizzard-managed aura container patterns, and build a separate prototype before production OUS integration.
+
+### Phase C: OUS Module Skeleton
 
 Create the module files and DB defaults, likely disabled by default or guarded until testing is complete.
 
-### Phase C: Aura Engine
+### Phase D: Aura Engine
 
-Port the Retail-safe aura scanning rules into `BuffBars_Auras.lua` with OUS namespace conventions.
+Port the verified aura handling rules into `BuffBars_Auras.lua` with OUS namespace conventions. Do not assume the 12.0.x direct scan loop remains valid in 12.1.
 
-### Phase D: Bar Renderer
+### Phase E: Bar Renderer
 
 Add pooled bar rendering, group anchors, timer text, tooltips, and secure cancel overlay handling.
 
-### Phase E: Conservative OUS2 Page
+### Phase F: Conservative OUS2 Page
 
 Expose only safe page controls: enable, lock/show anchors, refresh, status, and simple group cards.
 
-### Phase F: Filters, Overrides, and Polish
+### Phase G: Filters, Overrides, and Polish
 
 Add spellID filters, overrides, advanced visuals, and any reviewed Blizzard-frame options after public APIs stabilize.
 
-## 12. Acceptance Criteria
+## 13. Acceptance Criteria
 
 - No BugGrabber errors in open-world, dungeon, and raid testing.
 - No secret-value errors.
+- No Lua errors from 12.1 secret aura API restrictions.
 - No combat taint.
 - No protected frame mutation in combat.
 - OUS2 settings are live and safe.

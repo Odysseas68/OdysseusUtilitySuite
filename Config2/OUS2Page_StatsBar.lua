@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_StatsBar.lua
--- Version : 2026.06.22
+-- Version : 2026.07.03
 -- Desc    : OUS2 Stats Bar module settings page
 -- ================================================
 
@@ -90,6 +90,63 @@ local function UpdateTable()
     end
 end
 
+local function ResetStatsBarDefaults()
+    local charDB = GetStatsBarCharDB()
+    local gdb = GetStatsBarDB()
+
+    if charDB then
+        charDB.enabled = true
+        charDB.tableEnabled = false
+        charDB.template = "{ilvl} | {spec}"
+        charDB.x, charDB.y = 0, 0
+        charDB.point, charDB.relPoint = "CENTER", "CENTER"
+        charDB.tableX = 200
+        charDB.tableY = 0
+        charDB.tablePoint, charDB.tableRelPoint = "CENTER", "CENTER"
+    end
+
+    if gdb then
+        gdb.fontSize = 12
+        gdb.tableWidth = 150
+        gdb.locked = false
+        gdb.tableLocked = false
+    end
+
+    if OUS.StatsBar then
+        if OUS.StatsBar.UpdateDisplay then
+            OUS.StatsBar.UpdateDisplay()
+        end
+        if OUS.StatsBar.UpdateTable then
+            OUS.StatsBar.UpdateTable()
+        end
+        if OUS.StatsBar.SetLocked then
+            OUS.StatsBar.SetLocked(false)
+        end
+        if OUS.StatsBar.SetTableLocked then
+            OUS.StatsBar.SetTableLocked(false)
+        end
+    end
+
+    if Refresh then
+        Refresh()
+    end
+
+    if OUS.LogDebug then
+        OUS.LogDebug("StatsBar", "Settings restored to default.")
+    end
+end
+
+StaticPopupDialogs["OUS2_CONFIRM_RESET_STATSBAR"] = {
+    text = "Reset all Stats Bar settings to defaults? This cannot be undone.",
+    button1 = "Reset",
+    button2 = "Cancel",
+    OnAccept = ResetStatsBarDefaults,
+    timeout = 0,
+    whileDead = true,
+    hideOnEscape = true,
+    preferredIndex = 3,
+}
+
 local function CreateCheckboxRow(labelText, helpText, yOffset, getDB, dbKey, onChanged)
     local row = CreateFrame("Button", nil, page)
     row:SetHeight(44)
@@ -147,6 +204,31 @@ local function AttachControlHelp(frame, background, helpText)
         background:SetTexture(T.Tex("CardNormal"))
         C.ClearHelpText()
     end)
+end
+
+local function CreateActionButton(labelText, helpText, yOffset, onClick)
+    local button = CreateFrame("Button", nil, page)
+    button:SetHeight(36)
+    button:SetPoint("TOPLEFT", page, "TOPLEFT", 18, yOffset)
+    button:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
+    button:SetNormalTexture(T.Tex("ActionNormal"))
+    button:SetHighlightTexture(T.Tex("ActionHover"))
+    button:SetPushedTexture(T.Tex("ActionPressed"))
+
+    local label = button:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("CENTER")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    button:SetScript("OnEnter", function()
+        C.SetHelpText(helpText)
+    end)
+    button:SetScript("OnLeave", function()
+        C.ClearHelpText()
+    end)
+    button:SetScript("OnClick", onClick)
+
+    return button
 end
 
 local function CreateScaleRow(labelText, helpText, yOffset, minValue, maxValue, step, initialValue, onChanged)
@@ -355,6 +437,16 @@ tableWidthControl = CreateScaleRow(
 
         db.tableWidth = newValue
         UpdateTable()
+    end
+)
+
+CreateSectionHeader("Actions", -612)
+CreateActionButton(
+    "Reset Defaults",
+    "Reset only Stats Bar settings, positions, locks, table mode, font size, width, and template text.",
+    -638,
+    function()
+        StaticPopup_Show("OUS2_CONFIRM_RESET_STATSBAR")
     end
 )
 

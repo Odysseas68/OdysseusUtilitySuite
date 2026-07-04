@@ -71,7 +71,7 @@ OdysseusDB.minimap = {
 ```
 Legacy `OdysseusDB.showMinimapButton` and `OdysseusDB.minimapAngle` migrate to this structure in `Core.lua`.
 
-**Retail-safe aura lessons:** Future BuffBars work should follow the validated `Reference\OdysseusBuffBarsTest\` proof-of-concept without copying it wholesale. Use `C_UnitAuras.GetAuraDataByIndex`, cache by `auraInstanceID`, preserve previous readable values when aura fields become secret, gate unsafe aura values with `issecretvalue` / `canaccessvalue`, use `C_UnitAuras.GetAuraDuration` plus `DurationObject:FormatRemainingDuration`, and use `C_UnitAuras.GetUnitAuraInstanceIDs` for sorting instead of sorting secret fields in Lua. Avoid secure cancel overlay mutation and anchor rebuilds in combat.
+**Retail-safe aura lessons:** Future BuffBars work should follow the validated `Reference\OdysseusBuffBarsTest\` proof-of-concept without copying it wholesale. The reference is validated for Retail 12.0.x, but WoW 12.1 aura restrictions may invalidate direct aura scanning by index, slot, aura instance ID, or aura tooltip data while auras are secret. Before integrating BuffBars into OUS, research 12.1 `ManagedAuraContainer`, `AuraContainer`, and `AuraButton` patterns and build a separate prototype. The 12.0.x reference rules remain useful design history: cache by `auraInstanceID`, preserve previous readable values when aura fields become secret, gate unsafe aura values with `issecretvalue` / `canaccessvalue`, use duration objects for timer text when available, avoid sorting secret fields in Lua, and avoid secure cancel overlay mutation or anchor rebuilds in combat.
 
 ---
 

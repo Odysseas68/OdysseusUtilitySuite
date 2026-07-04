@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_favorites.lua
--- Version : 2026.05.29
+-- Version : 2026.07.04
 -- Desc    : Favorite reputation pinning for XP/rep bar
 -- ============================================================
 
@@ -277,6 +277,16 @@ favFrame:SetBackdrop({ bgFile = "Interface\\ChatFrame\\ChatFrameBackground", edg
 favFrame:SetBackdropColor(0.05, 0.03, 0.08, 0.95)
 favFrame:SetBackdropBorderColor(0.6, 0.2, 0.8, 1)
 favFrame:Hide()
+
+local combatGuard = CreateFrame("Frame")
+combatGuard:RegisterEvent("PLAYER_REGEN_DISABLED")
+combatGuard:SetScript("OnEvent", function()
+    if Session.favTimer then
+        Session.favTimer:Cancel()
+        Session.favTimer = nil
+    end
+    favFrame:Hide()
+end)
 
 -- FEATURE: Enable mouse detection on the frame so our Smart Timer knows when you are inside it!
 favFrame:EnableMouse(true)
@@ -576,6 +586,11 @@ end)
 
 -- FEATURE: XP Bar Smart Hover Tracking
 xpBar:HookScript("OnEnter", function()
+    -- Avoid opening the favorites selector during combat.
+    if InCombatLockdown and InCombatLockdown() then
+        return
+    end
+
     OUS.WakeBars()
     RefreshHoverFavorites()
 

@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_General.lua
--- Version : 2026.06.25
+-- Version : 2026.07.04
 -- Desc    : OUS2 General dashboard layout and module navigation
 -- =========================================
 
@@ -18,7 +18,7 @@ local Refresh
 
 local MODULES = {
     { name = "XP Bar",          detail = "Experience and reputation",       icon = "IconXPBar", pageKey = "XPBar" },
-    { name = "Delves",          detail = "Companion and journey tracking",  icon = "IconDelves" },
+    { name = "Delves",          detail = "Companion and journey tracking",  icon = "IconDelves", pageKey = "Delves" },
     { name = "Flight Master",   detail = "Flight timer and learned routes", icon = "IconFlightMaster", pageKey = "FlightMaster" },
     { name = "Flight Routing",  detail = "Taxi route visualization",        icon = "IconFlightRouting", pageKey = "FlightRouting" },
     { name = "Utilities",       detail = "Repair, junk, and rare tools",    icon = "IconUtilities", pageKey = "Utilities" },

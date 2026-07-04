@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_XPBar.lua
--- Version : 2026.06.22
+-- Version : 2026.07.04
 -- Desc    : OUS2 XP Bar navigation hub and placeholder child views
 -- ================================================
 
@@ -18,15 +18,32 @@ hub:SetAllPoints()
 local childFrames = {}
 local globalCheckboxes = {}
 local globalScaleControls = {}
+local globalMediaButtons = {}
+local experienceColorSwatches = {}
 local experienceScaleControls = {}
 local experienceTemplateBox
 local reputationCheckboxes = {}
+local reputationColorSwatches = {}
 local reputationModifierButtons = {}
 local reputationTemplateBox
+local borderColorSwatch
 local Refresh
 local RefreshGlobal
 local RefreshExperience
 local RefreshReputation
+
+local REPUTATION_STANDING_COLOR_ROWS = {
+    { key = "hated", label = "Hated" },
+    { key = "hostile", label = "Hostile" },
+    { key = "unfriendly", label = "Unfriendly" },
+    { key = "neutral", label = "Neutral" },
+    { key = "friendly", label = "Friendly" },
+    { key = "honored", label = "Honored" },
+    { key = "revered", label = "Revered" },
+    { key = "exalted", label = "Exalted" },
+    { key = "renown", label = "Renown" },
+    { key = "paragon", label = "Paragon" },
+}
 
 local RELOAD_POPUP_KEY = "OUS2_XPBAR_HIDE_BLIZZARD_RELOAD"
 if not StaticPopupDialogs[RELOAD_POPUP_KEY] then
@@ -327,13 +344,273 @@ local function CreateGlobalScale(
     maxValue,
     step,
     initialValue,
-    onChanged
+    onChanged,
+    rowHeight
 )
     local row = CreateFrame("Frame", nil, parent)
-    row:SetHeight(56)
+    row:SetHeight(rowHeight or 56)
     row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
     row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
     row:EnableMouse(true)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("TOPLEFT", row, "TOPLEFT", T.Card.Padding, -4)
+    label:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+    label:SetJustifyH("LEFT")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    local control = C.CreateScaleControl(
+        row,
+        minValue,
+        maxValue,
+        step,
+        initialValue,
+        onChanged
+    )
+    control:SetPoint("BOTTOMRIGHT", row, "BOTTOMRIGHT", -T.Card.Padding, 5)
+
+    AttachControlHelp(row, background, helpText)
+    AttachControlHelp(control, background, helpText)
+    AttachControlHelp(control.leftButton, background, helpText)
+    AttachControlHelp(control.rightButton, background, helpText)
+    AttachControlHelp(control.slider, background, helpText)
+    AttachControlHelp(control.editBox, background, helpText)
+
+    return control
+end
+
+-- Compact rows keep dense XP Bar child views inside the existing OUS2 scroll bounds.
+local function AnchorGlobalColumnRow(row, parent, yOffset, leftSide, rowHeight, columnCount)
+    row:SetHeight(rowHeight or 44)
+    if type(leftSide) == "number" and columnCount then
+        local width = columnCount == 4 and 138 or 186
+        row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18 + ((leftSide - 1) * (width + 10)), yOffset)
+        row:SetWidth(width)
+    elseif leftSide then
+        row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+        row:SetPoint("TOPRIGHT", parent, "TOP", -5, yOffset)
+    else
+        row:SetPoint("TOPLEFT", parent, "TOP", 5, yOffset)
+        row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    end
+    row:EnableMouse(true)
+end
+
+local function ShortMediaLabel(name)
+    name = tostring(name or "None")
+    if string.len(name) > 20 then
+        return string.sub(name, 1, 20)
+    end
+    return name
+end
+
+local function SetSwatchColor(swatch, color, fallback)
+    if not swatch then return end
+
+    color = color or fallback
+    swatch:SetColorTexture(
+        (color and color.r) or 1,
+        (color and color.g) or 1,
+        (color and color.b) or 1,
+        1
+    )
+end
+
+local function ApplyXPBarFontSettings()
+    if OUS.ApplyFonts then
+        OUS.ApplyFonts()
+    end
+end
+
+local function ApplyXPBarBorderSettings()
+    if OUS.ApplyXPBarBorders then
+        OUS.ApplyXPBarBorders()
+    end
+end
+
+local function CopyDefaultTable(key)
+    local defaults = OUS.defaults
+    if not defaults or type(defaults[key]) ~= "table" then
+        return nil
+    end
+
+    if OUS.DeepCopyTable then
+        return OUS.DeepCopyTable(defaults[key])
+    end
+
+    local copy = {}
+    for entryKey, entryValue in pairs(defaults[key]) do
+        copy[entryKey] = entryValue
+    end
+    return copy
+end
+
+local function ResetGlobalDefaults()
+    local db = GetXPBarDB()
+    local defaults = OUS.defaults
+    if not db or not defaults then return end
+
+    db.hideBlizz = defaults.hideBlizz
+    db.autoHide = defaults.autoHide
+    db.repDisplayTime = defaults.repDisplayTime
+    db.fadeDelay = defaults.fadeDelay
+    db.activeAlpha = defaults.activeAlpha
+    db.fadedAlpha = defaults.fadedAlpha
+    db.xpFont = defaults.xpFont
+    db.xpFontSize = defaults.xpFontSize
+    db.barBorderName = defaults.barBorderName
+    db.barBorderSize = defaults.barBorderSize
+    db.barBorderColor = CopyDefaultTable("barBorderColor")
+
+    if OUS.ApplyBlizzardKiller then OUS.ApplyBlizzardKiller() end
+    ApplyXPBarFontSettings()
+    ApplyXPBarBorderSettings()
+    if OUS.UpdateBar then OUS.UpdateBar() end
+    WakeAndSleepBars()
+    if OUS.LogDebug then
+        OUS.LogDebug("XPBar", "Global defaults restored.")
+    end
+
+    RefreshGlobal()
+end
+
+local function ApplyExperienceBarColors()
+    if OUS.UpdateBar then
+        OUS.UpdateBar()
+    end
+end
+
+local function ApplyExperienceBackground()
+    if OUS.ApplyXPBarBg then
+        OUS.ApplyXPBarBg()
+    end
+end
+
+local function ApplyReputationColors()
+    if OUS.UpdateBar then
+        OUS.UpdateBar()
+    end
+end
+
+local function CreateGlobalMediaRow(parent, labelText, helpText, yOffset, dbKey, mediaType, onChanged, leftSide)
+    local row = CreateFrame("Frame", nil, parent)
+    AnchorGlobalColumnRow(row, parent, yOffset, leftSide)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+    label:SetWidth(118)
+    label:SetJustifyH("LEFT")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    local button = CreateFrame("Button", nil, row)
+    button:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+    button:SetSize(132, 24)
+    button:SetNormalTexture(T.Tex("ActionNormal"))
+    button:SetHighlightTexture(T.Tex("ActionHover"))
+    button:SetPushedTexture(T.Tex("ActionPressed"))
+
+    local buttonLabel = button:CreateFontString(nil, "ARTWORK", T.Fonts.small)
+    buttonLabel:SetPoint("LEFT", button, "LEFT", 8, 0)
+    buttonLabel:SetPoint("RIGHT", button, "RIGHT", -8, 0)
+    buttonLabel:SetJustifyH("LEFT")
+    SetTextColor(buttonLabel, T.Colors.text)
+    button.label = buttonLabel
+
+    button:SetScript("OnClick", function()
+        local db = GetXPBarDB()
+        if not db then return end
+
+        C.OpenMediaDropdown(button, mediaType, db[dbKey], function(name)
+            db[dbKey] = name
+            button.label:SetText(ShortMediaLabel(name))
+            if onChanged then
+                onChanged()
+            end
+            RefreshGlobal()
+        end)
+    end)
+
+    AttachControlHelp(row, background, helpText)
+    AttachControlHelp(button, background, helpText)
+    globalMediaButtons[dbKey] = button
+    return button
+end
+
+local function CreateGlobalColorRow(parent, labelText, helpText, yOffset, dbKey, onChanged, leftSide, swatchStore, rootKey, rowHeight, columnCount)
+    local row = CreateFrame("Frame", nil, parent)
+    AnchorGlobalColumnRow(row, parent, yOffset, leftSide, rowHeight, columnCount)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    local swatchButton = CreateFrame("Button", nil, row)
+    swatchButton:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+    local swatchSize = rowHeight and rowHeight < 36 and 24 or 28
+    swatchButton:SetSize(swatchSize, swatchSize)
+    swatchButton:SetNormalTexture(T.Tex("ActionNormal"))
+    swatchButton:SetHighlightTexture(T.Tex("ActionHover"))
+    swatchButton:SetPushedTexture(T.Tex("ActionPressed"))
+    label:SetPoint("RIGHT", swatchButton, "LEFT", -6, 0)
+    label:SetJustifyH("LEFT")
+
+    local swatch = swatchButton:CreateTexture(nil, "ARTWORK")
+    local inset = rowHeight and rowHeight < 36 and 4 or 5
+    swatch:SetPoint("TOPLEFT", swatchButton, "TOPLEFT", inset, -inset)
+    swatch:SetPoint("BOTTOMRIGHT", swatchButton, "BOTTOMRIGHT", -inset, inset)
+    swatch:SetColorTexture(0.6, 0.2, 0.8, 1)
+
+    swatchButton:SetScript("OnClick", function()
+        local db = GetXPBarDB()
+        if not db then return end
+
+        local colorTable = db[dbKey]
+        if rootKey then
+            local colorRoot = db[rootKey]
+            colorTable = colorRoot and colorRoot[dbKey]
+        end
+        if type(colorTable) ~= "table" then return end
+
+        C.OpenColorPicker(colorTable, swatch, function()
+            if onChanged then
+                onChanged()
+            end
+        end)
+
+        local colorPickerFrame = _G.ColorPickerFrame
+        if colorPickerFrame and colorPickerFrame.SetFrameStrata then
+            colorPickerFrame:SetFrameStrata("FULLSCREEN_DIALOG")
+        end
+    end)
+
+    AttachControlHelp(row, background, helpText)
+    AttachControlHelp(swatchButton, background, helpText)
+    if swatchStore then
+        swatchStore[dbKey] = swatch
+    else
+        borderColorSwatch = swatch
+    end
+    return swatch
+end
+
+local function CreateGlobalColumnScale(parent, labelText, helpText, yOffset, minValue, maxValue, step, initialValue, onChanged, leftSide)
+    local row = CreateFrame("Frame", nil, parent)
+    AnchorGlobalColumnRow(row, parent, yOffset, leftSide)
 
     local background = row:CreateTexture(nil, "BACKGROUND")
     background:SetTexture(T.Tex("CardNormal"))
@@ -364,11 +641,58 @@ local function CreateGlobalScale(
     return control
 end
 
+local function CreateGlobalActionButton(parent, labelText, helpText, yOffset, onClick)
+    local button = CreateFrame("Button", nil, parent)
+    button:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    button:SetSize(132, 24)
+    button:SetNormalTexture(T.Tex("ActionNormal"))
+    button:SetHighlightTexture(T.Tex("ActionHover"))
+    button:SetPushedTexture(T.Tex("ActionPressed"))
+
+    local label = button:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+    label:SetPoint("CENTER")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    button:SetScript("OnEnter", function()
+        C.SetHelpText(helpText)
+    end)
+    button:SetScript("OnLeave", function()
+        C.ClearHelpText()
+    end)
+    button:SetScript("OnClick", onClick)
+end
+
 local function ApplyExperienceDimensions()
     if OUS.ApplyDimensions then OUS.ApplyDimensions() end
     if OUS.UpdateBar then OUS.UpdateBar() end
     if OUS.WakeBars then OUS.WakeBars() end
     if OUS.SleepBars then OUS.SleepBars() end
+end
+
+local function ResetExperienceDefaults()
+    local db = GetXPBarDB()
+    local defaults = OUS.defaults
+    if not db or not defaults then return end
+
+    db.xpTemplate = defaults.xpTemplate
+    db.xpColor = CopyDefaultTable("xpColor")
+    db.xpTextColor = CopyDefaultTable("xpTextColor")
+    db.restColor = CopyDefaultTable("restColor")
+    db.bgColor = CopyDefaultTable("bgColor")
+    db.showRestIcon = defaults.showRestIcon
+    db.xpBarWidth = defaults.xpBarWidth
+    db.xpBarHeight = defaults.xpBarHeight
+    db.xpBarScale = defaults.xpBarScale
+
+    ApplyExperienceBackground()
+    ApplyExperienceDimensions()
+    if OUS.LogDebug then
+        OUS.LogDebug("XPBar", "Experience tab defaults restored.")
+    end
+
+    RefreshExperience()
+    RefreshGlobal()
 end
 
 local function CreateExperienceTemplateRow(parent, yOffset)
@@ -972,33 +1296,41 @@ CreateGlobalCheckbox(
 )
 
 CreateSectionHeader(globalChild, "Display", -350)
+CreateGlobalActionButton(
+    globalChild,
+    "Reset Defaults",
+    "Reset only the legacy Global XP Bar settings shown on this page.",
+    -346,
+    ResetGlobalDefaults
+)
 
 globalScaleControls.xpFontSize = CreateGlobalScale(
     globalChild,
     "Font Size",
     "Adjust the XP Bar font size.",
-    -376,
-    6,
-    40,
+    -368,
+    8,
+    32,
     1,
     15,
     function(value)
         local db = GetXPBarDB()
         if not db then return end
         db.xpFontSize = value
-        if OUS.ApplyFonts then OUS.ApplyFonts() end
+        ApplyXPBarFontSettings()
         if OUS.UpdateBar then OUS.UpdateBar() end
         if OUS.UpdateDelveBar then OUS.UpdateDelveBar() end
-    end
+    end,
+    44
 )
 
 globalScaleControls.repDisplayTime = CreateGlobalScale(
     globalChild,
-    "Reputation Display Time",
+    "Auto-Switch Display Time",
     "Set how long reputation progress remains active after a reputation gain.",
-    -436,
-    1,
-    30,
+    -414,
+    5,
+    60,
     1,
     15,
     function(value)
@@ -1006,15 +1338,17 @@ globalScaleControls.repDisplayTime = CreateGlobalScale(
         if db then
             db.repDisplayTime = value
         end
-    end
+        WakeAndSleepBars()
+    end,
+    44
 )
 
 globalScaleControls.fadeDelay = CreateGlobalScale(
     globalChild,
-    "Fade Delay",
+    "Auto-Hide Fade Delay",
     "Set the delay before auto-hide fades the bars.",
-    -496,
-    1,
+    -460,
+    0,
     60,
     1,
     5,
@@ -1023,14 +1357,15 @@ globalScaleControls.fadeDelay = CreateGlobalScale(
         if not db then return end
         db.fadeDelay = value
         WakeAndSleepBars()
-    end
+    end,
+    44
 )
 
 globalScaleControls.activeAlpha = CreateGlobalScale(
     globalChild,
     "Active Alpha",
     "Set bar opacity while the XP Bar is active.",
-    -556,
+    -506,
     0.1,
     1.0,
     0.05,
@@ -1040,14 +1375,15 @@ globalScaleControls.activeAlpha = CreateGlobalScale(
         if not db then return end
         db.activeAlpha = math.floor((value * 100) + 0.5)
         WakeAndSleepBars()
-    end
+    end,
+    44
 )
 
 globalScaleControls.fadedAlpha = CreateGlobalScale(
     globalChild,
     "Faded Alpha",
     "Set bar opacity after auto-hide fades the bars.",
-    -616,
+    -552,
     0.0,
     1.0,
     0.05,
@@ -1057,7 +1393,58 @@ globalScaleControls.fadedAlpha = CreateGlobalScale(
         if not db then return end
         db.fadedAlpha = math.floor((value * 100) + 0.5)
         WakeAndSleepBars()
-    end
+    end,
+    44
+)
+
+CreateGlobalMediaRow(
+    globalChild,
+    "Global Font",
+    "Select the shared XP Bar font.",
+    -600,
+    "xpFont",
+    "font",
+    ApplyXPBarFontSettings,
+    true
+)
+
+CreateGlobalMediaRow(
+    globalChild,
+    "Bar Border Style",
+    "Select the XP Bar border texture.",
+    -600,
+    "barBorderName",
+    "border",
+    ApplyXPBarBorderSettings,
+    false
+)
+
+CreateGlobalColorRow(
+    globalChild,
+    "Border Color",
+    "Choose the XP Bar border color.",
+    -648,
+    "barBorderColor",
+    ApplyXPBarBorderSettings,
+    true
+)
+
+globalScaleControls.barBorderSize = CreateGlobalColumnScale(
+    globalChild,
+    "Border Size",
+    "Adjust the XP Bar border thickness.",
+    -648,
+    0,
+    50,
+    1,
+    8,
+    function(value)
+        local db = GetXPBarDB()
+        if not db then return end
+        db.barBorderSize = value
+        ApplyXPBarBorderSettings()
+    end,
+    false
 )
 
 local experienceChild = CreateChildView(
@@ -1122,13 +1509,53 @@ experienceScaleControls.xpBarScale = CreateGlobalScale(
     end
 )
 
-CreateSectionHeader(experienceChild, "Future Settings", -488)
-CreateInfoCard(
+CreateSectionHeader(experienceChild, "Colors", -488)
+CreateGlobalActionButton(
     experienceChild,
-    "Color settings will be added later when OUS2 color-picker rows are available.",
-    "XP Bar color controls remain in the legacy configuration until reusable OUS2 color-picker rows are available.",
+    "Reset Defaults",
+    "Reset only legacy XP Bar Experience settings: template, colors, rested icon, width, height, and scale.",
+    -484,
+    ResetExperienceDefaults
+)
+CreateGlobalColorRow(
+    experienceChild,
+    "Main EXP Bar",
+    "Choose the main experience progress color.",
     -514,
-    70
+    "xpColor",
+    ApplyExperienceBarColors,
+    true,
+    experienceColorSwatches
+)
+CreateGlobalColorRow(
+    experienceChild,
+    "XP Text Color",
+    "Choose the XP Bar text color.",
+    -514,
+    "xpTextColor",
+    ApplyExperienceBarColors,
+    false,
+    experienceColorSwatches
+)
+CreateGlobalColorRow(
+    experienceChild,
+    "Rested Bar",
+    "Choose the rested experience overlay color.",
+    -562,
+    "restColor",
+    ApplyExperienceBarColors,
+    true,
+    experienceColorSwatches
+)
+CreateGlobalColorRow(
+    experienceChild,
+    "Background",
+    "Choose the XP Bar background color.",
+    -562,
+    "bgColor",
+    ApplyExperienceBackground,
+    false,
+    experienceColorSwatches
 )
 local reputationChild = CreateChildView(
     "Reputation",
@@ -1171,21 +1598,36 @@ CreateReputationModifierButton(reputationChild, "SHIFT", "SHIFT", -376, false)
 CreateReputationModifierButton(reputationChild, "ALT", "ALT", -426, true)
 CreateReputationModifierButton(reputationChild, "NONE", "NONE", -426, false)
 
-CreateSectionHeader(reputationChild, "Notes", -492)
-CreateInfoCard(
+CreateSectionHeader(reputationChild, "Reputation", -492)
+CreateGlobalColorRow(
     reputationChild,
-    "Reputation colors will be added later when OUS2 color-picker rows exist.",
-    "Reputation color controls remain in the legacy configuration for now.",
+    "Reputation Text Color",
+    "Choose the text color used for reputation display.",
     -518,
-    58
+    "repTextColor",
+    ApplyReputationColors,
+    true,
+    reputationColorSwatches
 )
-CreateInfoCard(
-    reputationChild,
-    "Favorites/faction selection remains handled by the existing modifier-right-click selector for now.",
-    "This page changes only the modifier used to open the existing faction selector.",
-    -584,
-    70
-)
+
+CreateSectionHeader(reputationChild, "Standing Colors", -562)
+for index, entry in ipairs(REPUTATION_STANDING_COLOR_ROWS) do
+    local row = math.floor((index - 1) / 4)
+    local column = ((index - 1) % 4) + 1
+    CreateGlobalColorRow(
+        reputationChild,
+        entry.label,
+        "Choose the " .. entry.label .. " reputation standing color.",
+        -586 - (row * 34),
+        entry.key,
+        ApplyReputationColors,
+        column,
+        reputationColorSwatches,
+        "repColors",
+        30,
+        4
+    )
+end
 local favoritesChild = CreateChildView(
     "Favorites",
     "XP Bar - Favorites",
@@ -1236,6 +1678,23 @@ RefreshGlobal = function()
     globalScaleControls.fadeDelay:SetValue(db and db.fadeDelay or 5, true)
     globalScaleControls.activeAlpha:SetValue((db and db.activeAlpha or 100) / 100, true)
     globalScaleControls.fadedAlpha:SetValue((db and db.fadedAlpha or 0) / 100, true)
+    globalScaleControls.barBorderSize:SetValue(db and db.barBorderSize or 8, true)
+
+    if globalMediaButtons.xpFont then
+        globalMediaButtons.xpFont.label:SetText(ShortMediaLabel(db and db.xpFont or "Friz Quadrata TT"))
+    end
+    if globalMediaButtons.barBorderName then
+        globalMediaButtons.barBorderName.label:SetText(ShortMediaLabel(db and db.barBorderName or "Blizzard Tooltip"))
+    end
+    if borderColorSwatch then
+        local color = db and db.barBorderColor
+        borderColorSwatch:SetColorTexture(
+            (color and color.r) or 0.6,
+            (color and color.g) or 0.2,
+            (color and color.b) or 0.8,
+            1
+        )
+    end
 end
 
 RefreshExperience = function()
@@ -1243,6 +1702,26 @@ RefreshExperience = function()
     experienceScaleControls.xpBarWidth:SetValue(db and db.xpBarWidth or 650, true)
     experienceScaleControls.xpBarHeight:SetValue(db and db.xpBarHeight or 25, true)
     experienceScaleControls.xpBarScale:SetValue(db and db.xpBarScale or 1.0, true)
+    SetSwatchColor(
+        experienceColorSwatches.xpColor,
+        db and db.xpColor,
+        OUS.defaults and OUS.defaults.xpColor or { r = 0.7, g = 0.4, b = 1.0 }
+    )
+    SetSwatchColor(
+        experienceColorSwatches.xpTextColor,
+        db and db.xpTextColor,
+        OUS.defaults and OUS.defaults.xpTextColor or { r = 1.0, g = 1.0, b = 1.0 }
+    )
+    SetSwatchColor(
+        experienceColorSwatches.restColor,
+        db and db.restColor,
+        OUS.defaults and OUS.defaults.restColor or { r = 0.3, g = 0.6, b = 1.0 }
+    )
+    SetSwatchColor(
+        experienceColorSwatches.bgColor,
+        db and db.bgColor,
+        OUS.defaults and OUS.defaults.bgColor or { r = 0.07, g = 0.05, b = 0.1 }
+    )
 
     if not experienceTemplateBox:HasFocus() then
         local defaultTemplate = OUS.defaults and OUS.defaults.xpTemplate or ""
@@ -1258,6 +1737,19 @@ RefreshReputation = function()
     end
 
     local db = GetXPBarDB()
+    SetSwatchColor(
+        reputationColorSwatches.repTextColor,
+        db and db.repTextColor,
+        OUS.defaults and OUS.defaults.repTextColor or { r = 1.0, g = 1.0, b = 1.0 }
+    )
+    for _, entry in ipairs(REPUTATION_STANDING_COLOR_ROWS) do
+        SetSwatchColor(
+            reputationColorSwatches[entry.key],
+            db and db.repColors and db.repColors[entry.key],
+            OUS.defaults and OUS.defaults.repColors and OUS.defaults.repColors[entry.key]
+        )
+    end
+
     if not reputationTemplateBox:HasFocus() then
         local defaultTemplate = OUS.defaults and OUS.defaults.repTemplate or ""
         reputationTemplateBox:SetText(db and db.repTemplate or defaultTemplate)

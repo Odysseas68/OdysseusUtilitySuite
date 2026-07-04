@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Utilities.lua
--- Version : 2026.06.21
+-- Version : 2026.07.03
 -- Desc    : OUS2 Utilities module settings page
 -- ================================================
 
@@ -13,6 +13,9 @@ page:SetAllPoints()
 page:Hide()
 
 local checkboxRows = {}
+local junkBlacklistActionLabel
+local junkBlacklistFrameHooked = false
+local junkBlacklistPopupHooked = false
 local Refresh
 
 local function SetTextColor(fontString, color)
@@ -80,6 +83,36 @@ local function CreateCheckboxRow(labelText, helpText, yOffset, getDB, dbKey)
     }
 end
 
+local function CreateActionButton(labelText, helpText, yOffset, onClick)
+    local button = CreateFrame("Button", nil, page)
+    button:SetHeight(36)
+    button:SetPoint("TOPLEFT", page, "TOPLEFT", 18, yOffset)
+    button:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
+    button:SetNormalTexture(T.Tex("ActionNormal"))
+    button:SetHighlightTexture(T.Tex("ActionHover"))
+    button:SetPushedTexture(T.Tex("ActionPressed"))
+
+    local label = button:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("CENTER")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    button:SetScript("OnEnter", function()
+        C.SetHelpText(helpText)
+    end)
+    button:SetScript("OnLeave", function()
+        C.ClearHelpText()
+    end)
+    button:SetScript("OnClick", function()
+        if onClick then
+            onClick()
+        end
+        Refresh()
+    end)
+
+    return label
+end
+
 local function GetModulesDB()
     return OdysseusDB and OdysseusDB.modules
 end
@@ -91,6 +124,75 @@ end
 local function GetJunkSellDB()
     local utilities = GetUtilitiesDB()
     return utilities and utilities.junkSell
+end
+
+local function CountEntries(tbl)
+    local count = 0
+    if tbl then
+        for _ in pairs(tbl) do
+            count = count + 1
+        end
+    end
+    return count
+end
+
+local function RefreshJunkBlacklistCount()
+    if junkBlacklistActionLabel then
+        local db = GetJunkSellDB()
+        junkBlacklistActionLabel:SetText("Manage Blacklist (" .. CountEntries(db and db.blacklist) .. ")")
+    end
+end
+
+local function RaiseJunkBlacklistFrame()
+    local container = _G["OUSJunkBLContainer"]
+    if not container then return end
+
+    container:SetFrameStrata("FULLSCREEN_DIALOG")
+    container:SetFrameLevel(100)
+
+    local addFrame = _G["OUSJunkBLAdd"]
+    if addFrame then
+        addFrame:SetFrameStrata("FULLSCREEN_DIALOG")
+        addFrame:SetFrameLevel(101)
+    end
+
+    local listFrame = _G["OUSJunkBLList"]
+    if listFrame then
+        listFrame:SetFrameStrata("FULLSCREEN_DIALOG")
+        listFrame:SetFrameLevel(101)
+    end
+
+    if not junkBlacklistFrameHooked then
+        container:HookScript("OnHide", function()
+            RefreshJunkBlacklistCount()
+        end)
+        junkBlacklistFrameHooked = true
+    end
+end
+
+local function HookJunkBlacklistPopup()
+    if junkBlacklistPopupHooked then return end
+
+    for i = 1, 4 do
+        local dialog = _G["StaticPopup" .. i]
+        if dialog then
+            dialog:HookScript("OnShow", function(self)
+                if self.which == "OUS_JUNK_WIPE_BL" then
+                    self:SetFrameStrata("FULLSCREEN_DIALOG")
+                    self:SetFrameLevel(110)
+                end
+            end)
+        end
+    end
+    junkBlacklistPopupHooked = true
+end
+
+local function OpenJunkBlacklistManager()
+    if not OUS.ToggleJunkBlacklist then return end
+
+    OUS.ToggleJunkBlacklist()
+    HookJunkBlacklistPopup()
+    C_Timer.After(0, RaiseJunkBlacklistFrame)
 end
 
 local headerIcon = page:CreateTexture(nil, "ARTWORK")
@@ -175,12 +277,18 @@ CreateCheckboxRow(
     GetJunkSellDB,
     "limitTo12"
 )
+junkBlacklistActionLabel = CreateActionButton(
+    "Manage Blacklist",
+    "Open the existing Junk Seller blacklist manager to add, remove, or wipe blacklisted items.",
+    -566,
+    OpenJunkBlacklistManager
+)
 
-CreateSectionHeader("Rare Announcer", -580)
+CreateSectionHeader("Rare Announcer", -636)
 CreateCheckboxRow(
     "Enable Rare Announcer",
     "Enable rare target announcements and waypoint links.",
-    -606,
+    -662,
     GetUtilitiesDB,
     "rareEnabled"
 )
@@ -191,6 +299,7 @@ Refresh = function()
         local checked = db and db[entry.dbKey] == true
         entry.checkbox:SetTexture(T.Tex(checked and "CheckboxOn" or "CheckboxOff"))
     end
+    RefreshJunkBlacklistCount()
 end
 
 C.RegisterPage("Utilities", page, Refresh)

@@ -255,20 +255,34 @@ Completed module-page baseline, where applicable:
 
 ## Phase 5 — Polish & Advanced Controls
 
+Phase 5.6 OUS2 legacy parity is in its final stage.
+
+Completed Phase 5.6 parity areas:
+
+* [x] Auto Remount
+* [x] Stats Bar
+* [x] Fishing Tracker
+* [x] Openables
+* [x] Utilities
+* [x] Help
+* [x] Changelog
+
+Remaining XP Bar, Reputation, and Delves parity work is tracked in `Documentation\OUS2_XPBAR_PARITY.md`. Keep detailed XP Bar parity tasks there instead of duplicating them in this high-level TODO.
+
 ### OUS2 Left-Navigation Pages
 
-* [ ] Help Page
-  * [ ] OUS2 Help page frame
-  * [ ] Overview section
-  * [ ] Module documentation
-  * [ ] Slash command reference
-  * [ ] Scrollable layout
+* [x] Help Page
+  * [x] OUS2 Help page frame
+  * [x] Overview section
+  * [x] Module documentation
+  * [x] Slash command reference
+  * [x] Scrollable layout
   * [ ] OUSBanner at top after banner is recreated/reviewed
 
-* [ ] Changelog Page
-  * [ ] OUS2 Changelog page frame
-  * [ ] Scrollable version history
-  * [ ] Current version highlighted
+* [x] Changelog Page
+  * [x] OUS2 Changelog page frame
+  * [x] Scrollable version history
+  * [x] Current version highlighted
   * [ ] OUSBanner at top after banner is recreated/reviewed
 
 ---
@@ -295,16 +309,22 @@ Extract only after patterns stabilize across multiple pages:
 * [ ] Review legacy flight data global access
 * [ ] Migrate legacy Config.lua functionality where appropriate
 * [x] Migrate supported `xpbar_config.lua` functionality into the XP Bar and Delves OUS2 pages
-* [ ] Integrate Help.lua content into OUS2 Help page
+* [ ] Complete remaining XP Bar / Reputation / Delves OUS2 parity per `Documentation\OUS2_XPBAR_PARITY.md`
+* [x] Integrate Help.lua content into OUS2 Help page
 * [ ] Decide whether `/ous` remains separate or redirects to `/ous2`
 * [ ] Optional folder restructure only after OUS2 is stable
 
 ### Future Module Candidate: BuffBars
 * [x] Create initial `Documentation/BUFFBARS_DESIGN.md`
-* [ ] Review validated `Reference\OdysseusBuffBarsTest\` proof-of-concept for production OUS boundaries
-* [ ] Decide whether BuffBars should enter Phase 6 as a gated or disabled-by-default module skeleton
+* [x] Document `Reference\OdysseusBuffBarsTest\` as a validated 12.0.x proof-of-concept
+* [x] Document WoW 12.1 aura API risk as a production integration blocker
+* [ ] Keep `Reference\OdysseusBuffBarsTest\` frozen as the validated 12.0.x reference
+* [ ] Research WoW 12.1 PTR `ManagedAuraContainer`, `AuraContainer`, and `AuraButton` patterns
+* [ ] Build a separate 12.1 aura-container prototype before OUS integration
+* [ ] Reassess direct `C_UnitAuras` index/instance-ID scanning after 12.1 PTR API details stabilize
+* [ ] Decide whether BuffBars should enter Phase 6 as a gated or disabled-by-default module skeleton after 12.1 research
 * [ ] Design `OdysseusDB.buffBars` defaults before adding code
-* [ ] Port the Retail-safe aura engine only after the design contract is approved
+* [ ] Port the aura engine only after the 12.1 research and design contract are approved
 * [ ] Add conservative OUS2 page only after stable public module APIs exist
 
 ---
@@ -382,10 +402,8 @@ Expose only after safe public APIs exist and OUS2 controls are available.
 
 ### XP Bar Follow-Up Review
 
-- [ ] Color controls
-- [ ] Favorites management API
-- [ ] Delves lock/unlock review
-- [ ] Reset review
+- Detailed remaining XP Bar, Reputation, Favorites, Delves, reset, color, media, and range parity tasks are tracked in `Documentation\OUS2_XPBAR_PARITY.md`.
+- Keep this section high-level until that checklist is complete.
 
 ---
 
@@ -402,21 +420,17 @@ Expose only after safe public APIs exist and OUS2 controls are available.
 
 **Phase 5 — Polish & Advanced Controls**
 
-Current focus is Phase 5 — Polish & Advanced Controls.
+Current focus is Phase 5.6 — OUS2 legacy parity final stage.
 
 1. General page polish
 2. Enabled/disabled card states
 3. Module count summary
 4. Global Options functionality
 5. Reset semantics review
-6. XP Bar color controls
-7. Favorites management API review
-8. Delves lock/unlock review
-9. Toolbox expansion
-10. Faster Loot rules
-11. Help page
-12. Changelog page
-13. Helper extraction
+6. Complete XP Bar / Reputation / Delves parity per `Documentation\OUS2_XPBAR_PARITY.md`
+7. Toolbox expansion
+8. Faster Loot rules
+9. Helper extraction
 
 **Phase 5.5 — Framework Consolidation**
 

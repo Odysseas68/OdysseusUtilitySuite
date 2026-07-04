@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_FishingTracker.lua
--- Version : 2026.06.22
+-- Version : 2026.07.03
 -- Desc    : OUS2 Fishing Tracker module settings page
 -- ================================================
 
@@ -46,6 +46,66 @@ end
 local function GetFishingSettings()
     return OdysseusDB and OdysseusDB.fishingSettings
 end
+
+local function RefreshFishingDisplay()
+    if OUS.UpdateFishingAlpha then
+        OUS.UpdateFishingAlpha()
+    end
+    if OUS.UpdateFishingUI then
+        OUS.UpdateFishingUI()
+    end
+    if Refresh then
+        Refresh()
+    end
+end
+
+local function ResetFishingDefaults()
+    if not OUS.fishingDefaults then return end
+
+    OdysseusDB = OdysseusDB or {}
+    OdysseusDB.fishingSettings = OdysseusDB.fishingSettings or {}
+
+    for k, v in pairs(OUS.fishingDefaults) do
+        if type(v) == "table" then
+            OdysseusDB.fishingSettings[k] = OUS.DeepCopyTable(v)
+        else
+            OdysseusDB.fishingSettings[k] = v
+        end
+    end
+
+    RefreshFishingDisplay()
+
+    if OUS.LogDebug then
+        OUS.LogDebug("Fishing", "Fishing Tracker settings restored to default.")
+    end
+end
+
+local function WipeFishingHistory()
+    if OdysseusFishingDB then
+        OdysseusFishingDB.history = {}
+        print("|cFF00CCFFOdysseus:|r All recorded fishing history |cFFFF0000wiped|r!")
+        RefreshFishingDisplay()
+    end
+end
+
+local function ShowPopupOnTop(popupKey)
+    local dialog = StaticPopup_Show(popupKey)
+    if dialog then
+        dialog:SetFrameStrata("FULLSCREEN_DIALOG")
+        dialog:SetFrameLevel(100)
+    end
+end
+
+StaticPopupDialogs["OUS2_CONFIRM_WIPE_FISHING"] = {
+    text = "Are you sure you want to wipe ALL recorded fishing history? This cannot be undone.",
+    button1 = "Yes, Wipe",
+    button2 = "Cancel",
+    OnAccept = WipeFishingHistory,
+    timeout = 0,
+    whileDead = true,
+    hideOnEscape = true,
+    preferredIndex = 3,
+}
 
 local function CreateCheckboxRow(labelText, helpText, yOffset, getDB, dbKey, onChanged)
     local row = CreateFrame("Button", nil, page)
@@ -194,8 +254,9 @@ CreateCheckboxRow(
     GetModulesDB,
     "fishingTracker",
     function(newValue)
-        if not newValue and OdysseusFishingMain then
-            OdysseusFishingMain:Hide()
+        local trackerFrame = _G["OdysseusFishingMain"]
+        if not newValue and trackerFrame then
+            trackerFrame:Hide()
         end
     end
 )
@@ -262,6 +323,20 @@ CreateActionButton(
             OUS.ToggleFishingTracker()
         end
     end
+)
+CreateActionButton(
+    "Wipe Saved Data",
+    "Wipe only recorded Fishing Tracker history. Settings are preserved.",
+    -538,
+    function()
+        ShowPopupOnTop("OUS2_CONFIRM_WIPE_FISHING")
+    end
+)
+CreateActionButton(
+    "Reset Defaults",
+    "Reset only Fishing Tracker settings. Saved fishing history is preserved.",
+    -580,
+    ResetFishingDefaults
 )
 
 Refresh = function()

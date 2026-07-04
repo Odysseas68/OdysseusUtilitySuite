@@ -4,13 +4,15 @@
 
 This document defines the current OUS2 architecture, coding standards, UI layout, and migration plan for Odysseus Utility Suite.
 
-OUS2 is the next-generation configuration and UI framework for OUS. It is being developed alongside the existing legacy `/ous` configuration window. Module-page migration is complete; the legacy UI remains available while Phase 5 polish and advanced-control parity continue.
+OUS2 is the next-generation configuration and UI framework for OUS. It is being developed alongside the existing legacy `/ous` configuration window. Module-page migration is complete; the legacy UI remains available while Phase 5.6 parity polish finishes.
 
 ---
 
 ## Current Status
 
-Phase 4 module-page migration is complete. Current focus is **Phase 5 — Polish & Advanced Controls**.
+Phase 4 module-page migration is complete. Current focus is **Phase 5.6 — OUS2 legacy parity final stage**.
+
+Phase 5.6 parity is complete for Auto Remount, Stats Bar, Fishing Tracker, Openables, Utilities, Help, and Changelog. Remaining XP Bar, Reputation, and Delves parity work is tracked separately in `Documentation\OUS2_XPBAR_PARITY.md`; do not duplicate that checklist here.
 
 Implemented:
 
@@ -29,6 +31,8 @@ Implemented:
 * `Config2\OUS2Page_Toolbox.lua`
 * `Config2\OUS2Page_XPBar.lua`
 * `Config2\OUS2Page_Delves.lua`
+* `Config2\OUS2Page_Help.lua`
+* `Config2\OUS2Page_Changelog.lua`
 * Manual NineSlice shell
 * Left navigation panel
 * Scrollable content area
@@ -36,7 +40,7 @@ Implemented:
 * Optional page-specific sidebar area
 * Resizable frame with stable resize-anchor handling
 * General dashboard visual page
-* Completed pages: General, Utilities, Openables, Stats Bar, Auto Remount, Fishing Tracker, Flightmaster, Flight Routing, Faster Loot, Toolbox, XP Bar, and Delves
+* Completed pages: General, Utilities, Openables, Stats Bar, Auto Remount, Fishing Tracker, Flightmaster, Flight Routing, Faster Loot, Toolbox, XP Bar, Delves, Help, and Changelog
 * Shared module card assets
 * Shared dashboard card constants in `T.Card`
 * Shared scale-control assets and sizing constants in `T.Scale`
@@ -44,6 +48,7 @@ Implemented:
 * Shared OUS2 media dropdown, color picker, and copy-text dialog helpers
 * Openables scale-control integration
 * Flightmaster OUS2 advanced controls
+* Dedicated XP Bar parity planning document: `Documentation\OUS2_XPBAR_PARITY.md`
 
 Phase 5 follow-up work:
 
@@ -52,13 +57,9 @@ Phase 5 follow-up work:
 * Module count summary
 * Global Options functionality
 * Reset semantics review
-* XP Bar color controls
-* Favorites management API review
-* Delves lock/unlock review
+* XP Bar, Reputation, and Delves parity items tracked in `Documentation\OUS2_XPBAR_PARITY.md`
 * Toolbox expansion
 * Faster Loot rules
-* Help page
-* Changelog page
 * Helper extraction
 
 ---
@@ -110,7 +111,9 @@ OdysseusUtilitySuite
 │   ├─ OUS2Page_FasterLoot.lua
 │   ├─ OUS2Page_Toolbox.lua
 │   ├─ OUS2Page_XPBar.lua
-│   └─ OUS2Page_Delves.lua
+│   ├─ OUS2Page_Delves.lua
+│   ├─ OUS2Page_Help.lua
+│   └─ OUS2Page_Changelog.lua
 │
 ├─ media\
 │   └─ Textures\
@@ -126,6 +129,7 @@ OdysseusUtilitySuite
 │   ├─ ARCHITECTURE.md
 │   ├─ TODO_v2.md
 │   ├─ README_v2.md
+│   ├─ OUS2_XPBAR_PARITY.md
 │   └─ ASSET_PROMPTS_v2.md
 │
 └─ existing OUS module files remain flat in the addon root
@@ -163,6 +167,8 @@ Config2\OUS2Page_FasterLoot.lua
 Config2\OUS2Page_Toolbox.lua
 Config2\OUS2Page_XPBar.lua
 Config2\OUS2Page_Delves.lua
+Config2\OUS2Page_Help.lua
+Config2\OUS2Page_Changelog.lua
 ```
 
 Rules:
@@ -627,20 +633,16 @@ Flightmaster OUS2 architecture:
 - `ResetFlightBarAppearance()` restores visual settings only. Learned flight times remain in `OdysseusDB.flightSettings.times` unless the user explicitly wipes them or uses the global reset flow.
 - OUS2 uses shared helpers from `OUS2Config.lua`: `C.OpenMediaDropdown()`, `C.OpenColorPicker()`, and `C.ShowCopyTextDialog()`. These helpers are independent of legacy `Config.lua` dropdowns.
 
-Phase 5 follow-up work:
+Phase 5.6 follow-up work:
 
 - General page polish
 - Enabled/disabled card states
 - Module count summary
 - Global Options functionality
 - Reset semantics review
-- XP Bar color controls
-- Favorites management API review
-- Delves lock/unlock review
+- XP Bar, Reputation, and Delves parity tracked in `Documentation\OUS2_XPBAR_PARITY.md`
 - Toolbox expansion
 - Faster Loot rules
-- Help page
-- Changelog page
 - Helper extraction
 
 ## Phase 5 — Polish & Advanced Controls
@@ -648,15 +650,14 @@ Phase 5 follow-up work:
 Current:
 
 - General, card-state, module-summary, Global Options, and reset-semantics polish
-- XP Bar color controls and Favorites API review
-- Delves lock/unlock review
+- Phase 5.6 OUS2 legacy parity is in its final stage
+- XP Bar, Reputation, and Delves parity planning is centralized in `Documentation\OUS2_XPBAR_PARITY.md`
 - Toolbox and Faster Loot advanced controls
 - Shared helper extraction
 
 Pending OUS2 left-navigation pages:
 
-- Help page
-- Changelog page
+- None
 
 ## Phase 6 — Polish and Migration
 

@@ -6,6 +6,12 @@ OUS2 is the next-generation configuration interface for Odysseus Utility Suite.
 
 The goal is to replace the original Midnight-themed configuration window with a modern, modular, fantasy-themed UI inspired by World of Warcraft Midnight aesthetics.
 
+## Related Documentation
+
+* `Documentation\ARCHITECTURE.md` — OUS2 architecture, page system, and migration status.
+* `Documentation\TODO_v2.md` — high-level phase tracking and remaining milestones.
+* `Documentation\OUS2_XPBAR_PARITY.md` — authoritative engineering checklist for remaining XP Bar, Reputation, and Delves OUS2 parity work.
+
 ---
 
 # Theme Specification
@@ -301,6 +307,8 @@ local DEBUG_SCROLLBOX = false   -- cyan border around scroll content area
 * Toolbox page
 * XP Bar hub page
 * Delves page
+* Help page
+* Changelog page
 * Shared OUS2 page framework
 * Shared card system
 * Shared scale-control system
@@ -312,7 +320,7 @@ local DEBUG_SCROLLBOX = false   -- cyan border around scroll content area
 
 ### Current Phase
 
-Phase 5 — Polish & Advanced Controls
+Phase 5.6 — OUS2 legacy parity final stage
 
 ### Remaining Work
 
@@ -321,12 +329,8 @@ Phase 5 — Polish & Advanced Controls
 * Module count summary
 * Global Options functionality
 * Reset semantics review
-* XP Bar color controls
-* Favorites management API review
-* Delves lock/unlock review
+* XP Bar / Reputation / Delves parity tracked in `Documentation\OUS2_XPBAR_PARITY.md`
 * Toolbox expansion features
 * Faster Loot rules system
-* Help page
-* Changelog page
 * OUSBanner recreation/review
 * Shared helper extraction after patterns stabilize

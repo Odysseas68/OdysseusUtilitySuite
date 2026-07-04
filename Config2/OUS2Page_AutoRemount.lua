@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_AutoRemount.lua
--- Version : 2026.06.22
+-- Version : 2026.07.03
 -- Desc    : OUS2 Auto Remount module settings page
 -- ================================================
 
@@ -48,7 +48,7 @@ local function GetAutoRemountCharDB()
     return OdysseusCharDB and OdysseusCharDB.autoRemountChar
 end
 
-local function CreateCheckboxRow(labelText, helpText, yOffset, dbKey)
+local function CreateCheckboxRow(labelText, helpText, yOffset, dbKey, onChanged)
     local row = CreateFrame("Button", nil, page)
     row:SetHeight(44)
     row:SetPoint("TOPLEFT", page, "TOPLEFT", 18, yOffset)
@@ -82,6 +82,9 @@ local function CreateCheckboxRow(labelText, helpText, yOffset, dbKey)
         if not db then return end
 
         db[dbKey] = not db[dbKey]
+        if onChanged then
+            onChanged(db[dbKey])
+        end
         Refresh()
     end)
 
@@ -89,6 +92,40 @@ local function CreateCheckboxRow(labelText, helpText, yOffset, dbKey)
         checkbox = checkbox,
         dbKey = dbKey,
     }
+end
+
+local function CreateActionButton(labelText, helpText, yOffset, onClick)
+    local button = CreateFrame("Button", nil, page)
+    button:SetHeight(36)
+    button:SetPoint("TOPLEFT", page, "TOPLEFT", 18, yOffset)
+    button:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
+    button:SetNormalTexture(T.Tex("ActionNormal"))
+    button:SetHighlightTexture(T.Tex("ActionHover"))
+    button:SetPushedTexture(T.Tex("ActionPressed"))
+
+    local label = button:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("CENTER")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    button:SetScript("OnEnter", function()
+        C.SetHelpText(helpText)
+    end)
+    button:SetScript("OnLeave", function()
+        C.ClearHelpText()
+    end)
+    button:SetScript("OnClick", function()
+        if onClick then
+            onClick()
+        end
+        Refresh()
+    end)
+end
+
+local function RefreshSpyFrameIfAvailable()
+    if OUS.AutoRemount and OUS.AutoRemount.RefreshSpyFrame then
+        OUS.AutoRemount.RefreshSpyFrame()
+    end
 end
 
 local function AttachControlHelp(frame, background, helpText)
@@ -226,19 +263,95 @@ CreateCheckboxRow(
     -200,
     "silent"
 )
+CreateCheckboxRow(
+    "Debug Mode",
+    "Store the Auto Remount debug preference used by the existing Auto Remount command path.",
+    -248,
+    "debug"
+)
+CreateCheckboxRow(
+    "Spy Mode",
+    "Record loot-confirmed unknown spells for Auto Remount discovery.",
+    -296,
+    "spyMode",
+    RefreshSpyFrameIfAvailable
+)
 
-delayControl = CreateDelayRow(-248)
+delayControl = CreateDelayRow(-344)
 
-CreateSectionHeader("Mount Status", -328)
+CreateSectionHeader("Mount Status", -424)
 characterMountText = CreateStatusRow(
     "Character Mount",
     "Shows the mount selected specifically for this character.",
-    -354
+    -450
 )
 accountMountText = CreateStatusRow(
     "Account Mount",
     "Shows the account-wide mount used when no character mount is selected.",
-    -410
+    -506
+)
+
+CreateSectionHeader("Actions", -586)
+CreateActionButton(
+    "Open Spy Frame",
+    "Open the existing Auto Remount spy frame and refresh its discovered spell list.",
+    -612,
+    function()
+        RefreshSpyFrameIfAvailable()
+        local frame = _G["OdysseusAutoRemountSpyFrame"]
+        if frame then
+            frame:Show()
+        end
+    end
+)
+CreateActionButton(
+    "Clear Character Mount",
+    "Clear only this character's Auto Remount mount override.",
+    -654,
+    function()
+        local charDB = GetAutoRemountCharDB()
+        if charDB then
+            charDB.mountID = nil
+        end
+    end
+)
+CreateActionButton(
+    "Clear Account Mount",
+    "Clear only the account-wide Auto Remount mount override.",
+    -696,
+    function()
+        local db = GetAutoRemountDB()
+        if db then
+            db.accountMountID = nil
+        end
+    end
+)
+CreateActionButton(
+    "Reset Defaults",
+    "Restore only Auto Remount settings to their defaults.",
+    -738,
+    function()
+        local db = GetAutoRemountDB()
+        if db then
+            db.enabled = true
+            db.delay = 0.5
+            db.silent = true
+            db.skipDruid = true
+            db.debug = false
+            db.spyMode = false
+            db.accountMountID = nil
+        end
+
+        local charDB = GetAutoRemountCharDB()
+        if charDB then
+            charDB.mountID = nil
+        end
+
+        RefreshSpyFrameIfAvailable()
+        if OUS.LogDebug then
+            OUS.LogDebug("AutoRemount", "Settings restored to default.")
+        end
+    end
 )
 
 Refresh = function()
