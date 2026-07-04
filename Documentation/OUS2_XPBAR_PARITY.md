@@ -30,12 +30,14 @@ Current OUS2 coverage includes:
 
 * Account-wide module toggle for `OdysseusDB.modules.xpBar`.
 * Global checkboxes for `hideBlizz`, `shortNumbers`, `autoHide`, and `showRestIcon`.
-* Global scale controls for `xpFontSize`, `repDisplayTime`, `fadeDelay`, `activeAlpha`, and `fadedAlpha`.
-* XP text template, width, height, and scale controls.
-* Reputation text template, toast enabled, toast sound, and faction menu modifier controls.
+* Global scale controls for `xpFontSize`, `repDisplayTime`, `fadeDelay`, `activeAlpha`, `fadedAlpha`, and `barBorderSize`.
+* Global media/color controls for `xpFont`, `barBorderName`, and `barBorderColor`.
+* Global Reset Defaults.
+* XP text template, width, height, scale, XP/rest/background/text color controls, and Experience Reset Defaults.
+* Reputation text template, text color, standing colors, toast enabled, toast sound, faction menu modifier controls, and Reputation Reset Defaults.
 * Read-only Favorites guidance.
 * XP/Rep/Delves token help.
-* Delves companion and journey templates, width, height, and scale controls.
+* Delves companion and journey templates, companion/journey colors, width, height, and scale controls.
 
 Current OUS2 intentional improvements:
 
@@ -49,51 +51,51 @@ Current OUS2 intentional improvements:
 | Area | Legacy option | Legacy DB key / behavior | Current OUS2 status | Status | Recommended patch | Notes / risk |
 |---|---|---|---|---|---|---|
 | Global XP Bar settings | Enable XP Bar module | Legacy module toggle is account-wide under `OdysseusDB.modules.xpBar` through the main config/module system. | OUS2 Global has `Enable XP Bar Module`. | Present | None unless master-toggle behavior audit finds runtime gaps. | Confirm hiding both XP and Delves bars remains correct while active timers/favorites are open. |
-| Global XP Bar settings | Global Font Size | `OdysseusDB.xpBar.xpFontSize`; legacy range 8-32; applies `OUS.ApplyFonts()`. | OUS2 has `Font Size`; range 6-40; applies fonts and updates bars. | Partial | Align range with legacy or document intentional wider OUS2 range. | Wider OUS2 range may be acceptable, but it is not exact legacy parity. |
-| Fonts/media | Global Font | `OdysseusDB.xpBar.xpFont`; legacy uses LibSharedMedia font dropdown and `OUS.ApplyFonts()`. | OUS2 has no font media dropdown. | Missing | Add an OUS2 media dropdown row using `C.OpenMediaDropdown("font", ...)`. | Small patch. Use existing OUS2 media dropdown helper. |
+| Global XP Bar settings | Global Font Size | `OdysseusDB.xpBar.xpFontSize`; legacy range 8-32; applies `OUS.ApplyFonts()`. | OUS2 has `Font Size`; range 8-32; applies fonts and updates bars. | Present | None. | Implemented; in-game visual update still belongs to final live-preview testing. |
+| Fonts/media | Global Font | `OdysseusDB.xpBar.xpFont`; legacy uses LibSharedMedia font dropdown and `OUS.ApplyFonts()`. | OUS2 has a `Global Font` media dropdown using the existing media picker helper. | Present | None. | Implemented; verify dropdown layering and live font refresh in-game. |
 | Global XP Bar settings | Hide Default Blizzard UI | `OdysseusDB.xpBar.hideBlizz`; legacy shows reload prompt and disables the checkbox while in an instance. | OUS2 has `Hide Blizzard XP/Rep Bars` and a reload popup. | Partial | Add the legacy instance-disable behavior or document intentional difference. | Avoid calling protected/Blizzard UI mutation paths from OUS2; runtime hiding remains owned by `OUS.ApplyBlizzardKiller()`. |
 | Global XP Bar settings | Enable Auto-Hide / Mouseover Engine | `OdysseusDB.xpBar.autoHide`; legacy calls `OUS.WakeBars()` and `OUS.SleepBars()`. | OUS2 has `Auto-hide Bars`; calls wake/sleep helper. | Present | None. | Combat behavior is owned by engine sleep checks. |
 | Global XP Bar settings | Abbreviate Numbers | `OdysseusDB.xpBar.shortNumbers`; legacy calls `OUS.UpdateBar()`. | OUS2 has `Abbreviate Large Numbers`; calls `OUS.UpdateBar()`. | Present | None. | Verify after max-level rep display and Delves journey text. |
-| Auto-hide/fade behavior | Auto-Switch Display Time | `OdysseusDB.xpBar.repDisplayTime`; legacy range 5-60 seconds. | OUS2 has `Reputation Display Time`; range 1-30 seconds. | Partial | Adjust OUS2 range to 5-60. | Use existing `C.CreateScaleControl`; no DB change. |
-| Auto-hide/fade behavior | Auto-Hide Fade Delay | `OdysseusDB.xpBar.fadeDelay`; legacy range 0-60 seconds. | OUS2 has `Fade Delay`; range 1-60 seconds. | Partial | Adjust OUS2 minimum to 0. | A 0-second delay is valid legacy behavior. |
+| Auto-hide/fade behavior | Auto-Switch Display Time | `OdysseusDB.xpBar.repDisplayTime`; legacy range 5-60 seconds. | OUS2 has `Auto-Switch Display Time`; range 5-60 seconds. | Present | None. | Implemented with existing scale control and wake/sleep refresh path. |
+| Auto-hide/fade behavior | Auto-Hide Fade Delay | `OdysseusDB.xpBar.fadeDelay`; legacy range 0-60 seconds. | OUS2 has `Auto-Hide Fade Delay`; range 0-60 seconds. | Present | None. | Implemented; 0-second delay remains valid legacy behavior. |
 | Auto-hide/fade behavior | Active Opacity | `OdysseusDB.xpBar.activeAlpha`; legacy stores percent 10-100. | OUS2 has `Active Alpha`; UI range 0.1-1.0 and writes percent. | Present | None. | Current UI is an intentional OUS2 presentation improvement. |
 | Auto-hide/fade behavior | Faded Opacity | `OdysseusDB.xpBar.fadedAlpha`; legacy stores percent 0-100. | OUS2 has `Faded Alpha`; UI range 0.0-1.0 and writes percent. | Present | None. | Current UI is an intentional OUS2 presentation improvement. |
-| Borders | Bar Border Style | `OdysseusDB.xpBar.barBorderName`; legacy LibSharedMedia border dropdown and `OUS.ApplyXPBarBorders()`. | OUS2 has no border media dropdown. | Missing | Add OUS2 border dropdown using `C.OpenMediaDropdown("border", ...)`. | Applies to both XP and Delves frames through existing engine helper. |
-| Borders | Border Color | `OdysseusDB.xpBar.barBorderColor`; legacy color picker and `OUS.ApplyXPBarBorders()`. | OUS2 has no border color control. | Missing | Add OUS2 color picker row using `C.OpenColorPicker()`. | Must preserve table shape `{ r, g, b }`. |
-| Borders | Bar Border Size | `OdysseusDB.xpBar.barBorderSize`; legacy range 0-50. | OUS2 has no border size control. | Missing | Add scale row for border size. | Existing engine supports `OUS.ApplyXPBarBorders()`. |
-| Reset defaults | Global Reset Defaults | Resets `hideBlizz`, `autoHide`, `repDisplayTime`, `fadeDelay`, `activeAlpha`, `fadedAlpha`, `xpFont`, `xpFontSize`, `barBorderName`, `barBorderSize`, and `barBorderColor`; applies Blizzard killer, fonts, borders, wake/sleep. | OUS2 has no XP Bar per-section reset. | Missing | Add a Global reset action after media/border controls are present. | Reset only the legacy global XP Bar scope. Do not use shell-wide reset for this. |
+| Borders | Bar Border Style | `OdysseusDB.xpBar.barBorderName`; legacy LibSharedMedia border dropdown and `OUS.ApplyXPBarBorders()`. | OUS2 has `Bar Border Style` media dropdown. | Present | None. | Implemented; verify dropdown layering and border refresh in-game. |
+| Borders | Border Color | `OdysseusDB.xpBar.barBorderColor`; legacy color picker and `OUS.ApplyXPBarBorders()`. | OUS2 has `Border Color` picker. | Present | None. | Implemented; preserves `{ r, g, b }` table shape. |
+| Borders | Bar Border Size | `OdysseusDB.xpBar.barBorderSize`; legacy range 0-50. | OUS2 has `Border Size`; range 0-50. | Present | None. | Implemented with existing scale control and border apply helper. |
+| Reset defaults | Global Reset Defaults | Resets `hideBlizz`, `autoHide`, `repDisplayTime`, `fadeDelay`, `activeAlpha`, `fadedAlpha`, `xpFont`, `xpFontSize`, `barBorderName`, `barBorderSize`, and `barBorderColor`; applies Blizzard killer, fonts, borders, wake/sleep. | OUS2 has a Global `Reset Defaults` action for this scope. | Present | None. | Implemented as a section-scoped reset. |
 | Experience bar settings | XP Text Format | `OdysseusDB.xpBar.xpTemplate`; legacy commits on Enter and updates bar. | OUS2 has `XP Text Template`; commits on Enter/focus loss and updates bar. | Present | None. | OUS2 commit behavior is more forgiving. |
-| Experience bar settings | Main EXP Bar color | `OdysseusDB.xpBar.xpColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has placeholder note only. | Missing | Add XP color picker row. | Use shared OUS2 color picker; preserve table shape. |
-| Experience bar settings | XP Text Color | `OdysseusDB.xpBar.xpTextColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has no control. | Missing | Add XP text color picker row. | Should update immediately through `OUS.UpdateBar()`. |
-| Experience bar settings | Rested Bar Color | `OdysseusDB.xpBar.restColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has no control. | Missing | Add rested color picker row. | Verify rested bar visible and hidden states. |
-| Experience bar settings | Background Color | `OdysseusDB.xpBar.bgColor`; legacy color picker and `OUS.ApplyXPBarBg()`. | OUS2 has no control. | Missing | Add background color picker row. | Existing helper only applies XP bar background, not Delves background. |
+| Experience bar settings | Main EXP Bar color | `OdysseusDB.xpBar.xpColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has `Main EXP Bar` color picker. | Present | None. | Implemented; verify live preview in-game. |
+| Experience bar settings | XP Text Color | `OdysseusDB.xpBar.xpTextColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has `XP Text Color` picker. | Present | None. | Implemented; verify live preview in-game. |
+| Experience bar settings | Rested Bar Color | `OdysseusDB.xpBar.restColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has `Rested Bar` color picker. | Present | None. | Implemented; verify rested bar visible and hidden states. |
+| Experience bar settings | Background Color | `OdysseusDB.xpBar.bgColor`; legacy color picker and `OUS.ApplyXPBarBg()`. | OUS2 has `Background` color picker. | Present | None. | Implemented; uses existing background apply helper. |
 | Dimensions | Main Bar Width | `OdysseusDB.xpBar.xpBarWidth`; legacy range 100-1000. | OUS2 has `XP Bar Width`; range 100-800. | Partial | Adjust OUS2 range to 100-1000. | No DB change. |
 | Dimensions | Main Bar Height | `OdysseusDB.xpBar.xpBarHeight`; legacy range 10-100. | OUS2 has `XP Bar Height`; range 4-80. | Partial | Align to 10-100 or document intentional difference. | Changing range affects only UI affordance, not saved structure. |
 | Dimensions | Main Bar Scale | `OdysseusDB.xpBar.xpBarScale`; legacy range 0.5-2.0. | OUS2 has `XP Bar Scale`; range 0.5-3.0. | Partial | Align to 0.5-2.0 or document intentional wider range. | Larger scales may be useful but are not exact parity. |
 | Experience bar settings | Show Rested Icon | `OdysseusDB.xpBar.showRestIcon`; legacy calls `OUS.UpdateBar()`. | OUS2 has `Show Rested Icon` under Global Behavior. | Present | None, unless moved to Experience for layout parity. | Location differs but behavior is present. |
-| Reset defaults | Experience Reset Defaults | Resets `xpTemplate`, `xpColor`, `xpTextColor`, `restColor`, `bgColor`, `showRestIcon`, `xpBarWidth`, `xpBarHeight`, and `xpBarScale`; applies background. | OUS2 has no Experience reset. | Missing | Add Experience reset after XP color controls. | Legacy reset does not call `OUS.ApplyDimensions()`; future patch should decide whether to preserve that exactly or fix visibly stale dimensions. Mark behavior audit. |
+| Reset defaults | Experience Reset Defaults | Resets `xpTemplate`, `xpColor`, `xpTextColor`, `restColor`, `bgColor`, `showRestIcon`, `xpBarWidth`, `xpBarHeight`, and `xpBarScale`; applies background. | OUS2 has an Experience `Reset Defaults` action for this scope. | Present | None. | Implemented; final review should confirm live refresh and `showRestIcon` placement. |
 | Reputation bar settings | Reputation Text Format | `OdysseusDB.xpBar.repTemplate`; legacy commits on Enter and updates bar. | OUS2 has `Reputation Text Template`. | Present | None. | OUS2 commits on focus loss too. |
-| Reputation bar settings | Reputation Text Color | `OdysseusDB.xpBar.repTextColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has no control. | Missing | Add rep text color picker row. | Existing engine reads this in `RenderReputationBar()`. |
-| Reputation colors | Hated color | `OdysseusDB.xpBar.repColors.hated`. | OUS2 has placeholder note only. | Missing | Add reputation color grid. | Keep patch small: text color plus one grid helper can be one focused patch. |
-| Reputation colors | Hostile color | `OdysseusDB.xpBar.repColors.hostile`. | OUS2 missing. | Missing | Add reputation color grid. | Preserve nested table shape. |
-| Reputation colors | Unfriendly color | `OdysseusDB.xpBar.repColors.unfriendly`. | OUS2 missing. | Missing | Add reputation color grid. | Preserve nested table shape. |
-| Reputation colors | Neutral color | `OdysseusDB.xpBar.repColors.neutral`. | OUS2 missing. | Missing | Add reputation color grid. | Preserve nested table shape. |
-| Reputation colors | Friendly color | `OdysseusDB.xpBar.repColors.friendly`. | OUS2 missing. | Missing | Add reputation color grid. | Preserve nested table shape. |
-| Reputation colors | Honored color | `OdysseusDB.xpBar.repColors.honored`. | OUS2 missing. | Missing | Add reputation color grid. | Preserve nested table shape. |
-| Reputation colors | Revered color | `OdysseusDB.xpBar.repColors.revered`. | OUS2 missing. | Missing | Add reputation color grid. | Preserve nested table shape. |
-| Reputation colors | Exalted color | `OdysseusDB.xpBar.repColors.exalted`. | OUS2 missing. | Missing | Add reputation color grid. | Preserve nested table shape. |
-| Reputation colors | Renown color | `OdysseusDB.xpBar.repColors.renown`. | OUS2 missing. | Missing | Add reputation color grid. | Verify major faction display. |
-| Reputation colors | Paragon color | `OdysseusDB.xpBar.repColors.paragon`. | OUS2 missing. | Missing | Add reputation color grid. | Verify reward-ready display still shows reward icon. |
+| Reputation bar settings | Reputation Text Color | `OdysseusDB.xpBar.repTextColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has `Reputation Text Color` picker. | Present | None. | Implemented; existing engine reads this in `RenderReputationBar()`. |
+| Reputation colors | Hated color | `OdysseusDB.xpBar.repColors.hated`. | OUS2 has a Hated standing color picker. | Present | None. | Implemented; preserves nested table shape. |
+| Reputation colors | Hostile color | `OdysseusDB.xpBar.repColors.hostile`. | OUS2 has a Hostile standing color picker. | Present | None. | Implemented; preserves nested table shape. |
+| Reputation colors | Unfriendly color | `OdysseusDB.xpBar.repColors.unfriendly`. | OUS2 has an Unfriendly standing color picker. | Present | None. | Implemented; preserves nested table shape. |
+| Reputation colors | Neutral color | `OdysseusDB.xpBar.repColors.neutral`. | OUS2 has a Neutral standing color picker. | Present | None. | Implemented; preserves nested table shape. |
+| Reputation colors | Friendly color | `OdysseusDB.xpBar.repColors.friendly`. | OUS2 has a Friendly standing color picker. | Present | None. | Implemented; preserves nested table shape. |
+| Reputation colors | Honored color | `OdysseusDB.xpBar.repColors.honored`. | OUS2 has a Honored standing color picker. | Present | None. | Implemented; preserves nested table shape. |
+| Reputation colors | Revered color | `OdysseusDB.xpBar.repColors.revered`. | OUS2 has a Revered standing color picker. | Present | None. | Implemented; preserves nested table shape. |
+| Reputation colors | Exalted color | `OdysseusDB.xpBar.repColors.exalted`. | OUS2 has an Exalted standing color picker. | Present | None. | Implemented; preserves nested table shape. |
+| Reputation colors | Renown color | `OdysseusDB.xpBar.repColors.renown`. | OUS2 has a Renown standing color picker. | Present | None. | Implemented; verify major faction display. |
+| Reputation colors | Paragon color | `OdysseusDB.xpBar.repColors.paragon`. | OUS2 has a Paragon standing color picker. | Present | None. | Implemented; verify reward-ready display still shows reward icon. |
 | Reputation bar settings | Enable Renown and Paragon Reward Popups | `OdysseusDB.xpBar.toastEnabled`. | OUS2 has `Toast Enabled`. | Present | None. | Label differs but behavior is covered. |
 | Reputation bar settings | Play Sound on Reward Popup | `OdysseusDB.xpBar.toastSound`. | OUS2 has `Toast Sound`. | Present | None. | No sound picker exists in legacy. |
 | Favorites | Right-Click Modifier for Faction Menu | `OdysseusDB.xpBar.repMenuMod`; legacy cycle button over CTRL, SHIFT, ALT, NONE. | OUS2 has explicit CTRL/SHIFT/ALT/NONE selection buttons. | Present | None. | Intentional OUS2 improvement. |
-| Reset defaults | Reputation Reset Defaults | Resets `repTemplate`, `repTextColor`, `repColors`, `toastEnabled`, `toastSound`, and `repMenuMod`; calls `OUS.UpdateBar()`. | OUS2 has no Reputation reset. | Missing | Add Reputation reset after reputation color controls. | Keep reset scoped to legacy reputation tab. |
+| Reset defaults | Reputation Reset Defaults | Legacy resets `repTemplate`, `repTextColor`, `repColors`, `toastEnabled`, `toastSound`, and `repMenuMod`; calls `OUS.UpdateBar()`. | OUS2 has a Reputation `Reset Defaults` action for `repTemplate`, `repTextColor`, `repColors`, and `repMenuMod`; `toastEnabled` and `toastSound` are intentionally excluded pending final review. | Final review | Decide final toast reset scope before closing Phase 5.6. | Implemented for migration-approved keys; divergence is tracked in the Final Polish / Review List. |
 | Favorites | Favorites selector help | Legacy help says modifier-right-click XP Bar opens faction menu. | OUS2 Favorites view documents existing selector. | Present | None. | Documentation-only parity is adequate until API exists. |
 | Favorites | Favorites management UI | Legacy selector is in `xpbar_favorites.lua` and opens from modifier-right-click, not from `xpbar_config.lua`. Data stored in `OdysseusDB.xpBar.favFactions`. | OUS2 is read-only and does not open/manage the selector. | Partial | Add an OUS2 action to open the existing selector only if a public helper is exposed or can be safely introduced later. | Do not manipulate `favFactions` directly until a public selector API is planned. Recent combat guard means selector/hover behavior needs combat testing. |
 | Delves | Companion Text Format | `OdysseusDB.xpBar.delveCompTemplate`; legacy commits on Enter and updates Delves bar. | OUS2 Delves page has `Companion Template`. | Present | None. | OUS2 commits on focus loss too. |
 | Delves | Journey Text Format | `OdysseusDB.xpBar.delveJourTemplate`; legacy commits on Enter and updates Delves bar. | OUS2 Delves page has `Journey Template`. | Present | None. | Present. |
-| Delves colors | Companion Color | `OdysseusDB.xpBar.delveCompColor`; legacy color picker and `OUS.UpdateDelveBar()`. | OUS2 has placeholder note only. | Missing | Add Delves companion color picker. | Existing engine reads this in `OUS.UpdateDelveBar()`. |
-| Delves colors | Journey Color | `OdysseusDB.xpBar.delveJourColor`; legacy color picker and `OUS.UpdateDelveBar()`. | OUS2 missing. | Missing | Add Delves journey color picker. | Existing engine reads this in `OUS.UpdateDelveBar()`. |
+| Delves colors | Companion Color | `OdysseusDB.xpBar.delveCompColor`; legacy color picker and `OUS.UpdateDelveBar()`. | OUS2 has `Companion Color` picker. | Present | None. | Implemented; existing engine reads this in `OUS.UpdateDelveBar()`. |
+| Delves colors | Journey Color | `OdysseusDB.xpBar.delveJourColor`; legacy color picker and `OUS.UpdateDelveBar()`. | OUS2 has `Journey Color` picker. | Present | None. | Implemented; existing engine reads this in `OUS.UpdateDelveBar()`. |
 | Delves dimensions | Delve Bar Width | `OdysseusDB.xpBar.delveBarWidth`; legacy range 100-1000. | OUS2 has matching width range. | Present | None. | Verify after resize at default OUS2 size. |
 | Delves dimensions | Delve Bar Height | `OdysseusDB.xpBar.delveBarHeight`; legacy range 20-100 step 2. | OUS2 has matching range and step. | Present | None. | Present. |
 | Delves dimensions | Delve Bar Scale | `OdysseusDB.xpBar.delveBarScale`; legacy range 0.5-2.0. | OUS2 has matching range and step. | Present | None. | Present. |
@@ -109,29 +111,31 @@ Current OUS2 intentional improvements:
 
 ## 5. Suggested Patch Order
 
-Do not implement this as one large patch. Recommended small patches:
+Do not implement the remaining work as one large patch. Completed implementation patches:
 
 1. XPBar Global range/media/border patch:
-   * Align `repDisplayTime`, `fadeDelay`, `xpBarWidth`, `xpBarHeight`, and `xpBarScale` ranges where needed.
-   * Add font media dropdown.
-   * Add border media dropdown, border size, and border color.
+   * Font, border style, border color, border size, and documented Global numeric range parity are implemented.
 2. XPBar Experience color patch:
-   * Add XP, XP text, rested, and background color controls.
-   * Remove or replace the current Future Settings color note.
+   * XP, XP text, rested, and background color controls are implemented.
 3. XPBar Reputation color patch:
-   * Add rep text color and reputation color grid.
-   * Remove or replace the current color placeholder note.
+   * Reputation text color and standing color grid are implemented.
 4. XPBar section reset patch:
-   * Add Global, Experience, and Reputation Reset Defaults actions.
-   * Keep scopes identical to legacy tabs.
-5. Delves color/reset patch:
-   * Add companion and journey color controls.
+   * Global, Experience, and Reputation Reset Defaults actions are implemented.
+   * Reputation reset toast scope remains a final-review item.
+5. Delves color patch:
+   * Companion and journey color controls are implemented.
+
+Remaining recommended small patches:
+
+1. Delves reset patch:
    * Add Delves Reset Defaults with position reset parity.
-6. Favorites API planning patch:
+2. Favorites API planning patch:
    * Document or expose a small public helper for the existing selector only if needed.
    * Then add an OUS2 action to open the selector.
-7. Blizzard hide behavior audit:
+3. Blizzard hide behavior audit:
    * Decide whether OUS2 should disable Hide Blizzard XP/Rep Bars while in an instance.
+4. Final polish/review pass:
+   * Resolve `showRestIcon` placement, Reputation toast reset scope, live-preview consistency, popup layering, and helper extraction timing.
 
 ## 6. Reset Semantics Review
 
@@ -146,7 +150,8 @@ OUS2 should keep these as section-specific actions rather than adding one broad 
 
 Uncertainty:
 
-* Legacy Experience reset updates DB values and background but does not visibly call `OUS.ApplyDimensions()` or `OUS.UpdateBar()` after resetting dimensions/colors except for `OUS.ApplyXPBarBg()`. Future implementation should decide whether to copy that exact scope or call existing public helpers so the UI updates immediately.
+* OUS2 Experience reset calls existing public helpers so the UI and live bars refresh immediately. Final review should verify this is the desired OUS2 standard despite the legacy reset only visibly calling `OUS.ApplyXPBarBg()`.
+* OUS2 Reputation reset currently excludes `toastEnabled` and `toastSound` because the migration scope explicitly excluded Toast settings. Final review must decide whether to restore legacy reset behavior or document the narrower OUS2 reset scope as standard.
 * Shell-level OUS2 Reset to Defaults is broader than legacy XP tab resets and should not be used as the parity mechanism.
 
 ## 7. Combat / Runtime Safety Notes
@@ -176,7 +181,7 @@ This is a future polish checklist, not active implementation work for the curren
 * Verify all ColorPicker frames open above OUS2.
 * Verify all reset buttons refresh the visible widgets and live bars.
 * Verify reset scopes match legacy exactly.
-* Update completed/remaining status after Global, Experience, Reputation, and Delves reset patches are done.
+* Keep completed/remaining status current after the Delves reset patch and final XP Bar review decisions are done.
 * Consider extracting duplicated OUS2 color, media, and action row helpers later into a shared helper file, but only after parity is complete.
 * Do not refactor helper duplication during XP parity patches.
 * Live Preview Consistency:
@@ -186,6 +191,11 @@ This is a future polish checklist, not active implementation work for the curren
 * Navigation Consistency:
   * Verify all OUS2 navigation paths resolve to the correct page: General dashboard cards, left navigation buttons, XP Bar hub child cards, and Back buttons.
   * Confirm page keys remain synchronized after future additions.
+* Reputation Reset Scope Review:
+  * Review legacy Reputation Reset handling for `toastEnabled` and `toastSound`.
+  * Current OUS2 implementation intentionally excludes both settings because the migration scope explicitly excluded Toast settings.
+  * Decide during the final XP Bar parity review whether legacy behavior should be restored or the new behavior should become the documented OUS2 standard.
+  * Document the final decision before closing Phase 5.6.
 
 ## 10. Testing Checklist
 

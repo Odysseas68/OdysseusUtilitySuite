@@ -443,11 +443,19 @@ local function CopyDefaultTable(key)
         return OUS.DeepCopyTable(defaults[key])
     end
 
-    local copy = {}
-    for entryKey, entryValue in pairs(defaults[key]) do
-        copy[entryKey] = entryValue
+    local function CopyTable(value)
+        if type(value) ~= "table" then
+            return value
+        end
+
+        local copy = {}
+        for entryKey, entryValue in pairs(value) do
+            copy[entryKey] = CopyTable(entryValue)
+        end
+        return copy
     end
-    return copy
+
+    return CopyTable(defaults[key])
 end
 
 local function ResetGlobalDefaults()
@@ -693,6 +701,24 @@ local function ResetExperienceDefaults()
 
     RefreshExperience()
     RefreshGlobal()
+end
+
+local function ResetReputationDefaults()
+    local db = GetXPBarDB()
+    local defaults = OUS.defaults
+    if not db or not defaults then return end
+
+    db.repTemplate = defaults.repTemplate
+    db.repTextColor = CopyDefaultTable("repTextColor")
+    db.repColors = CopyDefaultTable("repColors")
+    db.repMenuMod = defaults.repMenuMod
+
+    ApplyReputationColors()
+    if OUS.LogDebug then
+        OUS.LogDebug("XPBar", "Reputation tab defaults restored.")
+    end
+
+    RefreshReputation()
 end
 
 local function CreateExperienceTemplateRow(parent, yOffset)
@@ -1599,6 +1625,13 @@ CreateReputationModifierButton(reputationChild, "ALT", "ALT", -426, true)
 CreateReputationModifierButton(reputationChild, "NONE", "NONE", -426, false)
 
 CreateSectionHeader(reputationChild, "Reputation", -492)
+CreateGlobalActionButton(
+    reputationChild,
+    "Reset Defaults",
+    "Reset only Reputation template, colors, and faction menu modifier settings.",
+    -488,
+    ResetReputationDefaults
+)
 CreateGlobalColorRow(
     reputationChild,
     "Reputation Text Color",
