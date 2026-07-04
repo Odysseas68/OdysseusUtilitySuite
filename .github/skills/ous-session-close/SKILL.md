@@ -60,6 +60,20 @@ Mention:
 - deleted files
 - untracked files
 
+Evaluate whether the completed work represents a project milestone.
+
+Examples:
+
+- Phase completion
+- Feature parity completion
+- New engineering document
+- New reusable workflow
+- New reusable framework
+
+If a milestone has been reached, recommend reviewing `CHANGELOG.md` before committing.
+
+Do not modify the changelog automatically.
+
 Generate:
 
 - concise commit message describing one logical engineering milestone
@@ -68,6 +82,15 @@ Generate:
 If the current changes contain multiple unrelated features, recommend splitting them into separate commits before committing.
 
 Suggest the next logical engineering task.
+
+Include expected files for the next patch.
+
+List only files expected to change during the next patch so accidental scope expansion is easier to detect.
+
+Example:
+
+- `Config2/OUS2Page_Delves.lua`
+- `Documentation/OUS2_XPBAR_PARITY.md`
 
 Finally ask:
 
@@ -80,6 +103,19 @@ Would you like me to:
 Never assume.
 
 Always ask.
+
+After any user-approved commit and/or push, run a final Repository Clean Check.
+
+Verify:
+
+- `git status`
+
+Expected result:
+
+- working tree clean
+- branch up to date with `origin/<branch>`
+
+Report the final repository state.
 
 ---
 
@@ -108,4 +144,17 @@ The skill should produce a concise engineering wrap-up including:
 - Git status
 - Suggested commit message
 - Suggested next task
+- Expected files for the next task
 - Commit/push question
+- Session Statistics
+
+Session Statistics should include:
+
+- Files modified
+- Documentation files modified
+- Lua files modified
+- Skills modified
+- New files created
+- Git commits prepared
+- Git commits created
+- Git pushes performed
