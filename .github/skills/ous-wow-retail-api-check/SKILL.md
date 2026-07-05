@@ -6,7 +6,7 @@ description: Verify unfamiliar or uncertain World of Warcraft Retail 12.0+ APIs 
 # OUS WoW Retail API Check
 
 1. Read `AGENTS.md` and the relevant project-local `wow-api-*` or `wow-addon-structure` skills.
-2. Verify in order: project instructions, local `WoWAddonDevGuide`, the live `wow-ui-source`, generated Blizzard API docs, then `EnhanceQoL` as a modern comparison.
+2. Verify in order: project instructions, `Reference/Blizzard/wow-ui-source`, generated Blizzard API docs, then `EnhanceQoL` as a modern comparison.
 3. Confirm the exact function name, arguments, returns, event payload, nil or delayed-loading behavior, combat-lockdown and taint risk, and secret predicates.
 4. Prefer the modern Retail-safe `C_` namespace when the verified API uses it.
 5. Never infer from Classic examples, old addon code, or memory.

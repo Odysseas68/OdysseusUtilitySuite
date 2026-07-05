@@ -137,6 +137,35 @@ OdysseusUtilitySuite
 
 All existing OUS module files remain in the addon root until a future restructure is explicitly approved.
 
+## Local Engineering Reference Workspace
+
+`Reference\` is an addon-local Windows junction to the shared Interface-level reference workspace:
+
+```text
+D:\Program Files\Blizzard\World of Warcraft\_retail_\Interface\Reference
+```
+
+Current reference layout:
+
+```text
+Reference\
++-- Blizzard\wow-ui-source\
++-- Odysseus\OdysseusBuffBarsTest\
++-- ThirdParty\ElkBuffBars\
++-- ThirdParty\LibEQOL\
++-- ThirdParty\LibSettingsDesigner\
++-- Research\
+L-- Scripts\
+```
+
+Rules:
+
+- `Reference\` is local-only, shared by multiple addon projects, and ignored by Git.
+- It is read-only during normal OUS development.
+- It is never loaded by World of Warcraft and must never be referenced by production runtime code.
+- Use `Reference\Blizzard\wow-ui-source\` for Retail API and FrameXML verification instead of hardcoded installation paths.
+- Treat `Reference\Odysseus\OdysseusBuffBarsTest\` and `Reference\ThirdParty\ElkBuffBars\` as reference-only sources.
+
 **Texture path:**
 
 ```text

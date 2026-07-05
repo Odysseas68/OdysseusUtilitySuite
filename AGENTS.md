@@ -116,12 +116,11 @@ Before implementing unfamiliar or uncertain Retail API usage, verify in this ord
    - `.github/skills/wow-addon-structure/SKILL.md`
    - `.github/instructions/`
 
-2. Local API/reference repos:
-   - `d:\Program Files\Blizzard\World of Warcraft\_retail_\Interface\WoWAddonDevGuide\`
-   - `d:\Program Files\Blizzard\World of Warcraft\_retail_\Interface\wow-ui-source\`
+2. Local engineering reference workspace:
+   - `Reference\Blizzard\wow-ui-source\`
 
 3. Blizzard generated API docs inside the local Gethe mirror:
-   - `d:\Program Files\Blizzard\World of Warcraft\_retail_\Interface\wow-ui-source\Interface\AddOns\Blizzard_APIDocumentationGenerated\`
+   - `Reference\Blizzard\wow-ui-source\Interface\AddOns\Blizzard_APIDocumentationGenerated\`
 
 4. Local modern addon comparison:
    - `d:\Program Files\Blizzard\World of Warcraft\_retail_\Interface\AddOns\EnhanceQoL\`
@@ -129,7 +128,7 @@ Before implementing unfamiliar or uncertain Retail API usage, verify in this ord
 5. External reference only when needed:
    - JBurlison/WoWAddonAPIAgents patterns
 
-When using `wow-ui-source`, prefer the `live` mirror and Blizzard-generated API documentation for function signatures, event payloads, and secret predicate status.
+When using `wow-ui-source`, prefer `Reference\Blizzard\wow-ui-source` and Blizzard-generated API documentation for function signatures, event payloads, and secret predicate status. `Reference\` is a local-only engineering workspace, ignored by Git, never loaded by World of Warcraft, and must never be referenced by production runtime code.
 
 ---
 

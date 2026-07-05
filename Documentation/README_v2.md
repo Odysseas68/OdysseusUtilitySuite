@@ -11,6 +11,15 @@ The goal is to replace the original Midnight-themed configuration window with a 
 * `Documentation\ARCHITECTURE.md` — OUS2 architecture, page system, and migration status.
 * `Documentation\TODO_v2.md` — high-level phase tracking and remaining milestones.
 * `Documentation\OUS2_XPBAR_PARITY.md` — authoritative engineering checklist for remaining XP Bar, Reputation, and Delves OUS2 parity work.
+* `Reference\README.md` — local engineering reference workspace layout and read-only usage rules.
+
+## Local Reference Workspace
+
+The addon-local `Reference\` path is a Windows junction to the shared Interface-level engineering workspace.
+
+Use `Reference\Blizzard\wow-ui-source\` for Retail API, FrameXML, and Blizzard-generated documentation checks instead of hardcoded installation paths.
+
+`Reference\` is local-only, ignored by Git, read-only during normal development, never loaded by World of Warcraft, and never referenced by production runtime code.
 
 ---
 

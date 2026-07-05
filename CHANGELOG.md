@@ -2,6 +2,18 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-07-04] - Delves OUS2 Parity and Reference Workspace
+
+### Added
+- Added Delves OUS2 `Reset Defaults` and `Reset Position` parity.
+- Added `.github\skills\ous-reference-workspace\SKILL.md` for safe shared Reference workspace usage.
+
+### Documentation
+- Documented the shared `Reference\` engineering workspace and its read-only, local-only contract.
+- Updated reference guidance to prefer `Reference\Blizzard\wow-ui-source` for Blizzard API and FrameXML checks.
+
+---
+
 ## [2026-07-04] - Phase 5.6 XP Bar Parity Planning
 
 ### Documentation
