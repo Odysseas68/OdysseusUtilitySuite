@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Delves.lua
--- Version : 2026.07.04
+-- Version : 2026.07.05
 -- Desc    : OUS2 Delves companion and journey settings page
 -- ================================================
 
@@ -18,6 +18,7 @@ local widthControl
 local heightControl
 local scaleControl
 local colorSwatches = {}
+local Refresh
 
 local function SetTextColor(fontString, color)
     fontString:SetTextColor(color[1], color[2], color[3], color[4])
@@ -37,6 +38,23 @@ local function SetSwatchColor(swatch, color, fallback)
         (color and color.b) or 1,
         1
     )
+end
+
+local function CopyDefaultTable(key)
+    local defaults = OUS.defaults
+    if not defaults or type(defaults[key]) ~= "table" then
+        return nil
+    end
+
+    if OUS.DeepCopyTable then
+        return OUS.DeepCopyTable(defaults[key])
+    end
+
+    local copy = {}
+    for entryKey, entryValue in pairs(defaults[key]) do
+        copy[entryKey] = entryValue
+    end
+    return copy
 end
 
 local function AddSlicedEditBoxBackground(editBox)
@@ -177,6 +195,53 @@ local function ApplyDelveColors()
     end
 end
 
+local function ApplyDelveReset()
+    if OUS.ApplyDimensions then OUS.ApplyDimensions() end
+    if OUS.WakeBars then OUS.WakeBars() end
+    if OUS.UpdateBar then OUS.UpdateBar() end
+    if OUS.UpdateDelveBar then OUS.UpdateDelveBar() end
+    if OUS.SleepBars then OUS.SleepBars() end
+end
+
+local function ResetDelveDefaults()
+    local db = GetXPBarDB()
+    local defaults = OUS.defaults
+    if not db or not defaults then return end
+
+    db.delveCompTemplate = defaults.delveCompTemplate
+    db.delveJourTemplate = defaults.delveJourTemplate
+    db.delveCompColor = CopyDefaultTable("delveCompColor")
+    db.delveJourColor = CopyDefaultTable("delveJourColor")
+    db.delveBarWidth = defaults.delveBarWidth
+    db.delveBarHeight = defaults.delveBarHeight
+    db.delveBarScale = defaults.delveBarScale
+
+    ApplyDelveReset()
+    if OUS.LogDebug then
+        OUS.LogDebug("XPBar", "Delve defaults restored.")
+    end
+end
+
+local function ApplyDelvePosition(pos)
+    local delveFrame = OUS.delveBarFrame
+    if not delveFrame or not pos then return end
+
+    delveFrame:ClearAllPoints()
+    delveFrame:SetPoint(pos.p, UIParent, pos.rP, pos.x, pos.y)
+    if OUS.UpdateDelveBar then OUS.UpdateDelveBar() end
+end
+
+local function ResetDelvePosition()
+    local db = GetXPBarDB()
+    if not db then return end
+
+    db.delveBarPos = CopyDefaultTable("delveBarPos")
+    ApplyDelvePosition(db.delveBarPos)
+    if OUS.LogDebug then
+        OUS.LogDebug("XPBar", "Delve position restored.")
+    end
+end
+
 local function CreateScaleRow(labelText, helpText, yOffset, minValue, maxValue, step, initialValue, dbKey)
     local row = CreateFrame("Frame", nil, page)
     row:SetHeight(56)
@@ -267,6 +332,28 @@ local function CreateColorRow(labelText, helpText, yOffset, dbKey, leftSide)
     AttachControlHelp(row, background, helpText)
     AttachControlHelp(swatchButton, background, helpText)
     colorSwatches[dbKey] = swatch
+end
+
+local function CreateActionButton(labelText, helpText, yOffset, onClick)
+    local button = CreateFrame("Button", nil, page)
+    button:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
+    button:SetSize(132, 24)
+    button:SetNormalTexture(T.Tex("ActionNormal"))
+    button:SetHighlightTexture(T.Tex("ActionHover"))
+    button:SetPushedTexture(T.Tex("ActionPressed"))
+
+    local label = button:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+    label:SetPoint("CENTER")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    button:SetScript("OnEnter", function()
+        C.SetHelpText(helpText)
+    end)
+    button:SetScript("OnLeave", function()
+        C.ClearHelpText()
+    end)
+    button:SetScript("OnClick", onClick)
 end
 
 local headerIcon = page:CreateTexture(nil, "ARTWORK")
@@ -374,8 +461,26 @@ CreateColorRow(
     "delveJourColor",
     false
 )
+CreateActionButton(
+    "Reset Defaults",
+    "Reset only Delves templates, colors, width, height, and scale. Position is handled separately.",
+    -654,
+    function()
+        ResetDelveDefaults()
+        Refresh()
+    end
+)
+CreateActionButton(
+    "Reset Position",
+    "Reset only the Delves bar position to the legacy default anchor.",
+    -684,
+    function()
+        ResetDelvePosition()
+        Refresh()
+    end
+)
 
-local function Refresh()
+Refresh = function()
     local db = GetXPBarDB()
 
     widthControl:SetValue(db and db.delveBarWidth or 300, true)

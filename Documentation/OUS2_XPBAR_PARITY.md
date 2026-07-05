@@ -37,7 +37,7 @@ Current OUS2 coverage includes:
 * Reputation text template, text color, standing colors, toast enabled, toast sound, faction menu modifier controls, and Reputation Reset Defaults.
 * Read-only Favorites guidance.
 * XP/Rep/Delves token help.
-* Delves companion and journey templates, companion/journey colors, width, height, and scale controls.
+* Delves companion and journey templates, companion/journey colors, width, height, scale, Reset Defaults, and Reset Position controls.
 
 Current OUS2 intentional improvements:
 
@@ -99,8 +99,8 @@ Current OUS2 intentional improvements:
 | Delves dimensions | Delve Bar Width | `OdysseusDB.xpBar.delveBarWidth`; legacy range 100-1000. | OUS2 has matching width range. | Present | None. | Verify after resize at default OUS2 size. |
 | Delves dimensions | Delve Bar Height | `OdysseusDB.xpBar.delveBarHeight`; legacy range 20-100 step 2. | OUS2 has matching range and step. | Present | None. | Present. |
 | Delves dimensions | Delve Bar Scale | `OdysseusDB.xpBar.delveBarScale`; legacy range 0.5-2.0. | OUS2 has matching range and step. | Present | None. | Present. |
-| Delves position | Delve bar position reset | Legacy Delves reset restores `OdysseusDB.xpBar.delveBarPos` and reanchors `OUS.delveBarFrame`. | OUS2 has no Delves reset action. | Missing | Add Delves reset action after Delves colors. | This is reset parity, not a separate position control. |
-| Reset defaults | Delves Reset Defaults | Resets Delves templates, colors, dimensions, scale, and position; applies dimensions, wake/update/sleep. | OUS2 has no Delves reset. | Missing | Add Delves reset action. | Keep scoped to Delves keys only. |
+| Delves position | Delve bar position reset | Legacy Delves reset restores `OdysseusDB.xpBar.delveBarPos` and reanchors `OUS.delveBarFrame`. | OUS2 has a `Reset Position` action that resets only `OdysseusDB.xpBar.delveBarPos`. | Present | None. | Functionally complete; OUS2 uses the guarded legacy re-anchor path. Shared helper review is engineering polish only. |
+| Reset defaults | Delves Reset Defaults | Legacy reset restores Delves templates, colors, dimensions, scale, and position; applies dimensions, wake/update/sleep. | OUS2 has `Reset Defaults` for `delveCompTemplate`, `delveJourTemplate`, `delveCompColor`, `delveJourColor`, `delveBarWidth`, `delveBarHeight`, and `delveBarScale`, plus a separate `Reset Position` action for `delveBarPos`. | Present | None. | Implemented as two scoped actions to keep position reset explicit. No in-game testing is claimed in this document. |
 | Help | XP template token help | Legacy Help tab lists XP tokens. | OUS2 XPBar Help lists XP tokens. | Present | None. | OUS2 includes additional `needRep` style tokens. |
 | Help | Reputation and Delves token help | Legacy Help tab lists rep and Delves tokens. | OUS2 XPBar Help lists reputation and Delves tokens. | Present | None. | OUS2 help is more complete. |
 | Help | Master chat commands | Legacy Help tab lists `/ous`, `/ous help`, `/xpstats`, `/toasttest`, and movement tips. | OUS2 XPBar Help lists `/xpstats`, `/toasttest`, movement, favorites, and notes. | Partial | Optional text review only. | Add `/ous` and `/ous help` only if XPBar Help is intended to fully mirror legacy tab. Addon-wide Help already covers global commands. |
@@ -124,17 +124,17 @@ Do not implement the remaining work as one large patch. Completed implementation
    * Reputation reset toast scope remains a final-review item.
 5. Delves color patch:
    * Companion and journey color controls are implemented.
+6. Delves reset and position patch:
+   * Delves Reset Defaults and Reset Position actions are implemented as separate scoped actions.
 
 Remaining recommended small patches:
 
-1. Delves reset patch:
-   * Add Delves Reset Defaults with position reset parity.
-2. Favorites API planning patch:
+1. Favorites API planning patch:
    * Document or expose a small public helper for the existing selector only if needed.
    * Then add an OUS2 action to open the selector.
-3. Blizzard hide behavior audit:
+2. Blizzard hide behavior audit:
    * Decide whether OUS2 should disable Hide Blizzard XP/Rep Bars while in an instance.
-4. Final polish/review pass:
+3. Final polish/review pass:
    * Resolve `showRestIcon` placement, Reputation toast reset scope, live-preview consistency, popup layering, and helper extraction timing.
 
 ## 6. Reset Semantics Review
@@ -145,6 +145,7 @@ Legacy reset is tab-scoped, not a single XP Bar reset:
 * Experience reset touches XP template, XP/rest/background/text colors, rested icon, and XP dimensions.
 * Reputation reset touches rep template, rep text color, rep standing colors, toast settings, and menu modifier.
 * Delves reset touches Delves templates, colors, dimensions, scale, and Delves position.
+* OUS2 Delves reset parity is split into two actions: Reset Defaults for `delveCompTemplate`, `delveJourTemplate`, `delveCompColor`, `delveJourColor`, `delveBarWidth`, `delveBarHeight`, and `delveBarScale`, and Reset Position for `OdysseusDB.xpBar.delveBarPos`.
 
 OUS2 should keep these as section-specific actions rather than adding one broad XP Bar reset in the first parity pass.
 
@@ -181,7 +182,13 @@ This is a future polish checklist, not active implementation work for the curren
 * Verify all ColorPicker frames open above OUS2.
 * Verify all reset buttons refresh the visible widgets and live bars.
 * Verify reset scopes match legacy exactly.
-* Keep completed/remaining status current after the Delves reset patch and final XP Bar review decisions are done.
+* Keep completed/remaining status current after the Favorites patch and final XP Bar review decisions are done.
+* Delves Position Helper Review:
+  * Delves position reset is functionally complete.
+  * OUS2 currently applies the position using the guarded legacy frame re-anchor path.
+  * No public Delves position helper currently exists.
+  * Review after Phase 5.6 whether a shared public helper should be introduced.
+  * This is an engineering improvement only and is not a missing parity feature.
 * Consider extracting duplicated OUS2 color, media, and action row helpers later into a shared helper file, but only after parity is complete.
 * Do not refactor helper duplication during XP parity patches.
 * Live Preview Consistency:
@@ -246,7 +253,8 @@ Delves:
 * Change companion and journey colors.
 * Change Delves width, height, and scale.
 * Shift-drag Delves bar and confirm saved position.
-* Reset Delves defaults and verify dimensions, colors, templates, scale, and position.
+* Reset Delves defaults and verify dimensions, colors, templates, and scale.
+* Reset Delves position and verify only position changes.
 * Test Delves page Back to XP Bar.
 * Test entering/leaving a Delve or `/delvetest` where appropriate.
 
