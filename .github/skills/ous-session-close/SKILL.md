@@ -32,6 +32,12 @@ Verify documentation synchronization.
 
 If completed work makes project documentation inaccurate or stale, recommend updating documentation before preparing a commit.
 
+Verify Engineering Workspace state:
+
+- no `Reference` directory exists inside the World of Warcraft installation
+- no NTFS junction from the World of Warcraft installation points into `D:\WoWDev`
+- documentation still reflects the external `D:\WoWDev` workspace architecture
+
 Verify feature-specific planning documents are updated when applicable.
 
 Examples:

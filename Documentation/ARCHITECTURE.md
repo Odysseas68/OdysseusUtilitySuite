@@ -137,34 +137,39 @@ OdysseusUtilitySuite
 
 All existing OUS module files remain in the addon root until a future restructure is explicitly approved.
 
-## Local Engineering Reference Workspace
+## External Engineering Workspace
 
-`Reference\` is an addon-local Windows junction to the shared Interface-level reference workspace:
-
-```text
-D:\Program Files\Blizzard\World of Warcraft\_retail_\Interface\Reference
-```
-
-Current reference layout:
+The shared engineering workspace is intentionally outside the World of Warcraft installation:
 
 ```text
-Reference\
-+-- Blizzard\wow-ui-source\
-+-- Odysseus\OdysseusBuffBarsTest\
-+-- ThirdParty\ElkBuffBars\
-+-- ThirdParty\LibEQOL\
-+-- ThirdParty\LibSettingsDesigner\
-+-- Research\
-L-- Scripts\
+D:\WoWDev
+|
++-- Reference
+|   +-- Blizzard
+|   +-- ThirdParty
+|   +-- Odysseus
+|   +-- Research
+|   L-- Scripts
+|
++-- Python
+L-- Tools
 ```
 
 Rules:
 
-- `Reference\` is local-only, shared by multiple addon projects, and ignored by Git.
-- It is read-only during normal OUS development.
-- It is never loaded by World of Warcraft and must never be referenced by production runtime code.
-- Use `Reference\Blizzard\wow-ui-source\` for Retail API and FrameXML verification instead of hardcoded installation paths.
-- Treat `Reference\Odysseus\OdysseusBuffBarsTest\` and `Reference\ThirdParty\ElkBuffBars\` as reference-only sources.
+- The WoW installation contains only runtime and game files.
+- The engineering workspace lives under `D:\WoWDev`.
+- The shared Reference workspace lives at `D:\WoWDev\Reference`.
+- `D:\WoWDev\Reference` is read-only research material during normal OUS development.
+- Production addon code must never load, require, include, or depend on files under `D:\WoWDev\Reference`.
+- Use `D:\WoWDev\Reference\Blizzard\wow-ui-source\` for Retail API and FrameXML verification.
+- Treat `D:\WoWDev\Reference\Odysseus\OdysseusBuffBarsTest\` and `D:\WoWDev\Reference\ThirdParty\ElkBuffBars\` as reference-only sources.
+- Do not create addon-local `Reference` directories inside the WoW installation.
+- Do not create NTFS junctions from the WoW installation to `D:\WoWDev`.
+
+### Lessons Learned
+
+While troubleshooting Battle.net update error `BLZBNTAGT00000841`, we confirmed that Battle.net may recursively traverse NTFS junction targets under the World of Warcraft installation during Update and Scan & Repair operations. Keeping development assets outside the WoW installation avoids permission/update failures and keeps runtime files separate from engineering research material.
 
 **Texture path:**
 

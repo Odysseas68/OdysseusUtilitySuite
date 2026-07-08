@@ -244,10 +244,11 @@ ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
 ---
 
 ## Local Reference Repos
-- `Reference/Blizzard/wow-ui-source/` — Gethe mirror of live Blizzard UI source; use `Interface/AddOns/Blizzard_APIDocumentationGenerated/` for secret predicate and API signature verification
-- `Reference/Odysseus/OdysseusBuffBarsTest/` — frozen Odysseus reference addon used for BuffBars research
-- `Reference/ThirdParty/ElkBuffBars/` — third-party reference addon for historical BuffBars behavior
-- `Reference/ThirdParty/LibEQOL/` and `Reference/ThirdParty/LibSettingsDesigner/` — third-party library references
+- `D:/WoWDev/Reference/Blizzard/wow-ui-source/` — Gethe mirror of live Blizzard UI source; use `Interface/AddOns/Blizzard_APIDocumentationGenerated/` for secret predicate and API signature verification
+- `D:/WoWDev/Reference/Odysseus/OdysseusBuffBarsTest/` — frozen Odysseus reference addon used for BuffBars research
+- `D:/WoWDev/Reference/ThirdParty/ElkBuffBars/` — third-party reference addon for historical BuffBars behavior
+- `D:/WoWDev/Reference/ThirdParty/LibEQOL/` and `D:/WoWDev/Reference/ThirdParty/LibSettingsDesigner/` — third-party library references
+- Keep the engineering workspace outside the World of Warcraft installation. Do not recreate addon-local `Reference` directories or NTFS junctions into `D:/WoWDev`.
 
 ---
 
@@ -258,8 +259,8 @@ ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
 - No `loadstring`, no `pcall` wrappers around core logic (only around logging, as in Core.lua)
 - No multi-file changes in a single task — work one file at a time
 - Preserve modular architecture — modules must not directly call functions from sibling modules (go through OUS table)
-- For any uncertain or unfamiliar Retail API usage, reference `.github/skills/` local files first, then `Reference/Blizzard/wow-ui-source/Interface/AddOns/Blizzard_APIDocumentationGenerated/` (live Blizzard generated API docs, secret predicate verification), then https://github.com/JBurlison/WoWAddonAPIAgents
-- Before using any uncertain WoW API, verify the correct Retail 12.0+ signature and secret predicate status in `Reference/Blizzard/wow-ui-source/Interface/AddOns/Blizzard_APIDocumentationGenerated/` — do not infer API signatures from Classic patterns or training data
+- For any uncertain or unfamiliar Retail API usage, reference `.github/skills/` local files first, then `D:/WoWDev/Reference/Blizzard/wow-ui-source/Interface/AddOns/Blizzard_APIDocumentationGenerated/` (live Blizzard generated API docs, secret predicate verification), then https://github.com/JBurlison/WoWAddonAPIAgents
+- Before using any uncertain WoW API, verify the correct Retail 12.0+ signature and secret predicate status in `D:/WoWDev/Reference/Blizzard/wow-ui-source/Interface/AddOns/Blizzard_APIDocumentationGenerated/` — do not infer API signatures from Classic patterns or training data
 - Cross-reference patterns from EnhanceQoL addon (`../EnhanceQoL/`) for modern event-driven approaches.
 - Minimal comments only — never narrate what code is doing; only comment *why* when genuinely non-obvious; section headers allowed; short one-line descriptions on functions/helpers/tables
 - **No `goto` or `::label::` syntax** — WoW uses Lua 5.1 which does not support these; use nested `if` guards instead

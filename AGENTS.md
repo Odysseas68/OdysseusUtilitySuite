@@ -116,11 +116,11 @@ Before implementing unfamiliar or uncertain Retail API usage, verify in this ord
    - `.github/skills/wow-addon-structure/SKILL.md`
    - `.github/instructions/`
 
-2. Local engineering reference workspace:
-   - `Reference\Blizzard\wow-ui-source\`
+2. External engineering reference workspace:
+   - `D:\WoWDev\Reference\Blizzard\wow-ui-source\`
 
 3. Blizzard generated API docs inside the local Gethe mirror:
-   - `Reference\Blizzard\wow-ui-source\Interface\AddOns\Blizzard_APIDocumentationGenerated\`
+   - `D:\WoWDev\Reference\Blizzard\wow-ui-source\Interface\AddOns\Blizzard_APIDocumentationGenerated\`
 
 4. Local modern addon comparison:
    - `d:\Program Files\Blizzard\World of Warcraft\_retail_\Interface\AddOns\EnhanceQoL\`
@@ -128,7 +128,7 @@ Before implementing unfamiliar or uncertain Retail API usage, verify in this ord
 5. External reference only when needed:
    - JBurlison/WoWAddonAPIAgents patterns
 
-When using `wow-ui-source`, prefer `Reference\Blizzard\wow-ui-source` and Blizzard-generated API documentation for function signatures, event payloads, and secret predicate status. `Reference\` is a local-only engineering workspace, ignored by Git, never loaded by World of Warcraft, and must never be referenced by production runtime code.
+When using `wow-ui-source`, prefer `D:\WoWDev\Reference\Blizzard\wow-ui-source` and Blizzard-generated API documentation for function signatures, event payloads, and secret predicate status. The engineering workspace lives outside the World of Warcraft installation. Do not create addon-local `Reference` directories or NTFS junctions from the WoW installation into `D:\WoWDev`; Battle.net may recursively traverse junction targets during Update and Scan & Repair.
 
 ---
 
