@@ -2,6 +2,18 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-07-08] - OUS2 XP Bar Favorites Selector Parity
+
+### Added
+- Added OUS2 XP Bar Favorites action to open the existing Favorites selector.
+- Added `OUS.OpenXPBarFavoritesSelector()` as the public bridge for opening the selector safely.
+
+### Notes
+- OUS2 delegates saving to the existing selector and does not directly write `favFactions`.
+- In-game verified after `/reload`, including selector layering above OUS2, combat blocking, saving, hover dashboard refresh, and legacy modifier-right-click behavior.
+
+---
+
 ## [2026-07-08] - Openables Duplicate Item Display
 
 ### Fixed

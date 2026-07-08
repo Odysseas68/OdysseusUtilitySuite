@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_favorites.lua
--- Version : 2026.07.04
+-- Version : 2026.07.08
 -- Desc    : Favorite reputation pinning for XP/rep bar
 -- ============================================================
 
@@ -254,6 +254,28 @@ local function RefreshFactionSelectTree()
         end
     end
     fsScrollChild:SetSize(380, yOffset)
+end
+
+-- Public OUS2 bridge for opening the existing Favorites selector safely.
+function OUS.OpenXPBarFavoritesSelector()
+    if InCombatLockdown and InCombatLockdown() then
+        if OUS.LogDebug then
+            OUS.LogDebug("XPBar", "Favorites selector blocked during combat.")
+        end
+        return false
+    end
+    if not factionSelectFrame or not RefreshFactionSelectTree then
+        return false
+    end
+
+    OdysseusDB = OdysseusDB or {}
+    OdysseusDB.xpBar = OdysseusDB.xpBar or {}
+    tempFavorites = OUS.DeepCopyTable(OdysseusDB.xpBar.favFactions or {})
+    RefreshFactionSelectTree()
+    factionSelectFrame:SetFrameStrata("FULLSCREEN_DIALOG")
+    factionSelectFrame:SetFrameLevel(100)
+    factionSelectFrame:Show()
+    return true
 end
 
 -- ==========================================

@@ -35,7 +35,7 @@ Current OUS2 coverage includes:
 * Global Reset Defaults.
 * XP text template, width, height, scale, XP/rest/background/text color controls, and Experience Reset Defaults.
 * Reputation text template, text color, standing colors, toast enabled, toast sound, faction menu modifier controls, and Reputation Reset Defaults.
-* Read-only Favorites guidance.
+* Favorites guidance and an action that opens the existing XP Bar Favorites selector.
 * XP/Rep/Delves token help.
 * Delves companion and journey templates, companion/journey colors, width, height, scale, Reset Defaults, and Reset Position controls.
 
@@ -91,7 +91,7 @@ Current OUS2 intentional improvements:
 | Favorites | Right-Click Modifier for Faction Menu | `OdysseusDB.xpBar.repMenuMod`; legacy cycle button over CTRL, SHIFT, ALT, NONE. | OUS2 has explicit CTRL/SHIFT/ALT/NONE selection buttons. | Present | None. | Intentional OUS2 improvement. |
 | Reset defaults | Reputation Reset Defaults | Legacy resets `repTemplate`, `repTextColor`, `repColors`, `toastEnabled`, `toastSound`, and `repMenuMod`; calls `OUS.UpdateBar()`. | OUS2 has a Reputation `Reset Defaults` action for `repTemplate`, `repTextColor`, `repColors`, and `repMenuMod`; `toastEnabled` and `toastSound` are intentionally excluded pending final review. | Final review | Decide final toast reset scope before closing Phase 5.6. | Implemented for migration-approved keys; divergence is tracked in the Final Polish / Review List. |
 | Favorites | Favorites selector help | Legacy help says modifier-right-click XP Bar opens faction menu. | OUS2 Favorites view documents existing selector. | Present | None. | Documentation-only parity is adequate until API exists. |
-| Favorites | Favorites management UI | Legacy selector is in `xpbar_favorites.lua` and opens from modifier-right-click, not from `xpbar_config.lua`. Data stored in `OdysseusDB.xpBar.favFactions`. | OUS2 is read-only and does not open/manage the selector. | Partial | Add an OUS2 action to open the existing selector only if a public helper is exposed or can be safely introduced later. | Do not manipulate `favFactions` directly until a public selector API is planned. Recent combat guard means selector/hover behavior needs combat testing. |
+| Favorites | Favorites management UI | Legacy selector is in `xpbar_favorites.lua` and opens from modifier-right-click, not from `xpbar_config.lua`. Data stored in `OdysseusDB.xpBar.favFactions`. | OUS2 has an `Open Favorites Selector` action that delegates to `OUS.OpenXPBarFavoritesSelector()`. | Present | None. | OUS2 does not write `favFactions` directly; saving remains owned by the existing selector. In-game verification completed after `/reload`: selector opens above OUS2, combat blocks opening, saving works, hover dashboard reflects saved favorites, and legacy modifier-right-click still works. |
 | Delves | Companion Text Format | `OdysseusDB.xpBar.delveCompTemplate`; legacy commits on Enter and updates Delves bar. | OUS2 Delves page has `Companion Template`. | Present | None. | OUS2 commits on focus loss too. |
 | Delves | Journey Text Format | `OdysseusDB.xpBar.delveJourTemplate`; legacy commits on Enter and updates Delves bar. | OUS2 Delves page has `Journey Template`. | Present | None. | Present. |
 | Delves colors | Companion Color | `OdysseusDB.xpBar.delveCompColor`; legacy color picker and `OUS.UpdateDelveBar()`. | OUS2 has `Companion Color` picker. | Present | None. | Implemented; existing engine reads this in `OUS.UpdateDelveBar()`. |
@@ -129,12 +129,9 @@ Do not implement the remaining work as one large patch. Completed implementation
 
 Remaining recommended small patches:
 
-1. Favorites API planning patch:
-   * Document or expose a small public helper for the existing selector only if needed.
-   * Then add an OUS2 action to open the selector.
-2. Blizzard hide behavior audit:
+1. Blizzard hide behavior audit:
    * Decide whether OUS2 should disable Hide Blizzard XP/Rep Bars while in an instance.
-3. Final polish/review pass:
+2. Final polish/review pass:
    * Resolve `showRestIcon` placement, Reputation toast reset scope, live-preview consistency, popup layering, and helper extraction timing.
 
 ## 6. Reset Semantics Review
@@ -158,7 +155,7 @@ Uncertainty:
 ## 7. Combat / Runtime Safety Notes
 
 * The favorites hover dashboard is runtime UI, not OUS2 configuration. It now has a combat guard in `xpbar_favorites.lua` to avoid opening during combat.
-* Do not create, reposition, or refresh favorites popup UI from OUS2 during combat unless a future public helper handles that guard.
+* OUS2 opens the existing Favorites selector only through `OUS.OpenXPBarFavoritesSelector()`, which stages from `OdysseusDB.xpBar.favFactions`, refreshes the existing selector tree, raises the frame, and returns false during combat.
 * `OUS.SleepBars()` already avoids fading while `UnitAffectingCombat("player")` is true.
 * XP/Rep rendering uses live player, reputation, and Delves APIs. OUS2 controls should only write existing DB keys and call established public helpers such as `OUS.UpdateBar()`, `OUS.UpdateDelveBar()`, `OUS.ApplyFonts()`, `OUS.ApplyDimensions()`, `OUS.ApplyXPBarBg()`, and `OUS.ApplyXPBarBorders()`.
 * Avoid adding direct calls to protected Blizzard frame mutation in OUS2. Blizzard XP/Rep hiding remains owned by `OUS.ApplyBlizzardKiller()`.
@@ -168,7 +165,7 @@ Uncertainty:
 * Legacy font and border dropdowns use legacy config dropdown helpers. OUS2 should use `C.OpenMediaDropdown()` so dropdowns appear above the OUS2 frame.
 * OUS2 color controls should use `C.OpenColorPicker()` and existing color swatch patterns.
 * OUS2 copy/dialog style is not needed for XP Bar parity unless future template import/export is added.
-* Favorites selector frame is `OdysseusFactionSelectFrame` at `DIALOG` strata and is currently opened from modifier-right-click on the XP Bar. If OUS2 later opens it directly, verify it appears above OUS2 and does not open in combat.
+* Favorites selector frame is `OdysseusFactionSelectFrame`. OUS2 opens it through the public helper, which raises it to `FULLSCREEN_DIALOG`; in-game verification confirms it appears above OUS2 and does not open in combat.
 * Toast frame and session stats frame are runtime frames and should not be reparented or restyled from OUS2 parity patches.
 
 ## 9. Final Polish / Review List
@@ -182,7 +179,7 @@ This is a future polish checklist, not active implementation work for the curren
 * Verify all ColorPicker frames open above OUS2.
 * Verify all reset buttons refresh the visible widgets and live bars.
 * Verify reset scopes match legacy exactly.
-* Keep completed/remaining status current after the Favorites patch and final XP Bar review decisions are done.
+* Keep completed/remaining status current after final XP Bar review decisions are done.
 * Delves Position Helper Review:
   * Delves position reset is functionally complete.
   * OUS2 currently applies the position using the guarded legacy frame re-anchor path.
@@ -241,11 +238,14 @@ Reputation:
 
 Favorites:
 
-* Open selector out of combat.
-* Save favorite factions and verify `OdysseusDB.xpBar.favFactions`.
-* Confirm OUS2 Favorites view remains accurate.
-* Enter combat and verify favorites hover popup does not open.
-* If OUS2 later opens the selector, verify it does not open during combat and appears above OUS2 out of combat.
+* Verified `/reload`.
+* Verified selector opens out of combat.
+* Verified selector opens from OUS2 XP Bar -> Favorites.
+* Verified selector appears above OUS2.
+* Verified OUS2 selector action does not open during combat.
+* Verified saving favorite factions updates `OdysseusDB.xpBar.favFactions`.
+* Verified hover dashboard reflects saved favorites.
+* Verified legacy modifier-right-click selector still works.
 
 Delves:
 

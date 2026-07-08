@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_XPBar.lua
--- Version : 2026.07.04
+-- Version : 2026.07.08
 -- Desc    : OUS2 XP Bar navigation hub and placeholder child views
 -- ================================================
 
@@ -649,10 +649,10 @@ local function CreateGlobalColumnScale(parent, labelText, helpText, yOffset, min
     return control
 end
 
-local function CreateGlobalActionButton(parent, labelText, helpText, yOffset, onClick)
+local function CreateGlobalActionButton(parent, labelText, helpText, yOffset, onClick, width)
     local button = CreateFrame("Button", nil, parent)
     button:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
-    button:SetSize(132, 24)
+    button:SetSize(width or 132, 24)
     button:SetNormalTexture(T.Tex("ActionNormal"))
     button:SetHighlightTexture(T.Tex("ActionHover"))
     button:SetPushedTexture(T.Tex("ActionPressed"))
@@ -1668,6 +1668,23 @@ local favoritesChild = CreateChildView(
 )
 
 CreateSectionHeader(favoritesChild, "Favorites", -130)
+CreateGlobalActionButton(
+    favoritesChild,
+    "Open Favorites Selector",
+    "Open the existing XP Bar Favorites selector. OUS2 delegates saving to the legacy selector.",
+    -126,
+    function()
+        if OUS.OpenXPBarFavoritesSelector and OUS.OpenXPBarFavoritesSelector() then
+            C.SetHelpText("Favorites selector opened.")
+        else
+            C.SetHelpText("Favorites selector cannot be opened during combat.")
+            if OUS.LogDebug then
+                OUS.LogDebug("XPBar", "OUS2 Favorites selector open request failed.")
+            end
+        end
+    end,
+    180
+)
 CreateInfoCard(
     favoritesChild,
     "Favorites are managed through the existing Reputation Favorites selector.\n\n" ..
@@ -1686,8 +1703,8 @@ CreateInfoCard(
     favoritesChild,
     "- Favorites are stored in OdysseusDB.xpBar.favFactions.\n" ..
     "- Watched factions remain managed by the XP Bar engine.\n" ..
-    "- OUS2 Favorites management will be added when a public selector API exists.",
-    "Favorites and watched-faction state remain read-only in OUS2.",
+    "- OUS2 opens the existing selector and does not write Favorites directly.",
+    "Favorites and watched-faction state remain owned by the XP Bar runtime.",
     -416,
     130
 )
