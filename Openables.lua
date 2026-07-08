@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Openables.lua
--- Version : 2026.06.21
+-- Version : 2026.07.08
 -- Desc    : Openables button engine — detects and opens bags, boxes, and containers
 -- ============================================================
 
@@ -285,37 +285,60 @@ end
 -- 2. BAG SCANNER
 -- ==========================================
 
+-- Builds a valid openable candidate for one bag slot.
+local function BuildOpenableCandidate(itemID, bag, slot, info)
+    if IsBlacklisted(itemID) then return nil end
+
+    local cat = GetItemCategory(itemID, bag, slot)
+    local minQty = GetOpenableMinQty(itemID)
+    -- Dynamic categories bypass minQty — DB only needed for caches/currency/knowledge
+    if not ((minQty and info.stackCount >= minQty) or cat == "recipe" or cat == "decor" or cat == "mount" or cat == "pet" or cat == "toy" or cat == "cosmetic") then
+        return nil
+    end
+    if not C_PlayerInfo.CanUseItem(itemID) then return nil end
+    if IsAlreadyCollected(itemID, cat, bag, slot) then return nil end
+
+    return {
+        itemID   = itemID,
+        bag      = bag,
+        slot     = slot,
+        icon     = info.iconFileID,
+        count    = info.stackCount,
+        category = cat,
+    }
+end
+
 -- Scans all bags and returns the first valid openable item found.
-local function FindOpenableItem()
+local function FindOpenableItem(preferredItemID)
+    local fallbackItem = nil
+    local preferredItem = nil
     for bag = 0, 5 do
         local numSlots = C_Container.GetContainerNumSlots(bag)
         for slot = 1, numSlots do
             local info = C_Container.GetContainerItemInfo(bag, slot)
             if info and info.itemID then
                 local itemID = info.itemID
-                if not IsBlacklisted(itemID) then
-                    local cat = GetItemCategory(itemID, bag, slot)
-                    local minQty = GetOpenableMinQty(itemID)
-                    -- Dynamic categories bypass minQty — DB only needed for caches/currency/knowledge
-                    if (minQty and info.stackCount >= minQty) or cat == "recipe" or cat == "decor" or cat == "mount" or cat == "pet" or cat == "toy" or cat == "cosmetic" then
-                        if C_PlayerInfo.CanUseItem(itemID) then
-                            if not IsAlreadyCollected(itemID, cat, bag, slot) then
-                                return {
-                                    itemID   = itemID,
-                                    bag      = bag,
-                                    slot     = slot,
-                                    icon     = info.iconFileID,
-                                    count    = info.stackCount,
-                                    category = cat,
-                                }
-                            end
+                if preferredItemID and itemID == preferredItemID then
+                    local duplicate = BuildOpenableCandidate(itemID, bag, slot, info)
+                    if duplicate then
+                        if preferredItem then
+                            preferredItem.count = preferredItem.count + duplicate.count
+                        else
+                            preferredItem = duplicate
                         end
+                    end
+                elseif not fallbackItem then
+                    fallbackItem = BuildOpenableCandidate(itemID, bag, slot, info)
+                elseif itemID == fallbackItem.itemID then
+                    local duplicate = BuildOpenableCandidate(itemID, bag, slot, info)
+                    if duplicate then
+                        fallbackItem.count = fallbackItem.count + duplicate.count
                     end
                 end
             end
         end
     end
-    return nil
+    return preferredItem or fallbackItem
 end
 
 -- ==========================================
@@ -588,7 +611,7 @@ function OP.Refresh()
         return
     end
 
-    currentItem = FindOpenableItem()
+    currentItem = FindOpenableItem(currentItem and currentItem.itemID)
     UpdateButton()
 
     -- Auto-open if enabled and item found

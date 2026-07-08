@@ -2,6 +2,14 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-07-08] - Openables Duplicate Item Display
+
+### Fixed
+- Updated Openables to display separate non-stackable copies of the same openable itemID as a combined button count.
+- Kept Openables focused on the current duplicated itemID after each open until all copies are consumed, then resumes normal next-item scanning.
+
+---
+
 ## [2026-07-04] - Delves OUS2 Parity and Reference Workspace
 
 ### Added
