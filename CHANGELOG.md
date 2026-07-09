@@ -2,11 +2,22 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
-## [2026-07-08] - OUS2 XP Bar Favorites Selector Parity
+## [2026-07-08]
 
 ### Added
 - Added OUS2 XP Bar Favorites action to open the existing Favorites selector.
 - Added `OUS.OpenXPBarFavoritesSelector()` as the public bridge for opening the selector safely.
+- Added public Toolbox helpers for direction, scale, reset position, and initialization status.
+- Added OUS2 Toolbox controls for scale and reset position using the public Toolbox runtime API.
+
+### Changed
+- Updated OUS2 Toolbox lock, direction, scale, and reset-position controls to use public Toolbox helpers instead of direct runtime-state manipulation.
+- Updated Toolbox scaling to follow the Flight Master model: the movable parent frame remains at `SetScale(1)` while saved scale is folded into dimensions, spacing, and child button sizes.
+
+### Fixed
+- Updated Openables to display separate non-stackable copies of the same openable itemID as a combined button count.
+- Kept Openables focused on the current duplicated itemID after each open until all copies are consumed, then resumes normal next-item scanning.
+- Fixed Toolbox scale-position drift when changing scale from OUS2 or `/tb scale`.
 
 ### Notes
 - OUS2 delegates saving to the existing selector and does not directly write `favFactions`.
@@ -14,15 +25,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ---
 
-## [2026-07-08] - Openables Duplicate Item Display
-
-### Fixed
-- Updated Openables to display separate non-stackable copies of the same openable itemID as a combined button count.
-- Kept Openables focused on the current duplicated itemID after each open until all copies are consumed, then resumes normal next-item scanning.
-
----
-
-## [2026-07-04] - Delves OUS2 Parity and Reference Workspace
+## [2026-07-04]
 
 ### Added
 - Added Delves OUS2 `Reset Defaults` and `Reset Position` parity.
@@ -31,12 +34,6 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 ### Documentation
 - Documented the shared `Reference\` engineering workspace and its read-only, local-only contract.
 - Updated reference guidance to prefer `Reference\Blizzard\wow-ui-source` for Blizzard API and FrameXML checks.
-
----
-
-## [2026-07-04] - Phase 5.6 XP Bar Parity Planning
-
-### Documentation
 - Added `Documentation\OUS2_XPBAR_PARITY.md`.
 - Established the dedicated engineering checklist for XP Bar, Reputation, and Delves OUS2 parity.
 - Synchronized OUS2 documentation so remaining XP Bar parity work is tracked from the dedicated plan.
@@ -44,7 +41,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ---
 
-## [2026-07-03] - BuffBars 12.1 Aura API Planning
+## [2026-07-03]
 
 ### Documentation
 - Documented the BuffBars reference addon as a validated Retail 12.0.x proof-of-concept that should remain frozen until 12.1 aura API behavior is researched.
@@ -53,7 +50,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ---
 
-## [2026-06-28] - BuffBars Design Documentation
+## [2026-06-28]
 
 ### Documentation
 - Added initial `Documentation\BUFFBARS_DESIGN.md` for the validated BuffBars reference audit.
@@ -62,17 +59,19 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ---
 
-## [2026-06-25] - Broker Minimap Launcher Migration
+## [2026-06-25]
+
+### Added
+- **OUS2 Flight Master**: advanced-control parity for map tooltips, timer bar unlock/drag preview, width, height, scale, font size, border size, texture/font/border selectors, bar color, border color, export, wipe confirmation, reset position, and reset appearance.
+- **OUS2 shared helpers**: reusable media dropdown, color picker, and copy-text dialog helpers in `Config2\OUS2Config.lua`.
 
 ### Changed
 - Migrated the OUS minimap launcher from a manually owned minimap button to LibDataBroker-1.1 + LibDBIcon-1.0.
 - Migrated minimap SavedVariables from `showMinimapButton` / `minimapAngle` to `OdysseusDB.minimap.hide` / `OdysseusDB.minimap.minimapPos`.
 - Preserved OUS2 Show Minimap Button behavior through the existing public Core APIs.
 - Documented that third-party minimap managers own broker launcher visibility and OUS will not add HidingBar-specific minimap workarounds.
-
----
-
-## [2026-06-25] - Project Guidance Updates
+- **Flightmaster**: OUS2 scale changes call `OUS.ApplyFlightSettings()` and use the engine's dimension-based scaling path instead of applying user scale with `timerBar:SetScale()`.
+- **Flightmaster reset**: OUS2 Reset Appearance restores visual settings while preserving learned flight times.
 
 ### Documentation
 - Added coding-comment guidance for major helpers, public OUS APIs, and non-obvious integration boundaries.
@@ -80,19 +79,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ---
 
-## [2026-06-25] - OUS2 Flight Master Phase 5 Advanced Controls
-
-### Added
-- **OUS2 Flight Master**: advanced-control parity for map tooltips, timer bar unlock/drag preview, width, height, scale, font size, border size, texture/font/border selectors, bar color, border color, export, wipe confirmation, reset position, and reset appearance.
-- **OUS2 shared helpers**: reusable media dropdown, color picker, and copy-text dialog helpers in `Config2\OUS2Config.lua`.
-
-### Changed
-- **Flightmaster**: OUS2 scale changes call `OUS.ApplyFlightSettings()` and use the engine's dimension-based scaling path instead of applying user scale with `timerBar:SetScale()`.
-- **Flightmaster reset**: OUS2 Reset Appearance restores visual settings while preserving learned flight times.
-
----
-
-## [2026-06-03] - Utilities Module + Config Polish
+## [2026-06-03]
 
 ### Added
 - **Utilities**: New module — `Utilities.lua` — rare announcer, auto repair, junk seller
@@ -112,7 +99,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ---
 
-## [2026-05-29] - Flightmaster Distance & Bar Overhaul
+## [2026-05-29]
 
 ### Added
 - **Flightmaster**: Live distance countdown below the timer bar — straight-line world coordinate distance using `C_Map.GetWorldPosFromMapPos()`, auto-switches between meters (`743m`) and kilometers (`1km 345m`), light blue color matching the map tooltip
@@ -140,7 +127,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ---
 
-## [2026-05-15] - Toolbox & Help Frame
+## [2026-05-15]
 
 ### Added
 - **Toolbox**: New module — floating icon bar giving one-click access to all OUS module panels

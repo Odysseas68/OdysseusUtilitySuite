@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Toolbox.lua
--- Version : 2026.05.29
+-- Version : 2026.07.09
 -- Desc    : Floating icon toolbar engine — toggleable module shortcuts
 -- ============================================================
 
@@ -20,6 +20,7 @@ local opPopupButtonIndex  -- pool index of the Openables button, set during layo
 local BUTTON_SIZE   = 32
 local BUTTON_PAD    = 4
 local FRAME_PADDING = 6
+local DEFAULT_POINT, DEFAULT_REL_POINT, DEFAULT_X, DEFAULT_Y = "CENTER", "CENTER", 0, 0
 
 local buttonPool = {}  -- declared before BUTTONS so action closures can close over it
 
@@ -258,6 +259,10 @@ end
 
 local function LayoutButtons()
     local vertical = (db.direction == "vertical")
+    local scale = db.scale or 1.0
+    local buttonSize = BUTTON_SIZE * scale
+    local buttonPad = BUTTON_PAD * scale
+    local framePadding = FRAME_PADDING * scale
 
     local visible = {}
     for _, entry in ipairs(BUTTONS) do
@@ -269,11 +274,11 @@ local function LayoutButtons()
     local count = #visible
     local w, h
     if vertical then
-        w = FRAME_PADDING * 2 + BUTTON_SIZE
-        h = FRAME_PADDING * 2 + count * BUTTON_SIZE + math.max(0, count - 1) * BUTTON_PAD
+        w = framePadding * 2 + buttonSize
+        h = framePadding * 2 + count * buttonSize + math.max(0, count - 1) * buttonPad
     else
-        w = FRAME_PADDING * 2 + count * BUTTON_SIZE + math.max(0, count - 1) * BUTTON_PAD
-        h = FRAME_PADDING * 2 + BUTTON_SIZE
+        w = framePadding * 2 + count * buttonSize + math.max(0, count - 1) * buttonPad
+        h = framePadding * 2 + buttonSize
     end
 
     frame:SetSize(w > 0 and w or 1, h > 0 and h or 1)
@@ -282,12 +287,13 @@ local function LayoutButtons()
 
     for i, entry in ipairs(visible) do
         local btn = GetOrCreateButton(i)
+        btn:SetSize(buttonSize, buttonSize)
         btn.tooltipText = entry.tooltip
         btn.icon:SetTexture(entry.icon)
         btn:SetScript("OnClick", entry.action)
         btn:ClearAllPoints()
 
-        local offset = FRAME_PADDING + (i - 1) * (BUTTON_SIZE + BUTTON_PAD)
+        local offset = framePadding + (i - 1) * (buttonSize + buttonPad)
         if vertical then
             btn:SetPoint("TOP", frame, "TOP", 0, -offset)
         else
@@ -477,12 +483,44 @@ end
 
 local function ApplyScale(scale)
     db.scale = scale
-    if frame then frame:SetScale(scale) end
+    if frame then
+        frame:SetScale(1)
+        LayoutButtons()
+    end
 end
 
 local function ApplyDirection(dir)
     db.direction = dir
     if frame then LayoutButtons() end
+end
+
+-- Public setter keeps config surfaces on the same layout path as slash commands.
+function OUS.SetToolboxDirection(direction)
+    if direction ~= "horizontal" and direction ~= "vertical" then return false end
+    ApplyDirection(direction)
+    return true
+end
+
+-- Public setter validates scale before applying it to the live frame.
+function OUS.SetToolboxScale(scale)
+    if type(scale) ~= "number" or scale < 0.5 or scale > 2.0 then return false end
+    ApplyScale(scale)
+    return true
+end
+
+-- Public reset restores the same default position seeded by Core.lua.
+function OUS.ResetToolboxPosition()
+    db.point = DEFAULT_POINT
+    db.relPoint = DEFAULT_REL_POINT
+    db.x = DEFAULT_X
+    db.y = DEFAULT_Y
+    if frame then ApplyPosition() end
+    return true
+end
+
+-- Public state helper lets config pages detect whether the runtime frame exists.
+function OUS.IsToolboxInitialized()
+    return frame ~= nil
 end
 
 -- ==========================================
@@ -496,9 +534,8 @@ function OUS.Toolbox.SlashHandler(msg)
 
     if cmd == "scale" then
         local val = tonumber(arg)
-        if val and val >= 0.5 and val <= 2.0 then
-            local old = db.scale or 1.0
-            ApplyScale(val)
+        local old = db.scale or 1.0
+        if OUS.SetToolboxScale(val) then
             print(string.format("|cFF00CCFFOdysseus Toolbox:|r Scale set to %.2f (was %.2f)", val, old))
         else
             print(string.format("|cFF00CCFFOdysseus Toolbox:|r Usage: /tb scale [0.5-2.0]  (current: %.2f)", db.scale or 1.0))
@@ -510,10 +547,10 @@ function OUS.Toolbox.SlashHandler(msg)
         OUS.LockToolbox(false)
         print("|cFF00CCFFOdysseus Toolbox:|r Unlocked — drag handle active.")
     elseif cmd == "ver" or cmd == "vertical" then
-        ApplyDirection("vertical")
+        OUS.SetToolboxDirection("vertical")
         print("|cFF00CCFFOdysseus Toolbox:|r Layout → Vertical.")
     elseif cmd == "hor" or cmd == "horizontal" then
-        ApplyDirection("horizontal")
+        OUS.SetToolboxDirection("horizontal")
         print("|cFF00CCFFOdysseus Toolbox:|r Layout → Horizontal.")
     elseif cmd == "toggle" then
         OUS.ToggleToolbox()
@@ -555,10 +592,10 @@ initFrame:SetScript("OnEvent", function(self, event, name)
 
     CreateDragHandle()
     CreateOpPopup()
+    frame:SetScale(1)
     ApplyPosition()
     LayoutButtons()
     SetLocked(db.locked)
-    if db.scale then frame:SetScale(db.scale) end
 
     if db.shown then frame:Show() else frame:Hide() end
 

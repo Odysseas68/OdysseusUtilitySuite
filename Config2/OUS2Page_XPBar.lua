@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_XPBar.lua
--- Version : 2026.07.08
+-- Version : 2026.07.09
 -- Desc    : OUS2 XP Bar navigation hub and placeholder child views
 -- ================================================
 
@@ -1490,7 +1490,7 @@ experienceScaleControls.xpBarWidth = CreateGlobalScale(
     "Adjust the width of the XP Bar.",
     -288,
     100,
-    800,
+    1000,
     10,
     650,
     function(value)
@@ -1506,8 +1506,8 @@ experienceScaleControls.xpBarHeight = CreateGlobalScale(
     "XP Bar Height",
     "Adjust the height of the XP Bar.",
     -348,
-    4,
-    80,
+    10,
+    100,
     1,
     25,
     function(value)
@@ -1524,7 +1524,7 @@ experienceScaleControls.xpBarScale = CreateGlobalScale(
     "Adjust the overall scale of the XP Bar.",
     -408,
     0.5,
-    3.0,
+    2.0,
     0.05,
     1.0,
     function(value)

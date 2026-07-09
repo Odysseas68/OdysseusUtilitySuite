@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document records the remaining OUS2 parity work for the legacy XP Bar, Reputation, Favorites, and Delves configuration before implementation.
+This document records OUS2 parity status for the legacy XP Bar, Reputation, Favorites, and Delves configuration.
 
 The legacy `xpbar_config.lua` UI is the checklist. The current OUS2 targets are `Config2\OUS2Page_XPBar.lua` and `Config2\OUS2Page_Delves.lua`.
 
@@ -38,6 +38,7 @@ Current OUS2 coverage includes:
 * Favorites guidance and an action that opens the existing XP Bar Favorites selector.
 * XP/Rep/Delves token help.
 * Delves companion and journey templates, companion/journey colors, width, height, scale, Reset Defaults, and Reset Position controls.
+* Blizzard XP/Reputation bar hiding through the existing `OdysseusDB.xpBar.hideBlizz` setting and `OUS.ApplyBlizzardKiller()` runtime path.
 
 Current OUS2 intentional improvements:
 
@@ -45,6 +46,7 @@ Current OUS2 intentional improvements:
 * Template edit boxes commit on focus loss or Enter, which is more forgiving than Enter-only legacy behavior.
 * Alpha controls are displayed as 0.0-1.0 scale controls while still writing the legacy percent DB keys.
 * Delves is promoted to a separate left-navigation page while still linked from the XP Bar hub.
+* The legacy in-instance disabled state for the Hide Blizzard checkbox is intentionally not carried forward unless future testing proves it is needed.
 
 ## 4. Legacy Parity Table
 
@@ -53,7 +55,7 @@ Current OUS2 intentional improvements:
 | Global XP Bar settings | Enable XP Bar module | Legacy module toggle is account-wide under `OdysseusDB.modules.xpBar` through the main config/module system. | OUS2 Global has `Enable XP Bar Module`. | Present | None unless master-toggle behavior audit finds runtime gaps. | Confirm hiding both XP and Delves bars remains correct while active timers/favorites are open. |
 | Global XP Bar settings | Global Font Size | `OdysseusDB.xpBar.xpFontSize`; legacy range 8-32; applies `OUS.ApplyFonts()`. | OUS2 has `Font Size`; range 8-32; applies fonts and updates bars. | Present | None. | Implemented; in-game visual update still belongs to final live-preview testing. |
 | Fonts/media | Global Font | `OdysseusDB.xpBar.xpFont`; legacy uses LibSharedMedia font dropdown and `OUS.ApplyFonts()`. | OUS2 has a `Global Font` media dropdown using the existing media picker helper. | Present | None. | Implemented; verify dropdown layering and live font refresh in-game. |
-| Global XP Bar settings | Hide Default Blizzard UI | `OdysseusDB.xpBar.hideBlizz`; legacy shows reload prompt and disables the checkbox while in an instance. | OUS2 has `Hide Blizzard XP/Rep Bars` and a reload popup. | Partial | Add the legacy instance-disable behavior or document intentional difference. | Avoid calling protected/Blizzard UI mutation paths from OUS2; runtime hiding remains owned by `OUS.ApplyBlizzardKiller()`. |
+| Global XP Bar settings | Hide Default Blizzard UI | `OdysseusDB.xpBar.hideBlizz`; legacy shows reload prompt and disables the checkbox while in an instance. | OUS2 has `Hide Blizzard XP/Rep Bars` and a reload popup. | Present | None. | Resolved. Runtime hiding remains owned by `OUS.ApplyBlizzardKiller()`. No separate Delves or instance-specific hide SavedVariable exists. The legacy in-instance disabled checkbox behavior is intentionally not carried forward unless future testing proves it is needed. |
 | Global XP Bar settings | Enable Auto-Hide / Mouseover Engine | `OdysseusDB.xpBar.autoHide`; legacy calls `OUS.WakeBars()` and `OUS.SleepBars()`. | OUS2 has `Auto-hide Bars`; calls wake/sleep helper. | Present | None. | Combat behavior is owned by engine sleep checks. |
 | Global XP Bar settings | Abbreviate Numbers | `OdysseusDB.xpBar.shortNumbers`; legacy calls `OUS.UpdateBar()`. | OUS2 has `Abbreviate Large Numbers`; calls `OUS.UpdateBar()`. | Present | None. | Verify after max-level rep display and Delves journey text. |
 | Auto-hide/fade behavior | Auto-Switch Display Time | `OdysseusDB.xpBar.repDisplayTime`; legacy range 5-60 seconds. | OUS2 has `Auto-Switch Display Time`; range 5-60 seconds. | Present | None. | Implemented with existing scale control and wake/sleep refresh path. |
@@ -69,9 +71,9 @@ Current OUS2 intentional improvements:
 | Experience bar settings | XP Text Color | `OdysseusDB.xpBar.xpTextColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has `XP Text Color` picker. | Present | None. | Implemented; verify live preview in-game. |
 | Experience bar settings | Rested Bar Color | `OdysseusDB.xpBar.restColor`; legacy color picker and `OUS.UpdateBar()`. | OUS2 has `Rested Bar` color picker. | Present | None. | Implemented; verify rested bar visible and hidden states. |
 | Experience bar settings | Background Color | `OdysseusDB.xpBar.bgColor`; legacy color picker and `OUS.ApplyXPBarBg()`. | OUS2 has `Background` color picker. | Present | None. | Implemented; uses existing background apply helper. |
-| Dimensions | Main Bar Width | `OdysseusDB.xpBar.xpBarWidth`; legacy range 100-1000. | OUS2 has `XP Bar Width`; range 100-800. | Partial | Adjust OUS2 range to 100-1000. | No DB change. |
-| Dimensions | Main Bar Height | `OdysseusDB.xpBar.xpBarHeight`; legacy range 10-100. | OUS2 has `XP Bar Height`; range 4-80. | Partial | Align to 10-100 or document intentional difference. | Changing range affects only UI affordance, not saved structure. |
-| Dimensions | Main Bar Scale | `OdysseusDB.xpBar.xpBarScale`; legacy range 0.5-2.0. | OUS2 has `XP Bar Scale`; range 0.5-3.0. | Partial | Align to 0.5-2.0 or document intentional wider range. | Larger scales may be useful but are not exact parity. |
+| Dimensions | Main Bar Width | `OdysseusDB.xpBar.xpBarWidth`; legacy range 100-1000. | OUS2 has `XP Bar Width`; range 100-1000. | Present | None. | Range now matches legacy exactly; runtime applies the saved value through `OUS.ApplyDimensions()`. |
+| Dimensions | Main Bar Height | `OdysseusDB.xpBar.xpBarHeight`; legacy range 10-100. | OUS2 has `XP Bar Height`; range 10-100. | Present | None. | Range now matches legacy exactly; no DB change. |
+| Dimensions | Main Bar Scale | `OdysseusDB.xpBar.xpBarScale`; legacy range 0.5-2.0. | OUS2 has `XP Bar Scale`; range 0.5-2.0. | Present | None. | Range now matches legacy exactly. |
 | Experience bar settings | Show Rested Icon | `OdysseusDB.xpBar.showRestIcon`; legacy calls `OUS.UpdateBar()`. | OUS2 has `Show Rested Icon` under Global Behavior. | Present | None, unless moved to Experience for layout parity. | Location differs but behavior is present. |
 | Reset defaults | Experience Reset Defaults | Resets `xpTemplate`, `xpColor`, `xpTextColor`, `restColor`, `bgColor`, `showRestIcon`, `xpBarWidth`, `xpBarHeight`, and `xpBarScale`; applies background. | OUS2 has an Experience `Reset Defaults` action for this scope. | Present | None. | Implemented; final review should confirm live refresh and `showRestIcon` placement. |
 | Reputation bar settings | Reputation Text Format | `OdysseusDB.xpBar.repTemplate`; legacy commits on Enter and updates bar. | OUS2 has `Reputation Text Template`. | Present | None. | OUS2 commits on focus loss too. |
@@ -105,7 +107,7 @@ Current OUS2 intentional improvements:
 | Help | Reputation and Delves token help | Legacy Help tab lists rep and Delves tokens. | OUS2 XPBar Help lists reputation and Delves tokens. | Present | None. | OUS2 help is more complete. |
 | Help | Master chat commands | Legacy Help tab lists `/ous`, `/ous help`, `/xpstats`, `/toasttest`, and movement tips. | OUS2 XPBar Help lists `/xpstats`, `/toasttest`, movement, favorites, and notes. | Partial | Optional text review only. | Add `/ous` and `/ous help` only if XPBar Help is intended to fully mirror legacy tab. Addon-wide Help already covers global commands. |
 | Blizzard UI hiding reload behavior | Reload prompt | Legacy popup asks "Reload now?" with Yes/No. | OUS2 popup says reload is required and offers Reload UI/Later. | Intentional difference | None, unless exact wording parity is desired. | Behavior is equivalent. |
-| Blizzard UI hiding reload behavior | Instance guard | Legacy disables Hide Blizzard checkbox when `IsInInstance()` returns true. | OUS2 does not appear to disable the row in instances. | Behavior audit | Audit whether disabling is still needed in Retail 12.0+ and whether OUS2 can express disabled rows. | Avoid changing this until in-game behavior is understood. |
+| Blizzard UI hiding reload behavior | Instance guard | Legacy disables Hide Blizzard checkbox when `IsInInstance()` returns true. | OUS2 keeps the row available and preserves the real `hideBlizz` setting plus reload prompt. | Intentional difference | None. | The previous Bartender4/default Blizzard bar issue is resolved. Do not restore the disabled-in-instance guard unless future testing shows a current Retail need. |
 | Dimensions | XP bar position movement | Legacy help says Shift-drag XP Bar. Position saved by `xpbar_core.lua`. | OUS2 Help documents Shift-drag movement. | Present | None. | No OUS2 position reset exists for XP Bar. Legacy XP tab does not reset XP bar position. |
 | Delves lock/unlock | Shift-drag Delves movement | Legacy has Shift-drag movement and reset through Delves reset. No explicit lock checkbox in legacy XP config. | OUS2 documents Shift-drag movement. | Behavior audit | Do not add lock/unlock until separate behavior review confirms a desired DB key and runtime contract. | This is not direct legacy parity unless a legacy lock state exists elsewhere. |
 
@@ -127,11 +129,9 @@ Do not implement the remaining work as one large patch. Completed implementation
 6. Delves reset and position patch:
    * Delves Reset Defaults and Reset Position actions are implemented as separate scoped actions.
 
-Remaining recommended small patches:
+Remaining final review work:
 
-1. Blizzard hide behavior audit:
-   * Decide whether OUS2 should disable Hide Blizzard XP/Rep Bars while in an instance.
-2. Final polish/review pass:
+1. Final polish/review pass:
    * Resolve `showRestIcon` placement, Reputation toast reset scope, live-preview consistency, popup layering, and helper extraction timing.
 
 ## 6. Reset Semantics Review
@@ -159,6 +159,7 @@ Uncertainty:
 * `OUS.SleepBars()` already avoids fading while `UnitAffectingCombat("player")` is true.
 * XP/Rep rendering uses live player, reputation, and Delves APIs. OUS2 controls should only write existing DB keys and call established public helpers such as `OUS.UpdateBar()`, `OUS.UpdateDelveBar()`, `OUS.ApplyFonts()`, `OUS.ApplyDimensions()`, `OUS.ApplyXPBarBg()`, and `OUS.ApplyXPBarBorders()`.
 * Avoid adding direct calls to protected Blizzard frame mutation in OUS2. Blizzard XP/Rep hiding remains owned by `OUS.ApplyBlizzardKiller()`.
+* `hideBlizz` is the only Blizzard XP/Reputation hide setting. There is no separate Delves or instance-specific hide SavedVariable.
 
 ## 8. Frame Strata / Popup Notes
 
@@ -210,7 +211,7 @@ Global:
 * Open `/ous2` -> XP Bar -> Global and confirm all values match.
 * Toggle XP Bar module off/on and confirm XP and Delves frames hide/show safely.
 * Toggle Hide Blizzard XP/Rep Bars and confirm reload prompt.
-* Test Hide Blizzard setting while in an instance if OUS2 adds the legacy disabled state.
+* Confirm Hide Blizzard XP/Rep Bars remains available in OUS2; the legacy in-instance disabled checkbox behavior is an intentional difference unless future testing reopens it.
 * Toggle auto-hide and verify wake/sleep behavior.
 * Test rep display time, fade delay, active alpha, and faded alpha.
 * Change font and font size, then verify XP and Delves text update.

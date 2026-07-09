@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Toolbox.lua
--- Version : 2026.06.22
+-- Version : 2026.07.09
 -- Desc    : OUS2 Toolbox module settings page
 -- ================================================
 
@@ -17,6 +17,7 @@ local disabledNote
 local lockCheckbox
 local horizontalButton
 local verticalButton
+local scaleControl
 local Refresh
 
 local function SetTextColor(fontString, color)
@@ -138,7 +139,6 @@ local function CreateLockRow(yOffset)
         if not db then return end
 
         local newValue = not db.locked
-        db.locked = newValue
         if OUS.LockToolbox then
             OUS.LockToolbox(newValue)
         end
@@ -153,11 +153,11 @@ local function CreateDirectionButton(labelText, direction, leftSide)
     button:SetHeight(44)
 
     if leftSide then
-        button:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -408)
-        button:SetPoint("TOPRIGHT", page, "TOP", -5, -408)
+        button:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -428)
+        button:SetPoint("TOPRIGHT", page, "TOP", -5, -428)
     else
-        button:SetPoint("TOPLEFT", page, "TOP", 5, -408)
-        button:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -408)
+        button:SetPoint("TOPLEFT", page, "TOP", 5, -428)
+        button:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -428)
     end
 
     local background = button:CreateTexture(nil, "BACKGROUND")
@@ -184,12 +184,8 @@ local function CreateDirectionButton(labelText, direction, leftSide)
         C.ClearHelpText()
     end)
     button:SetScript("OnClick", function()
-        local db = GetToolboxDB()
-        if not db then return end
-
-        db.direction = direction
-        if OUS.RefreshToolbox then
-            OUS.RefreshToolbox()
+        if OUS.SetToolboxDirection then
+            OUS.SetToolboxDirection(direction)
         end
         Refresh()
     end)
@@ -227,55 +223,97 @@ headerDivider:SetHeight(6)
 CreateSectionHeader("Status", -78)
 local _, statusBody = CreateInfoCard(
     "",
-    "Shows the Toolbox master-module state without changing it.",
+    "Shows the Toolbox module and runtime initialization state without changing it.",
     -104,
-    48
+    64
 )
 statusText = statusBody
 
 disabledNote = CreateInfoCard(
-    "Toolbox was disabled at login. Re-enable from the legacy General module toggle and reload UI until OUS2 live initialization is added.",
-    "Toolbox currently creates its frame only when enabled during addon initialization.",
-    -156,
+    "Toolbox was disabled during login. Enable the module and reload UI before the Toolbox frame can be created.",
+    "Toolbox currently creates its runtime frame only during addon initialization.",
+    -176,
     70,
     T.Fonts.small,
     T.Colors.textDim
 )
 
-CreateSectionHeader("Visibility and Position", -250)
+CreateSectionHeader("Visibility and Position", -270)
 CreateActionButton(
     "Show / Hide Toolbox",
     "Show or hide the initialized Toolbox frame.",
-    -276,
+    -296,
     function()
         if OUS.ToggleToolbox then
             OUS.ToggleToolbox()
         end
     end
 )
-lockCheckbox = CreateLockRow(-318)
+lockCheckbox = CreateLockRow(-338)
 
-CreateSectionHeader("Layout", -382)
+CreateSectionHeader("Layout", -402)
 horizontalButton = CreateDirectionButton("Horizontal", "horizontal", true)
 verticalButton = CreateDirectionButton("Vertical", "vertical", false)
 
-CreateSectionHeader("Future Settings", -472)
-CreateInfoCard(
-    "Scale, position reset, button visibility, and popup customization require dedicated OUS2 controls and safe public setters.",
-    "Additional Toolbox controls remain deferred until their public update paths are established.",
-    -498,
-    70,
-    T.Fonts.small,
-    T.Colors.textDim
+CreateSectionHeader("Scale", -492)
+local scaleRow = CreateFrame("Frame", nil, page)
+scaleRow:SetHeight(60)
+scaleRow:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -518)
+scaleRow:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -518)
+scaleRow:EnableMouse(true)
+
+local scaleBackground = scaleRow:CreateTexture(nil, "BACKGROUND")
+scaleBackground:SetTexture(T.Tex("CardNormal"))
+scaleBackground:SetAllPoints()
+
+local scaleLabel = scaleRow:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+scaleLabel:SetPoint("LEFT", scaleRow, "LEFT", T.Card.Padding, 0)
+scaleLabel:SetText("Toolbox Scale")
+SetTextColor(scaleLabel, T.Colors.text)
+
+scaleControl = C.CreateScaleControl(
+    scaleRow,
+    0.5,
+    2.0,
+    0.1,
+    1.0,
+    function(newValue)
+        if OUS.SetToolboxScale then
+            OUS.SetToolboxScale(newValue)
+        end
+    end
+)
+scaleControl:SetPoint("RIGHT", scaleRow, "RIGHT", -T.Card.Padding, 0)
+
+scaleRow:SetScript("OnEnter", function()
+    scaleBackground:SetTexture(T.Tex("CardHover"))
+    C.SetHelpText("Adjust the displayed size of the Toolbox buttons.")
+end)
+scaleRow:SetScript("OnLeave", function()
+    scaleBackground:SetTexture(T.Tex("CardNormal"))
+    C.ClearHelpText()
+end)
+
+CreateActionButton(
+    "Reset Position",
+    "Reset the Toolbox to its default saved screen position.",
+    -592,
+    function()
+        if OUS.ResetToolboxPosition then
+            OUS.ResetToolboxPosition()
+        end
+        Refresh()
+    end
 )
 
 Refresh = function()
     local modules = GetModulesDB()
     local enabled = modules and modules.toolbox == true
-    statusText:SetText("Toolbox Status: " .. (enabled and "Enabled" or "Disabled"))
-    SetTextColor(statusText, enabled and T.Colors.enabled or T.Colors.disabled)
+    local initialized = OUS.IsToolboxInitialized and OUS.IsToolboxInitialized()
+    statusText:SetText("Module: " .. (enabled and "Enabled" or "Disabled") .. "\nRuntime: " .. (initialized and "Initialized" or "Disabled until reload"))
+    SetTextColor(statusText, initialized and T.Colors.enabled or T.Colors.disabled)
 
-    if enabled then
+    if initialized then
         disabledNote:Hide()
     else
         disabledNote:Show()
@@ -288,6 +326,9 @@ Refresh = function()
     local direction = db and db.direction or "horizontal"
     UpdateDirectionButton(horizontalButton, direction == "horizontal")
     UpdateDirectionButton(verticalButton, direction == "vertical")
+
+    local scale = db and tonumber(db.scale) or 1.0
+    scaleControl:SetValue(scale, true)
 end
 
 C.RegisterPage("Toolbox", page, Refresh)
