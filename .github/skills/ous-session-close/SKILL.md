@@ -32,6 +32,32 @@ Verify documentation synchronization.
 
 If completed work makes project documentation inaccurate or stale, recommend updating documentation before preparing a commit.
 
+If `CHANGELOG.md` was modified during the session, perform a CHANGELOG audit.
+
+Verify each calendar date appears only once as a top-level heading.
+
+Preferred format:
+
+```md
+## [YYYY-MM-DD]
+```
+
+Never create multiple top-level sections for the same date.
+
+If duplicate dates exist:
+
+- merge them into a single date section
+- preserve every existing changelog entry
+- do not lose any bullets
+- organize content under appropriate subsections such as:
+  - Added
+  - Changed
+  - Fixed
+  - Documentation
+  - Infrastructure
+  - Notes
+- maintain reverse chronological order
+
 Verify Engineering Workspace state:
 
 - no `Reference` directory exists inside the World of Warcraft installation
@@ -56,6 +82,11 @@ Run project validation:
 
 - `luacheck`
 - `git diff --check`
+
+When `CHANGELOG.md` changed:
+
+- verify duplicate date headings do not exist
+- run `git diff --check`
 
 Review Git status.
 
@@ -148,11 +179,18 @@ The skill should produce a concise engineering wrap-up including:
 - Summary
 - Validation
 - Git status
+- CHANGELOG audit, if `CHANGELOG.md` was updated
 - Suggested commit message
 - Suggested next task
 - Expected files for the next task
 - Commit/push question
 - Session Statistics
+
+If `CHANGELOG.md` was updated, include:
+
+- CHANGELOG audit performed
+- duplicate dates found or not found
+- dates merged, if applicable
 
 Session Statistics should include:
 
