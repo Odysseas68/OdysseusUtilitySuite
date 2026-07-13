@@ -2,6 +2,18 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-07-11]
+
+### Added
+- Added a Utilities option, disabled by default, that hides only Blizzard's Extra Action Button and Zone Ability decorative artwork without replacing or modifying the underlying ability buttons.
+- Added matching OUS2 and legacy Utilities controls backed by `OdysseusDB.utilities.hideExtraActionArtwork`.
+
+### Notes
+- Artwork refreshes are reapplied through safe Blizzard post-hooks and lifecycle events, with combat requests deferred until combat ends.
+- Disable Enhance QoL's equivalent hide-artwork option when using the OUS version so both addons do not control the same Blizzard artwork.
+
+---
+
 ## [2026-07-08]
 
 ### Added

@@ -1,11 +1,90 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Utilities.lua
--- Version : 2026.06.07
--- Desc    : Utility commands — rare announcer (/ous_rare), auto repair
+-- Version : 2026.07.11
+-- Desc    : Utility commands, merchant tools, and Blizzard action artwork control
 -- ============================================================
 
 local _, OUS = ...
+
+OUS.utilitiesDefaults = {
+    rareEnabled = true,
+    repairEnabled = true,
+    guildRepair = true,
+    announceRepair = true,
+    hideExtraActionArtwork = false,
+    junkSell = {
+        enabled = true,
+        requireShift = false,
+        announceJunk = true,
+        limitTo12 = true,
+        blacklist = {},
+    },
+}
+
+local artworkApplyPending = false
+local extraActionHooked = false
+local zoneAbilityHooked = false
+
+-- Applies only the configured visibility of Blizzard's decorative ability artwork.
+function OUS.ApplyExtraActionArtworkSetting()
+    if InCombatLockdown() then
+        artworkApplyPending = true
+        return
+    end
+
+    artworkApplyPending = false
+    local hideArtwork = OdysseusDB
+        and OdysseusDB.utilities
+        and OdysseusDB.utilities.hideExtraActionArtwork == true
+    local alpha = hideArtwork and 0 or 1
+
+    local extraButton = _G.ExtraActionButton1
+    local extraArtwork = extraButton and extraButton.style
+    if extraArtwork then
+        extraArtwork:SetAlpha(alpha)
+        if hideArtwork then extraArtwork:Hide() else extraArtwork:Show() end
+    end
+
+    local zoneFrame = _G.ZoneAbilityFrame
+    local zoneArtwork = zoneFrame and zoneFrame.Style
+    if zoneArtwork then
+        zoneArtwork:SetAlpha(alpha)
+        if hideArtwork then zoneArtwork:Hide() else zoneArtwork:Show() end
+    end
+end
+
+-- Hooks Blizzard's frame-level refreshes without touching protected or pooled buttons.
+local function InstallExtraActionArtworkHooks()
+    if not extraActionHooked and _G.ExtraActionBar_Update then
+        _G.hooksecurefunc("ExtraActionBar_Update", OUS.ApplyExtraActionArtworkSetting)
+        extraActionHooked = true
+    end
+    local zoneMixin = _G.ZoneAbilityFrameMixin
+    if not zoneAbilityHooked and zoneMixin and zoneMixin.UpdateDisplayedZoneAbilities then
+        _G.hooksecurefunc(zoneMixin, "UpdateDisplayedZoneAbilities", OUS.ApplyExtraActionArtworkSetting)
+        zoneAbilityHooked = true
+    end
+end
+
+local artworkEventFrame = CreateFrame("Frame")
+artworkEventFrame:RegisterEvent("PLAYER_LOGIN")
+artworkEventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
+artworkEventFrame:RegisterEvent("UPDATE_EXTRA_ACTIONBAR")
+artworkEventFrame:RegisterEvent("UPDATE_OVERRIDE_ACTIONBAR")
+artworkEventFrame:RegisterEvent("UPDATE_VEHICLE_ACTIONBAR")
+artworkEventFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+artworkEventFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
+artworkEventFrame:RegisterEvent("ADDON_LOADED")
+artworkEventFrame:SetScript("OnEvent", function(_, event, addonName)
+    if event == "ADDON_LOADED" and addonName ~= "Blizzard_ZoneAbility" then return end
+    if event == "PLAYER_LOGIN" or event == "ADDON_LOADED" then
+        InstallExtraActionArtworkHooks()
+    end
+    if event ~= "PLAYER_REGEN_ENABLED" or artworkApplyPending then
+        OUS.ApplyExtraActionArtworkSetting()
+    end
+end)
 
 -- ============================================================
 -- Localized General channel names (from Leatrix Plus pattern)

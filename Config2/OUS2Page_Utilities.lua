@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Utilities.lua
--- Version : 2026.07.03
+-- Version : 2026.07.11
 -- Desc    : OUS2 Utilities module settings page
 -- ================================================
 
@@ -40,9 +40,9 @@ local function CreateSectionHeader(text, yOffset)
     divider:SetHeight(4)
 end
 
-local function CreateCheckboxRow(labelText, helpText, yOffset, getDB, dbKey)
+local function CreateCheckboxRow(labelText, helpText, yOffset, getDB, dbKey, onClick)
     local row = CreateFrame("Button", nil, page)
-    row:SetHeight(44)
+    row:SetHeight(36)
     row:SetPoint("TOPLEFT", page, "TOPLEFT", 18, yOffset)
     row:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
 
@@ -73,6 +73,7 @@ local function CreateCheckboxRow(labelText, helpText, yOffset, getDB, dbKey)
         local db = getDB()
         if not db then return end
         db[dbKey] = not db[dbKey]
+        if onClick then onClick() end
         Refresh()
     end)
 
@@ -225,72 +226,82 @@ CreateCheckboxRow(
     "utilities"
 )
 
-CreateSectionHeader("Auto Repair", -164)
+CreateSectionHeader("Auto Repair", -150)
 CreateCheckboxRow(
     "Enable Auto Repair",
     "Automatically repair damaged equipment when visiting a repair merchant.",
-    -190,
+    -176,
     GetUtilitiesDB,
     "repairEnabled"
 )
 CreateCheckboxRow(
     "Use Guild Repair First",
     "Use available guild funds before personal funds when repairing.",
-    -238,
+    -216,
     GetUtilitiesDB,
     "guildRepair"
 )
 CreateCheckboxRow(
     "Announce Repair Cost",
     "Report the repair cost and funding source in chat.",
-    -286,
+    -256,
     GetUtilitiesDB,
     "announceRepair"
 )
 
-CreateSectionHeader("Junk Seller", -348)
+CreateSectionHeader("Junk Seller", -306)
 CreateCheckboxRow(
     "Enable Junk Seller",
     "Enable automatic selling of eligible junk items at merchants.",
-    -374,
+    -332,
     GetJunkSellDB,
     "enabled"
 )
 CreateCheckboxRow(
     "Require Shift to Sell",
     "Require the Shift key to be held before junk selling begins.",
-    -422,
+    -372,
     GetJunkSellDB,
     "requireShift"
 )
 CreateCheckboxRow(
     "Announce Junk Sales",
     "Report completed junk sales and their value in chat.",
-    -470,
+    -412,
     GetJunkSellDB,
     "announceJunk"
 )
 CreateCheckboxRow(
     "Limit Sales to 12 Items",
     "Sell junk in batches of 12 items and require confirmation for the next batch.",
-    -518,
+    -452,
     GetJunkSellDB,
     "limitTo12"
 )
 junkBlacklistActionLabel = CreateActionButton(
     "Manage Blacklist",
     "Open the existing Junk Seller blacklist manager to add, remove, or wipe blacklisted items.",
-    -566,
+    -492,
     OpenJunkBlacklistManager
 )
 
-CreateSectionHeader("Rare Announcer", -636)
+CreateSectionHeader("Rare Announcer", -542)
 CreateCheckboxRow(
     "Enable Rare Announcer",
     "Enable rare target announcements and waypoint links.",
-    -662,
+    -568,
     GetUtilitiesDB,
     "rareEnabled"
+)
+
+CreateSectionHeader("Extra Action Button", -618)
+CreateCheckboxRow(
+    "Hide Blizzard Artwork",
+    "Hides the decorative Blizzard artwork around Extra Action and Zone Ability buttons while preserving the buttons, icons, cooldowns, clicks, positioning, and Edit Mode behavior.",
+    -644,
+    GetUtilitiesDB,
+    "hideExtraActionArtwork",
+    OUS.ApplyExtraActionArtworkSetting
 )
 
 Refresh = function()

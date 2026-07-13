@@ -151,6 +151,12 @@ Enhances taxi destination previews with itinerary sidebar, route hop breakdown, 
 ### Utilities
 A collection of small but powerful QoL tools bundled into one module.
 
+**Extra Action Button artwork**:
+- Optional `OdysseusDB.utilities.hideExtraActionArtwork` setting (default: `false`)
+- Hides only Blizzard's decorative artwork around the Extra Action Button and Zone Ability frame; buttons, icons, cooldowns, clicks, positioning, and Edit Mode remain Blizzard-owned
+- Creates no replacement border or backdrop
+- Disable Enhance QoL's equivalent hide-artwork option when using the OUS setting so both addons do not control the same Blizzard artwork
+
 **Rare Announcer** (`/ous_rare`):
 - Target any mob and announce its name, classification, and location to General chat
 - Classification tags: `[Rare]`, `[Rare Elite]`, `[Elite]`, `[World Boss]`, `[Normal]`

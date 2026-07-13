@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Core.lua
--- Version : 2026.06.25
+-- Version : 2026.07.11
 -- Desc    : Namespace, DB init, module defaults, slash commands
 -- ============================================================
 
@@ -82,12 +82,10 @@ f:SetScript("OnEvent", function(self, event, arg1)
             direction = "horizontal",
         }
 
-        OdysseusDB.utilities = OdysseusDB.utilities or {
-            rareEnabled    = true,
-            repairEnabled  = true,
-            guildRepair    = true,
-            announceRepair = true,
-        }
+        OdysseusDB.utilities = OdysseusDB.utilities or OUS.DeepCopyTable(OUS.utilitiesDefaults)
+        if OdysseusDB.utilities.hideExtraActionArtwork == nil then
+            OdysseusDB.utilities.hideExtraActionArtwork = false
+        end
         OdysseusDB.utilities.junkSell = OdysseusDB.utilities.junkSell or {
             enabled      = true,
             requireShift = false,
@@ -159,6 +157,7 @@ function OUS.ResetAllSettings()
         statsBar       = true,
         openables      = true,
         toolbox        = true,
+        utilities      = true,
     }
 
     OdysseusDB.minimap = {
@@ -167,6 +166,14 @@ function OUS.ResetAllSettings()
     }
     OdysseusDB.showMinimapButton = nil
     OdysseusDB.minimapAngle = nil
+
+    -- Reset Utilities and immediately restore Blizzard artwork before reload.
+    if OUS.utilitiesDefaults then
+        OdysseusDB.utilities = OUS.DeepCopyTable(OUS.utilitiesDefaults)
+        if OUS.ApplyExtraActionArtworkSetting then
+            OUS.ApplyExtraActionArtworkSetting()
+        end
+    end
 
     -- Reset Flight Master
     if OUS.flightDefaults then

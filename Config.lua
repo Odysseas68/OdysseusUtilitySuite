@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config.lua
--- Version : 2026.06.03
+-- Version : 2026.07.11
 -- Desc    : Main config UI — module toggles and settings panels
 -- ============================================================
 
@@ -1276,7 +1276,7 @@ cfg:SetScript("OnHide", function() dropDown:Hide() end)
 CreateContentHeader(tabs.Utilities, -15, "Utilities")
 
 -- Helper: creates a settings checkbox for OdysseusDB.utilities keys
-local function CreateUtilCheck(label, yOffset, dbKey)
+local function CreateUtilCheck(label, yOffset, dbKey, onClick)
     local cb = CreateFrame("CheckButton", nil, tabs.Utilities, "ChatConfigCheckButtonTemplate")
     cb:SetPoint("TOPLEFT", 20, yOffset)
     local txt = cb:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -1288,6 +1288,7 @@ local function CreateUtilCheck(label, yOffset, dbKey)
     cb:SetScript("OnClick", function(self)
         if OdysseusDB.utilities then
             OdysseusDB.utilities[dbKey] = self:GetChecked()
+            if onClick then onClick() end
         end
     end)
     return cb
@@ -1396,6 +1397,16 @@ utilRepairDesc:SetText("Automatically repairs all items when a merchant is opene
         end
         junkBlCountLabel:SetText(count .. " item(s) blacklisted")
     end)
+
+-- Extra Action Button artwork section
+local utilArtworkHeader = tabs.Utilities:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+utilArtworkHeader:SetPoint("TOPLEFT", 20, -510)
+utilArtworkHeader:SetTextColor(0.7, 0.5, 1)
+utilArtworkHeader:SetText("Extra Action Button")
+
+CreateUtilCheck("Hide Blizzard Artwork", -532, "hideExtraActionArtwork", function()
+    if OUS.ApplyExtraActionArtworkSetting then OUS.ApplyExtraActionArtworkSetting() end
+end)
 
 ShowTab("General")
 
