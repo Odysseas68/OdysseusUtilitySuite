@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.07.10
+-- Version : 2026.08.05
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -32,6 +32,25 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [2026-07-11]
+
+### Added
+- Added a Utilities option, disabled by default, that hides only Blizzard's Extra Action Button and Zone Ability decorative artwork without replacing or modifying the underlying ability buttons.
+- Added matching OUS2 and legacy Utilities controls backed by `OdysseusDB.utilities.hideExtraActionArtwork`.
+- Added a session-only Delves Lock/Unlock Frame control for ordinary Left Click dragging outside combat; locking saves the position and restores normal visibility.
+
+### Changed
+- Improved the XP Bar Global layout with full selected font and border-style names, a dedicated Border section, aligned controls, and separate Display and Border reset actions.
+- Updated XP Bar, Delves, and Flight Master color selectors to use compact square color swatches.
+- Improved Delves reset placement, button sizing, and Help descriptions; Reset Defaults now clearly covers templates, colors, and dimensions, while Reset Position affects only the bar position.
+- Replaced the old Delves Shift-drag workflow. Unlocking previews the bar outside Delves, keeps live values inside Delves, and automatically returns to locked state when leaving the settings page, entering combat, or reloading.
+
+### Notes
+- Artwork refreshes are reapplied through safe Blizzard post-hooks and lifecycle events, with combat requests deferred until combat ends.
+- Disable Enhance QoL's equivalent hide-artwork option when using the OUS version so both addons do not control the same Blizzard artwork.
+
+---
 
 ## [2026-07-08]
 

@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Help.lua
--- Version : 2026.06.22
+-- Version : 2026.08.05
 -- Desc    : Tabbed help frame — slash commands and module documentation
 -- ============================================================
 
@@ -44,7 +44,6 @@ local HELP_TABS = {
             {c = "/xpstats",          d = "Show session XP & rep data"},
             {s = "— Debug —"},
             {c = "/toasttest",        d = "Test reward popup"},
-            {c = "/delvetest",        d = "Toggle fake delve bar"},
             {c = "/delvedebug",       d = "Print delve instance IDs"},
         },
     },

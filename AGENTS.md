@@ -250,7 +250,6 @@ Known commands:
 - `/ousdebug`
 - `/xpstats`
 - `/toasttest`
-- `/delvetest`
 - `/delvedebug`
 - `/ar`
 - `/autoremount`
@@ -403,6 +402,7 @@ Completed:
 - Phase 4 module-page migration completed
 - XP Bar migration completed
 - Delves page completed
+- Delves temporary Lock/Unlock Frame positioning control completed
 
 Phase 5 follow-up work:
 - General page polish
@@ -412,7 +412,6 @@ Phase 5 follow-up work:
 - Reset semantics review
 - XP Bar color controls
 - Favorites management API review
-- Delves lock/unlock review
 - Flightmaster advanced controls
 - Toolbox expansion
 - Faster Loot rules

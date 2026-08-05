@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_delves.lua
--- Version : 2026.05.29
+-- Version : 2026.08.05
 -- Desc    : Delves companion tracking and session detection for XP/rep bar
 -- ============================================================
 
@@ -22,15 +22,54 @@ local function DelveBarClickHandler(_, button)
     end
 end
 
-delveBar.compBar:EnableMouse(true)
-delveBar.compBar:RegisterForDrag("LeftButton")
-delveBar.compBar:SetScript("OnDragStart", function() if IsShiftKeyDown() then delveBar:StartMoving() end end)
-delveBar.compBar:SetScript("OnDragStop", function() delveBar:StopMovingOrSizing() end)
+Session.isTestingDelve = false
+Session.isDelveBarUnlocked = false
+Session.isMovingDelveBar = false
+
+-- Position saving remains shared by mouse release, explicit locking, and combat interruption.
+local function SaveDelveBarPosition()
+    local db = OdysseusDB and OdysseusDB.xpBar
+    if not db then return end
+
+    local point, _, relativePoint, x, y = delveBar:GetPoint()
+    if not point then return end
+
+    db.delveBarPos = { p = point, rP = relativePoint, x = x, y = y }
+end
+
+-- Movement always terminates before the temporary edit state is cleared.
+local function StopDelveBarMovement(savePosition)
+    delveBar:StopMovingOrSizing()
+    if savePosition then
+        SaveDelveBarPosition()
+    end
+    Session.isMovingDelveBar = false
+end
+
+local function StartDelveBarMovement()
+    if not Session.isDelveBarUnlocked or InCombatLockdown() then return end
+
+    Session.isMovingDelveBar = true
+    delveBar:StartMoving()
+end
+
+local function FinishDelveBarMovement()
+    if not Session.isMovingDelveBar then return end
+    StopDelveBarMovement(true)
+end
+
+-- All visible Delves bar layers share the same guarded drag behavior.
+local function ConfigureDelveDragTarget(target)
+    target:EnableMouse(true)
+    target:RegisterForDrag("LeftButton")
+    target:SetScript("OnDragStart", StartDelveBarMovement)
+    target:SetScript("OnDragStop", FinishDelveBarMovement)
+end
+
+ConfigureDelveDragTarget(delveBar)
+ConfigureDelveDragTarget(delveBar.compBar)
+ConfigureDelveDragTarget(delveBar.jourBar)
 delveBar.compBar:SetScript("OnMouseUp", DelveBarClickHandler)
-delveBar.jourBar:EnableMouse(true)
-delveBar.jourBar:RegisterForDrag("LeftButton")
-delveBar.jourBar:SetScript("OnDragStart", function() if IsShiftKeyDown() then delveBar:StartMoving() end end)
-delveBar.jourBar:SetScript("OnDragStop", function() delveBar:StopMovingOrSizing() end)
 delveBar.jourBar:SetScript("OnMouseUp", DelveBarClickHandler)
 
 -- ==========================================
@@ -80,11 +119,7 @@ local NON_DELVE_MAP_IDS = {
     [2585] = true, -- Broken throne Ritual Site
 }
 
-local function IsPlayerInDelve()
-    if Session.isTestingDelve then
-        return true
-    end
-
+local function IsPlayerReallyInDelve()
     local _, instanceType = IsInInstance()
     local _, _, difficultyID, _, _, _, _, instanceID = GetInstanceInfo()
     local uiMapID = C_Map.GetBestMapForUnit("player") or 0
@@ -115,6 +150,54 @@ local function IsPlayerInDelve()
 
     return false
 end
+
+local function IsPlayerInDelve()
+    return Session.isTestingDelve or IsPlayerReallyInDelve()
+end
+
+-- Temporary edit mode reuses the existing test renderer only outside a real Delve.
+local function SetDelveBarUnlocked(unlocked, bypassCombatCheck)
+    unlocked = unlocked == true
+    if not bypassCombatCheck and InCombatLockdown() then
+        return false
+    end
+    if unlocked and (not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar) then
+        return false
+    end
+
+    if unlocked then
+        Session.isDelveBarUnlocked = true
+        delveBar:SetMovable(true)
+    else
+        StopDelveBarMovement(true)
+        Session.isDelveBarUnlocked = false
+        Session.isTestingDelve = false
+        delveBar:SetMovable(false)
+    end
+
+    if OUS.UpdateDelveBar then
+        OUS.UpdateDelveBar()
+    end
+    return true
+end
+
+-- Reports the temporary Delves positioning state to configuration controls.
+function OUS.IsDelveBarUnlocked()
+    return Session.isDelveBarUnlocked == true
+end
+
+-- Toggles temporary Delves positioning only while out of combat.
+function OUS.SetDelveBarUnlocked(unlocked)
+    return SetDelveBarUnlocked(unlocked, false)
+end
+
+local delveCombatFrame = CreateFrame("Frame")
+delveCombatFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
+delveCombatFrame:SetScript("OnEvent", function()
+    if Session.isDelveBarUnlocked then
+        SetDelveBarUnlocked(false, true)
+    end
+end)
 
 local function GetActiveDelveCompanion()
     if not OdysseusDB then
@@ -155,8 +238,10 @@ end
 function OUS.UpdateDelveBar()
     if not OdysseusDB or not OdysseusDB.xpBar or not delveBar then return end
     local db = OdysseusDB.xpBar
+    local isRealDelve = IsPlayerReallyInDelve()
+    Session.isTestingDelve = Session.isDelveBarUnlocked == true and not isRealDelve
 
-    if IsPlayerInDelve() then
+    if isRealDelve or Session.isTestingDelve then
         local compName, compFactionID = GetActiveDelveCompanion()
 
         local compMaxLevel = 60
@@ -216,7 +301,7 @@ function OUS.UpdateDelveBar()
             end
         end
 
-        if Session.isTestingDelve and cMax <= 1 and jMax <= 1 then
+        if Session.isTestingDelve then
             cXP, cMax, cLvl = 25000, 83000, 15
             jRep, jMax = 1200, 5000
             jLvl, jNextLvl = 4, 5 ---@diagnostic disable-line: cast-local-type

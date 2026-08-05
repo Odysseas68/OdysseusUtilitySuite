@@ -109,7 +109,7 @@ Current OUS2 intentional improvements:
 | Blizzard UI hiding reload behavior | Reload prompt | Legacy popup asks "Reload now?" with Yes/No. | OUS2 popup says reload is required and offers Reload UI/Later. | Intentional difference | None, unless exact wording parity is desired. | Behavior is equivalent. |
 | Blizzard UI hiding reload behavior | Instance guard | Legacy disables Hide Blizzard checkbox when `IsInInstance()` returns true. | OUS2 keeps the row available and preserves the real `hideBlizz` setting plus reload prompt. | Intentional difference | None. | The previous Bartender4/default Blizzard bar issue is resolved. Do not restore the disabled-in-instance guard unless future testing shows a current Retail need. |
 | Dimensions | XP bar position movement | Legacy help says Shift-drag XP Bar. Position saved by `xpbar_core.lua`. | OUS2 Help documents Shift-drag movement. | Present | None. | No OUS2 position reset exists for XP Bar. Legacy XP tab does not reset XP bar position. |
-| Delves lock/unlock | Shift-drag Delves movement | Legacy has Shift-drag movement and reset through Delves reset. No explicit lock checkbox in legacy XP config. | OUS2 documents Shift-drag movement. | Behavior audit | Do not add lock/unlock until separate behavior review confirms a desired DB key and runtime contract. | This is not direct legacy parity unless a legacy lock state exists elsewhere. |
+| Delves lock/unlock | Temporary Delves positioning mode | Legacy used Shift-drag movement and exposed a debug-only fake-bar slash command. | OUS2 provides a temporary Lock/Unlock Frame control, ordinary left-drag while unlocked, and an automatic preview outside Delves. | Intentional OUS2 improvement | Complete | The state is session-only, defaults locked after reload, and does not add a SavedVariables key. |
 
 ## 5. Suggested Patch Order
 
@@ -253,11 +253,11 @@ Delves:
 * Change companion and journey templates.
 * Change companion and journey colors.
 * Change Delves width, height, and scale.
-* Shift-drag Delves bar and confirm saved position.
+* Unlock the Delves frame, left-drag it, confirm the saved position, and lock it again.
 * Reset Delves defaults and verify dimensions, colors, templates, and scale.
 * Reset Delves position and verify only position changes.
 * Test Delves page Back to XP Bar.
-* Test entering/leaving a Delve or `/delvetest` where appropriate.
+* Test the unlocked preview outside a Delve and normal visibility when entering or leaving a Delve.
 
 General verification:
 

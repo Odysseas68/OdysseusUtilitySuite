@@ -239,7 +239,6 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 
 ### Utility / Debug
 - `/toasttest`
-- `/delvetest`
 - `/delvedebug`
 - `/ousdebug`
 

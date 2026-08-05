@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_XPBar.lua
--- Version : 2026.07.09
+-- Version : 2026.08.05
 -- Desc    : OUS2 XP Bar navigation hub and placeholder child views
 -- ================================================
 
@@ -31,6 +31,8 @@ local Refresh
 local RefreshGlobal
 local RefreshExperience
 local RefreshReputation
+local defaultPageHeight = math.max(C.pageContainer:GetHeight() or 0, T.Frame.defaultH)
+local globalPageHeight = defaultPageHeight
 
 local REPUTATION_STANDING_COLOR_ROWS = {
     { key = "hated", label = "Hated" },
@@ -132,7 +134,13 @@ local function CreateSectionHeader(parent, text, yOffset)
     divider:SetHeight(4)
 end
 
+-- Child-specific content height keeps longer settings views fully scrollable.
+local function SetPageContentHeight(height)
+    C.pageContainer:SetHeight(height or defaultPageHeight)
+end
+
 local function ShowHub()
+    SetPageContentHeight(defaultPageHeight)
     for _, child in pairs(childFrames) do
         child:Hide()
     end
@@ -141,6 +149,7 @@ local function ShowHub()
 end
 
 local function ShowChild(childKey)
+    SetPageContentHeight(childKey == "Global" and globalPageHeight or defaultPageHeight)
     hub:Hide()
     for key, child in pairs(childFrames) do
         child:SetShown(key == childKey)
@@ -154,6 +163,10 @@ local function ShowChild(childKey)
     end
     C.ClearHelpText()
 end
+
+page:HookScript("OnHide", function()
+    SetPageContentHeight(defaultPageHeight)
+end)
 
 local function CreateInfoCard(parent, text, helpText, yOffset, height)
     local card = CreateFrame("Frame", nil, parent)
@@ -245,11 +258,15 @@ end
 
 local function AttachControlHelp(frame, background, helpText)
     frame:HookScript("OnEnter", function()
-        background:SetTexture(T.Tex("CardHover"))
+        if background then
+            background:SetTexture(T.Tex("CardHover"))
+        end
         C.SetHelpText(helpText)
     end)
     frame:HookScript("OnLeave", function()
-        background:SetTexture(T.Tex("CardNormal"))
+        if background then
+            background:SetTexture(T.Tex("CardNormal"))
+        end
         C.ClearHelpText()
     end)
 end
@@ -345,7 +362,8 @@ local function CreateGlobalScale(
     step,
     initialValue,
     onChanged,
-    rowHeight
+    rowHeight,
+    inlineLabel
 )
     local row = CreateFrame("Frame", nil, parent)
     row:SetHeight(rowHeight or 56)
@@ -358,9 +376,6 @@ local function CreateGlobalScale(
     background:SetAllPoints()
 
     local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
-    label:SetPoint("TOPLEFT", row, "TOPLEFT", T.Card.Padding, -4)
-    label:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
-    label:SetJustifyH("LEFT")
     label:SetText(labelText)
     SetTextColor(label, T.Colors.text)
 
@@ -372,7 +387,18 @@ local function CreateGlobalScale(
         initialValue,
         onChanged
     )
-    control:SetPoint("BOTTOMRIGHT", row, "BOTTOMRIGHT", -T.Card.Padding, 5)
+    if inlineLabel then
+        label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+        label:SetPoint("RIGHT", control, "LEFT", -10, 0)
+        label:SetJustifyH("LEFT")
+        label:SetJustifyV("MIDDLE")
+        control:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+    else
+        label:SetPoint("TOPLEFT", row, "TOPLEFT", T.Card.Padding, -4)
+        label:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+        label:SetJustifyH("LEFT")
+        control:SetPoint("BOTTOMRIGHT", row, "BOTTOMRIGHT", -T.Card.Padding, 5)
+    end
 
     AttachControlHelp(row, background, helpText)
     AttachControlHelp(control, background, helpText)
@@ -387,7 +413,10 @@ end
 -- Compact rows keep dense XP Bar child views inside the existing OUS2 scroll bounds.
 local function AnchorGlobalColumnRow(row, parent, yOffset, leftSide, rowHeight, columnCount)
     row:SetHeight(rowHeight or 44)
-    if type(leftSide) == "number" and columnCount then
+    if leftSide == "full" then
+        row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+        row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    elseif type(leftSide) == "number" and columnCount then
         local width = columnCount == 4 and 138 or 186
         row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18 + ((leftSide - 1) * (width + 10)), yOffset)
         row:SetWidth(width)
@@ -402,11 +431,7 @@ local function AnchorGlobalColumnRow(row, parent, yOffset, leftSide, rowHeight, 
 end
 
 local function ShortMediaLabel(name)
-    name = tostring(name or "None")
-    if string.len(name) > 20 then
-        return string.sub(name, 1, 20)
-    end
-    return name
+    return tostring(name or "None")
 end
 
 local function SetSwatchColor(swatch, color, fallback)
@@ -471,17 +496,31 @@ local function ResetGlobalDefaults()
     db.fadedAlpha = defaults.fadedAlpha
     db.xpFont = defaults.xpFont
     db.xpFontSize = defaults.xpFontSize
-    db.barBorderName = defaults.barBorderName
-    db.barBorderSize = defaults.barBorderSize
-    db.barBorderColor = CopyDefaultTable("barBorderColor")
 
     if OUS.ApplyBlizzardKiller then OUS.ApplyBlizzardKiller() end
     ApplyXPBarFontSettings()
-    ApplyXPBarBorderSettings()
     if OUS.UpdateBar then OUS.UpdateBar() end
     WakeAndSleepBars()
     if OUS.LogDebug then
         OUS.LogDebug("XPBar", "Global defaults restored.")
+    end
+
+    RefreshGlobal()
+end
+
+-- Border reset remains isolated from the other Global settings groups.
+local function ResetBorderDefaults()
+    local db = GetXPBarDB()
+    local defaults = OUS.defaults
+    if not db or not defaults then return end
+
+    db.barBorderName = defaults.barBorderName
+    db.barBorderSize = defaults.barBorderSize
+    db.barBorderColor = CopyDefaultTable("barBorderColor")
+
+    ApplyXPBarBorderSettings()
+    if OUS.LogDebug then
+        OUS.LogDebug("XPBar", "Border defaults restored.")
     end
 
     RefreshGlobal()
@@ -521,16 +560,19 @@ local function CreateGlobalMediaRow(parent, labelText, helpText, yOffset, dbKey,
     SetTextColor(label, T.Colors.text)
 
     local button = CreateFrame("Button", nil, row)
+    button:SetPoint("LEFT", label, "RIGHT", 10, 0)
     button:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
-    button:SetSize(132, 24)
+    button:SetHeight(24)
     button:SetNormalTexture(T.Tex("ActionNormal"))
     button:SetHighlightTexture(T.Tex("ActionHover"))
     button:SetPushedTexture(T.Tex("ActionPressed"))
 
-    local buttonLabel = button:CreateFontString(nil, "ARTWORK", T.Fonts.small)
+    local buttonLabel = button:CreateFontString(nil, "OVERLAY", T.Fonts.small)
     buttonLabel:SetPoint("LEFT", button, "LEFT", 8, 0)
     buttonLabel:SetPoint("RIGHT", button, "RIGHT", -8, 0)
-    buttonLabel:SetJustifyH("LEFT")
+    buttonLabel:SetJustifyH("CENTER")
+    buttonLabel:SetJustifyV("MIDDLE")
+    buttonLabel:SetWordWrap(false)
     SetTextColor(buttonLabel, T.Colors.text)
     button.label = buttonLabel
 
@@ -558,10 +600,6 @@ local function CreateGlobalColorRow(parent, labelText, helpText, yOffset, dbKey,
     local row = CreateFrame("Frame", nil, parent)
     AnchorGlobalColumnRow(row, parent, yOffset, leftSide, rowHeight, columnCount)
 
-    local background = row:CreateTexture(nil, "BACKGROUND")
-    background:SetTexture(T.Tex("CardNormal"))
-    background:SetAllPoints()
-
     local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
     label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
     label:SetText(labelText)
@@ -571,9 +609,6 @@ local function CreateGlobalColorRow(parent, labelText, helpText, yOffset, dbKey,
     swatchButton:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
     local swatchSize = rowHeight and rowHeight < 36 and 24 or 28
     swatchButton:SetSize(swatchSize, swatchSize)
-    swatchButton:SetNormalTexture(T.Tex("ActionNormal"))
-    swatchButton:SetHighlightTexture(T.Tex("ActionHover"))
-    swatchButton:SetPushedTexture(T.Tex("ActionPressed"))
     label:SetPoint("RIGHT", swatchButton, "LEFT", -6, 0)
     label:SetJustifyH("LEFT")
 
@@ -606,47 +641,14 @@ local function CreateGlobalColorRow(parent, labelText, helpText, yOffset, dbKey,
         end
     end)
 
-    AttachControlHelp(row, background, helpText)
-    AttachControlHelp(swatchButton, background, helpText)
+    AttachControlHelp(row, nil, helpText)
+    AttachControlHelp(swatchButton, nil, helpText)
     if swatchStore then
         swatchStore[dbKey] = swatch
     else
         borderColorSwatch = swatch
     end
     return swatch
-end
-
-local function CreateGlobalColumnScale(parent, labelText, helpText, yOffset, minValue, maxValue, step, initialValue, onChanged, leftSide)
-    local row = CreateFrame("Frame", nil, parent)
-    AnchorGlobalColumnRow(row, parent, yOffset, leftSide)
-
-    local background = row:CreateTexture(nil, "BACKGROUND")
-    background:SetTexture(T.Tex("CardNormal"))
-    background:SetAllPoints()
-
-    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
-    label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
-    label:SetText(labelText)
-    SetTextColor(label, T.Colors.text)
-
-    local control = C.CreateScaleControl(
-        row,
-        minValue,
-        maxValue,
-        step,
-        initialValue,
-        onChanged
-    )
-    control:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
-
-    AttachControlHelp(row, background, helpText)
-    AttachControlHelp(control, background, helpText)
-    AttachControlHelp(control.leftButton, background, helpText)
-    AttachControlHelp(control.rightButton, background, helpText)
-    AttachControlHelp(control.slider, background, helpText)
-    AttachControlHelp(control.editBox, background, helpText)
-
-    return control
 end
 
 local function CreateGlobalActionButton(parent, labelText, helpText, yOffset, onClick, width)
@@ -1098,8 +1100,8 @@ local function CreateHelpScrollContent(parent)
     )
     yOffset = CreateHelpRow(
         content,
-        "Hold Shift and drag the Delves frame to reposition it.",
-        "The Delves frame uses Shift-drag movement.",
+        "Use Unlock Frame on the Delves page, then left-drag the Delves frame.",
+        "Lock Frame saves the position and restores normal Delves visibility.",
         yOffset,
         46
     )
@@ -1251,6 +1253,16 @@ local globalChild = CreateChildView(
     nil
 )
 
+local DISPLAY_HEADER_Y = -350
+local DISPLAY_FIRST_ROW_Y = -368
+local DISPLAY_ROW_STEP = 46
+local DISPLAY_FONT_Y = DISPLAY_FIRST_ROW_Y - (DISPLAY_ROW_STEP * 5) - 2
+local BORDER_HEADER_Y = DISPLAY_FONT_Y - 66
+local BORDER_STYLE_Y = BORDER_HEADER_Y - 18
+local BORDER_SIZE_Y = BORDER_STYLE_Y - 48
+local BORDER_COLOR_Y = BORDER_SIZE_Y - 48
+globalPageHeight = math.max(defaultPageHeight, -BORDER_COLOR_Y + 68)
+
 CreateSectionHeader(globalChild, "Module", -130)
 CreateGlobalCheckbox(
     globalChild,
@@ -1321,12 +1333,12 @@ CreateGlobalCheckbox(
     false
 )
 
-CreateSectionHeader(globalChild, "Display", -350)
+CreateSectionHeader(globalChild, "Display", DISPLAY_HEADER_Y)
 CreateGlobalActionButton(
     globalChild,
     "Reset Defaults",
-    "Reset only the legacy Global XP Bar settings shown on this page.",
-    -346,
+    "Reset the Global behavior and Display settings, excluding the separate Border section.",
+    DISPLAY_HEADER_Y + 4,
     ResetGlobalDefaults
 )
 
@@ -1334,7 +1346,7 @@ globalScaleControls.xpFontSize = CreateGlobalScale(
     globalChild,
     "Font Size",
     "Adjust the XP Bar font size.",
-    -368,
+    DISPLAY_FIRST_ROW_Y,
     8,
     32,
     1,
@@ -1354,7 +1366,7 @@ globalScaleControls.repDisplayTime = CreateGlobalScale(
     globalChild,
     "Auto-Switch Display Time",
     "Set how long reputation progress remains active after a reputation gain.",
-    -414,
+    DISPLAY_FIRST_ROW_Y - DISPLAY_ROW_STEP,
     5,
     60,
     1,
@@ -1373,7 +1385,7 @@ globalScaleControls.fadeDelay = CreateGlobalScale(
     globalChild,
     "Auto-Hide Fade Delay",
     "Set the delay before auto-hide fades the bars.",
-    -460,
+    DISPLAY_FIRST_ROW_Y - (DISPLAY_ROW_STEP * 2),
     0,
     60,
     1,
@@ -1391,7 +1403,7 @@ globalScaleControls.activeAlpha = CreateGlobalScale(
     globalChild,
     "Active Alpha",
     "Set bar opacity while the XP Bar is active.",
-    -506,
+    DISPLAY_FIRST_ROW_Y - (DISPLAY_ROW_STEP * 3),
     0.1,
     1.0,
     0.05,
@@ -1409,7 +1421,7 @@ globalScaleControls.fadedAlpha = CreateGlobalScale(
     globalChild,
     "Faded Alpha",
     "Set bar opacity after auto-hide fades the bars.",
-    -552,
+    DISPLAY_FIRST_ROW_Y - (DISPLAY_ROW_STEP * 4),
     0.0,
     1.0,
     0.05,
@@ -1427,39 +1439,38 @@ CreateGlobalMediaRow(
     globalChild,
     "Global Font",
     "Select the shared XP Bar font.",
-    -600,
+    DISPLAY_FONT_Y,
     "xpFont",
     "font",
     ApplyXPBarFontSettings,
-    true
+    "full"
+)
+
+CreateSectionHeader(globalChild, "Border", BORDER_HEADER_Y)
+CreateGlobalActionButton(
+    globalChild,
+    "Reset Defaults",
+    "Reset only the XP Bar border style, color, and size.",
+    BORDER_HEADER_Y + 4,
+    ResetBorderDefaults
 )
 
 CreateGlobalMediaRow(
     globalChild,
     "Bar Border Style",
     "Select the XP Bar border texture.",
-    -600,
+    BORDER_STYLE_Y,
     "barBorderName",
     "border",
     ApplyXPBarBorderSettings,
-    false
+    "full"
 )
 
-CreateGlobalColorRow(
-    globalChild,
-    "Border Color",
-    "Choose the XP Bar border color.",
-    -648,
-    "barBorderColor",
-    ApplyXPBarBorderSettings,
-    true
-)
-
-globalScaleControls.barBorderSize = CreateGlobalColumnScale(
+globalScaleControls.barBorderSize = CreateGlobalScale(
     globalChild,
     "Border Size",
     "Adjust the XP Bar border thickness.",
-    -648,
+    BORDER_SIZE_Y,
     0,
     50,
     1,
@@ -1470,7 +1481,18 @@ globalScaleControls.barBorderSize = CreateGlobalColumnScale(
         db.barBorderSize = value
         ApplyXPBarBorderSettings()
     end,
-    false
+    44,
+    true
+)
+
+CreateGlobalColorRow(
+    globalChild,
+    "Border Color",
+    "Choose the XP Bar border color.",
+    BORDER_COLOR_Y,
+    "barBorderColor",
+    ApplyXPBarBorderSettings,
+    "full"
 )
 
 local experienceChild = CreateChildView(

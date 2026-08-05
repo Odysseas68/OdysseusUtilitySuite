@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Help.lua
--- Version : 2026.07.04
+-- Version : 2026.08.05
 -- Desc    : OUS2 addon-wide Help page
 -- ================================================
 
@@ -130,7 +130,7 @@ AddHelpCard(
 )
 AddHelpCard(
     "XP & Rep",
-    "/xpstats - Session XP and rep\n/toasttest - Test reward popup\n/delvetest - Fake delve bar\n/delvedebug - Instance IDs",
+    "/xpstats - Session XP and rep\n/toasttest - Test reward popup\n/delvedebug - Instance IDs",
     "XP Bar tracks experience, reputation, session gains, favorites, and related debug helpers."
 )
 AddHelpCard(

@@ -93,9 +93,9 @@ Always access via `T.Tex(key)` helper — never hardcode paths in page files.
 
 **Completed OUS2 pages:** General, Utilities, Openables, Stats Bar, Auto Remount, Fishing Tracker, Flightmaster, Flight Routing, Faster Loot, Toolbox, XP Bar, and Delves.
 
-**XP Bar migration:** Complete. The registered `XPBar` page is a hub with internal Global, Experience, Reputation, Favorites, and Help views. The separate registered `Delves` page is complete and provides Back to XP Bar navigation.
+**XP Bar migration:** Complete. The registered `XPBar` page is a hub with internal Global, Experience, Reputation, Favorites, and Help views. The separate registered `Delves` page provides Back to XP Bar navigation and a session-only Lock/Unlock Frame positioning mode that defaults locked after reload.
 
-**Phase 5 follow-up:** General page polish, enabled/disabled card states, module count summary, Global Options functionality, reset semantics review, XP Bar color controls, Favorites management API review, Delves lock/unlock review, Toolbox expansion, Faster Loot rules, pending OUS2 left-navigation Help page and Changelog page, and helper extraction.
+**Phase 5 follow-up:** General page polish, enabled/disabled card states, module count summary, Global Options functionality, reset semantics review, XP Bar color controls, Favorites management API review, Toolbox expansion, Faster Loot rules, pending OUS2 left-navigation Help page and Changelog page, and helper extraction.
 
 **Public API:**
 ```lua
@@ -313,7 +313,7 @@ ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
 - `/ousdebug` — toggle debug console
 - `/xpstats` — XP Bar session statistics command
 - Legacy `/ousxp` alias removed; do not register it again
-- `/toasttest`, `/delvetest`, `/delvedebug` — xpbar debug
+- `/toasttest`, `/delvedebug` — XP Bar debug commands
 - `/ar`, `/autoremount` — AutoRemount module commands
 - `/sb`, `/statsbar` — StatsBar module commands
 - `/op`, `/openables` — Openables module commands

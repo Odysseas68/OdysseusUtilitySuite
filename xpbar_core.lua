@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_core.lua
--- Version : 2026.05.29
+-- Version : 2026.08.05
 -- Desc    : XP/rep bar frame layout and base rendering
 -- ============================================================
 
@@ -76,6 +76,8 @@ OUS.XPBarSession = OUS.XPBarSession or {
     fadeTicker = nil,
     delveCheckTicker = nil,
     isTestingDelve = false,
+    isDelveBarUnlocked = false,
+    isMovingDelveBar = false,
     lastKnownDelveState = false,
     lastDelveSeenTime = 0
 }
@@ -165,16 +167,9 @@ delveBar.jourBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 delveBar.jourText = delveBar.jourBar:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 delveBar.jourText:SetPoint("CENTER")
 
-delveBar:SetMovable(true)
+delveBar:SetMovable(false)
 delveBar:SetClampedToScreen(true)
 delveBar:EnableMouse(true)
-delveBar:RegisterForDrag("LeftButton")
-delveBar:SetScript("OnDragStart", function(self) if IsShiftKeyDown() then self:StartMoving() end end)
-delveBar:SetScript("OnDragStop", function(self)
-    self:StopMovingOrSizing()
-    local p, _, rP, x, y = self:GetPoint()
-    OdysseusDB.xpBar.delveBarPos = {p=p, rP=rP, x=x, y=y}
-end)
 delveBar:Hide()
 
 -- Toast Notification Frame
@@ -390,20 +385,6 @@ SlashCmdList["XPSTATS"] = function()
     else
         OUS.statsFrame:UpdateData()
         OUS.statsFrame:Show()
-    end
-end
-
-SLASH_DELVETEST1 = "/delvetest"
-SlashCmdList["DELVETEST"] = function()
-    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
-    OUS.XPBarSession.isTestingDelve = not OUS.XPBarSession.isTestingDelve
-    if OUS.UpdateBar then OUS.UpdateBar() end
-    if OUS.XPBarSession.isTestingDelve then
-        print("|cFF00FF00Odysseus:|r Delves UI forced ON.")
-        OUS.LogDebug("XPBar", "Test Delve Mode Enabled")
-    else
-        print("|cFFFF0000Odysseus:|r Delves UI forced OFF.")
-        OUS.LogDebug("XPBar", "Test Delve Mode Disabled")
     end
 end
 

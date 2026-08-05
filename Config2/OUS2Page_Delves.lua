@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Delves.lua
--- Version : 2026.07.05
+-- Version : 2026.08.05
 -- Desc    : OUS2 Delves companion and journey settings page
 -- ================================================
 
@@ -17,6 +17,7 @@ local journeyTemplateBox
 local widthControl
 local heightControl
 local scaleControl
+local editFrameButton
 local colorSwatches = {}
 local Refresh
 
@@ -103,11 +104,15 @@ end
 
 local function AttachControlHelp(frame, background, helpText)
     frame:HookScript("OnEnter", function()
-        background:SetTexture(T.Tex("CardHover"))
+        if background then
+            background:SetTexture(T.Tex("CardHover"))
+        end
         C.SetHelpText(helpText)
     end)
     frame:HookScript("OnLeave", function()
-        background:SetTexture(T.Tex("CardNormal"))
+        if background then
+            background:SetTexture(T.Tex("CardNormal"))
+        end
         C.ClearHelpText()
     end)
 end
@@ -296,10 +301,6 @@ local function CreateColorRow(labelText, helpText, yOffset, dbKey, leftSide)
     end
     row:EnableMouse(true)
 
-    local background = row:CreateTexture(nil, "BACKGROUND")
-    background:SetTexture(T.Tex("CardNormal"))
-    background:SetAllPoints()
-
     local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
     label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
     label:SetText(labelText)
@@ -308,9 +309,8 @@ local function CreateColorRow(labelText, helpText, yOffset, dbKey, leftSide)
     local swatchButton = CreateFrame("Button", nil, row)
     swatchButton:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
     swatchButton:SetSize(28, 28)
-    swatchButton:SetNormalTexture(T.Tex("ActionNormal"))
-    swatchButton:SetHighlightTexture(T.Tex("ActionHover"))
-    swatchButton:SetPushedTexture(T.Tex("ActionPressed"))
+    label:SetPoint("RIGHT", swatchButton, "LEFT", -6, 0)
+    label:SetJustifyH("LEFT")
 
     local swatch = swatchButton:CreateTexture(nil, "ARTWORK")
     swatch:SetPoint("TOPLEFT", swatchButton, "TOPLEFT", 5, -5)
@@ -329,15 +329,15 @@ local function CreateColorRow(labelText, helpText, yOffset, dbKey, leftSide)
         end
     end)
 
-    AttachControlHelp(row, background, helpText)
-    AttachControlHelp(swatchButton, background, helpText)
+    AttachControlHelp(row, nil, helpText)
+    AttachControlHelp(swatchButton, nil, helpText)
     colorSwatches[dbKey] = swatch
 end
 
-local function CreateActionButton(labelText, helpText, yOffset, onClick)
+local function CreateActionButton(labelText, helpText, yOffset, onClick, width, xOffset)
     local button = CreateFrame("Button", nil, page)
-    button:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
-    button:SetSize(132, 24)
+    button:SetPoint("TOPRIGHT", page, "TOPRIGHT", xOffset or -18, yOffset)
+    button:SetSize(width or 132, 24)
     button:SetNormalTexture(T.Tex("ActionNormal"))
     button:SetHighlightTexture(T.Tex("ActionHover"))
     button:SetPushedTexture(T.Tex("ActionPressed"))
@@ -346,14 +346,36 @@ local function CreateActionButton(labelText, helpText, yOffset, onClick)
     label:SetPoint("CENTER")
     label:SetText(labelText)
     SetTextColor(label, T.Colors.text)
+    button.label = label
 
     button:SetScript("OnEnter", function()
-        C.SetHelpText(helpText)
+        C.SetHelpText(type(helpText) == "function" and helpText() or helpText)
     end)
     button:SetScript("OnLeave", function()
         C.ClearHelpText()
     end)
     button:SetScript("OnClick", onClick)
+    return button
+end
+
+local function GetDelveEditButtonText()
+    if OUS.IsDelveBarUnlocked and OUS.IsDelveBarUnlocked() then
+        return "Lock Frame",
+            "Lock Frame\n\nLocks the Delves bar at its current position and restores its normal visibility."
+    end
+
+    return "Unlock Frame",
+        "Unlock Frame\n\nShows and unlocks the Delves bar so it can be repositioned with Left Click and drag. Available only out of combat."
+end
+
+local function RefreshDelveEditButton()
+    if not editFrameButton then return end
+
+    local labelText, helpText = GetDelveEditButtonText()
+    editFrameButton.label:SetText(labelText)
+    if editFrameButton:IsMouseOver() then
+        C.SetHelpText(helpText)
+    end
 end
 
 local headerIcon = page:CreateTexture(nil, "ARTWORK")
@@ -415,6 +437,33 @@ journeyTemplateBox = CreateTemplateRow(
 )
 
 CreateSectionHeader("Dimensions", -352)
+local editLabel = GetDelveEditButtonText()
+editFrameButton = CreateActionButton(
+    editLabel,
+    function()
+        local _, helpText = GetDelveEditButtonText()
+        return helpText
+    end,
+    -348,
+    function()
+        local unlocked = OUS.IsDelveBarUnlocked and OUS.IsDelveBarUnlocked()
+        if OUS.SetDelveBarUnlocked and OUS.SetDelveBarUnlocked(not unlocked) then
+            Refresh()
+        end
+    end,
+    160,
+    -194
+)
+CreateActionButton(
+    "Reset Position",
+    "Reset only the Delves bar position to the legacy default anchor.",
+    -348,
+    function()
+        ResetDelvePosition()
+        Refresh()
+    end,
+    160
+)
 widthControl = CreateScaleRow(
     "Delve Bar Width",
     "Adjust the width of the Delves bar.",
@@ -463,21 +512,13 @@ CreateColorRow(
 )
 CreateActionButton(
     "Reset Defaults",
-    "Reset only Delves templates, colors, width, height, and scale. Position is handled separately.",
+    "Reset Defaults\n\nResets Delves templates, colors, and dimensions to their default values. The bar position is not changed.",
     -654,
     function()
         ResetDelveDefaults()
         Refresh()
-    end
-)
-CreateActionButton(
-    "Reset Position",
-    "Reset only the Delves bar position to the legacy default anchor.",
-    -684,
-    function()
-        ResetDelvePosition()
-        Refresh()
-    end
+    end,
+    160
 )
 
 Refresh = function()
@@ -505,6 +546,23 @@ Refresh = function()
         local defaultTemplate = OUS.defaults and OUS.defaults.delveJourTemplate or ""
         journeyTemplateBox:SetText(db and db.delveJourTemplate or defaultTemplate)
     end
+    RefreshDelveEditButton()
 end
+
+page:HookScript("OnHide", function()
+    if OUS.IsDelveBarUnlocked and OUS.IsDelveBarUnlocked() and OUS.SetDelveBarUnlocked then
+        OUS.SetDelveBarUnlocked(false)
+    end
+    RefreshDelveEditButton()
+    C.ClearHelpText()
+end)
+
+local combatRefreshFrame = CreateFrame("Frame")
+combatRefreshFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
+combatRefreshFrame:SetScript("OnEvent", function()
+    C_Timer.After(0, function()
+        if Refresh then Refresh() end
+    end)
+end)
 
 C.RegisterPage("Delves", page, Refresh)

@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_FlightMaster.lua
--- Version : 2026.06.25
+-- Version : 2026.08.05
 -- Desc    : OUS2 Flight Master display settings page
 -- ================================================
 
@@ -54,11 +54,15 @@ end
 
 local function AttachRowHelp(row, background, helpText)
     row:HookScript("OnEnter", function()
-        background:SetTexture(T.Tex("CardHover"))
+        if background then
+            background:SetTexture(T.Tex("CardHover"))
+        end
         C.SetHelpText(helpText)
     end)
     row:HookScript("OnLeave", function()
-        background:SetTexture(T.Tex("CardNormal"))
+        if background then
+            background:SetTexture(T.Tex("CardNormal"))
+        end
         C.ClearHelpText()
     end)
 end
@@ -265,42 +269,26 @@ local function CreateColorRow(labelText, helpText, yOffset, dbKey, defaultColor,
     row:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
     row:EnableMouse(true)
 
-    local background = row:CreateTexture(nil, "BACKGROUND")
-    background:SetTexture(T.Tex("CardNormal"))
-    background:SetAllPoints()
-
     local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
     label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
     label:SetText(labelText)
     SetTextColor(label, T.Colors.text)
 
     local button = CreateFrame("Button", nil, row)
-    button:SetSize(82, 28)
+    button:SetSize(28, 28)
     button:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
-
-    button.bg = button:CreateTexture(nil, "BACKGROUND")
-    button.bg:SetTexture(T.Tex("ActionButtonNormal"))
-    button.bg:SetAllPoints()
+    label:SetPoint("RIGHT", button, "LEFT", -6, 0)
+    label:SetJustifyH("LEFT")
 
     button.swatch = button:CreateTexture(nil, "ARTWORK")
-    button.swatch:SetSize(42, 16)
-    button.swatch:SetPoint("CENTER")
+    button.swatch:SetPoint("TOPLEFT", button, "TOPLEFT", 5, -5)
+    button.swatch:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", -5, 5)
 
     button:SetScript("OnEnter", function()
-        button.bg:SetTexture(T.Tex("ActionButtonHover"))
-        background:SetTexture(T.Tex("CardHover"))
         C.SetHelpText(helpText)
     end)
     button:SetScript("OnLeave", function()
-        button.bg:SetTexture(T.Tex("ActionButtonNormal"))
-        background:SetTexture(T.Tex("CardNormal"))
         C.ClearHelpText()
-    end)
-    button:SetScript("OnMouseDown", function()
-        button.bg:SetTexture(T.Tex("ActionButtonPressed"))
-    end)
-    button:SetScript("OnMouseUp", function()
-        button.bg:SetTexture(T.Tex("ActionButtonHover"))
     end)
     button:SetScript("OnClick", function()
         local db = GetFlightSettings()
@@ -321,7 +309,7 @@ local function CreateColorRow(labelText, helpText, yOffset, dbKey, defaultColor,
         end)
     end)
 
-    AttachRowHelp(row, background, helpText)
+    AttachRowHelp(row, nil, helpText)
 
     function button:SetColor(color)
         color = color or defaultColor
