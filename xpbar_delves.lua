@@ -89,6 +89,7 @@ local VALEERA_INSTANCE_IDS = {
     [2966] = true, -- Torment's Rise
     [2979] = true, -- Shadowguard Point
     [3003] = true, -- The Darkway
+    [3038] = true, -- Gnarldor Isle
 }
 local VALEERA_MAP_IDS = {
     [2933] = true, -- Collegiate Calamity
@@ -102,6 +103,7 @@ local VALEERA_MAP_IDS = {
     [2966] = true, -- Torment's Rise
     [2979] = true, -- Shadowguard Point
     [3003] = true, -- The Darkway
+    [2635] = true, -- Gnarldor Isle
 }
 
 -- Delves that fall above the Valeera thresholds but actually use Brann.

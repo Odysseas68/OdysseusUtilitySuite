@@ -52,7 +52,7 @@ local ZONE_FISHING_NAMES = {
     [2443] = "Midnight Fishing", [2480] = "Midnight Fishing", [2405] = "Midnight Fishing",
     [2479] = "Midnight Fishing", [2437] = "Midnight Fishing", [2568] = "Midnight Fishing",
     [2531] = "Midnight Fishing", [2532] = "Midnight Fishing", [2529] = "Midnight Fishing",
-    [2530] = "Midnight Fishing", [2444] = "Midnight Fishing",
+    [2530] = "Midnight Fishing", [2444] = "Midnight Fishing", [2512] = "Midnight Fishing",
 
     -- ======================================
     -- KHAZ ALGAR (The War Within)
