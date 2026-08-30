@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Flightmaster.lua
--- Version : 2026.06.24
+-- Version : 2026.08.19
 -- Desc    : Flight timer bar, distance display, taxi map tooltip with time and cost
 -- ============================================================
 
@@ -353,19 +353,39 @@ end)
 -- Guards against spurious TAXIMAP_OPENED fires during instance exit cleanup.
 local taxiMapOpen = false
 
-local mapTooltip = CreateFrame("Frame", "OdysseusMapTooltip", UIParent, "BackdropTemplate")
+local mapTooltip = CreateFrame("Frame", "OdysseusMapTooltip", UIParent)
 mapTooltip:SetFrameStrata("TOOLTIP")
 mapTooltip:SetSize(180, 65)
 mapTooltip:Hide()
 
-mapTooltip:SetBackdrop({
-    bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
-    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-    tile = false, edgeSize = 16,
-    insets = { left = 4, right = 4, top = 4, bottom = 4 }
-})
-mapTooltip:SetBackdropColor(0.07, 0.05, 0.1, 0.95)
-mapTooltip:SetBackdropBorderColor(0.5, 0.3, 0.7, 1)
+-- Anchored textures avoid BackdropTemplate geometry arithmetic on secret dimensions.
+mapTooltip.background = mapTooltip:CreateTexture(nil, "BACKGROUND")
+mapTooltip.background:SetAllPoints()
+mapTooltip.background:SetColorTexture(0.07, 0.05, 0.1, 0.95)
+
+mapTooltip.borderTop = mapTooltip:CreateTexture(nil, "BORDER")
+mapTooltip.borderTop:SetPoint("TOPLEFT")
+mapTooltip.borderTop:SetPoint("TOPRIGHT")
+mapTooltip.borderTop:SetHeight(1)
+mapTooltip.borderTop:SetColorTexture(0.5, 0.3, 0.7, 1)
+
+mapTooltip.borderBottom = mapTooltip:CreateTexture(nil, "BORDER")
+mapTooltip.borderBottom:SetPoint("BOTTOMLEFT")
+mapTooltip.borderBottom:SetPoint("BOTTOMRIGHT")
+mapTooltip.borderBottom:SetHeight(1)
+mapTooltip.borderBottom:SetColorTexture(0.5, 0.3, 0.7, 1)
+
+mapTooltip.borderLeft = mapTooltip:CreateTexture(nil, "BORDER")
+mapTooltip.borderLeft:SetPoint("TOPLEFT")
+mapTooltip.borderLeft:SetPoint("BOTTOMLEFT")
+mapTooltip.borderLeft:SetWidth(1)
+mapTooltip.borderLeft:SetColorTexture(0.5, 0.3, 0.7, 1)
+
+mapTooltip.borderRight = mapTooltip:CreateTexture(nil, "BORDER")
+mapTooltip.borderRight:SetPoint("TOPRIGHT")
+mapTooltip.borderRight:SetPoint("BOTTOMRIGHT")
+mapTooltip.borderRight:SetWidth(1)
+mapTooltip.borderRight:SetColorTexture(0.5, 0.3, 0.7, 1)
 
 mapTooltip.headerBg = mapTooltip:CreateTexture(nil, "BACKGROUND", nil, 2)
 mapTooltip.headerBg:SetPoint("TOPLEFT", 4, -4)

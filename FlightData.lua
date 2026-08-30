@@ -285,6 +285,9 @@ SFT_FlightData = {
         ["Wildhammer Stronghold"] = 81,
         ["Zabra'jin"] = 329,
     },
+    ["Amani Foothold, Vaults of Atal'Utek"] = {
+        ["Tokka's Landing, The Coiled Isle"] = 88,
+    },
     ["Amani'Zar Village, Zul'Aman"] = {
         ["Atal'Aman, Zul'Aman"] = 56,
         ["Camp Stonewash, Zul'Aman"] = 93,
@@ -1187,6 +1190,9 @@ SFT_FlightData = {
         ["Rut'theran Village"] = 168,
         ["The Exodar"] = 100,
         ["Whisperwind Grove"] = 311,
+    },
+    ["Blood Watch, Bloodmyst Isle"] = {
+        ["Everlook, Winterspring"] = 370,
     },
     ["Bloodgulch"] = {
         ["Brill"] = 445,
@@ -2105,6 +2111,7 @@ SFT_FlightData = {
         ["Booty Bay, Stranglethorn"] = 723,
         ["Crown Guard Tower, Eastern Plaguelands"] = 103,
         ["Darkshire, Duskwood"] = 500,
+        ["Eastwall Tower, Eastern Plaguelands"] = 155,
         ["Greenwarden's Grove, Wetlands"] = 234,
         ["Hearthglen, Western Plaguelands"] = 85,
         ["Ironforge, Dun Morogh"] = 257,
@@ -3047,7 +3054,6 @@ SFT_FlightData = {
         ["Dunelle's Kindness"] = 86,
         ["Durgaz Cabin"] = 44,
         ["Faerin's Advance"] = 141,
-        ["Gundargaz"] = 58,
         ["Gutterville"] = 148,
         ["Hillhelm Family Farm"] = 93,
         ["Light's Redoubt"] = 165,
@@ -3068,6 +3074,7 @@ SFT_FlightData = {
     },
     ["Dornogal, Isle of Dorn"] = {
         ["Freywold Village, Isle of Dorn"] = 39,
+        ["Gundargaz, The Ringing Deeps"] = 66,
     },
     ["Dragon's Mouth, Badlands"] = {
         ["Andorhal, Western Plaguelands"] = 396,
@@ -4033,6 +4040,7 @@ SFT_FlightData = {
         ["Atal'Aman, Zul'Aman"] = 148,
         ["Bogpaddle, Swamp of Sorrows"] = 702,
         ["Booty Bay, Stranglethorn"] = 832,
+        ["Camp Stonewash, Zul'Aman"] = 158,
         ["Chiselgrip, Burning Steppes"] = 612,
         ["Crown Guard Tower, Eastern Plaguelands"] = 223,
         ["Eastwall Tower, Eastern Plaguelands"] = 183,
@@ -5400,6 +5408,7 @@ SFT_FlightData = {
         ["Genesis Cradle Beta"] = 18,
     },
     ["Gilded Oaks, Founder's Point"] = {
+        ["Mear's Farm, Founder's Point"] = 31,
         ["Small Aerie, Founder's Point"] = 23,
         ["The Outer Banks, Founder's Point"] = 18,
         ["Town Center, Founder's Point"] = 36,
@@ -6479,6 +6488,9 @@ SFT_FlightData = {
         ["Theramore"] = 171,
         ["Tower of Estulan"] = 354,
         ["Windshear Hold"] = 118,
+    },
+    ["Honor's Stand, Southern Barrens"] = {
+        ["Mirkfallon Post, Stonetalon Mountains"] = 147,
     },
     ["Hosaas Rest"] = {
         ["Eco-Dome: Rhovan"] = 35,
@@ -7593,10 +7605,10 @@ SFT_FlightData = {
     },
     ["Locus Point, Voidstorm"] = {
         ["Howling Ridge, Voidstorm"] = 34,
+        ["Masters' Perch, Voidstorm"] = 51,
         ["The Ingress, Voidstorm"] = 31,
     },
     ["Longying Outpost"] = {
-        ["Binan Village"] = 66,
         ["Cradle of Chi-Ji"] = 205,
         ["Eastwind Rest"] = 106,
         ["Gao-Ran Battlefront"] = 40,
@@ -7617,6 +7629,9 @@ SFT_FlightData = {
         ["Westwind Rest"] = 64,
         ["Winter's Blossom"] = 34,
         ["Zouchin Village"] = 158,
+    },
+    ["Longying Outpost, Townlong Steppes"] = {
+        ["Binan Village, Kun-Lai Summit"] = 108,
     },
     ["Lor'danel"] = {
         ["Astranaar"] = 225,
@@ -8277,7 +8292,7 @@ SFT_FlightData = {
         ["Furlbrow's Pumpkin Farm, Westfall"] = 58,
         ["Goldshire, Elwynn"] = 132,
         ["Ironforge, Dun Morogh"] = 315,
-        ["Lakeshire, Redridge"] = 168,
+        ["Lakeshire, Redridge"] = 159,
         ["Menethil Harbor, Wetlands"] = 388,
         ["Raven Hill, Duskwood"] = 57,
         ["Rebel Camp, Stranglethorn Vale"] = 90,
@@ -10251,6 +10266,9 @@ SFT_FlightData = {
     ["Rubyscale Outpost"] = {
         ["Cobalt Assembly"] = 7,
     },
+    ["Rubyscale Outpost, The Waking Shores"] = {
+        ["Morqut Islet, Forbidden Reach"] = 11,
+    },
     ["Ruins of Southshore"] = {
         ["Acherus: The Ebon Hold"] = 290,
         ["Andorhal"] = 131,
@@ -10470,6 +10488,8 @@ SFT_FlightData = {
         ["Shadebasin Watch, Zul'Aman"] = 149,
         ["Silverglade Refuge, Eversong Woods"] = 170,
         ["Terrace of the Sun, Isle of Quel'Danas"] = 106,
+        ["The Menders' Stead, Western Plaguelands"] = 281,
+        ["Tokka's Landing, The Coiled Isle"] = 431,
         ["Torntusk Overlook, Zul'Aman"] = 227,
         ["Tranquillien, Eversong Woods"] = 92,
         ["Witherbark Bluffs, Zul'Aman"] = 125,
@@ -11786,6 +11806,8 @@ SFT_FlightData = {
         ["The Incontinental Hotel"] = 10,
     },
     ["Small Aerie, Founder's Point"] = {
+        ["Entrance Portal, Founder's Point"] = 35,
+        ["Gilded Oaks, Founder's Point"] = 22,
         ["Town Center, Founder's Point"] = 18,
     },
     ["Smuggler's Scar"] = {
@@ -13172,6 +13194,7 @@ SFT_FlightData = {
     ["Terrace of the Sun, Isle of Quel'Danas"] = {
         ["Light's Hope Chapel, Eastern Plaguelands"] = 335,
         ["Sanctum of Light, Silvermoon City"] = 100,
+        ["Tranquillien, Eversong Woods"] = 188,
     },
     ["Thal'darah Overlook"] = {
         ["Astranaar"] = 171,
@@ -13884,6 +13907,7 @@ SFT_FlightData = {
     ["The Outer Banks, Founder's Point"] = {
         ["Entrance Portal, Founder's Point"] = 40,
         ["Gilded Oaks, Founder's Point"] = 19,
+        ["Small Aerie, Founder's Point"] = 18,
     },
     ["The Pulsing Pit"] = {
         ["Grand Rampart"] = 19,
@@ -13922,6 +13946,9 @@ SFT_FlightData = {
         ["Wor'var"] = 19,
         ["Yrel's Watch"] = 33,
         ["Zangarra"] = 98,
+    },
+    ["The Ring of Trials, Nagrand"] = {
+        ["Bastion Rise, Gorgrond"] = 107,
     },
     ["The Sepulcher"] = {
         ["Acherus: The Ebon Hold"] = 348,
@@ -14775,6 +14802,10 @@ SFT_FlightData = {
         ["The Spearhead"] = 146,
         ["Theater of Pain"] = 144,
     },
+    ["Tokka's Landing, The Coiled Isle"] = {
+        ["Amani Foothold, Vaults of Atal'Utek"] = 88,
+        ["Sanctum of Light, Silvermoon City"] = 436,
+    },
     ["Tol Dagor"] = {
         ["Arom's Stand"] = 175,
         ["Bridgeport"] = 63,
@@ -14971,6 +15002,7 @@ SFT_FlightData = {
         ["Amani'Zar Village, Zul'Aman"] = 143,
         ["Andorhal, Western Plaguelands"] = 274,
         ["Atal'Aman, Zul'Aman"] = 96,
+        ["Camp Stonewash, Zul'Aman"] = 178,
         ["Crown Guard Tower, Eastern Plaguelands"] = 180,
         ["Eastwall Tower, Eastern Plaguelands"] = 139,
         ["Fairbreeze Village, Eversong Woods"] = 61,
