@@ -117,6 +117,7 @@ local NON_DELVE_INSTANCE_IDS = {
     [3074] = true, -- Eversong Woods Ritual Site
     [3018] = true, -- Broken throne Ritual Site
     [2987] = true, -- The Tidebound Grotto
+    [3081] = true, -- Cursed Keepsake
 }
 local NON_DELVE_MAP_IDS = {
     [2537] = true, -- Decor Duel
