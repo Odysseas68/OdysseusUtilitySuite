@@ -251,7 +251,7 @@ function OUS.ResetAllSettings()
         tableRelPoint = "CENTER",
     }
 
-    C_Timer.After(0.5, ReloadUI)
+    C_UI.Reload()
 end
 
 -- ==========================================

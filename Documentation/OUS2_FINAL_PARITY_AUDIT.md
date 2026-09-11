@@ -14,6 +14,8 @@ One additional legacy capability is deliberately unavailable in OUS2:
 
 3. `Enable Faster Loot` — `OdysseusDB.modules.fasterLoot`; the OUS2 Faster Loot page explicitly keeps this status read-only until a cleanup-aware public setter exists.
 
+The audit also discovered that OUS2's global reset bypassed the legacy confirmation. That safety gap was corrected on 2026-09-11 by routing the OUS2 action through `ODYSSEUS_CONFIRM_WIPE_ALL`; the underlying reset function and scope were not changed. User runtime validation confirmed that OUS2 shows the dialog, Cancel leaves settings untouched, Confirm resets settings, and legacy `/ous` uses the same confirmation behavior.
+
 These are real configuration gaps, not cosmetic differences. No legacy setting was found writing to an unidentified or divergent SavedVariable path, and there are no `UNKNOWN` mappings. Legacy `/ous` is not ready for retirement.
 
 ## Repository Baseline
@@ -78,8 +80,8 @@ Both systems operate on the same module-owned defaults and runtime helpers. Simi
 | Classification | Count |
 |---|---:|
 | Total distinct legacy settings/actions audited | 110 |
-| A. FULL PARITY | 86 |
-| B. PRESENT — BEHAVIOR DIFFERS | 15 |
+| A. FULL PARITY | 87 |
+| B. PRESENT — BEHAVIOR DIFFERS | 14 |
 | C. LEGACY-ONLY — MISSING FROM OUS2 | 2 |
 | D. INTENTIONALLY OMITTED | 1 |
 | E. OBSOLETE / NO LONGER APPLICABLE | 0 |
@@ -103,7 +105,7 @@ Abbreviations: `A` full parity; `B` present but behavior differs; `C` legacy-onl
 | General | Enable Openables (shown in General and again on Openables page) | `OdysseusDB.modules.openables` | Enable Module on Openables page | Same path | F | Yes (`true`) | Yes | Yes | One conceptual setting; OUS2 consolidates the duplicate legacy placements. Both active page handlers update display. |
 | General | Enable Utilities | `OdysseusDB.modules.utilities` | Enable Module | Same path | A | Yes (`true`) | Yes | Yes | Both are direct writes; module behavior is event gated. |
 | General | Enable Toolbox | `OdysseusDB.modules.toolbox` | None; page reports runtime status only | None | C | — | No | No control | **HIGH.** Default `true`; Toolbox frame creation is load-time gated. |
-| General | Reset All Settings | Calls `OUS.ResetAllSettings()` after `ODYSSEUS_CONFIRM_WIPE_ALL` | Footer Reset to Defaults calls `OUS.ResetAllSettings()` directly | Same reset function | B | Yes | No | Target yes; safety no | **HIGH.** OUS2 omits the confirmation before a broad destructive reset and reload. |
+| General | Reset All Settings | Calls `OUS.ResetAllSettings()` after `ODYSSEUS_CONFIRM_WIPE_ALL` | Footer Reset to Defaults opens `ODYSSEUS_CONFIRM_WIPE_ALL` | Same confirmation and reset function | A | Yes | Yes | Yes | Corrected 2026-09-11; Cancel does nothing and Accept reaches the unchanged global reset callback. |
 
 ### Flight Master (15)
 
@@ -263,8 +265,7 @@ Abbreviations: `A` full parity; `B` present but behavior differs; `C` legacy-onl
 1. Missing Flight Master module toggle. OUS2 cannot change `OdysseusDB.modules.flightMaster`.
 2. Missing Toolbox module toggle. OUS2 cannot change `OdysseusDB.modules.toolbox`.
 3. Deliberately omitted Faster Loot module toggle. The missing lifecycle-safe setter is explicitly acknowledged in OUS2.
-4. OUS2 global Reset to Defaults calls `OUS.ResetAllSettings()` without legacy `ODYSSEUS_CONFIRM_WIPE_ALL` confirmation. The function resets module toggles and module data, wipes learned flight times, replaces XP Bar data including Favorites, clears Auto Remount selections/filter data, clears Openables lists, resets positions, and reloads the UI.
-5. Fishing Tracker, XP Bar, and Stats Bar module-toggle handlers are not equivalent: OUS2 applies immediate runtime visibility/update side effects while the legacy General controls only write their module keys. This needs a deliberate lifecycle decision, not an assumption of parity.
+4. Fishing Tracker, XP Bar, and Stats Bar module-toggle handlers are not equivalent: OUS2 applies immediate runtime visibility/update side effects while the legacy General controls only write their module keys. This needs a deliberate lifecycle decision, not an assumption of parity.
 
 ### MEDIUM
 
@@ -287,7 +288,9 @@ All eight legacy module keys were traced. Openables and Utilities have material 
 
 ### Reset Defaults
 
-- The global reset target is shared, but OUS2 lacks the legacy confirmation boundary.
+- The global reset target and confirmation boundary are now shared. The audit-discovered OUS2 bypass was corrected on 2026-09-11 without changing `OUS.ResetAllSettings()`.
+- User runtime validation found a pre-existing shared Retail reload issue after confirmation: both OUS2 and legacy reset the settings, but `C_Timer.After(0.5, ReloadUI)` produced `ADDON_ACTION_BLOCKED` and did not reload the UI.
+- `Core.lua` now calls `C_UI.Reload()` synchronously at the end of the confirmed user-action path. The user retested both OUS2 and legacy reset flows successfully; both now complete the existing reset and reload without the observed blocked-action error. The historical reason for introducing the old timer is unknown.
 - Flight reset scopes differ for `showTooltips` and `borderColor`.
 - Reputation reset scopes differ for the two toast fields.
 - XP Global and Delves provide the same aggregate capability through split OUS2 actions.
@@ -355,38 +358,30 @@ Exact blockers:
 1. Flight Master module enable/disable is unavailable in OUS2.
 2. Toolbox module enable/disable is unavailable in OUS2.
 3. Faster Loot enable/disable is intentionally unavailable pending a safe public setter.
-4. OUS2 global reset lacks the legacy confirmation safety boundary.
-5. Flight Master and Reputation reset-scope differences require implementation or an explicit product decision.
-6. The three module-toggle live-side-effect differences require a documented lifecycle decision.
+4. Flight Master and Reputation reset-scope differences require implementation or an explicit product decision.
+5. The three module-toggle live-side-effect differences require a documented lifecycle decision.
 
 ## Minimum Future Patch Set (Not Implemented)
 
 1. Add a lifecycle-safe Flight Master module setter and route an OUS2 toggle through it; document whether reload is required.
 2. Add a cleanup-aware Faster Loot public setter, then expose the currently withheld OUS2 toggle.
 3. Define Toolbox enable/disable lifecycle semantics (or a clear reload-bound setter), then add the missing OUS2 toggle.
-4. Route the OUS2 footer reset through the existing `ODYSSEUS_CONFIRM_WIPE_ALL` confirmation instead of calling the reset function directly.
-5. Decide and document whether Flight Reset Appearance should reset `showTooltips`, whether it should preserve `borderColor`, and whether Reputation reset should include both toast flags.
-6. Normalize or explicitly document the intended live behavior for Fishing Tracker, XP Bar, and Stats Bar module toggles.
-7. Re-run the setting-level audit after those decisions. Do not retire `/ous` before that re-audit passes.
+4. Decide and document whether Flight Reset Appearance should reset `showTooltips`, whether it should preserve `borderColor`, and whether Reputation reset should include both toast flags.
+5. Normalize or explicitly document the intended live behavior for Fishing Tracker, XP Bar, and Stats Bar module toggles.
+6. Re-run the setting-level audit after those decisions. Do not retire `/ous` before that re-audit passes.
 
-No implementation is included in this document update.
+No other parity finding is implemented by the 2026-09-11 reset-gate correction.
 
 ## Documentation Mismatches Corrected by This Re-audit
 
-The 2026-07-10 version of this document said the OUS2 master reset was absent and intentionally rejected. Current source instead contains the footer action. It also described OUS2 as functionally complete despite the module-toggle gaps and did not record the missing reset confirmation or the Flight/Reputation reset scopes. Those claims are superseded above. `Documentation/TODO_v2.md` also contains stale follow-up wording for some already-present General/dashboard features; this audit does not edit that separate historical planning file.
+The 2026-07-10 version of this document said the OUS2 master reset was absent and intentionally rejected. The setting-level audit found that current source instead contained an immediate footer action and recorded its missing confirmation. That confirmation gap was corrected on 2026-09-11 while preserving the historical finding. The older document also described OUS2 as functionally complete despite the module-toggle gaps and did not record the Flight/Reputation reset scopes. Those claims are superseded above. `Documentation/TODO_v2.md` also contains stale follow-up wording for some already-present General/dashboard features; this audit does not edit that separate historical planning file.
 
 ## Validation Record
 
-The final validation record is filled from the post-edit checks:
-
-- Full document readback: passed; the entire final document was read after the edit
-- Overbroad wording review (`complete`, `identical`, `exact`, `all`, `none`, `obsolete`, `removed`, `safe`, `fully`, `parity`): passed; each occurrence was reviewed in context and no unsupported completeness or retirement claim remains
-- Master-table recount: 110 rows; `A=86`, `B=15`, `C=2`, `D=1`, `F=6`; 16 OUS2-only rows
-- `git diff --check`: passed (no whitespace errors)
-- `git diff --stat`: one documentation file, 389 insertions and 195 deletions at the time of validation
-- `git status --short`: ` M Documentation/OUS2_FINAL_PARITY_AUDIT.md`
-- LuaCheck: intentionally not run because no Lua file is changed by this audit
+- Original setting-level audit: full document readback and overbroad-wording review passed at the documentation checkpoint.
+- Master-table recount after the 2026-09-11 reset-gate correction: 110 rows; `A=87`, `B=14`, `C=2`, `D=1`, `F=6`; 16 OUS2-only rows.
+- Reset confirmation and shared Retail reload correction: user runtime validation passed for both OUS2 and legacy `/ous`; static and Git validation is recorded in the implementation report.
 
 ## Integrity Statement
 
-This is a documentation-only audit. It does not change production Lua, TOC metadata, SavedVariables schemas/data, runtime behavior, load order, tags, releases, or Git history. The only intended unstaged change is `Documentation/OUS2_FINAL_PARITY_AUDIT.md`.
+This audit began as a documentation-only checkpoint. The later 2026-09-11 correction changes only the OUS2 global-reset click gate, the shared reset path's reload invocation, and this synchronized audit text. It does not change reset scope, SavedVariables schemas/defaults, TOC metadata, load order, tags, or releases.

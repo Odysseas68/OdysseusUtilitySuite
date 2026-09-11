@@ -493,12 +493,7 @@ local function BuildFooter(frame)
     resetLabel:SetTextColor(col.text[1], col.text[2], col.text[3], col.text[4])
 
     resetBtn:SetScript("OnClick", function()
-        if OUS.ResetAllSettings then
-            OUS.ResetAllSettings()
-        end
-        if C.currentPage and C.pages[C.currentPage] and C.pages[C.currentPage].Refresh then
-            C.pages[C.currentPage].Refresh()
-        end
+        StaticPopup_Show("ODYSSEUS_CONFIRM_WIPE_ALL")
     end)
 end
 
