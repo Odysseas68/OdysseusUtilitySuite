@@ -1,198 +1,392 @@
-# OUS2 Final Legacy Parity Audit
+# OUS2 Final Legacy Configuration Parity Audit
 
-Date: 2026-07-10
+Current re-audit date: 2026-09-11
+Historical milestone retained: the 2026-07-10 Phase 5.6 audit described OUS2 as functionally complete subject to General-toggle review. This current setting-level audit supersedes that readiness conclusion because it checks every legacy control, its SavedVariable path, handler, and reset scope.
 
-## Purpose
+## Direct Answer
 
-This release-readiness audit compares legacy `/ous` configuration surfaces, module-owned management frames, and related runtime configuration affordances against OUS2. It does not approve code changes. It records whether OUS2 exposes the same user-visible functionality as legacy `/ous` and the mature module command/config surfaces that legacy users rely on.
+**Yes. Two functional legacy settings are missing from OUS2:**
 
-Classification key:
+1. `Enable Flight Master` — `OdysseusDB.modules.flightMaster`
+2. `Enable Toolbox` — `OdysseusDB.modules.toolbox`
 
-* PASS: OUS2 exposes equivalent functionality.
-* WARNING: Functionality exists, but scope, wording, runtime coupling, testing, or documentation needs review.
-* MISSING: Legacy-visible functionality is not yet available in OUS2.
-* INTENTIONAL: OUS2 deliberately differs from legacy behavior.
-* MODERNIZED: OUS2 provides equivalent behavior through a newer pattern.
-* OBSOLETE: Legacy behavior should not be carried forward.
+One additional legacy capability is deliberately unavailable in OUS2:
 
-## Sources Audited
+3. `Enable Faster Loot` — `OdysseusDB.modules.fasterLoot`; the OUS2 Faster Loot page explicitly keeps this status read-only until a cleanup-aware public setter exists.
 
-* `AGENTS.md`
-* `Core.lua`
-* `Config.lua`
-* `xpbar_config.lua`
-* `Help.lua`
-* `Flightmaster.lua`
-* `FlightRouting.lua`
-* `Fasterloot.lua`
-* `Fishingtracker.lua`
-* `AutoRemount.lua`
-* `StatsBar.lua`
-* `Openables.lua`
-* `Utilities.lua`
-* `Toolbox.lua`
-* `xpbar_core.lua`
-* `xpbar_engine.lua`
-* `xpbar_delves.lua`
-* `xpbar_favorites.lua`
-* `Config2\OUS2Config.lua`
-* all current `Config2\OUS2Page_*.lua`
-* `Documentation\OUS2_XPBAR_PARITY.md`
-* `CHANGELOG.md`
+These are real configuration gaps, not cosmetic differences. No legacy setting was found writing to an unidentified or divergent SavedVariable path, and there are no `UNKNOWN` mappings. Legacy `/ous` is not ready for retirement.
 
-## Executive Summary
+## Repository Baseline
 
-OUS2 is functionally complete for the Phase 5.6 parity and modernization milestone. The remaining work is polish and minor parity review, not major runtime exposure.
+The audit began against `3aa7c97d4b520fc8df85c184d1e3acf5885d9abf`, where an unrelated user edit in `xpbar_delves.lua` correctly blocked the documentation edit. The user committed and pushed that change separately. The resumed baseline is:
 
-The strongest parity areas are Auto Remount, Fishing Tracker, Openables, Toolbox, Utilities, Flight Master advanced controls, Stats Bar, Delves, Help, and the XP Bar Favorites selector bridge.
+| Field | Current value |
+|---|---|
+| Repository root | `D:\Program Files\Blizzard\World of Warcraft\_retail_\Interface\AddOns\OdysseusUtilitySuite` |
+| Branch | `main` |
+| HEAD | `52a9c7aeb6424e1755d283058d75ecc8f36f32df` |
+| `origin/main` | `52a9c7aeb6424e1755d283058d75ecc8f36f32df` |
+| Ahead / behind | `0 / 0` |
+| Worktree before this document edit | clean |
+| TOC Version / OUS2 in-game Version | `2026.06.22` (OUS2 reads the TOC `Version` metadata) |
+| OUS2 build date | `2026.06.25` (TOC `X-Build-Date`) |
+| Interface metadata | `120000, 120001, 120005, 120007` |
 
-The remaining review items are concentrated in:
+Commit `52a9c7a` adds `[3081] = true -- Cursed Keepsake` to `NON_DELVE_INSTANCE_IDS` in `xpbar_delves.lua`. It changes Delves runtime identification data only and does not add, remove, or alter a legacy or OUS2 configuration control. Therefore the completed configuration inventory did not require reclassification.
 
-* General/global configuration: legacy central module-toggle placement still needs a final product decision.
-* XP Bar: Reputation reset scope remains intentionally conservative and should stay documented.
-* Final OUS2 polish: a UI consistency pass should still verify spacing, copy, and popup layering across pages.
+## Authorities and Source Read
 
-## Module-by-Module Findings
+The following authorities and implementation files were read before the conclusions were made:
 
-| Module / Area | Legacy surface | OUS2 surface | Classification | Notes |
-|---|---|---|---|---|
-| General | `/ous` General tab central module toggles for Flight Master, Faster Loot, Fishing Tracker, XP Bar, Stats Bar, Openables, Utilities, Toolbox. | OUS2 General dashboard cards navigate to pages; some module pages have local enable toggles. | MISSING | OUS2 does not provide one central module-toggle matrix matching legacy. Flight Master and Faster Loot in particular appear status/config-only without a local module enable toggle. |
-| General | `/ous` General `Reset All Settings` with confirmation and reload through `OUS.ResetAllSettings()`. | No OUS2 master reset action is provided. | INTENTIONAL | Master Reset is intentionally rejected for Phase 5.6. Scoped module resets are safer than carrying forward one broad reload-bound reset action. |
-| General | Minimap launcher visibility migrated to broker/LibDBIcon. | OUS2 General has `Show Minimap Button` using public Core helpers. | MODERNIZED | OUS2 correctly follows broker-era architecture rather than legacy manual minimap ownership. |
-| General | Debug toggle via slash/debug flow, not a classic `/ous` checkbox. | OUS2 General has `Enable Debug Logging`. | MODERNIZED | OUS2 adds a useful global control; verify persistence/session semantics match intended debug design. |
-| Flight Master | Legacy `/ous` Flight Master controls: unlock/lock timer bar, map tooltips, width, height, scale, font size, border size, texture, font, border, bar color, border color, export, wipe data, reset defaults. | OUS2 Flight Master exposes tooltip toggle, unlock timer bar, width/height/scale/font/border controls, media/color rows, export, wipe, reset position, reset appearance. | PASS | OUS2 is more structured and uses public helpers such as `OUS.ResetFlightBarPosition()` and `OUS.ResetFlightBarAppearance()`. |
-| Flight Master | Legacy reset defaults resets appearance settings together and preserves learned routes except wipe action. | OUS2 splits reset position and reset appearance. | MODERNIZED | Safer and more explicit than legacy; learned times preserved unless Wipe Data is used. |
-| Flight Master | Legacy export frame opens above config. | OUS2 uses `C.ShowCopyTextDialog`. | PASS | Frame layering should be checked in-game after any OUS2 shell changes. |
-| Flight Routing | No legacy `/ous` configuration tab; runtime taxi-map overlay uses bundled routes and learned flight times. | OUS2 Flight Routing is informational/status-oriented. | PASS | No missing legacy config was found. |
-| Faster Loot | Legacy `/ous` Faster Loot tab is informational; behavior is runtime-only and module toggle is in General. | OUS2 Faster Loot page is informational/status-only. | PASS | Feature parity for the module page is present. Missing module toggle is tracked under General. |
-| Fishing Tracker | Legacy `/ous` controls auto-close inactive, auto-close mounted, delay 10-60, alpha 0.1-1.0, wipe saved data, reset defaults. | OUS2 exposes enable module, auto-close inactive, auto-close mounted, delay, opacity, show/hide tracker, wipe saved data, reset defaults. | PASS | OUS2 adds local module enable and show/hide action. Wipe/reset scopes match the legacy intent. |
-| Fishing Tracker | Legacy wipe confirmation uses `StaticPopup`. | OUS2 uses `OUS2_CONFIRM_WIPE_FISHING` and raises popups above OUS2. | PASS | Popup layering was addressed in the page implementation. |
-| Auto Remount | Legacy `/ous` controls enabled, skip druid, silent, debug, spy mode, open spy frame, delay, clear character mount, clear account mount, reset defaults. | OUS2 exposes the same visible controls/actions and writes the same DB keys. | PASS | OUS2 uses existing helper paths where available and mirrors DB reset scope. |
-| Auto Remount | Legacy slash commands manage custom spell list and spy filter. | OUS2 does not directly manage custom spell list or spy filter, but opens the existing Spy Frame. | WARNING | Not a `/ous` config gap, but release notes should keep this distinction clear. Full custom-spell management remains slash/spy-frame owned. |
-| Stats Bar | Legacy module/slash config covers enabled, table mode, single/table locks, font size 8-24, table width, template, reset defaults. | OUS2 exposes module enable, lock single-line, font size 8-24, template, table view, table lock, table width, reset defaults. | PASS | Reset scope covers account and character settings, positions, locks, table mode, font size, width, and template. |
-| Stats Bar | Legacy reset has no large OUS2-style confirmation. | OUS2 reset uses confirmation. | MODERNIZED | Safer behavior; not a parity blocker. |
-| Openables | Legacy Openables module supports enable, auto-open, lock/unlock, scale, reset position, blacklist/custom/mass-add managers, counts/status, clear blacklist, wipe custom DB, export custom DB. | OUS2 exposes enable, auto-open, lock, scale, reset position, blacklist count/open/clear, custom count/open, mass add, export DB, wipe custom DB, status. | PASS | OUS2 is now stronger than legacy `/ous` and delegates management frames safely. |
-| Openables | Runtime button now aggregates duplicate non-stackable itemIDs. | OUS2 does not need a separate config control. | PASS | Runtime behavior is outside config parity and is already represented by the button display. |
-| Utilities | Legacy `/ous` controls Utilities module, Rare Announcer, Auto Repair, Guild Repair, Announce Repair, Junk Seller, Require Shift, Announce Junk Sale, Limit to 12, and Junk Seller blacklist management via `/js`. | OUS2 exposes the same DB-backed toggles and a `Manage Blacklist` action that opens the existing manager. | PASS | OUS2 includes blacklist count and frame-layering hooks. |
-| Utilities | Rare Announcer action itself is slash-command driven (`/ous_rare`). | OUS2 provides enable toggle but no in-page announce button. | INTENTIONAL | The legacy config does not provide a target announce button either. |
-| Toolbox | Legacy `/tb` controls show/hide, lock/unlock, scale 0.5-2.0, horizontal/vertical layout; Toolbox has Openables quick-action popup. | OUS2 exposes status, show/hide, lock, horizontal/vertical direction, scale, and reset position through public Toolbox helpers. | PASS | Lock/unlock uses `OUS.LockToolbox()`, direction uses `OUS.SetToolboxDirection()`, scale uses `OUS.SetToolboxScale()`, reset position uses `OUS.ResetToolboxPosition()`, and initialization status uses `OUS.IsToolboxInitialized()`. Toolbox modernization is complete for Phase 5.6. |
-| Toolbox | Legacy Toolbox frame only initializes when enabled at addon load. | OUS2 page reports Initialized or Disabled until reload through `OUS.IsToolboxInitialized()`. | PASS | OUS2 accurately reflects the runtime creation model and does not manipulate Toolbox internals directly. |
-| Toolbox | Per-button visibility beyond existing module-toggle-derived button filtering. | No OUS2 per-button visibility controls. | FUTURE ENHANCEMENT | Requires a separate settings model and user-facing design; not required for current runtime parity. |
-| Toolbox | Openables quick-action popup styling/content customization. | OUS2 does not expose popup customization. | FUTURE ENHANCEMENT | Popup entries and behavior remain runtime-owned. |
-| XP Bar - Global | Legacy global controls: font size 8-32, hide Blizzard UI with reload prompt, auto-hide, short numbers, rep display time 5-60, fade delay 0-60, active/faded alpha, font, border style/color/size, reset defaults. | OUS2 exposes these controls, uses reload popup, media/color helpers, and section reset. | PASS | Blizzard hide-in-instance disabled checkbox is intentionally not carried forward; runtime hiding remains `OUS.ApplyBlizzardKiller()`. |
-| XP Bar - Experience | Legacy controls XP template, XP/rest/background/text colors, width 100-1000, height 10-100, scale 0.5-2.0, rested icon, reset defaults. | OUS2 exposes template, colors, dimensions, rested icon, reset defaults. | PASS | OUS2 dimension ranges now match legacy parity: width 100-1000, height 10-100, and scale 0.5-2.0. |
-| XP Bar - Reputation | Legacy controls rep template, rep text color, standing colors, toast enabled, toast sound, modifier, reset defaults. | OUS2 exposes controls and reset defaults for template, text color, colors, and modifier. | INTENTIONAL | Reputation reset remains conservative. It does not clear Favorites because Favorites are user-curated data, not configuration. |
-| XP Bar - Favorites | Legacy selector opens from configured modifier-right-click and writes `OdysseusDB.xpBar.favFactions`. | OUS2 Favorites page opens the existing selector via `OUS.OpenXPBarFavoritesSelector()` and does not write `favFactions` directly. | PASS | In-game verification was recorded after `/reload`: opens above OUS2, combat blocks opening, save works, hover dashboard updates, legacy modifier still works. |
-| XP Bar - Help | Legacy XP help includes tokens and module commands. | OUS2 XPBar Help includes XP/Reputation/Delves tokens, stats/toast commands, movement notes, favorites notes. | WARNING | OUS2 help is mostly richer, but does not exactly mirror every legacy Help line such as `/ous` and `/ous help` inside the XPBar child help. Addon-wide OUS2 Help covers them. |
-| Delves | Legacy XP config controls companion/journey templates, colors, width 100-1000, height 20-100 step 2, scale 0.5-2.0, reset defaults including position. | OUS2 Delves page exposes templates, colors, dimensions, scale, Reset Defaults, Reset Position. | PASS | OUS2 split reset defaults and reset position into scoped actions. This is safer and documented. |
-| Delves | Legacy shift-drag movement has no explicit lock checkbox. | OUS2 provides a session-only Lock/Unlock Frame control, ordinary left-drag while unlocked, and Reset Position. | PASS | The edit state defaults locked after reload and does not add a SavedVariables key. |
-| Help | Legacy `/ous help` standalone help remains. | OUS2 Help page exists and is read-only. | PASS | OUS2 does not change `/ous help`; parity is achieved for addon-wide help availability. |
-| Changelog | No legacy `/ous` changelog page. | OUS2 Changelog read-only page exists. | OUS2-only / MODERNIZED | Useful addition, not a legacy parity requirement. |
-| Changelog | Static in-game changelog text. | OUS2 now renders a compact newest-first scrolling release-notes viewer synchronized with `CHANGELOG.md`. | PASS | The old card layout was removed. The page strips simple Markdown bold markers while preserving a single-scroll release-notes layout. |
+- `AGENTS.md`, `CLAUDE.md`, `README.md`, `CHANGELOG.md`
+- `Documentation/README_v2.md`, `Documentation/ARCHITECTURE.md`, `Documentation/TODO_v2.md`
+- the prior version of this document and `Documentation/OUS2_XPBAR_PARITY.md`
+- `OdysseusUtilitySuite.toc`
+- `Core.lua`, `Config.lua`, `xpbar_config.lua`, `Help.lua`
+- `Flightmaster.lua`, `FlightRouting.lua`, `Fasterloot.lua`, `Fishingtracker.lua`
+- `AutoRemount.lua`, `StatsBar.lua`, `Openables.lua`, `Utilities.lua`, `Toolbox.lua`
+- `xpbar_core.lua`, `xpbar_engine.lua`, `xpbar_delves.lua`, `xpbar_favorites.lua`
+- `Config2/OUS2Theme.lua`, `Config2/OUS2Config.lua`, `Config2/OUS2ScaleControl.lua`
+- every current `Config2/OUS2Page_*.lua` file
 
-## SavedVariables and Defaults Review
+No `Documentation/PROJECT_STATUS.md` or `Documentation/PHASE6_BASELINE.md` was present. Help and Changelog are read-only information surfaces; neither adds a persistent legacy setting.
 
-| Area | Classification | Notes |
-|---|---|---|
-| Account module toggles | MISSING | Legacy central toggles live under `OdysseusDB.modules.*`. OUS2 spreads some module toggles into pages and omits central parity. |
-| Master reset | INTENTIONAL | A full OUS2 master reset is intentionally rejected for this phase because the legacy action is broad, destructive, reload-bound, and cuts across mature module ownership boundaries. Scoped module resets remain preferred. |
-| Minimap DB | MODERNIZED | OUS2 uses broker-safe `OdysseusDB.minimap.hide` via Core helpers. |
-| Flight Master defaults | PASS | OUS2 covers appearance and position reset through public helpers. |
-| Fishing defaults/history | PASS | OUS2 separates settings reset from history wipe. |
-| Auto Remount account/character DB | PASS | OUS2 uses `OdysseusDB.autoRemount` and `OdysseusCharDB.autoRemountChar` with scoped clear actions. |
-| Stats Bar account/character DB | PASS | OUS2 reset matches broad legacy scope. |
-| Openables DB | PASS | OUS2 preserves `blacklist`, `customItems`, position, lock, scale, and auto-open structure. |
-| Toolbox DB | PASS | OUS2 uses public Toolbox helpers for lock, direction, scale, reset position, initialization status, and show/hide; no direct runtime-state manipulation is required. |
-| XP Bar DB | PASS | Exposed XP Bar settings now match the Phase 5.6 parity scope. Favorites remain user-curated data and are not cleared by Reputation reset. |
-| Delves DB | PASS | OUS2 uses existing XP Bar Delves keys and scoped reset actions. |
+## Configuration Implementation Map
 
-## Runtime Behavior and Helper Review
+### Legacy `/ous`
 
-| Runtime area | Classification | Notes |
-|---|---|---|
-| Reload prompts | PASS | XP Bar hide Blizzard behavior has OUS2 reload popup. Legacy exact wording differs but behavior is equivalent. |
-| Popup confirmations | PASS | Wipe/reset confirmations exist where risk is high. Some OUS2 confirmations are safer than legacy. |
-| Frame layering | WARNING | OUS2 pages generally use `FULLSCREEN_DIALOG`, `C.ShowCopyTextDialog`, `C.OpenColorPicker`, and popup raising helpers. Full in-game layering regression pass is still recommended. |
-| Public helper use | PASS | OUS2 uses public helpers for Flight Master, Favorites, Openables, Utilities blacklist, StatsBar locks, and XP Bar apply flows where available. |
-| Combat guards | PASS | Runtime combat-sensitive areas remain in engines; XP Favorites selector and hover popup are guarded. Openables secure button architecture is preserved. |
-| Dynamic UI counts | PASS | Openables blacklist/custom counts and Utilities junk blacklist count refresh in OUS2. |
-| Toolbox scaling model | PASS | Toolbox follows the Flight Master scaling philosophy: the movable parent frame remains at `SetScale(1)`, while saved scale is folded into dimensions, spacing, and child button sizes. This fixes the scale-position drift observed when changing scale from OUS2 or `/tb scale`. |
-| Static pages | PASS | OUS2 Help remains static by design. OUS2 Changelog has been redesigned and synchronized as a compact newest-first release-notes viewer. |
+- Root window, General, Flight Master, Faster Loot, Fishing Tracker, Auto Remount, Utilities, Stats Bar, and Openables: `Config.lua`
+- XP Bar child pages Global, Experience, Reputation, and Delves: `xpbar_config.lua`
+- Root slash routing and global reset/default initialization: `Core.lua`
+- Defaults and runtime consumers: the corresponding module engines listed above
+- Standalone legacy help: `Help.lua`
 
-## Engineering Implementation Notes
+### OUS2
 
-### Toolbox Scaling
+- Shell, page registration, footer reset, media/color dialogs, navigation, and sidebar: `Config2/OUS2Config.lua`
+- Theme and numeric control infrastructure: `Config2/OUS2Theme.lua`, `Config2/OUS2ScaleControl.lua`
+- Dashboard/global options: `Config2/OUS2Page_General.lua`
+- Module pages: `Config2/OUS2Page_Utilities.lua`, `OUS2Page_Openables.lua`, `OUS2Page_StatsBar.lua`, `OUS2Page_AutoRemount.lua`, `OUS2Page_FishingTracker.lua`, `OUS2Page_FlightMaster.lua`, `OUS2Page_FlightRouting.lua`, `OUS2Page_FasterLoot.lua`, `OUS2Page_Toolbox.lua`, `OUS2Page_XPBar.lua`, and `OUS2Page_Delves.lua`
+- Read-only pages: `Config2/OUS2Page_Help.lua`, `Config2/OUS2Page_Changelog.lua`
 
-Toolbox no longer relies on frame-level `SetScale()` for the movable parent frame.
+Both systems operate on the same module-owned defaults and runtime helpers. Similar labels were not treated as proof of parity; handlers and reset targets were compared.
 
-The runtime now follows the Flight Master scaling model:
+## Classification and Count Summary
 
-* the parent frame remains at `SetScale(1)`;
-* `OdysseusDB.toolbox.scale` remains the saved user setting;
-* scale is folded into button dimensions, frame padding, button spacing, and child control sizes during layout.
+`Enable Openables` is rendered twice in legacy `/ous` against the same key and conceptual capability. There are 111 visible legacy control instances but 110 distinct settings/actions. The duplicate is counted once, as required.
 
-This is an implementation decision, not a new user-visible feature. It prevents frame position drift during live scaling because the movable frame's anchor coordinate system no longer changes when the user adjusts scale from OUS2 or `/tb scale`.
+| Classification | Count |
+|---|---:|
+| Total distinct legacy settings/actions audited | 110 |
+| A. FULL PARITY | 86 |
+| B. PRESENT — BEHAVIOR DIFFERS | 15 |
+| C. LEGACY-ONLY — MISSING FROM OUS2 | 2 |
+| D. INTENTIONALLY OMITTED | 1 |
+| E. OBSOLETE / NO LONGER APPLICABLE | 0 |
+| F. OUS2 EQUIVALENT VIA DIFFERENT UI | 6 |
+| G. UNKNOWN | 0 |
+| OUS2-only functional settings/actions | 16 |
 
-## Legacy-Only Functionality
+## Master Legacy-First Parity Table
 
-* REVIEW: Central legacy General tab module-toggle matrix placement.
-* INTENTIONAL: Legacy General `Reset All Settings` master reset is not carried forward into OUS2.
-* INTENTIONAL: Reputation reset does not clear Favorites because Favorites are user-curated data, not configuration.
-* REVIEW: Some module enable/disable behavior remains page-local or status-only rather than matching legacy General's central toggle workflow.
+Abbreviations: `A` full parity; `B` present but behavior differs; `C` legacy-only missing; `D` intentionally omitted; `F` equivalent through different UI. `—` means that a default or reset comparison is not applicable to the action itself. Persistent defaults in the Notes column are the legacy/module defaults and are also what OUS2 displays or resets to unless a difference is stated.
 
-## OUS2-Only Functionality
+### General and Module Toggles (9)
 
-* MODERNIZED: OUS2 dashboard cards and left navigation.
-* MODERNIZED: OUS2 Help page.
-* MODERNIZED: OUS2 Changelog page is now a compact newest-first scrolling release-notes viewer rather than a card layout.
-* MODERNIZED: OUS2 XP Bar Favorites action opens the existing selector without direct DB writes.
-* MODERNIZED: OUS2 Toolbox controls use public Toolbox helpers for runtime operations and avoid direct internal state manipulation.
-* MODERNIZED: OUS2 Delves page as separate left-navigation page.
-* MODERNIZED: Safer split reset actions for Flight Master and Delves.
-* MODERNIZED: Minimap launcher visibility follows broker/LibDBIcon ownership.
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| General | Enable Flight Master | `OdysseusDB.modules.flightMaster` | None | None | C | — | No | No control | **HIGH.** Default `true`; runtime initialization is load-time gated. |
+| General | Enable Faster Loot | `OdysseusDB.modules.fasterLoot` | Read-only status on Faster Loot page | Same key, read only | D | — | No | No control | **HIGH.** Default `true`; page documents omission pending a cleanup-aware public setter. |
+| General | Enable Fishing Tracker | `OdysseusDB.modules.fishingTracker` | Enable Module | Same path | B | Yes (`true`) | No | Yes | **HIGH.** Legacy central toggle only writes the DB; OUS2 also performs immediate tracker visibility/update work. |
+| General | Enable Exp & Rep Bar | `OdysseusDB.modules.xpBar` | Enable Module | Same path | B | Yes (`true`) | No | Yes | **HIGH.** OUS2 immediately updates bar visibility; legacy central toggle is DB-only. |
+| General | Enable Stats Bar | `OdysseusDB.modules.statsBar` | Enable Module | Same path | B | Yes (`true`) | No | Yes | **HIGH.** OUS2 immediately updates Stats Bar state; legacy central toggle is DB-only. |
+| General | Enable Openables (shown in General and again on Openables page) | `OdysseusDB.modules.openables` | Enable Module on Openables page | Same path | F | Yes (`true`) | Yes | Yes | One conceptual setting; OUS2 consolidates the duplicate legacy placements. Both active page handlers update display. |
+| General | Enable Utilities | `OdysseusDB.modules.utilities` | Enable Module | Same path | A | Yes (`true`) | Yes | Yes | Both are direct writes; module behavior is event gated. |
+| General | Enable Toolbox | `OdysseusDB.modules.toolbox` | None; page reports runtime status only | None | C | — | No | No control | **HIGH.** Default `true`; Toolbox frame creation is load-time gated. |
+| General | Reset All Settings | Calls `OUS.ResetAllSettings()` after `ODYSSEUS_CONFIRM_WIPE_ALL` | Footer Reset to Defaults calls `OUS.ResetAllSettings()` directly | Same reset function | B | Yes | No | Target yes; safety no | **HIGH.** OUS2 omits the confirmation before a broad destructive reset and reload. |
 
-## Documentation Mismatches
+### Flight Master (15)
 
-* PASS: `Documentation\OUS2_XPBAR_PARITY.md` has been synchronized with the completed XP Bar range updates and current reset-scope decisions.
-* PASS: `CHANGELOG.md` has been synchronized with the completed Toolbox modernization, XP Bar parity, and Changelog redesign work.
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| Flight Master | Unlock / Lock Timer Bar | session `OUS.isFlightBarUnlocked` | Unlock / Lock Timer | Same session state through public helper | A | — | Yes | — | Session-only edit state. |
+| Flight Master | Show Map Tooltips | `OdysseusDB.flightSettings.showTooltips` | Show Map Tooltips | Same path | A | Yes (`true`) | Yes | **No** | **MEDIUM reset risk:** legacy Reset Defaults resets this; OUS2 Reset Appearance preserves it. |
+| Flight Master | Bar Texture | `.textureName` | Bar Texture | Same path | A | Yes (`Blizzard`) | Yes | Yes | Same media library and runtime apply path. |
+| Flight Master | Bar Width | `.width` | Bar Width | Same path | B | Yes (`200`) | No | Yes | **MEDIUM.** Legacy calls raw `SetWidth`; OUS2 calls `ApplyFlightSettings()`, which folds scale into dimensions. |
+| Flight Master | Bar Height | `.height` | Bar Height | Same path | B | Yes (`20`) | No | Yes | **MEDIUM.** Same engine-model difference as width. |
+| Flight Master | Bar Scale | `.scale` | Bar Scale | Same path | B | Yes (`1.0`) | No | Yes | **MEDIUM.** Legacy calls `timerBar:SetScale`; current OUS2/runtime keeps parent scale `1` and scales layout dimensions. |
+| Flight Master | Font Size | `.fontSize` | Font Size | Same path | A | Yes (`12`) | Yes | Yes | Public apply helper reaches current dimension/font model. |
+| Flight Master | Export Flight Data | reads `.times` | Export Flight Data copy dialog | reads same data | F | — | Yes | — | Same export capability; OUS2 uses the shared copy-text dialog. |
+| Flight Master | Wipe Saved Data | `.times = {}` after confirmation | Wipe Data | Same path | A | — | Yes | — | Learned flight times are the separate destructive target. |
+| Flight Master | Bar Font | `.fontName` | Bar Font | Same path | A | Yes (`Friz Quadrata TT`) | Yes | Yes | Same LibSharedMedia value. |
+| Flight Master | Bar Border | `.borderName` | Bar Border | Same path | A | Yes (`None`) | Yes | Yes | Same LibSharedMedia value. |
+| Flight Master | Border Size | `.borderSize` | Border Size | Same path | A | Yes (`16`) | Yes | Yes | Same runtime apply helper. |
+| Flight Master | Bar Color | `.color` | Bar Color | Same path | A | Yes (`1,0.7,0`) | Yes | Yes | Same table is edited in place. |
+| Flight Master | Border Color | `.borderColor` | Border Color | Same path | A | Yes (white fallback) | Yes | **No** | **MEDIUM reset risk:** legacy `flightDefaults` does not include this key and preserves it; OUS2 Reset Appearance resets it to white. |
+| Flight Master | Reset Defaults | copies `OUS.flightDefaults` | Reset Appearance (plus separate Reset Position) | same settings table | B | **No scope match** | No | No | **MEDIUM.** Legacy resets `showTooltips` and preserves `borderColor`; OUS2 does the reverse for those two fields. |
 
-## Recommended Release-Readiness Patch Order
+### Fishing Tracker (6)
 
-1. General parity review:
-   * Decide whether OUS2 should add a central module toggle matrix or keep module toggles on individual module pages.
-   * Keep the legacy full-addon master reset out of OUS2 unless a future milestone deliberately reopens the decision.
-2. Final OUS2 polish pass:
-   * Review spacing, copy, disabled states, status language, and visual consistency across completed pages.
-3. Final in-game regression pass:
-   * `/reload`
-   * `/ous` vs `/ous2` value comparison for every module.
-   * Popup layering over OUS2.
-   * Reset scopes.
-   * Combat-safe blocked actions.
-   * SavedVariables persistence after reload.
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| Fishing Tracker | Auto-close when not fishing or AFK | `OdysseusDB.fishingSettings.autoCloseInactive` | Auto-close When Inactive | Same path | A | Yes (`true`) | Yes | Yes | Direct persistent setting. |
+| Fishing Tracker | Auto-close when mounted/skyriding | `.autoCloseMounted` | Auto-close When Mounted | Same path | A | Yes (`true`) | Yes | Yes | Direct persistent setting. |
+| Fishing Tracker | Auto-close Delay | `.autoCloseDelay` | Auto-close Delay | Same path | A | Yes (`30`) | Yes | Yes | Range `10–60`. |
+| Fishing Tracker | Frame Transparency | `.alpha` | Frame Transparency | Same path | A | Yes (`0.95`) | Yes | Yes | Immediate alpha refresh. |
+| Fishing Tracker | Wipe Saved Data | `OdysseusFishingDB` history | Wipe Saved Data | Same history DB | A | — | Yes | — | Confirmation retained; settings are not wiped. |
+| Fishing Tracker | Reset Defaults | `OUS.fishingDefaults` | Reset Defaults | Same settings table/defaults | A | Yes | Yes | Yes | Position/history scope remains distinct. |
 
-## Validation Commands
+### Auto Remount (10)
 
-For this audit report:
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| Auto Remount | Enable Auto Remount | `OdysseusDB.autoRemount.enabled` | Enable Auto Remount | Same path | A | Yes (`true`) | Yes | Yes | Feature setting, separate from module load toggle. |
+| Auto Remount | Skip Druid Travel Form | `.skipDruid` | Skip Druid Travel Form | Same path | A | Yes (`true`) | Yes | Yes | Direct persistent setting. |
+| Auto Remount | Silent mode | `.silent` | Silent Mode | Same path | A | Yes (`true`) | Yes | Yes | Direct persistent setting. |
+| Auto Remount | Debug mode | `.debug` | Debug Mode | Same path | A | Yes (`false`) | Yes | Yes | Module-local diagnostics setting. |
+| Auto Remount | Spy mode | `.spyMode` | Spy Mode | Same path | A | Yes (`false`) | Yes | Yes | Same chat-observation behavior. |
+| Auto Remount | Open Spy Frame | action | Open Spy Frame | same runtime frame | A | — | Yes | — | OUS2 delegates to the existing frame. |
+| Auto Remount | Remount Delay | `.delay` | Remount Delay | Same path | A | Yes (`0.5`) | Yes | Yes | Same numeric setting. |
+| Auto Remount | Clear Character Mount | `OdysseusCharDB.autoRemountChar.mountID` | Clear Character Mount | Same path | A | — | Yes | Yes | Clears only per-character selection. |
+| Auto Remount | Clear Account Mount | `OdysseusDB.autoRemount.accountMountID` | Clear Account Mount | Same path | A | — | Yes | Yes | Clears only account selection. |
+| Auto Remount | Reset Defaults | account settings and character selection | Reset Defaults | same account/character paths | A | Yes | Yes | Yes | Same broad module scope. |
 
-```bat
-git diff --check
-git status --short
-```
+### Utilities (10)
 
-For future code patches:
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| Utilities | Enable Rare Announcer | `OdysseusDB.utilities.rareEnabled` | Enable Rare Announcer | Same path | A | Yes (`true`) | Yes | Yes | `/ous_rare` remains the announce action in both systems. |
+| Utilities | Enable Auto Repair | `.repairEnabled` | Enable Auto Repair | Same path | A | Yes (`true`) | Yes | Yes | Event-driven merchant behavior unchanged. |
+| Utilities | Use Guild Repair first | `.guildRepair` | Use Guild Repair First | Same path | A | Yes (`true`) | Yes | Yes | Direct persistent setting. |
+| Utilities | Announce repair cost in chat | `.announceRepair` | Announce Repair Cost | Same path | A | Yes (`true`) | Yes | Yes | Direct persistent setting. |
+| Utilities | Enable Junk Seller | `.junkSell.enabled` | Enable Junk Seller | Same path | A | Yes (`true`) | Yes | Yes | Existing merchant queue semantics retained. |
+| Utilities | Require Shift to sell | `.junkSell.requireShift` | Require Shift to Sell | Same path | A | Yes (`false`) | Yes | Yes | Direct persistent setting. |
+| Utilities | Announce junk sale in chat | `.junkSell.announceJunk` | Announce Junk Sale | Same path | A | Yes (`true`) | Yes | Yes | Direct persistent setting. |
+| Utilities | Limit to 12 items per batch | `.junkSell.limitTo12` | Limit to 12 Items | Same path | A | Yes (`true`) | Yes | Yes | Direct persistent setting. |
+| Utilities | Manage Blacklist | opens Junk Seller blacklist frame | Manage Blacklist | same runtime frame/data | A | — | Yes | — | OUS2 delegates rather than duplicating list storage. |
+| Utilities | Hide Blizzard Artwork | `.hideExtraActionArtwork` | Hide Blizzard Artwork | Same path | A | Yes (`false`) | Yes | Yes | Both call the established safe apply helper; combat deferral remains runtime-owned. |
 
-```bat
-luacheck Config2\OUS2Page_<changed>.lua
-git diff --check
-```
+### Stats Bar (7)
 
-## Final Result
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| Stats Bar | Table mode (vertical layout) | `OdysseusCharDB.statsBar.tableEnabled` | Table View | Same path | A | Yes (`false`) | Yes | Yes | Per-character setting. |
+| Stats Bar | Lock single-line bar position | `OdysseusDB.statsBar.locked` | Lock Single-line Bar | Same path | A | Yes (`false`) | Yes | Yes | Same public lock helper. |
+| Stats Bar | Lock table position | `.tableLocked` | Lock Table | Same path | A | Yes (`false`) | Yes | Yes | Same public lock helper. |
+| Stats Bar | Font Size | `.fontSize` | Font Size | Same path | A | Yes (`12`) | Yes | Yes | Range `8–24`. |
+| Stats Bar | Table Width | `.tableWidth` | Table Width | Same path | A | Yes (`150`) | Yes | Yes | Same layout update. |
+| Stats Bar | Single-line Template | `OdysseusCharDB.statsBar.template` | Single-line Template | Same path | B | Yes (`{ilvl} | {spec}`) | No | Yes | **LOW.** Legacy commits on Enter; OUS2 also commits on focus loss. |
+| Stats Bar | Reset Defaults | account and character Stats Bar settings/positions | Reset Defaults | same paths | A | Yes | Yes | Yes | OUS2 adds confirmation without reducing capability. |
 
-OUS2 is functionally complete for the Phase 5.6 parity and modernization milestone.
+### Openables (6 distinct settings/actions beyond the duplicated module toggle)
 
-## Final Polish
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| Openables | Auto-open on bag update | `OdysseusDB.openables.autoOpen` | Auto-open on Bag Update | Same path | A | Yes (`false`) | Yes | Yes | Both refresh display immediately. |
+| Openables | Button Scale | `.scale` | Button Scale | Same path | A | Yes (`1.0`) | Yes | Yes | Same saved value and live layout result. |
+| Openables | Reset Button Position | `.point/.relPoint/.x/.y` | Reset Position | Same paths | A | Yes | Yes | Yes | Same container position target. |
+| Openables | Clear All Blacklist | `.blacklist = {}` | Clear Blacklist | Same path | A | — | Yes | — | Confirmation and display refresh retained. |
+| Openables | Export DB | reads `.customItems` | Export Custom DB | same data | A | — | Yes | — | Copy presentation differs cosmetically only. |
+| Openables | Wipe Custom DB | `.customItems = {}` | Wipe Custom DB | Same path | A | — | Yes | — | Confirmation and display refresh retained. |
 
-* Finish General module-toggle parity review.
-* Keep Reputation reset scope documented as intentionally conservative.
-* Complete a final OUS2 polish and UI consistency pass.
+### XP Bar — Global (13)
+
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| XP Global | Global Font Size | `OdysseusDB.xpBar.xpFontSize` | Global Font Size | Same path | A | Yes (`15`) | Yes | Yes | Range `8–32`. |
+| XP Global | Hide Default Blizzard UI | `.hideBlizz` | Hide Default Blizzard UI | Same path | B | Yes (`true`) | No | Yes | **MEDIUM.** Legacy disables the checkbox in instances; OUS2 intentionally leaves it usable. Both use the reload/apply flow. |
+| XP Global | Enable Auto-Hide / Mouseover Engine | `.autoHide` | Enable Auto-Hide | Same path | A | Yes (`false`) | Yes | Yes | Same wake/sleep engine. |
+| XP Global | Abbreviate Numbers | `.shortNumbers` | Abbreviate Numbers | Same path | A | Yes (`true`) | Yes | Yes | Same formatting consumer. |
+| XP Global | Auto-Switch Display Time | `.repDisplayTime` | Reputation Display Time | Same path | A | Yes (`15`) | Yes | Yes | Range `5–60`. |
+| XP Global | Auto-Hide Fade Delay | `.fadeDelay` | Fade Delay | Same path | A | Yes (`5`) | Yes | Yes | Range `0–60`. |
+| XP Global | Global Font | `.xpFont` | Global Font | Same path | A | Yes (`Friz Quadrata TT`) | Yes | Yes | Same LibSharedMedia value. |
+| XP Global | Active Opacity (%) | `.activeAlpha` | Active Opacity (fractional UI) | Same percent path through conversion | B | Yes (`100`) | Yes after conversion | Yes | **LOW.** OUS2 presents `0.10–1.00` but persists legacy percentage units. |
+| XP Global | Faded Opacity (%) | `.fadedAlpha` | Faded Opacity (fractional UI) | Same percent path through conversion | B | Yes (`0`) | Yes after conversion | Yes | **LOW.** OUS2 presents fractional alpha but persists legacy percentage units. |
+| XP Global | Bar Border Style | `.barBorderName` | Bar Border Style | Same path | A | Yes (`Blizzard Tooltip`) | Yes | Yes | Same media value. |
+| XP Global | Border Color | `.barBorderColor` | Border Color | Same path | A | Yes (`0.6,0.2,0.8`) | Yes | Yes | Same table and apply helper. |
+| XP Global | Bar Border Size | `.barBorderSize` | Border Size | Same path | A | Yes (`8`) | Yes | Yes | Same range and apply helper. |
+| XP Global | Reset Defaults | resets all Global display and border fields | Reset Display + Reset Border | same keys split by section | F | Yes | Yes | Via two actions | Same resulting values require two explicit OUS2 actions. |
+
+### XP Bar — Experience (10)
+
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| XP Experience | Text Format | `OdysseusDB.xpBar.xpTemplate` | Experience Text Format | Same path | B | Yes | No | Yes | **LOW.** Legacy commits on Enter; OUS2 also commits on focus loss. |
+| XP Experience | Main EXP Bar color | `.xpColor` | Experience Bar Color | Same path | A | Yes (`0.7,0.4,1.0`) | Yes | Yes | Same live bar update. |
+| XP Experience | Text Color | `.xpTextColor` | Experience Text Color | Same path | A | Yes (white) | Yes | Yes | Same table. |
+| XP Experience | Rested Bar color | `.restColor` | Rested Bar Color | Same path | A | Yes (`0.3,0.6,1.0`) | Yes | Yes | Same table. |
+| XP Experience | Background color | `.bgColor` | Background Color | Same path | A | Yes (`0.07,0.05,0.1`) | Yes | Yes | Same background apply helper. |
+| XP Experience | Main Bar Width | `.xpBarWidth` | Experience Bar Width | Same path | A | Yes (`650`) | Yes | Yes | Range `100–1000`. |
+| XP Experience | Main Bar Height | `.xpBarHeight` | Experience Bar Height | Same path | A | Yes (`25`) | Yes | Yes | Range `10–100`. |
+| XP Experience | Main Bar Scale | `.xpBarScale` | Experience Bar Scale | Same path | A | Yes (`1.0`) | Yes | Yes | Range `0.5–2.0`. |
+| XP Experience | Show `Zzzz` Icon when Resting | `.showRestIcon` | Show Rested Icon under Global | Same path | F | Yes (`true`) | Yes | Yes | Capability moved to a different OUS2 section. |
+| XP Experience | Reset Defaults | Experience display keys only | Reset Experience | same keys | A | Yes | Yes | Yes | Position remains preserved in both scoped resets. |
+
+### XP Bar — Reputation (16)
+
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| XP Reputation | Text Format | `OdysseusDB.xpBar.repTemplate` | Reputation Text Format | Same path | B | Yes | No | Yes | **LOW.** Legacy commits on Enter; OUS2 also commits on focus loss. |
+| XP Reputation | Rep Text Color | `.repTextColor` | Reputation Text Color | Same path | A | Yes (white) | Yes | Yes | Same table. |
+| XP Reputation | Hated color | `.repColors.hated` | Hated | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Hostile color | `.repColors.hostile` | Hostile | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Unfriendly color | `.repColors.unfriendly` | Unfriendly | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Neutral color | `.repColors.neutral` | Neutral | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Friendly color | `.repColors.friendly` | Friendly | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Honored color | `.repColors.honored` | Honored | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Revered color | `.repColors.revered` | Revered | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Exalted color | `.repColors.exalted` | Exalted | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Renown color | `.repColors.renown` | Renown | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Paragon color | `.repColors.paragon` | Paragon | Same path | A | Yes | Yes | Yes | Same color table. |
+| XP Reputation | Enable Renown & Paragon Reward Popups | `.toastEnabled` | Reward Popups | Same path | A | Yes (`true`) | Yes | **No** | **MEDIUM reset risk:** legacy Reputation reset resets it; OUS2 Reputation reset preserves it. |
+| XP Reputation | Play Sound on Reward Popup | `.toastSound` | Reward Popup Sound | Same path | A | Yes (`false`) | Yes | **No** | **MEDIUM reset risk:** legacy reset resets it; OUS2 preserves it. |
+| XP Reputation | Right-Click Modifier for Faction Menu | `.repMenuMod` | four explicit modifier buttons | Same path | F | Yes (`CTRL`) | Yes | Yes | Legacy cycles one button; OUS2 directly selects CTRL/SHIFT/ALT/NONE. |
+| XP Reputation | Reset Defaults | resets template, text/standing colors, toast flags, modifier | Reset Reputation | same table, narrower key set | B | No scope match | No | No | **MEDIUM.** OUS2 omits `toastEnabled` and `toastSound`; Favorites are correctly preserved by both interpretations. |
+
+### Delves (8)
+
+| Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
+|---|---|---|---|---|---|---|---|---|---|
+| Delves | Companion Text Format | `OdysseusDB.xpBar.delveCompTemplate` | Companion Text Format | Same path | A | Yes | Yes | Yes | Same token engine. |
+| Delves | Journey Text Format | `.delveJourTemplate` | Journey Text Format | Same path | A | Yes | Yes | Yes | Same token engine. |
+| Delves | Companion Color | `.delveCompColor` | Companion Color | Same path | A | Yes (`0.8,0.4,0`) | Yes | Yes | Same table. |
+| Delves | Journey Color | `.delveJourColor` | Journey Color | Same path | A | Yes (`0,0.6,0.8`) | Yes | Yes | Same table. |
+| Delves | Delve Bar Width | `.delveBarWidth` | Delve Bar Width | Same path | A | Yes (`300`) | Yes | Yes | Range `100–1000`. |
+| Delves | Delve Bar Height | `.delveBarHeight` | Delve Bar Height | Same path | A | Yes (`40`) | Yes | Yes | Range `20–100`, step `2`. |
+| Delves | Delve Bar Scale | `.delveBarScale` | Delve Bar Scale | Same path | A | Yes (`1.0`) | Yes | Yes | Range `0.5–2.0`. |
+| Delves | Reset Defaults (includes position) | display keys plus `.delveBarPos` | Reset Defaults + Reset Position | same keys split across actions | F | Yes | Yes | Via two actions | Same total capability through two scoped OUS2 actions. The Cursed Keepsake runtime ID is unrelated. |
+
+## Risk-Prioritized Non-Parity Findings
+
+### HIGH
+
+1. Missing Flight Master module toggle. OUS2 cannot change `OdysseusDB.modules.flightMaster`.
+2. Missing Toolbox module toggle. OUS2 cannot change `OdysseusDB.modules.toolbox`.
+3. Deliberately omitted Faster Loot module toggle. The missing lifecycle-safe setter is explicitly acknowledged in OUS2.
+4. OUS2 global Reset to Defaults calls `OUS.ResetAllSettings()` without legacy `ODYSSEUS_CONFIRM_WIPE_ALL` confirmation. The function resets module toggles and module data, wipes learned flight times, replaces XP Bar data including Favorites, clears Auto Remount selections/filter data, clears Openables lists, resets positions, and reloads the UI.
+5. Fishing Tracker, XP Bar, and Stats Bar module-toggle handlers are not equivalent: OUS2 applies immediate runtime visibility/update side effects while the legacy General controls only write their module keys. This needs a deliberate lifecycle decision, not an assumption of parity.
+
+### MEDIUM
+
+1. Flight Master width, height, and scale reach the current dimension-scaling engine through OUS2, while legacy calls raw frame setters.
+2. Flight Reset Defaults and OUS2 Reset Appearance have different key scopes: `showTooltips` versus `borderColor`.
+3. Reputation Reset Defaults in OUS2 omits the legacy reset of `toastEnabled` and `toastSound`.
+4. XP Bar's Hide Blizzard UI checkbox has different availability semantics inside instances.
+
+### LOW
+
+1. XP active/faded opacity is displayed fractionally in OUS2 but converted to the same legacy percentage paths.
+2. XP and Reputation templates, and the Stats Bar template, also commit on focus loss in OUS2 instead of Enter only.
+3. Six capabilities use different UI placement/presentation: duplicate Openables toggle consolidation, Flight export dialog, split XP Global reset, moved Rested Icon setting, explicit Reputation modifier buttons, and split Delves reset.
+
+## Special-Area Findings
+
+### General / Module Toggles
+
+All eight legacy module keys were traced. Openables and Utilities have material parity. Flight Master and Toolbox are missing. Faster Loot is deliberately read-only. Fishing Tracker, XP Bar, and Stats Bar write the same paths/defaults but have different live side effects. No dependency or alternate SavedVariable path was found.
+
+### Reset Defaults
+
+- The global reset target is shared, but OUS2 lacks the legacy confirmation boundary.
+- Flight reset scopes differ for `showTooltips` and `borderColor`.
+- Reputation reset scopes differ for the two toast fields.
+- XP Global and Delves provide the same aggregate capability through split OUS2 actions.
+- Fishing history, Flight learned data, Openables lists, and Auto Remount selections were checked separately from ordinary defaults.
+
+### Position / Lock / Visibility
+
+- No legacy `/ous` Reset Position or Lock action is missing.
+- Openables Reset Button Position has direct parity.
+- Flight timer unlock has direct parity; OUS2 additionally offers Reset Position.
+- Delves legacy position reset is available through OUS2's separate Reset Position action, and OUS2 adds a session-only Lock/Unlock Frame control.
+- XP/Rep frame movement remains shift-drag runtime behavior; legacy `/ous` does not expose separate position buttons for those frames.
+- Stats Bar lock controls have parity. Fishing Tracker legacy `/ous` has no lock/reset-position control; OUS2 adds Show/Hide only.
+
+### Color / Media / Border
+
+Every legacy color, font, texture, border style, border size, alpha, dimension, scale, and text-template value maps to the same underlying path. No persistent default-value mismatch was found. Differences are handler/reset scope or UI-unit differences documented in the table, not missing capability.
+
+### Favorites / List Management
+
+- Legacy `/ous` does not contain a Favorites-management control; the selector is opened from the XP Bar runtime modifier gesture. OUS2 adds a safe selector-opening action and writes no separate list format.
+- Openables blacklist/custom-list management continues to use `OdysseusDB.openables.blacklist` and `.customItems`; OUS2 adds direct manager-opening and mass-add actions.
+- Utilities uses the existing Junk Seller blacklist manager and storage.
+- No legacy list reorder control or additional conditional list setting was found.
+
+### Hidden / Conditional Controls
+
+No class-, spec-, or profession-only legacy `/ous` control exists. The only functional availability condition found is the legacy XP `hideBlizz` checkbox being disabled in instances. Lazy-created export/manager frames and action buttons were included. Faster Loot and Flight Routing informational text was not counted as a setting.
+
+### SavedVariable Paths and Defaults
+
+All mapped persistent/action capabilities use the same underlying SavedVariable or runtime data target; none uses a migrated shadow path or compatibility alias. The two missing items have no OUS2 write path, and the intentionally omitted Faster Loot control is read-only. No individual persistent default mismatch was found. The material differences are reset key scope and handler side effects.
+
+## OUS2-Only Functional Settings and Actions (16)
+
+Navigation, Back, Close, shell-window Lock/Unlock, read-only Help/Changelog, counts, and informational status text are excluded unless they invoke module functionality.
+
+| # | OUS2-only control | Classification | Notes |
+|---:|---|---|---|
+| 1 | Show Minimap Button | Intentional enhancement | Broker/LibDBIcon visibility through Core helper. |
+| 2 | Enable Debug Logging | Intentional enhancement | Global persistent debug toggle. |
+| 3 | Fishing Tracker Show/Hide | New module capability | Explicit runtime visibility action. |
+| 4 | Openables Lock/Unlock | New module capability | Persists `.locked`; legacy config has no control. |
+| 5 | Openables Open Blacklist | Intentional enhancement | Opens existing manager. |
+| 6 | Openables Open Custom List | Intentional enhancement | Opens existing manager. |
+| 7 | Openables Mass Add | Intentional enhancement | Opens existing batch-entry frame. |
+| 8 | Openables Show Status | Intentional enhancement | Invokes existing status action. |
+| 9 | Toolbox Show/Hide | New module capability | Runtime frame visibility, not module enable. |
+| 10 | Toolbox Lock/Unlock | New module capability | Public Toolbox helper. |
+| 11 | Toolbox Direction | New module capability | Horizontal/vertical layout. |
+| 12 | Toolbox Scale | New module capability | Public dimension-scaling helper. |
+| 13 | Toolbox Reset Position | New module capability | Public position helper. |
+| 14 | XP Favorites selector action | Intentional enhancement | Opens existing selector; `favFactions` remains user-curated data. |
+| 15 | Delves Lock/Unlock Frame | New module capability | Session-only edit state. |
+| 16 | Flight Master Reset Position | Intentional enhancement | Split from appearance reset. |
+
+The standalone Delves Reset Position button is not counted again as OUS2-only because it is one half of the legacy combined reset capability.
+
+## Retirement Readiness
+
+**C. NO — meaningful legacy-only capability remains.**
+
+Exact blockers:
+
+1. Flight Master module enable/disable is unavailable in OUS2.
+2. Toolbox module enable/disable is unavailable in OUS2.
+3. Faster Loot enable/disable is intentionally unavailable pending a safe public setter.
+4. OUS2 global reset lacks the legacy confirmation safety boundary.
+5. Flight Master and Reputation reset-scope differences require implementation or an explicit product decision.
+6. The three module-toggle live-side-effect differences require a documented lifecycle decision.
+
+## Minimum Future Patch Set (Not Implemented)
+
+1. Add a lifecycle-safe Flight Master module setter and route an OUS2 toggle through it; document whether reload is required.
+2. Add a cleanup-aware Faster Loot public setter, then expose the currently withheld OUS2 toggle.
+3. Define Toolbox enable/disable lifecycle semantics (or a clear reload-bound setter), then add the missing OUS2 toggle.
+4. Route the OUS2 footer reset through the existing `ODYSSEUS_CONFIRM_WIPE_ALL` confirmation instead of calling the reset function directly.
+5. Decide and document whether Flight Reset Appearance should reset `showTooltips`, whether it should preserve `borderColor`, and whether Reputation reset should include both toast flags.
+6. Normalize or explicitly document the intended live behavior for Fishing Tracker, XP Bar, and Stats Bar module toggles.
+7. Re-run the setting-level audit after those decisions. Do not retire `/ous` before that re-audit passes.
+
+No implementation is included in this document update.
+
+## Documentation Mismatches Corrected by This Re-audit
+
+The 2026-07-10 version of this document said the OUS2 master reset was absent and intentionally rejected. Current source instead contains the footer action. It also described OUS2 as functionally complete despite the module-toggle gaps and did not record the missing reset confirmation or the Flight/Reputation reset scopes. Those claims are superseded above. `Documentation/TODO_v2.md` also contains stale follow-up wording for some already-present General/dashboard features; this audit does not edit that separate historical planning file.
+
+## Validation Record
+
+The final validation record is filled from the post-edit checks:
+
+- Full document readback: passed; the entire final document was read after the edit
+- Overbroad wording review (`complete`, `identical`, `exact`, `all`, `none`, `obsolete`, `removed`, `safe`, `fully`, `parity`): passed; each occurrence was reviewed in context and no unsupported completeness or retirement claim remains
+- Master-table recount: 110 rows; `A=86`, `B=15`, `C=2`, `D=1`, `F=6`; 16 OUS2-only rows
+- `git diff --check`: passed (no whitespace errors)
+- `git diff --stat`: one documentation file, 389 insertions and 195 deletions at the time of validation
+- `git status --short`: ` M Documentation/OUS2_FINAL_PARITY_AUDIT.md`
+- LuaCheck: intentionally not run because no Lua file is changed by this audit
+
+## Integrity Statement
+
+This is a documentation-only audit. It does not change production Lua, TOC metadata, SavedVariables schemas/data, runtime behavior, load order, tags, releases, or Git history. The only intended unstaged change is `Documentation/OUS2_FINAL_PARITY_AUDIT.md`.
