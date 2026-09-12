@@ -4,6 +4,7 @@
 -- Version : 2026.09.12
 -- Desc    : Fishing session tracker — catch counts, session timer, loot log
 -- ============================================================
+-- luacheck: globals CreateScrollBoxLinearView ScrollUtil
 
 -- ==========================================
 -- 1. ODYSSEUS UTILITY SUITE: FISHING TRACKER
@@ -266,9 +267,17 @@ end
 -- ==========================================
 -- 3. BUILD THE UI: MAIN FRAME
 -- ==========================================
+local MAIN_FRAME_FIXED_HEIGHT = 215
+local MAIN_FRAME_WIDTH = 384
+local MAIN_ROW_LAYOUT_WIDTH = 370
+local MAIN_ROW_STEP = 18
+local MAIN_MIN_VISIBLE_ROWS = 4
+local MAIN_MAX_VISIBLE_ROWS = 15
+local MAIN_FRAME_MIN_HEIGHT = MAIN_FRAME_FIXED_HEIGHT + (MAIN_MIN_VISIBLE_ROWS * MAIN_ROW_STEP)
+
 local mainFrame = CreateFrame("Frame", "OdysseusFishingMain", UIParent, "BackdropTemplate")
--- WIDENED: Increased from 340 to 360 to prevent text clipping
-mainFrame:SetSize(370, 220)
+-- Reserve a right-side scrollbar gutter without moving the catch columns.
+mainFrame:SetSize(MAIN_FRAME_WIDTH, MAIN_FRAME_MIN_HEIGHT)
 mainFrame:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", -250, -200)
 mainFrame:Hide()
 
@@ -364,7 +373,7 @@ mfColName:SetText("Fish Name")
 
 local mfColPct = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 mfColPct:SetPoint("TOP", mfColName, "TOP", 0, 0)
-mfColPct:SetPoint("RIGHT", mainFrame, "RIGHT", -15, 0)
+mfColPct:SetPoint("RIGHT", mainFrame, "RIGHT", -29, 0)
 -- WIDENED: Increased to 55 to comfortably fit "100.0%"
 mfColPct:SetWidth(55)
 mfColPct:SetJustifyH("RIGHT")
@@ -384,6 +393,27 @@ divider2:SetHeight(1)
 divider2:SetPoint("TOP", mfColName, "BOTTOM", 0, -4)
 divider2:SetPoint("LEFT", mainFrame, "LEFT", 12, 0)
 divider2:SetPoint("RIGHT", mainFrame, "RIGHT", -12, 0)
+
+-- Keep the status and column headers fixed while only the catch rows scroll.
+local mainScrollBox = CreateFrame("Frame", nil, mainFrame, "WowScrollBox")
+mainScrollBox:SetPoint("TOPLEFT", divider2, "BOTTOMLEFT", 0, -4)
+mainScrollBox:SetWidth(MAIN_ROW_LAYOUT_WIDTH - 24)
+mainScrollBox:SetHeight(MAIN_MIN_VISIBLE_ROWS * MAIN_ROW_STEP)
+
+local mainScrollBar = CreateFrame("EventFrame", nil, mainFrame, "MinimalScrollBar")
+mainScrollBar:SetWidth(8)
+mainScrollBar:SetPoint("TOPLEFT", mainScrollBox, "TOPRIGHT", 2, 0)
+mainScrollBar:SetPoint("BOTTOMLEFT", mainScrollBox, "BOTTOMRIGHT", 2, 0)
+
+local mainRowsContent = CreateFrame("Frame", nil, mainScrollBox)
+mainRowsContent:SetWidth(MAIN_ROW_LAYOUT_WIDTH - 24)
+mainRowsContent:SetHeight(1)
+mainRowsContent.scrollable = true
+
+local mainScrollView = CreateScrollBoxLinearView()
+mainScrollView:SetPanExtent(MAIN_ROW_STEP)
+ScrollUtil.InitScrollBoxWithScrollBar(mainScrollBox, mainScrollBar, mainScrollView)
+mainScrollBar:SetHideIfUnscrollable(true)
 
 local lastCatchText = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 lastCatchText:SetPoint("BOTTOMLEFT", mainFrame, "BOTTOMLEFT", 12, 10)
@@ -821,9 +851,10 @@ statsTabZone:SetScript("OnClick", function() currentStatsTab = "Zone"; UpdateGlo
 local mainRows = {}
 local sessRows = {}
 
-local function CreateFishRow(parent)
+local function CreateFishRow(parent, layoutWidth)
+    layoutWidth = layoutWidth or parent:GetWidth()
     local row = CreateFrame("Button", nil, parent)
-    row:SetSize(parent:GetWidth() - 24, 16)
+    row:SetSize(layoutWidth - 24, 16)
 
     row.icon = row:CreateTexture(nil, "ARTWORK")
     row.icon:SetSize(14, 14)
@@ -832,7 +863,7 @@ local function CreateFishRow(parent)
     row.name = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     row.name:SetPoint("LEFT", row.icon, "RIGHT", 4, 0)
     -- WIDENED: Adjusted to make sure the item name doesn't bleed into the newly widened percent/count columns
-    row.name:SetWidth(parent:GetWidth() - 130)
+    row.name:SetWidth(layoutWidth - 130)
     row.name:SetJustifyH("LEFT")
     row.name:SetWordWrap(false)
 
@@ -922,7 +953,6 @@ function OUS.UpdateFishingUI()
         row:Hide()
     end
 
-    local yOffset = -180
     local rowIndex = 1
 
     if areaData.catches then
@@ -935,7 +965,7 @@ function OUS.UpdateFishingUI()
 
         for _, data in ipairs(sortedAreaCatches) do
             if not mainRows[rowIndex] then
-                mainRows[rowIndex] = CreateFishRow(mainFrame)
+                mainRows[rowIndex] = CreateFishRow(mainRowsContent, MAIN_ROW_LAYOUT_WIDTH)
             end
             local row = mainRows[rowIndex]
 
@@ -945,14 +975,18 @@ function OUS.UpdateFishingUI()
             row.count:SetText(data.count)
             row.pct:SetText(pct)
 
-            row:SetPoint("TOPLEFT", mainFrame, "TOPLEFT", 12, yOffset)
+            row:SetPoint("TOPLEFT", mainRowsContent, "TOPLEFT", 0, -((rowIndex - 1) * MAIN_ROW_STEP))
             row:Show()
 
-            yOffset = yOffset - 18
             rowIndex = rowIndex + 1
         end
     end
-    local newHeight = math.max(220, math.abs(yOffset) + 35)
+    local mainRowCount = rowIndex - 1
+    local visibleRowCount = math.min(math.max(mainRowCount, MAIN_MIN_VISIBLE_ROWS), MAIN_MAX_VISIBLE_ROWS)
+    mainRowsContent:SetHeight(math.max(1, mainRowCount * MAIN_ROW_STEP))
+    mainScrollBox:SetHeight(math.max(1, visibleRowCount * MAIN_ROW_STEP))
+
+    local newHeight = math.max(MAIN_FRAME_MIN_HEIGHT, MAIN_FRAME_FIXED_HEIGHT + (visibleRowCount * MAIN_ROW_STEP))
     if mainFrame:GetHeight() ~= newHeight then
         mainFrame:SetHeight(newHeight)
         -- Re-anchor after resize to prevent bidirectional growth

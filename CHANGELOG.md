@@ -8,6 +8,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 - Made OUS2 the primary configuration interface while preserving `/ous` as its default entry point and `/ous2` as an alias.
 - Routed the minimap launcher, addon-compartment action, and Toolbox configuration shortcuts to OUS2.
 - Moved the shared global-reset confirmation to Core so reset behavior no longer depends on legacy configuration files.
+- Added a thin modern scrollbar to keep the Fishing Tracker main catch list compact in locations with many recorded catches.
 
 ### Fixed
 - Fixed Fishing Tracker fish names overlapping their icons after switching between the Overall Statistics Fish and Zone tabs.
