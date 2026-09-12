@@ -2,6 +2,22 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-09-12]
+
+### Changed
+- Made OUS2 the primary configuration interface while preserving `/ous` as its default entry point and `/ous2` as an alias.
+- Routed the minimap launcher, addon-compartment action, and Toolbox configuration shortcuts to OUS2.
+- Moved the shared global-reset confirmation to Core so reset behavior no longer depends on legacy configuration files.
+
+### Removed
+- Retired the legacy `Config.lua` and `xpbar_config.lua` configuration interfaces after setting parity, migration-plumbing, and Checkpoint 2 runtime validation completed.
+
+### Notes
+- Existing SavedVariables names, paths, defaults, and user data remain unchanged.
+- Final user runtime validation passed with the legacy files absent, OUS2 active, retirement routing functional, and no Lua errors observed.
+
+---
+
 ## [2026-07-11]
 
 ### Added

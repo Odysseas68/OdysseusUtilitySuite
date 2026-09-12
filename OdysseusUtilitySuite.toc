@@ -2,8 +2,8 @@
 ## Title: Odysseus Utility Suite
 ## Notes: A modular suite of quality-of-life tools for WoW Retail 12.0+ (Midnight). Includes XP/Rep tracking, Flight Master timing, Auto Remount, Stats Bar, Openables, Fishing Tracker, Faster Loot, and a Toolbox icon bar — all in one Midnight-themed UI.
 ## Author: Odysseus68
-## Version: 2026.06.22
-## X-Build-Date: 2026.06.25
+## Version: 2026.09.12
+## X-Build-Date: 2026.09.12
 ## X-Category: Interface Enhancements
 ## X-Website: https://github.com/Odysseas68/OdysseusUtilitySuite
 ## X-License: All Rights Reserved
@@ -55,14 +55,12 @@ Utilities.lua
 Toolbox.lua
 
 # ==========================================
-# 5. CONFIGURATION UI (Loads last to attach to engines)
+# 5. HELP UI
 # ==========================================
-Config.lua
-xpbar_config.lua
 Help.lua
 
 # ==========================================
-# 6. OUS2 CONFIG UI (New generation config)
+# 6. OUS2 CONFIG UI (Primary configuration)
 # ==========================================
 Config2\OUS2Theme.lua
 Config2\OUS2Config.lua

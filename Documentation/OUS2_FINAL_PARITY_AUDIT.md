@@ -9,7 +9,7 @@ Historical milestone retained: the 2026-07-10 Phase 5.6 audit described OUS2 as 
 
 1. `Enable Toolbox` — `OdysseusDB.modules.toolbox` — implemented on 2026-09-12 through a lifecycle-safe runtime setter and passed user in-game validation. Its immediate OUS2 lifecycle behavior is intentionally retained while legacy `/ous` remains unchanged as the historical compatibility/reference configuration.
 
-`Enable Flight Master` — `OdysseusDB.modules.flightMaster` — was the other historical finding. It was implemented on 2026-09-12 through a lifecycle-safe runtime setter and passed user in-game validation.
+2. `Enable Flight Master` — `OdysseusDB.modules.flightMaster` — was the other historical finding. It was implemented on 2026-09-12 through a lifecycle-safe runtime setter and passed user in-game validation.
 
 The audit also found one legacy capability that was deliberately unavailable in OUS2 pending a safe lifecycle setter:
 
@@ -17,7 +17,7 @@ The audit also found one legacy capability that was deliberately unavailable in 
 
 The audit also discovered that OUS2's global reset bypassed the legacy confirmation. That safety gap was corrected on 2026-09-11 by routing the OUS2 action through `ODYSSEUS_CONFIRM_WIPE_ALL`; the underlying reset function and scope were not changed. User runtime validation confirmed that OUS2 shows the dialog, Cancel leaves settings untouched, Confirm resets settings, and legacy `/ous` uses the same confirmation behavior.
 
-These are real configuration gaps, not cosmetic differences. No legacy setting was found writing to an unidentified or divergent SavedVariable path, and there are no `UNKNOWN` mappings. Legacy `/ous` is not ready for retirement.
+These were real configuration gaps, not cosmetic differences. No legacy setting was found writing to an unidentified or divergent SavedVariable path, and there are no `UNKNOWN` mappings. The final retirement review found zero genuine setting-parity defects. The legacy configuration files have been removed from the source and TOC, and final user runtime validation passed with OUS2 as the active configuration UI.
 
 ## Repository Baseline
 
@@ -263,13 +263,13 @@ Abbreviations: `A` full parity; `B` present but behavior differs; `C` legacy-onl
 
 ### HIGH
 
-1. Flight Master, Toolbox, Faster Loot, Fishing Tracker, XP Bar, and Stats Bar module-toggle handlers are not equivalent: OUS2 applies immediate runtime cleanup, initialization, visibility, or update side effects while the legacy General controls only write their module keys. Faster Loot's setter and Fishing Tracker interoperability passed user runtime validation; the behavior difference follows the established policy of leaving legacy unchanged.
+1. Flight Master, Toolbox, Faster Loot, Fishing Tracker, XP Bar, and Stats Bar module-toggle handlers have historically documented live-side-effect differences. The legacy Flight Master, Toolbox, and Faster Loot controls only write their module keys; Fishing Tracker, XP Bar, and Stats Bar already invoke related runtime callbacks. The final retirement review classified the OUS2 outcomes as intentional lifecycle improvements or equivalent behavior, not parity defects. Faster Loot's setter and Fishing Tracker interoperability passed user runtime validation; legacy remains unchanged.
 
 ### MEDIUM
 
 1. Flight Master width, height, and scale reach the current dimension-scaling engine through OUS2, while legacy calls raw frame setters.
-2. Flight Reset Defaults and OUS2 Reset Appearance have different key scopes: `showTooltips` versus `borderColor`.
-3. Reputation Reset Defaults in OUS2 omits the legacy reset of `toastEnabled` and `toastSound`.
+2. Flight Reset Defaults and OUS2 Reset Appearance historically have different key scopes: `showTooltips` versus `borderColor`. The current OUS2 contract was approved for retirement: preserve `showTooltips`, reset `borderColor`, and keep position exclusively under Reset Position.
+3. Reputation Reset Defaults in OUS2 historically omits the legacy reset of `toastEnabled` and `toastSound`. The current OUS2 contract was approved for retirement: preserve both notification preferences while resetting reputation presentation and formatting.
 4. XP Bar's Hide Blizzard UI checkbox has different availability semantics inside instances.
 
 ### LOW
@@ -289,8 +289,8 @@ All eight legacy module keys were traced. Openables and Utilities have material 
 - The global reset target and confirmation boundary are now shared. The audit-discovered OUS2 bypass was corrected on 2026-09-11 without changing `OUS.ResetAllSettings()`.
 - User runtime validation found a pre-existing shared Retail reload issue after confirmation: both OUS2 and legacy reset the settings, but `C_Timer.After(0.5, ReloadUI)` produced `ADDON_ACTION_BLOCKED` and did not reload the UI.
 - `Core.lua` now calls `C_UI.Reload()` synchronously at the end of the confirmed user-action path. The user retested both OUS2 and legacy reset flows successfully; both now complete the existing reset and reload without the observed blocked-action error. The historical reason for introducing the old timer is unknown.
-- Flight reset scopes differ for `showTooltips` and `borderColor`.
-- Reputation reset scopes differ for the two toast fields.
+- Flight reset scopes historically differ for `showTooltips` and `borderColor`. The approved OUS2 retirement contract preserves `showTooltips`, resets `borderColor` as appearance, and leaves position exclusively to Reset Position. Legacy semantics will not be reproduced.
+- Reputation reset scopes historically differ for the two toast fields. The approved OUS2 retirement contract preserves `toastEnabled` and `toastSound` while resetting reputation presentation and formatting. Legacy semantics will not be reproduced.
 - XP Global and Delves provide the same aggregate capability through split OUS2 actions.
 - Fishing history, Flight learned data, Openables lists, and Auto Remount selections were checked separately from ordinary defaults.
 
@@ -349,21 +349,24 @@ The standalone Delves Reset Position button is not counted again as OUS2-only be
 
 ## Retirement Readiness
 
-**C. NO — material parity blockers remain.**
+**A. YES — legacy configuration retirement is complete and user-validated.**
 
-Exact blockers:
+Retirement disposition:
 
-1. Flight Master and Reputation reset-scope differences require implementation or an explicit product decision.
-2. Four module-toggle live-side-effect differences still require a documented lifecycle decision. Toolbox and Faster Loot behavior differences are intentionally accepted and user-validated; both provide improved OUS2 lifecycle handling while legacy remains DB-only.
+1. The Flight Master and Reputation reset-scope differences remain preserved as historical findings. Their current OUS2 contracts are explicitly approved and are not retirement blockers.
+2. All 17 category-B behavior differences were resolved by the final retirement review as intentional OUS2 improvements, equivalent outcomes, or the two approved reset contracts. Zero genuine setting-parity defects remain.
+3. Retirement Checkpoint 2 passed user runtime validation: the shared global-reset confirmation lives in `Core.lua`, shared launch and deep-link paths route to OUS2, and the XP engine no longer initializes the legacy XP configuration builder.
+4. The final removal checkpoint deleted `Config.lua` and `xpbar_config.lua` and removed their TOC entries without changing SavedVariables or runtime module data. User runtime validation passed with the files physically absent, OUS2 active, existing retirement routing intact, and no Lua errors observed.
 
 ## Minimum Future Patch Set
 
 1. **Implemented and user-validated 2026-09-12:** add a lifecycle-safe Flight Master module setter and route an OUS2 toggle through it. The loaded event-driven module does not require reload; disabling during an active taxi abandons that measurement, and subsequent new taxis operate normally after re-enabling.
 2. **Implemented and user-validated 2026-09-12:** add a cleanup-aware Faster Loot public setter and expose the OUS2 toggle. Persistent event/hook infrastructure remains installed and module-gated; disabling cancels the active ticker and restores Blizzard's loot frame without changing legacy's DB-only handler. Normal and fishing-loot transitions passed; full-bag, locked-item, and group-roll fallback cases were not reproduced and are not recorded as failures.
 3. **Implemented and user-validated 2026-09-12:** add a lifecycle-safe Toolbox module setter and OUS2 toggle. Module disable preserves the separate saved shown/hidden state, and re-enable creates or restores the runtime without requiring reload. The user intentionally accepted this OUS2 improvement without changing legacy's DB-only handler.
-4. Decide and document whether Flight Reset Appearance should reset `showTooltips`, whether it should preserve `borderColor`, and whether Reputation reset should include both toast flags.
-5. Normalize or explicitly document the intended live behavior for Fishing Tracker, XP Bar, and Stats Bar module toggles.
-6. Re-run the setting-level audit after those decisions. Do not retire `/ous` before that re-audit passes.
+4. **Approved for retirement 2026-09-12:** Flight Reset Appearance preserves `showTooltips`, resets `borderColor`, and leaves position to Reset Position. Reputation Reset Defaults preserves `toastEnabled` and `toastSound` while resetting presentation and formatting. These intentional OUS2 contracts do not require Lua changes.
+5. **Resolved by the final retirement review:** Fishing Tracker and Stats Bar module toggles provide equivalent outcomes; XP Bar's broader enable-time refresh is an intentional OUS2 lifecycle improvement. No parity patch is required.
+6. **Implemented and user-validated 2026-09-12:** extract the shared global-reset confirmation to `Core.lua`, route `/ous`, minimap, addon-compartment, and Toolbox config entry points to OUS2, and remove the XP engine's legacy configuration-builder call.
+7. **Implemented and user-validated 2026-09-12:** remove legacy `Config.lua` and `xpbar_config.lua` and their TOC entries. OUS2 is now the active configuration UI; `/ous` routes to OUS2, `/ous2` remains an alias, and SavedVariables declarations and module runtime data remain intact.
 
 No other parity finding is implemented by the 2026-09-11 reset-gate correction.
 
@@ -376,7 +379,10 @@ The 2026-07-10 version of this document said the OUS2 master reset was absent an
 - Original setting-level audit: full document readback and overbroad-wording review passed at the documentation checkpoint.
 - Master-table recount after the 2026-09-12 Faster Loot toggle implementation: 110 rows; `A=87`, `B=17`, `C=0`, `D=0`, `F=6`; 16 OUS2-only rows. User runtime validation passed normal fast loot, fishing-loot yielding and catch recording, subsequent resume, disable/re-enable during an open fishing loot window, persistent module state, and repeated-cycle safety without duplicate processing or Lua errors. Fishing Tracker does not modify `OdysseusDB.modules.fasterLoot`. Full-bag, locked-item, and group-roll fallback cases were not reproducible during the test session and remain untested, not failed.
 - Reset confirmation and shared Retail reload correction: user runtime validation passed for both OUS2 and legacy `/ous`; static and Git validation is recorded in the implementation report.
+- Final retirement decision checkpoint, 2026-09-12: all 17 category-B differences were reviewed without changing the historical counts. The current Flight Reset Appearance and Reputation Reset Defaults contracts were explicitly approved; zero genuine setting-parity defects remain. Migration plumbing and dependency extraction remain required before legacy removal.
+- Retirement Checkpoint 2, 2026-09-12: the global-reset confirmation was relocated to Core, shared launch/deep-link paths were redirected to OUS2, and the XP engine's legacy configuration-builder call was removed. User runtime validation passed all redirected launchers, preserved `/ous` subcommands, reset Cancel/Confirm and reload, and XP/Rep initialization without Lua errors.
+- Final legacy-removal checkpoint, 2026-09-12: `Config.lua` and `xpbar_config.lua` were removed from source and the TOC after confirming their exported symbols had no remaining live consumers. User runtime validation passed with both files physically absent: the addon loaded and operated normally, OUS2 remained functional as the active configuration system, the previously validated routing remained functional, SavedVariables compatibility was preserved, and no Lua errors were observed.
 
 ## Integrity Statement
 
-This audit began as a documentation-only checkpoint. The 2026-09-11 correction changed only the OUS2 global-reset click gate, the shared reset path's reload invocation, and synchronized audit text. The 2026-09-12 Flight Master, Toolbox, and Faster Loot parity patches add only their OUS2 controls and module-local runtime setter/cleanup boundaries. These changes do not alter reset scope, SavedVariables schemas/defaults, TOC metadata, load order, tags, or releases.
+This audit began as a documentation-only checkpoint. The 2026-09-11 correction changed only the OUS2 global-reset click gate, the shared reset path's reload invocation, and synchronized audit text. The 2026-09-12 Flight Master, Toolbox, and Faster Loot parity patches add only their OUS2 controls and module-local runtime setter/cleanup boundaries. The retirement checkpoints relocate shared config routing/reset ownership and remove only the superseded legacy UI files and their TOC entries; they do not alter reset scope, SavedVariables schemas/defaults, persistent keys, or module runtime data.

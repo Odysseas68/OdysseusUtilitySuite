@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Toolbox.lua
--- Version : 2026.07.09
+-- Version : 2026.09.12
 -- Desc    : Floating icon toolbar engine — toggleable module shortcuts
 -- ============================================================
 
@@ -35,13 +35,8 @@ local BUTTONS = {
         icon    = "Interface\\AddOns\\OdysseusUtilitySuite\\media\\icon\\OUS_icon_128.tga",
         tooltip = "Odysseus Config",
         action  = function()
-            if not OUS.ConfigFrame then return end
-            if OUS.ConfigFrame:IsShown()
-                and (OUS.ConfigFrame.currentNavTab == "General") then
-                OUS.ConfigFrame:Hide()
-            else
-                OUS.ConfigFrame:Show()
-                if OUS.ConfigFrame.ShowTab then OUS.ConfigFrame.ShowTab("General") end
+            if OUS.Config2 and OUS.Config2.OpenPage then
+                OUS.Config2.OpenPage("General")
             end
         end,
     },
@@ -65,13 +60,8 @@ local BUTTONS = {
         icon    = "Interface\\Icons\\ability_vehicle_rocketbooster",
         tooltip = "Flight Master Settings",
         action  = function()
-            if not OUS.ConfigFrame then return end
-            if OUS.ConfigFrame:IsShown()
-                and (OUS.ConfigFrame.currentNavTab == "FlightMaster") then
-                OUS.ConfigFrame:Hide()
-            else
-                OUS.ConfigFrame:Show()
-                if OUS.ConfigFrame.ShowTab then OUS.ConfigFrame.ShowTab("FlightMaster") end
+            if OUS.Config2 and OUS.Config2.OpenPage then
+                OUS.Config2.OpenPage("FlightMaster")
             end
         end,
     },
@@ -88,13 +78,8 @@ local BUTTONS = {
         icon    = "Interface\\Icons\\ability_mount_ridinghorse",
         tooltip = "Auto Remount Settings",
         action  = function()
-            if not OUS.ConfigFrame then return end
-            if OUS.ConfigFrame:IsShown()
-                and (OUS.ConfigFrame.currentNavTab == "AutoRemount") then
-                OUS.ConfigFrame:Hide()
-            else
-                OUS.ConfigFrame:Show()
-                if OUS.ConfigFrame.ShowTab then OUS.ConfigFrame.ShowTab("AutoRemount") end
+            if OUS.Config2 and OUS.Config2.OpenPage then
+                OUS.Config2.OpenPage("AutoRemount")
             end
         end,
     },
@@ -125,13 +110,8 @@ local BUTTONS = {
         icon    = "Interface\\Icons\\ability_repair",
         tooltip = "Utilities",
         action  = function()
-            if not OUS.ConfigFrame then return end
-            if OUS.ConfigFrame:IsShown()
-                and (OUS.ConfigFrame.currentNavTab == "Utilities") then
-                OUS.ConfigFrame:Hide()
-            else
-                OUS.ConfigFrame:Show()
-                if OUS.ConfigFrame.ShowTab then OUS.ConfigFrame.ShowTab("Utilities") end
+            if OUS.Config2 and OUS.Config2.OpenPage then
+                OUS.Config2.OpenPage("Utilities")
             end
         end,
     },

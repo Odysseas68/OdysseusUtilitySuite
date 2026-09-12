@@ -1,7 +1,7 @@
 # Odysseus Utility Suite — Claude Code Context
 
 ## Project Overview
-A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tools into a single suite. Modules are independently toggled from a shared Midnight-themed config UI opened with `/ous`. A next-generation config UI (OUS2) is under active development, opened with `/ous2`.
+A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tools into a single suite. Modules are independently toggled from the OUS2 Midnight-themed config UI opened with `/ous`; `/ous2` remains an alias.
 
 **SavedVariables:** `OdysseusDB` (account-wide), `OdysseusCharDB` (per-character)
 **Namespace:** `local addonName, OUS = ...` — the `OUS` table is the global shared namespace.
@@ -34,11 +34,9 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 23. `Openables.lua` — openables button engine
 24. `Utilities.lua` — utility commands (rare announcer, auto repair, junk seller)
 25. `Toolbox.lua` — floating icon toolbar engine
-26. `Config.lua` — main config UI (loads last)
-27. `xpbar_config.lua` — xpbar config panel (loads last)
-28. `Help.lua` — tabbed help frame (loads last)
-29. `Config2\OUS2Theme.lua` — OUS2 theme registry (textures, colors, fonts, constants)
-30. `Config2\OUS2Config.lua` — OUS2 main config frame (loads last)
+26. `Help.lua` — tabbed help frame
+27. `Config2\OUS2Theme.lua` — OUS2 theme registry (textures, colors, fonts, constants)
+28. `Config2\OUS2Config.lua` — OUS2 main config frame
 
 ---
 
@@ -54,7 +52,7 @@ A modular WoW Retail addon (Retail 12.0+) combining quality-of-life utility tool
 
 **Debug logging:** Use `OUS.LogDebug("ModuleName", "message")` — never `print()` for debug output.
 
-**Config wiring:** New module config panels attach to `OUS.ConfigFrame` (built in `Config.lua`). Config always loads last so it can reference any module's state.
+**Config wiring:** New module pages register with `OUS.Config2.RegisterPage()` and load after `Config2\OUS2Config.lua` so they can attach to the OUS2 page container.
 
 **Per-character settings:** Use `OdysseusCharDB` (declared as `SavedVariablesPerCharacter` in the TOC). Account-wide settings go in `OdysseusDB`, character-specific settings go in `OdysseusCharDB` under a module key e.g. `OdysseusCharDB.autoRemountChar`, `OdysseusCharDB.statsBar`. Initialize in `Core.lua` ADDON_LOADED block.
 
@@ -87,7 +85,7 @@ OUS2 is the next-generation configuration window. Files live in `Config2\`.
 All TGA files sit flat in this directory — no `Assets/` subfolder.
 Always access via `T.Tex(key)` helper — never hardcode paths in page files.
 
-**Slash command:** `/ous2` — handler registered in `Core.lua` (not OUS2Config.lua), calls `OUS.Config2.Toggle()`.
+**Slash commands:** `/ous` routes through `OUS.ToggleConfig()` in Core; `/ous2` remains an alias registered by `Config2\OUS2Config.lua`. Both open OUS2.
 
 **Current status:** Phase 4 module-page migration is complete. Current focus is Phase 5 — Polish & Advanced Controls.
 
@@ -172,7 +170,7 @@ T.Frame.cornerSize   = 80     -- NineSlice corner display size
 - Button pool: pre-created per visible module, re-used across `LayoutButtons()` calls
 - Direction: `"horizontal"` (default) or `"vertical"` — controls frame sizing and button anchor axis
 - Openables popup: `OUSToolboxOpPopup` — invisible anchor container, Midnight-themed child buttons, smart screen-aware positioning based on bar orientation and available space
-- `OUS.ConfigFrame.ShowTab` and `OUS.ConfigFrame.currentNavTab` exposed by Config.lua for Toolbox to open specific config tabs
+- Toolbox configuration shortcuts call `OUS.Config2.OpenPage()` with the registered OUS2 page key
 - Lock/unlock: drag handle covers full frame when unlocked; all icon buttons get `EnableMouse(false)` during unlock to prevent accidental clicks
 
 ---
@@ -279,10 +277,10 @@ ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
 ## Adding a New Module (checklist)
 1. Create `NewModule.lua` in the addon root
 2. Add the module toggle default in `Core.lua` ADDON_LOADED block: `if OdysseusDB.modules.newModule == nil then OdysseusDB.modules.newModule = true end`
-3. Add the file to `OdysseusUtilitySuite.toc` in section 4 (before Config.lua)
+3. Add the file to `OdysseusUtilitySuite.toc` in section 4 (before Help and OUS2 files)
 4. If the module has settings, expose defaults as `OUS.newModuleDefaults` and wire reset into `OUS.ResetAllSettings()`
 5. If the module has per-character settings, initialize under `OdysseusCharDB.<moduleKey>` in `Core.lua` ADDON_LOADED block
-6. Add config panel wiring in `Config.lua` or a dedicated `newmodule_config.lua` loaded after the engine
+6. Add an OUS2 page registered through `OUS.Config2.RegisterPage()` when configuration controls are needed
 7. Add a Toolbox button entry to `BUTTONS` table in `Toolbox.lua` if the module has a toggleable frame or opens a config tab
 8. Add slash commands to the relevant tab in `Help.lua`
 9. Create `Config2\OUS2Page_NewModule.lua` and call `OUS.Config2.RegisterPage("NewModule", frame, Refresh)`
@@ -305,8 +303,8 @@ ScrollUtil.InitScrollBoxWithScrollBar(scrollBox, scrollBar, view)
 ---
 
 ## Slash Commands (existing — don't duplicate)
-- `/ous` — toggle legacy config window
-- `/ous2` — toggle OUS2 config window (new)
+- `/ous` — toggle OUS2 config window
+- `/ous2` — alias for the OUS2 config window
 - `/ous help` — help frame
 - `/ous debug` — alias for ousdebug
 - `/ous fish` — toggle fishing tracker

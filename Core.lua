@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Core.lua
--- Version : 2026.07.11
+-- Version : 2026.09.12
 -- Desc    : Namespace, DB init, module defaults, slash commands
 -- ============================================================
 
@@ -254,6 +254,22 @@ function OUS.ResetAllSettings()
     C_UI.Reload()
 end
 
+-- Shared reset confirmation remains available independently of either config UI.
+StaticPopupDialogs["ODYSSEUS_CONFIRM_WIPE_ALL"] = {
+    text = "Are you sure you want to reset ALL Odysseus settings to their defaults? This will require a UI reload and cannot be undone.",
+    button1 = "Yes, Reset Everything",
+    button2 = "Cancel",
+    OnAccept = function()
+        if OUS.ResetAllSettings then
+            OUS.ResetAllSettings()
+        end
+    end,
+    timeout = 0,
+    whileDead = true,
+    hideOnEscape = true,
+    preferredIndex = 3,
+}
+
 -- ==========================================
 -- 3. GLOBAL DEBUG ENGINE
 -- ==========================================
@@ -415,6 +431,13 @@ SlashCmdList["ODYSSEUSDEBUG"] = function()
     OUS.SetDebugMode(not OUS.IsDebugModeOn())
 end
 
+-- Public config entry point routes shared launchers to the loaded OUS2 framework.
+function OUS.ToggleConfig()
+    if OUS.Config2 and OUS.Config2.Toggle then
+        OUS.Config2.Toggle()
+    end
+end
+
 SLASH_ODYSSEUS1 = "/ous"
 SlashCmdList["ODYSSEUS"] = function(msg)
     local cmd = string.lower(strtrim(msg))
@@ -428,9 +451,7 @@ SlashCmdList["ODYSSEUS"] = function(msg)
             if OdysseusHelpFrame:IsShown() then OdysseusHelpFrame:Hide() else OdysseusHelpFrame:Show() end
         end
     else
-        if OUS.ConfigFrame then
-            if OUS.ConfigFrame:IsShown() then OUS.ConfigFrame:Hide() else OUS.ConfigFrame:Show() end
-        end
+        OUS.ToggleConfig()
     end
 end
 
@@ -479,13 +500,7 @@ local minimapRegistered = false
 -- Shared launcher click behavior preserves the legacy minimap button actions.
 local function HandleMinimapLauncherClick(button)
     if button == "LeftButton" then
-        if OUS.ConfigFrame then
-            if OUS.ConfigFrame:IsShown() then
-                OUS.ConfigFrame:Hide()
-            else
-                OUS.ConfigFrame:Show()
-            end
-        end
+        OUS.ToggleConfig()
     elseif button == "RightButton" then
         if OdysseusHelpFrame then
             if OdysseusHelpFrame:IsShown() then
@@ -656,10 +671,5 @@ f:HookScript("OnEvent", function(self, event, arg1)
 end)
 
 _G.Odysseus_ToggleConfig = function()
-    if not OUS.ConfigFrame then return end
-    if OUS.ConfigFrame:IsShown() then
-        OUS.ConfigFrame:Hide()
-    else
-        OUS.ConfigFrame:Show()
-    end
+    OUS.ToggleConfig()
 end

@@ -4,13 +4,13 @@
 
 This document defines the current OUS2 architecture, coding standards, UI layout, and migration plan for Odysseus Utility Suite.
 
-OUS2 is the next-generation configuration and UI framework for OUS. It is being developed alongside the existing legacy `/ous` configuration window. Module-page migration is complete; the legacy UI remains available while Phase 5.6 parity polish finishes.
+OUS2 is the primary configuration and UI framework for OUS. The legacy `/ous` configuration files were retired on 2026-09-12 after setting parity and migration-plumbing validation; `/ous` now opens OUS2 and `/ous2` remains an alias.
 
 ---
 
 ## Current Status
 
-Phase 4 module-page migration is complete. Current focus is **Phase 5.6 — OUS2 legacy parity final stage**.
+Phase 4 module-page migration and the legacy configuration retirement are complete. Final user runtime validation passed with the legacy files absent and OUS2 active.
 
 Phase 5.6 parity is complete for Auto Remount, Stats Bar, Fishing Tracker, Openables, Utilities, Help, and Changelog. Remaining XP Bar, Reputation, and Delves parity work is tracked separately in `Documentation\OUS2_XPBAR_PARITY.md`; do not duplicate that checklist here.
 
@@ -83,7 +83,7 @@ Phase 5 follow-up work:
 - Reusable dashboard card visuals
 - Searchable settings later
 - Shared helper extraction after patterns stabilize
-- Long-term migration from legacy `/ous` to OUS2 when ready
+- Continued OUS2 polish and reusable-helper extraction
 
 ---
 
@@ -183,7 +183,7 @@ All OUS2 texture assets are flat in that directory. There is no `Assets\` subdir
 
 # TOC Order
 
-OUS2 currently loads after the legacy config/help files:
+OUS2 currently loads after the standalone Help UI:
 
 ```text
 Config2\OUS2Theme.lua
@@ -699,9 +699,7 @@ Planned later:
 
 - `OUS2Utils.lua` helper extraction
 - Search
-- Legacy config migration review
 - Optional folder restructure
-- `/ous` deprecation or coexistence decision
 
 ---
 
@@ -854,4 +852,4 @@ OUS2 becomes:
 - the dashboard and help hub for the addon
 - a stable, expandable UI foundation for future Retail versions
 
-The legacy `/ous` config remains available until OUS2 reaches functional parity and a deprecation/coexistence decision is made.
+OUS2 is the only loaded configuration UI. `/ous` is preserved as the primary entry point and `/ous2` remains an alias.

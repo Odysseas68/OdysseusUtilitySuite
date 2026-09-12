@@ -301,17 +301,18 @@ Extract only after patterns stabilize across multiple pages:
 * [ ] Create reusable scrollbar helper if needed
 
 ### Migration
-* [ ] Audit module master-toggle behavior
-* [ ] Fix Utilities master toggle coverage
-* [ ] Fix Utilities reset coverage
-* [ ] Resolve `/ous2` slash ownership if still duplicated
+* [x] Audit module master-toggle behavior
+* [x] Verify Utilities master toggle coverage
+* [x] Verify Utilities reset coverage
+* [x] Resolve `/ous2` slash ownership
 * [ ] Review `FlightData.lua` / `flightdata.lua` casing and TOC consistency
 * [ ] Review legacy flight data global access
-* [ ] Migrate legacy Config.lua functionality where appropriate
+* [x] Migrate legacy Config.lua functionality into OUS2 where appropriate
 * [x] Migrate supported `xpbar_config.lua` functionality into the XP Bar and Delves OUS2 pages
-* [ ] Complete remaining XP Bar / Reputation / Delves OUS2 parity per `Documentation\OUS2_XPBAR_PARITY.md`
+* [x] Complete XP Bar / Reputation / Delves OUS2 parity per `Documentation\OUS2_XPBAR_PARITY.md`
 * [x] Integrate Help.lua content into OUS2 Help page
-* [ ] Decide whether `/ous` remains separate or redirects to `/ous2`
+* [x] Preserve `/ous` as the OUS2 entry point and retain `/ous2` as an alias
+* [x] Retire legacy `Config.lua` and `xpbar_config.lua` after parity and migration validation
 * [ ] Optional folder restructure only after OUS2 is stable
 
 ### Future Module Candidate: BuffBars

@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_engine.lua
--- Version : 2026.05.29
+-- Version : 2026.09.12
 -- Desc    : XP/rep bar tracking logic and event handling
 -- ============================================================
 
@@ -709,10 +709,6 @@ local function HandleAddonLoaded(loadedAddonName)
                 OdysseusDB.xpBar[k] = v
             end
         end
-    end
-
-    if OUS.BuildXPConfigUI then
-        OUS.BuildXPConfigUI()
     end
 
     OUS.ApplyFonts()

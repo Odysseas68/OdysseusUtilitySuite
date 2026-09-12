@@ -9,7 +9,7 @@ It combines several standalone tools into one suite while keeping each module in
 ## Modules
 
 ### Central Configuration
-The suite includes a standalone configuration frame opened with `/ous`.
+The suite uses the OUS2 Midnight-themed configuration frame, opened with `/ous` or `/ous2`.
 
 Features include:
 - per-module enable/disable toggles
@@ -222,7 +222,8 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 - `/tb` / `/toolbox` — full command set (see Toolbox section above)
 
 ### Main
-- `/ous` — open the main configuration window
+- `/ous` — open the OUS2 configuration window
+- `/ous2` — alias for the OUS2 configuration window
 - `/ous help` — open the on-screen help window
 
 ### Openables
@@ -261,13 +262,13 @@ A location-aware fishing tracker with session and global statistics, fish-per-ho
 1. Download or copy the `OdysseusUtilitySuite` folder.
 2. Place it in: `World of Warcraft/_retail_/Interface/AddOns/`
 3. Launch the game and enable the addon from the AddOns list.
-4. Type `/ous` to open the configuration window.
+4. Type `/ous` to open the OUS2 configuration window.
 
 ---
 
 ## Current Focus
 
-Phase 4 module-page migration is complete. Current focus is Phase 5 — Polish & Advanced Controls.
+OUS2 is the primary configuration framework. Current focus is post-migration polish and feature expansion.
 
 Completed OUS2 pages:
 - General

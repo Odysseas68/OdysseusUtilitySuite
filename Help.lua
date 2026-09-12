@@ -9,7 +9,7 @@ local _, OUS = ...
 
 -- =====================================
 -- ODYSSEUS HELP FRAME (tabbed)
--- Loads after Config.lua — OUS.ConfigFrame already exists.
+-- Standalone help UI has no configuration-frame load dependency.
 -- =====================================
 
 local HELP_TABS = {
