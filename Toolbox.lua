@@ -16,6 +16,7 @@ local frame
 local dragHandle
 local opPopup
 local opPopupButtonIndex  -- pool index of the Openables button, set during layout
+local InitializeToolbox
 
 local BUTTON_SIZE   = 32
 local BUTTON_PAD    = 4
@@ -463,7 +464,7 @@ end
 -- ==========================================
 
 function OUS.ToggleToolbox()
-    if not frame then return end
+    if not frame or not OdysseusDB.modules.toolbox then return end
     if frame:IsShown() then
         frame:Hide()
     else
@@ -473,8 +474,12 @@ function OUS.ToggleToolbox()
 end
 
 function OUS.LockToolbox(locked)
-    if not frame then return end
-    SetLocked(locked)
+    if not db then return end
+    if frame then
+        SetLocked(locked)
+    else
+        db.locked = locked == true
+    end
 end
 
 function OUS.RefreshToolbox()
@@ -523,6 +528,31 @@ function OUS.IsToolboxInitialized()
     return frame ~= nil
 end
 
+-- Public setter preserves saved visibility while applying the module state immediately.
+function OUS.SetToolboxEnabled(enabled)
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.toolbox then return false end
+
+    OdysseusDB.modules.toolbox = enabled == true
+    db = db or OdysseusDB.toolbox
+
+    if OdysseusDB.modules.toolbox then
+        if not InitializeToolbox() then return false end
+        if db.shown then
+            LayoutButtons()
+            frame:Show()
+        else
+            frame:Hide()
+        end
+    elseif frame then
+        local wasShown = db.shown == true
+        if opPopup then opPopup:Hide() end
+        frame:Hide()
+        db.shown = wasShown
+    end
+
+    return true
+end
+
 -- ==========================================
 -- Slash handler  /tb  /toolbox
 -- ==========================================
@@ -567,15 +597,12 @@ end
 -- Init
 -- ==========================================
 
-local initFrame = CreateFrame("Frame")
-initFrame:RegisterEvent("ADDON_LOADED")
-initFrame:SetScript("OnEvent", function(self, event, name)
-    if name ~= addonName then return end
-    self:UnregisterEvent("ADDON_LOADED")
+-- Creates the Toolbox runtime once so a module re-enable does not require reload.
+InitializeToolbox = function()
+    if frame then return true end
 
-    db = OdysseusDB.toolbox
-
-    if not OdysseusDB.modules.toolbox then return end
+    db = db or (OdysseusDB and OdysseusDB.toolbox)
+    if not db then return false end
 
     frame = CreateFrame("Frame", "OUSToolboxFrame", UIParent, "BackdropTemplate")
     frame:SetFrameStrata("MEDIUM")
@@ -603,4 +630,17 @@ initFrame:SetScript("OnEvent", function(self, event, name)
     frame:SetScript("OnShow",  function() db.shown = true  end)
 
     OUS.LogDebug("Toolbox", "Initialized")
+    return true
+end
+
+local initFrame = CreateFrame("Frame")
+initFrame:RegisterEvent("ADDON_LOADED")
+initFrame:SetScript("OnEvent", function(self, event, name)
+    if name ~= addonName then return end
+    self:UnregisterEvent("ADDON_LOADED")
+
+    db = OdysseusDB.toolbox
+
+    if not OdysseusDB.modules.toolbox then return end
+    InitializeToolbox()
 end)

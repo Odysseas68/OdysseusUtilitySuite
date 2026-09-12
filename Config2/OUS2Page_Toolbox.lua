@@ -14,6 +14,7 @@ page:Hide()
 
 local statusText
 local disabledNote
+local enableCheckbox
 local lockCheckbox
 local horizontalButton
 local verticalButton
@@ -105,6 +106,38 @@ local function CreateActionButton(labelText, helpText, yOffset, onClick)
     button:SetScript("OnClick", onClick)
 end
 
+local function CreateCheckboxRow(labelText, helpText, yOffset, onClick)
+    local row = CreateFrame("Button", nil, page)
+    row:SetHeight(44)
+    row:SetPoint("TOPLEFT", page, "TOPLEFT", 18, yOffset)
+    row:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local checkbox = row:CreateTexture(nil, "ARTWORK")
+    checkbox:SetSize(20, 20)
+    checkbox:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("LEFT", checkbox, "RIGHT", 7, 0)
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    row:SetScript("OnEnter", function()
+        background:SetTexture(T.Tex("CardHover"))
+        C.SetHelpText(helpText)
+    end)
+    row:SetScript("OnLeave", function()
+        background:SetTexture(T.Tex("CardNormal"))
+        C.ClearHelpText()
+    end)
+    row:SetScript("OnClick", onClick)
+
+    return checkbox
+end
+
 local function CreateLockRow(yOffset)
     local helpText = "Lock the Toolbox in place or unlock its existing drag handle."
 
@@ -153,11 +186,11 @@ local function CreateDirectionButton(labelText, direction, leftSide)
     button:SetHeight(44)
 
     if leftSide then
-        button:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -428)
-        button:SetPoint("TOPRIGHT", page, "TOP", -5, -428)
+        button:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -480)
+        button:SetPoint("TOPRIGHT", page, "TOP", -5, -480)
     else
-        button:SetPoint("TOPLEFT", page, "TOP", 5, -428)
-        button:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -428)
+        button:SetPoint("TOPLEFT", page, "TOP", 5, -480)
+        button:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -480)
     end
 
     local background = button:CreateTexture(nil, "BACKGROUND")
@@ -221,45 +254,60 @@ headerDivider:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -58)
 headerDivider:SetHeight(6)
 
 CreateSectionHeader("Status", -78)
+enableCheckbox = CreateCheckboxRow(
+    "Enable Toolbox",
+    "Enable or disable the Toolbox module while preserving its saved shown or hidden state.",
+    -104,
+    function()
+        local modules = GetModulesDB()
+        if not modules then return end
+
+        if OUS.SetToolboxEnabled then
+            OUS.SetToolboxEnabled(not modules.toolbox)
+        end
+        Refresh()
+    end
+)
+
 local _, statusBody = CreateInfoCard(
     "",
-    "Shows the Toolbox module and runtime initialization state without changing it.",
-    -104,
+    "Shows the Toolbox module and runtime initialization state.",
+    -156,
     64
 )
 statusText = statusBody
 
 disabledNote = CreateInfoCard(
-    "Toolbox was disabled during login. Enable the module and reload UI before the Toolbox frame can be created.",
-    "Toolbox currently creates its runtime frame only during addon initialization.",
-    -176,
+    "Toolbox is disabled. Enable the module to restore its saved shown or hidden state without reloading.",
+    "The module toggle is separate from the saved Show / Hide Toolbox setting.",
+    -228,
     70,
     T.Fonts.small,
     T.Colors.textDim
 )
 
-CreateSectionHeader("Visibility and Position", -270)
+CreateSectionHeader("Visibility and Position", -322)
 CreateActionButton(
     "Show / Hide Toolbox",
     "Show or hide the initialized Toolbox frame.",
-    -296,
+    -348,
     function()
         if OUS.ToggleToolbox then
             OUS.ToggleToolbox()
         end
     end
 )
-lockCheckbox = CreateLockRow(-338)
+lockCheckbox = CreateLockRow(-390)
 
-CreateSectionHeader("Layout", -402)
+CreateSectionHeader("Layout", -454)
 horizontalButton = CreateDirectionButton("Horizontal", "horizontal", true)
 verticalButton = CreateDirectionButton("Vertical", "vertical", false)
 
-CreateSectionHeader("Scale", -492)
+CreateSectionHeader("Scale", -544)
 local scaleRow = CreateFrame("Frame", nil, page)
 scaleRow:SetHeight(60)
-scaleRow:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -518)
-scaleRow:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -518)
+scaleRow:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -570)
+scaleRow:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -570)
 scaleRow:EnableMouse(true)
 
 local scaleBackground = scaleRow:CreateTexture(nil, "BACKGROUND")
@@ -297,7 +345,7 @@ end)
 CreateActionButton(
     "Reset Position",
     "Reset the Toolbox to its default saved screen position.",
-    -592,
+    -644,
     function()
         if OUS.ResetToolboxPosition then
             OUS.ResetToolboxPosition()
@@ -310,10 +358,11 @@ Refresh = function()
     local modules = GetModulesDB()
     local enabled = modules and modules.toolbox == true
     local initialized = OUS.IsToolboxInitialized and OUS.IsToolboxInitialized()
-    statusText:SetText("Module: " .. (enabled and "Enabled" or "Disabled") .. "\nRuntime: " .. (initialized and "Initialized" or "Disabled until reload"))
-    SetTextColor(statusText, initialized and T.Colors.enabled or T.Colors.disabled)
+    enableCheckbox:SetTexture(T.Tex(enabled and "CheckboxOn" or "CheckboxOff"))
+    statusText:SetText("Module: " .. (enabled and "Enabled" or "Disabled") .. "\nRuntime: " .. (initialized and "Initialized" or "Not initialized"))
+    SetTextColor(statusText, enabled and initialized and T.Colors.enabled or T.Colors.disabled)
 
-    if initialized then
+    if enabled then
         disabledNote:Hide()
     else
         disabledNote:Show()
