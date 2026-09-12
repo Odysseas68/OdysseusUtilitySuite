@@ -4,7 +4,7 @@
 
 Odysseus Utility Suite (OUS) is a modular World of Warcraft Retail addon for Retail Midnight 12.0+.
 
-It combines quality-of-life utility tools into a single addon suite. Existing modules are independently toggled from the legacy Midnight-themed configuration UI opened with `/ous`. A next-generation configuration framework, OUS2, is under active development and opened with `/ous2`.
+It combines quality-of-life utility tools into a single addon suite. OUS2 is the sole production configuration framework: `/ous` opens OUS2 and `/ous2` remains an alias.
 
 **Current WoW Interface target:** `120007`
 **SavedVariables:** `OdysseusDB` account-wide, `OdysseusCharDB` per-character
@@ -106,15 +106,11 @@ Before implementing compatibility code:
 
 Before implementing unfamiliar or uncertain Retail API usage, verify in this order:
 
-1. Project-local skills and instructions:
-   - `.github/skills/wow-api-combat/SKILL.md`
-   - `.github/skills/wow-api-unit-player/SKILL.md`
-   - `.github/skills/wow-api-spells-abilities/SKILL.md`
-   - `.github/skills/wow-api-widget/SKILL.md`
-   - `.github/skills/wow-api-framexml/SKILL.md`
-   - `.github/skills/wow-api-events/SKILL.md`
-   - `.github/skills/wow-addon-structure/SKILL.md`
-   - `.github/instructions/`
+1. Project-local skills:
+   - `.github/skills/ous-wow-retail-api-check/SKILL.md`
+   - `.github/skills/ous-reference-workspace/SKILL.md`
+   - the relevant module-specific skill under `.github/skills/`
+   - `.github/skills/ous-minimal-addon-patch/SKILL.md`
 
 2. External engineering reference workspace:
    - `D:\WoWDev\Reference\Blizzard\wow-ui-source\`
@@ -137,35 +133,50 @@ When using `wow-ui-source`, prefer `D:\WoWDev\Reference\Blizzard\wow-ui-source` 
 The TOC order is strict. Do not reorder unless explicitly instructed.
 
 1. `Libs\LibStub\LibStub.lua`
-2. `Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua`
-3. `Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua`
-4. `Core.lua` — creates OUS namespace, DB init, debug engine, slash commands
-5. `flightdata.lua` — flight timing database
-6. `xpbar_data.lua` — XP/rep data tables
-7. `Odysseus_RoutingDB.lua` — flight routing database
-8. `AutoRemountSpells.lua` — AutoRemount spell ID database
-9. `StatsBarSpecPriority.lua` — StatsBar spec priority database
-10. `OpenablesDB.lua` — Openables item database
-11. `Flightmaster.lua` — flight timer/routing engine
-12. `Fasterloot.lua` — auto-loot module
-13. `Fishingtracker.lua` — fishing session tracker
-14. `xpbar_core.lua` — XP/rep bar frame and layout
-15. `xpbar_engine.lua` — XP/rep tracking logic
-16. `xpbar_delves.lua` — Delves companion tracking
-17. `xpbar_favorites.lua` — favorite rep pinning
-18. `FlightRouting.lua` — taxi map route rendering
-19. `AutoRemount.lua` — auto remount engine
-20. `StatsBar.lua` — stats bar engine
-21. `Openables.lua` — openables button engine
-22. `Utilities.lua` — utility commands
-23. `Toolbox.lua` — floating icon toolbar engine
-24. `Config.lua` — legacy main config UI
-25. `xpbar_config.lua` — XPBar config panel
-26. `Help.lua` — tabbed help frame
+2. `Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml`
+3. `Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua`
+4. `Libs\LibDBIcon-1.0\lib.xml`
+5. `Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua`
+6. `Core.lua` — creates OUS namespace, DB init, debug engine, slash commands
+7. `flightdata.lua` — flight timing database
+8. `xpbar_data.lua` — XP/rep data tables
+9. `Odysseus_RoutingDB.lua` — flight routing database
+10. `AutoRemountSpells.lua` — AutoRemount spell ID database
+11. `StatsBarSpecPriority.lua` — StatsBar spec priority database
+12. `OpenablesDB.lua` — Openables item database
+13. `Flightmaster.lua` — flight timer/routing engine
+14. `Fasterloot.lua` — auto-loot module
+15. `Fishingtracker.lua` — fishing session tracker
+16. `xpbar_core.lua` — XP/rep bar frame and layout
+17. `xpbar_engine.lua` — XP/rep tracking logic
+18. `xpbar_delves.lua` — Delves companion tracking
+19. `xpbar_favorites.lua` — favorite rep pinning
+20. `FlightRouting.lua` — taxi map route rendering
+21. `AutoRemount.lua` — auto remount engine
+22. `StatsBar.lua` — stats bar engine
+23. `Openables.lua` — openables button engine
+24. `Utilities.lua` — utility commands
+25. `Toolbox.lua` — floating icon toolbar engine
+26. `Help.lua` — standalone tabbed help frame
 27. `Config2\OUS2Theme.lua` — OUS2 theme registry
 28. `Config2\OUS2Config.lua` — OUS2 main config frame
+29. `Config2\OUS2ScaleControl.lua` — reusable OUS2 scale control
+30. `Config2\OUS2Page_General.lua`
+31. `Config2\OUS2Page_Utilities.lua`
+32. `Config2\OUS2Page_Openables.lua`
+33. `Config2\OUS2Page_StatsBar.lua`
+34. `Config2\OUS2Page_AutoRemount.lua`
+35. `Config2\OUS2Page_FishingTracker.lua`
+36. `Config2\OUS2Page_FlightMaster.lua`
+37. `Config2\OUS2Page_FlightRouting.lua`
+38. `Config2\OUS2Page_FasterLoot.lua`
+39. `Config2\OUS2Page_Toolbox.lua`
+40. `Config2\OUS2Page_XPBar.lua`
+41. `Config2\OUS2Page_Delves.lua`
+42. `Config2\OUS2Page_Help.lua`
+43. `Config2\OUS2Page_Changelog.lua`
 
-Additional OUS2 page files should load after `Config2\OUS2Config.lua`.
+OUS2 theme and shell files load after the module engines and standalone Help UI. OUS2 controls and pages load after `Config2\OUS2Config.lua`.
 
 ---
 
@@ -230,9 +241,9 @@ Do not use `print()` for routine debug output.
 
 ### Config Wiring
 
-Legacy config panels attach to `OUS.ConfigFrame` from `Config.lua`.
+OUS2 pages parent to `OUS.Config2.pageContainer` and register through `OUS.Config2.RegisterPage`.
 
-Config files load last and may assume module state already exists.
+The OUS2 shell, shared controls, and page files load after module state exists. Do not reintroduce the retired `Config.lua`, `xpbar_config.lua`, `OUS.ConfigFrame`, `OUS.BuildXPConfigUI`, or `OUS.XPBarTab` paths.
 
 ---
 
@@ -261,19 +272,21 @@ Known commands:
 - `/toolbox`
 - `/ous_rare`
 
-Slash command registration stays in `Core.lua` unless a module already owns an established command pattern.
+Preserve current command ownership: `Core.lua` owns `/ous`, `/ous fish`, `/ous debug`, `/ous help`, and the established module commands; `Config2\OUS2Config.lua` owns the `/ous2` alias. Shared launchers route through `OUS.ToggleConfig()` to OUS2.
 
 ---
 
 ## OUS2 Configuration Framework
 
-OUS2 is the next-generation configuration UI and long-term UI framework.
+OUS2 is the sole production configuration UI and long-term UI framework.
 
 Current OUS2 files live in:
 
 ```text
 Config2\OUS2Theme.lua
 Config2\OUS2Config.lua
+Config2\OUS2ScaleControl.lua
+Config2\OUS2Page_*.lua
 ```
 
 Existing OUS files remain flat in the addon root. Do not move them until Phase 6 is explicitly approved.
@@ -373,7 +386,7 @@ Each page file should:
 
 ### OUS2 Current Focus
 
-Current focus is Phase 5 — Polish & Advanced Controls.
+Current focus is Phase 5.6 — OUS2 parity final stage.
 
 Completed:
 - OUS2Page_General.lua created and registered
@@ -397,12 +410,15 @@ Completed:
   - Toolbox
   - XP Bar
   - Delves
+  - Help
+  - Changelog
 - XP Bar hub with internal Global, Experience, Reputation, Favorites, and Help views
 - Delves implemented as a separate OUS2 page linked from the XP Bar hub
-- Phase 4 module-page migration completed
+- Phase 4 module-page migration and legacy configuration retirement completed
 - XP Bar migration completed
 - Delves page completed
 - Delves temporary Lock/Unlock Frame positioning control completed
+- Flightmaster advanced controls completed
 
 Phase 5 follow-up work:
 - General page polish
@@ -410,17 +426,13 @@ Phase 5 follow-up work:
 - Module count summary
 - Global Options functionality
 - Reset semantics review
-- XP Bar color controls
-- Favorites management API review
-- Flightmaster advanced controls
+- XP Bar, Reputation, and Delves parity items tracked in `Documentation\OUS2_XPBAR_PARITY.md`
 - Toolbox expansion
 - Faster Loot rules
-- Pending OUS2 left-navigation Help page
-- Pending OUS2 left-navigation Changelog page
 - Helper extraction
 
 Next major milestone:
-- Complete Phase 5 polish and advanced-control follow-up work
+- Complete the remaining Phase 5.6 parity and polish follow-up work
 
 ### OUS2 Manual NineSlice
 
@@ -500,7 +512,6 @@ Files:
 - `xpbar_engine.lua`
 - `xpbar_delves.lua`
 - `xpbar_favorites.lua`
-- `xpbar_config.lua`
 
 Rules:
 
@@ -596,7 +607,7 @@ Rules:
 - Toolbox frame and button pool are reusable.
 - Preserve lock/unlock behavior where drag handle controls movement.
 - Do not break smart popup positioning.
-- Toolbox may deep-link into config pages via existing `OUS.ConfigFrame` or OUS2 APIs.
+- Toolbox deep-links into configuration pages through `OUS.Config2.OpenPage`.
 
 ### Help
 
@@ -619,12 +630,11 @@ Use this checklist:
 5. If the module has per-character settings, initialize under `OdysseusCharDB.<moduleKey>`.
 6. Expose defaults as `OUS.<moduleDefaults>` if it has settings.
 7. Ensure reset flow can include the module defaults.
-8. Add the file to `OdysseusUtilitySuite.toc` before config files.
-9. Add config wiring in `Config.lua` or a dedicated config file loaded after the module engine.
+8. Add the file to `OdysseusUtilitySuite.toc` before the OUS2 configuration layer.
+9. Create `Config2\OUS2Page_<Module>.lua` if the module needs configuration UI.
 10. Add a Toolbox button entry if the module has a toggleable frame or useful config shortcut.
 11. Add slash command docs to `Help.lua` when applicable.
-12. Create `Config2\OUS2Page_<Module>.lua` if the module needs an OUS2 page.
-13. Add the OUS2 page file to the TOC after `Config2\OUS2Config.lua`.
+12. Add the OUS2 page file to the TOC after `Config2\OUS2Config.lua`.
 
 ---
 
@@ -773,7 +783,6 @@ Use when editing:
 - `xpbar_engine.lua`
 - `xpbar_delves.lua`
 - `xpbar_favorites.lua`
-- `xpbar_config.lua`
 
 Rules:
 
@@ -821,7 +830,7 @@ Rules:
 - Use manual NineSlice only.
 - Do not use emoji.
 - Remove debug borders before production commit.
-- Keep `/ous` legacy config untouched unless explicitly asked.
+- Preserve `/ous` as the primary OUS2 entry point and `/ous2` as its alias; do not reintroduce the retired legacy configuration paths.
 - Reusable numeric slider controls should use the OUS2 scale-control assets and `T.Scale` constants instead of Blizzard `OptionsSliderTemplate`, unless explicitly requested.
 
 ### Pattern: Openables Safe Edit
@@ -894,11 +903,10 @@ Checklist:
 3. Account/per-character DB defaults.
 4. `OUS.<moduleDefaults>` if settings exist.
 5. Reset integration.
-6. TOC entry before config files.
-7. Legacy config integration if needed.
-8. OUS2 page integration if needed.
-9. Help/slash command documentation.
-10. Toolbox integration if useful.
+6. TOC entry before the OUS2 configuration layer.
+7. OUS2 page integration if needed.
+8. Help/slash command documentation.
+9. Toolbox integration if useful.
 
 ---
 
