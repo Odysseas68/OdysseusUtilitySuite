@@ -365,6 +365,7 @@ Future design review required:
 
 ### Fishing Tracker Follow-Up Review
 
+- Completed display controls: frame scale and LibSharedMedia font selection.
 - Wipe history UI
 - Confirmation flow
 - History statistics page

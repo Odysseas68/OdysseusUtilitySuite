@@ -4,6 +4,12 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [2026-09-12]
 
+### Added
+- Added Fishing Tracker frame scaling with a 0.5–2.0 range and combat-safe deferred updates.
+- Added LibSharedMedia font selection for Fishing Tracker, Session, and Overall Statistics text.
+- Added Midnight Fishing support for the Vaults of Atal'Utek instance and UI map identifiers.
+- Added `/ous mapinfo` for compact current map, location, instance, coordinate, and Delves companion diagnostics.
+
 ### Changed
 - Made OUS2 the primary configuration interface while preserving `/ous` as its default entry point and `/ous2` as an alias.
 - Routed the minimap launcher, addon-compartment action, and Toolbox configuration shortcuts to OUS2.
@@ -12,6 +18,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ### Fixed
 - Fixed Fishing Tracker fish names overlapping their icons after switching between the Overall Statistics Fish and Zone tabs.
+- Fixed the Fishing Tracker fishing-pole icon's inset Quickslot border artifact.
 
 ### Removed
 - Retired the legacy `Config.lua` and `xpbar_config.lua` configuration interfaces after setting parity, migration-plumbing, and Checkpoint 2 runtime validation completed.

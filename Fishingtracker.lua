@@ -11,6 +11,12 @@
 -- ==========================================
 local addonName, OUS = ...
 local f = CreateFrame("Frame")
+local LSM = LibStub("LibSharedMedia-3.0")
+
+local DEFAULT_FISHING_FONT = "Friz Quadrata TT"
+local MIN_FISHING_SCALE = 0.5
+local MAX_FISHING_SCALE = 2.0
+local pendingFishingScale
 
 -- State Variables
 local isFishingActive = false
@@ -32,6 +38,8 @@ OUS.fishingDefaults = {
     autoCloseMounted = true,
     autoCloseDelay = 30,
     alpha = 0.95,
+    scale = 1.0,
+    fontName = DEFAULT_FISHING_FONT,
     pos = {"RIGHT", "RIGHT", -250, 0}
 }
 
@@ -54,6 +62,7 @@ local ZONE_FISHING_NAMES = {
     [2479] = "Midnight Fishing", [2437] = "Midnight Fishing", [2568] = "Midnight Fishing",
     [2531] = "Midnight Fishing", [2532] = "Midnight Fishing", [2529] = "Midnight Fishing",
     [2530] = "Midnight Fishing", [2444] = "Midnight Fishing", [2512] = "Midnight Fishing",
+    [2916] = "Midnight Fishing", [2509] = "Midnight Fishing",
 
     -- ======================================
     -- KHAZ ALGAR (The War Within)
@@ -208,6 +217,23 @@ local function FishingDebug(msg)
     end
 end
 
+-- Resolves the selected face through LibSharedMedia with the current tracker font as fallback.
+local function GetFishingFontPath()
+    local settings = OdysseusDB and OdysseusDB.fishingSettings
+    local fontName = settings and settings.fontName or DEFAULT_FISHING_FONT
+    return LSM:Fetch("font", fontName) or LSM:Fetch("font", DEFAULT_FISHING_FONT) or "Fonts\\FRIZQT__.TTF"
+end
+
+-- Changes only the face while retaining each FontString's existing size and flags.
+local function ApplyFishingFontString(fontString, fontPath)
+    if not fontString then return end
+
+    local _, fontHeight, fontFlags = fontString:GetFont()
+    if fontHeight then
+        fontString:SetFont(fontPath, fontHeight, fontFlags)
+    end
+end
+
 local function IsCurrencyLink(link)
     return type(link) == "string" and link:find("|Hcurrency:") ~= nil
 end
@@ -321,7 +347,8 @@ poleBtn.icon = poleBtn:CreateTexture(nil, "BACKGROUND")
 poleBtn.icon:SetAllPoints()
 poleBtn.icon:SetTexture(136245)
 poleBtn.border = poleBtn:CreateTexture(nil, "OVERLAY")
-poleBtn.border:SetAllPoints()
+poleBtn.border:SetSize(60, 60)
+poleBtn.border:SetPoint("CENTER")
 poleBtn.border:SetTexture("Interface\\Buttons\\UI-Quickslot2")
 
 poleBtn:SetScript("OnEnter", function(self)
@@ -747,6 +774,11 @@ local function UpdateGlobalStatsFrame()
                 row.count:SetWidth(60)
                 row.count:SetJustifyH("CENTER")
 
+                local fontPath = GetFishingFontPath()
+                ApplyFishingFontString(row.name, fontPath)
+                ApplyFishingFontString(row.pct, fontPath)
+                ApplyFishingFontString(row.count, fontPath)
+
                 statsRows[i] = row
             end
 
@@ -806,6 +838,11 @@ local function UpdateGlobalStatsFrame()
                 row.count:SetPoint("RIGHT", row.pct, "LEFT", -20, 0)
                 row.count:SetWidth(60)
                 row.count:SetJustifyH("CENTER")
+
+                local fontPath = GetFishingFontPath()
+                ApplyFishingFontString(row.name, fontPath)
+                ApplyFishingFontString(row.pct, fontPath)
+                ApplyFishingFontString(row.count, fontPath)
                 statsRows[i] = row
             end
 
@@ -879,6 +916,11 @@ local function CreateFishRow(parent, layoutWidth)
     row.count:SetWidth(45)
     row.count:SetJustifyH("CENTER")
 
+    local fontPath = GetFishingFontPath()
+    ApplyFishingFontString(row.name, fontPath)
+    ApplyFishingFontString(row.pct, fontPath)
+    ApplyFishingFontString(row.count, fontPath)
+
     row:SetScript("OnEnter", function(self)
         if self.itemLink then
             GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
@@ -888,6 +930,84 @@ local function CreateFishRow(parent, layoutWidth)
     end)
     row:SetScript("OnLeave", function() GameTooltip:Hide() end)
     return row
+end
+
+local fishingFontStrings = {
+    zoneText,
+    subZoneText,
+    profText,
+    skillText,
+    locStatsTitle,
+    locTotalText,
+    locCurrencyText,
+    mfColName,
+    mfColPct,
+    mfColCount,
+    lastCatchText,
+    sessTitle,
+    timerText,
+    fphText,
+    closeTimerText,
+    sessTotalText,
+    sessCurrencyText,
+    sfColName,
+    sfColPct,
+    sfColCount,
+    statsTitle,
+    stat1,
+    stat2,
+    stat3,
+    stat4,
+    colHead1,
+    colHead2,
+    colHead3,
+}
+
+for _, button in ipairs({openStatsBtn, resetBtn, pauseBtn, stopBtn, statsTabFish, statsTabZone}) do
+    local fontString = button:GetFontString()
+    if fontString then
+        table.insert(fishingFontStrings, fontString)
+    end
+end
+
+local function ApplyFishingFontToRow(row, fontPath)
+    ApplyFishingFontString(row.name, fontPath)
+    ApplyFishingFontString(row.count, fontPath)
+    ApplyFishingFontString(row.pct, fontPath)
+end
+
+-- Public appearance API applies the saved face to existing static and reusable row text.
+function OUS.UpdateFishingFont()
+    local fontPath = GetFishingFontPath()
+
+    for _, fontString in ipairs(fishingFontStrings) do
+        ApplyFishingFontString(fontString, fontPath)
+    end
+    for _, row in ipairs(mainRows) do
+        ApplyFishingFontToRow(row, fontPath)
+    end
+    for _, row in ipairs(sessRows) do
+        ApplyFishingFontToRow(row, fontPath)
+    end
+    for _, row in ipairs(statsRows) do
+        ApplyFishingFontToRow(row, fontPath)
+    end
+end
+
+-- Public appearance API scales both tracker windows while deferring protected changes during combat.
+function OUS.UpdateFishingScale()
+    if not OdysseusDB or not OdysseusDB.fishingSettings then return end
+
+    if InCombatLockdown() then
+        pendingFishingScale = true
+        return
+    end
+
+    local scale = tonumber(OdysseusDB.fishingSettings.scale) or OUS.fishingDefaults.scale
+    scale = math.max(MIN_FISHING_SCALE, math.min(MAX_FISHING_SCALE, scale))
+    pendingFishingScale = nil
+    mainFrame:SetScale(scale)
+    statsFrame:SetScale(scale)
 end
 
 -- ==========================================
@@ -1142,6 +1262,7 @@ f:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START")
 f:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP")
 f:RegisterEvent("UNIT_SPELLCAST_STOP")
 f:RegisterEvent("LOOT_READY")
+f:RegisterEvent("PLAYER_REGEN_ENABLED")
 
 f:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
@@ -1172,6 +1293,15 @@ f:SetScript("OnEvent", function(self, event, ...)
             if OUS.UpdateFishingAlpha then
                 OUS.UpdateFishingAlpha()
             end
+            OUS.UpdateFishingScale()
+            OUS.UpdateFishingFont()
+        end
+        return
+    end
+
+    if event == "PLAYER_REGEN_ENABLED" then
+        if pendingFishingScale then
+            OUS.UpdateFishingScale()
         end
         return
     end

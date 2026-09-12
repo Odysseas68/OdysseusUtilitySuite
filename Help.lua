@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Help.lua
--- Version : 2026.08.05
+-- Version : 2026.09.12
 -- Desc    : Tabbed help frame — slash commands and module documentation
 -- ============================================================
 
@@ -20,6 +20,7 @@ local HELP_TABS = {
             {c = "/ous",              d = "Toggle Main Config"},
             {c = "/ous help",         d = "Show This Window"},
             {c = "/ous fish",         d = "Toggle Fishing Tracker"},
+            {c = "/ous mapinfo",      d = "Show map and instance diagnostics"},
             {c = "/ousdebug",         d = "Toggle Debug Console"},
         },
     },

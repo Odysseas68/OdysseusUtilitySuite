@@ -426,6 +426,132 @@ function OUS.IsDebugModeOn()
     return OUS.Session and OUS.Session.isDebugOn == true
 end
 
+local mapInfoFrame
+local mapInfoValues = {}
+
+-- Refreshes the diagnostic values without depending on Fishing Tracker or Delves being enabled.
+local function RefreshMapInfoFrame()
+    if not mapInfoFrame then return end
+
+    local instanceName, instanceType, difficultyID, difficultyName, _, _, _, instanceID = GetInstanceInfo()
+    local uiMapID = C_Map.GetBestMapForUnit("player")
+    local mapInfo = uiMapID and C_Map.GetMapInfo(uiMapID)
+    local position = uiMapID and C_Map.GetPlayerMapPosition(uiMapID, "player")
+    local coordinates = "N/A"
+
+    if position and (position.x ~= 0 or position.y ~= 0) then
+        coordinates = string.format("%.1f, %.1f", position.x * 100, position.y * 100)
+    end
+
+    local delveCompanion = OUS.XPBarSession and OUS.XPBarSession.activeDelveCompanion
+    local values = {
+        zone = GetRealZoneText() or "Unknown",
+        subzone = GetMinimapZoneText() or "Unknown",
+        uiMapID = uiMapID or "N/A",
+        mapName = mapInfo and mapInfo.name or "N/A",
+        parentMapID = mapInfo and mapInfo.parentMapID or "N/A",
+        instanceName = instanceName ~= "" and instanceName or "N/A",
+        instanceID = instanceID or "N/A",
+        instanceType = instanceType ~= "" and instanceType or "N/A",
+        difficultyID = difficultyID or "N/A",
+        difficultyName = difficultyName ~= "" and difficultyName or "N/A",
+        coordinates = coordinates,
+        delveCompanion = delveCompanion or "N/A",
+    }
+
+    for key, value in pairs(values) do
+        mapInfoValues[key]:SetText(tostring(value))
+    end
+end
+
+-- Builds the map diagnostic frame only when the troubleshooting command is used.
+local function CreateMapInfoFrame()
+    local frame = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+    frame:SetSize(380, 320)
+    frame:SetPoint("CENTER")
+    frame:SetFrameStrata("DIALOG")
+    frame:SetMovable(true)
+    frame:SetClampedToScreen(true)
+    frame:EnableMouse(true)
+    frame:RegisterForDrag("LeftButton")
+    frame:SetScript("OnDragStart", frame.StartMoving)
+    frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
+    frame:SetBackdrop({
+        bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+        edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+        tile = false,
+        edgeSize = 16,
+        insets = { left = 4, right = 4, top = 4, bottom = 4 },
+    })
+    frame:SetBackdropColor(0.07, 0.05, 0.1, 0.95)
+    frame:SetBackdropBorderColor(0.0, 0.8, 1.0, 1)
+
+    local title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+    title:SetPoint("TOPLEFT", 14, -12)
+    title:SetText("|cFF00FFFFOUS Map Info|r")
+
+    local closeButton = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
+    closeButton:SetPoint("TOPRIGHT", -2, -2)
+
+    local fields = {
+        { key = "zone", label = "Zone" },
+        { key = "subzone", label = "Subzone" },
+        { key = "uiMapID", label = "UI Map ID" },
+        { key = "mapName", label = "Map Name" },
+        { key = "parentMapID", label = "Parent Map ID" },
+        { key = "instanceName", label = "Instance Name" },
+        { key = "instanceID", label = "Instance ID" },
+        { key = "instanceType", label = "Instance Type" },
+        { key = "difficultyID", label = "Difficulty ID" },
+        { key = "difficultyName", label = "Difficulty Name" },
+        { key = "coordinates", label = "Coordinates" },
+        { key = "delveCompanion", label = "Delve Companion" },
+    }
+
+    for index, field in ipairs(fields) do
+        local y = -40 - ((index - 1) * 20)
+        local label = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        label:SetPoint("TOPLEFT", 16, y)
+        label:SetText(field.label .. ":")
+
+        local value = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+        value:SetPoint("TOPLEFT", 132, y)
+        value:SetPoint("TOPRIGHT", -18, y)
+        value:SetJustifyH("LEFT")
+        value:SetWordWrap(false)
+        mapInfoValues[field.key] = value
+    end
+
+    local refreshButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+    refreshButton:SetSize(80, 22)
+    refreshButton:SetPoint("BOTTOM", 0, 12)
+    refreshButton:SetText("Refresh")
+    refreshButton:SetScript("OnClick", RefreshMapInfoFrame)
+
+    frame:RegisterEvent("PLAYER_ENTERING_WORLD")
+    frame:RegisterEvent("ZONE_CHANGED")
+    frame:RegisterEvent("ZONE_CHANGED_INDOORS")
+    frame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+    frame:SetScript("OnEvent", function(self)
+        if self:IsShown() then
+            RefreshMapInfoFrame()
+        end
+    end)
+    frame:Hide()
+
+    mapInfoFrame = frame
+end
+
+-- Public command entry point opens and refreshes the current map diagnostics.
+function OUS.ShowMapInfo()
+    if not mapInfoFrame then
+        CreateMapInfoFrame()
+    end
+
+    RefreshMapInfoFrame()
+    mapInfoFrame:Show()
+end
+
 SLASH_ODYSSEUSDEBUG1 = "/ousdebug"
 SlashCmdList["ODYSSEUSDEBUG"] = function()
     OUS.SetDebugMode(not OUS.IsDebugModeOn())
@@ -444,6 +570,8 @@ SlashCmdList["ODYSSEUS"] = function(msg)
 
     if cmd == "fish" then
         if OUS.ToggleFishingTracker then OUS.ToggleFishingTracker() end
+    elseif cmd == "mapinfo" then
+        OUS.ShowMapInfo()
     elseif cmd == "debug" then
         SlashCmdList["ODYSSEUSDEBUG"]()
     elseif cmd == "help" then

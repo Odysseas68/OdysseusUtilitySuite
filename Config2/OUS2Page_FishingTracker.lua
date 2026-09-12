@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_FishingTracker.lua
--- Version : 2026.07.03
+-- Version : 2026.09.12
 -- Desc    : OUS2 Fishing Tracker module settings page
 -- ================================================
 
@@ -15,6 +15,8 @@ page:Hide()
 local checkboxRows = {}
 local delayControl
 local opacityControl
+local scaleControl
+local fontButton
 local Refresh
 
 local function SetTextColor(fontString, color)
@@ -50,6 +52,12 @@ end
 local function RefreshFishingDisplay()
     if OUS.UpdateFishingAlpha then
         OUS.UpdateFishingAlpha()
+    end
+    if OUS.UpdateFishingScale then
+        OUS.UpdateFishingScale()
+    end
+    if OUS.UpdateFishingFont then
+        OUS.UpdateFishingFont()
     end
     if OUS.UpdateFishingUI then
         OUS.UpdateFishingUI()
@@ -202,6 +210,72 @@ local function CreateScaleRow(labelText, helpText, yOffset, minValue, maxValue, 
     return control
 end
 
+local function ShortenName(name)
+    name = tostring(name or "")
+    if #name > 24 then
+        return string.sub(name, 1, 21) .. "..."
+    end
+    return name
+end
+
+local function CreateMediaRow(labelText, helpText, yOffset, mediaType, dbKey, onChanged)
+    local row = CreateFrame("Frame", nil, page)
+    row:SetHeight(52)
+    row:SetPoint("TOPLEFT", page, "TOPLEFT", 18, yOffset)
+    row:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
+    row:EnableMouse(true)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    local button = CreateFrame("Button", nil, row)
+    button:SetSize(190, 28)
+    button:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+    button:SetNormalTexture(T.Tex("ActionNormal"))
+    button:SetHighlightTexture(T.Tex("ActionHover"))
+    button:SetPushedTexture(T.Tex("ActionPressed"))
+
+    button.label = button:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+    button.label:SetAllPoints()
+    button.label:SetText("")
+    SetTextColor(button.label, T.Colors.text)
+
+    button:SetScript("OnEnter", function()
+        background:SetTexture(T.Tex("CardHover"))
+        C.SetHelpText(helpText)
+    end)
+    button:SetScript("OnLeave", function()
+        background:SetTexture(T.Tex("CardNormal"))
+        C.ClearHelpText()
+    end)
+    button:SetScript("OnClick", function()
+        local db = GetFishingSettings()
+        if not db or not C.OpenMediaDropdown then return end
+
+        C.OpenMediaDropdown(button, mediaType, db[dbKey], function(name)
+            db[dbKey] = name
+            button.label:SetText(ShortenName(name))
+            if onChanged then
+                onChanged()
+            end
+        end)
+    end)
+
+    AttachControlHelp(row, background, helpText)
+
+    function button:SetSelectedName(name)
+        button.label:SetText(ShortenName(name))
+    end
+
+    return button
+end
+
 local function CreateActionButton(labelText, helpText, yOffset, onClick)
     local button = CreateFrame("Button", nil, page)
     button:SetHeight(36)
@@ -277,11 +351,11 @@ CreateCheckboxRow(
     "autoCloseMounted"
 )
 
-CreateSectionHeader("Display", -300)
+CreateSectionHeader("Display", -296)
 delayControl = CreateScaleRow(
     "Auto-close Delay",
     "Set the inactivity period before the Fishing Tracker closes.",
-    -326,
+    -322,
     10,
     60,
     1,
@@ -297,7 +371,7 @@ delayControl = CreateScaleRow(
 opacityControl = CreateScaleRow(
     "Frame Opacity",
     "Adjust the opacity of the Fishing Tracker windows.",
-    -390,
+    -384,
     0.1,
     1.0,
     0.05,
@@ -313,11 +387,43 @@ opacityControl = CreateScaleRow(
     end
 )
 
-CreateSectionHeader("Actions", -470)
+scaleControl = CreateScaleRow(
+    "Scale",
+    "Adjust the scale of the Fishing Tracker and Overall Statistics windows.",
+    -446,
+    T.Scale.minValue,
+    T.Scale.maxValue,
+    T.Scale.step,
+    1.0,
+    function(newValue)
+        local db = GetFishingSettings()
+        if not db then return end
+
+        db.scale = newValue
+        if OUS.UpdateFishingScale then
+            OUS.UpdateFishingScale()
+        end
+    end
+)
+
+fontButton = CreateMediaRow(
+    "Font",
+    "Choose the LibSharedMedia font used by Fishing Tracker text.",
+    -508,
+    "font",
+    "fontName",
+    function()
+        if OUS.UpdateFishingFont then
+            OUS.UpdateFishingFont()
+        end
+    end
+)
+
+CreateSectionHeader("Actions", -566)
 CreateActionButton(
     "Show / Hide Tracker",
     "Show or hide the Fishing Tracker window.",
-    -496,
+    -588,
     function()
         if OUS.ToggleFishingTracker then
             OUS.ToggleFishingTracker()
@@ -327,7 +433,7 @@ CreateActionButton(
 CreateActionButton(
     "Wipe Saved Data",
     "Wipe only recorded Fishing Tracker history. Settings are preserved.",
-    -538,
+    -626,
     function()
         ShowPopupOnTop("OUS2_CONFIRM_WIPE_FISHING")
     end
@@ -335,7 +441,7 @@ CreateActionButton(
 CreateActionButton(
     "Reset Defaults",
     "Reset only Fishing Tracker settings. Saved fishing history is preserved.",
-    -580,
+    -664,
     ResetFishingDefaults
 )
 
@@ -349,6 +455,8 @@ Refresh = function()
     local db = GetFishingSettings()
     delayControl:SetValue(db and db.autoCloseDelay or 30, true)
     opacityControl:SetValue(db and db.alpha or 0.95, true)
+    scaleControl:SetValue(db and db.scale or 1.0, true)
+    fontButton:SetSelectedName(db and db.fontName or "Friz Quadrata TT")
 end
 
 C.RegisterPage("FishingTracker", page, Refresh)
