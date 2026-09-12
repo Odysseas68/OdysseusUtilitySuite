@@ -12,6 +12,7 @@ local page = CreateFrame("Frame", nil, C.pageContainer)
 page:SetAllPoints()
 page:Hide()
 
+local enableCheckbox
 local tooltipCheckbox
 local unlockCheckbox
 local widthControl
@@ -408,10 +409,21 @@ headerDivider:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -58)
 headerDivider:SetHeight(6)
 
 CreateSectionHeader("Display", -78)
+enableCheckbox = CreateCheckboxRow(
+    "Enable Flight Master",
+    "Enable Flight Master flight timing, timer bar, and taxi map tooltip functionality.",
+    -104,
+    function()
+        local enabled = OdysseusDB and OdysseusDB.modules and OdysseusDB.modules.flightMaster == true
+        OUS.SetFlightMasterEnabled(not enabled)
+        Refresh()
+    end
+)
+
 tooltipCheckbox = CreateCheckboxRow(
     "Show Map Tooltips",
     "Show flight time, cost, and distance details while viewing taxi destinations.",
-    -104,
+    -152,
     function()
         local db = GetFlightSettings()
         if not db then return end
@@ -424,7 +436,7 @@ tooltipCheckbox = CreateCheckboxRow(
 unlockCheckbox = CreateCheckboxRow(
     "Unlock Timer Bar",
     "Show the timer bar preview and allow it to be dragged. Lock it again when finished.",
-    -152,
+    -200,
     function()
         if OUS.SetFlightBarUnlocked then
             OUS.SetFlightBarUnlocked(not OUS.isFlightBarUnlocked)
@@ -433,11 +445,11 @@ unlockCheckbox = CreateCheckboxRow(
     end
 )
 
-CreateSectionHeader("Timer Bar", -212)
+CreateSectionHeader("Timer Bar", -260)
 widthControl = CreateScaleRow(
     "Bar Width",
     "Adjust the width of the Flight Master timer bar.",
-    -238,
+    -286,
     50,
     600,
     10,
@@ -458,7 +470,7 @@ widthControl = CreateScaleRow(
 heightControl = CreateScaleRow(
     "Bar Height",
     "Adjust the height of the Flight Master timer bar.",
-    -302,
+    -350,
     5,
     100,
     1,
@@ -479,7 +491,7 @@ heightControl = CreateScaleRow(
 scaleControl = CreateScaleRow(
     "Bar Scale",
     "Adjust the overall scale of the Flight Master timer bar.",
-    -366,
+    -414,
     0.5,
     3.0,
     0.05,
@@ -495,11 +507,11 @@ scaleControl = CreateScaleRow(
     end
 )
 
-CreateSectionHeader("Text and Border", -446)
+CreateSectionHeader("Text and Border", -494)
 fontSizeControl = CreateScaleRow(
     "Font Size",
     "Adjust the text size used by the Flight Master timer bar.",
-    -472,
+    -520,
     6,
     40,
     1,
@@ -518,7 +530,7 @@ fontSizeControl = CreateScaleRow(
 borderSizeControl = CreateScaleRow(
     "Border Size",
     "Adjust the thickness of the selected Flight Master border.",
-    -536,
+    -584,
     0,
     50,
     1,
@@ -534,11 +546,11 @@ borderSizeControl = CreateScaleRow(
     end
 )
 
-CreateSectionHeader("Appearance", -616)
+CreateSectionHeader("Appearance", -664)
 textureButton = CreateMediaRow(
     "Bar Texture",
     "Choose the LibSharedMedia statusbar texture used by the timer bar fill.",
-    -642,
+    -690,
     "statusbar",
     "textureName",
     function()
@@ -551,7 +563,7 @@ textureButton = CreateMediaRow(
 fontButton = CreateMediaRow(
     "Bar Font",
     "Choose the LibSharedMedia font used by the Flight Master timer text.",
-    -698,
+    -746,
     "font",
     "fontName",
     function()
@@ -564,7 +576,7 @@ fontButton = CreateMediaRow(
 borderButton = CreateMediaRow(
     "Bar Border",
     "Choose the LibSharedMedia border artwork used around the timer bar.",
-    -754,
+    -802,
     "border",
     "borderName",
     function()
@@ -574,11 +586,11 @@ borderButton = CreateMediaRow(
     end
 )
 
-CreateSectionHeader("Colors", -834)
+CreateSectionHeader("Colors", -882)
 barColorButton = CreateColorRow(
     "Bar Color",
     "Choose the fill color used by the Flight Master timer bar.",
-    -860,
+    -908,
     "color",
     OUS.flightDefaults and OUS.flightDefaults.color or { r = 1, g = 0.7, b = 0 },
     function(r, g, b)
@@ -591,7 +603,7 @@ barColorButton = CreateColorRow(
 borderColorButton = CreateColorRow(
     "Border Color",
     "Choose the border color used by the selected Flight Master border.",
-    -916,
+    -964,
     "borderColor",
     { r = 1, g = 1, b = 1 },
     function(r, g, b)
@@ -603,12 +615,12 @@ borderColorButton = CreateColorRow(
     end
 )
 
-CreateSectionHeader("Data", -996)
+CreateSectionHeader("Data", -1044)
 CreateActionRow(
     "Export Flight Data",
     "Export",
     "Open a copy window with recorded flight times for manual export.",
-    -1022,
+    -1070,
     function()
         if C.ShowCopyTextDialog then
             C.ShowCopyTextDialog("Export Flight Data", BuildFlightExportText())
@@ -620,18 +632,18 @@ CreateActionRow(
     "Wipe Saved Data",
     "Wipe Data",
     "Delete all recorded Flight Master learned times. Appearance settings are preserved.",
-    -1078,
+    -1126,
     function()
         StaticPopup_Show("OUS2_CONFIRM_WIPE_FLIGHT_TIMES")
     end
 )
 
-CreateSectionHeader("Advanced", -1158)
+CreateSectionHeader("Advanced", -1206)
 CreateActionRow(
     "Reset Bar Position",
     "Reset Position",
     "Move the timer bar back to its default top-center position.",
-    -1184,
+    -1232,
     function()
         if OUS.ResetFlightBarPosition then
             OUS.ResetFlightBarPosition()
@@ -644,7 +656,7 @@ CreateActionRow(
     "Reset Appearance",
     "Reset Style",
     "Reset Flight Master bar size, scale, font, texture, color, and border settings. Learned flight times are preserved.",
-    -1240,
+    -1288,
     function()
         if OUS.ResetFlightBarAppearance then
             OUS.ResetFlightBarAppearance()
@@ -655,9 +667,11 @@ CreateActionRow(
 
 Refresh = function()
     local db = GetFlightSettings()
+    local enabled = OdysseusDB and OdysseusDB.modules and OdysseusDB.modules.flightMaster == true
     local tooltipsChecked = db and db.showTooltips == true
     local unlockedChecked = OUS.isFlightBarUnlocked == true
 
+    enableCheckbox:SetTexture(T.Tex(enabled and "CheckboxOn" or "CheckboxOff"))
     tooltipCheckbox:SetTexture(T.Tex(tooltipsChecked and "CheckboxOn" or "CheckboxOff"))
     unlockCheckbox:SetTexture(T.Tex(unlockedChecked and "CheckboxOn" or "CheckboxOff"))
 

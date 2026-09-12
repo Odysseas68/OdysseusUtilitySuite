@@ -5,10 +5,11 @@ Historical milestone retained: the 2026-07-10 Phase 5.6 audit described OUS2 as 
 
 ## Direct Answer
 
-**Yes. Two functional legacy settings are missing from OUS2:**
+**Yes. The original audit found two functional legacy settings missing from OUS2. The Flight Master finding has now been implemented, leaving one missing setting:**
 
-1. `Enable Flight Master` — `OdysseusDB.modules.flightMaster`
-2. `Enable Toolbox` — `OdysseusDB.modules.toolbox`
+1. `Enable Toolbox` — `OdysseusDB.modules.toolbox`
+
+`Enable Flight Master` — `OdysseusDB.modules.flightMaster` — was the other historical finding. It was implemented on 2026-09-12 through a lifecycle-safe runtime setter and passed user in-game validation.
 
 One additional legacy capability is deliberately unavailable in OUS2:
 
@@ -81,8 +82,8 @@ Both systems operate on the same module-owned defaults and runtime helpers. Simi
 |---|---:|
 | Total distinct legacy settings/actions audited | 110 |
 | A. FULL PARITY | 87 |
-| B. PRESENT — BEHAVIOR DIFFERS | 14 |
-| C. LEGACY-ONLY — MISSING FROM OUS2 | 2 |
+| B. PRESENT — BEHAVIOR DIFFERS | 15 |
+| C. LEGACY-ONLY — MISSING FROM OUS2 | 1 |
 | D. INTENTIONALLY OMITTED | 1 |
 | E. OBSOLETE / NO LONGER APPLICABLE | 0 |
 | F. OUS2 EQUIVALENT VIA DIFFERENT UI | 6 |
@@ -97,7 +98,7 @@ Abbreviations: `A` full parity; `B` present but behavior differs; `C` legacy-onl
 
 | Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |
 |---|---|---|---|---|---|---|---|---|---|
-| General | Enable Flight Master | `OdysseusDB.modules.flightMaster` | None | None | C | — | No | No control | **HIGH.** Default `true`; runtime initialization is load-time gated. |
+| General | Enable Flight Master | `OdysseusDB.modules.flightMaster` | Enable Flight Master on Flight Master page | Same path through `OUS.SetFlightMasterEnabled()` | B | Yes (`true`) | No | Yes | Implemented and user-validated 2026-09-12. Legacy writes only the key; OUS2 also immediately cleans up active UI/state when disabled and reapplies settings when enabled. |
 | General | Enable Faster Loot | `OdysseusDB.modules.fasterLoot` | Read-only status on Faster Loot page | Same key, read only | D | — | No | No control | **HIGH.** Default `true`; page documents omission pending a cleanup-aware public setter. |
 | General | Enable Fishing Tracker | `OdysseusDB.modules.fishingTracker` | Enable Module | Same path | B | Yes (`true`) | No | Yes | **HIGH.** Legacy central toggle only writes the DB; OUS2 also performs immediate tracker visibility/update work. |
 | General | Enable Exp & Rep Bar | `OdysseusDB.modules.xpBar` | Enable Module | Same path | B | Yes (`true`) | No | Yes | **HIGH.** OUS2 immediately updates bar visibility; legacy central toggle is DB-only. |
@@ -262,10 +263,9 @@ Abbreviations: `A` full parity; `B` present but behavior differs; `C` legacy-onl
 
 ### HIGH
 
-1. Missing Flight Master module toggle. OUS2 cannot change `OdysseusDB.modules.flightMaster`.
-2. Missing Toolbox module toggle. OUS2 cannot change `OdysseusDB.modules.toolbox`.
-3. Deliberately omitted Faster Loot module toggle. The missing lifecycle-safe setter is explicitly acknowledged in OUS2.
-4. Fishing Tracker, XP Bar, and Stats Bar module-toggle handlers are not equivalent: OUS2 applies immediate runtime visibility/update side effects while the legacy General controls only write their module keys. This needs a deliberate lifecycle decision, not an assumption of parity.
+1. Missing Toolbox module toggle. OUS2 cannot change `OdysseusDB.modules.toolbox`.
+2. Deliberately omitted Faster Loot module toggle. The missing lifecycle-safe setter is explicitly acknowledged in OUS2.
+3. Flight Master, Fishing Tracker, XP Bar, and Stats Bar module-toggle handlers are not equivalent: OUS2 applies immediate runtime cleanup, visibility, or update side effects while the legacy General controls only write their module keys. This needs a deliberate lifecycle decision, not an assumption of parity.
 
 ### MEDIUM
 
@@ -284,7 +284,7 @@ Abbreviations: `A` full parity; `B` present but behavior differs; `C` legacy-onl
 
 ### General / Module Toggles
 
-All eight legacy module keys were traced. Openables and Utilities have material parity. Flight Master and Toolbox are missing. Faster Loot is deliberately read-only. Fishing Tracker, XP Bar, and Stats Bar write the same paths/defaults but have different live side effects. No dependency or alternate SavedVariable path was found.
+All eight legacy module keys were traced. Openables and Utilities have material parity. The previously missing Flight Master toggle is now present through a lifecycle-safe setter and passed user runtime validation. Toolbox remains missing. Faster Loot is deliberately read-only. Flight Master, Fishing Tracker, XP Bar, and Stats Bar write the same paths/defaults but have different live side effects. No dependency or alternate SavedVariable path was found.
 
 ### Reset Defaults
 
@@ -322,7 +322,7 @@ No class-, spec-, or profession-only legacy `/ous` control exists. The only func
 
 ### SavedVariable Paths and Defaults
 
-All mapped persistent/action capabilities use the same underlying SavedVariable or runtime data target; none uses a migrated shadow path or compatibility alias. The two missing items have no OUS2 write path, and the intentionally omitted Faster Loot control is read-only. No individual persistent default mismatch was found. The material differences are reset key scope and handler side effects.
+All mapped persistent/action capabilities use the same underlying SavedVariable or runtime data target; none uses a migrated shadow path or compatibility alias. The remaining missing item has no OUS2 write path, and the intentionally omitted Faster Loot control is read-only. No individual persistent default mismatch was found. The material differences are reset key scope and handler side effects.
 
 ## OUS2-Only Functional Settings and Actions (16)
 
@@ -355,15 +355,14 @@ The standalone Delves Reset Position button is not counted again as OUS2-only be
 
 Exact blockers:
 
-1. Flight Master module enable/disable is unavailable in OUS2.
-2. Toolbox module enable/disable is unavailable in OUS2.
-3. Faster Loot enable/disable is intentionally unavailable pending a safe public setter.
-4. Flight Master and Reputation reset-scope differences require implementation or an explicit product decision.
-5. The three module-toggle live-side-effect differences require a documented lifecycle decision.
+1. Toolbox module enable/disable is unavailable in OUS2.
+2. Faster Loot enable/disable is intentionally unavailable pending a safe public setter.
+3. Flight Master and Reputation reset-scope differences require implementation or an explicit product decision.
+4. The four module-toggle live-side-effect differences require a documented lifecycle decision; Flight Master's new setter has passed runtime validation but remains behaviorally different from legacy's DB-only control.
 
-## Minimum Future Patch Set (Not Implemented)
+## Minimum Future Patch Set
 
-1. Add a lifecycle-safe Flight Master module setter and route an OUS2 toggle through it; document whether reload is required.
+1. **Implemented and user-validated 2026-09-12:** add a lifecycle-safe Flight Master module setter and route an OUS2 toggle through it. The loaded event-driven module does not require reload; disabling during an active taxi abandons that measurement, and subsequent new taxis operate normally after re-enabling.
 2. Add a cleanup-aware Faster Loot public setter, then expose the currently withheld OUS2 toggle.
 3. Define Toolbox enable/disable lifecycle semantics (or a clear reload-bound setter), then add the missing OUS2 toggle.
 4. Decide and document whether Flight Reset Appearance should reset `showTooltips`, whether it should preserve `borderColor`, and whether Reputation reset should include both toast flags.
@@ -379,9 +378,9 @@ The 2026-07-10 version of this document said the OUS2 master reset was absent an
 ## Validation Record
 
 - Original setting-level audit: full document readback and overbroad-wording review passed at the documentation checkpoint.
-- Master-table recount after the 2026-09-11 reset-gate correction: 110 rows; `A=87`, `B=14`, `C=2`, `D=1`, `F=6`; 16 OUS2-only rows.
+- Master-table recount after the 2026-09-12 Flight Master toggle implementation: 110 rows; `A=87`, `B=15`, `C=1`, `D=1`, `F=6`; 16 OUS2-only rows. User runtime validation passed for saved-state reflection, enabled preview, immediate disable cleanup, disabled preview suppression, legacy/OUS2 state synchronization, reload-free re-enable, normal tooltip/timer behavior, and active-taxi disable/re-enable lifecycle.
 - Reset confirmation and shared Retail reload correction: user runtime validation passed for both OUS2 and legacy `/ous`; static and Git validation is recorded in the implementation report.
 
 ## Integrity Statement
 
-This audit began as a documentation-only checkpoint. The later 2026-09-11 correction changes only the OUS2 global-reset click gate, the shared reset path's reload invocation, and this synchronized audit text. It does not change reset scope, SavedVariables schemas/defaults, TOC metadata, load order, tags, or releases.
+This audit began as a documentation-only checkpoint. The 2026-09-11 correction changed only the OUS2 global-reset click gate, the shared reset path's reload invocation, and synchronized audit text. The 2026-09-12 Flight Master parity patch adds only the OUS2 control and its module-local runtime setter/cleanup boundary. Neither change alters reset scope, SavedVariables schemas/defaults, TOC metadata, load order, tags, or releases.

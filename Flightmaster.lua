@@ -216,6 +216,10 @@ function OUS.ApplyFlightSettings()
 end
 
 function OUS.SetFlightBarUnlocked(unlocked)
+    if unlocked and OdysseusDB and OdysseusDB.modules and OdysseusDB.modules.flightMaster == false then
+        unlocked = false
+    end
+
     OUS.isFlightBarUnlocked = unlocked == true
     timerBar:EnableMouse(OUS.isFlightBarUnlocked)
 
@@ -769,6 +773,37 @@ local function HandleLanding()
     cachedTotalDist = nil
     OUS.timerBottomText:SetText("")
     OUS.timerBottomText:Hide()
+end
+
+-- Clears active Flight Master presentation without disturbing saved settings or learned times.
+local function StopFlightMasterRuntime()
+    timerUpdateFrame:Hide()
+    isFlying = false
+    OUS.SetFlightBarUnlocked(false)
+    mapTooltip:Hide()
+
+    activeKnownTime = nil
+    currentDestFull = "Unknown"
+    currentStartFull = "Unknown"
+    currentDestShort = "Unknown"
+    currentStartShort = "Unknown"
+    startTime = 0
+    cachedTotalDist = nil
+    barFill:SetWidth(1)
+    OUS.timerBottomText:SetText("")
+end
+
+-- Applies the Flight Master module toggle through its live runtime cleanup boundary.
+function OUS.SetFlightMasterEnabled(enabled)
+    if not OdysseusDB or not OdysseusDB.modules then return end
+
+    OdysseusDB.modules.flightMaster = enabled == true
+
+    if OdysseusDB.modules.flightMaster then
+        OUS.ApplyFlightSettings()
+    else
+        StopFlightMasterRuntime()
+    end
 end
 
 -- ==========================================
