@@ -1,6 +1,6 @@
 ---
 name: ous-config2-ui-edit
-description: Build or edit the next-generation OUS2 configuration UI. Use for Config2/OUS2Theme.lua, Config2/OUS2Config.lua, Config2/OUS2Page_*.lua, OUS2 assets, or OUS2 documentation while preserving shared theme APIs, page registration, manual NineSlice behavior, and the legacy /ous UI.
+description: Build or edit the OUS2 configuration UI. Use for Config2/OUS2Theme.lua, Config2/OUS2Config.lua, Config2/OUS2Page_*.lua, OUS2 assets, or OUS2 documentation while preserving shared theme APIs, page registration, manual NineSlice behavior, and current /ous and /ous2 routing.
 ---
 
 # OUS2 Config UI Edit
@@ -16,7 +16,7 @@ description: Build or edit the next-generation OUS2 configuration UI. Use for Co
 9. For manually resizable OUS2 frames, capture `GetLeft()` and `GetTop()`, normalize to a stable `UIParent` `TOPLEFT` anchor, call `StopMovingOrSizing()`, then call `StartSizing()`.
 10. Guard resize handlers when the frame is locked or hidden, keep resize handles above page and sidebar content, prevent overlap with interactive controls, and retest all handles after adding overlays or sidebars.
 11. Remove debug grids, underlays, and cyan borders before completion. Do not use emoji.
-12. Keep the legacy `/ous` config untouched unless explicitly requested.
+12. Preserve `/ous` as the primary OUS2 entry point and `/ous2` as its alias. Do not reintroduce the retired legacy `Config.lua` or `xpbar_config.lua` interfaces.
 13. Apply `$ous-minimal-addon-patch` and verify uncertain frame APIs with `$ous-wow-retail-api-check`.
 14. Use `T.Card.*` for shared dashboard card sizing, padding, icon, chevron, spacing, and layout values; do not duplicate card constants in page files.
 15. Resolve module card backgrounds through the theme registry only: `T.Tex("CardNormal")`, `T.Tex("CardHover")`, and `T.Tex("CardSelected")`. These map to `CardBG_Normal.tga`, `CardBG_Hover.tga`, and `CardBG_Selected.tga`; do not hardcode filenames or texture paths in page files.

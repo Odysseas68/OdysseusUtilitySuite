@@ -13,7 +13,7 @@ description: Add a new independent module to Odysseus Utility Suite with correct
 6. Expose `OUS.<moduleDefaults>` when the module has settings and include it in the established reset flow.
 7. Keep the module independent and event-driven; avoid polling and cross-module coupling.
 8. Place the engine before config files in the TOC without reordering existing entries.
-9. Add legacy config, OUS2 page, Help or slash-command documentation, and Toolbox integration only when applicable.
+9. Add an OUS2 page, Help or slash-command documentation, and Toolbox integration only when applicable. Do not add wiring for the retired legacy configuration files.
 10. Place OUS2 page files after `Config2\\OUS2Config.lua` and follow `$ous-config2-ui-edit`.
 11. For launcher/minimap features, prefer LibDataBroker-1.1 + LibDBIcon-1.0 and keep optional compatibility isolated.
 12. Verify unfamiliar APIs with `$ous-wow-retail-api-check` and apply `$ous-minimal-addon-patch` per file.

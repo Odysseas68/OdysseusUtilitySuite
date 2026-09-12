@@ -5,11 +5,14 @@ description: Verify unfamiliar or uncertain World of Warcraft Retail 12.0+ APIs 
 
 # OUS WoW Retail API Check
 
-1. Read `AGENTS.md` and the relevant project-local `wow-api-*` or `wow-addon-structure` skills.
-2. Verify in order: project instructions, `Reference/Blizzard/wow-ui-source`, generated Blizzard API docs, then `EnhanceQoL` as a modern comparison.
-3. Confirm the exact function name, arguments, returns, event payload, nil or delayed-loading behavior, combat-lockdown and taint risk, and secret predicates.
-4. Prefer the modern Retail-safe `C_` namespace when the verified API uses it.
-5. Never infer from Classic examples, old addon code, or memory.
-6. Call out unresolved uncertainty before editing.
+1. Read `AGENTS.md`, inspect the directly relevant working OUS path, and use `$ous-reference-workspace` when local source verification is needed. Do not require Blizzard Research-only skills that are absent from this checkout.
+2. Keep evidence categories explicit: verified OUS behavior, current LIVE Blizzard source, user runtime evidence, documented compatibility behavior, source-supported inference, and assumptions.
+3. Prefer established working OUS behavior unless the task requires a change. A different Blizzard implementation pattern is evidence, not automatic reason to replace stable OUS code.
+4. For API-sensitive production work, verify against the current LIVE Retail source and generated API docs configured by the repository. Keep PTR findings labeled and separate; do not promote them to LIVE facts without matching evidence.
+5. Confirm the symbol exists in the target context and verify arguments, returns, event payloads, nil or delayed-loading behavior, secret predicates, combat-lockdown risk, and taint boundaries as relevant.
+6. Check namespaced and legacy symbols independently. Prefer the current native API, but do not infer that a global is deprecated or unavailable merely because a `C_` alternative exists; distinguish retained globals and compatibility aliases from obsolete APIs.
+7. For restricted UI paths, prefer direct anchors and layout relationships over unnecessary Lua-side geometry reads or arithmetic. Do not blanket-ban `BackdropTemplate`, frame geometry, or tooltip APIs; verify the specific frame and combat context.
+8. When an asynchronous failure surfaces in a Blizzard dispatcher, trace callback registration and ownership before assigning root cause. Treat the dispatcher line and feature-level correlation as evidence, not attribution.
+9. Never infer Retail signatures from Classic examples, stale source snapshots, or model memory. If the configured LIVE source cannot be established, report that uncertainty before editing.
 
-Report the verified API, sources checked, signature and returns, risks, and recommended usage.
+Report the target client/source checked, verified signature or behavior, evidence category, nil/combat/taint/secret-value risks, and recommended usage.

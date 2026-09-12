@@ -14,6 +14,9 @@ description: Make small, safe, reviewable Odysseus Utility Suite code changes. U
 7. Keep enUS text and add concise one-line comments before major helpers, public OUS APIs, and non-obvious integration boundaries.
 8. Prefer standard third-party integration APIs over addon internals; isolate optional compatibility behind nil-guarded helpers.
 9. Use `OUS.LogDebug("ModuleName", "message")` for routine debug output.
-10. Check relevant edge cases and run focused static or available tests.
+10. Keep verification proportional: one initial worktree check, directly relevant inspection, one focused implementation pass, targeted validation, one final diff review, and `git diff --check` once.
+11. Run LuaCheck only on changed Lua files unless broader validation is justified. Report warning baselines separately from errors; do not repeatedly reprove unchanged HEAD, origin, status, or warning counts.
+12. For runtime-sensitive behavior, finish targeted static checks, ask for focused in-game validation, and wait for that evidence before commit finalization when practical.
+13. Distinguish verified source facts, verified runtime behavior, source-supported inference, and assumptions in analysis and handoff.
 
 Report the change, files changed, safety rationale, edge cases, and in-game testing steps.
