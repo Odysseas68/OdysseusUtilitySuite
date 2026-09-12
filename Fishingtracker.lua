@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Fishingtracker.lua
--- Version : 2026.05.29
+-- Version : 2026.09.12
 -- Desc    : Fishing session tracker — catch counts, session timer, loot log
 -- ============================================================
 
@@ -721,6 +721,16 @@ local function UpdateGlobalStatsFrame()
             end
 
             local row = statsRows[i]
+            -- Fish and Zone share rows, so restore the complete Fish anchor state.
+            if not row.icon then
+                row.icon = row:CreateTexture(nil, "ARTWORK")
+                row.icon:SetSize(16, 16)
+            end
+            row.icon:ClearAllPoints()
+            row.icon:SetPoint("LEFT", 0, 0)
+            row.icon:Show()
+            row.name:ClearAllPoints()
+            row.name:SetPoint("LEFT", row.icon, "RIGHT", 5, 0)
             row:SetScript("OnEnter", function(self)
                 if self.itemLink then
                     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
@@ -770,7 +780,8 @@ local function UpdateGlobalStatsFrame()
             end
 
             local row = statsRows[i]
-            if row.icon then row.icon:SetTexture(nil) end
+            if row.icon then row.icon:Hide() end
+            row.name:ClearAllPoints()
             row.name:SetPoint("LEFT", 0, 0)
             row.name:SetText("|cFFFFFFFF" .. data.name .. "|r")
             row.count:SetText(data.count)

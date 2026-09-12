@@ -9,6 +9,9 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 - Routed the minimap launcher, addon-compartment action, and Toolbox configuration shortcuts to OUS2.
 - Moved the shared global-reset confirmation to Core so reset behavior no longer depends on legacy configuration files.
 
+### Fixed
+- Fixed Fishing Tracker fish names overlapping their icons after switching between the Overall Statistics Fish and Zone tabs.
+
 ### Removed
 - Retired the legacy `Config.lua` and `xpbar_config.lua` configuration interfaces after setting parity, migration-plumbing, and Checkpoint 2 runtime validation completed.
 
