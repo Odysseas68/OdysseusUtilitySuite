@@ -12,7 +12,9 @@ local page = CreateFrame("Frame", nil, C.pageContainer)
 page:SetAllPoints()
 page:Hide()
 
+local enableCheckbox
 local statusText
+local Refresh
 
 local function SetTextColor(fontString, color)
     fontString:SetTextColor(color[1], color[2], color[3], color[4])
@@ -68,6 +70,38 @@ local function CreateInfoCard(text, helpText, yOffset, height, fontObject, color
     return body
 end
 
+local function CreateCheckboxRow(labelText, helpText, yOffset, onClick)
+    local row = CreateFrame("Button", nil, page)
+    row:SetHeight(44)
+    row:SetPoint("TOPLEFT", page, "TOPLEFT", 18, yOffset)
+    row:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, yOffset)
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local checkbox = row:CreateTexture(nil, "ARTWORK")
+    checkbox:SetSize(20, 20)
+    checkbox:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("LEFT", checkbox, "RIGHT", 7, 0)
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    row:SetScript("OnEnter", function()
+        background:SetTexture(T.Tex("CardHover"))
+        C.SetHelpText(helpText)
+    end)
+    row:SetScript("OnLeave", function()
+        background:SetTexture(T.Tex("CardNormal"))
+        C.ClearHelpText()
+    end)
+    row:SetScript("OnClick", onClick)
+
+    return checkbox
+end
+
 local headerIcon = page:CreateTexture(nil, "ARTWORK")
 headerIcon:SetTexture(T.Tex("IconFasterLoot"))
 headerIcon:SetSize(T.Icons.pageHeader, T.Icons.pageHeader)
@@ -90,49 +124,62 @@ headerDivider:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -58)
 headerDivider:SetHeight(6)
 
 CreateSectionHeader("Status", -78)
+enableCheckbox = CreateCheckboxRow(
+    "Enable Faster Loot",
+    "Enable or disable Faster Loot immediately through its cleanup-aware runtime setter.",
+    -104,
+    function()
+        local enabled = OdysseusDB and OdysseusDB.modules and OdysseusDB.modules.fasterLoot == true
+        if OUS.SetFasterLootEnabled then
+            OUS.SetFasterLootEnabled(not enabled)
+        end
+        Refresh()
+    end
+)
+
 statusText = CreateInfoCard(
     "",
-    "Shows the current Faster Loot module state without changing it.",
-    -104,
+    "Shows the current Faster Loot module state.",
+    -156,
     48
 )
 CreateInfoCard(
-    "The module flag is read-only here until Faster Loot has a cleanup-aware public setter.",
-    "Live enable and disable controls require the engine to safely stop active loot processing.",
-    -156,
+    "Disabling cancels active fast-loot processing and restores Blizzard's normal loot window behavior.",
+    "The event and hook infrastructure remains installed and safely gated by the module setting.",
+    -208,
     62,
     T.Fonts.small,
     T.Colors.textDim
 )
 
-CreateSectionHeader("How It Works", -236)
+CreateSectionHeader("How It Works", -288)
 CreateInfoCard(
     "- Faster Loot accelerates normal loot processing.\n"
         .. "- It respects manual-loot modifier and Auto Loot CVar behavior.\n"
         .. "- It yields when Fishing Tracker needs normal loot visibility.\n"
         .. "- It reveals the normal loot window for locked loot, group rolls, full bags, or max-count cases.",
     "Summarizes Faster Loot behavior and the conditions that restore the normal loot window.",
-    -262,
+    -314,
     112,
     T.Fonts.small
 )
 
-CreateSectionHeader("Future Settings", -398)
+CreateSectionHeader("Future Settings", -450)
 CreateInfoCard(
-    "- Loot rules are planned for a future version.\n"
-        .. "- Enable or disable from OUS2 requires a safe public cleanup path first.",
-    "Future controls depend on explicit engine APIs that preserve active loot cleanup.",
-    -424,
+    "- Loot rules are planned for a future version.",
+    "Future controls should continue using explicit engine APIs that preserve active loot cleanup.",
+    -476,
     76,
     T.Fonts.small,
     T.Colors.textDim
 )
 
-local function Refresh()
+Refresh = function()
     local enabled = OdysseusDB
         and OdysseusDB.modules
         and OdysseusDB.modules.fasterLoot == true
 
+    enableCheckbox:SetTexture(T.Tex(enabled and "CheckboxOn" or "CheckboxOff"))
     statusText:SetText("Faster Loot Status: " .. (enabled and "Enabled" or "Disabled"))
     SetTextColor(statusText, enabled and T.Colors.enabled or T.Colors.disabled)
 end

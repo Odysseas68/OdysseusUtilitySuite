@@ -47,6 +47,28 @@ local function HideLootFrame()
     end
 end
 
+-- Applies the Faster Loot module state while safely ending any active processing.
+function OUS.SetFasterLootEnabled(enabled)
+    if not OdysseusDB or not OdysseusDB.modules then return false end
+
+    OdysseusDB.modules.fasterLoot = enabled == true
+
+    if lootTicker then
+        lootTicker:Cancel()
+        lootTicker = nil
+    end
+
+    if not OdysseusDB.modules.fasterLoot then
+        ShowLootFrame()
+    elseif GetNumLootItems() > 0 then
+        ShowLootFrame()
+    else
+        HideLootFrame()
+    end
+
+    return true
+end
+
 -- ==========================================
 -- 3. THE LOOT ENGINE (EVENT HANDLER)
 -- ==========================================
