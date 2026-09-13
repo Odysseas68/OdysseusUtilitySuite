@@ -366,9 +366,10 @@ Future design review required:
 ### Fishing Tracker Follow-Up Review
 
 - Completed display controls: frame scale and LibSharedMedia font selection.
+- Completed classified Fish/Currency/Other summaries, Fish-only statistics rows, corrected Zone Fish totals, and the Zone Catch Details drill-down.
+- Next: Fishing Tracker Session Statistics.
 - Wipe history UI
 - Confirmation flow
-- History statistics page
 - Reset settings behavior
 - Position management review
 

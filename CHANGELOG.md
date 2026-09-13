@@ -2,6 +2,21 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-09-13]
+
+### Added
+- Added a Zone Catch Details drill-down that combines Fish, Currency, and Other catches with compact `F` / `C` / `O` classification indicators.
+
+### Changed
+- Classified Fishing Tracker history consistently as Fish, Currency, Other, or excluded junk without migrating SavedVariables.
+- Limited Current Location, Current Session, and Overall Fish lists and percentages to verified Fish catches while adding derived Other totals.
+- Corrected Overall Zone statistics to use classified Fish counts and Retail Fish metadata with focused semantic exceptions.
+
+### Notes
+- Existing Fishing Tracker history and SavedVariables structures remain unchanged; classification and totals are derived at display time.
+
+---
+
 ## [2026-09-12]
 
 ### Added

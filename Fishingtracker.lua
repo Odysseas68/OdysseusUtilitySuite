@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Fishingtracker.lua
--- Version : 2026.09.12
+-- Version : 2026.09.13
 -- Desc    : Fishing session tracker — catch counts, session timer, loot log
 -- ============================================================
 -- luacheck: globals CreateScrollBoxLinearView ScrollUtil
@@ -48,6 +48,29 @@ local sessionData = {
     currencyTotal = 0,
     catches = {},
     catchLinks = {}
+}
+
+local CATCH_CATEGORY = {
+    FISH = "FISH",
+    CURRENCY = "CURRENCY",
+    TRANSMOG = "TRANSMOG",
+    QUEST = "QUEST",
+    SPECIAL = "SPECIAL",
+    OTHER = "OTHER",
+    JUNK = "JUNK",
+}
+
+local ITEM_TRADEGOODS_SUBCLASS_COOKING = 8
+
+-- Known fishing rewards override broad item metadata when their intended role is more specific.
+local CATCH_CATEGORY_OVERRIDES = {
+    [124669] = CATCH_CATEGORY.FISH,    -- Darkmoon Daggermaw
+    [168262] = CATCH_CATEGORY.FISH,    -- Sentry Fish
+    [262792] = CATCH_CATEGORY.SPECIAL, -- Shredded Bloomline
+    [262797] = CATCH_CATEGORY.SPECIAL, -- Shredded Glimmerline
+    [274595] = CATCH_CATEGORY.FISH,    -- Pristine Polygon
+    [274596] = CATCH_CATEGORY.FISH,    -- Beached Asteroid
+    [274597] = CATCH_CATEGORY.FISH,    -- Bulbous Benthos
 }
 
 -- ==========================================
@@ -238,6 +261,94 @@ local function IsCurrencyLink(link)
     return type(link) == "string" and link:find("|Hcurrency:") ~= nil
 end
 
+local function GetCatchItemID(value)
+    if type(value) == "number" then
+        return value
+    end
+    if type(value) ~= "string" then
+        return nil
+    end
+
+    return tonumber(value:match("|Hitem:(%d+)")) or tonumber(value:match("item:(%d+)")) or tonumber(value)
+end
+
+-- Classifies both live and historical catches without adding category fields to SavedVariables.
+local function ClassifyFishingCatch(catchKey, catchLink, itemQuality, liveQuestSignal)
+    local displayLink = catchLink or catchKey
+    if IsCurrencyLink(displayLink) or IsCurrencyLink(catchKey) then
+        return CATCH_CATEGORY.CURRENCY
+    end
+
+    local itemID = GetCatchItemID(displayLink) or GetCatchItemID(catchKey)
+    local itemReference = (type(displayLink) == "string" and displayLink:find("|Hitem:")) and displayLink or itemID
+    if not itemReference then
+        return CATCH_CATEGORY.OTHER
+    end
+
+    if itemQuality == nil then
+        local _, _, cachedQuality = C_Item.GetItemInfo(itemReference)
+        itemQuality = cachedQuality
+    end
+    if itemQuality == 0 then
+        return CATCH_CATEGORY.JUNK
+    end
+
+    if itemID and CATCH_CATEGORY_OVERRIDES[itemID] then
+        return CATCH_CATEGORY_OVERRIDES[itemID]
+    end
+
+    local _, _, _, _, _, classID, subClassID = C_Item.GetItemInfoInstant(itemReference)
+    if liveQuestSignal or classID == Enum.ItemClass.Questitem then
+        return CATCH_CATEGORY.QUEST
+    end
+
+    if C_TransmogCollection and C_TransmogCollection.GetItemInfo then
+        local appearanceID, modifiedAppearanceID = C_TransmogCollection.GetItemInfo(itemReference)
+        if (appearanceID and appearanceID > 0) or (modifiedAppearanceID and modifiedAppearanceID > 0) then
+            return CATCH_CATEGORY.TRANSMOG
+        end
+    end
+
+    local isCookingTradeGood = classID == Enum.ItemClass.Tradegoods
+        and subClassID == ITEM_TRADEGOODS_SUBCLASS_COOKING
+    if isCookingTradeGood then
+        return CATCH_CATEGORY.FISH
+    end
+
+    return CATCH_CATEGORY.OTHER
+end
+
+-- Derives compact totals from detailed catches while preserving legacy total semantics.
+local function GetCatchTotals(catchData, fishCounts, fishLinks)
+    local fishTotal = 0
+    local otherTotal = 0
+    local representedItemTotal = 0
+
+    for catchKey, rawCount in pairs(catchData.catches or {}) do
+        local count = tonumber(rawCount) or 0
+        local catchLink = catchData.catchLinks and catchData.catchLinks[catchKey]
+        local category = ClassifyFishingCatch(catchKey, catchLink)
+
+        if category ~= CATCH_CATEGORY.CURRENCY then
+            representedItemTotal = representedItemTotal + count
+        end
+        if category == CATCH_CATEGORY.FISH then
+            fishTotal = fishTotal + count
+            if fishCounts then
+                fishCounts[catchKey] = (fishCounts[catchKey] or 0) + count
+                if fishLinks and catchLink and not fishLinks[catchKey] then
+                    fishLinks[catchKey] = catchLink
+                end
+            end
+        elseif category ~= CATCH_CATEGORY.CURRENCY and category ~= CATCH_CATEGORY.JUNK then
+            otherTotal = otherTotal + count
+        end
+    end
+
+    local unrepresentedTotal = math.max(0, (tonumber(catchData.total) or 0) - representedItemTotal)
+    return fishTotal, otherTotal + unrepresentedTotal
+end
+
 local function GetCurrencyInfoFromLinkSafe(link)
     if not link or type(link) ~= "string" then
         return nil
@@ -293,7 +404,7 @@ end
 -- ==========================================
 -- 3. BUILD THE UI: MAIN FRAME
 -- ==========================================
-local MAIN_FRAME_FIXED_HEIGHT = 215
+local MAIN_FRAME_FIXED_HEIGHT = 233
 local MAIN_FRAME_WIDTH = 384
 local MAIN_ROW_LAYOUT_WIDTH = 370
 local MAIN_ROW_STEP = 18
@@ -392,10 +503,14 @@ locTotalText:SetText("Fish caught in this location: |cFF87CEEB0|r")
 
 local locCurrencyText = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 locCurrencyText:SetPoint("TOPLEFT", locTotalText, "BOTTOMLEFT", 0, -4)
-locCurrencyText:SetText("Currencies in this location: |cFF87CEEB0|r")
+locCurrencyText:SetText("Currencies caught in this location: |cFF87CEEB0|r")
+
+local locOtherText = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+locOtherText:SetPoint("TOPLEFT", locCurrencyText, "BOTTOMLEFT", 0, -4)
+locOtherText:SetText("Other caught in this location: |cFF87CEEB0|r")
 
 local mfColName = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-mfColName:SetPoint("TOPLEFT", locCurrencyText, "BOTTOMLEFT", 0, -15)
+mfColName:SetPoint("TOPLEFT", locOtherText, "BOTTOMLEFT", 0, -15)
 mfColName:SetText("Fish Name")
 
 local mfColPct = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
@@ -573,8 +688,12 @@ local sessCurrencyText = sessFrame:CreateFontString(nil, "OVERLAY", "GameFontNor
 sessCurrencyText:SetPoint("TOPLEFT", sessTotalText, "BOTTOMLEFT", 0, -4)
 sessCurrencyText:SetText("Currencies this session: |cFF87CEEB0|r")
 
+local sessOtherText = sessFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+sessOtherText:SetPoint("TOPLEFT", sessCurrencyText, "BOTTOMLEFT", 0, -4)
+sessOtherText:SetText("Others this session: |cFF87CEEB0|r")
+
 local sfColName = sessFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
-sfColName:SetPoint("TOPLEFT", sessCurrencyText, "BOTTOMLEFT", 0, -15)
+sfColName:SetPoint("TOPLEFT", sessOtherText, "BOTTOMLEFT", 0, -15)
 sfColName:SetText("Fish Name")
 
 local sfColPct = sessFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
@@ -651,13 +770,16 @@ local stat3 = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 stat3:SetPoint("TOPLEFT", stat2, "BOTTOMLEFT", 0, -5)
 local stat4 = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 stat4:SetPoint("TOPLEFT", stat3, "BOTTOMLEFT", 0, -5)
+local stat5 = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+stat5:SetPoint("TOPLEFT", stat4, "BOTTOMLEFT", 0, -5)
 
 local colHead1 = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-colHead1:SetPoint("TOPLEFT", stat4, "BOTTOMLEFT", 0, -30)
+colHead1:SetPoint("TOPLEFT", stat5, "BOTTOMLEFT", 0, -30)
 colHead1:SetText("Fish Name")
 
 local colHead3 = statsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-colHead3:SetPoint("TOPRIGHT", statsFrame, "TOPRIGHT", -35, -135)
+colHead3:SetPoint("TOP", colHead1, "TOP", 0, 0)
+colHead3:SetPoint("RIGHT", statsFrame, "RIGHT", -35, 0)
 colHead3:SetWidth(60)
 colHead3:SetJustifyH("RIGHT")
 colHead3:SetText("Percent")
@@ -672,7 +794,7 @@ local statsDivider = statsFrame:CreateTexture(nil, "ARTWORK")
 statsDivider:SetColorTexture(0.5, 0.3, 0.7, 0.5)
 statsDivider:SetHeight(1)
 statsDivider:SetPoint("TOPLEFT", colHead1, "BOTTOMLEFT", 0, -5)
-statsDivider:SetPoint("TOPRIGHT", statsFrame, "TOPRIGHT", -15, -155)
+statsDivider:SetPoint("TOPRIGHT", colHead3, "BOTTOMRIGHT", 20, -5)
 
 local scrollFrame = CreateFrame("ScrollFrame", nil, statsFrame, "UIPanelScrollFrameTemplate")
 scrollFrame:SetPoint("TOPLEFT", statsDivider, "BOTTOMLEFT", 0, -5)
@@ -685,40 +807,206 @@ scrollChild:SetSize(340, 1)
 local statsRows = {}
 local currentStatsTab = "Fish"
 
+local zoneDetailsFrame = CreateFrame("Frame", "OdysseusFishingZoneDetails", statsFrame, "BackdropTemplate")
+zoneDetailsFrame:SetSize(430, 600)
+zoneDetailsFrame:SetPoint("TOPLEFT", statsFrame, "TOPRIGHT", 6, 0)
+zoneDetailsFrame:SetFrameStrata(statsFrame:GetFrameStrata())
+zoneDetailsFrame:SetFrameLevel(statsFrame:GetFrameLevel() + 5)
+zoneDetailsFrame:Hide()
+
+zoneDetailsFrame:SetBackdrop({
+    bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = false, edgeSize = 16,
+    insets = { left = 4, right = 4, top = 4, bottom = 4 }
+})
+zoneDetailsFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.98)
+zoneDetailsFrame:SetBackdropBorderColor(0.5, 0.3, 0.7, 1)
+
+local closeZoneDetailsBtn = CreateFrame("Button", nil, zoneDetailsFrame, "UIPanelCloseButton")
+closeZoneDetailsBtn:SetPoint("TOPRIGHT", zoneDetailsFrame, "TOPRIGHT", -2, -2)
+
+local zoneDetailsTitle = zoneDetailsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
+zoneDetailsTitle:SetPoint("TOPLEFT", zoneDetailsFrame, "TOPLEFT", 15, -18)
+zoneDetailsTitle:SetPoint("RIGHT", closeZoneDetailsBtn, "LEFT", -5, 0)
+zoneDetailsTitle:SetJustifyH("LEFT")
+
+local zoneDetailsNameHead = zoneDetailsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+zoneDetailsNameHead:SetPoint("TOPLEFT", zoneDetailsTitle, "BOTTOMLEFT", 21, -16)
+zoneDetailsNameHead:SetText("Name")
+
+local zoneDetailsCountHead = zoneDetailsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+zoneDetailsCountHead:SetPoint("RIGHT", zoneDetailsFrame, "RIGHT", -35, 0)
+zoneDetailsCountHead:SetPoint("TOP", zoneDetailsNameHead, "TOP", 0, 0)
+zoneDetailsCountHead:SetWidth(55)
+zoneDetailsCountHead:SetJustifyH("RIGHT")
+zoneDetailsCountHead:SetText("Count")
+
+local zoneDetailsTypeHead = zoneDetailsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+zoneDetailsTypeHead:SetPoint("RIGHT", zoneDetailsCountHead, "LEFT", -10, 0)
+zoneDetailsTypeHead:SetWidth(35)
+zoneDetailsTypeHead:SetJustifyH("CENTER")
+zoneDetailsTypeHead:SetText("Type")
+
+local zoneDetailsDivider = zoneDetailsFrame:CreateTexture(nil, "ARTWORK")
+zoneDetailsDivider:SetColorTexture(0.5, 0.3, 0.7, 0.5)
+zoneDetailsDivider:SetHeight(1)
+zoneDetailsDivider:SetPoint("TOPLEFT", zoneDetailsNameHead, "BOTTOMLEFT", -21, -5)
+zoneDetailsDivider:SetPoint("TOPRIGHT", zoneDetailsCountHead, "BOTTOMRIGHT", 20, -5)
+
+local zoneDetailsScrollBox = CreateFrame("Frame", nil, zoneDetailsFrame, "WowScrollBox")
+zoneDetailsScrollBox:SetPoint("TOPLEFT", zoneDetailsDivider, "BOTTOMLEFT", 0, -4)
+zoneDetailsScrollBox:SetPoint("BOTTOMRIGHT", zoneDetailsFrame, "BOTTOMRIGHT", -28, 15)
+
+local zoneDetailsScrollBar = CreateFrame("EventFrame", nil, zoneDetailsFrame, "MinimalScrollBar")
+zoneDetailsScrollBar:SetWidth(8)
+zoneDetailsScrollBar:SetPoint("TOPLEFT", zoneDetailsScrollBox, "TOPRIGHT", 2, 0)
+zoneDetailsScrollBar:SetPoint("BOTTOMLEFT", zoneDetailsScrollBox, "BOTTOMRIGHT", 2, 0)
+
+local zoneDetailsRowsContent = CreateFrame("Frame", nil, zoneDetailsScrollBox)
+zoneDetailsRowsContent:SetWidth(387)
+zoneDetailsRowsContent:SetHeight(1)
+zoneDetailsRowsContent.scrollable = true
+
+local zoneDetailsScrollView = CreateScrollBoxLinearView()
+zoneDetailsScrollView:SetPanExtent(20)
+ScrollUtil.InitScrollBoxWithScrollBar(zoneDetailsScrollBox, zoneDetailsScrollBar, zoneDetailsScrollView)
+zoneDetailsScrollBar:SetHideIfUnscrollable(true)
+
+local zoneDetailsRows = {}
+
+-- Shows one location's combined non-junk catches using the shared classification semantics.
+local function UpdateZoneCatchDetails(historyKey)
+    local areaData = OdysseusFishingDB.history and OdysseusFishingDB.history[historyKey]
+    if not areaData then
+        zoneDetailsFrame:Hide()
+        return
+    end
+
+    zoneDetailsTitle:SetText(historyKey)
+
+    local detailData = {}
+    for catchKey, rawCount in pairs(areaData.catches or {}) do
+        local count = tonumber(rawCount) or 0
+        local displayLink = (areaData.catchLinks and areaData.catchLinks[catchKey]) or catchKey
+        local category = ClassifyFishingCatch(catchKey, displayLink)
+        if category ~= CATCH_CATEGORY.JUNK then
+            local name
+            if category == CATCH_CATEGORY.CURRENCY then
+                local info = GetCurrencyInfoFromLinkSafe(displayLink)
+                name = (info and info.name) or (type(displayLink) == "string" and displayLink:match("%[(.-)%]"))
+            else
+                name = type(displayLink) == "string" and displayLink:match("%[(.-)%]")
+                if not name then
+                    name = C_Item.GetItemInfo(displayLink)
+                end
+            end
+
+            table.insert(detailData, {
+                link = displayLink,
+                name = name or tostring(catchKey),
+                typeText = category == CATCH_CATEGORY.FISH and "F" or category == CATCH_CATEGORY.CURRENCY and "C" or "O",
+                count = count,
+            })
+        end
+    end
+
+    table.sort(detailData, function(a, b)
+        if a.count ~= b.count then
+            return a.count > b.count
+        end
+        return a.name:lower() < b.name:lower()
+    end)
+
+    for _, row in ipairs(zoneDetailsRows) do
+        row:Hide()
+    end
+
+    for i, data in ipairs(detailData) do
+        if not zoneDetailsRows[i] then
+            local row = CreateFrame("Button", nil, zoneDetailsRowsContent)
+            row:SetSize(387, 20)
+
+            row.highlight = row:CreateTexture(nil, "HIGHLIGHT")
+            row.highlight:SetAllPoints()
+            row.highlight:SetColorTexture(0.5, 0.3, 0.7, 0.12)
+
+            row.icon = row:CreateTexture(nil, "ARTWORK")
+            row.icon:SetSize(16, 16)
+            row.icon:SetPoint("LEFT", 0, 0)
+
+            row.name = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+            row.name:SetPoint("LEFT", row.icon, "RIGHT", 5, 0)
+            row.name:SetWidth(260)
+            row.name:SetJustifyH("LEFT")
+            row.name:SetWordWrap(false)
+
+            row.count = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+            row.count:SetPoint("RIGHT", row, "RIGHT", 0, 0)
+            row.count:SetWidth(55)
+            row.count:SetJustifyH("RIGHT")
+
+            row.type = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+            row.type:SetPoint("RIGHT", row.count, "LEFT", -10, 0)
+            row.type:SetWidth(35)
+            row.type:SetJustifyH("CENTER")
+
+            local fontPath = GetFishingFontPath()
+            ApplyFishingFontString(row.name, fontPath)
+            ApplyFishingFontString(row.type, fontPath)
+            ApplyFishingFontString(row.count, fontPath)
+
+            row:SetScript("OnEnter", function(self)
+                if self.itemLink then
+                    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+                    GameTooltip:SetHyperlink(self.itemLink)
+                    GameTooltip:Show()
+                end
+            end)
+            row:SetScript("OnLeave", function() GameTooltip:Hide() end)
+
+            zoneDetailsRows[i] = row
+        end
+
+        local row = zoneDetailsRows[i]
+        SetRowDisplayFromLink(row, data.link)
+        row.type:SetText(data.typeText)
+        row.count:SetText(data.count)
+        row:ClearAllPoints()
+        row:SetPoint("TOPLEFT", zoneDetailsRowsContent, "TOPLEFT", 0, -((i - 1) * 20))
+        row:Show()
+    end
+
+    zoneDetailsRowsContent:SetHeight(math.max(1, #detailData * 20))
+    zoneDetailsFrame:Show()
+end
+
+statsFrame:SetScript("OnHide", function()
+    zoneDetailsFrame:Hide()
+end)
+
 local function UpdateGlobalStatsFrame()
     if not statsFrame:IsShown() then return end
     if not OdysseusDB or not OdysseusDB.fishingSettings then return end
 
     local history = OdysseusFishingDB.history or {}
-    local globalTotal = 0
+    local globalFishTotal = 0
     local globalCurrencyTotal = 0
+    local globalOtherTotal = 0
     local globalFish = {}
+    local globalFishLinks = {}
     local uniqueZones = 0
     local uniqueSubZones = 0
     local zoneDataList = {}
 
     for zone, data in pairs(history) do
         uniqueZones = uniqueZones + 1
-        local zoneTotal = data.total or 0
-        globalTotal = globalTotal + zoneTotal
+        local zoneFishTotal, zoneOtherTotal = GetCatchTotals(data, globalFish, globalFishLinks)
+        globalFishTotal = globalFishTotal + zoneFishTotal
         globalCurrencyTotal = globalCurrencyTotal + (data.currencyTotal or 0)
-        table.insert(zoneDataList, { name = zone, count = zoneTotal })
+        globalOtherTotal = globalOtherTotal + zoneOtherTotal
+        table.insert(zoneDataList, { name = zone, historyKey = zone, count = zoneFishTotal })
 
-        if data.catches then
-            for key, count in pairs(data.catches) do
-                globalFish[key] = (globalFish[key] or 0) + count
-                -- Store display link from any zone that has it
-                if data.catchLinks and data.catchLinks[key] and not globalFishLinks then
-                    globalFishLinks = {}
-                end
-                if data.catchLinks and data.catchLinks[key] then
-                    globalFishLinks = globalFishLinks or {}
-                    if not globalFishLinks[key] then
-                        globalFishLinks[key] = data.catchLinks[key]
-                    end
-                end
-            end
-        end
         if data.subZones then
             for sz, _ in pairs(data.subZones) do
                 uniqueSubZones = uniqueSubZones + 1
@@ -734,10 +1022,11 @@ local function UpdateGlobalStatsFrame()
         table.insert(fishDataList, { link = displayLink, count = count })
     end
 
-    stat1:SetText(string.format("Total Fish Caught: |cFF87CEEB%d|r", globalTotal))
+    stat1:SetText(string.format("Total Fish Caught: |cFF87CEEB%d|r", globalFishTotal))
     stat2:SetText(string.format("Total Currencies: |cFF87CEEB%d|r", globalCurrencyTotal))
-    stat3:SetText(string.format("Total Fish Types: |cFF87CEEB%d|r", fishTypesCount))
-    stat4:SetText(string.format("Total Zones / Sub-Zones: |cFF87CEEB%d|r / |cFF87CEEB%d|r", uniqueZones, uniqueSubZones))
+    stat3:SetText(string.format("Total Other Caught: |cFF87CEEB%d|r", globalOtherTotal))
+    stat4:SetText(string.format("Total Fish Types: |cFF87CEEB%d|r", fishTypesCount))
+    stat5:SetText(string.format("Total Zones / Sub-Zones: |cFF87CEEB%d|r / |cFF87CEEB%d|r", uniqueZones, uniqueSubZones))
 
     for _, row in ipairs(statsRows) do
         row:Hide()
@@ -745,6 +1034,7 @@ local function UpdateGlobalStatsFrame()
 
     local yOffset = 0
     if currentStatsTab == "Fish" then
+        zoneDetailsFrame:Hide()
         statsTitle:SetText("Overall Fishing Statistics Summary:")
         colHead1:SetText("Fish Name")
         table.sort(fishDataList, function(a, b) return a.count > b.count end)
@@ -783,6 +1073,8 @@ local function UpdateGlobalStatsFrame()
             end
 
             local row = statsRows[i]
+            if row.zoneHighlight then row.zoneHighlight:Hide() end
+            row:SetScript("OnClick", nil)
             -- Fish and Zone share rows, so restore the complete Fish anchor state.
             if not row.icon then
                 row.icon = row:CreateTexture(nil, "ARTWORK")
@@ -805,7 +1097,7 @@ local function UpdateGlobalStatsFrame()
             SetRowDisplayFromLink(row, data.link)
             row.count:SetText(data.count)
 
-            local pct = (globalTotal > 0) and string.format("%.1f%%", (data.count / globalTotal) * 100) or "0%"
+            local pct = (globalFishTotal > 0) and string.format("%.1f%%", (data.count / globalFishTotal) * 100) or "0%"
             row.pct:SetText(pct)
 
             row:SetPoint("TOPLEFT", scrollChild, "TOPLEFT", 0, -yOffset)
@@ -847,17 +1139,28 @@ local function UpdateGlobalStatsFrame()
             end
 
             local row = statsRows[i]
+            if not row.zoneHighlight then
+                row.zoneHighlight = row:CreateTexture(nil, "HIGHLIGHT")
+                row.zoneHighlight:SetAllPoints()
+                row.zoneHighlight:SetColorTexture(0.5, 0.3, 0.7, 0.12)
+            end
+            row.zoneHighlight:Show()
             if row.icon then row.icon:Hide() end
             row.name:ClearAllPoints()
             row.name:SetPoint("LEFT", 0, 0)
             row.name:SetText("|cFFFFFFFF" .. data.name .. "|r")
             row.count:SetText(data.count)
 
-            local pct = (globalTotal > 0) and string.format("%.1f%%", (data.count / globalTotal) * 100) or "0%"
+            local pct = (globalFishTotal > 0) and string.format("%.1f%%", (data.count / globalFishTotal) * 100) or "0%"
             row.pct:SetText(pct)
             row.itemLink = nil
             row:SetScript("OnEnter", nil)
             row:SetScript("OnLeave", nil)
+            row.historyKey = data.historyKey
+            row:RegisterForClicks("LeftButtonUp")
+            row:SetScript("OnClick", function(self)
+                UpdateZoneCatchDetails(self.historyKey)
+            end)
 
             row:SetPoint("TOPLEFT", scrollChild, "TOPLEFT", 0, -yOffset)
             row:Show()
@@ -879,7 +1182,7 @@ openStatsBtn:SetScript("OnClick", function()
     end
 end)
 
-statsTabFish:SetScript("OnClick", function() currentStatsTab = "Fish"; UpdateGlobalStatsFrame() end)
+statsTabFish:SetScript("OnClick", function() currentStatsTab = "Fish"; zoneDetailsFrame:Hide(); UpdateGlobalStatsFrame() end)
 statsTabZone:SetScript("OnClick", function() currentStatsTab = "Zone"; UpdateGlobalStatsFrame() end)
 
 -- ==========================================
@@ -940,6 +1243,7 @@ local fishingFontStrings = {
     locStatsTitle,
     locTotalText,
     locCurrencyText,
+    locOtherText,
     mfColName,
     mfColPct,
     mfColCount,
@@ -950,6 +1254,7 @@ local fishingFontStrings = {
     closeTimerText,
     sessTotalText,
     sessCurrencyText,
+    sessOtherText,
     sfColName,
     sfColPct,
     sfColCount,
@@ -958,9 +1263,14 @@ local fishingFontStrings = {
     stat2,
     stat3,
     stat4,
+    stat5,
     colHead1,
     colHead2,
     colHead3,
+    zoneDetailsTitle,
+    zoneDetailsNameHead,
+    zoneDetailsTypeHead,
+    zoneDetailsCountHead,
 }
 
 for _, button in ipairs({openStatsBtn, resetBtn, pauseBtn, stopBtn, statsTabFish, statsTabZone}) do
@@ -974,6 +1284,7 @@ local function ApplyFishingFontToRow(row, fontPath)
     ApplyFishingFontString(row.name, fontPath)
     ApplyFishingFontString(row.count, fontPath)
     ApplyFishingFontString(row.pct, fontPath)
+    ApplyFishingFontString(row.type, fontPath)
 end
 
 -- Public appearance API applies the saved face to existing static and reusable row text.
@@ -990,6 +1301,9 @@ function OUS.UpdateFishingFont()
         ApplyFishingFontToRow(row, fontPath)
     end
     for _, row in ipairs(statsRows) do
+        ApplyFishingFontToRow(row, fontPath)
+    end
+    for _, row in ipairs(zoneDetailsRows) do
         ApplyFishingFontToRow(row, fontPath)
     end
 end
@@ -1025,6 +1339,7 @@ function OUS.UpdateFishingAlpha()
     if mainFrame then mainFrame:SetBackdropColor(0.07, 0.05, 0.1, alpha) end
     if sessFrame then sessFrame:SetBackdropColor(0.07, 0.05, 0.1, alpha) end
     if statsFrame then statsFrame:SetBackdropColor(0.07, 0.05, 0.1, alpha) end
+    if zoneDetailsFrame then zoneDetailsFrame:SetBackdropColor(0.07, 0.05, 0.1, alpha) end
 end
 
 function OUS.UpdateFishingUI()
@@ -1039,12 +1354,16 @@ function OUS.UpdateFishingUI()
 
     OdysseusFishingDB.history[currentZone] = OdysseusFishingDB.history[currentZone] or { total = 0, currencyTotal = 0, catches = {}, subZones = {} }
     local areaData = OdysseusFishingDB.history[currentZone]
+    local fishTotal, otherTotal = GetCatchTotals(areaData)
+    local sessionFishTotal, sessionOtherTotal = GetCatchTotals(sessionData)
 
-    locTotalText:SetText(string.format("Fish caught in this location: |cFF87CEEB%d|r", areaData.total or 0))
-    locCurrencyText:SetText(string.format("Currencies in this location: |cFF87CEEB%d|r", areaData.currencyTotal or 0))
+    locTotalText:SetText(string.format("Fish caught in this location: |cFF87CEEB%d|r", fishTotal))
+    locCurrencyText:SetText(string.format("Currencies caught in this location: |cFF87CEEB%d|r", areaData.currencyTotal or 0))
+    locOtherText:SetText(string.format("Other caught in this location: |cFF87CEEB%d|r", otherTotal))
 
     sessTotalText:SetText(string.format("Total caught this session: |cFF87CEEB%d|r", sessionData.total or 0))
     sessCurrencyText:SetText(string.format("Currencies this session: |cFF87CEEB%d|r", sessionData.currencyTotal or 0))
+    sessOtherText:SetText(string.format("Others this session: |cFF87CEEB%d|r", sessionOtherTotal))
 
     local mapID = C_Map.GetBestMapForUnit("player")
     local customProfName = mapID and ZONE_FISHING_NAMES[mapID]
@@ -1079,7 +1398,9 @@ function OUS.UpdateFishingUI()
         local sortedAreaCatches = {}
         for key, count in pairs(areaData.catches) do
             local displayLink = (areaData.catchLinks and areaData.catchLinks[key]) or key
-            table.insert(sortedAreaCatches, { link = displayLink, count = count })
+            if ClassifyFishingCatch(key, displayLink) == CATCH_CATEGORY.FISH then
+                table.insert(sortedAreaCatches, { link = displayLink, count = count })
+            end
         end
         table.sort(sortedAreaCatches, function(a, b) return a.count > b.count end)
 
@@ -1091,7 +1412,7 @@ function OUS.UpdateFishingUI()
 
             SetRowDisplayFromLink(row, data.link)
 
-            local pct = (areaData.total > 0) and string.format("%.1f%%", (data.count / areaData.total) * 100) or "0%"
+            local pct = (fishTotal > 0) and string.format("%.1f%%", (data.count / fishTotal) * 100) or "0%"
             row.count:SetText(data.count)
             row.pct:SetText(pct)
 
@@ -1124,13 +1445,15 @@ function OUS.UpdateFishingUI()
         row:Hide()
     end
 
-    local sessY = -155
+    local sessY = -173
     local sessIdx = 1
 
     local sortedSessionCatches = {}
     for key, count in pairs(sessionData.catches) do
         local displayLink = sessionData.catchLinks[key] or key
-        table.insert(sortedSessionCatches, { link = displayLink, count = count })
+        if ClassifyFishingCatch(key, displayLink) == CATCH_CATEGORY.FISH then
+            table.insert(sortedSessionCatches, { link = displayLink, count = count })
+        end
     end
     table.sort(sortedSessionCatches, function(a, b) return a.count > b.count end)
 
@@ -1142,7 +1465,7 @@ function OUS.UpdateFishingUI()
 
         SetRowDisplayFromLink(row, data.link)
 
-        local pct = (sessionData.total > 0) and string.format("%.1f%%", (data.count / sessionData.total) * 100) or "0%"
+        local pct = (sessionFishTotal > 0) and string.format("%.1f%%", (data.count / sessionFishTotal) * 100) or "0%"
         row.count:SetText(data.count)
         row.pct:SetText(pct)
 
@@ -1157,7 +1480,7 @@ function OUS.UpdateFishingUI()
     if statsFrame:IsShown() then UpdateGlobalStatsFrame() end
 end
 
-local function RecordCatch(itemLink, quantity)
+local function RecordCatch(itemLink, quantity, liveQuestSignal)
     if not OdysseusDB or not OdysseusDB.fishingSettings then return end
     quantity = quantity or 1
 
@@ -1173,9 +1496,10 @@ local function RecordCatch(itemLink, quantity)
         local _, _, _, hex = C_Item.GetItemQualityColor(itemQuality or 1)
         local colorPrefix = hex and ("|c" .. hex) or "|cFFFFFFFF"
         local coloredName = colorPrefix .. "[" .. exactName .. "]|r"
+        local category = ClassifyFishingCatch(catchKey, itemLink, itemQuality, liveQuestSignal)
 
         -- Filter out trash (Grey items)
-        if itemQuality and itemQuality == 0 then
+        if category == CATCH_CATEGORY.JUNK then
             lastCatchText:SetText(coloredName .. " (|cFFFFFFFFx" .. quantity .. "|r) |cFF87CEEB[ID: " .. tostring(itemID) .. "]|r |cFFFF0000not saved.|r")
             OUS.LogDebug("Fishing", "Ignored trash catch: " .. exactName)
             OUS.UpdateFishingUI()
@@ -1183,7 +1507,7 @@ local function RecordCatch(itemLink, quantity)
         end
 
         lastCatchText:SetText(coloredName .. " (|cFFFFFFFFx" .. quantity .. "|r) |cFF87CEEB[ID: " .. tostring(itemID) .. "]|r |cFF87CEEBsaved.|r")
-        OUS.LogDebug("Fishing", "Saved catch: " .. exactName .. " x" .. quantity)
+        OUS.LogDebug("Fishing", "Saved " .. category .. " catch: " .. exactName .. " x" .. quantity)
 
         OdysseusFishingDB.history[zone] = OdysseusFishingDB.history[zone] or { total = 0, currencyTotal = 0, catches = {}, catchLinks = {}, subZones = {} }
         OdysseusFishingDB.history[zone].subZones = OdysseusFishingDB.history[zone].subZones or {}
@@ -1377,10 +1701,10 @@ f:SetScript("OnEvent", function(self, event, ...)
             for i = 1, numItems do
                 local slotType = GetLootSlotType(i)
                 local itemLink = GetLootSlotLink(i)
-                local _, _, quantity, currencyID = GetLootSlotInfo(i)
+                local _, _, quantity, currencyID, _, _, isQuestItem, questID = GetLootSlotInfo(i)
 
                 if slotType == 1 and itemLink then
-                    RecordCatch(itemLink, quantity or 1)
+                    RecordCatch(itemLink, quantity or 1, isQuestItem or questID ~= nil)
                 elseif currencyID then
                     RecordCurrencyCatch(currencyID, quantity or 1)
                 end
