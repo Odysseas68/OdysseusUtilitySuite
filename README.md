@@ -120,7 +120,8 @@ Highlights:
 - reputation tracking at max level
 - Renown, Friendship faction, Paragon support
 - Warband-aware reputation text parsing
-- session statistics window
+- scrollable session statistics for experience, reputation, gold gained/spent, repairs, and Midnight Season 2 Mistcrests
+- Session Stats display and Mistcrest controls within the XP Bar configuration page
 - reward toast notifications
 - Delves companion + journey tracking
 - configurable fade / wake / auto-hide behavior
@@ -282,9 +283,8 @@ Completed OUS2 pages:
 - Faster Loot
 - Toolbox
 - XP Bar
-- Delves
 
-XP Bar migration is complete: its OUS2 page is a hub for Global, Experience, Reputation, Favorites, and Help child views. The separate Delves page is also complete and provides Back to XP Bar navigation.
+XP Bar migration is complete: its OUS2 page is a hub for Global, Experience, Reputation, Favorites, Session Stats, and Help child views. Delves configuration remains available through XP Bar, including Back to XP Bar navigation, but no longer has a standalone sidebar or General dashboard entry.
 
 Phase 5 follow-up work:
 - General page polish

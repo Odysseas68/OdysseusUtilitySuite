@@ -228,22 +228,23 @@ Files:
 
 # OUS2 Module Navigation
 
-Planned page order:
+Current sidebar page order:
 
 1. General
 2. XP Bar
-3. Delves
-4. Flight Master
-5. Flight Routing
-6. Utilities
-7. Openables
-8. Stats Bar
-9. Auto Remount
-10. Faster Loot
-11. Fishing Tracker
-12. Toolbox
-13. Help
-14. Changelog
+3. Flight Master
+4. Flight Routing
+5. Utilities
+6. Openables
+7. Stats Bar
+8. Auto Remount
+9. Faster Loot
+10. Fishing Tracker
+11. Toolbox
+12. Help
+13. Changelog
+
+Delves functionality and configuration remain intact, but Delves is reached through the XP Bar hub instead of a standalone sidebar or General dashboard entry. Session Stats configuration is also an XP Bar child view rather than a separate OUS2 page.
 
 ---
 
@@ -323,7 +324,8 @@ local DEBUG_SCROLLBOX = false   -- cyan border around scroll content area
 * Faster Loot page
 * Toolbox page
 * XP Bar hub page
-* Delves page
+* Session Stats display and built-in Mistcrest controls under XP Bar
+* Delves configuration page reached through the XP Bar hub
 * Help page
 * Changelog page
 * Shared OUS2 page framework

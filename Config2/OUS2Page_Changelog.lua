@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.08.05
+-- Version : 2026.09.14
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -32,6 +32,64 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [Version 1.0.0 - 2026-09-14]
+
+### Added
+- Expanded Session Stats with experience, reputation, Gold Gained, Gold Spent, Repairs, and Midnight Season 2 Mistcrests with Session, Current, and Season values.
+- Added XP Bar settings for Session Stats sections and individual Mistcrest visibility; the scrollable frame reflows as sections and currencies are hidden.
+
+### Changed
+- Moved Delves configuration access under XP Bar and removed redundant Delves sidebar and General dashboard entries without removing Delves functionality or settings.
+
+### Fixed
+- Prevented owned Mistcrest balances from appearing as session gains after a cold login.
+
+### Notes
+- OUS now uses semantic versioning beginning with version 1.0.0; build dates remain date-based.
+
+---
+
+## [2026-09-13]
+
+### Added
+- Added Zone Catch Details with Fish, Currency, and Other classification indicators.
+
+### Changed
+- Improved Fishing Tracker classification, Fish-only lists and percentages, Other totals, and Overall Zone fish statistics while preserving existing history.
+
+---
+
+## [2026-09-12]
+
+### Added
+- Added Fishing Tracker scale and font controls, Midnight Fishing support for the Vaults of Atal'Utek, and `/ous mapinfo` diagnostics.
+- Added a thin scrollbar to bound the Fishing Tracker catch list in locations with many recorded catches.
+
+### Changed
+- Completed OUS2 configuration parity, including module controls for Flight Master, Faster Loot, and Toolbox, and retired the legacy configuration UI.
+
+### Fixed
+- Fixed Fishing Tracker fish-name overlap after switching Overall Statistics tabs and removed the fishing-pole icon's inset border artifact.
+
+---
+
+## [2026-08-31]
+
+### Changed
+- Updated Flight Master route data and XP Bar Delves data for current Midnight content.
+
+### Fixed
+- Fixed Flight Master's map tooltip backdrop error in restricted UI contexts while preserving time and cost details.
+
+---
+
+## [2026-08-17]
+
+### Added
+- Added Gnarldor Isle support to Midnight Fishing and Delves companion detection.
+
+---
 
 ## [2026-07-11]
 

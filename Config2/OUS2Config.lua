@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Config.lua
--- Version : 2026.06.23
+-- Version : 2026.09.14
 -- Desc    : OUS2 main configuration frame — three-panel layout, nav system, page switching
 
 local _, OUS = ...
@@ -28,7 +28,6 @@ C.locked           = false     -- frame resize lock state
 local PAGE_ORDER = {
     "General",
     "XPBar",
-    "Delves",
     "FlightMaster",
     "FlightRouting",
     "Utilities",
@@ -50,7 +49,6 @@ local SEPARATOR_BEFORE = { Help = true, Changelog = true }
 local PAGE_LABELS = {
     General         = "General",
     XPBar           = "XP Bar",
-    Delves          = "Delves",
     FlightMaster    = "Flight Master",
     FlightRouting   = "Flight Routing",
     Utilities       = "Utilities",

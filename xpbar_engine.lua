@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_engine.lua
--- Version : 2026.09.12
+-- Version : 2026.09.14
 -- Desc    : XP/rep bar tracking logic and event handling
 -- ============================================================
 
@@ -791,6 +791,7 @@ local function HandleXPUpdate()
     end
 
     RefreshBars()
+    OUS.SessionStats.Refresh()
 
     OUS.LogDebug("XPBar", "XP Gain Detected: +" .. tostring(Session.lastXPGain))
 end
@@ -849,6 +850,7 @@ local function HandleFactionChatMessage(rawMessage)
         StartRepDisplayTimer()
 
         RefreshBars()
+        OUS.SessionStats.Refresh()
 
         OUS.LogDebug("XPBar", string.format("Rep Gain: %s (+%s)", faction, amount))
     end

@@ -2,6 +2,24 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [2026-09-14]
+
+### Added
+- Expanded Session Stats with Gold Gained, Gold Spent, Repairs, and Midnight Season 2 Mistcrest tracking.
+- Added Session Stats display and built-in Mistcrest controls under the existing XP Bar configuration page, with immediate reflow when sections or currencies are hidden.
+
+### Changed
+- Extracted the Session Stats runtime window and tracking into a dedicated subsystem while preserving XP and reputation session reporting.
+- Consolidated Delves configuration navigation under XP Bar and removed its redundant sidebar and General dashboard entries without removing Delves functionality or settings.
+
+### Fixed
+- Prevented cached Mistcrest balances from being counted as session gains after a cold login by establishing currency baselines on the first valid currency update.
+
+### Notes
+- OUS now uses semantic versioning beginning with version 1.0.0; build dates remain date-based.
+
+---
+
 ## [2026-09-13]
 
 ### Added

@@ -1,7 +1,7 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_XPBar.lua
--- Version : 2026.08.05
--- Desc    : OUS2 XP Bar navigation hub and placeholder child views
+-- Version : 2026.09.14
+-- Desc    : OUS2 XP Bar navigation hub and settings views
 -- ================================================
 
 local _, OUS = ...
@@ -27,10 +27,12 @@ local reputationColorSwatches = {}
 local reputationModifierButtons = {}
 local reputationTemplateBox
 local borderColorSwatch
+local sessionStatsCheckboxes = {}
 local Refresh
 local RefreshGlobal
 local RefreshExperience
 local RefreshReputation
+local RefreshSessionStats
 local defaultPageHeight = math.max(C.pageContainer:GetHeight() or 0, T.Frame.defaultH)
 local globalPageHeight = defaultPageHeight
 
@@ -160,6 +162,8 @@ local function ShowChild(childKey)
         RefreshExperience()
     elseif childKey == "Reputation" and RefreshReputation then
         RefreshReputation()
+    elseif childKey == "SessionStats" and RefreshSessionStats then
+        RefreshSessionStats()
     end
     C.ClearHelpText()
 end
@@ -245,6 +249,18 @@ end
 
 local function GetXPBarDB()
     return OdysseusDB and OdysseusDB.xpBar
+end
+
+local function GetSessionStatsSettings()
+    if OUS.SessionStats and OUS.SessionStats.GetSettings then
+        return OUS.SessionStats.GetSettings()
+    end
+end
+
+local function RefreshOpenSessionStats()
+    if OUS.SessionStats and OUS.SessionStats.Refresh then
+        OUS.SessionStats.Refresh()
+    end
 end
 
 local function WakeAndSleepBars()
@@ -349,6 +365,56 @@ local function CreateGlobalCheckbox(
         checkbox = checkbox,
         getDB = getDB,
         dbKey = dbKey,
+    }
+end
+
+-- Creates a nested Session Stats setting row without flattening its SavedVariables contract.
+local function CreateSessionStatsCheckbox(parent, labelText, helpText, yOffset, leftSide, getChecked, setChecked)
+    local row = CreateFrame("Button", nil, parent)
+    row:SetHeight(44)
+    if leftSide == "full" then
+        row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+        row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    elseif leftSide then
+        row:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, yOffset)
+        row:SetPoint("TOPRIGHT", parent, "TOP", -5, yOffset)
+    else
+        row:SetPoint("TOPLEFT", parent, "TOP", 5, yOffset)
+        row:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -18, yOffset)
+    end
+
+    local background = row:CreateTexture(nil, "BACKGROUND")
+    background:SetTexture(T.Tex("CardNormal"))
+    background:SetAllPoints()
+
+    local checkbox = row:CreateTexture(nil, "ARTWORK")
+    checkbox:SetSize(20, 20)
+    checkbox:SetPoint("LEFT", row, "LEFT", T.Card.Padding, 0)
+
+    local label = row:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+    label:SetPoint("LEFT", checkbox, "RIGHT", 7, 0)
+    label:SetPoint("RIGHT", row, "RIGHT", -T.Card.Padding, 0)
+    label:SetJustifyH("LEFT")
+    label:SetText(labelText)
+    SetTextColor(label, T.Colors.text)
+
+    row:SetScript("OnEnter", function()
+        background:SetTexture(T.Tex("CardHover"))
+        C.SetHelpText(helpText)
+    end)
+    row:SetScript("OnLeave", function()
+        background:SetTexture(T.Tex("CardNormal"))
+        C.ClearHelpText()
+    end)
+    row:SetScript("OnClick", function()
+        setChecked(not getChecked())
+        RefreshOpenSessionStats()
+        RefreshSessionStats()
+    end)
+
+    sessionStatsCheckboxes[#sessionStatsCheckboxes + 1] = {
+        checkbox = checkbox,
+        getChecked = getChecked,
     }
 end
 
@@ -1172,8 +1238,14 @@ local cardData = {
     {
         name = "Delves",
         detail = "Companion and journey settings",
-        help = "Delves settings will be implemented as a separate OUS2 page.",
+        help = "Open the Delves settings maintained under XP Bar.",
         isDelves = true,
+    },
+    {
+        name = "Session Stats",
+        detail = "Session display and tracked currencies",
+        help = "Configure the Session Stats frame and its built-in tracked currencies.",
+        childKey = "SessionStats",
     },
     {
         name = "Help",
@@ -1234,7 +1306,7 @@ local function CreateHubCard(info, index)
             if C.pages and C.pages.Delves and C.pages.Delves.frame then
                 C.OpenPage("Delves")
             else
-                C.SetHelpText("Delves settings will be implemented as a separate OUS2 page.")
+                C.SetHelpText("Delves settings are currently unavailable.")
             end
             return
         end
@@ -1730,6 +1802,76 @@ CreateInfoCard(
     -416,
     130
 )
+
+local sessionStatsChild = CreateChildView(
+    "SessionStats",
+    "XP Bar - Session Stats",
+    nil
+)
+
+CreateSectionHeader(sessionStatsChild, "Display", -130)
+local sectionRows = {
+    { key = "experience", label = "Show Experience", help = "Show or hide session experience totals.", y = -156, left = true },
+    { key = "reputation", label = "Show Reputation", help = "Show or hide the session reputation breakdown.", y = -156, left = false },
+    { key = "gold", label = "Show Gold", help = "Show or hide Gold Gained and Gold Spent.", y = -204, left = true },
+    { key = "repairs", label = "Show Repairs", help = "Show or hide repair spending while keeping repair accounting active.", y = -204, left = false },
+    { key = "currencies", label = "Show Currencies", help = "Show or hide all tracked currency rows.", y = -252, left = "full" },
+}
+
+for _, rowInfo in ipairs(sectionRows) do
+    local sectionKey = rowInfo.key
+    CreateSessionStatsCheckbox(
+        sessionStatsChild,
+        rowInfo.label,
+        rowInfo.help,
+        rowInfo.y,
+        rowInfo.left,
+        function()
+            local settings = GetSessionStatsSettings()
+            return settings and settings.sections[sectionKey] == true
+        end,
+        function(enabled)
+            local settings = GetSessionStatsSettings()
+            if settings then
+                settings.sections[sectionKey] = enabled
+            end
+        end
+    )
+end
+
+CreateSectionHeader(sessionStatsChild, "Tracked Currencies", -316)
+for index, resource in ipairs(OUS.SessionStats and OUS.SessionStats.BuiltInResources or {}) do
+    local resourceEntry = resource
+    local row = math.floor((index - 1) / 2)
+    local leftSide = index % 2 == 1
+    CreateSessionStatsCheckbox(
+        sessionStatsChild,
+        resourceEntry.configLabel,
+        "Track " .. resourceEntry.configLabel .. " in Session Stats.",
+        -342 - (row * 48),
+        index == 5 and "full" or leftSide,
+        function()
+            return OUS.SessionStats.IsResourceEnabled(resourceEntry)
+        end,
+        function(enabled)
+            local settings = GetSessionStatsSettings()
+            if not settings then return end
+
+            if enabled == resourceEntry.defaultTracked then
+                settings.currencyOverrides[resourceEntry.id] = nil
+            else
+                settings.currencyOverrides[resourceEntry.id] = enabled
+            end
+        end
+    )
+end
+
+RefreshSessionStats = function()
+    for _, entry in ipairs(sessionStatsCheckboxes) do
+        entry.checkbox:SetTexture(T.Tex(entry.getChecked() and "CheckboxOn" or "CheckboxOff"))
+    end
+end
+
 local helpChild = CreateChildView(
     "Help",
     "XP Bar - Help",
@@ -1837,6 +1979,7 @@ Refresh = function()
     RefreshGlobal()
     RefreshExperience()
     RefreshReputation()
+    RefreshSessionStats()
 end
 
 local function RefreshForOpen()
@@ -1844,6 +1987,7 @@ local function RefreshForOpen()
     RefreshGlobal()
     RefreshExperience()
     RefreshReputation()
+    RefreshSessionStats()
 end
 
 C.RegisterPage("XPBar", page, RefreshForOpen)

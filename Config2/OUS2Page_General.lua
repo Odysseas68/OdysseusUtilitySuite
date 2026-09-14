@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_General.lua
--- Version : 2026.07.04
+-- Version : 2026.09.14
 -- Desc    : OUS2 General dashboard layout and module navigation
 -- =========================================
 
@@ -18,7 +18,6 @@ local Refresh
 
 local MODULES = {
     { name = "XP Bar",          detail = "Experience and reputation",       icon = "IconXPBar", pageKey = "XPBar" },
-    { name = "Delves",          detail = "Companion and journey tracking",  icon = "IconDelves", pageKey = "Delves" },
     { name = "Flight Master",   detail = "Flight timer and learned routes", icon = "IconFlightMaster", pageKey = "FlightMaster" },
     { name = "Flight Routing",  detail = "Taxi route visualization",        icon = "IconFlightRouting", pageKey = "FlightRouting" },
     { name = "Utilities",       detail = "Repair, junk, and rare tools",    icon = "IconUtilities", pageKey = "Utilities" },
@@ -269,7 +268,7 @@ local buildDateText = C_AddOns.GetAddOnMetadata(addonName, "X-Build-Date")
 if not buildDateText and addonVersion:match("^%d%d%d%d%.%d%d%.%d%d$") then
     buildDateText = addonVersion
 end
-buildDateText = buildDateText or "unknown"
+buildDateText = buildDateText and buildDateText:gsub("%.", "-") or "unknown"
 
 local gameVersionText = select(1, GetBuildInfo()) or "unknown"
 

@@ -655,9 +655,21 @@ Completed:
 XP Bar OUS2 architecture:
 
 - `XPBar` is the registered hub page.
-- Global, Experience, Reputation, Favorites, and Help are internal child views of the XP Bar page.
+- Global, Experience, Reputation, Favorites, Session Stats, and Help are internal child views of the XP Bar page.
 - Switching to the top-level XP Bar page returns navigation to the hub.
-- `Delves` is a separate registered OUS2 page reached from the XP Bar hub and provides a Back to XP Bar action.
+- The existing `Delves` settings frame remains registered for implementation compatibility, but is reached through the XP Bar hub rather than a standalone sidebar or General dashboard entry and retains its Back to XP Bar action.
+
+Session Stats runtime architecture:
+
+- Runtime load order is `xpbar_core.lua` → `xpbar_sessionstats.lua` → `xpbar_engine.lua`.
+- `xpbar_core.lua` owns shared `OUS.XPBarSession` XP/reputation state and `OUS.FormatLargeNumber`; `xpbar_sessionstats.lua` owns the scrollable Session Stats frame, money/repair/Mistcrest tracking, initialization, related events, `/xpstats`, and `OUS.SessionStats.Refresh()`; `xpbar_engine.lua` continues to track XP/reputation and requests Session Stats refreshes after those values change.
+- The frame displays Experience Gained, Reputation Breakdown, Gold Gained, Gold Spent, Repairs, and Midnight Season 2 Mistcrests, and dynamically reflows when configured sections or currencies are hidden. XP Bar configuration exposes Show Experience, Show Reputation, Show Gold, Show Repairs, Show Currencies, and one tracking control for each built-in Mistcrest.
+- Persistent visibility preferences and sparse built-in currency overrides live at `OdysseusDB.xpBar.sessionStats`; runtime counters are not persisted and reset on login or reload. A missing override follows the catalog default, while `false` explicitly disables that currency's display. Disabled currencies continue to be tracked so re-enabling them preserves the current runtime baseline and session total.
+- Gold Gained and Gold Spent record positive and negative player-money deltas respectively. Repairs are a repair-specific subset of Gold Spent rather than an exclusion from it; the subsystem observes `RepairAllItems` through a post-hook and does not replace Blizzard's repair function.
+- The current typed built-in catalog contains only `CURRENCY` resources: Adventurer (3442), Veteran (3443), Champion (3444), Hero (3445), and Myth (3446) Mistcrests. Blizzard currency data remains authoritative for current quantity, name/icon, and seasonal earned/cap values.
+- Mistcrest Session counts only positive quantity deltas; Current uses the owned quantity; Season uses earned versus maximum. Spending lowers Current without subtracting from Session.
+- Cold-login baselines are intentionally deferred: `ADDON_LOADED` can expose a provisional zero currency quantity, so the first valid `CURRENCY_DISPLAY_UPDATE` establishes `lastQuantity` and only later positive deltas count toward Session. Reloads did not reproduce the original false gain because currency data was already cached.
+- Custom Currency IDs, additional curated currencies, `ITEM` resources, optional Blizzard Currency UI discovery, and larger-list search/filtering remain future work. Currency UI enumeration is not treated as a complete stable currency database.
 
 Flightmaster OUS2 architecture:
 

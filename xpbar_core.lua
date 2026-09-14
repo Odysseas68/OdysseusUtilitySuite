@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_core.lua
--- Version : 2026.08.05
+-- Version : 2026.09.14
 -- Desc    : XP/rep bar frame layout and base rendering
 -- ============================================================
 
@@ -59,7 +59,17 @@ OUS.defaults = {
     xpFont = "Friz Quadrata TT", xpFontSize = 15,
     repMenuMod = "CTRL",
     favFactions = {},
-    lastRepFactionName = nil
+    lastRepFactionName = nil,
+    sessionStats = {
+        sections = {
+            experience = true,
+            reputation = true,
+            gold = true,
+            repairs = true,
+            currencies = true,
+        },
+        currencyOverrides = {},
+    },
 }
 
 OUS.XPBarSession = OUS.XPBarSession or {
@@ -310,84 +320,9 @@ function OUS.ShowToast(title, subText, iconPath)
     OUS.LogDebug("XPBar", "Triggered Toast Notification: " .. title)
 end
 
--- Session Stats Frame
-OUS.statsFrame = CreateFrame("Frame", "OdysseusStatsFrame", UIParent, "BackdropTemplate")
-local stats = OUS.statsFrame
-stats:SetSize(350, 400)
-stats:SetPoint("CENTER")
-stats:SetFrameStrata("DIALOG")
-tinsert(UISpecialFrames, stats:GetName())
-
-stats:SetBackdrop({
-    bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
-    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-    tile = false, edgeSize = 16,
-    insets = { left = 4, right = 4, top = 4, bottom = 4 }
-})
-stats:SetBackdropColor(0.07, 0.05, 0.1, 0.98)
-stats:SetBackdropBorderColor(0.5, 0.3, 0.7, 1)
-stats:Hide()
-
-stats:SetMovable(true)
-stats:SetClampedToScreen(true)
-stats:EnableMouse(true)
-
-stats:RegisterForDrag("LeftButton")
-stats:SetScript("OnDragStart", stats.StartMoving)
-stats:SetScript("OnDragStop", stats.StopMovingOrSizing)
-
-stats.headerBg = stats:CreateTexture(nil, "BACKGROUND", nil, 2)
-stats.headerBg:SetPoint("TOPLEFT", 4, -4)
-stats.headerBg:SetPoint("TOPRIGHT", -4, -4)
-stats.headerBg:SetHeight(30)
-stats.headerBg:SetColorTexture(1, 1, 1, 1)
-stats.headerBg:SetGradient("HORIZONTAL", CreateColor(0.3, 0.1, 0.5, 0.8), CreateColor(0.07, 0.05, 0.1, 0.8))
-
-local statsClose = CreateFrame("Button", nil, stats, "UIPanelCloseButton")
-statsClose:SetPoint("TOPRIGHT", stats, "TOPRIGHT", -2, -2)
-
-local statsTitle = stats:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
-statsTitle:SetPoint("TOP", 0, -10)
-statsTitle:SetText("Odysseus Session Stats")
-statsTitle:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE")
-
-stats.content = stats:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-stats.content:SetPoint("TOPLEFT", 20, -50)
-stats.content:SetPoint("BOTTOMRIGHT", -20, 20)
-stats.content:SetJustifyH("LEFT")
-stats.content:SetJustifyV("TOP")
-stats.content:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
-
-function stats:UpdateData()
-    local text = "|cFF00FFFFExperience Gained:|r\n" .. OUS.FormatLargeNumber(OUS.XPBarSession.sessionXP) .. " XP\n\n|cFF00FFFFReputation Breakdown:|r\n"
-    local hasRep = false
-
-    for faction, amount in pairs(OUS.XPBarSession.sessionRep) do
-        hasRep = true
-        text = text .. "• " .. faction .. ": |cFF00FF00+" .. amount .. "|r\n"
-    end
-
-    if not hasRep then
-        text = text .. "|cFF888888No reputation gained yet this session.|r"
-    end
-
-    self.content:SetText(text)
-end
-
 -- ==========================================
 -- 4. MODULE SLASH COMMANDS
 -- ==========================================
-SLASH_XPSTATS1 = "/xpstats"
-SlashCmdList["XPSTATS"] = function()
-    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
-    if OUS.statsFrame:IsShown() then
-        OUS.statsFrame:Hide()
-    else
-        OUS.statsFrame:UpdateData()
-        OUS.statsFrame:Show()
-    end
-end
-
 SLASH_TOASTTEST1 = "/toasttest"
 SlashCmdList["TOASTTEST"] = function()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end

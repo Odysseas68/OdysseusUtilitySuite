@@ -242,11 +242,13 @@ Completed module-page baseline, where applicable:
   * [x] Experience child settings
   * [x] Reputation child settings
   * [x] Read-only Favorites child
+  * [x] Session Stats Stage 1 display and built-in Mistcrest settings
   * [x] Scrollable Help child
   * [x] Sliced template edit boxes
 
 * [x] Delves page
-  * [x] Separate registered `Delves` page
+  * [x] Configuration access consolidated under the XP Bar hub
+  * [x] Standalone sidebar and General dashboard entries removed
   * [x] Companion and Journey template settings
   * [x] Delves dimension settings
   * [x] Back to XP Bar navigation
@@ -407,6 +409,8 @@ Expose only after safe public APIs exist and OUS2 controls are available.
 
 - Detailed remaining XP Bar, Reputation, Favorites, Delves, reset, color, media, and range parity tasks are tracked in `Documentation\OUS2_XPBAR_PARITY.md`.
 - Keep this section high-level until that checklist is complete.
+- Session Stats Stage 1 is complete: the subsystem is separated from the XP Bar engine, its scrollable runtime view covers XP, reputation, gold, repairs, and five default-enabled Midnight Season 2 Mistcrests, and its persistent display controls live under XP Bar.
+- Future Session Stats resource work may include custom Currency IDs, additional curated built-ins, `ITEM` resources kept architecturally distinct from `CURRENCY`, optional validated Blizzard Currency UI discovery, and search/filtering for larger lists.
 
 ---
 
@@ -416,7 +420,7 @@ Expose only after safe public APIs exist and OUS2 controls are available.
 
 - Module page migration completed.
 - XP Bar migration completed.
-- Delves page completed.
+- Delves configuration consolidated under XP Bar without removing its runtime functionality or settings.
 - Openables page implemented and tested.
 - Shared scale control implemented and adopted.
 - Documentation synchronized.

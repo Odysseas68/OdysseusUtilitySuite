@@ -17,5 +17,8 @@ description: Maintain Odysseus Utility Suite documentation without changing addo
 10. For a newly created file, determine whether documentation changes are actually necessary before editing documentation.
 11. Avoid cosmetic documentation churn and unrelated prose rewrites.
 12. Treat module-page migration, XP Bar migration, and Delves as complete. Record remaining work as Phase 5 polish or advanced-control follow-up.
+13. For release-visible changes, synchronize both `CHANGELOG.md` and the embedded OUS2 in-game changelog source in `Config2\OUS2Page_Changelog.lua`; checking `CHANGELOG.md` alone is not sufficient. Preserve existing in-game history and add concise player-facing release entries current through the applicable build date. Do not copy the full project changelog verbatim or include developer-only validation noise, commit hashes, Codex workflow, or source archaeology unless it is genuinely useful to players.
+14. During release housekeeping, keep semantic addon versioning and date-based build metadata distinct. Verify that `## Version` and `## X-Build-Date` in `OdysseusUtilitySuite.toc`, the OUS2 General-page Version and Build Date, and the newest OUS2 in-game changelog release entry all agree with the release being prepared. Treat any current version or build date as a changing baseline, not a permanent expected value.
+15. Preserve documentation and changelog history unless the user explicitly requests replacement of outdated information. For the OUS2 in-game changelog, append or update the appropriate release entries instead of deleting older releases.
 
 Report files inspected, documentation changes, mismatches, and remaining uncertainties.
