@@ -2,6 +2,18 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.2 - 2026-09-17]
+
+### Added
+- Added OUS Junk, a LibDataBroker display of current carried grey-junk vendor value with Blizzard coin icons and denomination colors. Includes blacklisted grey items and physical stack quantities; instance-aware bag-hyperlink pricing matches OUS Junk Seller.
+- Added tooltip current-bag quantity/value and authoritative Session Stats junk totals. Left-click shows Session Stats; right-click shows Gold Diagnostics without toggling either window closed.
+- Supports LDB hosts, including Titan Panel, without a Titan dependency or Titan API calls. Reset Counters clears only session totals, leaving current bag values intact.
+
+### Fixed
+- Synchronized the initial junk-value display after login/reload without requiring a tooltip hover.
+
+---
+
 ## [Version 1.0.1 - 2026-09-16]
 
 ### Added

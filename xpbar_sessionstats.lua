@@ -11,6 +11,10 @@ local Session = OUS.XPBarSession
 local SessionStats = OUS.SessionStats or {}
 OUS.SessionStats = SessionStats
 
+-- Publishes only authoritative junk-counter changes, independently of window visibility.
+SessionStats.JunkCallbacks = {}
+local junkCallbacks = LibStub("CallbackHandler-1.0"):New(SessionStats.JunkCallbacks)
+
 local eventFrame = CreateFrame("Frame")
 
 local BUILT_IN_RESOURCES = {
@@ -317,6 +321,9 @@ function SessionStats.RecordKnownMerchantTransaction(transactionType, amount, de
         "Ignore Next Repair Reduction after: " .. DiagnosticValue(Session.ignoreNextRepairReduction),
     })
 
+    if transactionType == "VENDOR_INCOME" then
+        junkCallbacks:Fire("JunkChanged")
+    end
     SessionStats.Refresh()
 end
 
@@ -588,6 +595,7 @@ function SessionStats.ResetCounters()
         "Mistcrest session gains reset and quantities re-baselined: true",
     })
 
+    junkCallbacks:Fire("JunkChanged")
     SessionStats.Refresh()
 end
 
@@ -869,6 +877,9 @@ local function ShowGoldDiagnostics()
     diagnosticFrame:Show()
 end
 
+-- Lets broker clicks reuse the existing show-only diagnostic construction and refresh path.
+SessionStats.ShowGoldDiagnostics = ShowGoldDiagnostics
+
 local diagnosticsButton = CreateFrame("Button", nil, stats, "UIPanelButtonTemplate")
 diagnosticsButton:SetSize(88, 20)
 diagnosticsButton:SetPoint("TOPLEFT", stats, "TOPLEFT", 8, -8)
@@ -1144,6 +1155,7 @@ eventFrame:SetScript("OnEvent", function(_, event, arg1, arg2)
             local lastMoneyBefore = Session.lastMoney
             SessionStats.GetSettings()
             InitializeSessionStats()
+            junkCallbacks:Fire("JunkChanged")
             AppendDiagnosticRecord("ADDON_LOADED", {
                 "Addon: " .. DiagnosticValue(arg1),
                 "GetMoney: " .. FormatDiagnosticMoney(currentMoney),
@@ -1184,14 +1196,20 @@ eventFrame:SetScript("OnEvent", function(_, event, arg1, arg2)
     end
 end)
 
+-- Opens the existing session window without toggling it closed for broker clicks.
+function SessionStats.Show()
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
+    stats:Show()
+    stats:UpdateData()
+    stats.scrollBox:ScrollToBegin()
+end
+
 SLASH_XPSTATS1 = "/xpstats"
 SlashCmdList["XPSTATS"] = function()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
     if stats:IsShown() then
         stats:Hide()
     else
-        stats:Show()
-        stats:UpdateData()
-        stats.scrollBox:ScrollToBegin()
+        SessionStats.Show()
     end
 end

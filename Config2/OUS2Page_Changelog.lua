@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.09.16
+-- Version : 2026.09.17
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -32,6 +32,18 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [Version 1.0.2 - 2026-09-17]
+
+### Added
+- Added OUS Junk for Titan Panel and other LibDataBroker hosts, showing carried grey-junk vendor value with colored coin amounts; Titan is optional.
+- Includes blacklisted grey items and stack quantities, using the same item-instance pricing as Junk Seller.
+- Hover for current bag and session junk totals. Left-click opens Session Stats; right-click opens Gold Diagnostics. Reset Counters leaves bag values unchanged.
+
+### Fixed
+- Corrected the initial junk-value display after login or reload.
+
+---
 
 ## [Version 1.0.1 - 2026-09-16]
 

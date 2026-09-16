@@ -182,6 +182,13 @@ A collection of small but powerful QoL tools bundled into one module.
 - Per-item blacklist to exclude specific items from selling
 - Combat safe — stops immediately on combat lockdown
 
+**OUS Junk broker**:
+- LibDataBroker display for current carried grey-junk vendor value, including blacklisted grey items and physical stack quantities
+- Uses current bag-item hyperlink pricing consistent with Junk Seller, with colored Blizzard coin amounts; `*` indicates values still loading
+- Tooltip shows current bag quantity/value and Session Stats junk totals; Reset Counters clears only session totals, not bag values
+- Left-click shows Session Stats; right-click shows Gold Diagnostics without toggling either closed
+- Works with Titan Panel and other LDB hosts; Titan is not required
+
 Commands:
 - `/ous_rare` — announce targeted mob to General chat with waypoint
 
