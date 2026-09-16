@@ -1,10 +1,10 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_sessionstats.lua
--- Version : 2026.09.14
+-- Version : 2026.09.15
 -- Desc    : Runtime XPBar session statistics tracking and display
 -- ============================================================
--- luacheck: globals COPPER_AMOUNT_TEXTURE C_CurrencyInfo CanMerchantRepair CreateScrollBoxLinearView GOLD_AMOUNT_TEXTURE GetGuildBankMoney GetGuildBankWithdrawMoney GetMoney GetRepairAllCost RepairAllItems SILVER_AMOUNT_TEXTURE ScrollUtil hooksecurefunc
+-- luacheck: globals COPPER_AMOUNT_TEXTURE C_CurrencyInfo CanMerchantRepair ChatFontNormal CreateScrollBoxLinearView GOLD_AMOUNT_TEXTURE GameTooltip GetGuildBankMoney GetGuildBankWithdrawMoney GetMoney GetRepairAllCost RepairAllItems SILVER_AMOUNT_TEXTURE ScrollUtil StaticPopupDialogs StaticPopup_Show UnitXP UnitXPMax hooksecurefunc
 
 local addonName, OUS = ...
 local Session = OUS.XPBarSession
@@ -25,7 +25,167 @@ SessionStats.BuiltInResources = BUILT_IN_RESOURCES
 Session.sessionGoldGained = Session.sessionGoldGained or 0
 Session.sessionGoldSpent = Session.sessionGoldSpent or 0
 Session.sessionRepairSpent = Session.sessionRepairSpent or 0
+Session.sessionGuildRepairSpent = Session.sessionGuildRepairSpent or 0
+Session.sessionJunkItems = Session.sessionJunkItems or 0
+Session.sessionJunkGold = Session.sessionJunkGold or 0
 Session.crestStats = Session.crestStats or {}
+Session.pendingKnownWalletMovements = Session.pendingKnownWalletMovements or {}
+
+local diagnosticRecords = {}
+local diagnosticSequence = 0
+local diagnosticsEnabled = false
+local diagnosticFrame
+local diagnosticEditBox
+
+local function DiagnosticValue(value)
+    if value == nil then return "nil" end
+    return tostring(value)
+end
+
+-- Formats raw copper with a plain-text denomination equivalent for copyable diagnostics.
+local function FormatDiagnosticMoney(copper, showPositiveSign)
+    if copper == nil then return "nil" end
+
+    copper = math.floor(tonumber(copper) or 0)
+    local absoluteCopper = math.abs(copper)
+    local gold = math.floor(absoluteCopper / 10000)
+    local silver = math.floor((absoluteCopper % 10000) / 100)
+    local copperOnly = absoluteCopper % 100
+    local sign = copper < 0 and "-" or (showPositiveSign and copper > 0 and "+" or "")
+    local raw = sign == "+" and ("+" .. copper) or tostring(copper)
+
+    return string.format("%s copper (%s%dg %02ds %02dc)", raw, sign, gold, silver, copperOnly)
+end
+
+-- Builds one canonical copyable report without exposing diagnostic edits to accounting state.
+local function BuildDiagnosticText()
+    local lines = {
+        "OUS Session Stats Gold Diagnostics",
+        "",
+        "Current Wallet: " .. FormatDiagnosticMoney(GetMoney()),
+        "lastMoney: " .. FormatDiagnosticMoney(Session.lastMoney),
+        "Gold Gained: " .. FormatDiagnosticMoney(Session.sessionGoldGained),
+        "Gold Spent: " .. FormatDiagnosticMoney(Session.sessionGoldSpent),
+        "Repairs: " .. FormatDiagnosticMoney(Session.sessionRepairSpent),
+        "Guild Repairs: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent),
+        "Junk Items: " .. DiagnosticValue(Session.sessionJunkItems),
+        "Junk Gold: " .. FormatDiagnosticMoney(Session.sessionJunkGold),
+        "Pending Repair Cost: " .. FormatDiagnosticMoney(Session.pendingRepairCost),
+        "Last Repair Cost: " .. FormatDiagnosticMoney(Session.lastRepairCost),
+        "Ignore Next Repair Reduction: " .. DiagnosticValue(Session.ignoreNextRepairReduction),
+    }
+
+    if not diagnosticsEnabled then
+        lines[#lines + 1] = ""
+        lines[#lines + 1] = "Gold diagnostics are disabled."
+        return table.concat(lines, "\n")
+    end
+
+    lines[#lines + 1] = ""
+    lines[#lines + 1] = "--- EVENT TIMELINE ---"
+    lines[#lines + 1] = ""
+
+    for _, record in ipairs(diagnosticRecords) do
+        lines[#lines + 1] = record
+        lines[#lines + 1] = ""
+    end
+
+    return table.concat(lines, "\n")
+end
+
+-- Appends runtime-only records in exact observation order for merchant accounting diagnostics.
+local function AppendDiagnosticRecord(eventName, fields)
+    if not diagnosticsEnabled then return end
+
+    diagnosticSequence = diagnosticSequence + 1
+    local lines = { string.format("#%03d %s", diagnosticSequence, eventName) }
+    for _, field in ipairs(fields or {}) do
+        lines[#lines + 1] = field
+    end
+    diagnosticRecords[#diagnosticRecords + 1] = table.concat(lines, "\n")
+
+    if diagnosticFrame and diagnosticFrame:IsShown() and diagnosticEditBox then
+        diagnosticEditBox:SetText(BuildDiagnosticText())
+    end
+end
+
+-- Summarizes the runtime-only known movement queue without changing its order.
+local function GetPendingKnownMovementState()
+    local positive = 0
+    local negative = 0
+    local values = {}
+
+    for _, movement in ipairs(Session.pendingKnownWalletMovements) do
+        if movement > 0 then
+            positive = positive + movement
+        else
+            negative = negative - movement
+        end
+        values[#values + 1] = FormatDiagnosticMoney(movement, true)
+    end
+
+    return positive, negative, #values > 0 and table.concat(values, ", ") or "empty"
+end
+
+-- Reconciles exact ordered batches first, then consumes only same-sign pending movement with partial support.
+local function ReconcilePendingKnownMovement(rawDelta)
+    if rawDelta == 0 then return 0, 0 end
+
+    local queue = Session.pendingKnownWalletMovements
+    local prefixTotal = 0
+    for index, movement in ipairs(queue) do
+        prefixTotal = prefixTotal + movement
+        if prefixTotal == rawDelta then
+            for _ = 1, index do
+                table.remove(queue, 1)
+            end
+            AppendDiagnosticRecord("KNOWN_MOVEMENT_RECONCILIATION", {
+                "Raw delta: " .. FormatDiagnosticMoney(rawDelta, true),
+                "Mode: exact ordered prefix",
+                "Prefix entries removed: " .. index,
+            })
+            return rawDelta, 0
+        end
+    end
+
+    local direction = rawDelta > 0 and 1 or -1
+    local remaining = math.abs(rawDelta)
+    local reconciled = 0
+    local index = 1
+    local consumption = diagnosticsEnabled and {} or nil
+
+    while index <= #queue and remaining > 0 do
+        local movement = queue[index]
+        if (movement > 0 and direction > 0) or (movement < 0 and direction < 0) then
+            local consumed = math.min(math.abs(movement), remaining)
+            if consumption then
+                consumption[#consumption + 1] = "Entry value " .. FormatDiagnosticMoney(movement, true)
+                    .. "; consumed " .. FormatDiagnosticMoney(direction * consumed, true)
+                    .. "; remainder " .. FormatDiagnosticMoney(movement - direction * consumed, true)
+            end
+            remaining = remaining - consumed
+            reconciled = reconciled + (direction * consumed)
+            movement = movement - (direction * consumed)
+
+            if movement == 0 then
+                table.remove(queue, index)
+            else
+                queue[index] = movement
+                index = index + 1
+            end
+        else
+            index = index + 1
+        end
+    end
+
+    AppendDiagnosticRecord("KNOWN_MOVEMENT_RECONCILIATION", {
+        "Raw delta: " .. FormatDiagnosticMoney(rawDelta, true),
+        "Mode: same-sign consumption in queue order",
+        "Consumption steps: " .. (consumption and #consumption > 0 and table.concat(consumption, " | ") or "none"),
+        "Unexplained remainder: " .. FormatDiagnosticMoney(direction * remaining, true),
+    })
+    return reconciled, direction * remaining
+end
 
 -- Normalizes every nested Session Stats setting for existing SavedVariables.
 function SessionStats.GetSettings()
@@ -64,6 +224,100 @@ function SessionStats.IsResourceEnabled(resource)
         return override
     end
     return resource.defaultTracked == true
+end
+
+-- Records exact OUS merchant transactions while queuing their wallet effects for later observed reconciliation.
+function SessionStats.RecordKnownMerchantTransaction(transactionType, amount, details)
+    amount = math.max(0, math.floor(tonumber(amount) or 0))
+    if amount == 0 then return end
+
+    details = details or {}
+    local currentMoney = GetMoney()
+    local lastMoneyBefore = Session.lastMoney
+    local gainedBefore = Session.sessionGoldGained
+    local spentBefore = Session.sessionGoldSpent
+    local repairsBefore = Session.sessionRepairSpent
+    local guildRepairsBefore = Session.sessionGuildRepairSpent
+    local junkItemsBefore = Session.sessionJunkItems
+    local junkGoldBefore = Session.sessionJunkGold
+    local pendingBefore = Session.pendingRepairCost
+    local lastRepairBefore = Session.lastRepairCost
+    local ignoreRepairBefore = Session.ignoreNextRepairReduction
+    local knownPositiveBefore, knownNegativeBefore, knownQueueBefore = GetPendingKnownMovementState()
+
+    local walletDelta = 0
+    if transactionType == "VENDOR_INCOME" then
+        Session.sessionGoldGained = Session.sessionGoldGained + amount
+        Session.sessionJunkItems = Session.sessionJunkItems
+            + math.max(0, math.floor(tonumber(details.stackCount) or 0))
+        Session.sessionJunkGold = Session.sessionJunkGold + amount
+        walletDelta = amount
+    elseif transactionType == "PERSONAL_REPAIR" then
+        Session.sessionGoldSpent = Session.sessionGoldSpent + amount
+        Session.sessionRepairSpent = Session.sessionRepairSpent + amount
+        walletDelta = -amount
+    elseif transactionType == "GUILD_REPAIR" then
+        Session.sessionGuildRepairSpent = Session.sessionGuildRepairSpent + amount
+    else
+        return
+    end
+
+    if walletDelta ~= 0 then
+        Session.pendingKnownWalletMovements[#Session.pendingKnownWalletMovements + 1] = walletDelta
+    end
+
+    if transactionType == "PERSONAL_REPAIR" or transactionType == "GUILD_REPAIR" then
+        Session.lastRepairCost = 0
+        Session.pendingRepairCost = 0
+        Session.ignoreNextRepairReduction = false
+    end
+
+    local knownPositiveAfter, knownNegativeAfter, knownQueueAfter = GetPendingKnownMovementState()
+
+    local eventName = transactionType == "VENDOR_INCOME" and "KNOWN_JUNK_SALE" or "KNOWN_REPAIR"
+    AppendDiagnosticRecord(eventName, {
+        "Transaction Type: " .. transactionType,
+        "Funding Type: " .. DiagnosticValue(details.fundingType),
+        "Item Entries: " .. DiagnosticValue(details.itemCount),
+        "Stack Count: " .. DiagnosticValue(details.stackCount),
+        "Item ID: " .. DiagnosticValue(details.itemID),
+        "Amount: " .. FormatDiagnosticMoney(amount),
+        "GetMoney before vendor call: " .. FormatDiagnosticMoney(details.walletBeforeSale),
+        "Bag item link: " .. DiagnosticValue(details.itemLink),
+        "ItemID sellPrice (raw): " .. FormatDiagnosticMoney(details.itemIDSellPrice),
+        "Bag-link sellPrice (raw): " .. FormatDiagnosticMoney(details.linkSellPrice),
+        "Bag-tooltip SellPrice (raw): " .. FormatDiagnosticMoney(details.bagTooltipPrice),
+        "Bag-tooltip maxPrice (raw): " .. FormatDiagnosticMoney(details.bagTooltipMaxPrice),
+        "GetMoney at notify: " .. FormatDiagnosticMoney(currentMoney),
+        "lastMoney before: " .. FormatDiagnosticMoney(lastMoneyBefore),
+        "lastMoney after: " .. FormatDiagnosticMoney(Session.lastMoney),
+        "Pending Known Positive before: " .. FormatDiagnosticMoney(knownPositiveBefore),
+        "Pending Known Positive after: " .. FormatDiagnosticMoney(knownPositiveAfter),
+        "Pending Known Negative before: " .. FormatDiagnosticMoney(knownNegativeBefore),
+        "Pending Known Negative after: " .. FormatDiagnosticMoney(knownNegativeAfter),
+        "Pending Known Queue before: " .. knownQueueBefore,
+        "Pending Known Queue after: " .. knownQueueAfter,
+        "Gold Gained before: " .. FormatDiagnosticMoney(gainedBefore),
+        "Gold Gained after: " .. FormatDiagnosticMoney(Session.sessionGoldGained),
+        "Gold Spent before: " .. FormatDiagnosticMoney(spentBefore),
+        "Gold Spent after: " .. FormatDiagnosticMoney(Session.sessionGoldSpent),
+        "Repairs before: " .. FormatDiagnosticMoney(repairsBefore),
+        "Repairs after: " .. FormatDiagnosticMoney(Session.sessionRepairSpent),
+        "Guild Repairs before: " .. FormatDiagnosticMoney(guildRepairsBefore),
+        "Guild Repairs after: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent),
+        "Junk Items before: " .. DiagnosticValue(junkItemsBefore),
+        "Junk Items after: " .. DiagnosticValue(Session.sessionJunkItems),
+        "Junk Gold before: " .. FormatDiagnosticMoney(junkGoldBefore),
+        "Junk Gold after: " .. FormatDiagnosticMoney(Session.sessionJunkGold),
+        "Pending Repair Cost before: " .. FormatDiagnosticMoney(pendingBefore),
+        "Pending Repair Cost after: " .. FormatDiagnosticMoney(Session.pendingRepairCost),
+        "Last Repair Cost before: " .. FormatDiagnosticMoney(lastRepairBefore),
+        "Last Repair Cost after: " .. FormatDiagnosticMoney(Session.lastRepairCost),
+        "Ignore Next Repair Reduction before: " .. DiagnosticValue(ignoreRepairBefore),
+        "Ignore Next Repair Reduction after: " .. DiagnosticValue(Session.ignoreNextRepairReduction),
+    })
+
+    SessionStats.Refresh()
 end
 
 -- Updates each player-facing crest from one currency while counting only positive owned-quantity deltas.
@@ -116,6 +370,17 @@ end
 if RepairAllItems and hooksecurefunc then
     hooksecurefunc("RepairAllItems", function(useGuildBank)
         local currentCost = ReadRepairCost() or Session.lastRepairCost or 0
+        -- Observe the post-call wallet before Utilities sends its explicit repair notification.
+        if diagnosticsEnabled then
+            local _, _, knownQueue = GetPendingKnownMovementState()
+            AppendDiagnosticRecord("REPAIR_ALL_POST_HOOK", {
+                "Use Guild Bank: " .. DiagnosticValue(useGuildBank),
+                "GetMoney: " .. FormatDiagnosticMoney(GetMoney()),
+                "lastMoney: " .. FormatDiagnosticMoney(Session.lastMoney),
+                "Current Repair Cost: " .. FormatDiagnosticMoney(currentCost),
+                "Pending Known Queue: " .. knownQueue,
+            })
+        end
 
         if useGuildBank then
             local guildWithdrawal = GetGuildBankWithdrawMoney() or 0
@@ -134,18 +399,36 @@ end
 -- Tracks gross money movement while retaining repairs as a subset of total spending.
 local function HandlePlayerMoney()
     local currentMoney = GetMoney()
+    local lastMoneyBefore = Session.lastMoney
+    local gainedBefore = Session.sessionGoldGained
+    local spentBefore = Session.sessionGoldSpent
+    local repairsBefore = Session.sessionRepairSpent
+    local guildRepairsBefore = Session.sessionGuildRepairSpent
+    local pendingBefore = Session.pendingRepairCost
+    local lastRepairBefore = Session.lastRepairCost
+    local ignoreRepairBefore = Session.ignoreNextRepairReduction
+    local knownPositiveBefore, knownNegativeBefore, knownQueueBefore = GetPendingKnownMovementState()
     if Session.lastMoney == nil then
         Session.lastMoney = currentMoney
+        AppendDiagnosticRecord("PLAYER_MONEY", {
+            "GetMoney: " .. FormatDiagnosticMoney(currentMoney),
+            "lastMoney before: nil",
+            "Raw delta: unavailable",
+            "Action: baseline established",
+            "lastMoney after: " .. FormatDiagnosticMoney(Session.lastMoney),
+            "Pending Known Queue unchanged: " .. knownQueueBefore,
+        })
         return
     end
 
-    local delta = currentMoney - Session.lastMoney
+    local rawDelta = currentMoney - Session.lastMoney
+    local reconciledKnown, unexplainedDelta = ReconcilePendingKnownMovement(rawDelta)
     local currentRepairCost = GetCurrentRepairCost()
 
-    if delta > 0 then
-        Session.sessionGoldGained = Session.sessionGoldGained + delta
-    elseif delta < 0 then
-        local spent = -delta
+    if unexplainedDelta > 0 then
+        Session.sessionGoldGained = Session.sessionGoldGained + unexplainedDelta
+    elseif unexplainedDelta < 0 then
+        local spent = -unexplainedDelta
         Session.sessionGoldSpent = Session.sessionGoldSpent + spent
 
         local repairSpent = 0
@@ -166,11 +449,49 @@ local function HandlePlayerMoney()
         Session.lastRepairCost = currentRepairCost
     end
 
+    local knownPositiveAfter, knownNegativeAfter, knownQueueAfter = GetPendingKnownMovementState()
+
+    AppendDiagnosticRecord("PLAYER_MONEY", {
+        "GetMoney: " .. FormatDiagnosticMoney(currentMoney),
+        "lastMoney before: " .. FormatDiagnosticMoney(lastMoneyBefore),
+        "Raw delta: " .. FormatDiagnosticMoney(rawDelta, true),
+        "Pending Known Positive before: " .. FormatDiagnosticMoney(knownPositiveBefore),
+        "Pending Known Positive after: " .. FormatDiagnosticMoney(knownPositiveAfter),
+        "Pending Known Negative before: " .. FormatDiagnosticMoney(knownNegativeBefore),
+        "Pending Known Negative after: " .. FormatDiagnosticMoney(knownNegativeAfter),
+        "Pending Known Queue before: " .. knownQueueBefore,
+        "Pending Known Queue after: " .. knownQueueAfter,
+        "Reconciled Known Movement: " .. FormatDiagnosticMoney(reconciledKnown, true),
+        "Unexplained Remainder: " .. FormatDiagnosticMoney(unexplainedDelta, true),
+        "Pending Repair Cost before: " .. FormatDiagnosticMoney(pendingBefore),
+        "Pending Repair Cost after: " .. FormatDiagnosticMoney(Session.pendingRepairCost),
+        "Current Repair Cost: " .. FormatDiagnosticMoney(currentRepairCost),
+        "Last Repair Cost before: " .. FormatDiagnosticMoney(lastRepairBefore),
+        "Last Repair Cost after: " .. FormatDiagnosticMoney(Session.lastRepairCost),
+        "Ignore Next Repair Reduction before: " .. DiagnosticValue(ignoreRepairBefore),
+        "Ignore Next Repair Reduction after: " .. DiagnosticValue(Session.ignoreNextRepairReduction),
+        "Classified Gold Gained: " .. FormatDiagnosticMoney(Session.sessionGoldGained - gainedBefore),
+        "Classified Gold Spent: " .. FormatDiagnosticMoney(Session.sessionGoldSpent - spentBefore),
+        "Repair Attribution: " .. FormatDiagnosticMoney(Session.sessionRepairSpent - repairsBefore),
+        "Guild Repair Attribution: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent - guildRepairsBefore),
+        "Gold Gained before: " .. FormatDiagnosticMoney(gainedBefore),
+        "Gold Gained after: " .. FormatDiagnosticMoney(Session.sessionGoldGained),
+        "Gold Spent before: " .. FormatDiagnosticMoney(spentBefore),
+        "Gold Spent after: " .. FormatDiagnosticMoney(Session.sessionGoldSpent),
+        "Repairs before: " .. FormatDiagnosticMoney(repairsBefore),
+        "Repairs after: " .. FormatDiagnosticMoney(Session.sessionRepairSpent),
+        "Guild Repairs before: " .. FormatDiagnosticMoney(guildRepairsBefore),
+        "Guild Repairs after: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent),
+        "lastMoney after: " .. FormatDiagnosticMoney(Session.lastMoney),
+    })
+
     SessionStats.Refresh()
 end
 
 -- Starts and ends the bounded repair-cost observation window at repair merchants.
 local function HandleMerchantEvent(event)
+    local lastMoneyBefore = Session.lastMoney
+    local _, _, knownQueue = GetPendingKnownMovementState()
     if event == "MERCHANT_SHOW" then
         Session.repairMerchantOpen = true
         Session.lastRepairCost = GetCurrentRepairCost()
@@ -182,20 +503,106 @@ local function HandleMerchantEvent(event)
         Session.pendingRepairCost = 0
         Session.ignoreNextRepairReduction = false
     end
+
+    AppendDiagnosticRecord(event, {
+        "GetMoney: " .. FormatDiagnosticMoney(GetMoney()),
+        "lastMoney before: " .. FormatDiagnosticMoney(lastMoneyBefore),
+        "lastMoney after: " .. FormatDiagnosticMoney(Session.lastMoney),
+        "Repair Merchant Open: " .. DiagnosticValue(Session.repairMerchantOpen),
+        "Last Repair Cost: " .. FormatDiagnosticMoney(Session.lastRepairCost),
+        "Pending Repair Cost: " .. FormatDiagnosticMoney(Session.pendingRepairCost),
+        "Pending Known Queue unchanged: " .. knownQueue,
+    })
 end
 
--- Initializes runtime-only counters while the first currency update establishes crest baselines.
+-- Initializes runtime-only counters while later lifecycle events establish money and crest baselines.
 local function InitializeSessionStats()
     Session.sessionGoldGained = 0
     Session.sessionGoldSpent = 0
     Session.sessionRepairSpent = 0
+    Session.sessionGuildRepairSpent = 0
+    Session.sessionJunkItems = 0
+    Session.sessionJunkGold = 0
     Session.crestStats = {}
-    Session.lastMoney = GetMoney()
+    Session.pendingKnownWalletMovements = {}
+    Session.lastMoney = nil
     Session.repairMerchantOpen = false
     Session.lastRepairCost = nil
     Session.pendingRepairCost = 0
     Session.ignoreNextRepairReduction = false
 end
+
+-- Resets only runtime Session Stats and establishes fresh observable baselines for subsequent events.
+function SessionStats.ResetCounters()
+    local walletBefore = GetMoney()
+    local lastMoneyBefore = Session.lastMoney
+    local knownPositiveBefore, knownNegativeBefore, knownQueueBefore = GetPendingKnownMovementState()
+
+    Session.sessionXP = 0
+    Session.lastXPGain = 0
+    Session.lastXP = UnitXP("player")
+    Session.lastMaxXP = UnitXPMax("player")
+    Session.sessionRep = {}
+
+    Session.sessionGoldGained = 0
+    Session.sessionGoldSpent = 0
+    Session.sessionRepairSpent = 0
+    Session.sessionGuildRepairSpent = 0
+    Session.sessionJunkItems = 0
+    Session.sessionJunkGold = 0
+    Session.lastMoney = walletBefore
+    Session.pendingKnownWalletMovements = {}
+    Session.pendingRepairCost = 0
+    Session.ignoreNextRepairReduction = false
+    Session.lastRepairCost = Session.repairMerchantOpen and GetCurrentRepairCost() or nil
+
+    for _, resource in ipairs(BUILT_IN_RESOURCES) do
+        local crestState = Session.crestStats[resource.key] or {}
+        Session.crestStats[resource.key] = crestState
+        crestState.sessionGained = 0
+        crestState.lastQuantity = nil
+    end
+    UpdateSessionCrests(false)
+
+    local knownPositiveAfter, knownNegativeAfter, knownQueueAfter = GetPendingKnownMovementState()
+    AppendDiagnosticRecord("SESSION_STATS_RESET", {
+        "GetMoney: " .. FormatDiagnosticMoney(walletBefore),
+        "lastMoney before: " .. FormatDiagnosticMoney(lastMoneyBefore),
+        "lastMoney after: " .. FormatDiagnosticMoney(Session.lastMoney),
+        "Pending Known Positive before: " .. FormatDiagnosticMoney(knownPositiveBefore),
+        "Pending Known Positive after: " .. FormatDiagnosticMoney(knownPositiveAfter),
+        "Pending Known Negative before: " .. FormatDiagnosticMoney(knownNegativeBefore),
+        "Pending Known Negative after: " .. FormatDiagnosticMoney(knownNegativeAfter),
+        "Pending Known Queue before: " .. knownQueueBefore,
+        "Pending Known Queue after: " .. knownQueueAfter,
+        "Experience baseline: " .. DiagnosticValue(Session.lastXP),
+        "Experience maximum baseline: " .. DiagnosticValue(Session.lastMaxXP),
+        "Gold Gained after: " .. FormatDiagnosticMoney(Session.sessionGoldGained),
+        "Gold Spent after: " .. FormatDiagnosticMoney(Session.sessionGoldSpent),
+        "Repairs after: " .. FormatDiagnosticMoney(Session.sessionRepairSpent),
+        "Guild Repairs after: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent),
+        "Junk Items after: " .. DiagnosticValue(Session.sessionJunkItems),
+        "Junk Gold after: " .. FormatDiagnosticMoney(Session.sessionJunkGold),
+        "Pending Repair Cost after: " .. FormatDiagnosticMoney(Session.pendingRepairCost),
+        "Last Repair Cost after: " .. FormatDiagnosticMoney(Session.lastRepairCost),
+        "Mistcrest session gains reset and quantities re-baselined: true",
+    })
+
+    SessionStats.Refresh()
+end
+
+StaticPopupDialogs["OUS_CONFIRM_RESET_SESSION_STATS"] = {
+    text = "Reset Session Stats? Current-session counters will be cleared and re-baselined.",
+    button1 = "Reset Counters",
+    button2 = "Cancel",
+    OnAccept = function()
+        SessionStats.ResetCounters()
+    end,
+    timeout = 0,
+    whileDead = true,
+    hideOnEscape = true,
+    preferredIndex = 3,
+}
 
 -- Session Stats Frame
 OUS.statsFrame = CreateFrame("Frame", "OdysseusStatsFrame", UIParent, "BackdropTemplate")
@@ -238,9 +645,257 @@ statsTitle:SetPoint("TOP", 0, -10)
 statsTitle:SetText("Odysseus Session Stats")
 statsTitle:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE")
 
+local GOLD_DEBUG_HELP_TEXT = [[
+|cffA78BFASUMMARY FIELDS|r
+
+|cffFBBF24Current Wallet:|r Current character wallet returned by GetMoney() when the report is refreshed.
+|cffFBBF24lastMoney:|r Last wallet value actually observed and accepted by Session Stats. It is never a predicted future value.
+|cffFBBF24Gold Gained / Gold Spent:|r Gross personal-wallet income and spending this session, including personal repairs. Known OUS transactions count immediately; unexplained wallet gains or spending count through PLAYER_MONEY.
+|cffFBBF24Repairs:|r Personal-wallet repair spending, which is also included in Gold Spent.
+|cffFBBF24Guild Repairs:|r Guild-bank-funded repair spending. It is informational and is not included in Gold Spent.
+|cffFBBF24Junk Items:|r Physical item quantity sold automatically by OUS, using each sold stack count.
+|cffFBBF24Junk Gold:|r Exact gross proceeds from OUS automatic junk sales. It is an informational subset of Gold Gained.
+|cffFBBF24Pending Repair Cost:|r Repair amount awaiting attribution by the fallback repair observer.
+|cffFBBF24Last Repair Cost:|r Previous merchant repair bill used to detect a repair-cost reduction.
+|cffFBBF24Ignore Next Repair Reduction:|r True when the repair hook determined a guild repair should not be attributed to the personal wallet. Explicit OUS repair notifications clear it after recording exact funding.
+|cffFBBF24Repair Merchant Open:|r Whether Session Stats is currently inside its bounded merchant repair-observation window.
+
+|cffA78BFARECONCILIATION FIELDS|r
+
+|cffFBBF24Raw delta:|r Current GetMoney() minus lastMoney before reconciliation. Positive is an observed wallet gain; negative is an observed wallet loss.
+|cffFBBF24Pending Known Positive before / after:|r Expected positive personal-wallet movement from OUS transactions, normally junk sales, still awaiting observed wallet reconciliation.
+|cffFBBF24Pending Known Negative before / after:|r Expected negative personal-wallet movement, normally personal-funded repairs. Guild repairs do not add personal-wallet movement.
+|cffFBBF24Pending Known Queue before / after:|r Ordered known wallet movements awaiting reconciliation. Positive entries are gains; negative entries are losses. Matching first looks for an exact cumulative total from the front of the queue. Otherwise, same-sign entries are consumed in queue order, skipping opposite-sign entries and allowing partial consumption.
+|cffFBBF24Reconciled Known Movement:|r Portion of Raw delta matched to OUS transactions already counted explicitly, preventing duplicate accounting.
+|cffFBBF24Unexplained Remainder:|r Observed wallet movement not matched to a known OUS transaction. Positive remainder adds Gold Gained; negative remainder adds Gold Spent.
+|cffFBBF24Classified Gold Gained / Classified Gold Spent:|r Additional ordinary gain or spending assigned from the current PLAYER_MONEY remainder.
+|cffFBBF24Repair Attribution:|r Portion of additional spending assigned to Repairs by the fallback repair observer during this PLAYER_MONEY event.
+|cffFBBF24Guild Repair Attribution:|r Change to Guild Repairs during the current PLAYER_MONEY event. Explicit OUS guild repairs are normally recorded by KNOWN_REPAIR instead.
+
+|cffA78BFAKNOWN TRANSACTION FIELDS|r
+
+|cffFBBF24Transaction Type:|r VENDOR_INCOME, PERSONAL_REPAIR, or GUILD_REPAIR.
+|cffFBBF24Funding Type:|r personal or guild for repairs; nil for junk sales.
+|cffFBBF24Item Entries:|r Number of bag-slot sale entries represented by the notification. Current junk notifications represent one entry.
+|cffFBBF24Stack Count:|r Physical item quantity represented by the current junk sale transaction.
+|cffFBBF24Item ID:|r Blizzard item ID for the known junk transaction.
+|cffFBBF24Amount:|r Exact known transaction value in copper and plain-text gold, silver, and copper.
+|cffFBBF24GetMoney at notify:|r Observable wallet value when Utilities reports the known transaction.
+|cffFBBF24Gold Gained before / after, Gold Spent before / after, Repairs before / after, Guild Repairs before / after:|r Session accumulator values surrounding the record.
+|cffFBBF24Junk Items before / after and Junk Gold before / after:|r Junk breakdown accumulators surrounding the known transaction.
+|cffFBBF24Current Repair Cost:|r Current merchant repair bill when available.
+Fields ending in before or after show state immediately before or after the named event processing.
+
+|cffA78BFAJUNK PRICE DIAGNOSTICS|r
+
+|cffFBBF24Bag item link:|r Actual current bag hyperlink used to price the sold stack.
+|cffFBBF24Bag-link sellPrice (raw):|r Production per-unit sellPrice from C_Item.GetItemInfo(bag hyperlink). Amount for a junk sale is this price multiplied by Stack Count.
+|cffFBBF24ItemID sellPrice (raw):|r ItemID-only price probe for comparison, not production accounting.
+|cffFBBF24Bag-tooltip SellPrice (raw) / Bag-tooltip maxPrice (raw):|r Optional bag-tooltip comparison values, not production accounting. These and the ItemID probe can be nil even when production bag-link pricing succeeds; comparison probes run only with OUS debug mode enabled.
+|cffFBBF24GetMoney before vendor call / GetMoney at notify:|r Actual wallet observations surrounding the sale call, not predicted proceeds.
+
+|cffA78BFAEVENTS|r
+
+#001, #002, and later numbers preserve exact diagnostic observation order.
+|cffFBBF24DIAGNOSTICS_ENABLED:|r Logging was enabled and captures the current wallet, baseline, and pending queue.
+|cffFBBF24ADDON_LOADED:|r Runtime counters are initialized. Addon names the loaded addon and Action describes initialization. The cold-login money baseline is intentionally left nil until PLAYER_ENTERING_WORLD.
+|cffFBBF24PLAYER_ENTERING_WORLD:|r Establishes or refreshes the observed wallet baseline on login/reload, with isInitialLogin, isReloadingUi, and Baseline initialized/reset fields.
+|cffFBBF24PLAYER_MONEY:|r Reconciles an observed wallet change, then records known movement, unexplained remainder, accumulator changes, and the accepted lastMoney value. Action describes the nil-baseline fallback when applicable.
+|cffFBBF24MERCHANT_SHOW / MERCHANT_CLOSED:|r Merchant lifecycle boundaries with wallet, repair-open, and repair-cost state.
+|cffFBBF24KNOWN_JUNK_SALE:|r Records the bag-link-priced gross amount, one bag-slot entry, and physical stack quantity when OUS issues the sale. It is a known OUS transaction, not a separate wallet confirmation.
+|cffFBBF24KNOWN_REPAIR:|r Records exact personal or guild-funded repair accounting and its expected personal-wallet effect.
+|cffFBBF24REPAIR_ALL_POST_HOOK:|r Observes the wallet and repair state after a Repair All call, before any explicit OUS repair notification.
+|cffFBBF24KNOWN_MOVEMENT_RECONCILIATION:|r Reports the matching mode. Prefix entries removed counts an exact ordered match; Consumption steps shows same-sign amounts consumed and any partial entry left pending.
+|cffFBBF24SESSION_STATS_RESET:|r Clears session XP and reputation gains, Gold Gained, Gold Spent, Repairs, Guild Repairs, Junk Items, Junk Gold, and Mistcrest Session gains. XP, wallet, and crest quantities are rebaselined; the known queue and pending repair state are cleared, and the current repair bill is reread if the merchant is open. Current/Season crest values are refreshed, not zeroed. Lifetime/Overall Stats and SavedVariables are untouched. Existing diagnostic records remain; an enabled timeline records the reset.
+
+All monetary fields show both raw copper and a plain-text g/s/c equivalent. Booleans, IDs, quantities, event names, and sequence numbers are not money-formatted.
+]]
+
+local goldDebugHelpFrame
+
+-- Opens a scrollable reference that matches the diagnostic fields emitted by this file.
+local function ShowGoldDebugHelp()
+    if not goldDebugHelpFrame then
+        goldDebugHelpFrame = CreateFrame("Frame", "OUSSessionStatsGoldDebugHelp", UIParent, "BackdropTemplate")
+        goldDebugHelpFrame:SetSize(580, 520)
+        goldDebugHelpFrame:SetPoint("CENTER", UIParent, "CENTER", 80, 20)
+        goldDebugHelpFrame:SetFrameStrata("FULLSCREEN_DIALOG")
+        goldDebugHelpFrame:SetMovable(true)
+        goldDebugHelpFrame:SetClampedToScreen(true)
+        goldDebugHelpFrame:EnableMouse(true)
+        goldDebugHelpFrame:RegisterForDrag("LeftButton")
+        goldDebugHelpFrame:SetScript("OnDragStart", goldDebugHelpFrame.StartMoving)
+        goldDebugHelpFrame:SetScript("OnDragStop", goldDebugHelpFrame.StopMovingOrSizing)
+        goldDebugHelpFrame:Hide()
+        tinsert(UISpecialFrames, goldDebugHelpFrame:GetName())
+
+        goldDebugHelpFrame:SetBackdrop({
+            bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+            tile = false,
+            edgeSize = 16,
+            insets = { left = 4, right = 4, top = 4, bottom = 4 },
+        })
+        goldDebugHelpFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.98)
+        goldDebugHelpFrame:SetBackdropBorderColor(0.5, 0.3, 0.7, 1)
+
+        local title = goldDebugHelpFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+        title:SetPoint("TOP", goldDebugHelpFrame, "TOP", 0, -14)
+        title:SetText("Gold Debug Help")
+        title:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE")
+
+        local closeButton = CreateFrame("Button", nil, goldDebugHelpFrame, "UIPanelCloseButton")
+        closeButton:SetPoint("TOPRIGHT", goldDebugHelpFrame, "TOPRIGHT", -2, -2)
+
+        local scrollFrame = CreateFrame("ScrollFrame", nil, goldDebugHelpFrame, "UIPanelScrollFrameTemplate")
+        scrollFrame:SetPoint("TOPLEFT", goldDebugHelpFrame, "TOPLEFT", 20, -44)
+        scrollFrame:SetPoint("BOTTOMRIGHT", goldDebugHelpFrame, "BOTTOMRIGHT", -36, 18)
+
+        local scrollChild = CreateFrame("Frame", nil, scrollFrame)
+        scrollChild:SetWidth(512)
+        scrollFrame:SetScrollChild(scrollChild)
+
+        local helpText = scrollChild:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+        helpText:SetPoint("TOPLEFT")
+        helpText:SetWidth(512)
+        helpText:SetJustifyH("LEFT")
+        helpText:SetJustifyV("TOP")
+        helpText:SetText(GOLD_DEBUG_HELP_TEXT)
+        scrollChild:SetHeight(helpText:GetStringHeight() + 20)
+    end
+
+    goldDebugHelpFrame:Show()
+end
+
+-- Creates the temporary copyable gold-accounting timeline only when requested.
+local function ShowGoldDiagnostics()
+    if not diagnosticFrame then
+        diagnosticFrame = CreateFrame("Frame", "OUSSessionStatsGoldDiagnostics", UIParent, "BackdropTemplate")
+        diagnosticFrame:SetSize(680, 520)
+        diagnosticFrame:SetPoint("CENTER")
+        diagnosticFrame:SetFrameStrata("FULLSCREEN_DIALOG")
+        diagnosticFrame:SetMovable(true)
+        diagnosticFrame:SetClampedToScreen(true)
+        diagnosticFrame:EnableMouse(true)
+        diagnosticFrame:RegisterForDrag("LeftButton")
+        diagnosticFrame:SetScript("OnDragStart", diagnosticFrame.StartMoving)
+        diagnosticFrame:SetScript("OnDragStop", diagnosticFrame.StopMovingOrSizing)
+        diagnosticFrame:Hide()
+        tinsert(UISpecialFrames, diagnosticFrame:GetName())
+
+        diagnosticFrame:SetBackdrop({
+            bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+            edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+            tile = false,
+            edgeSize = 16,
+            insets = { left = 4, right = 4, top = 4, bottom = 4 },
+        })
+        diagnosticFrame:SetBackdropColor(0.07, 0.05, 0.1, 0.98)
+        diagnosticFrame:SetBackdropBorderColor(0.5, 0.3, 0.7, 1)
+
+        local title = diagnosticFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+        title:SetPoint("TOP", diagnosticFrame, "TOP", 0, -14)
+        title:SetText("OUS Session Stats Gold Diagnostics")
+        title:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE")
+
+        local closeButton = CreateFrame("Button", nil, diagnosticFrame, "UIPanelCloseButton")
+        closeButton:SetPoint("TOPRIGHT", diagnosticFrame, "TOPRIGHT", -2, -2)
+
+        local helpButton = CreateFrame("Button", nil, diagnosticFrame, "UIPanelButtonTemplate")
+        helpButton:SetSize(22, 22)
+        helpButton:SetPoint("TOPRIGHT", diagnosticFrame, "TOPRIGHT", -34, -6)
+        helpButton:SetText("?")
+        helpButton:SetScript("OnClick", ShowGoldDebugHelp)
+
+        local enableCheckButton = CreateFrame("CheckButton", nil, diagnosticFrame, "UICheckButtonTemplate")
+        enableCheckButton:SetSize(24, 24)
+        enableCheckButton:SetPoint("TOPLEFT", diagnosticFrame, "TOPLEFT", 18, -38)
+        enableCheckButton:SetChecked(diagnosticsEnabled)
+        diagnosticFrame.enableCheckButton = enableCheckButton
+
+        local enableLabel = diagnosticFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+        enableLabel:SetPoint("LEFT", enableCheckButton, "RIGHT", 2, 0)
+        enableLabel:SetText("Enable Gold Diagnostics")
+
+        enableCheckButton:SetScript("OnClick", function(self)
+            diagnosticsEnabled = self:GetChecked() == true
+            if diagnosticsEnabled then
+                AppendDiagnosticRecord("DIAGNOSTICS_ENABLED", {
+                    "GetMoney: " .. FormatDiagnosticMoney(GetMoney()),
+                    "lastMoney: " .. FormatDiagnosticMoney(Session.lastMoney),
+                    "Pending Known Queue: " .. select(3, GetPendingKnownMovementState()),
+                })
+            end
+            diagnosticEditBox:SetText(BuildDiagnosticText())
+            diagnosticEditBox:SetCursorPosition(0)
+        end)
+
+        local scrollFrame = CreateFrame("ScrollFrame", nil, diagnosticFrame, "UIPanelScrollFrameTemplate")
+        scrollFrame:SetPoint("TOPLEFT", diagnosticFrame, "TOPLEFT", 18, -70)
+        scrollFrame:SetPoint("BOTTOMRIGHT", diagnosticFrame, "BOTTOMRIGHT", -34, 48)
+        diagnosticFrame.scrollFrame = scrollFrame
+
+        diagnosticEditBox = CreateFrame("EditBox", nil, scrollFrame)
+        diagnosticEditBox:SetMultiLine(true)
+        diagnosticEditBox:SetAutoFocus(false)
+        diagnosticEditBox:SetFontObject(ChatFontNormal)
+        diagnosticEditBox:SetWidth(618)
+        diagnosticEditBox:SetScript("OnEscapePressed", function(self)
+            self:ClearFocus()
+        end)
+        scrollFrame:SetScrollChild(diagnosticEditBox)
+
+        local clearButton = CreateFrame("Button", nil, diagnosticFrame, "UIPanelButtonTemplate")
+        clearButton:SetSize(100, 24)
+        clearButton:SetPoint("BOTTOMLEFT", diagnosticFrame, "BOTTOMLEFT", 18, 14)
+        clearButton:SetText("Clear Log")
+        clearButton:SetScript("OnClick", function()
+            diagnosticRecords = {}
+            diagnosticSequence = 0
+            diagnosticEditBox:SetText(BuildDiagnosticText())
+            diagnosticEditBox:SetCursorPosition(0)
+            scrollFrame:SetVerticalScroll(0)
+        end)
+
+        local copyHelp = diagnosticFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        copyHelp:SetPoint("BOTTOMRIGHT", diagnosticFrame, "BOTTOMRIGHT", -18, 20)
+        copyHelp:SetText("Click text, then press Ctrl+A and Ctrl+C")
+    end
+
+    diagnosticFrame.enableCheckButton:SetChecked(diagnosticsEnabled)
+    diagnosticEditBox:SetText(BuildDiagnosticText())
+    diagnosticEditBox:SetCursorPosition(0)
+    diagnosticFrame.scrollFrame:SetVerticalScroll(0)
+    diagnosticFrame:Show()
+end
+
+local diagnosticsButton = CreateFrame("Button", nil, stats, "UIPanelButtonTemplate")
+diagnosticsButton:SetSize(88, 20)
+diagnosticsButton:SetPoint("TOPLEFT", stats, "TOPLEFT", 8, -8)
+diagnosticsButton:SetText("Gold Debug")
+diagnosticsButton:SetScript("OnClick", ShowGoldDiagnostics)
+diagnosticsButton:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+    GameTooltip:SetText("Gold Debug")
+    GameTooltip:AddLine("Opens detailed diagnostic information for Session Stats gold accounting.", 1, 1, 1, true)
+    GameTooltip:AddLine("Intended for troubleshooting money, junk-sale, and repair tracking.", 0.8, 0.8, 0.8, true)
+    GameTooltip:Show()
+end)
+diagnosticsButton:SetScript("OnLeave", function()
+    GameTooltip:Hide()
+end)
+
+local resetCountersButton = CreateFrame("Button", nil, stats, "UIPanelButtonTemplate")
+resetCountersButton:SetSize(118, 22)
+resetCountersButton:SetPoint("BOTTOM", stats, "BOTTOM", 0, 10)
+resetCountersButton:SetText("Reset Counters")
+resetCountersButton:SetScript("OnClick", function()
+    StaticPopup_Show("OUS_CONFIRM_RESET_SESSION_STATS")
+end)
+
 stats.scrollBox = CreateFrame("Frame", nil, stats, "WowScrollBox")
 stats.scrollBox:SetPoint("TOPLEFT", 20, -50)
-stats.scrollBox:SetPoint("BOTTOMRIGHT", -36, 20)
+stats.scrollBox:SetPoint("BOTTOMRIGHT", -36, 42)
 
 stats.scrollBar = CreateFrame("EventFrame", nil, stats, "MinimalScrollBar")
 stats.scrollBar:SetWidth(8)
@@ -274,7 +929,7 @@ stats.goldHeader = CreateStatsText()
 stats.crestHeader = CreateStatsText()
 
 stats.goldRows = {}
-for _, label in ipairs({ "Gold Gained:", "Gold Spent:", "Repairs:" }) do
+for _, label in ipairs({ "Gold Gained:", "Gold Spent:", "Repairs:", "Guild Repairs:", "Junk:" }) do
     local row = {
         label = CreateStatsText("GameFontHighlight", 94, "LEFT"),
         value = CreateStatsText("GameFontHighlight", 224, "LEFT"),
@@ -345,6 +1000,9 @@ function stats:UpdateData()
     self.goldRows[1].value:SetText(FormatSessionMoney(Session.sessionGoldGained))
     self.goldRows[2].value:SetText(FormatSessionMoney(Session.sessionGoldSpent))
     self.goldRows[3].value:SetText(FormatSessionMoney(Session.sessionRepairSpent))
+    self.goldRows[4].value:SetText(FormatSessionMoney(Session.sessionGuildRepairSpent))
+    self.goldRows[5].value:SetText(string.format("%d items / %s",
+        Session.sessionJunkItems, FormatSessionMoney(Session.sessionJunkGold)))
     self.crestHeader:SetText("|cFF00FFFFCrests:|r")
 
     self.experienceHeader:Hide()
@@ -391,15 +1049,22 @@ function stats:UpdateData()
         PositionStatsText(self.goldHeader, 0, y)
         y = y - 20
 
-        local lastGoldRow = sections.repairs and 3 or 2
-        local firstGoldRow = sections.gold and 1 or 3
-        for index = firstGoldRow, lastGoldRow do
+        local visibleGoldRows = {
+            sections.gold,
+            sections.gold,
+            sections.repairs,
+            sections.repairs,
+            sections.gold,
+        }
+        for index, isVisible in ipairs(visibleGoldRows) do
             local row = self.goldRows[index]
-            row.label:Show()
-            row.value:Show()
-            PositionStatsText(row.label, 0, y)
-            PositionStatsText(row.value, 100, y)
-            y = y - 18
+            if isVisible then
+                row.label:Show()
+                row.value:Show()
+                PositionStatsText(row.label, 0, y)
+                PositionStatsText(row.value, 100, y)
+                y = y - 18
+            end
         end
     end
 
@@ -466,23 +1131,50 @@ function SessionStats.Refresh()
 end
 
 eventFrame:RegisterEvent("ADDON_LOADED")
+eventFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 eventFrame:RegisterEvent("PLAYER_MONEY")
 eventFrame:RegisterEvent("MERCHANT_SHOW")
 eventFrame:RegisterEvent("MERCHANT_CLOSED")
 eventFrame:RegisterEvent("CURRENCY_DISPLAY_UPDATE")
 
-eventFrame:SetScript("OnEvent", function(_, event, arg1)
+eventFrame:SetScript("OnEvent", function(_, event, arg1, arg2)
     if event == "ADDON_LOADED" then
         if arg1 == addonName then
+            local currentMoney = GetMoney()
+            local lastMoneyBefore = Session.lastMoney
             SessionStats.GetSettings()
             InitializeSessionStats()
+            AppendDiagnosticRecord("ADDON_LOADED", {
+                "Addon: " .. DiagnosticValue(arg1),
+                "GetMoney: " .. FormatDiagnosticMoney(currentMoney),
+                "lastMoney before: " .. FormatDiagnosticMoney(lastMoneyBefore),
+                "lastMoney after: " .. FormatDiagnosticMoney(Session.lastMoney),
+                "Action: runtime counters reset; money baseline left uninitialized",
+            })
         end
         return
     end
 
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then return end
 
-    if event == "PLAYER_MONEY" then
+    if event == "PLAYER_ENTERING_WORLD" then
+        local currentMoney = GetMoney()
+        local lastMoneyBefore = Session.lastMoney
+        local _, _, knownQueue = GetPendingKnownMovementState()
+        local baselineReset = arg1 or arg2 or Session.lastMoney == nil
+        if baselineReset then
+            Session.lastMoney = currentMoney
+        end
+        AppendDiagnosticRecord("PLAYER_ENTERING_WORLD", {
+            "isInitialLogin: " .. DiagnosticValue(arg1),
+            "isReloadingUi: " .. DiagnosticValue(arg2),
+            "GetMoney: " .. FormatDiagnosticMoney(currentMoney),
+            "lastMoney before: " .. FormatDiagnosticMoney(lastMoneyBefore),
+            "lastMoney after: " .. FormatDiagnosticMoney(Session.lastMoney),
+            "Baseline initialized/reset: " .. DiagnosticValue(baselineReset),
+            "Pending Known Queue unchanged: " .. knownQueue,
+        })
+    elseif event == "PLAYER_MONEY" then
         HandlePlayerMoney()
     elseif event == "MERCHANT_SHOW" or event == "MERCHANT_CLOSED" then
         HandleMerchantEvent(event)

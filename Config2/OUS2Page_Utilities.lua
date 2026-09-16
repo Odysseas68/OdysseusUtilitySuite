@@ -272,33 +272,40 @@ CreateCheckboxRow(
     "announceJunk"
 )
 CreateCheckboxRow(
+    "Detailed Sale Report",
+    "Report each sold junk stack in chat with its clickable item link, quantity, and total value.",
+    -452,
+    GetJunkSellDB,
+    "detailedSaleReport"
+)
+CreateCheckboxRow(
     "Limit Sales to 12 Items",
     "Sell junk in batches of 12 items and require confirmation for the next batch.",
-    -452,
+    -492,
     GetJunkSellDB,
     "limitTo12"
 )
 junkBlacklistActionLabel = CreateActionButton(
     "Manage Blacklist",
     "Open the existing Junk Seller blacklist manager to add, remove, or wipe blacklisted items.",
-    -492,
+    -532,
     OpenJunkBlacklistManager
 )
 
-CreateSectionHeader("Rare Announcer", -542)
+CreateSectionHeader("Rare Announcer", -582)
 CreateCheckboxRow(
     "Enable Rare Announcer",
     "Enable rare target announcements and waypoint links.",
-    -568,
+    -608,
     GetUtilitiesDB,
     "rareEnabled"
 )
 
-CreateSectionHeader("Extra Action Button", -618)
+CreateSectionHeader("Extra Action Button", -658)
 CreateCheckboxRow(
     "Hide Blizzard Artwork",
     "Hides the decorative Blizzard artwork around Extra Action and Zone Ability buttons while preserving the buttons, icons, cooldowns, clicks, positioning, and Edit Mode behavior.",
-    -644,
+    -684,
     GetUtilitiesDB,
     "hideExtraActionArtwork",
     OUS.ApplyExtraActionArtworkSetting

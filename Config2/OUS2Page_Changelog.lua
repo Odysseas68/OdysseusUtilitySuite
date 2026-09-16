@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.09.14
+-- Version : 2026.09.16
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -32,6 +32,21 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [Version 1.0.1 - 2026-09-16]
+
+### Added
+- Expanded Session Stats with Guild Repairs and junk quantity/value breakdowns, plus Reset Counters for current-session gains without clearing saved history.
+- Added copyable Gold Diagnostics and a clearer, color-highlighted help window for troubleshooting.
+- Added optional Detailed Sale Report with clickable item links, stack quantities, and sale values; the existing summary announcement remains separate.
+
+### Fixed
+- Improved gold and repair tracking during combined merchant transactions and cold login; guild repairs remain separate from personal spending.
+- Corrected junk-sale values for affected item instances and counted physical quantities in stacked junk sales.
+- Kept the Junk Seller button available inside the merchant's bottom-left footer while preserving Shift protection and 12-entry sale batches.
+- Improved guild-first Auto Repair checks and personal-gold fallback.
+
+---
 
 ## [Version 1.0.0 - 2026-09-14]
 

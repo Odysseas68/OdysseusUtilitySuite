@@ -409,7 +409,7 @@ Expose only after safe public APIs exist and OUS2 controls are available.
 
 - Detailed remaining XP Bar, Reputation, Favorites, Delves, reset, color, media, and range parity tasks are tracked in `Documentation\OUS2_XPBAR_PARITY.md`.
 - Keep this section high-level until that checklist is complete.
-- Session Stats Stage 1 is complete: the subsystem is separated from the XP Bar engine, its scrollable runtime view covers XP, reputation, gold, repairs, and five default-enabled Midnight Season 2 Mistcrests, and its persistent display controls live under XP Bar.
+- Session Stats Stage 1 is complete: the subsystem is separated from the XP Bar engine, its scrollable runtime view covers XP, reputation, gold, repairs, and five default-enabled Midnight Season 2 Mistcrests, and its persistent display controls live under XP Bar. Release 1.0.1 adds guild-repair and physical junk quantity/value breakdowns, known merchant-wallet reconciliation, confirmed session resets, and Gold Diagnostics with help.
 - Future Session Stats resource work may include custom Currency IDs, additional curated built-ins, `ITEM` resources kept architecturally distinct from `CURRENCY`, optional validated Blizzard Currency UI discovery, and search/filtering for larger lists.
 
 ---

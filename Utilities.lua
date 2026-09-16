@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Utilities.lua
--- Version : 2026.07.11
+-- Version : 2026.09.14
 -- Desc    : Utility commands, merchant tools, and Blizzard action artwork control
 -- ============================================================
 
@@ -17,6 +17,7 @@ OUS.utilitiesDefaults = {
         enabled = true,
         requireShift = false,
         announceJunk = true,
+        detailedSaleReport = false,
         limitTo12 = true,
         blacklist = {},
     },
@@ -204,6 +205,13 @@ local function FormatCost(copper)
     return string.format("%d%s %d%s %d%s", g, ICON_GOLD, s, ICON_SILVER, c, ICON_COPPER)
 end
 
+-- Passes exact OUS-owned merchant amounts to Session Stats without coupling Utilities to its runtime state.
+local function RecordSessionMerchantTransaction(transactionType, amount, details)
+    if OUS.SessionStats and OUS.SessionStats.RecordKnownMerchantTransaction then
+        OUS.SessionStats.RecordKnownMerchantTransaction(transactionType, amount, details)
+    end
+end
+
 local function DoRepair()
     local db = OdysseusDB.utilities
     if not db or not db.repairEnabled then return end
@@ -213,14 +221,32 @@ local function DoRepair()
     if not cost or cost == 0 then return end
 
     local usedGuild = false
+    local inGuild = db.guildRepair and IsInGuild()
+    local canGuildRepair = inGuild and CanGuildBankRepair()
+    local guildWithdrawal, guildBankMoney, guildAvailable
+    local guildCanCover = false
 
-    -- Try guild repair first
-    if db.guildRepair and IsInGuild() then
-        local guildMoney = GetGuildBankWithdrawMoney()
-        if guildMoney and guildMoney >= cost then
-            RepairAllItems(true)
-            usedGuild = true
-        end
+    -- Use guild repair only when permission, withdrawal allowance, and bank balance cover the bill.
+    if canGuildRepair then
+        guildWithdrawal = GetGuildBankWithdrawMoney()
+        guildBankMoney = GetGuildBankMoney()
+        guildAvailable = guildWithdrawal == -1
+            and (guildBankMoney or 0) or math.min(guildWithdrawal or 0, guildBankMoney or 0)
+        guildCanCover = guildAvailable >= cost
+    end
+
+    -- Temporarily capture the actual decision inputs without involving Session Stats accounting.
+    if OUS.IsDebugModeOn() then
+        OUS.LogDebug("Utilities", string.format(
+            "Auto Repair inputs: cost=%s guildRepair=%s inGuild=%s canGuildRepair=%s withdrawal=%s bank=%s unlimited=%s available=%s guildCanCover=%s",
+            tostring(cost), tostring(db.guildRepair), tostring(inGuild), tostring(canGuildRepair),
+            tostring(guildWithdrawal), tostring(guildBankMoney), tostring(guildWithdrawal == -1),
+            tostring(guildAvailable), tostring(guildCanCover)))
+    end
+
+    if guildCanCover then
+        RepairAllItems(true)
+        usedGuild = true
     end
 
     -- Fallback to own gold
@@ -232,6 +258,11 @@ local function DoRepair()
             return
         end
     end
+
+    OUS.LogDebug("Utilities", "Auto Repair selected funding: " .. (usedGuild and "guild" or "personal"))
+    RecordSessionMerchantTransaction(usedGuild and "GUILD_REPAIR" or "PERSONAL_REPAIR", cost, {
+        fundingType = usedGuild and "guild" or "personal",
+    })
 
     if db.announceRepair then
         local source = usedGuild
@@ -294,9 +325,10 @@ local function CollectJunkItems()
     return items
 end
 
-local batchSold   = 0   -- items sold in current batch
-local batchCopper = 0   -- copper earned in current batch
-local batchLimit  = 12  -- items per batch
+local batchSold     = 0   -- bag entries sold in current batch
+local batchQuantity = 0   -- physical item quantity sold in current batch
+local batchCopper   = 0   -- copper earned in current batch
+local batchLimit    = 12  -- bag entries per batch
 
 --- Sells one item from junkPending then schedules the next via timer.
 local function SellNextItem()
@@ -304,15 +336,18 @@ local function SellNextItem()
     if InCombatLockdown() then return end
     if not MerchantFrame:IsShown() then return end
     if #junkPending == 0 then
-        -- All done — announce and hide button
+        -- All done — announce and keep the merchant action available
         local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
         if db and batchSold > 0 and db.announceJunk then
             print(string.format("|cffA78BFA[OUS]:|r Sold %d junk item(s) for %s",
-                batchSold, FormatCost(batchCopper)))
+                batchQuantity, FormatCost(batchCopper)))
         end
-        if junkSellBtn then junkSellBtn:Hide() end
-        batchSold   = 0
-        batchCopper = 0
+        if junkSellBtn then
+            junkSellBtn:SetText(db and db.limitTo12 and "Sell Junk (0)" or "Sell All Junk (0)")
+        end
+        batchSold     = 0
+        batchQuantity = 0
+        batchCopper   = 0
         return
     end
 
@@ -323,28 +358,64 @@ local function SellNextItem()
     if db.limitTo12 and batchSold >= batchLimit then
         if db.announceJunk and batchSold > 0 then
             print(string.format("|cffA78BFA[OUS]:|r Sold %d junk item(s) for %s",
-                batchSold, FormatCost(batchCopper)))
+                batchQuantity, FormatCost(batchCopper)))
         end
         if junkSellBtn then
             junkSellBtn:SetText("Sell Next 12 (" .. #junkPending .. " left)")
             junkSellBtn:Show()
         end
-        batchSold   = 0
-        batchCopper = 0
+        batchSold     = 0
+        batchQuantity = 0
+        batchCopper   = 0
         return
     end
 
-    -- Sell directly from pending list — slots stable during vendor session
+    -- Price the current bag instance rather than the queued ItemID template.
     -- Blacklist already applied in CollectJunkItems, no rescan needed
     local item = table.remove(junkPending, 1)
     if item then
-        local _, sellPrice = select(10, C_Item.GetItemInfo(item.itemID))
-        C_Container.UseContainerItem(item.bag, item.slot)
-        batchSold = batchSold + 1
-        if sellPrice then
-            local info = C_Container.GetContainerItemInfo(item.bag, item.slot)
+        local info = C_Container.GetContainerItemInfo(item.bag, item.slot)
+        local sellPrice = info and info.itemID == item.itemID and info.hyperlink
+            and select(11, C_Item.GetItemInfo(info.hyperlink))
+        if sellPrice and sellPrice > 0 then
             local stackCount = (info and info.stackCount) or 1
-            batchCopper = batchCopper + (sellPrice * stackCount)
+            local proceeds = sellPrice * stackCount
+            local itemIDSellPrice, bagTooltipPrice, bagTooltipMaxPrice
+            -- Retain the old price and whole-stack tooltip value for post-fix A/B diagnostics.
+            if OUS.IsDebugModeOn() then
+                itemIDSellPrice = select(11, C_Item.GetItemInfo(item.itemID))
+                local tooltipData = C_TooltipInfo.GetBagItem(item.bag, item.slot)
+                for _, line in ipairs(tooltipData and tooltipData.lines or {}) do
+                    if line.type == Enum.TooltipDataLineType.SellPrice then
+                        bagTooltipPrice = line.price
+                        bagTooltipMaxPrice = line.maxPrice
+                        break
+                    end
+                end
+            end
+            -- Pair this observed wallet with the notification snapshot to diagnose sale-call ordering.
+            local walletBeforeSale = GetMoney()
+            C_Container.UseContainerItem(item.bag, item.slot)
+            batchSold = batchSold + 1
+            batchQuantity = batchQuantity + stackCount
+            batchCopper = batchCopper + proceeds
+            RecordSessionMerchantTransaction("VENDOR_INCOME", proceeds, {
+                itemCount = 1,
+                stackCount = stackCount,
+                itemID = item.itemID,
+                walletBeforeSale = walletBeforeSale,
+                itemLink = info and info.hyperlink,
+                itemIDSellPrice = itemIDSellPrice,
+                linkSellPrice = sellPrice,
+                bagTooltipPrice = bagTooltipPrice,
+                bagTooltipMaxPrice = bagTooltipMaxPrice,
+            })
+            if db.detailedSaleReport and isMerchantOpen then
+                print(string.format("|cffA78BFA[OUS]:|r %s x%d = %s",
+                    info.hyperlink, stackCount, FormatCost(proceeds)))
+            end
+        else
+            OUS.LogDebug("Utilities", "Skipped junk slot with changed item or unavailable positive bag-link price: " .. item.bag .. ":" .. item.slot)
         end
     end
 
@@ -356,26 +427,27 @@ end
 local function SellNextBatch()
     if not isMerchantOpen then return end
     if InCombatLockdown() then return end
-    batchSold   = 0
-    batchCopper = 0
+    local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+    if not db or not db.enabled then return end
+    if db.requireShift and not IsShiftKeyDown() then return end
+    batchSold     = 0
+    batchQuantity = 0
+    batchCopper   = 0
     SellNextItem()
 end
 
 --- Entry point called on MERCHANT_SHOW.
 local function OnMerchantShow()
-    if InCombatLockdown() then return end
     local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
     if not db then return end
     if not db.enabled then return end
     isMerchantOpen = true
     junkPending = CollectJunkItems()
 
-    if #junkPending == 0 then return end
-
     if not junkSellBtn then
         junkSellBtn = CreateFrame("Button", "OUSJunkSellBtn", MerchantFrame, "UIPanelButtonTemplate")
         junkSellBtn:SetSize(160, 22)
-        junkSellBtn:SetPoint("BOTTOMRIGHT", MerchantFrame, "BOTTOMRIGHT", -160, 4)
+        junkSellBtn:SetPoint("BOTTOMLEFT", MerchantFrame, "BOTTOMLEFT", 12, 4)
         junkSellBtn:SetScript("OnClick", SellNextBatch)
     end
     local btnLabel = db.limitTo12
@@ -741,7 +813,6 @@ junkFrame:SetScript("OnEvent", function(_, event, _, msg)
         if msg == ERR_VENDOR_DOESNT_BUY or msg == ERR_TOO_MUCH_GOLD then
             isMerchantOpen = false
             junkPending = {}
-            if junkSellBtn then junkSellBtn:Hide() end
         end
     end
 end)

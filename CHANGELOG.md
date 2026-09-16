@@ -2,6 +2,25 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.1 - 2026-09-16]
+
+### Added
+- Added Session Stats Guild Repairs and Junk breakdowns: physical item quantity and gross automatic junk-sale proceeds.
+- Added confirmed Reset Counters for session XP, reputation, gold, personal/guild repairs, junk, and Mistcrest Session gains without clearing lifetime/Overall Stats or SavedVariables. XP, wallet, and crest baselines are refreshed; transient reconciliation state is cleared/rebased, while diagnostic history remains.
+- Added runtime-only, copyable Gold Diagnostics with wallet observations, transaction/reconciliation timelines, optional vendor-price comparisons, and a scrollable color-highlighted field reference.
+- Added default-off Detailed Sale Report under Utilities: one clickable bag-item link, physical stack quantity, and whole-stack value per accepted junk sale, independently of the existing summary announcement.
+
+### Fixed
+- Accounted known OUS income and personal repair spending immediately, then reconciled observed wallet deltas to avoid duplicate accounting. Matching uses exact ordered cumulative queue prefixes first, then same-sign queue-order consumption with partial support and opposite-sign entries skipped; unexplained remainder remains ordinary gain/spending.
+- Kept wallet baselines strictly observational and deferred cold-login initialization until world entry rather than predicting future balances.
+- Kept personal repairs within gross Gold Spent and junk proceeds within gross Gold Gained; guild-funded repairs remain informational and outside personal spending.
+- Corrected Junk Seller instance-aware vendor pricing using the current bag hyperlink's per-unit sellPrice multiplied by stackCount. Changed/missing entries and unavailable/nonpositive prices are skipped; optional ItemID and bag-tooltip probes are diagnostic comparisons only.
+- Corrected junk sold totals to count physical stack quantities while preserving the 12 bag-entry batching limit and continuation flow.
+- Kept the enabled Junk Seller button available throughout the merchant session in the bottom-left footer, with Shift protection rechecked before button/delayed batch starts.
+- Corrected guild-first Auto Repair funding checks to require repair permission, withdrawal allowance, and bank balance sufficient for the full bill, including unlimited withdrawal allowances; retained personal-gold fallback and added debug decision inputs.
+
+---
+
 ## [2026-09-14]
 
 ### Added

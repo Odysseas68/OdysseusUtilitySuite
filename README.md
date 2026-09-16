@@ -120,7 +120,8 @@ Highlights:
 - reputation tracking at max level
 - Renown, Friendship faction, Paragon support
 - Warband-aware reputation text parsing
-- scrollable session statistics for experience, reputation, gold gained/spent, repairs, and Midnight Season 2 Mistcrests
+- scrollable session statistics for experience, reputation, gross personal gold gained/spent, personal/guild repairs, junk quantity/value, and Midnight Season 2 Mistcrests
+- confirmed Reset Counters clears current-session gains without clearing saved history; Gold Debug provides copyable diagnostics and a highlighted field reference
 - Session Stats display and Mistcrest controls within the XP Bar configuration page
 - reward toast notifications
 - Delves companion + journey tracking
@@ -167,15 +168,17 @@ A collection of small but powerful QoL tools bundled into one module.
 
 **Auto Repair**:
 - Automatically repairs all items when a merchant is opened
-- Tries guild repair first (respects withdrawal permission), falls back to own gold
+- Tries guild repair first when permission, withdrawal allowance, and guild balance cover the full bill; otherwise falls back to own gold
 - Announces repair cost in chat with coin icons and colored fund source
 
 **Junk Seller**:
 - Automatically sells grey quality items when a merchant is opened
-- Sells one item per 0.2s to avoid "Item is busy" errors
-- Limit to 12 items per batch (configurable) — `Sell Next 12 (X left)` button for remainder
-- Button always visible when junk present, anchored to merchant frame
-- Shift modifier option — shows button and waits for manual click
+- Sells one bag entry per 0.2s to avoid "Item is busy" errors; reported item totals count physical stack quantities
+- Limit to 12 bag entries per batch (configurable) — `Sell Next 12 (X left)` button for remainder
+- Button remains available while the merchant is open and Junk Seller is enabled, inside the bottom-left footer
+- Optional Shift protection applies to automatic/delayed batch starts and button clicks
+- Sale values use the actual bag-item hyperlink's per-unit vendor price multiplied by stack quantity
+- Optional Detailed Sale Report (default OFF) prints one clickable item link, quantity, and whole-stack value per accepted sale; Announce Junk Sales controls the final summary separately
 - Per-item blacklist to exclude specific items from selling
 - Combat safe — stops immediately on combat lockdown
 

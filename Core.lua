@@ -90,12 +90,16 @@ f:SetScript("OnEvent", function(self, event, arg1)
             enabled      = true,
             requireShift = false,
             announceJunk = true,
+            detailedSaleReport = false,
             limitTo12    = true,
             blacklist    = {},
         }
         -- ensure limitTo12 exists on older saved data
         if OdysseusDB.utilities.junkSell.limitTo12 == nil then
             OdysseusDB.utilities.junkSell.limitTo12 = true
+        end
+        if OdysseusDB.utilities.junkSell.detailedSaleReport == nil then
+            OdysseusDB.utilities.junkSell.detailedSaleReport = false
         end
 
         OdysseusDB.minimap = OdysseusDB.minimap or {}
