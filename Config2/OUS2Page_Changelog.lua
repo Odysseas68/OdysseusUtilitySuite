@@ -33,6 +33,17 @@ local CHANGELOG_SOURCE = [=[
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.3 - 2026-09-17]
+
+### Fixed
+- Guild First Auto Repair now works without opening Guild Bank first, using Blizzard's available guild repair funds and personal funds for any remainder.
+
+### Changed
+- Gold Spent still includes personal contributions to guild-first repairs. Repairs shows attributable Own-funds repairs only; the unused Guild Repairs row is removed.
+- Guild-first chat reports a repair request and quoted bill, without guessing who paid.
+
+---
+
 ## [Version 1.0.2 - 2026-09-17]
 
 ### Added

@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Utilities.lua
--- Version : 2026.09.14
+-- Version : 2026.09.17
 -- Desc    : Utility commands, merchant tools, and Blizzard action artwork control
 -- ============================================================
 
@@ -220,58 +220,37 @@ local function DoRepair()
     local cost = GetRepairAllCost()
     if not cost or cost == 0 then return end
 
-    local usedGuild = false
     local inGuild = db.guildRepair and IsInGuild()
     local canGuildRepair = inGuild and CanGuildBankRepair()
-    local guildWithdrawal, guildBankMoney, guildAvailable
-    local guildCanCover = false
 
-    -- Use guild repair only when permission, withdrawal allowance, and bank balance cover the bill.
     if canGuildRepair then
-        guildWithdrawal = GetGuildBankWithdrawMoney()
-        guildBankMoney = GetGuildBankMoney()
-        guildAvailable = guildWithdrawal == -1
-            and (guildBankMoney or 0) or math.min(guildWithdrawal or 0, guildBankMoney or 0)
-        guildCanCover = guildAvailable >= cost
-    end
-
-    -- Temporarily capture the actual decision inputs without involving Session Stats accounting.
-    if OUS.IsDebugModeOn() then
-        OUS.LogDebug("Utilities", string.format(
-            "Auto Repair inputs: cost=%s guildRepair=%s inGuild=%s canGuildRepair=%s withdrawal=%s bank=%s unlimited=%s available=%s guildCanCover=%s",
-            tostring(cost), tostring(db.guildRepair), tostring(inGuild), tostring(canGuildRepair),
-            tostring(guildWithdrawal), tostring(guildBankMoney), tostring(guildWithdrawal == -1),
-            tostring(guildAvailable), tostring(guildCanCover)))
-    end
-
-    if guildCanCover then
+        if OUS.SessionStats and OUS.SessionStats.MarkRepairFundingIndeterminate then
+            OUS.SessionStats.MarkRepairFundingIndeterminate()
+        end
         RepairAllItems(true)
-        usedGuild = true
-    end
-
-    -- Fallback to own gold
-    if not usedGuild then
+    else
         if GetMoney() >= cost then
             RepairAllItems()
         else
             print("|cffA78BFA[OUS]:|r Not enough gold to repair.")
             return
         end
+        RecordSessionMerchantTransaction("PERSONAL_REPAIR", cost, {
+            fundingType = "personal",
+        })
     end
-
-    OUS.LogDebug("Utilities", "Auto Repair selected funding: " .. (usedGuild and "guild" or "personal"))
-    RecordSessionMerchantTransaction(usedGuild and "GUILD_REPAIR" or "PERSONAL_REPAIR", cost, {
-        fundingType = usedGuild and "guild" or "personal",
-    })
 
     if db.announceRepair then
-        local source = usedGuild
-            and " using |cff4ADE80Guild funds|r"
-            or  " using |cffFBBF24Own funds|r"
-        print(string.format("|cffA78BFA[OUS]:|r Repair cost: %s%s", FormatCost(cost), source))
+        if canGuildRepair then
+            print(string.format("|cffA78BFA[OUS]:|r |cffFBBF24Guild-first|r repair requested: %s", FormatCost(cost)))
+        else
+            print(string.format("|cffA78BFA[OUS]:|r Repair cost: %s using |cffFBBF24Own funds|r", FormatCost(cost)))
+        end
     end
 
-    OUS.LogDebug("Utilities", "Repaired for " .. cost .. " copper" .. (usedGuild and " (guild)" or " (own)"))
+    OUS.LogDebug("Utilities", canGuildRepair
+        and "Guild-first repair requested for " .. cost .. " copper (funding indeterminate)"
+        or "Repaired for " .. cost .. " copper (own)")
 end
 
 -- ============================================================

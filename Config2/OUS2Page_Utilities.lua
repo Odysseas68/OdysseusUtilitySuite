@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Utilities.lua
--- Version : 2026.07.11
+-- Version : 2026.09.17
 -- Desc    : OUS2 Utilities module settings page
 -- ================================================
 
@@ -243,7 +243,7 @@ CreateCheckboxRow(
 )
 CreateCheckboxRow(
     "Announce Repair Cost",
-    "Report the repair cost and funding source in chat.",
+    "Report Own-funds repair cost or the quoted bill for a Guild-first repair request without guessing its funding.",
     -256,
     GetUtilitiesDB,
     "announceRepair"

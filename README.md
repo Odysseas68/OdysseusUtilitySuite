@@ -120,7 +120,7 @@ Highlights:
 - reputation tracking at max level
 - Renown, Friendship faction, Paragon support
 - Warband-aware reputation text parsing
-- scrollable session statistics for experience, reputation, gross personal gold gained/spent, personal/guild repairs, junk quantity/value, and Midnight Season 2 Mistcrests
+- scrollable session statistics for experience, reputation, gross personal gold gained/spent, attributable Own-funds repairs, junk quantity/value, and Midnight Season 2 Mistcrests
 - confirmed Reset Counters clears current-session gains without clearing saved history; Gold Debug provides copyable diagnostics and a highlighted field reference
 - Session Stats display and Mistcrest controls within the XP Bar configuration page
 - reward toast notifications
@@ -168,8 +168,10 @@ A collection of small but powerful QoL tools bundled into one module.
 
 **Auto Repair**:
 - Automatically repairs all items when a merchant is opened
-- Tries guild repair first when permission, withdrawal allowance, and guild balance cover the full bill; otherwise falls back to own gold
-- Announces repair cost in chat with coin icons and colored fund source
+- Guild First uses one native repair request when guild repair is permitted, without relying on cached Guild Bank coverage; Blizzard uses available guild repair resources and charges personal funds for any remainder
+- Otherwise uses own gold with the existing affordability check
+- Optional chat reports personal repair cost using Own funds, or the quoted bill as a Guild-first repair request without guessing funding
+- Guild-first personal spending still counts toward Session Stats Gold Spent, but its unproven split is omitted from Repairs; no Guild Repairs row is shown
 
 **Junk Seller**:
 - Automatically sells grey quality items when a merchant is opened

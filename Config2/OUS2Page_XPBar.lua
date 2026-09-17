@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_XPBar.lua
--- Version : 2026.09.14
+-- Version : 2026.09.17
 -- Desc    : OUS2 XP Bar navigation hub and settings views
 -- ================================================
 
@@ -1814,7 +1814,7 @@ local sectionRows = {
     { key = "experience", label = "Show Experience", help = "Show or hide session experience totals.", y = -156, left = true },
     { key = "reputation", label = "Show Reputation", help = "Show or hide the session reputation breakdown.", y = -156, left = false },
     { key = "gold", label = "Show Gold", help = "Show or hide Gold Gained and Gold Spent.", y = -204, left = true },
-    { key = "repairs", label = "Show Repairs", help = "Show or hide repair spending while keeping repair accounting active.", y = -204, left = false },
+    { key = "repairs", label = "Show Repairs", help = "Show or hide attributable Own-funds repair spending. Guild-first repairs are excluded; personal contributions still count as Gold Spent.", y = -204, left = false },
     { key = "currencies", label = "Show Currencies", help = "Show or hide all tracked currency rows.", y = -252, left = "full" },
 }
 

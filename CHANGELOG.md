@@ -2,6 +2,17 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.3 - 2026-09-17]
+
+### Fixed
+- Fixed Guild First Auto Repair after a cold client start by removing cached Guild Bank coverage prerequisites. One native guild-first repair request uses available guild repair resources and lets Blizzard charge the character for any remainder.
+
+### Changed
+- Session Stats no longer guesses guild-first repair funding. Actual personal wallet spending still contributes to Gold Spent; Repairs excludes guild-first transactions and reports attributable Own-funds repairs instead.
+- Removed the misleading Guild Repairs row and unused internal counter. Guild-first announcements now report the quoted bill as a repair request without claiming a funding split.
+
+---
+
 ## [Version 1.0.2 - 2026-09-17]
 
 ### Added

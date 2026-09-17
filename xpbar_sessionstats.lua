@@ -1,10 +1,10 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_sessionstats.lua
--- Version : 2026.09.15
+-- Version : 2026.09.17
 -- Desc    : Runtime XPBar session statistics tracking and display
 -- ============================================================
--- luacheck: globals COPPER_AMOUNT_TEXTURE C_CurrencyInfo CanMerchantRepair ChatFontNormal CreateScrollBoxLinearView GOLD_AMOUNT_TEXTURE GameTooltip GetGuildBankMoney GetGuildBankWithdrawMoney GetMoney GetRepairAllCost RepairAllItems SILVER_AMOUNT_TEXTURE ScrollUtil StaticPopupDialogs StaticPopup_Show UnitXP UnitXPMax hooksecurefunc
+-- luacheck: globals COPPER_AMOUNT_TEXTURE C_CurrencyInfo CanMerchantRepair ChatFontNormal CreateScrollBoxLinearView GOLD_AMOUNT_TEXTURE GameTooltip GetMoney GetRepairAllCost RepairAllItems SILVER_AMOUNT_TEXTURE ScrollUtil StaticPopupDialogs StaticPopup_Show UnitXP UnitXPMax hooksecurefunc
 
 local addonName, OUS = ...
 local Session = OUS.XPBarSession
@@ -16,6 +16,7 @@ SessionStats.JunkCallbacks = {}
 local junkCallbacks = LibStub("CallbackHandler-1.0"):New(SessionStats.JunkCallbacks)
 
 local eventFrame = CreateFrame("Frame")
+local repairFundingIndeterminate = false
 
 local BUILT_IN_RESOURCES = {
     { type = "CURRENCY", id = 3442, key = "adventurer", label = "Adventurer", configLabel = "Adventurer Mistcrest", category = "Midnight Season 2", defaultTracked = true },
@@ -29,7 +30,6 @@ SessionStats.BuiltInResources = BUILT_IN_RESOURCES
 Session.sessionGoldGained = Session.sessionGoldGained or 0
 Session.sessionGoldSpent = Session.sessionGoldSpent or 0
 Session.sessionRepairSpent = Session.sessionRepairSpent or 0
-Session.sessionGuildRepairSpent = Session.sessionGuildRepairSpent or 0
 Session.sessionJunkItems = Session.sessionJunkItems or 0
 Session.sessionJunkGold = Session.sessionJunkGold or 0
 Session.crestStats = Session.crestStats or {}
@@ -71,12 +71,10 @@ local function BuildDiagnosticText()
         "Gold Gained: " .. FormatDiagnosticMoney(Session.sessionGoldGained),
         "Gold Spent: " .. FormatDiagnosticMoney(Session.sessionGoldSpent),
         "Repairs: " .. FormatDiagnosticMoney(Session.sessionRepairSpent),
-        "Guild Repairs: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent),
         "Junk Items: " .. DiagnosticValue(Session.sessionJunkItems),
         "Junk Gold: " .. FormatDiagnosticMoney(Session.sessionJunkGold),
         "Pending Repair Cost: " .. FormatDiagnosticMoney(Session.pendingRepairCost),
         "Last Repair Cost: " .. FormatDiagnosticMoney(Session.lastRepairCost),
-        "Ignore Next Repair Reduction: " .. DiagnosticValue(Session.ignoreNextRepairReduction),
     }
 
     if not diagnosticsEnabled then
@@ -241,15 +239,13 @@ function SessionStats.RecordKnownMerchantTransaction(transactionType, amount, de
     local gainedBefore = Session.sessionGoldGained
     local spentBefore = Session.sessionGoldSpent
     local repairsBefore = Session.sessionRepairSpent
-    local guildRepairsBefore = Session.sessionGuildRepairSpent
     local junkItemsBefore = Session.sessionJunkItems
     local junkGoldBefore = Session.sessionJunkGold
     local pendingBefore = Session.pendingRepairCost
     local lastRepairBefore = Session.lastRepairCost
-    local ignoreRepairBefore = Session.ignoreNextRepairReduction
     local knownPositiveBefore, knownNegativeBefore, knownQueueBefore = GetPendingKnownMovementState()
 
-    local walletDelta = 0
+    local walletDelta
     if transactionType == "VENDOR_INCOME" then
         Session.sessionGoldGained = Session.sessionGoldGained + amount
         Session.sessionJunkItems = Session.sessionJunkItems
@@ -260,8 +256,6 @@ function SessionStats.RecordKnownMerchantTransaction(transactionType, amount, de
         Session.sessionGoldSpent = Session.sessionGoldSpent + amount
         Session.sessionRepairSpent = Session.sessionRepairSpent + amount
         walletDelta = -amount
-    elseif transactionType == "GUILD_REPAIR" then
-        Session.sessionGuildRepairSpent = Session.sessionGuildRepairSpent + amount
     else
         return
     end
@@ -270,10 +264,9 @@ function SessionStats.RecordKnownMerchantTransaction(transactionType, amount, de
         Session.pendingKnownWalletMovements[#Session.pendingKnownWalletMovements + 1] = walletDelta
     end
 
-    if transactionType == "PERSONAL_REPAIR" or transactionType == "GUILD_REPAIR" then
+    if transactionType == "PERSONAL_REPAIR" then
         Session.lastRepairCost = 0
         Session.pendingRepairCost = 0
-        Session.ignoreNextRepairReduction = false
     end
 
     local knownPositiveAfter, knownNegativeAfter, knownQueueAfter = GetPendingKnownMovementState()
@@ -307,8 +300,6 @@ function SessionStats.RecordKnownMerchantTransaction(transactionType, amount, de
         "Gold Spent after: " .. FormatDiagnosticMoney(Session.sessionGoldSpent),
         "Repairs before: " .. FormatDiagnosticMoney(repairsBefore),
         "Repairs after: " .. FormatDiagnosticMoney(Session.sessionRepairSpent),
-        "Guild Repairs before: " .. FormatDiagnosticMoney(guildRepairsBefore),
-        "Guild Repairs after: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent),
         "Junk Items before: " .. DiagnosticValue(junkItemsBefore),
         "Junk Items after: " .. DiagnosticValue(Session.sessionJunkItems),
         "Junk Gold before: " .. FormatDiagnosticMoney(junkGoldBefore),
@@ -317,8 +308,6 @@ function SessionStats.RecordKnownMerchantTransaction(transactionType, amount, de
         "Pending Repair Cost after: " .. FormatDiagnosticMoney(Session.pendingRepairCost),
         "Last Repair Cost before: " .. FormatDiagnosticMoney(lastRepairBefore),
         "Last Repair Cost after: " .. FormatDiagnosticMoney(Session.lastRepairCost),
-        "Ignore Next Repair Reduction before: " .. DiagnosticValue(ignoreRepairBefore),
-        "Ignore Next Repair Reduction after: " .. DiagnosticValue(Session.ignoreNextRepairReduction),
     })
 
     if transactionType == "VENDOR_INCOME" then
@@ -373,6 +362,12 @@ local function GetCurrentRepairCost()
     return ReadRepairCost()
 end
 
+-- Protect the whole merchant interaction because native guild-first funding is not attributable.
+function SessionStats.MarkRepairFundingIndeterminate()
+    repairFundingIndeterminate = true
+    Session.pendingRepairCost = 0
+end
+
 -- A secure post-hook observes Repair All calls without replacing or modifying the repair API.
 if RepairAllItems and hooksecurefunc then
     hooksecurefunc("RepairAllItems", function(useGuildBank)
@@ -389,16 +384,8 @@ if RepairAllItems and hooksecurefunc then
             })
         end
 
-        if useGuildBank then
-            local guildWithdrawal = GetGuildBankWithdrawMoney() or 0
-            local guildMoney = GetGuildBankMoney() or 0
-            local guildAvailable = guildWithdrawal == -1 and guildMoney or math.min(guildWithdrawal, guildMoney)
-            Session.pendingRepairCost = math.max(0, currentCost - guildAvailable)
-            Session.ignoreNextRepairReduction = Session.pendingRepairCost == 0
-            return
-        end
+        if repairFundingIndeterminate or useGuildBank then return end
 
-        Session.ignoreNextRepairReduction = false
         Session.pendingRepairCost = math.max(Session.pendingRepairCost or 0, Session.lastRepairCost or 0, currentCost)
     end)
 end
@@ -410,10 +397,8 @@ local function HandlePlayerMoney()
     local gainedBefore = Session.sessionGoldGained
     local spentBefore = Session.sessionGoldSpent
     local repairsBefore = Session.sessionRepairSpent
-    local guildRepairsBefore = Session.sessionGuildRepairSpent
     local pendingBefore = Session.pendingRepairCost
     local lastRepairBefore = Session.lastRepairCost
-    local ignoreRepairBefore = Session.ignoreNextRepairReduction
     local knownPositiveBefore, knownNegativeBefore, knownQueueBefore = GetPendingKnownMovementState()
     if Session.lastMoney == nil then
         Session.lastMoney = currentMoney
@@ -439,13 +424,13 @@ local function HandlePlayerMoney()
         Session.sessionGoldSpent = Session.sessionGoldSpent + spent
 
         local repairSpent = 0
-        if Session.ignoreNextRepairReduction then
-            Session.ignoreNextRepairReduction = false
-        elseif (Session.pendingRepairCost or 0) > 0 then
-            repairSpent = math.min(spent, Session.pendingRepairCost)
-            Session.pendingRepairCost = 0
-        elseif currentRepairCost and Session.lastRepairCost and currentRepairCost < Session.lastRepairCost then
-            repairSpent = math.min(spent, Session.lastRepairCost - currentRepairCost)
+        if not repairFundingIndeterminate then
+            if (Session.pendingRepairCost or 0) > 0 then
+                repairSpent = math.min(spent, Session.pendingRepairCost)
+                Session.pendingRepairCost = 0
+            elseif currentRepairCost and Session.lastRepairCost and currentRepairCost < Session.lastRepairCost then
+                repairSpent = math.min(spent, Session.lastRepairCost - currentRepairCost)
+            end
         end
 
         Session.sessionRepairSpent = Session.sessionRepairSpent + repairSpent
@@ -475,20 +460,15 @@ local function HandlePlayerMoney()
         "Current Repair Cost: " .. FormatDiagnosticMoney(currentRepairCost),
         "Last Repair Cost before: " .. FormatDiagnosticMoney(lastRepairBefore),
         "Last Repair Cost after: " .. FormatDiagnosticMoney(Session.lastRepairCost),
-        "Ignore Next Repair Reduction before: " .. DiagnosticValue(ignoreRepairBefore),
-        "Ignore Next Repair Reduction after: " .. DiagnosticValue(Session.ignoreNextRepairReduction),
         "Classified Gold Gained: " .. FormatDiagnosticMoney(Session.sessionGoldGained - gainedBefore),
         "Classified Gold Spent: " .. FormatDiagnosticMoney(Session.sessionGoldSpent - spentBefore),
         "Repair Attribution: " .. FormatDiagnosticMoney(Session.sessionRepairSpent - repairsBefore),
-        "Guild Repair Attribution: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent - guildRepairsBefore),
         "Gold Gained before: " .. FormatDiagnosticMoney(gainedBefore),
         "Gold Gained after: " .. FormatDiagnosticMoney(Session.sessionGoldGained),
         "Gold Spent before: " .. FormatDiagnosticMoney(spentBefore),
         "Gold Spent after: " .. FormatDiagnosticMoney(Session.sessionGoldSpent),
         "Repairs before: " .. FormatDiagnosticMoney(repairsBefore),
         "Repairs after: " .. FormatDiagnosticMoney(Session.sessionRepairSpent),
-        "Guild Repairs before: " .. FormatDiagnosticMoney(guildRepairsBefore),
-        "Guild Repairs after: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent),
         "lastMoney after: " .. FormatDiagnosticMoney(Session.lastMoney),
     })
 
@@ -503,12 +483,10 @@ local function HandleMerchantEvent(event)
         Session.repairMerchantOpen = true
         Session.lastRepairCost = GetCurrentRepairCost()
         Session.pendingRepairCost = 0
-        Session.ignoreNextRepairReduction = false
     else
         Session.repairMerchantOpen = false
         Session.lastRepairCost = nil
         Session.pendingRepairCost = 0
-        Session.ignoreNextRepairReduction = false
     end
 
     AppendDiagnosticRecord(event, {
@@ -524,10 +502,10 @@ end
 
 -- Initializes runtime-only counters while later lifecycle events establish money and crest baselines.
 local function InitializeSessionStats()
+    repairFundingIndeterminate = false
     Session.sessionGoldGained = 0
     Session.sessionGoldSpent = 0
     Session.sessionRepairSpent = 0
-    Session.sessionGuildRepairSpent = 0
     Session.sessionJunkItems = 0
     Session.sessionJunkGold = 0
     Session.crestStats = {}
@@ -536,11 +514,11 @@ local function InitializeSessionStats()
     Session.repairMerchantOpen = false
     Session.lastRepairCost = nil
     Session.pendingRepairCost = 0
-    Session.ignoreNextRepairReduction = false
 end
 
 -- Resets only runtime Session Stats and establishes fresh observable baselines for subsequent events.
 function SessionStats.ResetCounters()
+    -- Funding protection survives counter resets until this merchant interaction closes.
     local walletBefore = GetMoney()
     local lastMoneyBefore = Session.lastMoney
     local knownPositiveBefore, knownNegativeBefore, knownQueueBefore = GetPendingKnownMovementState()
@@ -554,13 +532,11 @@ function SessionStats.ResetCounters()
     Session.sessionGoldGained = 0
     Session.sessionGoldSpent = 0
     Session.sessionRepairSpent = 0
-    Session.sessionGuildRepairSpent = 0
     Session.sessionJunkItems = 0
     Session.sessionJunkGold = 0
     Session.lastMoney = walletBefore
     Session.pendingKnownWalletMovements = {}
     Session.pendingRepairCost = 0
-    Session.ignoreNextRepairReduction = false
     Session.lastRepairCost = Session.repairMerchantOpen and GetCurrentRepairCost() or nil
 
     for _, resource in ipairs(BUILT_IN_RESOURCES) do
@@ -587,7 +563,6 @@ function SessionStats.ResetCounters()
         "Gold Gained after: " .. FormatDiagnosticMoney(Session.sessionGoldGained),
         "Gold Spent after: " .. FormatDiagnosticMoney(Session.sessionGoldSpent),
         "Repairs after: " .. FormatDiagnosticMoney(Session.sessionRepairSpent),
-        "Guild Repairs after: " .. FormatDiagnosticMoney(Session.sessionGuildRepairSpent),
         "Junk Items after: " .. DiagnosticValue(Session.sessionJunkItems),
         "Junk Gold after: " .. FormatDiagnosticMoney(Session.sessionJunkGold),
         "Pending Repair Cost after: " .. FormatDiagnosticMoney(Session.pendingRepairCost),
@@ -659,37 +634,34 @@ local GOLD_DEBUG_HELP_TEXT = [[
 |cffFBBF24Current Wallet:|r Current character wallet returned by GetMoney() when the report is refreshed.
 |cffFBBF24lastMoney:|r Last wallet value actually observed and accepted by Session Stats. It is never a predicted future value.
 |cffFBBF24Gold Gained / Gold Spent:|r Gross personal-wallet income and spending this session, including personal repairs. Known OUS transactions count immediately; unexplained wallet gains or spending count through PLAYER_MONEY.
-|cffFBBF24Repairs:|r Personal-wallet repair spending, which is also included in Gold Spent.
-|cffFBBF24Guild Repairs:|r Guild-bank-funded repair spending. It is informational and is not included in Gold Spent.
+|cffFBBF24Repairs:|r Attributable Own-funds repair spending, also included in Gold Spent. Guild-first repairs are omitted; any personal wallet contribution still counts as Gold Spent.
 |cffFBBF24Junk Items:|r Physical item quantity sold automatically by OUS, using each sold stack count.
 |cffFBBF24Junk Gold:|r Exact gross proceeds from OUS automatic junk sales. It is an informational subset of Gold Gained.
 |cffFBBF24Pending Repair Cost:|r Repair amount awaiting attribution by the fallback repair observer.
 |cffFBBF24Last Repair Cost:|r Previous merchant repair bill used to detect a repair-cost reduction.
-|cffFBBF24Ignore Next Repair Reduction:|r True when the repair hook determined a guild repair should not be attributed to the personal wallet. Explicit OUS repair notifications clear it after recording exact funding.
 |cffFBBF24Repair Merchant Open:|r Whether Session Stats is currently inside its bounded merchant repair-observation window.
 
 |cffA78BFARECONCILIATION FIELDS|r
 
 |cffFBBF24Raw delta:|r Current GetMoney() minus lastMoney before reconciliation. Positive is an observed wallet gain; negative is an observed wallet loss.
 |cffFBBF24Pending Known Positive before / after:|r Expected positive personal-wallet movement from OUS transactions, normally junk sales, still awaiting observed wallet reconciliation.
-|cffFBBF24Pending Known Negative before / after:|r Expected negative personal-wallet movement, normally personal-funded repairs. Guild repairs do not add personal-wallet movement.
+|cffFBBF24Pending Known Negative before / after:|r Expected negative personal-wallet movement, normally personal-funded repairs. Indeterminate guild-first repairs add no expected wallet movement.
 |cffFBBF24Pending Known Queue before / after:|r Ordered known wallet movements awaiting reconciliation. Positive entries are gains; negative entries are losses. Matching first looks for an exact cumulative total from the front of the queue. Otherwise, same-sign entries are consumed in queue order, skipping opposite-sign entries and allowing partial consumption.
 |cffFBBF24Reconciled Known Movement:|r Portion of Raw delta matched to OUS transactions already counted explicitly, preventing duplicate accounting.
 |cffFBBF24Unexplained Remainder:|r Observed wallet movement not matched to a known OUS transaction. Positive remainder adds Gold Gained; negative remainder adds Gold Spent.
 |cffFBBF24Classified Gold Gained / Classified Gold Spent:|r Additional ordinary gain or spending assigned from the current PLAYER_MONEY remainder.
 |cffFBBF24Repair Attribution:|r Portion of additional spending assigned to Repairs by the fallback repair observer during this PLAYER_MONEY event.
-|cffFBBF24Guild Repair Attribution:|r Change to Guild Repairs during the current PLAYER_MONEY event. Explicit OUS guild repairs are normally recorded by KNOWN_REPAIR instead.
 
 |cffA78BFAKNOWN TRANSACTION FIELDS|r
 
-|cffFBBF24Transaction Type:|r VENDOR_INCOME, PERSONAL_REPAIR, or GUILD_REPAIR.
-|cffFBBF24Funding Type:|r personal or guild for repairs; nil for junk sales.
+|cffFBBF24Transaction Type:|r VENDOR_INCOME or PERSONAL_REPAIR.
+|cffFBBF24Funding Type:|r personal for known repairs; nil for junk sales.
 |cffFBBF24Item Entries:|r Number of bag-slot sale entries represented by the notification. Current junk notifications represent one entry.
 |cffFBBF24Stack Count:|r Physical item quantity represented by the current junk sale transaction.
 |cffFBBF24Item ID:|r Blizzard item ID for the known junk transaction.
 |cffFBBF24Amount:|r Exact known transaction value in copper and plain-text gold, silver, and copper.
 |cffFBBF24GetMoney at notify:|r Observable wallet value when Utilities reports the known transaction.
-|cffFBBF24Gold Gained before / after, Gold Spent before / after, Repairs before / after, Guild Repairs before / after:|r Session accumulator values surrounding the record.
+|cffFBBF24Gold Gained before / after, Gold Spent before / after, Repairs before / after:|r Session accumulator values surrounding the record.
 |cffFBBF24Junk Items before / after and Junk Gold before / after:|r Junk breakdown accumulators surrounding the known transaction.
 |cffFBBF24Current Repair Cost:|r Current merchant repair bill when available.
 Fields ending in before or after show state immediately before or after the named event processing.
@@ -711,10 +683,10 @@ Fields ending in before or after show state immediately before or after the name
 |cffFBBF24PLAYER_MONEY:|r Reconciles an observed wallet change, then records known movement, unexplained remainder, accumulator changes, and the accepted lastMoney value. Action describes the nil-baseline fallback when applicable.
 |cffFBBF24MERCHANT_SHOW / MERCHANT_CLOSED:|r Merchant lifecycle boundaries with wallet, repair-open, and repair-cost state.
 |cffFBBF24KNOWN_JUNK_SALE:|r Records the bag-link-priced gross amount, one bag-slot entry, and physical stack quantity when OUS issues the sale. It is a known OUS transaction, not a separate wallet confirmation.
-|cffFBBF24KNOWN_REPAIR:|r Records exact personal or guild-funded repair accounting and its expected personal-wallet effect.
+|cffFBBF24KNOWN_REPAIR:|r Records known Own-funds repair accounting and its expected personal-wallet effect.
 |cffFBBF24REPAIR_ALL_POST_HOOK:|r Observes the wallet and repair state after a Repair All call, before any explicit OUS repair notification.
 |cffFBBF24KNOWN_MOVEMENT_RECONCILIATION:|r Reports the matching mode. Prefix entries removed counts an exact ordered match; Consumption steps shows same-sign amounts consumed and any partial entry left pending.
-|cffFBBF24SESSION_STATS_RESET:|r Clears session XP and reputation gains, Gold Gained, Gold Spent, Repairs, Guild Repairs, Junk Items, Junk Gold, and Mistcrest Session gains. XP, wallet, and crest quantities are rebaselined; the known queue and pending repair state are cleared, and the current repair bill is reread if the merchant is open. Current/Season crest values are refreshed, not zeroed. Lifetime/Overall Stats and SavedVariables are untouched. Existing diagnostic records remain; an enabled timeline records the reset.
+|cffFBBF24SESSION_STATS_RESET:|r Clears session XP and reputation gains, Gold Gained, Gold Spent, Repairs, Junk Items, Junk Gold, and Mistcrest Session gains. XP, wallet, and crest quantities are rebaselined; the known queue and pending repair state are cleared, and the current repair bill is reread if the merchant is open. Guild-first attribution protection survives until merchant close. Current/Season crest values are refreshed, not zeroed. Lifetime/Overall Stats and SavedVariables are untouched. Existing diagnostic records remain; an enabled timeline records the reset.
 
 All monetary fields show both raw copper and a plain-text g/s/c equivalent. Booleans, IDs, quantities, event names, and sequence numbers are not money-formatted.
 ]]
@@ -940,7 +912,7 @@ stats.goldHeader = CreateStatsText()
 stats.crestHeader = CreateStatsText()
 
 stats.goldRows = {}
-for _, label in ipairs({ "Gold Gained:", "Gold Spent:", "Repairs:", "Guild Repairs:", "Junk:" }) do
+for _, label in ipairs({ "Gold Gained:", "Gold Spent:", "Repairs:", "Junk:" }) do
     local row = {
         label = CreateStatsText("GameFontHighlight", 94, "LEFT"),
         value = CreateStatsText("GameFontHighlight", 224, "LEFT"),
@@ -1011,8 +983,7 @@ function stats:UpdateData()
     self.goldRows[1].value:SetText(FormatSessionMoney(Session.sessionGoldGained))
     self.goldRows[2].value:SetText(FormatSessionMoney(Session.sessionGoldSpent))
     self.goldRows[3].value:SetText(FormatSessionMoney(Session.sessionRepairSpent))
-    self.goldRows[4].value:SetText(FormatSessionMoney(Session.sessionGuildRepairSpent))
-    self.goldRows[5].value:SetText(string.format("%d items / %s",
+    self.goldRows[4].value:SetText(string.format("%d items / %s",
         Session.sessionJunkItems, FormatSessionMoney(Session.sessionJunkGold)))
     self.crestHeader:SetText("|cFF00FFFFCrests:|r")
 
@@ -1063,7 +1034,6 @@ function stats:UpdateData()
         local visibleGoldRows = {
             sections.gold,
             sections.gold,
-            sections.repairs,
             sections.repairs,
             sections.gold,
         }
@@ -1149,6 +1119,10 @@ eventFrame:RegisterEvent("MERCHANT_CLOSED")
 eventFrame:RegisterEvent("CURRENCY_DISPLAY_UPDATE")
 
 eventFrame:SetScript("OnEvent", function(_, event, arg1, arg2)
+    -- Clear interaction protection even when XPBar tracking has been disabled meanwhile.
+    if event == "MERCHANT_CLOSED" then
+        repairFundingIndeterminate = false
+    end
     if event == "ADDON_LOADED" then
         if arg1 == addonName then
             local currentMoney = GetMoney()
