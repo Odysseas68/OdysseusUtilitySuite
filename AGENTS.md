@@ -128,6 +128,12 @@ When using `wow-ui-source`, prefer `D:\WoWDev\Reference\Blizzard\wow-ui-source` 
 
 ---
 
+## Blizzard UI/FrameXML Investigation
+
+When an OUS implementation, investigation, compatibility decision, or technical conclusion materially depends on Blizzard UI/FrameXML implementation behavior, follow the conditional Lua/XML source walk in `.github/skills/ous-wow-retail-api-check/SKILL.md`. That skill also defines baseline-preserving audits specifically requested against additional Blizzard Lua/XML source. Ordinary addon coding, configuration, documentation maintenance, and unrelated API usage do not require XML investigation.
+
+---
+
 ## TOC Load Order
 
 The TOC order is strict. Do not reorder unless explicitly instructed.

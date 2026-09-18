@@ -6,7 +6,7 @@ description: Verify unfamiliar or uncertain World of Warcraft Retail 12.0+ APIs 
 # OUS WoW Retail API Check
 
 1. Read `AGENTS.md`, inspect the directly relevant working OUS path, and use `$ous-reference-workspace` when local source verification is needed. Do not require Blizzard Research-only skills that are absent from this checkout.
-2. Keep evidence categories explicit: verified OUS behavior, current LIVE Blizzard source, user runtime evidence, documented compatibility behavior, source-supported inference, and assumptions.
+2. Keep evidence categories explicit: documented API contracts, verified OUS behavior, verified Blizzard implementation/source facts (with LIVE/PTR provenance), verified runtime observations, documented compatibility behavior, source-supported inference, and assumptions.
 3. Prefer established working OUS behavior unless the task requires a change. A different Blizzard implementation pattern is evidence, not automatic reason to replace stable OUS code.
 4. For API-sensitive production work, verify against the current LIVE Retail source and generated API docs configured by the repository. Keep PTR findings labeled and separate; do not promote them to LIVE facts without matching evidence.
 5. Confirm the symbol exists in the target context and verify arguments, returns, event payloads, nil or delayed-loading behavior, secret predicates, combat-lockdown risk, and taint boundaries as relevant.
@@ -16,3 +16,22 @@ description: Verify unfamiliar or uncertain World of Warcraft Retail 12.0+ APIs 
 9. Never infer Retail signatures from Classic examples, stale source snapshots, or model memory. If the configured LIVE source cannot be established, report that uncertainty before editing.
 
 Report the target client/source checked, verified signature or behavior, evidence category, nil/combat/taint/secret-value risks, and recommended usage.
+
+## Conditional Blizzard Lua/XML Source Walk
+
+Apply this source walk only when an OUS implementation, bug investigation, compatibility decision, or technical conclusion materially depends on Blizzard UI/FrameXML implementation behavior. Ordinary addon implementation, configuration work, documentation maintenance, and unrelated API usage do not require XML investigation.
+
+- Do not assume a `.lua` file contains the complete implementation. Check relevant associated `.xml` files when XML templates or scripts may participate in the behavior.
+- Trace behavior bidirectionally where applicable: Lua -> XML templates, inherited templates, `Scripts` blocks, handlers (`OnLoad`, `OnShow`, `OnClick`, `OnEvent`), and bindings; XML -> Lua functions, callbacks, events, and APIs invoked by those templates or handlers.
+- Read enough surrounding source to understand control flow; search hits alone are insufficient.
+- Inspect relevant nearby Blizzard developer comments, especially `FIXME`, `TODO`, implementation notes, and comments directly associated with the behavior. Report comments separately, interpret only what their literal wording supports, and never treat them as proof of runtime behavior.
+- If no relevant XML exists, record that fact when it matters to the research conclusion. Keep the evidence categories above distinct throughout the conclusion.
+
+## Requested Audits of Existing Research
+
+Only when specifically asked to audit existing OUS technical/research documentation against additional Blizzard Lua/XML source:
+
+- Preserve the existing document as the baseline; do not rewrite, reorganize, modernize, or stylistically clean up working research.
+- Classify newly found evidence as **Confirmed**, **Additional context**, **Omission**, or **Correction required**.
+- Make only narrowly justified additive or corrective changes within the authorized scope.
+- Preserve historical runtime observations and controlled-test evidence unless new evidence specifically invalidates their interpretation.
