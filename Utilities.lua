@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Utilities.lua
--- Version : 2026.09.17
+-- Version : 2026.09.19
 -- Desc    : Utility commands, merchant tools, and Blizzard action artwork control
 -- ============================================================
 
@@ -227,17 +227,20 @@ local function DoRepair()
         if OUS.SessionStats and OUS.SessionStats.MarkRepairFundingIndeterminate then
             OUS.SessionStats.MarkRepairFundingIndeterminate()
         end
+    elseif GetMoney() < cost then
+        print("|cffA78BFA[OUS]:|r Not enough gold to repair.")
+        return
+    end
+
+    RecordSessionMerchantTransaction("REPAIR_COST", cost, {
+        fundingType = canGuildRepair and "indeterminate" or "personal",
+        walletEffectKnown = not canGuildRepair,
+    })
+
+    if canGuildRepair then
         RepairAllItems(true)
     else
-        if GetMoney() >= cost then
-            RepairAllItems()
-        else
-            print("|cffA78BFA[OUS]:|r Not enough gold to repair.")
-            return
-        end
-        RecordSessionMerchantTransaction("PERSONAL_REPAIR", cost, {
-            fundingType = "personal",
-        })
+        RepairAllItems()
     end
 
     if db.announceRepair then

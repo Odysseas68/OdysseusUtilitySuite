@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_sessionstats.lua
--- Version : 2026.09.17
+-- Version : 2026.09.19
 -- Desc    : Runtime XPBar session statistics tracking and display
 -- ============================================================
 -- luacheck: globals COPPER_AMOUNT_TEXTURE C_CurrencyInfo CanMerchantRepair ChatFontNormal CreateScrollBoxLinearView GOLD_AMOUNT_TEXTURE GameTooltip GetMoney GetRepairAllCost RepairAllItems SILVER_AMOUNT_TEXTURE ScrollUtil StaticPopupDialogs StaticPopup_Show UnitXP UnitXPMax hooksecurefunc
@@ -245,17 +245,19 @@ function SessionStats.RecordKnownMerchantTransaction(transactionType, amount, de
     local lastRepairBefore = Session.lastRepairCost
     local knownPositiveBefore, knownNegativeBefore, knownQueueBefore = GetPendingKnownMovementState()
 
-    local walletDelta
+    local walletDelta = 0
     if transactionType == "VENDOR_INCOME" then
         Session.sessionGoldGained = Session.sessionGoldGained + amount
         Session.sessionJunkItems = Session.sessionJunkItems
             + math.max(0, math.floor(tonumber(details.stackCount) or 0))
         Session.sessionJunkGold = Session.sessionJunkGold + amount
         walletDelta = amount
-    elseif transactionType == "PERSONAL_REPAIR" then
-        Session.sessionGoldSpent = Session.sessionGoldSpent + amount
+    elseif transactionType == "REPAIR_COST" then
         Session.sessionRepairSpent = Session.sessionRepairSpent + amount
-        walletDelta = -amount
+        if details.walletEffectKnown then
+            Session.sessionGoldSpent = Session.sessionGoldSpent + amount
+            walletDelta = -amount
+        end
     else
         return
     end
@@ -264,7 +266,7 @@ function SessionStats.RecordKnownMerchantTransaction(transactionType, amount, de
         Session.pendingKnownWalletMovements[#Session.pendingKnownWalletMovements + 1] = walletDelta
     end
 
-    if transactionType == "PERSONAL_REPAIR" then
+    if transactionType == "REPAIR_COST" then
         Session.lastRepairCost = 0
         Session.pendingRepairCost = 0
     end
@@ -372,7 +374,7 @@ end
 if RepairAllItems and hooksecurefunc then
     hooksecurefunc("RepairAllItems", function(useGuildBank)
         local currentCost = ReadRepairCost() or Session.lastRepairCost or 0
-        -- Observe the post-call wallet before Utilities sends its explicit repair notification.
+        -- Observe post-call state after Utilities records the known OUS repair transaction.
         if diagnosticsEnabled then
             local _, _, knownQueue = GetPendingKnownMovementState()
             AppendDiagnosticRecord("REPAIR_ALL_POST_HOOK", {
@@ -390,7 +392,7 @@ if RepairAllItems and hooksecurefunc then
     end)
 end
 
--- Tracks gross money movement while retaining repairs as a subset of total spending.
+-- Tracks gross wallet movement while keeping fallback repair attribution separate from explicit OUS repair bills.
 local function HandlePlayerMoney()
     local currentMoney = GetMoney()
     local lastMoneyBefore = Session.lastMoney
@@ -634,7 +636,7 @@ local GOLD_DEBUG_HELP_TEXT = [[
 |cffFBBF24Current Wallet:|r Current character wallet returned by GetMoney() when the report is refreshed.
 |cffFBBF24lastMoney:|r Last wallet value actually observed and accepted by Session Stats. It is never a predicted future value.
 |cffFBBF24Gold Gained / Gold Spent:|r Gross personal-wallet income and spending this session, including personal repairs. Known OUS transactions count immediately; unexplained wallet gains or spending count through PLAYER_MONEY.
-|cffFBBF24Repairs:|r Attributable Own-funds repair spending, also included in Gold Spent. Guild-first repairs are omitted; any personal wallet contribution still counts as Gold Spent.
+|cffFBBF24Repairs:|r Total known cost of repairs initiated by OUS this session, regardless of whether Blizzard uses personal funds, guild funds, or both. Personal wallet spending remains tracked separately in Gold Spent.
 |cffFBBF24Junk Items:|r Physical item quantity sold automatically by OUS, using each sold stack count.
 |cffFBBF24Junk Gold:|r Exact gross proceeds from OUS automatic junk sales. It is an informational subset of Gold Gained.
 |cffFBBF24Pending Repair Cost:|r Repair amount awaiting attribution by the fallback repair observer.
@@ -654,8 +656,8 @@ local GOLD_DEBUG_HELP_TEXT = [[
 
 |cffA78BFAKNOWN TRANSACTION FIELDS|r
 
-|cffFBBF24Transaction Type:|r VENDOR_INCOME or PERSONAL_REPAIR.
-|cffFBBF24Funding Type:|r personal for known repairs; nil for junk sales.
+|cffFBBF24Transaction Type:|r VENDOR_INCOME or REPAIR_COST.
+|cffFBBF24Funding Type:|r personal for personal repairs, indeterminate for guild-first repairs, and nil for junk sales.
 |cffFBBF24Item Entries:|r Number of bag-slot sale entries represented by the notification. Current junk notifications represent one entry.
 |cffFBBF24Stack Count:|r Physical item quantity represented by the current junk sale transaction.
 |cffFBBF24Item ID:|r Blizzard item ID for the known junk transaction.
@@ -683,8 +685,8 @@ Fields ending in before or after show state immediately before or after the name
 |cffFBBF24PLAYER_MONEY:|r Reconciles an observed wallet change, then records known movement, unexplained remainder, accumulator changes, and the accepted lastMoney value. Action describes the nil-baseline fallback when applicable.
 |cffFBBF24MERCHANT_SHOW / MERCHANT_CLOSED:|r Merchant lifecycle boundaries with wallet, repair-open, and repair-cost state.
 |cffFBBF24KNOWN_JUNK_SALE:|r Records the bag-link-priced gross amount, one bag-slot entry, and physical stack quantity when OUS issues the sale. It is a known OUS transaction, not a separate wallet confirmation.
-|cffFBBF24KNOWN_REPAIR:|r Records known Own-funds repair accounting and its expected personal-wallet effect.
-|cffFBBF24REPAIR_ALL_POST_HOOK:|r Observes the wallet and repair state after a Repair All call, before any explicit OUS repair notification.
+|cffFBBF24KNOWN_REPAIR:|r Records the full known OUS repair bill once. Personal repairs also record their expected wallet effect; guild-first repairs leave wallet attribution to normal reconciliation.
+|cffFBBF24REPAIR_ALL_POST_HOOK:|r Observes wallet and repair state after a Repair All call; OUS records its known repair transaction before invoking the API.
 |cffFBBF24KNOWN_MOVEMENT_RECONCILIATION:|r Reports the matching mode. Prefix entries removed counts an exact ordered match; Consumption steps shows same-sign amounts consumed and any partial entry left pending.
 |cffFBBF24SESSION_STATS_RESET:|r Clears session XP and reputation gains, Gold Gained, Gold Spent, Repairs, Junk Items, Junk Gold, and Mistcrest Session gains. XP, wallet, and crest quantities are rebaselined; the known queue and pending repair state are cleared, and the current repair bill is reread if the merchant is open. Guild-first attribution protection survives until merchant close. Current/Season crest values are refreshed, not zeroed. Lifetime/Overall Stats and SavedVariables are untouched. Existing diagnostic records remain; an enabled timeline records the reset.
 
@@ -912,10 +914,10 @@ stats.goldHeader = CreateStatsText()
 stats.crestHeader = CreateStatsText()
 
 stats.goldRows = {}
-for _, label in ipairs({ "Gold Gained:", "Gold Spent:", "Repairs:", "Junk:" }) do
+for _, label in ipairs({ "Gold Gained:", "Gold Spent:", "Repairs (Own + Guild):", "Junk:" }) do
     local row = {
-        label = CreateStatsText("GameFontHighlight", 94, "LEFT"),
-        value = CreateStatsText("GameFontHighlight", 224, "LEFT"),
+        label = CreateStatsText("GameFontHighlight", 144, "LEFT"),
+        value = CreateStatsText("GameFontHighlight", 174, "LEFT"),
     }
     row.label:SetText(label)
     stats.goldRows[#stats.goldRows + 1] = row
@@ -1043,7 +1045,7 @@ function stats:UpdateData()
                 row.label:Show()
                 row.value:Show()
                 PositionStatsText(row.label, 0, y)
-                PositionStatsText(row.value, 100, y)
+                PositionStatsText(row.value, 150, y)
                 y = y - 18
             end
         end

@@ -2,6 +2,13 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.4 - 2026-09-19]
+
+### Changed
+- Session Stats now summarizes the full cost of every OUS-initiated repair in Repairs (Own + Guild), whether paid with personal gold, guild funds, or a mixture of both. Gold Spent continues to track personal-wallet spending independently.
+
+---
+
 ## [Version 1.0.3 - 2026-09-17]
 
 ### Fixed

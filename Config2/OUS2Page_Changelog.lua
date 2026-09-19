@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.09.17
+-- Version : 2026.09.19
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -32,6 +32,13 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [Version 1.0.4 - 2026-09-19]
+
+### Changed
+- Repairs (Own + Guild) now shows the full cost of every OUS-initiated repair, whether paid with personal gold, guild funds, or both. Gold Spent continues to track personal-wallet spending separately.
+
+---
 
 ## [Version 1.0.3 - 2026-09-17]
 
