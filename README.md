@@ -170,7 +170,7 @@ A collection of small but powerful QoL tools bundled into one module.
 - Automatically repairs all items when a merchant is opened
 - Guild First uses one native repair request when guild repair is permitted, without relying on cached Guild Bank coverage; Blizzard uses available guild repair resources and charges personal funds for any remainder
 - Otherwise uses own gold with the existing affordability check
-- Optional chat reports personal repair cost using Own funds, or the quoted bill as a Guild-first repair request without guessing funding
+- Optional chat reports personal repair cost using Own funds, or the quoted bill plus the observed guild repair/withdrawal allowance as a Guild-first repair request without claiming actual guild funds or the final funding split
 - Session Stats shows one Repairs (Own + Guild) total containing the full known bill for every OUS-initiated repair; actual personal wallet spending continues to count separately in Gold Spent, with no inferred guild/personal split or Guild Repairs row
 
 **Junk Seller**:

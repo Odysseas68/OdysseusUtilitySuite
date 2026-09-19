@@ -2,6 +2,16 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.5 - 2026-09-20]
+
+### Changed
+- Guild First Auto Repair messages now include the observed guild repair/withdrawal allowance for context without changing native repair funding behavior.
+
+### Fixed
+- Fixed Session Stats counting existing character XP progress as XP gained after login or `/reload`.
+
+---
+
 ## [Version 1.0.4 - 2026-09-19]
 
 ### Changed

@@ -1150,6 +1150,13 @@ eventFrame:SetScript("OnEvent", function(_, event, arg1, arg2)
         local lastMoneyBefore = Session.lastMoney
         local _, _, knownQueue = GetPendingKnownMovementState()
         local baselineReset = arg1 or arg2 or Session.lastMoney == nil
+        -- Rebaseline XP only for a new UI session so zoning cannot erase accumulated gains.
+        if arg1 or arg2 then
+            Session.sessionXP = 0
+            Session.lastXPGain = 0
+            Session.lastXP = UnitXP("player")
+            Session.lastMaxXP = UnitXPMax("player")
+        end
         if baselineReset then
             Session.lastMoney = currentMoney
         end

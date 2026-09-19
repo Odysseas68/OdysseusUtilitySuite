@@ -5,6 +5,8 @@
 -- Desc    : Utility commands, merchant tools, and Blizzard action artwork control
 -- ============================================================
 
+-- luacheck: globals GetGuildBankWithdrawMoney
+
 local _, OUS = ...
 
 OUS.utilitiesDefaults = {
@@ -205,6 +207,17 @@ local function FormatCost(copper)
     return string.format("%d%s %d%s %d%s", g, ICON_GOLD, s, ICON_SILVER, c, ICON_COPPER)
 end
 
+-- Formats the pre-repair guild allowance observation without assigning funding semantics.
+local function FormatObservedGuildAllowance(amount, repairCost)
+    if type(amount) ~= "number" or amount < 0 then
+        return "|cffFF6666unavailable|r"
+    end
+    if amount > repairCost then
+        return "|cff00FF00above repair bill|r"
+    end
+    return FormatCost(amount)
+end
+
 -- Passes exact OUS-owned merchant amounts to Session Stats without coupling Utilities to its runtime state.
 local function RecordSessionMerchantTransaction(transactionType, amount, details)
     if OUS.SessionStats and OUS.SessionStats.RecordKnownMerchantTransaction then
@@ -237,7 +250,9 @@ local function DoRepair()
         walletEffectKnown = not canGuildRepair,
     })
 
+    local observedGuildAllowance
     if canGuildRepair then
+        observedGuildAllowance = GetGuildBankWithdrawMoney()
         RepairAllItems(true)
     else
         RepairAllItems()
@@ -245,7 +260,11 @@ local function DoRepair()
 
     if db.announceRepair then
         if canGuildRepair then
-            print(string.format("|cffA78BFA[OUS]:|r |cffFBBF24Guild-first|r repair requested: %s", FormatCost(cost)))
+            print(string.format(
+                "|cffA78BFA[OUS]:|r |cffFBBF24Guild-first|r repair requested: %s (observed guild allowance: %s)",
+                FormatCost(cost),
+                FormatObservedGuildAllowance(observedGuildAllowance, cost)
+            ))
         else
             print(string.format("|cffA78BFA[OUS]:|r Repair cost: %s using |cffFBBF24Own funds|r", FormatCost(cost)))
         end

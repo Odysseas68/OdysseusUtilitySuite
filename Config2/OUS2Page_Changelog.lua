@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.09.19
+-- Version : 2026.09.20
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -32,6 +32,16 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [Version 1.0.5 - 2026-09-20]
+
+### Changed
+- Guild First Auto Repair messages now show the observed guild repair/withdrawal allowance for context without changing repair funding behavior.
+
+### Fixed
+- Session Stats no longer counts existing character XP progress as XP gained after login or `/reload`.
+
+---
 
 ## [Version 1.0.4 - 2026-09-19]
 
