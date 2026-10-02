@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Flightmaster.lua
--- Version : 2026.08.19
+-- Version : 2026.10.02
 -- Desc    : Flight timer bar, distance display, taxi map tooltip with time and cost
 -- ============================================================
 
@@ -42,6 +42,7 @@ OUS.flightDefaults = {
     textureName = "Blizzard",
     color = {r = 1, g = 0.7, b = 0},
     showTooltips = true,
+    hideBlizzardTooltip = false,
 }
 
 local function GetShortName(name)
@@ -356,11 +357,29 @@ end)
 -- Tracks whether the taxi map is genuinely open, set by TAXIMAP_OPENED/CLOSED.
 -- Guards against spurious TAXIMAP_OPENED fires during instance exit cleanup.
 local taxiMapOpen = false
+local suppressedTooltipPin = nil
+local flightMapLeaveHooked = false
 
 local mapTooltip = CreateFrame("Frame", "OdysseusMapTooltip", UIParent)
 mapTooltip:SetFrameStrata("TOOLTIP")
 mapTooltip:SetSize(180, 65)
 mapTooltip:Hide()
+
+-- FlightMap is load-on-demand; install the secure leave hook before its pins are created.
+local function HookFlightMapTooltipLeave()
+    local pinMixin = _G.FlightMap_FlightPointPinMixin
+    if flightMapLeaveHooked or not pinMixin or not pinMixin.OnMouseLeave then return end
+
+    hooksecurefunc(pinMixin, "OnMouseLeave", function(pin)
+        if pin == suppressedTooltipPin then
+            suppressedTooltipPin = nil
+            mapTooltip:Hide()
+        end
+    end)
+    flightMapLeaveHooked = true
+end
+
+HookFlightMapTooltipLeave()
 
 -- Anchored textures avoid BackdropTemplate geometry arithmetic on secret dimensions.
 mapTooltip.background = mapTooltip:CreateTexture(nil, "BACKGROUND")
@@ -403,8 +422,23 @@ mapTooltip.title:SetPoint("TOP", mapTooltip, "TOP", 0, -8)
 mapTooltip.title:SetText("Odysseus Flight Timer")
 mapTooltip.title:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
 
+mapTooltip.destinationText = mapTooltip:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+mapTooltip.destinationText:SetPoint("TOP", mapTooltip.title, "BOTTOM", 0, -6)
+mapTooltip.destinationText:SetWidth(200)
+mapTooltip.destinationText:SetFont("Fonts\\FRIZQT__.TTF", 14)
+mapTooltip.destinationText:SetTextColor(1, 0.82, 0)
+mapTooltip.destinationText:SetJustifyH("CENTER")
+mapTooltip.destinationText:SetWordWrap(true)
+
+-- Measure ordinary destination text independently of the visible tooltip's Blizzard anchor.
+local destinationMeasure = UIParent:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+destinationMeasure:SetPoint("TOPLEFT", UIParent, "TOPLEFT")
+destinationMeasure:SetFont("Fonts\\FRIZQT__.TTF", 14)
+destinationMeasure:SetWordWrap(true)
+destinationMeasure:Hide()
+
 mapTooltip.timeText = mapTooltip:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-mapTooltip.timeText:SetPoint("TOP", mapTooltip.title, "BOTTOM", 0, -6)
+mapTooltip.timeText:SetPoint("TOP", mapTooltip.destinationText, "BOTTOM", 0, -6)
 
 mapTooltip.costText = mapTooltip:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 mapTooltip.costText:SetPoint("TOP", mapTooltip.timeText, "BOTTOM", 0, -4)
@@ -474,24 +508,43 @@ local function CalcWorldDist(wx1, wy1, wx2, wy2)
     return math.sqrt(dx * dx + dy * dy)
 end
 
+-- Capture taxi destination data before optionally suppressing Blizzard's tooltip.
 local function UpdateCustomFlightTooltip()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then
+        suppressedTooltipPin = nil
         mapTooltip:Hide()
         return
     end
 
     if OdysseusDB.flightSettings.showTooltips == false then
+        suppressedTooltipPin = nil
         mapTooltip:Hide()
         return
     end
 
     if not taxiMapOpen then
+        suppressedTooltipPin = nil
         mapTooltip:Hide()
         return
     end
 
+    local tooltipOwner = GameTooltip:GetOwner()
+    local pinMixin = _G.FlightMap_FlightPointPinMixin
+    local validTooltipPin = flightMapLeaveHooked and tooltipOwner and tooltipOwner.taxiNodeData ~= nil
+        and tooltipOwner.OnMouseLeave == pinMixin.OnMouseLeave
+
+    -- Only a valid FlightMap pin update can supersede an actively suppressed pin.
+    if suppressedTooltipPin and OdysseusDB.flightSettings.hideBlizzardTooltip == true and not validTooltipPin then
+        return
+    end
+
+    if OdysseusDB.flightSettings.hideBlizzardTooltip ~= true then
+        suppressedTooltipPin = nil
+    end
+
     local rawDest = _G["GameTooltipTextLeft1"] and _G["GameTooltipTextLeft1"]:GetText()
     if not rawDest or rawDest == "" then
+        suppressedTooltipPin = nil
         mapTooltip:Hide()
         return
     end
@@ -501,6 +554,7 @@ local function UpdateCustomFlightTooltip()
     end
 
     local destFull = CleanString(rawDest)
+    local destinationText = destFull
     local nodeID = nil
     local startFull = "Unknown"
 
@@ -558,6 +612,7 @@ local function UpdateCustomFlightTooltip()
     end
 
     if not nodeID then
+        suppressedTooltipPin = nil
         mapTooltip:Hide()
         if IsAltKeyDown() then
             OUS.LogDebug("Flight", "Failed to find matching nodeID for: " .. destFull)
@@ -567,6 +622,7 @@ local function UpdateCustomFlightTooltip()
 
     local destShort = GetShortName(destFull)
     local startShort = GetShortName(startFull)
+    mapTooltip.destinationText:SetText(destinationText ~= "" and destinationText or destFull)
 
     if IsAltKeyDown() then
         OUS.LogDebug("Flight", string.format("DB Search: [%s] -> [%s]", startFull, destFull))
@@ -604,23 +660,37 @@ local function UpdateCustomFlightTooltip()
     local distLine = cachedTotalDist and FormatDist(cachedTotalDist) or "Unknown"
     mapTooltip.distText:SetText("Distance: " .. distLine)
 
-    local tooltipHeight = 48
+    -- Bound width and measure wrapping only on the independent OUS FontString.
+    destinationMeasure:SetText(destinationText ~= "" and destinationText or destFull)
+    local tooltipWidth = math.max(220, math.min(360, math.ceil(destinationMeasure:GetUnboundedStringWidth()) + 20))
+    destinationMeasure:SetWidth(tooltipWidth - 20)
+    local destinationHeight = math.ceil(destinationMeasure:GetStringHeight())
+    mapTooltip.destinationText:SetWidth(tooltipWidth - 20)
+    mapTooltip.destinationText:SetHeight(destinationHeight)
+    local tooltipHeight = 48 + destinationHeight + 6
     if showCost then tooltipHeight = tooltipHeight + 17 end
     tooltipHeight = tooltipHeight + 17   -- always show distance line
-    mapTooltip:SetWidth(220)
+    mapTooltip:SetWidth(tooltipWidth)
     mapTooltip:SetHeight(tooltipHeight)
 
     mapTooltip:ClearAllPoints()
 
-    if GameTooltip and GameTooltip:IsShown() then
+    local hideBlizzardTooltip = OdysseusDB.flightSettings.hideBlizzardTooltip == true
+        and validTooltipPin
+    if not hideBlizzardTooltip and GameTooltip and GameTooltip:IsShown() then
         mapTooltip:SetPoint("TOP", GameTooltip, "BOTTOM", 0, -2)
     else
         local scale = UIParent:GetEffectiveScale()
         local x, y = GetCursorPosition()
         mapTooltip:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x / scale + 10, y / scale + 10)
     end
-
     mapTooltip:Show()
+
+    if hideBlizzardTooltip then
+        -- GameTooltip cleanup does not prove this FlightMap pin's hover has ended.
+        suppressedTooltipPin = tooltipOwner
+        GameTooltip:Hide()
+    end
 end
 
 hooksecurefunc(GameTooltip, "Show", function()
@@ -629,6 +699,12 @@ end)
 
 hooksecurefunc(GameTooltip, "Hide", function()
     if taxiMapOpen then
+        local db = OdysseusDB and OdysseusDB.flightSettings
+        local enabled = OdysseusDB and OdysseusDB.modules and OdysseusDB.modules.flightMaster
+        if suppressedTooltipPin and enabled and db and db.showTooltips ~= false and db.hideBlizzardTooltip == true then
+            return
+        end
+        suppressedTooltipPin = nil
         mapTooltip:Hide()
     end
 end)
@@ -777,6 +853,7 @@ end
 
 -- Clears active Flight Master presentation without disturbing saved settings or learned times.
 local function StopFlightMasterRuntime()
+    suppressedTooltipPin = nil
     timerUpdateFrame:Hide()
     isFlying = false
     OUS.SetFlightBarUnlocked(false)
@@ -810,6 +887,11 @@ end
 -- 6. LOAD SAVED DATA
 -- ==========================================
 f:SetScript("OnEvent", function(_, event, arg1)
+    if event == "ADDON_LOADED" and arg1 == "Blizzard_FlightMap" then
+        HookFlightMapTooltipLeave()
+        return
+    end
+
     if event == "UNIT_FLAGS" then
         if UnitOnTaxi("player") and not isFlying then
             HandleLiftoff()
@@ -821,6 +903,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
 
     if event == "TAXIMAP_CLOSED" then
         taxiMapOpen = false
+        suppressedTooltipPin = nil
         mapTooltip:Hide()
         return
     end

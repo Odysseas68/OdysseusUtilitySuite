@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_FlightMaster.lua
--- Version : 2026.08.05
+-- Version : 2026.10.02
 -- Desc    : OUS2 Flight Master display settings page
 -- ================================================
 
@@ -14,6 +14,7 @@ page:Hide()
 
 local enableCheckbox
 local tooltipCheckbox
+local hideBlizzardTooltipCheckbox
 local unlockCheckbox
 local widthControl
 local heightControl
@@ -433,10 +434,23 @@ tooltipCheckbox = CreateCheckboxRow(
     end
 )
 
+hideBlizzardTooltipCheckbox = CreateCheckboxRow(
+    "Hide Blizzard Tooltip",
+    "Hide Blizzard's default flight-map tooltip and show only the Odysseus Flight Master tooltip.",
+    -200,
+    function()
+        local db = GetFlightSettings()
+        if not db then return end
+
+        db.hideBlizzardTooltip = not db.hideBlizzardTooltip
+        Refresh()
+    end
+)
+
 unlockCheckbox = CreateCheckboxRow(
     "Unlock Timer Bar",
     "Show the timer bar preview and allow it to be dragged. Lock it again when finished.",
-    -200,
+    -248,
     function()
         if OUS.SetFlightBarUnlocked then
             OUS.SetFlightBarUnlocked(not OUS.isFlightBarUnlocked)
@@ -445,11 +459,11 @@ unlockCheckbox = CreateCheckboxRow(
     end
 )
 
-CreateSectionHeader("Timer Bar", -260)
+CreateSectionHeader("Timer Bar", -308)
 widthControl = CreateScaleRow(
     "Bar Width",
     "Adjust the width of the Flight Master timer bar.",
-    -286,
+    -334,
     50,
     600,
     10,
@@ -470,7 +484,7 @@ widthControl = CreateScaleRow(
 heightControl = CreateScaleRow(
     "Bar Height",
     "Adjust the height of the Flight Master timer bar.",
-    -350,
+    -398,
     5,
     100,
     1,
@@ -491,7 +505,7 @@ heightControl = CreateScaleRow(
 scaleControl = CreateScaleRow(
     "Bar Scale",
     "Adjust the overall scale of the Flight Master timer bar.",
-    -414,
+    -462,
     0.5,
     3.0,
     0.05,
@@ -507,11 +521,11 @@ scaleControl = CreateScaleRow(
     end
 )
 
-CreateSectionHeader("Text and Border", -494)
+CreateSectionHeader("Text and Border", -542)
 fontSizeControl = CreateScaleRow(
     "Font Size",
     "Adjust the text size used by the Flight Master timer bar.",
-    -520,
+    -568,
     6,
     40,
     1,
@@ -530,7 +544,7 @@ fontSizeControl = CreateScaleRow(
 borderSizeControl = CreateScaleRow(
     "Border Size",
     "Adjust the thickness of the selected Flight Master border.",
-    -584,
+    -632,
     0,
     50,
     1,
@@ -546,11 +560,11 @@ borderSizeControl = CreateScaleRow(
     end
 )
 
-CreateSectionHeader("Appearance", -664)
+CreateSectionHeader("Appearance", -712)
 textureButton = CreateMediaRow(
     "Bar Texture",
     "Choose the LibSharedMedia statusbar texture used by the timer bar fill.",
-    -690,
+    -738,
     "statusbar",
     "textureName",
     function()
@@ -563,7 +577,7 @@ textureButton = CreateMediaRow(
 fontButton = CreateMediaRow(
     "Bar Font",
     "Choose the LibSharedMedia font used by the Flight Master timer text.",
-    -746,
+    -794,
     "font",
     "fontName",
     function()
@@ -576,7 +590,7 @@ fontButton = CreateMediaRow(
 borderButton = CreateMediaRow(
     "Bar Border",
     "Choose the LibSharedMedia border artwork used around the timer bar.",
-    -802,
+    -850,
     "border",
     "borderName",
     function()
@@ -586,11 +600,11 @@ borderButton = CreateMediaRow(
     end
 )
 
-CreateSectionHeader("Colors", -882)
+CreateSectionHeader("Colors", -930)
 barColorButton = CreateColorRow(
     "Bar Color",
     "Choose the fill color used by the Flight Master timer bar.",
-    -908,
+    -956,
     "color",
     OUS.flightDefaults and OUS.flightDefaults.color or { r = 1, g = 0.7, b = 0 },
     function(r, g, b)
@@ -603,7 +617,7 @@ barColorButton = CreateColorRow(
 borderColorButton = CreateColorRow(
     "Border Color",
     "Choose the border color used by the selected Flight Master border.",
-    -964,
+    -1012,
     "borderColor",
     { r = 1, g = 1, b = 1 },
     function(r, g, b)
@@ -615,12 +629,12 @@ borderColorButton = CreateColorRow(
     end
 )
 
-CreateSectionHeader("Data", -1044)
+CreateSectionHeader("Data", -1092)
 CreateActionRow(
     "Export Flight Data",
     "Export",
     "Open a copy window with recorded flight times for manual export.",
-    -1070,
+    -1118,
     function()
         if C.ShowCopyTextDialog then
             C.ShowCopyTextDialog("Export Flight Data", BuildFlightExportText())
@@ -632,18 +646,18 @@ CreateActionRow(
     "Wipe Saved Data",
     "Wipe Data",
     "Delete all recorded Flight Master learned times. Appearance settings are preserved.",
-    -1126,
+    -1174,
     function()
         StaticPopup_Show("OUS2_CONFIRM_WIPE_FLIGHT_TIMES")
     end
 )
 
-CreateSectionHeader("Advanced", -1206)
+CreateSectionHeader("Advanced", -1254)
 CreateActionRow(
     "Reset Bar Position",
     "Reset Position",
     "Move the timer bar back to its default top-center position.",
-    -1232,
+    -1280,
     function()
         if OUS.ResetFlightBarPosition then
             OUS.ResetFlightBarPosition()
@@ -656,7 +670,7 @@ CreateActionRow(
     "Reset Appearance",
     "Reset Style",
     "Reset Flight Master bar size, scale, font, texture, color, and border settings. Learned flight times are preserved.",
-    -1288,
+    -1336,
     function()
         if OUS.ResetFlightBarAppearance then
             OUS.ResetFlightBarAppearance()
@@ -669,10 +683,12 @@ Refresh = function()
     local db = GetFlightSettings()
     local enabled = OdysseusDB and OdysseusDB.modules and OdysseusDB.modules.flightMaster == true
     local tooltipsChecked = db and db.showTooltips == true
+    local hideBlizzardTooltipChecked = db and db.hideBlizzardTooltip == true
     local unlockedChecked = OUS.isFlightBarUnlocked == true
 
     enableCheckbox:SetTexture(T.Tex(enabled and "CheckboxOn" or "CheckboxOff"))
     tooltipCheckbox:SetTexture(T.Tex(tooltipsChecked and "CheckboxOn" or "CheckboxOff"))
+    hideBlizzardTooltipCheckbox:SetTexture(T.Tex(hideBlizzardTooltipChecked and "CheckboxOn" or "CheckboxOff"))
     unlockCheckbox:SetTexture(T.Tex(unlockedChecked and "CheckboxOn" or "CheckboxOff"))
 
     widthControl:SetValue(db and db.width or 200, true)

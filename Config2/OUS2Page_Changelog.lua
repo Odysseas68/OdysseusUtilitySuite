@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.09.20
+-- Version : 2026.10.02
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -32,6 +32,17 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [Version 1.0.6 - 2026-10-02]
+
+### Added
+- Flight Master: optional Hide Blizzard Tooltip, default OFF, shows only OUS for destination nodes. The current node keeps Blizzard's "You are here" tooltip. No third-party dependency; tested with Zygor enabled and disabled.
+- Flight Master: gold destination name/zone at 14 px, with width that grows and shrinks within 220–360 px and height that follows wrapped text.
+
+### Fixed
+- Flight Master: hidden tooltips survive ownerless GameTooltip re-show activity and dismiss on node leave or map close.
+
+---
 
 ## [Version 1.0.5 - 2026-09-20]
 

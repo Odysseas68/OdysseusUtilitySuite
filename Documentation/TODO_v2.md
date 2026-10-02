@@ -379,6 +379,7 @@ Future design review required:
 
 ### Flightmaster Follow-Up Review
 
+- Completed in 1.0.6: optional destination-node Blizzard tooltip suppression, ownerless re-show preservation, destination name/zone, and bounded dynamic tooltip sizing. WoW testing passed with Zygor enabled/disabled, node movement/leave, map close/reopen, disabled module/tooltips, current-node presentation, and short/long destination layouts. Temporary runtime trace removed after validation; combat validation was not reported.
 - Completed OUS2 advanced-control parity: media selectors, color rows, unlock/drag preview, export, wipe confirmation, reset position, and reset appearance.
 - Remaining: audit master module toggle behavior during active flight before exposing it in OUS2.
 

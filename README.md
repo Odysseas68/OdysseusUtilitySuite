@@ -139,6 +139,9 @@ Highlights:
 - learned flight durations saved locally
 - bundled + learned route timing lookups
 - configurable timer bar
+- destination tooltip with gold name/zone text and dynamic 220–360 px width
+- optional Hide Blizzard Tooltip (default OFF) shows only OUS on destination nodes; the current node keeps Blizzard's "You are here" tooltip
+- tested with Zygor enabled and disabled, without a third-party dependency
 - itinerary sidebar for hovered destinations
 - estimated total route time when route data is known
 - export workflow for newly learned routes

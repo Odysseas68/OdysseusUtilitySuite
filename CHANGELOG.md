@@ -2,6 +2,21 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.6 - 2026-10-02]
+
+### Added
+- Flight Master now offers Hide Blizzard Tooltip, default OFF. When enabled alongside Show Map Tooltips, destination nodes show only the OUS tooltip; the current node retains Blizzard's native "You are here" tooltip. Hiding the entire GameTooltip also hides third-party lines attached to it, with no third-party dependency.
+- The OUS map tooltip now includes the cleaned destination name and zone when available, centered in gold at 14 px. Width grows and shrinks within 220–360 px, with 20 px horizontal padding; long names wrap at the cap and height follows the wrapped text.
+
+### Fixed
+- Hidden-mode tooltips retain their tracked FlightMap pin across ownerless/non-pin GameTooltip Show activity. Real matching pin leave, map close, and module/tooltips-disabled cleanup still dismiss OUS.
+
+### Notes
+- WoW runtime testing passed Hide Blizzard Tooltip ON/OFF, Zygor enabled/disabled, node-to-node movement, moving off a node, map close/reopen, Show Map Tooltips OFF, and Flight Master module OFF while the map was open. Current-node "You are here" behavior remained intact.
+- Dynamic width, wrapping, and height passed short/long destination tests, including Atal'Aman, Zul'Aman; Crown Guard Tower, Eastern Plaguelands; and Light's Hope Chapel, Eastern Plaguelands, with no overlap observed. This records the tested cases, not universal compatibility with tooltip-modifying addons. Combat validation was not reported.
+
+---
+
 ## [Version 1.0.5 - 2026-09-20]
 
 ### Changed
