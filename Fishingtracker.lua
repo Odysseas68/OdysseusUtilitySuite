@@ -485,6 +485,50 @@ profText:SetText("Fishing Level")
 local skillText = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 skillText:SetPoint("TOPLEFT", profText, "BOTTOMLEFT", 0, -2)
 
+local venomText = mainFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+venomText:SetPoint("TOPLEFT", skillText, "TOPRIGHT", 16, 0)
+venomText:SetPoint("TOPRIGHT", skillText, "TOPLEFT", MAIN_FRAME_WIDTH - 24, 0)
+venomText:SetJustifyH("RIGHT")
+venomText:SetWordWrap(false)
+venomText:SetTextColor(0, 1, 0)
+venomText:Hide()
+
+local venomTooltipDataInstanceID
+
+-- Match the effect within multiline native text without relying on tooltip line ordering.
+local function ParseFishingVenom(text)
+    if issecretvalue(text) or type(text) ~= "string" then return nil end
+    text = text:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", "")
+    return text:match("%+(%d+)%s+Venom%f[%A]")
+end
+
+-- The equipped rod's native tooltip is authoritative; never infer or retain a Venom count.
+local function UpdateFishingVenom()
+    venomText:SetText("")
+    venomText:Hide()
+    venomTooltipDataInstanceID = nil
+    if not mainFrame:IsShown() then return end
+    local itemID = GetInventoryItemID("player", 28)
+    if issecretvalue(itemID) or itemID ~= 244790 then return end
+
+    local data = C_TooltipInfo.GetInventoryItem("player", 28)
+    if issecretvalue(data) or type(data) ~= "table" then return end
+    if not issecretvalue(data.dataInstanceID) then
+        venomTooltipDataInstanceID = data.dataInstanceID
+    end
+    if issecretvalue(data.lines) or type(data.lines) ~= "table" then return end
+    for _, line in ipairs(data.lines) do
+        if not issecretvalue(line) and type(line) == "table" then
+            local value = ParseFishingVenom(line.leftText) or ParseFishingVenom(line.rightText)
+            if value then
+                venomText:SetText("Venom: +" .. value)
+                venomText:Show()
+                return
+            end
+        end
+    end
+end
+
 local divider1 = mainFrame:CreateTexture(nil, "ARTWORK")
 divider1:SetColorTexture(0.2, 0.5, 0.8, 0.5)
 divider1:SetHeight(1)
@@ -1240,6 +1284,7 @@ local fishingFontStrings = {
     subZoneText,
     profText,
     skillText,
+    venomText,
     locStatsTitle,
     locTotalText,
     locCurrencyText,
@@ -1345,6 +1390,8 @@ end
 function OUS.UpdateFishingUI()
     if not mainFrame:IsShown() then return end
     if not OdysseusDB or not OdysseusDB.fishingSettings then return end
+
+    UpdateFishingVenom()
 
     currentZone = GetRealZoneText() or "Unknown Zone"
     currentSubZone = GetMinimapZoneText() or ""
@@ -1587,6 +1634,10 @@ f:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP")
 f:RegisterEvent("UNIT_SPELLCAST_STOP")
 f:RegisterEvent("LOOT_READY")
 f:RegisterEvent("PLAYER_REGEN_ENABLED")
+f:RegisterEvent("PLAYER_EQUIPMENT_CHANGED")
+f:RegisterEvent("PROFESSION_EQUIPMENT_CHANGED")
+f:RegisterUnitEvent("UNIT_INVENTORY_CHANGED", "player")
+f:RegisterEvent("TOOLTIP_DATA_UPDATE")
 
 f:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
@@ -1631,6 +1682,22 @@ f:SetScript("OnEvent", function(self, event, ...)
     end
 
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.fishingTracker then
+        return
+    end
+
+    if event == "PLAYER_EQUIPMENT_CHANGED" then
+        local slot = ...
+        if slot == 28 then UpdateFishingVenom() end
+        return
+    elseif event == "PROFESSION_EQUIPMENT_CHANGED" or event == "UNIT_INVENTORY_CHANGED" then
+        UpdateFishingVenom()
+        return
+    elseif event == "TOOLTIP_DATA_UPDATE" then
+        local dataInstanceID = ...
+        if not issecretvalue(dataInstanceID) and venomTooltipDataInstanceID
+            and dataInstanceID == venomTooltipDataInstanceID then
+            UpdateFishingVenom()
+        end
         return
     end
 
@@ -1714,6 +1781,7 @@ f:SetScript("OnEvent", function(self, event, ...)
                 mainFrame:Show()
                 OUS.UpdateFishingUI()
             end
+            UpdateFishingVenom()
         end
     end
 end)

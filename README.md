@@ -230,6 +230,8 @@ A fast auto-loot module that respects group loot, locked items, and bag-full sit
 ### Fishing Tracker
 A location-aware fishing tracker with session and global statistics, fish-per-hour tracking, currency tracking, and trash filtering.
 
+When The Coiled Huntress (item 244790) is equipped, its current Venom appears in green beside the fishing skill. The display reads the equipped rod's native structured tooltip, refreshes through UI/catch/equipment events, and clears when the rod or value is unavailable. It uses the existing font setting, with no inferred Venom counter or persistent Venom data. Equip/unequip/re-equip, applicable catch updates, and the tested spend/convert path passed in-game testing.
+
 ---
 
 ## Commands

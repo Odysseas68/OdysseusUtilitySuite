@@ -367,6 +367,7 @@ Future design review required:
 
 ### Fishing Tracker Follow-Up Review
 
+- Completed in 1.0.7: The Coiled Huntress (item 244790) current Venom display beside fishing skill, using authoritative structured inventory-tooltip text and event-driven refresh without an internal counter. Equip/unequip/re-equip, applicable catch updates, and the tested spend/convert path passed WoW runtime testing.
 - Completed display controls: frame scale and LibSharedMedia font selection.
 - Completed classified Fish/Currency/Other summaries, Fish-only statistics rows, corrected Zone Fish totals, and the Zone Catch Details drill-down.
 - Next: Fishing Tracker Session Statistics.

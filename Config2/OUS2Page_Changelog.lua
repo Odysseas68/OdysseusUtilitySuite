@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.10.02
+-- Version : 2026.10.05
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -32,6 +32,14 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [Version 1.0.7 - 2026-10-05]
+
+### Added
+- Fishing Tracker: The Coiled Huntress now shows current Venom beside your fishing skill. Reads the equipped rod's tooltip value, refreshes on catches and equipment/inventory updates, and clears when the rod or value is unavailable.
+- Venom uses the existing Fishing Tracker font setting. Equip, unequip, re-equip, catch updates, and the tested spend/convert path passed in-game testing.
+
+---
 
 ## [Version 1.0.6 - 2026-10-02]
 

@@ -652,6 +652,13 @@ Completed:
 11. XP Bar
 12. Delves
 
+Fishing Tracker equipment display:
+
+- `Fishingtracker.lua` gates The Coiled Huntress Venom display on item 244790 in profession-tool inventory slot 28. `C_TooltipInfo.GetInventoryItem("player", 28)` is authoritative; the reader scans native line left/right text for `+<digits> Venom`, supports multiline strings and color codes, skips secret values, and clears unavailable results. It neither reads nor alters the visible GameTooltip and maintains no inferred count or Venom SavedVariables.
+- The green `Venom: +<value>` FontString shares the fishing skill row, is right-aligned beneath Overall Stats, and participates in `OUS.UpdateFishingFont()` through the existing static FontString list. Catch classification, skill formatting, frame width, and pole-hover tooltip behavior are unchanged.
+- Refresh uses normal tracker UI refresh/open, fishing `LOOT_READY` processing, slot-28 `PLAYER_EQUIPMENT_CHANGED`, `PROFESSION_EQUIPMENT_CHANGED`, player `UNIT_INVENTORY_CHANGED`, and `TOOLTIP_DATA_UPDATE` matching the last relevant data-instance ID. No polling or repeating timer is added.
+- WoW tests passed equip/unequip/re-equip, applicable catch updates, and the tested spend/convert path. These observations do not establish coverage for every external state-change mechanism or other rods; a later normal refresh remains the fallback for unsignaled changes.
+
 XP Bar OUS2 architecture:
 
 - `XPBar` is the registered hub page.

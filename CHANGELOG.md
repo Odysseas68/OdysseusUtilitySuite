@@ -2,6 +2,17 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.7 - 2026-10-05]
+
+### Added
+- Fishing Tracker now shows The Coiled Huntress (item 244790) Venom beside the fishing skill when equipped in profession-tool slot 28. The green, right-aligned display uses the current structured inventory-tooltip value from `C_TooltipInfo.GetInventoryItem`, without touching the visible GameTooltip, inferring a counter, or adding SavedVariables.
+- Venom refreshes on tracker UI refresh/open, fishing loot processing, equipment/profession-tool and player inventory changes, and matching tooltip-data updates. The display clears when the rod or value is unavailable and follows the existing Fishing Tracker font setting.
+
+### Notes
+- WoW runtime testing passed equipped-value display, unequip clearing, re-equip restoration, automatic update after an applicable catch, and the tested spend/convert path. Existing Fishing Tracker behavior remained intact. Coverage is specific to The Coiled Huntress and these tested paths; it does not guarantee every external Venom state-change mechanism.
+
+---
+
 ## [Version 1.0.6 - 2026-10-02]
 
 ### Added
