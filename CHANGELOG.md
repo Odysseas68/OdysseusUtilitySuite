@@ -4,43 +4,52 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [Version 1.0.8 - 2026-10-09]
 
-### Added
+### 🪄 Added
+
 - AutoRemount Custom Spells window with SpellID input, Add/Remove, confirmed Clear All, and OUS2 Open/Add Custom Spells action; existing custom-spell commands remain supported.
 - AutoRemount Audit window (`/ar audit`) with DB Audit, Spellbook, and Talents modes, compact Midnight controls, selected-mode Refresh, and plain-text Copy All. Spy now also has a permanent display-only Refresh button.
 
-### Changed
+### 🛠️ Changed
+
 - Spy discovery now waits for loot evidence within 5 seconds and confirms only on loot closure. LOOT_READY supports FasterLoot's fast path; replacement, harmful/mount spells, Spy disable, combat end, and stale-timer protection prevent old candidates from persisting. Chat announces each newly discovered SpellID once.
 - Structural harmful/mount filtering guards custom triggers and Spy while preserving built-in gathering authority. Legacy exclusion dependence is reduced to one explicit entry: Ethereal Augmentation, retained for observed persistent/noisy Spy behavior.
 
-### Fixed
+### 🐛 Fixed
+
 - Interaction ownership prevents stale no-loot fallback and delayed loot-close remount callbacks from acting on a newer gathering interaction.
 
-### Notes
+### 🗒️ Notes
+
 - User-reported Retail 12.1.0 world play, fishing, Herbalism, Mining, raid combat, and boss-loot scenarios with only Ethereal Augmentation explicitly excluded produced zero new persistent Spy discoveries. FasterLoot/Fishing Tracker interoperability and real Spellbook/Talent audit data were exercised in-game. These are bounded observations, not exhaustive coverage or a dedicated death-handler validation.
 
 ---
 
 ## [Version 1.0.7 - 2026-10-05]
 
-### Added
+### 🪄 Added
+
 - Fishing Tracker now shows The Coiled Huntress (item 244790) Venom beside the fishing skill when equipped in profession-tool slot 28. The green, right-aligned display uses the current structured inventory-tooltip value from `C_TooltipInfo.GetInventoryItem`, without touching the visible GameTooltip, inferring a counter, or adding SavedVariables.
 - Venom refreshes on tracker UI refresh/open, fishing loot processing, equipment/profession-tool and player inventory changes, and matching tooltip-data updates. The display clears when the rod or value is unavailable and follows the existing Fishing Tracker font setting.
 
-### Notes
+### 🗒️ Notes
+
 - WoW runtime testing passed equipped-value display, unequip clearing, re-equip restoration, automatic update after an applicable catch, and the tested spend/convert path. Existing Fishing Tracker behavior remained intact. Coverage is specific to The Coiled Huntress and these tested paths; it does not guarantee every external Venom state-change mechanism.
 
 ---
 
 ## [Version 1.0.6 - 2026-10-02]
 
-### Added
+### 🪄 Added
+
 - Flight Master now offers Hide Blizzard Tooltip, default OFF. When enabled alongside Show Map Tooltips, destination nodes show only the OUS tooltip; the current node retains Blizzard's native "You are here" tooltip. Hiding the entire GameTooltip also hides third-party lines attached to it, with no third-party dependency.
 - The OUS map tooltip now includes the cleaned destination name and zone when available, centered in gold at 14 px. Width grows and shrinks within 220–360 px, with 20 px horizontal padding; long names wrap at the cap and height follows the wrapped text.
 
-### Fixed
+### 🐛 Fixed
+
 - Hidden-mode tooltips retain their tracked FlightMap pin across ownerless/non-pin GameTooltip Show activity. Real matching pin leave, map close, and module/tooltips-disabled cleanup still dismiss OUS.
 
-### Notes
+### 🗒️ Notes
+
 - WoW runtime testing passed Hide Blizzard Tooltip ON/OFF, Zygor enabled/disabled, node-to-node movement, moving off a node, map close/reopen, Show Map Tooltips OFF, and Flight Master module OFF while the map was open. Current-node "You are here" behavior remained intact.
 - Dynamic width, wrapping, and height passed short/long destination tests, including Atal'Aman, Zul'Aman; Crown Guard Tower, Eastern Plaguelands; and Light's Hope Chapel, Eastern Plaguelands, with no overlap observed. This records the tested cases, not universal compatibility with tooltip-modifying addons. Combat validation was not reported.
 
@@ -48,27 +57,32 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [Version 1.0.5 - 2026-09-20]
 
-### Changed
+### 🛠️ Changed
+
 - Guild First Auto Repair messages now include the observed guild repair/withdrawal allowance for context without changing native repair funding behavior.
 
-### Fixed
+### 🐛 Fixed
+
 - Fixed Session Stats counting existing character XP progress as XP gained after login or `/reload`.
 
 ---
 
 ## [Version 1.0.4 - 2026-09-19]
 
-### Changed
+### 🛠️ Changed
+
 - Session Stats now summarizes the full cost of every OUS-initiated repair in Repairs (Own + Guild), whether paid with personal gold, guild funds, or a mixture of both. Gold Spent continues to track personal-wallet spending independently.
 
 ---
 
 ## [Version 1.0.3 - 2026-09-17]
 
-### Fixed
+### 🐛 Fixed
+
 - Fixed Guild First Auto Repair after a cold client start by removing cached Guild Bank coverage prerequisites. One native guild-first repair request uses available guild repair resources and lets Blizzard charge the character for any remainder.
 
-### Changed
+### 🛠️ Changed
+
 - Session Stats no longer guesses guild-first repair funding. Actual personal wallet spending still contributes to Gold Spent; Repairs excludes guild-first transactions and reports attributable Own-funds repairs instead.
 - Removed the misleading Guild Repairs row and unused internal counter. Guild-first announcements now report the quoted bill as a repair request without claiming a funding split.
 
@@ -76,25 +90,29 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [Version 1.0.2 - 2026-09-17]
 
-### Added
+### 🪄 Added
+
 - Added OUS Junk, a LibDataBroker display of current carried grey-junk vendor value with Blizzard coin icons and denomination colors. Includes blacklisted grey items and physical stack quantities; instance-aware bag-hyperlink pricing matches OUS Junk Seller.
 - Added tooltip current-bag quantity/value and authoritative Session Stats junk totals. Left-click shows Session Stats; right-click shows Gold Diagnostics without toggling either window closed.
 - Supports LDB hosts, including Titan Panel, without a Titan dependency or Titan API calls. Reset Counters clears only session totals, leaving current bag values intact.
 
-### Fixed
+### 🐛 Fixed
+
 - Synchronized the initial junk-value display after login/reload without requiring a tooltip hover.
 
 ---
 
 ## [Version 1.0.1 - 2026-09-16]
 
-### Added
+### 🪄 Added
+
 - Added Session Stats Guild Repairs and Junk breakdowns: physical item quantity and gross automatic junk-sale proceeds.
 - Added confirmed Reset Counters for session XP, reputation, gold, personal/guild repairs, junk, and Mistcrest Session gains without clearing lifetime/Overall Stats or SavedVariables. XP, wallet, and crest baselines are refreshed; transient reconciliation state is cleared/rebased, while diagnostic history remains.
 - Added runtime-only, copyable Gold Diagnostics with wallet observations, transaction/reconciliation timelines, optional vendor-price comparisons, and a scrollable color-highlighted field reference.
 - Added default-off Detailed Sale Report under Utilities: one clickable bag-item link, physical stack quantity, and whole-stack value per accepted junk sale, independently of the existing summary announcement.
 
-### Fixed
+### 🐛 Fixed
+
 - Accounted known OUS income and personal repair spending immediately, then reconciled observed wallet deltas to avoid duplicate accounting. Matching uses exact ordered cumulative queue prefixes first, then same-sign queue-order consumption with partial support and opposite-sign entries skipped; unexplained remainder remains ordinary gain/spending.
 - Kept wallet baselines strictly observational and deferred cold-login initialization until world entry rather than predicting future balances.
 - Kept personal repairs within gross Gold Spent and junk proceeds within gross Gold Gained; guild-funded repairs remain informational and outside personal spending.
@@ -107,59 +125,68 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [2026-09-14]
 
-### Added
+### 🪄 Added
+
 - Expanded Session Stats with Gold Gained, Gold Spent, Repairs, and Midnight Season 2 Mistcrest tracking.
 - Added Session Stats display and built-in Mistcrest controls under the existing XP Bar configuration page, with immediate reflow when sections or currencies are hidden.
 
-### Changed
+### 🛠️ Changed
+
 - Extracted the Session Stats runtime window and tracking into a dedicated subsystem while preserving XP and reputation session reporting.
 - Consolidated Delves configuration navigation under XP Bar and removed its redundant sidebar and General dashboard entries without removing Delves functionality or settings.
 
-### Fixed
+### 🐛 Fixed
+
 - Prevented cached Mistcrest balances from being counted as session gains after a cold login by establishing currency baselines on the first valid currency update.
 
-### Notes
+### 🗒️ Notes
+
 - OUS now uses semantic versioning beginning with version 1.0.0; build dates remain date-based.
 
 ---
 
 ## [2026-09-13]
 
-### Added
+### 🪄 Added
+
 - Added a Zone Catch Details drill-down that combines Fish, Currency, and Other catches with compact `F` / `C` / `O` classification indicators.
 
-### Changed
+### 🛠️ Changed
+
 - Classified Fishing Tracker history consistently as Fish, Currency, Other, or excluded junk without migrating SavedVariables.
 - Limited Current Location, Current Session, and Overall Fish lists and percentages to verified Fish catches while adding derived Other totals.
 - Corrected Overall Zone statistics to use classified Fish counts and Retail Fish metadata with focused semantic exceptions.
 
-### Notes
+### 🗒️ Notes
+
 - Existing Fishing Tracker history and SavedVariables structures remain unchanged; classification and totals are derived at display time.
 
 ---
 
 ## [2026-09-12]
 
-### Added
+### 🪄 Added
+
 - Added Fishing Tracker frame scaling with a 0.5–2.0 range and combat-safe deferred updates.
 - Added LibSharedMedia font selection for Fishing Tracker, Session, and Overall Statistics text.
 - Added Midnight Fishing support for the Vaults of Atal'Utek instance and UI map identifiers.
 - Added `/ous mapinfo` for compact current map, location, instance, coordinate, and Delves companion diagnostics.
 
-### Changed
+### 🛠️ Changed
+
 - Made OUS2 the primary configuration interface while preserving `/ous` as its default entry point and `/ous2` as an alias.
 - Routed the minimap launcher, addon-compartment action, and Toolbox configuration shortcuts to OUS2.
 - Moved the shared global-reset confirmation to Core so reset behavior no longer depends on legacy configuration files.
 - Added a thin modern scrollbar to keep the Fishing Tracker main catch list compact in locations with many recorded catches.
+- Retired the legacy `Config.lua` and `xpbar_config.lua` configuration interfaces after setting parity, migration-plumbing, and Checkpoint 2 runtime validation completed.
 
-### Fixed
+### 🐛 Fixed
+
 - Fixed Fishing Tracker fish names overlapping their icons after switching between the Overall Statistics Fish and Zone tabs.
 - Fixed the Fishing Tracker fishing-pole icon's inset Quickslot border artifact.
 
-### Removed
-- Retired the legacy `Config.lua` and `xpbar_config.lua` configuration interfaces after setting parity, migration-plumbing, and Checkpoint 2 runtime validation completed.
+### 🗒️ Notes
 
-### Notes
 - Existing SavedVariables names, paths, defaults, and user data remain unchanged.
 - Final user runtime validation passed with the legacy files absent, OUS2 active, retirement routing functional, and no Lua errors observed.
 
@@ -167,18 +194,21 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [2026-07-11]
 
-### Added
+### 🪄 Added
+
 - Added a Utilities option, disabled by default, that hides only Blizzard's Extra Action Button and Zone Ability decorative artwork without replacing or modifying the underlying ability buttons.
 - Added matching OUS2 and legacy Utilities controls backed by `OdysseusDB.utilities.hideExtraActionArtwork`.
 - Added a session-only Delves Lock/Unlock Frame control for ordinary Left Click dragging outside combat; locking saves the position and restores normal visibility.
 
-### Changed
+### 🛠️ Changed
+
 - Improved the XP Bar Global layout with full selected font and border-style names, a dedicated Border section, aligned controls, and separate Display and Border reset actions.
 - Updated XP Bar, Delves, and Flight Master color selectors to use compact square color swatches.
 - Improved Delves reset placement, button sizing, and Help descriptions; Reset Defaults now clearly covers templates, colors, and dimensions, while Reset Position affects only the bar position.
 - Replaced the old Delves Shift-drag workflow. Unlocking previews the bar outside Delves, keeps live values inside Delves, and automatically returns to locked state when leaving the settings page, entering combat, or reloading.
 
-### Notes
+### 🗒️ Notes
+
 - Artwork refreshes are reapplied through safe Blizzard post-hooks and lifecycle events, with combat requests deferred until combat ends.
 - Disable Enhance QoL's equivalent hide-artwork option when using the OUS version so both addons do not control the same Blizzard artwork.
 
@@ -186,22 +216,26 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [2026-07-08]
 
-### Added
+### 🪄 Added
+
 - Added OUS2 XP Bar Favorites action to open the existing Favorites selector.
 - Added `OUS.OpenXPBarFavoritesSelector()` as the public bridge for opening the selector safely.
 - Added public Toolbox helpers for direction, scale, reset position, and initialization status.
 - Added OUS2 Toolbox controls for scale and reset position using the public Toolbox runtime API.
 
-### Changed
+### 🛠️ Changed
+
 - Updated OUS2 Toolbox lock, direction, scale, and reset-position controls to use public Toolbox helpers instead of direct runtime-state manipulation.
 - Updated Toolbox scaling to follow the Flight Master model: the movable parent frame remains at `SetScale(1)` while saved scale is folded into dimensions, spacing, and child button sizes.
 
-### Fixed
+### 🐛 Fixed
+
 - Updated Openables to display separate non-stackable copies of the same openable itemID as a combined button count.
 - Kept Openables focused on the current duplicated itemID after each open until all copies are consumed, then resumes normal next-item scanning.
 - Fixed Toolbox scale-position drift when changing scale from OUS2 or `/tb scale`.
 
-### Notes
+### 🗒️ Notes
+
 - OUS2 delegates saving to the existing selector and does not directly write `favFactions`.
 - In-game verified after `/reload`, including selector layering above OUS2, combat blocking, saving, hover dashboard refresh, and legacy modifier-right-click behavior.
 
@@ -209,24 +243,33 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [2026-07-04]
 
-### Added
+### 🪄 Added
+
 - Added Delves OUS2 `Reset Defaults` and `Reset Position` parity.
 - Added `.github\skills\ous-reference-workspace\SKILL.md` for safe shared Reference workspace usage.
-
-### Documentation
-- Documented the shared `Reference\` engineering workspace and its read-only, local-only contract.
-- Updated reference guidance to prefer `Reference\Blizzard\wow-ui-source` for Blizzard API and FrameXML checks.
 - Added `Documentation\OUS2_XPBAR_PARITY.md`.
 - Established the dedicated engineering checklist for XP Bar, Reputation, and Delves OUS2 parity.
-- Synchronized OUS2 documentation so remaining XP Bar parity work is tracked from the dedicated plan.
+
+### 🗒️ Notes
+
+- Documented the shared `Reference\` engineering workspace and its read-only, local-only contract.
 - No production Lua code changed.
+
+### 🛠️ Changed
+
+- Updated reference guidance to prefer `Reference\Blizzard\wow-ui-source` for Blizzard API and FrameXML checks.
+- Synchronized OUS2 documentation so remaining XP Bar parity work is tracked from the dedicated plan.
 
 ---
 
 ## [2026-07-03]
 
-### Documentation
+### 🗒️ Notes
+
 - Documented the BuffBars reference addon as a validated Retail 12.0.x proof-of-concept that should remain frozen until 12.1 aura API behavior is researched.
+
+### 🛠️ Changed
+
 - Marked BuffBars production integration as blocked pending `ManagedAuraContainer` / `AuraContainer` / `AuraButton` research and a separate 12.1 prototype.
 - Updated long-term engineering notes to preserve the 12.0.x aura lessons while avoiding premature production porting.
 
@@ -234,20 +277,28 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 
 ## [2026-06-28]
 
-### Documentation
+### 🪄 Added
+
 - Added initial `Documentation\BUFFBARS_DESIGN.md` for the validated BuffBars reference audit.
-- Tracked BuffBars as a future Phase 6 candidate without adding production module files or TOC entries.
 - Added long-term Retail-safe aura lessons to `CLAUDE.md`.
+
+### 🗒️ Notes
+
+- Tracked BuffBars as a future Phase 6 candidate without adding production module files or TOC entries.
 
 ---
 
 ## [2026-06-25]
 
-### Added
+### 🪄 Added
+
 - **OUS2 Flight Master**: advanced-control parity for map tooltips, timer bar unlock/drag preview, width, height, scale, font size, border size, texture/font/border selectors, bar color, border color, export, wipe confirmation, reset position, and reset appearance.
 - **OUS2 shared helpers**: reusable media dropdown, color picker, and copy-text dialog helpers in `Config2\OUS2Config.lua`.
+- Added coding-comment guidance for major helpers, public OUS APIs, and non-obvious integration boundaries.
+- Added third-party addon compatibility guidance, including broker-compatible launcher/minimap preference via LibDataBroker-1.1 + LibDBIcon-1.0.
 
-### Changed
+### 🛠️ Changed
+
 - Migrated the OUS minimap launcher from a manually owned minimap button to LibDataBroker-1.1 + LibDBIcon-1.0.
 - Migrated minimap SavedVariables from `showMinimapButton` / `minimapAngle` to `OdysseusDB.minimap.hide` / `OdysseusDB.minimap.minimapPos`.
 - Preserved OUS2 Show Minimap Button behavior through the existing public Core APIs.
@@ -255,15 +306,12 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 - **Flightmaster**: OUS2 scale changes call `OUS.ApplyFlightSettings()` and use the engine's dimension-based scaling path instead of applying user scale with `timerBar:SetScale()`.
 - **Flightmaster reset**: OUS2 Reset Appearance restores visual settings while preserving learned flight times.
 
-### Documentation
-- Added coding-comment guidance for major helpers, public OUS APIs, and non-obvious integration boundaries.
-- Added third-party addon compatibility guidance, including broker-compatible launcher/minimap preference via LibDataBroker-1.1 + LibDBIcon-1.0.
-
 ---
 
 ## [2026-06-03]
 
-### Added
+### 🪄 Added
+
 - **Utilities**: New module — `Utilities.lua` — rare announcer, auto repair, junk seller
 - **Utilities → Rare Announcer** (`/ous_rare`): target any mob and announce to General chat with classification tag (`[Rare]`, `[Rare Elite]`, `[Elite]`, `[World Boss]`, `[Normal]`), native Blizzard waypoint hyperlink via `C_Map.SetUserWaypoint` + `GetUserWaypointHyperlink()` (restores previous pin after 0.1s), TomTom support (`AddWaypoint` with `source="OUS"`, `crazy=true`), open world only guard, localized General channel table (Leatrix Plus pattern, 10 locales)
 - **Utilities → Auto Repair**: auto-repairs on `MERCHANT_SHOW`; guild repair first (`GetGuildBankWithdrawMoney` permission check), own gold fallback; announces cost in chat with coin icons (`UI-GoldIcon`, `UI-SilverIcon`, `UI-CopperIcon` at 14×14); colored fund source (green = guild, amber = own)
@@ -271,47 +319,48 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
 - **Config → Utilities tab**: new tab with Rare Announcer, Auto Repair, and Junk Seller sections; per-section checkboxes for all settings
 - **Core**: `utilities` module default; `OdysseusDB.utilities` settings (`rareEnabled`, `repairEnabled`, `guildRepair`, `announceRepair`); `OdysseusDB.utilities.junkSell` sub-table (`enabled`, `requireShift`, `announceJunk`, `limitTo12`, `blacklist`); migration guard for `limitTo12` on older saved data
 - **Toolbox**: Utilities button added before Openables (`ability_repair` icon)
-
-### Changed
-- **Config → General**: module toggles reformatted to 2-column layout (4 rows instead of 8, saves ~140px vertical space); uses `ChatConfigCheckButtonTemplate` with named frame pattern matching existing toggles
-
-### Infrastructure
 - `Utilities.lua` added to TOC before `Toolbox.lua`
+
+### 🛠️ Changed
+
+- **Config → General**: module toggles reformatted to 2-column layout (4 rows instead of 8, saves ~140px vertical space); uses `ChatConfigCheckButtonTemplate` with named frame pattern matching existing toggles
 - TOC version bumped to `2026.06.03`
 
 ---
 
 ## [2026-05-29]
 
-### Added
+### 🪄 Added
+
 - **Flightmaster**: Live distance countdown below the timer bar — straight-line world coordinate distance using `C_Map.GetWorldPosFromMapPos()`, auto-switches between meters (`743m`) and kilometers (`1km 345m`), light blue color matching the map tooltip
 - **Flightmaster**: Distance interpolates live during flight (known time) or estimates using avg taxi speed ~28 yards/sec (unknown time)
 - **Flightmaster**: Border color picker added next to the border selector — live drag preview, persists across reloads
 - **Flightmaster**: `OUS.SetFlightBarColor`, `OUS.SetFlightBorderColor`, `OUS.PreviewFlightBar`, `OUS.ShowFlightTextFrames`, `OUS.HideFlightTextFrames` — Config.lua now calls all bar operations through the OUS table (no direct StatusBar method calls from Config)
 - **FlightRouting**: Total route distance in the itinerary panel — sum of all hop segments using world coordinates. Summary lines recolored: Total Hops (gold), Estimated Time (green), Distance (light blue)
 - **FlightData**: Updated to FlyTravelTimes v1.1.6 + 37 personal Midnight routes — 13,062 total routes, 538 nodes (1,421 routes recovered from pre-1.1.2 parser bug)
+- Standard file headers added to 13 engine/config files: `Fasterloot.lua`, `Fishingtracker.lua`, `xpbar_core.lua`, `xpbar_engine.lua`, `xpbar_delves.lua`, `xpbar_favorites.lua`, `AutoRemount.lua`, `StatsBar.lua`, `Openables.lua`, `Toolbox.lua`, `Config.lua`, `xpbar_config.lua`, `Help.lua`
+- `FlightRouting.lua` standard header added
 
-### Changed
+### 🛠️ Changed
+
 - **Flightmaster**: Replaced `StatusBar` with plain `Frame` + `Texture` fill — `SetWidth()` each frame eliminates StatusBar texture redraw hiccup
 - **Flightmaster**: Decoupled `borderFrame`, `timerTextFrame`, `timerTopFrame`, `timerBottomFrame` from `timerBar` — all parented to `UIParent`, anchored to bar, independent redraws
 - **Flightmaster**: Timer text throttled to 1s updates, distance text to 0.1s — bar fill still updates every frame
 - **Config**: `OpenColorPicker` now includes `colorPickerFunc` for live drag preview on all color pickers (bar color and border color)
 
-### Fixed
+### 🐛 Fixed
+
 - **Flightmaster**: Distance display static during unknown-time flights — now counts down using estimated average taxi speed
 - **Flightmaster**: Border color not updating live — `SetFlightBorderColor` now calls `SetBackdropBorderColor` directly without resetting the backdrop
 - **Flightmaster**: Border color not persisting on reload — color table updated in-place to preserve `colorTableRef` reference held by the color box
 - **Flightmaster**: Decoupled frames not showing on unlock — explicit show/hide added for all decoupled frames in lock/unlock toggle
 
-### Infrastructure
-- Standard file headers added to 13 engine/config files: `Fasterloot.lua`, `Fishingtracker.lua`, `xpbar_core.lua`, `xpbar_engine.lua`, `xpbar_delves.lua`, `xpbar_favorites.lua`, `AutoRemount.lua`, `StatsBar.lua`, `Openables.lua`, `Toolbox.lua`, `Config.lua`, `xpbar_config.lua`, `Help.lua`
-- `FlightRouting.lua` standard header added
-
 ---
 
 ## [2026-05-15]
 
-### Added
+### 🪄 Added
+
 - **Toolbox**: New module — floating icon bar giving one-click access to all OUS module panels
   - One icon per active module: OUS Config, XP Bar Stats, Flight Master, Fishing Tracker, Auto Remount, Stats Bar, Openables
   - Horizontal and vertical layout modes (`/tb ver` / `/tb hor`)
@@ -331,6 +380,7 @@ All notable changes to **Odysseus Utility Suite** will be documented in this fil
   - Extracted to standalone `Help.lua` — no Config.lua dependency
 - **Config**: `OUS.ConfigFrame.ShowTab` and `OUS.ConfigFrame.currentNavTab` exposed for external callers
 
-### Changed
+### 🛠️ Changed
+
 - **Config**: General tab module toggle checkboxes spacing tightened from 35px to 28px to accommodate Toolbox toggle
 - **Help**: Moved from `Config.lua` into standalone `Help.lua` (section 5, loads after `xpbar_config.lua`)

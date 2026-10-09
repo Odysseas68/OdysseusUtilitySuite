@@ -684,6 +684,8 @@ Avoid documentation-only churn for cosmetic or internal changes.
 
 ## Release Metadata Synchronization
 
+For future CHANGELOG.md release entries, use `### 🪄 Added`, `### 🛠️ Changed`, `### 🐛 Fixed`, and `### 🗒️ Notes` for the categories present. Keep the in-game changelog plain-text compatible; emoji are not required there because WoW font support is unreliable.
+
 Before any release commit/push:
 
 - Synchronize the addon TOC Version and X-Build-Date, OUS2 displayed Version and Build Date, CHANGELOG.md, and the in-game changelog together. OUS2 currently reads its displayed metadata from the TOC.
