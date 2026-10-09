@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_FlightRouting.lua
--- Version : 2026.06.22
+-- Version : 2026.10.09
 -- Desc    : OUS2 Flight Routing informational page
 -- ================================================
 

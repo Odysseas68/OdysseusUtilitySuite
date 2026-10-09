@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_FlightMaster.lua
--- Version : 2026.10.02
+-- Version : 2026.10.09
 -- Desc    : OUS2 Flight Master display settings page
 -- ================================================
 

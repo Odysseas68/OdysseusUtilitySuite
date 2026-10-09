@@ -89,9 +89,13 @@ Highlights:
 - druid Travel Form skip (toggleable)
 - silent mode to suppress mount error messages
 - safety checks: combat lockdown, flying, dead/ghost, dungeon/raid instance, profession crafting UI
-- no-loot fallback path for interactions without a loot window (e.g. trap disarm)
-- spy mode: prints loot-confirmed unknown spells to chat for manual review
-- custom spell list and permanent exclude list for false positives
+- no-loot fallback for accepted gathering interactions (e.g. trap disarm); interaction ownership prevents stale delayed callbacks from acting on a newer interaction
+- Spy keeps unknown candidates transient: LOOT_READY or LOOT_OPENED must arrive within 5 seconds, then LOOT_CLOSED confirms discovery; supports FasterLoot's fast loot path
+- Spy prints one notification per newly discovered SpellID; its persistent review/export frame has Refresh, Copy All, and confirmed Clear
+- separate Custom Spells window manages user-approved production triggers; Spy discoveries are not automatically promoted
+- structural mount/harmful filtering guards custom triggers and Spy while preserving built-in gathering authority
+- minimal explicit exclusion database, currently retaining only 1234969 — Ethereal Augmentation; future exclusions require demonstrated runtime need
+- standalone Audit window with DB Audit, Spellbook, and Talents modes, manual Refresh, and plain-text Copy All
 - full slash command set via `/ar` and `/autoremount`
 
 Commands:
@@ -105,10 +109,20 @@ Commands:
 - `/ar silent` — toggle error notifications
 - `/ar spy` — toggle spy mode
 - `/ar spyfilter` — manage spy filter blacklist
+- `/ar custom` — open Custom Spells management (also available through OUS2 Actions: Open/Add Custom Spells)
+- `/ar audit` — open AutoRemount Audit
 - `/ar add <id>` / `/ar remove <id>` — manage custom spell IDs
 - `/ar export` / `/ar wipe` — export or clear custom spell IDs
 - `/ar status` — show current settings
 - `/ar help` — show all commands
+
+Custom Spells supports SpellID input, Add Spell or Enter, icon/name/ID rows with Remove, and confirmed Clear All. Existing add/remove/wipe commands remain supported; the numeric `OdysseusDB.autoRemount.customSpells` array is unchanged.
+
+Audit uses one 800 × 560 window with top controls **DB Audit | Spellbook | Talents | Refresh | Copy All | Close**. Refresh queries only the selected mode; Copy All selects that mode's plain-text report for Ctrl+C. Returning to the list preserves the snapshot. No audit snapshots are saved and no polling is used.
+
+DB Audit shows runtime classification signals, not an exhaustive static Buff/Aura classifier. Spellbook covers known player skill-line spells, excluding the separate pet bank, unexpanded profession offsets, and flyout contents. Absence does not mean “not a class spell.” Talents reports selected active entries and primary definition SpellIDs, not every secondary effect/aura or PvP talent; unapplied edits are withheld.
+
+User-reported Retail 12.1.0 world, fishing, gathering, combat, raid, and loot tests with only Ethereal Augmentation explicitly excluded produced **zero new persistent Spy discoveries**. FasterLoot and Fishing Tracker interoperability remained functional in those tested scenarios. This is bounded runtime evidence, not coverage of every game activity. See [AutoRemount implementation and runtime evidence](Documentation/ARCHITECTURE.md#autoremount-engine-and-research-surfaces) for lifecycle details, audit limitations, and the separate mock/static validation record.
 
 ---
 

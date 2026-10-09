@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2ScaleControl.lua
--- Version : 2026.06.21
+-- Version : 2026.10.09
 -- Desc    : Reusable OUS2 numeric scale control
 -- ================================================
 

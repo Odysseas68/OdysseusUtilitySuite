@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Fishingtracker.lua
--- Version : 2026.09.13
+-- Version : 2026.10.09
 -- Desc    : Fishing session tracker — catch counts, session timer, loot log
 -- ============================================================
 -- luacheck: globals CreateScrollBoxLinearView ScrollUtil

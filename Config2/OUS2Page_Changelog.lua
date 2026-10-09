@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.10.05
+-- Version : 2026.10.09
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -32,6 +32,24 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [Version 1.0.8 - 2026-10-09]
+
+### Added
+- AutoRemount: Custom Spells window with SpellID input, Add/Remove, confirmed Clear All, and an Open/Add Custom Spells action in OUS2. Existing custom-spell commands remain supported.
+- AutoRemount: Audit window (/ar audit) with DB Audit, Spellbook, and Talents modes, selected-mode Refresh, and plain-text Copy All. Spy also has a display-only Refresh button.
+
+### Changed
+- Spy waits up to 5 seconds for initial loot evidence and confirms only on loot closure. LOOT_READY supports FasterLoot; replacement, harmful/mount spells, Spy disable, combat end, and stale-timer checks clear or protect pending candidates. Chat announces each new SpellID once.
+- Structural harmful/mount filtering guards custom triggers and Spy while preserving built-in gathering authority. Only Ethereal Augmentation remains explicitly excluded for observed persistent/noisy Spy behavior.
+
+### Fixed
+- Interaction ownership prevents stale no-loot fallback and delayed loot-close remount callbacks from acting on newer gathering interactions.
+
+### Notes
+- Retail 12.1.0 world play, fishing, Herbalism, Mining, raid combat, and boss-loot tests with only Ethereal Augmentation explicitly excluded produced no new persistent Spy discoveries. FasterLoot/Fishing Tracker interoperability and real Spellbook/Talent audit data were exercised in-game. Coverage is bounded to those scenarios; no dedicated death-handler test is claimed.
+
+---
 
 ## [Version 1.0.7 - 2026-10-05]
 

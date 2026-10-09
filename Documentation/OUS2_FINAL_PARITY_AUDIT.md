@@ -154,6 +154,8 @@ Abbreviations: `A` full parity; `B` present but behavior differs; `C` legacy-onl
 | Auto Remount | Clear Account Mount | `OdysseusDB.autoRemount.accountMountID` | Clear Account Mount | Same path | A | — | Yes | Yes | Clears only account selection. |
 | Auto Remount | Reset Defaults | account settings and character selection | Reset Defaults | same account/character paths | A | Yes | Yes | Yes | Same broad module scope. |
 
+Later AutoRemount status: the ten-control table above preserves the migration-time comparison, including its historical Spy chat wording. The subsequent redesign added bounded loot-confirmed Spy discovery with one-time notifications, Spy Refresh, Open/Add Custom Spells, and the standalone `/ar audit` modes; structural filtering and runtime research reduced explicit exclusions to Ethereal Augmentation. See [current implementation and separate runtime/mock evidence](ARCHITECTURE.md#autoremount-engine-and-research-surfaces). This note does not retroactively change the original parity classifications or reset findings.
+
 ### Utilities (10)
 
 | Module | Legacy Setting / Action | Legacy Key / Path | OUS2 Equivalent | OUS2 Key / Path | Class | Default Match? | Behavior Match? | Reset Match? | Notes / Risk |

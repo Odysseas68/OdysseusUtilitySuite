@@ -2,6 +2,24 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.8 - 2026-10-09]
+
+### Added
+- AutoRemount Custom Spells window with SpellID input, Add/Remove, confirmed Clear All, and OUS2 Open/Add Custom Spells action; existing custom-spell commands remain supported.
+- AutoRemount Audit window (`/ar audit`) with DB Audit, Spellbook, and Talents modes, compact Midnight controls, selected-mode Refresh, and plain-text Copy All. Spy now also has a permanent display-only Refresh button.
+
+### Changed
+- Spy discovery now waits for loot evidence within 5 seconds and confirms only on loot closure. LOOT_READY supports FasterLoot's fast path; replacement, harmful/mount spells, Spy disable, combat end, and stale-timer protection prevent old candidates from persisting. Chat announces each newly discovered SpellID once.
+- Structural harmful/mount filtering guards custom triggers and Spy while preserving built-in gathering authority. Legacy exclusion dependence is reduced to one explicit entry: Ethereal Augmentation, retained for observed persistent/noisy Spy behavior.
+
+### Fixed
+- Interaction ownership prevents stale no-loot fallback and delayed loot-close remount callbacks from acting on a newer gathering interaction.
+
+### Notes
+- User-reported Retail 12.1.0 world play, fishing, Herbalism, Mining, raid combat, and boss-loot scenarios with only Ethereal Augmentation explicitly excluded produced zero new persistent Spy discoveries. FasterLoot/Fishing Tracker interoperability and real Spellbook/Talent audit data were exercised in-game. These are bounded observations, not exhaustive coverage or a dedicated death-handler validation.
+
+---
+
 ## [Version 1.0.7 - 2026-10-05]
 
 ### Added

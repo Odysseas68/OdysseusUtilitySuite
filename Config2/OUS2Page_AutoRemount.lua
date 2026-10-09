@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_AutoRemount.lua
--- Version : 2026.07.03
+-- Version : 2026.10.09
 -- Desc    : OUS2 Auto Remount module settings page
 -- ================================================
 
@@ -305,9 +305,19 @@ CreateActionButton(
     end
 )
 CreateActionButton(
+    "Open/Add Custom Spells",
+    "Open the AutoRemount custom spell list to add or remove user-approved trigger SpellIDs.",
+    -654,
+    function()
+        if OUS.AutoRemount and OUS.AutoRemount.ShowCustomSpellsFrame then
+            OUS.AutoRemount.ShowCustomSpellsFrame()
+        end
+    end
+)
+CreateActionButton(
     "Clear Character Mount",
     "Clear only this character's Auto Remount mount override.",
-    -654,
+    -696,
     function()
         local charDB = GetAutoRemountCharDB()
         if charDB then
@@ -318,7 +328,7 @@ CreateActionButton(
 CreateActionButton(
     "Clear Account Mount",
     "Clear only the account-wide Auto Remount mount override.",
-    -696,
+    -738,
     function()
         local db = GetAutoRemountDB()
         if db then
@@ -329,7 +339,7 @@ CreateActionButton(
 CreateActionButton(
     "Reset Defaults",
     "Restore only Auto Remount settings to their defaults.",
-    -738,
+    -780,
     function()
         local db = GetAutoRemountDB()
         if db then
@@ -367,5 +377,18 @@ Refresh = function()
     characterMountText:SetText(GetMountDisplayText(charDB and charDB.mountID))
     accountMountText:SetText(GetMountDisplayText(db and db.accountMountID))
 end
+
+-- Extends only this page's scroll range so every action remains reachable.
+local previousContentHeight
+page:SetScript("OnShow", function()
+    previousContentHeight = C.pageContainer:GetHeight()
+    C.pageContainer:SetHeight(math.max(previousContentHeight, 834))
+end)
+page:SetScript("OnHide", function()
+    if previousContentHeight then
+        C.pageContainer:SetHeight(previousContentHeight)
+        previousContentHeight = nil
+    end
+end)
 
 C.RegisterPage("AutoRemount", page, Refresh)

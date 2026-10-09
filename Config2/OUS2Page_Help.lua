@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Help.lua
--- Version : 2026.08.05
+-- Version : 2026.10.09
 -- Desc    : OUS2 addon-wide Help page
 -- ================================================
 

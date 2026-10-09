@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_favorites.lua
--- Version : 2026.07.08
+-- Version : 2026.10.09
 -- Desc    : Favorite reputation pinning for XP/rep bar
 -- ============================================================
 

@@ -250,6 +250,8 @@ Delves functionality and configuration remain intact, but Delves is reached thro
 
 # Validated Frame Settings
 
+AutoRemount's standalone Audit window is separate from this OUS2 shell: 800 × 560, with compact deep-purple/cyan buttons and persistent selected-mode styling. Its top row is DB Audit | Spellbook | Talents | Refresh | Copy All | Close; it does not use the large OUS2 Action button artwork. The OUS2 Auto Remount page exposes Open/Add Custom Spells. See [AutoRemount engine and research surfaces](ARCHITECTURE.md#autoremount-engine-and-research-surfaces) for the current behavior and evidence limits.
+
 Confirmed values from OUS2ArtTest — use these in OUS2Config.lua:
 
 ```lua

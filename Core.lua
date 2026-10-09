@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Core.lua
--- Version : 2026.09.12
+-- Version : 2026.10.09
 -- Desc    : Namespace, DB init, module defaults, slash commands
 -- ============================================================
 

@@ -555,6 +555,99 @@ Rules:
 
 ---
 
+# AutoRemount Engine and Research Surfaces
+
+This describes the implemented module in `AutoRemount.lua`, its keyed spell tables in `AutoRemountSpells.lua`, and the OUS2 actions in `Config2/OUS2Page_AutoRemount.lua`, included in release 1.0.8 (build 2026.10.09). The historical OUS2 migration/parity results remain intact.
+
+## Production authority and interaction ownership
+
+Spell precedence is deliberate: permanent explicit exclusion, built-in positive gathering database, mount filtering, harmful filtering, legacy custom spells, then unknown Spy processing. Built-in positive entries retain authority; an excluded, mount, or safely harmful spell cannot gain production authority merely by appearing in the custom list.
+
+`C_Spell.IsSpellHarmful(spellIdentifier)` is a structural guard, not a complete semantic classifier. Only a successful, accessible boolean `true` is harmful. False, nil, inaccessible values, unavailable APIs, and API errors do not become positive harmful classifications.
+
+Accepted built-in or eligible custom interactions advance `interactionSequence` and own `currentInteractionID`. The delayed no-loot fallback and LOOT_CLOSED remount callback capture that ID and return without state mutation or remount when a newer interaction supersedes it. This ownership is scoped to AutoRemount, not a general asynchronous framework. Existing combat, form, mounted/flying, dead/ghost, instance, and profession-UI safety checks remain in force.
+
+## Spy lifecycle and review
+
+Unknown candidates remain transient and never set production gathering/remount authority. The five-second timeout bounds the wait for **initial loot evidence**, not the entire loot session:
+
+1. A qualifying unknown spell starts a pending candidate and timer.
+2. The first LOOT_READY or LOOT_OPENED marks loot evidence and cancels that timer.
+3. Only LOOT_CLOSED confirms the candidate. Closure without evidence clears it; no evidence within five seconds expires it.
+4. Replacement, excluded/harmful/mount spells, disabling Spy, and combat end clear pending state. Timer identity checks prevent stale callbacks from mutating newer candidates.
+5. Candidate admission respects the Spy filter; confirmation rechecks permanent exclusions and existing custom membership. A SpellID already in discoveredSpells is not inserted or announced again.
+
+LOOT_READY allows confirmation through FasterLoot's fast path even when AutoRemount does not observe a visible LOOT_OPENED path. This is bounded association with loot, not a semantic proof that an unknown spell is gathering. The production no-loot fallback does not confirm Spy candidates.
+
+Readable lifecycle debug output includes candidate started, replacement clearing, expired, confirmed, loot evidence, and relevant clearing reasons. Discovery chat announces only a newly stored SpellID: `Odysseus AutoRemount Spy: New spell discovered: <name> (<id>)`. The persistent Spy review/export frame has Refresh, Copy All, and confirmed Clear. Refresh rebuilds the display without changing discoveredSpells.
+
+## Custom Spells management
+
+Spy contains discovered unknown candidates; Custom Spells contains user-approved production triggers. Discovery never automatically promotes a spell to Custom Spells.
+
+`/ar custom` opens the separate standalone Custom Spells window. It offers SpellID input, Add Spell (also Enter), icon/name/SpellID rows with Remove, and Clear All with confirmation. Names/icons have safe fallback handling. Existing `/ar add`, `/ar remove`, and `/ar wipe` remain supported and refresh the frame. Storage remains the numeric array `OdysseusDB.autoRemount.customSpells`; structural guards still apply to its entries. OUS2 Actions includes **Open/Add Custom Spells**.
+
+## Audit window and snapshot boundaries
+
+`/ar audit` opens **Odysseus AutoRemount — Audit**, one 800 × 560 movable/clamped DIALOG window with ESC close and a shared scroll/list area. The former `/ar harmfulaudit` is a hidden compatibility alias, absent from normal command help.
+
+The top control row is **DB Audit | Spellbook | Talents | Refresh | Copy All | Close**. Compact standalone Midnight buttons use deep-purple backgrounds, purple/cyan borders, hover/pressed states, and a persistent selected-mode highlight; no large OUS2 Action artwork is used.
+
+Switching mode refreshes that mode, updates context/summary/limitations/columns/rows/export, and resets scrolling. Refresh only re-queries the selected mode. Copy All exports the current snapshot as plain text through a native multiline EditBox, selects all for Ctrl+C, and returns to the same mode without another audit query. Snapshots live only in transient UI state; no SavedVariables, polling, or production authority are introduced.
+
+Public helpers are `AR.ShowAuditFrame(mode)` and `AR.RefreshAuditFrame()`. The older exclusion-specific show/refresh helpers remain compatibility entry points. Names sort case-insensitively with SpellID as a secondary key; unresolved rows and distinct talent node/entry mappings remain identifiable.
+
+| Mode | Fields | Meaning and limits |
+|---|---|---|
+| DB Audit | SpellID, Name, Harmful, Helpful, Mount, Self Buff, Active Aura Now | Scans the current explicit exclusion table; preserves classification/name failures as unresolved rather than negative results. Summary includes classifications, overlaps, unresolved names/fields, and diagnostic harmful/mount candidates. |
+| Spellbook | SpellID, Name, Type, Passive, Harmful, Helpful, Self Buff | Known current-character player skill-line spells, deduplicated by SpellID. Summary/export includes character/class, classification totals, skipped slots, and query issues. |
+| Talents | SpellID, Name, Node, Rank, Passive, Harmful, Helpful, Self Buff | Selected active entries and primary definition SpellIDs. Export also preserves Entry ID and active config ID/name; summary includes unmapped entries and query issues. |
+
+DB classifications have explicit boundaries: no verified general static Buff/Aura classifier exists in the inspected Retail API surface. **Self Buff = No** does not mean “not a buff/aura.” **Active Aura Now = No** means no player aura was returned at refresh; it does not establish that the spell can never be an aura.
+
+Spellbook uses `C_SpellBook.GetNumSpellBookSkillLines`, `GetSpellBookSkillLineInfo` (offset/item count), `GetSpellBookItemInfo` (type, exposed SpellID, passive/off-spec fields), and `IsSpellKnown`. Actual known spells are retained; future/off-spec/non-spell items are skipped. The scope is player skill-line entries only: the pet bank is separate, profession-specific offsets are not expanded, and flyout contents are not expanded. It is not exhaustive character ability enumeration; absence must not mean “not a class spell.”
+
+Talents follows `C_ClassTalents.GetActiveConfigID` and `C_Traits.GetConfigInfo/GetTreeNodes/GetNodeInfo/GetEntryInfo/GetDefinitionInfo`. **Node ID, Entry ID, and SpellID are distinct identifiers.** Nodes can expose multiple entries; choice alternatives are not all selected. The collector retains committed selections and active ranked entries, skips inactive subtrees, and withholds snapshots with staged/unapplied edits using `ConfigHasStagedChanges`. For tier nodes with multiple committed entries, per-entry rank is shown only where the matching active entry exposes it; otherwise it remains unresolved.
+
+A selected entry may lack a definition/primary SpellID and remains an unmapped research row. Passive status uses `C_Spell.IsSpellPassive`. Talent entries can be visible independently of ordinary Spellbook membership. Active non-passive abilities commonly appeared on both surfaces in the supplied runtime observations, but this is not a universal Blizzard guarantee. The exposed primary SpellID does not enumerate every secondary/internal effect or aura; PvP talents are outside this mode.
+
+The implementation source audit inspected local LIVE build **12.1.0.69933**, commit `09b9db7948abc9b9648dedaab51eb0cf3ee67b31`, including generated SpellBook, ClassTalents, and SharedTraits contracts and relevant Blizzard Lua/XML callers. Inaccessible or failed research queries remain explicitly unresolved.
+
+## Minimal explicit exclusions
+
+The legacy 153-entry exclusion database was progressively reduced after structural filtering and the bounded Spy lifecycle were validated. That table is historical/research context, not the current required exclusion set.
+
+The current research configuration intentionally retains only **1234969 — Ethereal Augmentation**. The supplied runtime evidence attributes this aura to item **243191 — Ethereal Augment Rune**, which repeatedly caused persistent/noisy Spy behavior in gameplay. Keep exclusions minimal; add explicit entries only when actual runtime behavior demonstrates a need. Future Opening, Collecting, or other spells require investigation if they survive into persistent discoveries. This does not establish that no future exclusions will be needed.
+
+## Retail 12.1.0 runtime evidence
+
+The following records **user-reported in-game observations supplied for this synchronization**, separate from source review and mocks. The near-zero-exclusion experiment retained only Ethereal Augmentation.
+
+| Tested scenario | Observed outcome |
+|---|---|
+| World/class gameplay | Harmful combat spells were structurally ignored. Utility/passive/non-gather candidates expired, were replaced, or cleared; no false persistent discovery resulted. |
+| Opening with FasterLoot | Built-in 3365 Opening followed the production gather/loot/remount path; FasterLoot interoperability remained functional. |
+| Fishing | Transient fishing-related SpellIDs became candidates, then were replaced/expired/cleared without false persistence. Fishing Tracker/FasterLoot interoperability remained functional. |
+| Herbalism | 471009 Herb Gathering was detected; loot completed and the remount callback reached its safety check. Remount was correctly skipped when the character remained in a valid mounted/gather state. |
+| Mining | 471013 Midnight Mining was detected; loot completed and the remount callback reached its safety check. Remount could correctly be skipped when already effectively mounted. |
+| Raid/boss environment | Warlock harmful spells were ignored; utility/buff candidates expired or cleared. Environmental DNT effects and Demonic Gateway-related IDs did not persist. Boss loot through FasterLoot did not falsely confirm a stale unrelated candidate; the Spy frame remained clean after the raid test. |
+
+With the exclusion table reduced from 153 entries to the one retained Ethereal Augmentation entry, these tested world, fishing, gathering, combat, raid, and loot scenarios produced **zero new persistent Spy discoveries**. The Spy frame remained clean apart from the already-known Ethereal Augmentation case. This result is bounded to the tested scenarios.
+
+Runtime/user verification identified **111771 — Demonic Gateway** as the actual cast spell; observed **361652** and **113895** were associated with activation/use of the placed gateway. These are observed distinctions, not general Blizzard API rules.
+
+Death occurred during the raid test, but there was no dedicated logged death-state assertion. **No specific death-handler validation PASS is claimed.** No stale candidate was observed later being falsely confirmed after the encounter transitions.
+
+Spellbook and Talents modes were subsequently exercised in-game and returned real current-character data. A useful bounded example was **Hellbent Commander**: SpellID **1250897**, Node ID **110198**, Entry ID **136727**, rank **1**, Passive **Yes**. It appeared as a current player buff/aura and in Talents while absent from the ordinary Spellbook audit. This example does not establish a universal membership or aura-mapping rule.
+
+## Separate static/mock validation record
+
+At the audit-frame implementation stage, the standalone Lua 5.1 mocked harness passed **671 assertions**, Lua 5.1 syntax parsing exited **0**, targeted LuaCheck reported **0 warnings / 0 errors**, and `git diff --check` passed. That harness included the then-current 153-entry DB audit and existing production/Spy/Custom regressions.
+
+Those results are static/mock evidence, not in-game validation, and were not rerun during this documentation-only synchronization. The later one-entry exclusion experiment and real Spellbook/Talent observations above are separate runtime evidence.
+
+---
+
 # Current Technical Debt
 
 Known issues to resolve in focused patches:

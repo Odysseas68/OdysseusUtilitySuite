@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_FishingTracker.lua
--- Version : 2026.09.12
+-- Version : 2026.10.09
 -- Desc    : OUS2 Fishing Tracker module settings page
 -- ================================================
 

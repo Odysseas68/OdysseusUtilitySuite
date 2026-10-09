@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : FlightData.lua
+-- Version : 2026.10.09
+-- Desc    : Bundled flight travel-time database
+-- ============================================================
+
 SFT_FlightData = {
     ["Aalgen Point"] = {
         ["Acherus: The Ebon Hold"] = 33,

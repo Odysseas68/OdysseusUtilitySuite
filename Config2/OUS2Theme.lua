@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Theme.lua
--- Version : 2026.06.23
+-- Version : 2026.10.09
 -- Desc    : OUS2 theme registry — textures, colors, fonts, frame layout constants
 
 local _, OUS = ...

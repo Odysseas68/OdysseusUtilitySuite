@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : JunkBroker.lua
--- Version : 2026.09.16
+-- Version : 2026.10.09
 -- Desc    : Read-only bag junk and session sale data for broker displays
 -- ================================================
 -- luacheck: globals C_Container C_Item C_Timer Enum NUM_TOTAL_EQUIPPED_BAG_SLOTS

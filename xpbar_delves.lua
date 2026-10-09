@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_delves.lua
--- Version : 2026.08.05
+-- Version : 2026.10.09
 -- Desc    : Delves companion tracking and session detection for XP/rep bar
 -- ============================================================
 

@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Flightmaster.lua
--- Version : 2026.10.02
+-- Version : 2026.10.09
 -- Desc    : Flight timer bar, distance display, taxi map tooltip with time and cost
 -- ============================================================
 

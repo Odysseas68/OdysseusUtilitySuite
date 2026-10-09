@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_General.lua
--- Version : 2026.09.14
+-- Version : 2026.10.09
 -- Desc    : OUS2 General dashboard layout and module navigation
 -- =========================================
 

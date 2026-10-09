@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : FlightRouting.lua
--- Version : 2026.05.29
+-- Version : 2026.10.09
 -- Desc    : Multi-hop flight routing engine, itinerary panel, and map line drawing
 -- ============================================================
 

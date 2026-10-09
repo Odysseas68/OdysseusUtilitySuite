@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Delves.lua
--- Version : 2026.08.05
+-- Version : 2026.10.09
 -- Desc    : OUS2 Delves companion and journey settings page
 -- ================================================
 

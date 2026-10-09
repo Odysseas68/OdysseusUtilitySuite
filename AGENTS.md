@@ -584,6 +584,9 @@ Rules:
 
 - Spell DB lives in `AutoRemountSpells.lua`.
 - Preserve gather/exclude list behavior.
+- Preserve precedence: explicit exclusion, built-in positive DB, mount filter, accessible-true harmful filter, eligible custom spell, then unknown Spy candidate. Keep explicit exclusions minimal and add them only for demonstrated runtime need.
+- Preserve interaction ownership and stale-callback checks. Spy's five-second deadline waits for initial LOOT_READY/LOOT_OPENED evidence; only LOOT_CLOSED confirms, and Spy must never arm remounting.
+- Keep Spy discoveries separate from user-approved custom triggers. Audit snapshots are transient, read-only research and must not become production authority or exhaustive spell/aura classification.
 - Avoid chat spam from spy/debug mode.
 - Be careful around combat, form, mounting, and profession/crafting exclusions.
 - Do not introduce protected mount calls in unsafe contexts.
@@ -679,6 +682,15 @@ Avoid documentation-only churn for cosmetic or internal changes.
 
 ---
 
+## Release Metadata Synchronization
+
+Before any release commit/push:
+
+- Synchronize the addon TOC Version and X-Build-Date, OUS2 displayed Version and Build Date, CHANGELOG.md, and the in-game changelog together. OUS2 currently reads its displayed metadata from the TOC.
+- CHANGELOG.md and the in-game changelog must describe the same release in substance while preserving their respective formats and historical entries.
+- Remove stale previous-version/current-build text from release-facing surfaces without replacing historical references. Lua source-header dates are separate from release metadata.
+- Read back all release-facing surfaces and the final diff, then run `git diff --check` and `git diff --cached --check` before commit/push.
+
 ## Working Style
 
 When debugging:
@@ -706,6 +718,21 @@ When producing code for the user to paste manually:
 - Give clear insertion/replacement location.
 - Avoid tiny ambiguous snippets when a full replacement block is safer.
 
+## Standalone Lua 5.1 Validation
+
+The standalone interpreter at `C:\Tools\Lua51\lua5.1.exe` and compiler/parser at `C:\Tools\Lua51\luac5.1.exe` are both PUC-Rio Lua 5.1.5, validated to launch successfully inside Codex. Use these explicit absolute paths from the OUS repository root in PowerShell:
+
+```powershell
+& 'C:\Tools\Lua51\lua5.1.exe' -v
+& 'C:\Tools\Lua51\luac5.1.exe' -v
+& 'C:\Tools\Lua51\luac5.1.exe' -p '.\Fishingtracker.lua'
+$LASTEXITCODE
+```
+
+For normal syntax-only validation, use `& 'C:\Tools\Lua51\luac5.1.exe' -p <file>`, replacing `<file>` with its path. No output and exit code `0` indicate a successful parse.
+
+Standalone parsing/execution is distinct from LuaCheck. Run `luacheck .` for the repository's static linting under Lua 5.1 semantics; it does not replace an actual Lua 5.1 parse/run when standalone execution is appropriate.
+
 ## File Header Rule
 
 Every new Lua file must start with this header format:
@@ -721,6 +748,7 @@ Every new Lua file must start with this header format:
 Rules:
 
 * New Lua files must include this header.
+* Every first-party Lua file loaded through the TOC/XML load graph must use the standard OUS source header; bundled libraries and third-party/vendor code are excluded.
 * Existing files that already contain a header should preserve the header format.
 * When making meaningful changes to an existing file, update the `Version` date to the current modification date.
 * Do not change the `File` path unless the file is actually moved or renamed.

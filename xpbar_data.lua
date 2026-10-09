@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : xpbar_data.lua
+-- Version : 2026.10.09
+-- Desc    : Faction metadata database for XP and reputation tracking
+-- ============================================================
+
 -- ==========================================
 -- ODYSSEUS AUTO-GENERATED FACTION DATABASE
 -- ==========================================

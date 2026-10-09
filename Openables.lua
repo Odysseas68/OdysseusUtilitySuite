@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Openables.lua
--- Version : 2026.07.08
+-- Version : 2026.10.09
 -- Desc    : Openables button engine — detects and opens bags, boxes, and containers
 -- ============================================================
 

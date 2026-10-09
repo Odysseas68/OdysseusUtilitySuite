@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Openables.lua
--- Version : 2026.07.03
+-- Version : 2026.10.09
 -- Desc    : OUS2 Openables module settings page
 -- ================================================
 

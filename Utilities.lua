@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Utilities.lua
--- Version : 2026.09.19
+-- Version : 2026.10.09
 -- Desc    : Utility commands, merchant tools, and Blizzard action artwork control
 -- ============================================================
 

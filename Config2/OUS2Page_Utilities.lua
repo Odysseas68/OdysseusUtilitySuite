@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Utilities.lua
--- Version : 2026.09.17
+-- Version : 2026.10.09
 -- Desc    : OUS2 Utilities module settings page
 -- ================================================
 

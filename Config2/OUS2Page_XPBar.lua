@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_XPBar.lua
--- Version : 2026.09.19
+-- Version : 2026.10.09
 -- Desc    : OUS2 XP Bar navigation hub and settings views
 -- ================================================
 

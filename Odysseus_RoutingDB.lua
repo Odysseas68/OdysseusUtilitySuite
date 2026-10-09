@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : Odysseus_RoutingDB.lua
+-- Version : 2026.10.09
+-- Desc    : Taxi node names and route database
+-- ============================================================
+
 -- ==========================================
 -- ODYSSEUS AUTO-GENERATED ROUTING DATABASE
 -- ==========================================

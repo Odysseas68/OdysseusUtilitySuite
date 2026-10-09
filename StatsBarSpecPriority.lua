@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : StatsBarSpecPriority.lua
+-- Version : 2026.10.09
+-- Desc    : Secondary stat priorities by specialization
+-- ============================================================
+
 -- ==========================================
 -- ODYSSEUS UTILITY SUITE: STATS BAR SPEC PRIORITY DATABASE
 -- ==========================================

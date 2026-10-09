@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Help.lua
--- Version : 2026.09.12
+-- Version : 2026.10.09
 -- Desc    : Tabbed help frame — slash commands and module documentation
 -- ============================================================
 

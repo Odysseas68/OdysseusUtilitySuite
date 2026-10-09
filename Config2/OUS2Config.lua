@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Config.lua
--- Version : 2026.09.14
+-- Version : 2026.10.09
 -- Desc    : OUS2 main configuration frame — three-panel layout, nav system, page switching
 
 local _, OUS = ...

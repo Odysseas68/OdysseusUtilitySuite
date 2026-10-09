@@ -1,3 +1,10 @@
+-- ============================================================
+-- Addon   : OdysseusUtilitySuite
+-- File    : OpenablesDB.lua
+-- Version : 2026.10.09
+-- Desc    : Openable item IDs and minimum stack quantities
+-- ============================================================
+
 -- ==========================================
 -- ODYSSEUS UTILITY SUITE: OPENABLES DATABASE
 -- ==========================================

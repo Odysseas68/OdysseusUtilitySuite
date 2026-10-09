@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Toolbox.lua
--- Version : 2026.07.09
+-- Version : 2026.10.09
 -- Desc    : OUS2 Toolbox module settings page
 -- ================================================
 

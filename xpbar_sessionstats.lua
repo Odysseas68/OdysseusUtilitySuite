@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_sessionstats.lua
--- Version : 2026.09.19
+-- Version : 2026.10.09
 -- Desc    : Runtime XPBar session statistics tracking and display
 -- ============================================================
 -- luacheck: globals COPPER_AMOUNT_TEXTURE C_CurrencyInfo CanMerchantRepair ChatFontNormal CreateScrollBoxLinearView GOLD_AMOUNT_TEXTURE GameTooltip GetMoney GetRepairAllCost RepairAllItems SILVER_AMOUNT_TEXTURE ScrollUtil StaticPopupDialogs StaticPopup_Show UnitXP UnitXPMax hooksecurefunc
