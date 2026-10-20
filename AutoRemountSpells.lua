@@ -95,6 +95,7 @@ OUS.AutoRemountExcludeSpells = {
     -- ==========================================
     -- [Profession / Crafting]
     -- ==========================================
+    [13262] = true,   -- Disenchant
 
     -- ==========================================
     -- [Studying / Learning]

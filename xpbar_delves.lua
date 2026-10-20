@@ -91,6 +91,7 @@ local VALEERA_INSTANCE_IDS = {
     [3003] = true, -- The Darkway
     [3038] = true, -- Gnarldor Isle
     [3077] = true, -- The Ring of Glory
+    [3043] = true, -- The Labyrinth of Kindo'jan
 }
 local VALEERA_MAP_IDS = {
     [2933] = true, -- Collegiate Calamity
@@ -106,6 +107,7 @@ local VALEERA_MAP_IDS = {
     [3003] = true, -- The Darkway
     [2635] = true, -- Gnarldor Isle
     [2633] = true, -- The Ring of Glory
+    [2647] = true, -- The Labyrinth of Kindo'jan
 }
 
 -- Delves that fall above the Valeera thresholds but actually use Brann.
@@ -118,12 +120,14 @@ local NON_DELVE_INSTANCE_IDS = {
     [3018] = true, -- Broken throne Ritual Site
     [2987] = true, -- The Tidebound Grotto
     [3081] = true, -- Cursed Keepsake
+    [3071] = true, -- Senario Aqir Attack
 }
 local NON_DELVE_MAP_IDS = {
     [2537] = true, -- Decor Duel
     [2594] = true, -- Eversong Woods Ritual Site
     [2585] = true, -- Broken throne Ritual Site
     [2632] = true, -- The Tidebound Grotto
+    [2605] = true, -- Senario Aqir Attack
 }
 
 local function IsPlayerReallyInDelve()
