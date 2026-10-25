@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Flightmaster.lua
--- Version : 2026.10.09
+-- Version : 2026.10.25
 -- Desc    : Flight timer bar, distance display, taxi map tooltip with time and cost
 -- ============================================================
 
@@ -360,6 +360,15 @@ local taxiMapOpen = false
 local suppressedTooltipPin = nil
 local flightMapLeaveHooked = false
 
+-- Shares suppressed pin ownership without making routing depend on tooltip visibility.
+local function SetSuppressedTooltipPin(pin, rawDest)
+    local wasSuppressed = suppressedTooltipPin ~= nil
+    suppressedTooltipPin = pin
+    if OUS.SetFlightRoutingSuppressedHover and (pin or wasSuppressed) then
+        OUS.SetFlightRoutingSuppressedHover(pin and rawDest or nil)
+    end
+end
+
 local mapTooltip = CreateFrame("Frame", "OdysseusMapTooltip", UIParent)
 mapTooltip:SetFrameStrata("TOOLTIP")
 mapTooltip:SetSize(180, 65)
@@ -372,7 +381,7 @@ local function HookFlightMapTooltipLeave()
 
     hooksecurefunc(pinMixin, "OnMouseLeave", function(pin)
         if pin == suppressedTooltipPin then
-            suppressedTooltipPin = nil
+            SetSuppressedTooltipPin(nil)
             mapTooltip:Hide()
         end
     end)
@@ -511,19 +520,19 @@ end
 -- Capture taxi destination data before optionally suppressing Blizzard's tooltip.
 local function UpdateCustomFlightTooltip()
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.flightMaster then
-        suppressedTooltipPin = nil
+        SetSuppressedTooltipPin(nil)
         mapTooltip:Hide()
         return
     end
 
     if OdysseusDB.flightSettings.showTooltips == false then
-        suppressedTooltipPin = nil
+        SetSuppressedTooltipPin(nil)
         mapTooltip:Hide()
         return
     end
 
     if not taxiMapOpen then
-        suppressedTooltipPin = nil
+        SetSuppressedTooltipPin(nil)
         mapTooltip:Hide()
         return
     end
@@ -539,12 +548,12 @@ local function UpdateCustomFlightTooltip()
     end
 
     if OdysseusDB.flightSettings.hideBlizzardTooltip ~= true then
-        suppressedTooltipPin = nil
+        SetSuppressedTooltipPin(nil)
     end
 
     local rawDest = _G["GameTooltipTextLeft1"] and _G["GameTooltipTextLeft1"]:GetText()
     if not rawDest or rawDest == "" then
-        suppressedTooltipPin = nil
+        SetSuppressedTooltipPin(nil)
         mapTooltip:Hide()
         return
     end
@@ -612,7 +621,7 @@ local function UpdateCustomFlightTooltip()
     end
 
     if not nodeID then
-        suppressedTooltipPin = nil
+        SetSuppressedTooltipPin(nil)
         mapTooltip:Hide()
         if IsAltKeyDown() then
             OUS.LogDebug("Flight", "Failed to find matching nodeID for: " .. destFull)
@@ -688,7 +697,7 @@ local function UpdateCustomFlightTooltip()
 
     if hideBlizzardTooltip then
         -- GameTooltip cleanup does not prove this FlightMap pin's hover has ended.
-        suppressedTooltipPin = tooltipOwner
+        SetSuppressedTooltipPin(tooltipOwner, rawDest)
         GameTooltip:Hide()
     end
 end
@@ -704,7 +713,7 @@ hooksecurefunc(GameTooltip, "Hide", function()
         if suppressedTooltipPin and enabled and db and db.showTooltips ~= false and db.hideBlizzardTooltip == true then
             return
         end
-        suppressedTooltipPin = nil
+        SetSuppressedTooltipPin(nil)
         mapTooltip:Hide()
     end
 end)
@@ -853,7 +862,7 @@ end
 
 -- Clears active Flight Master presentation without disturbing saved settings or learned times.
 local function StopFlightMasterRuntime()
-    suppressedTooltipPin = nil
+    SetSuppressedTooltipPin(nil)
     timerUpdateFrame:Hide()
     isFlying = false
     OUS.SetFlightBarUnlocked(false)
@@ -903,7 +912,7 @@ f:SetScript("OnEvent", function(_, event, arg1)
 
     if event == "TAXIMAP_CLOSED" then
         taxiMapOpen = false
-        suppressedTooltipPin = nil
+        SetSuppressedTooltipPin(nil)
         mapTooltip:Hide()
         return
     end

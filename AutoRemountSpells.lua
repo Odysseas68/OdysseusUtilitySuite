@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : AutoRemountSpells.lua
--- Version : 2026.10.09
+-- Version : 2026.10.25
 -- Desc    : AutoRemount built-in spell and exclusion database
 -- ============================================================
 
@@ -21,7 +21,6 @@ OUS.AutoRemountSpells = {
     [1242005] = true,   -- Attempting to Disarm Trap
     [1259286] = true,   -- Attempting to Disarm Trap
     [1259477] = true,   -- Attempting to Disarm Trap
-    [6247]    = true,   -- Coalesced Light: special interactable
     [3365]    = true,   -- Opening: generic chest/lock interaction
     [6478]    = true,   -- Tools: knowledge point nodes
     [134065]  = true,   -- Trap disarm (generic)
@@ -116,6 +115,7 @@ OUS.AutoRemountExcludeSpells = {
     -- ==========================================
     -- [Quest / Scenario / Event]
     -- ==========================================
+    [6247] = true,-- Opening Halloween Event (Take Bucket)
 
     -- ==========================================
     -- [DNT / Internal]

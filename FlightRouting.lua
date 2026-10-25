@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : FlightRouting.lua
--- Version : 2026.10.09
+-- Version : 2026.10.25
 -- Desc    : Multi-hop flight routing engine, itinerary panel, and map line drawing
 -- ============================================================
 
@@ -291,6 +291,7 @@ local linePool = {}
 local anchorPool = {}
 local lastTooltipDest = nil
 local lastTooltipMapMode = nil
+local suppressedHover = false
 local lineContainer = CreateFrame("Frame", "OdysseusRouteLineContainer", UIParent)
 
 local function ClearRouteLines()
@@ -399,7 +400,8 @@ end
 -- ==========================================
 -- 7. TRIGGERING THE ENGINES ON HOVER
 -- ==========================================
-hooksecurefunc(GameTooltip, "Show", function(self)
+-- Both hover sources use the existing route calculation and presentation path.
+local function UpdateRouteHover(rawDest)
     local flightMapOpen = (FlightMapFrame and FlightMapFrame:IsShown()) or (TaxiFrame and TaxiFrame:IsShown())
     if not flightMapOpen then
         lastTooltipDest = nil
@@ -409,8 +411,11 @@ hooksecurefunc(GameTooltip, "Show", function(self)
         return
     end
 
-    local rawDest = _G["GameTooltipTextLeft1"] and _G["GameTooltipTextLeft1"]:GetText()
     if not rawDest then
+        lastTooltipDest = nil
+        lastTooltipMapMode = nil
+        itineraryFrame:Hide()
+        ClearRouteLines()
         return
     end
 
@@ -562,9 +567,21 @@ local totalRouteDist = CalcTotalRouteDist(routeNodeNames)
 
     itineraryFrame:SetHeight(70 + itineraryFrame.routeList:GetStringHeight())
     itineraryFrame:Show()
+end
+
+-- FlightMaster owns suppressed hover until a genuine pin leave or its cleanup boundary.
+function OUS.SetFlightRoutingSuppressedHover(rawDest)
+    suppressedHover = rawDest ~= nil
+    UpdateRouteHover(rawDest)
+end
+
+hooksecurefunc(GameTooltip, "Show", function()
+    if suppressedHover then return end
+    UpdateRouteHover(_G["GameTooltipTextLeft1"] and _G["GameTooltipTextLeft1"]:GetText())
 end)
 
 hooksecurefunc(GameTooltip, "Hide", function()
+    if suppressedHover then return end
     lastTooltipDest = nil
     lastTooltipMapMode = nil
     itineraryFrame:Hide()
@@ -573,6 +590,7 @@ end)
 
 if FlightMapFrame then
     FlightMapFrame:HookScript("OnHide", function()
+        suppressedHover = false
         lastTooltipDest = nil
         lastTooltipMapMode = nil
         itineraryFrame:Hide()
@@ -582,6 +600,7 @@ end
 
 if TaxiFrame then
     TaxiFrame:HookScript("OnHide", function()
+        suppressedHover = false
         lastTooltipDest = nil
         lastTooltipMapMode = nil
         itineraryFrame:Hide()
