@@ -94,7 +94,7 @@ Highlights:
 - Spy prints one notification per newly discovered SpellID; its persistent review/export frame has Refresh, Copy All, and confirmed Clear
 - separate Custom Spells window manages user-approved production triggers; Spy discoveries are not automatically promoted
 - structural mount/harmful filtering guards custom triggers and Spy while preserving built-in gathering authority
-- minimal explicit exclusion database, currently retaining only 1234969 — Ethereal Augmentation; future exclusions require demonstrated runtime need
+- minimal explicit exclusion database with three records: 13262 — Disenchant; 6247 — Opening Halloween Event (Take Bucket); 1234969 — Ethereal Augmentation; future exclusions require demonstrated runtime need
 - standalone Audit window with DB Audit, Spellbook, and Talents modes, manual Refresh, and plain-text Copy All
 - full slash command set via `/ar` and `/autoremount`
 

@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : StatsBar.lua
--- Version : 2026.10.09
+-- Version : 2026.10.25
 -- Desc    : Stats bar engine — displays character stats by spec priority
 -- ============================================================
 
@@ -13,8 +13,8 @@ local _, OUS = ...
 OUS.StatsBar = {}
 local SB = OUS.StatsBar
 
--- Restriction state — true during combat, M+, encounter, PvP match
-local isRestricted = false
+-- Defer cache reads beyond restriction-event dispatch, before querying actual permission.
+local restrictionRefreshPending = false
 
 -- Cached stat strings — updated only when not restricted
 local cache = {
@@ -107,9 +107,11 @@ end
 -- Forward declaration so RefreshCache can call UpdateTable.
 local UpdateTable
 
--- Reads all stats and formats them to strings. Never called while restricted.
+-- Preserve the combat cache and read stats only when Blizzard explicitly permits it.
 local function RefreshCache()
-    if isRestricted then return end
+    if InCombatLockdown() or restrictionRefreshPending then return end
+    if not C_Secrets or not C_Secrets.ShouldUnitStatsBeSecret
+        or C_Secrets.ShouldUnitStatsBeSecret() ~= false then return end
 
     local db = OdysseusCharDB and OdysseusCharDB.statsBar
 
@@ -117,8 +119,7 @@ local function RefreshCache()
     local _, equipped = GetAverageItemLevel()
     cache.ilvl = equipped and equipped > 0 and string.format("%.2f", equipped) or "—"
 
-    -- All stat reads are secret-gated in restricted contexts — wrap in pcall
-    -- to prevent taint errors from arithmetic on secret values
+    -- Retain the existing dash fallback for read/format failures after permission checks.
     local ok = pcall(function()
         -- Primary stats
         local str  = UnitStat("player", 1) or 0
@@ -518,23 +519,18 @@ frame:SetScript("OnEvent", function(self, event, unit, ...)
         RefreshCache()
 
     elseif event == "PLAYER_REGEN_DISABLED" then
-        if not isRestricted then
-            isRestricted = true
-        end
+        return
 
     elseif event == "PLAYER_REGEN_ENABLED" then
-        isRestricted = false
         C_Timer.After(0.1, RefreshCache)
 
     elseif event == "ADDON_RESTRICTION_STATE_CHANGED" then
-        -- restrictionType 2 = stat restrictions (M+, encounter, PvP match)
-        local restrictionType = unit
-        local restrictionState = select(1, ...)
-        if restrictionType == 2 then
-            isRestricted = (restrictionState ~= 0)
-            if not isRestricted then
-                C_Timer.After(0.1, RefreshCache)
-            end
+        if not restrictionRefreshPending then
+            restrictionRefreshPending = true
+            C_Timer.After(0.1, function()
+                restrictionRefreshPending = false
+                RefreshCache()
+            end)
         end
 
     elseif event == "PLAYER_EQUIPMENT_CHANGED" then

@@ -2,6 +2,37 @@
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
 
+## [Version 1.0.9 - 2026-10-26]
+
+### 🪄 Added
+
+- Junk Seller: optional native 3D Goblin (CreatureDisplayID 6882), Merchant Counter v2 backdrop, 96x96 / 64x64 / 32x32 viewport selector, independent camera-distance control and an on-demand OUS2 Play Test Animation preview. Defaults remain native 3D OFF, viewport 96 and distance 1.2.
+- Junk Seller: Goblin Counting Gold and Spinning Coin FlipBook artwork, plus a compact two-line Midnight vendor button with live queue counts and batch-continuation labels.
+- Delves: current Instance ID and UI Map ID beneath the companion/Journey bars, with unavailable-data and unlocked-preview placeholders. Existing detection and Alt+Left-click diagnostics are preserved.
+
+### 🛠️ Changed
+
+- OUS2 shared scrolling uses a Midnight Railway native Slider with a rounded capsule thumb, three grip marks and smooth wheel interpolation. Changelog and XP Bar Help retain native inner scrollbars with coordinated outer-scrollbar visibility and footer clearance.
+- Junk Seller artwork and button placement follow MerchantFrame for Blizzard/Krowi layouts. Button visibility follows Shift/batch options without disabling both-off automatic selling; the 2D renderer remains the default/fallback.
+
+### 🐛 Fixed
+
+- OUS2 blocks new combat opens, closes on combat entry, cleans up owned editors/previews and does not automatically reopen. Retained-page refresh updates current settings without resetting the XP Bar child section.
+- Utilities master disable prevents automatic repair and further junk-sale transactions, invalidates delayed sale continuations and restores OUS-hidden Extra Action/Zone Ability artwork when safe; re-enabling reapplies saved preferences.
+- Openables delayed Auto Open now revalidates module/settings, combat, the selected candidate and original bag/slot item before use, rejecting stale/superseded callbacks and duplicate pending attempts.
+- XP/Rep/Delves rendering boundaries respect the XP Bar master toggle, including temporary and positioning previews.
+- Journey MAX presentation uses confirmed maximum renown instead of inferring a cap from zero earned progress.
+- Stats Bar cache reads treat OUS combat policy and Blizzard stat secrecy independently, with refresh deferred beyond restriction-event dispatch.
+- Fishing Tracker separates UI inactivity timing from genuine recent-fishing evidence, so manual opening, pause/reset activity and display refreshes do not extend loot attribution.
+- FlightMaster/FlightRouting skip taxi-node lookup when the player map ID is unavailable, preserving existing unknown-distance presentation. Flight Master action buttons use the correct theme keys; the standalone Help banner path now matches lowercase media/.
+
+### 🗒️ Notes
+
+- Dependency maintenance: bundled LibSharedMedia-3.0 updated from revision 164 to release 3.0-184 (revision 184, October 21, 2026). Media availability continues to depend on enabled providers; this is not a fix for the earlier reduced-addon-profile media list.
+- Runtime acceptance is bounded to reported scenarios. Journey zero-progress/cap/unavailable-data cases, Stats restriction overlap and the native nil-map branch retain their documented limits. Standalone research probes and exported game assets are not shipped features.
+
+---
+
 ## [Version 1.0.8 - 2026-10-09]
 
 ### 🪄 Added

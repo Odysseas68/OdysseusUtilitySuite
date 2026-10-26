@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Theme.lua
--- Version : 2026.10.09
+-- Version : 2026.10.26
 -- Desc    : OUS2 theme registry — textures, colors, fonts, frame layout constants
 
 local _, OUS = ...
@@ -156,8 +156,16 @@ T.Frame = {
 
 T.Scroll = {
     trackW          = 10,
+    railW           = 6,        -- visible rail; native Slider input remains 14 units
+    shineW          = 2,
+    shineInset      = 4,
+    capMask         = "Interface\\CharacterFrame\\TempPortraitAlphaMask",
     thumbMinH       = 60,
-    thumbRatio      = 0.30,     -- thumb height = 30% of track height
+    thumbH          = 64,       -- steady shared-scrollbar grip, independent of content
+    wheelDuration   = 0.12,     -- short ease-out; no lingering inertia
+    hitInset        = 2,        -- 14-unit input width fits the 18-unit gutter
+    footerGap       = 4,        -- clearance above the actual footer button bounds
+    thumbRatio      = 0.30,     -- legacy art-test ratio; shared Slider uses thumbH
     rightMargin     = 70,       -- distance from frame right edge to scrollbar center
     contentGap      = 8,       -- gap between scrollbar and content panel
     -- Track height is dynamic and follows contentPanel height.
@@ -205,6 +213,8 @@ T.Card = {
 
 T.Colors = {
     accent          = { 0.67, 0.56, 1.00, 1.0 },   -- lavender crystal
+    scrollThumbHover = { 0.76, 0.65, 1.00, 1.0 },
+    scrollThumbDragging = { 0.84, 0.75, 1.00, 1.0 },
     text            = { 0.85, 0.85, 0.95, 1.0 },   -- pale silver
     textDim         = { 0.55, 0.55, 0.65, 1.0 },   -- dimmed silver
     textDisabled    = { 0.40, 0.40, 0.45, 1.0 },   -- disabled / greyed out
@@ -218,6 +228,39 @@ T.Colors = {
     enabled         = { 0.40, 1.00, 0.40, 1.0 },   -- module enabled indicator
     disabled        = { 1.00, 0.35, 0.35, 1.0 },   -- module disabled indicator
 }
+
+-- Tint an OUS-owned MinimalScrollBar after native atlas changes, preserving its controls.
+function T.StyleMinimalScrollBar(scrollBar)
+    local function TintScrollButton(button)
+        local color = T.Colors.accent
+        if not button:IsEnabled() then
+            color = T.Colors.textDisabled
+        elseif button:IsDown() then
+            color = T.Colors.scrollThumbDragging
+        elseif button:IsOver() then
+            color = T.Colors.scrollThumbHover
+        end
+
+        if button.Texture then
+            button.Texture:SetVertexColor(unpack(color))
+        else
+            button.Begin:SetVertexColor(unpack(color))
+            button.Middle:SetVertexColor(unpack(color))
+            button.End:SetVertexColor(unpack(color))
+        end
+    end
+
+    scrollBar.Track.Begin:SetVertexColor(unpack(T.Colors.bgDark))
+    scrollBar.Track.Middle:SetVertexColor(unpack(T.Colors.bgDark))
+    scrollBar.Track.End:SetVertexColor(unpack(T.Colors.bgDark))
+
+    for _, button in ipairs({ scrollBar.Track.Thumb, scrollBar.Back, scrollBar.Forward }) do
+        for _, script in ipairs({ "OnEnter", "OnLeave", "OnMouseDown", "OnMouseUp", "OnEnable", "OnDisable" }) do
+            button:HookScript(script, TintScrollButton)
+        end
+        TintScrollButton(button)
+    end
+end
 
 -- ---------------------------------------------------------------------------
 -- Fonts  (WoW shared font strings — no external font files needed)

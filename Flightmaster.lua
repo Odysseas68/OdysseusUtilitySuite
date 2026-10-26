@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Flightmaster.lua
--- Version : 2026.10.25
+-- Version : 2026.10.26
 -- Desc    : Flight timer bar, distance display, taxi map tooltip with time and cost
 -- ============================================================
 
@@ -589,7 +589,8 @@ local function UpdateCustomFlightTooltip()
     cachedTotalDist = nil
     if startNodeIdx and destNodeIdx then
         local uiMapID = C_Map.GetBestMapForUnit("player")
-        local allNodes = C_TaxiMap.GetAllTaxiNodes(uiMapID)
+        -- Missing map data should omit distance, not the remaining tooltip information.
+        local allNodes = uiMapID and C_TaxiMap.GetAllTaxiNodes(uiMapID)
         if allNodes then
             local sPos, dPos
             for _, node in ipairs(allNodes) do

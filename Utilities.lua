@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Utilities.lua
--- Version : 2026.10.09
+-- Version : 2026.10.26
 -- Desc    : Utility commands, merchant tools, and Blizzard action artwork control
 -- ============================================================
 
@@ -21,15 +21,39 @@ OUS.utilitiesDefaults = {
         announceJunk = true,
         detailedSaleReport = false,
         limitTo12 = true,
+        animation = "goblin",
+        nativeGoblin = false,
+        nativeGoblinDistance = 1.2,
+        nativeGoblinSize = 96,
         blacklist = {},
     },
 }
 
+-- Keep action guards consistent without changing stored feature preferences.
+local function IsUtilitiesEnabled()
+    return OdysseusDB and OdysseusDB.modules and OdysseusDB.modules.utilities
+end
+
+local artworkHiddenByUtilities = {}
 local artworkApplyPending = false
 local extraActionHooked = false
 local zoneAbilityHooked = false
 
--- Applies only the configured visibility of Blizzard's decorative ability artwork.
+-- Restore only artwork OUS hid, then relinquish it while the module is disabled.
+local function ApplyArtworkVisibility(artwork, enabled, hideArtwork)
+    if not artwork then return end
+    if not enabled and not artworkHiddenByUtilities[artwork] then return end
+    artwork:SetAlpha(hideArtwork and 0 or 1)
+    if hideArtwork then
+        artworkHiddenByUtilities[artwork] = true
+        artwork:Hide()
+    else
+        artworkHiddenByUtilities[artwork] = nil
+        artwork:Show()
+    end
+end
+
+-- Applies the effective artwork preference, deferring all changes during combat.
 function OUS.ApplyExtraActionArtworkSetting()
     if InCombatLockdown() then
         artworkApplyPending = true
@@ -37,24 +61,13 @@ function OUS.ApplyExtraActionArtworkSetting()
     end
 
     artworkApplyPending = false
-    local hideArtwork = OdysseusDB
-        and OdysseusDB.utilities
+    local enabled = IsUtilitiesEnabled()
+    local hideArtwork = enabled and OdysseusDB.utilities
         and OdysseusDB.utilities.hideExtraActionArtwork == true
-    local alpha = hideArtwork and 0 or 1
-
     local extraButton = _G.ExtraActionButton1
-    local extraArtwork = extraButton and extraButton.style
-    if extraArtwork then
-        extraArtwork:SetAlpha(alpha)
-        if hideArtwork then extraArtwork:Hide() else extraArtwork:Show() end
-    end
-
+    ApplyArtworkVisibility(extraButton and extraButton.style, enabled, hideArtwork)
     local zoneFrame = _G.ZoneAbilityFrame
-    local zoneArtwork = zoneFrame and zoneFrame.Style
-    if zoneArtwork then
-        zoneArtwork:SetAlpha(alpha)
-        if hideArtwork then zoneArtwork:Hide() else zoneArtwork:Show() end
-    end
+    ApplyArtworkVisibility(zoneFrame and zoneFrame.Style, enabled, hideArtwork)
 end
 
 -- Hooks Blizzard's frame-level refreshes without touching protected or pooled buttons.
@@ -226,6 +239,7 @@ local function RecordSessionMerchantTransaction(transactionType, amount, details
 end
 
 local function DoRepair()
+    if not IsUtilitiesEnabled() then return end
     local db = OdysseusDB.utilities
     if not db or not db.repairEnabled then return end
     if not CanMerchantRepair() then return end
@@ -304,7 +318,11 @@ end
 local junkPending    = {}   -- { {bag, slot}, ... } remaining items to sell
 local junkSellBtn    = nil  -- "Sell Next 12" floating button
 local isMerchantOpen = false
-
+local junkSaleGeneration = 0
+local junkBatchWaiting = false
+local junkSaleActive = false -- distinguishes running work from manual/batch confirmation
+local junkSaleScheduled = false -- excludes the initial delay from animation playback
+local EnsureJunkSellPresentation
 --- Collects all grey quality non-blacklisted bag items into a list.
 local function CollectJunkItems()
     local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
@@ -331,11 +349,445 @@ local batchQuantity = 0   -- physical item quantity sold in current batch
 local batchCopper   = 0   -- copper earned in current batch
 local batchLimit    = 12  -- bag entries per batch
 
+local junkAnimationFrame
+local junkNativeFrame
+local junkAnimationModes = {
+    goblin = {file = "GoblinCounting.tga", columns = 8, rows = 4, frames = 32, duration = 1.6, size = 28},
+    coin = {file = "CoinSpin.tga", columns = 4, rows = 4, frames = 16, duration = 1.2, size = 16},
+}
+
+-- Keep old or malformed saved camera values within the calibrated positive range.
+local function JunkGoblinDistance(value)
+    value = tonumber(value)
+    if not value or value ~= value then return 1.2 end
+    return math.max(1, math.min(2, value))
+end
+
+-- Accept only the three native viewport sizes without changing camera preferences.
+local function JunkGoblinSize(value)
+    return (value == 32 or value == 64) and value or 96
+end
+
+-- Share the approved cosmetic renderer between merchant artwork and an isolated OUS2 preview.
+function OUS.CreateJunkGoblinRenderer(parent, repeatAnimation, onStatus)
+    if InCombatLockdown() then return nil, "3D preview unavailable during combat." end
+    local frame = CreateFrame("Frame", nil, parent)
+    frame:SetSize(96, 96)
+    frame:SetClipsChildren(true)
+    frame:EnableMouse(false)
+    frame:Hide()
+    frame.distance = 1.2
+    frame.viewportSize = 96
+    local pieces = {}
+
+    -- Supply the same Midnight backing that the probe window provided behind its counter.
+    local backing = frame:CreateTexture(nil, "BACKGROUND", nil, -1)
+    backing:SetAllPoints()
+    backing:SetColorTexture(0.035, 0.025, 0.06, 0.98)
+
+    -- Preserve Merchant Counter v2's normalized geometry and native BACKGROUND layers.
+    local function Piece(x, y, width, height, color, gradient, layer)
+        local texture = frame:CreateTexture(nil, "BACKGROUND", nil, layer or 0)
+        texture:SetColorTexture(unpack(color))
+        if gradient then texture:SetGradient("HORIZONTAL", gradient[1], gradient[2]) end
+        texture:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", x * 96, y * 96)
+        texture:SetSize(width * 96, height * 96)
+        pieces[#pieces + 1] = { texture = texture, x = x, y = y, width = width, height = height }
+    end
+    local edge = CreateColor(0.15, 0.07, 0.24, 0)
+    local glow = CreateColor(0.15, 0.07, 0.24, 0.1)
+    Piece(0.04, 0.04, 0.46, 0.62, { 1, 1, 1, 1 }, { edge, glow })
+    Piece(0.5, 0.04, 0.46, 0.62, { 1, 1, 1, 1 }, { glow, edge })
+    Piece(0.08, 0.01, 0.84, 0.025, { 0.025, 0.012, 0.035, 0.35 })
+    Piece(0.08, 0.035, 0.84, 0.11, { 1, 1, 1, 1 }, {
+        CreateColor(0.12, 0.055, 0.075, 0.72), CreateColor(0.23, 0.12, 0.13, 0.72),
+    }, 1)
+    Piece(0.05, 0.145, 0.9, 0.018, { 0.23, 0.12, 0.13, 0.8 }, nil, 2)
+    Piece(0.08, 0.163, 0.84, 0.018, { 0.32, 0.19, 0.17, 0.7 }, nil, 2)
+    Piece(0.11, 0.181, 0.78, 0.018, { 0.4, 0.25, 0.2, 0.6 }, nil, 2)
+    Piece(0.11, 0.197, 0.78, 0.012, { 0.62, 0.43, 0.23, 0.45 }, nil, 3)
+    Piece(0.05, 0.14, 0.9, 0.012, { 0.5, 0.32, 0.16, 0.5 }, nil, 3)
+    for _, x in ipairs({ 0.29, 0.5, 0.71 }) do
+        Piece(x, 0.045, 0.008, 0.085, { 0.04, 0.018, 0.035, 0.45 }, nil, 2)
+    end
+    local border = CreateFrame("Frame", nil, parent, "BackdropTemplate")
+    border:SetPoint("TOPLEFT", frame, "TOPLEFT", -1, 1)
+    border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", 1, -1)
+    border:SetBackdrop({ edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 })
+    border:SetBackdropBorderColor(0.75, 0.6, 1, 1)
+    border:EnableMouse(false)
+    border:Hide()
+
+    local model
+    -- Catch individual optional display calls only; failures never enter the transaction path.
+    local function Fail(message)
+        frame.failed = true
+        frame:Hide()
+        OUS.LogDebug("Utilities", "Native Goblin: " .. message)
+        if onStatus then onStatus(message, true) end
+        return false
+    end
+    local function Call(method, ...)
+        if InCombatLockdown() then return false end
+        if not model or type(model[method]) ~= "function" then return Fail(method .. " unavailable.") end
+        local ok, result = pcall(model[method], model, ...)
+        if not ok then return Fail(method .. ": " .. tostring(result)) end
+        return true, result
+    end
+
+    -- Reloading the verified display restores natural idle after a selling/test sequence.
+    function frame:Load()
+        if InCombatLockdown() or not self:IsShown() or self.failed then return false end
+        self.ready, self.loading, self.playing = false, false, false
+        if not Call("ClearModel") then return false end
+        self.loading = true
+        if onStatus then onStatus("Loading display 6882...") end
+        return Call("SetDisplayInfo", 6882)
+    end
+
+    -- Native completion can repeat only cosmetic animation, never selling or inventory work.
+    local function RequestAnimation()
+        if not frame.ready or not frame.active or not frame:IsShown() or frame.failed then return end
+        if InCombatLockdown() then frame:Hide(); return end
+        frame.playing, frame.requesting = true, true
+        local ok = Call("SetAnimation", 50, 0)
+        frame.requesting = false
+        if not ok then frame.playing = false end
+    end
+
+    -- Resize native model bounds and normalized decoration together, deferring combat writes.
+    function frame:SetViewportSize(value)
+        local size = JunkGoblinSize(value)
+        if InCombatLockdown() then return false end
+        if self.viewportSize == size then return true end
+        self.viewportSize = size
+        self:SetSize(size, size)
+        for _, piece in ipairs(pieces) do
+            piece.texture:SetPoint("BOTTOMLEFT", self, "BOTTOMLEFT", piece.x * size, piece.y * size)
+            piece.texture:SetSize(piece.width * size, piece.height * size)
+        end
+        if self.ready and self:IsShown() then
+            return Call("RefreshCamera") and Call("SetPortraitZoom", 0)
+                and Call("SetCamDistanceScale", self.distance)
+        end
+        return true
+    end
+
+    -- Read the saved camera distance without resetting the native pose or animation.
+    function frame:SetDistance(value)
+        value = JunkGoblinDistance(value)
+        if self.distance == value then return end
+        self.distance = value
+        if self.ready and self:IsShown() then Call("SetCamDistanceScale", value) end
+    end
+
+    -- Accept only presentation intent; preview and merchant callers own separate instances.
+    function frame:SetActive(active)
+        if InCombatLockdown() then self:Hide(); return false end
+        if self.failed then return false end
+        self.active = active == true
+        if not self.ready then
+            if not self.loading then self:Load() end
+        elseif self.active and not self.playing then
+            if Call("SetPaused", false) then RequestAnimation() end
+        elseif not self.active and self.playing then
+            self:Load()
+        end
+        return not self.failed
+    end
+
+    frame:SetScript("OnShow", function() border:Show() end)
+    frame:SetScript("OnHide", function(self)
+        self.ready, self.loading, self.active, self.playing, self.requesting = false, false, false, false, false
+        border:Hide()
+        -- No native model writes during combat; a later show always reloads before playback.
+        if model and not InCombatLockdown() then
+            if type(model.SetPaused) == "function" then pcall(model.SetPaused, model, true) end
+            if type(model.ClearModel) == "function" then pcall(model.ClearModel, model) end
+        end
+    end)
+    frame:RegisterEvent("PLAYER_REGEN_DISABLED")
+    frame:SetScript("OnEvent", function(self) self:Hide() end)
+
+    local ok, result = pcall(CreateFrame, "PlayerModel", nil, frame)
+    if not ok then Fail("PlayerModel unavailable: " .. tostring(result)); return frame end
+    model = result
+    model:SetAllPoints(frame)
+    model:SetFrameLevel(frame:GetFrameLevel() + 1)
+    model:EnableMouse(false)
+    Call("SetScript", "OnModelLoaded", function()
+        if not frame.loading or frame.failed or not frame:IsShown() then return end
+        frame.loading = false
+        if InCombatLockdown() then frame:Hide(); return end
+        if not Call("RefreshCamera") or not Call("SetPortraitZoom", 0)
+            or not Call("SetCamDistanceScale", frame.distance) or not Call("SetPosition", 0, 0, 0)
+            or not Call("SetFacing", 0) or not Call("SetModelScale", 1)
+            or not Call("SetPaused", false) then return end
+        local queried, available = Call("HasAnimation", 50)
+        if not queried then return end
+        if available ~= true then Fail("Animation 50 unavailable; use 2D artwork."); return end
+        frame.ready = true
+        if onStatus then onStatus("Display loaded. Test playback is cosmetic only.") end
+        frame:SetActive(frame.active)
+    end)
+    Call("SetScript", "OnAnimFinished", function()
+        if not frame.active or not frame.playing or not frame.ready or not frame:IsShown() then return end
+        if InCombatLockdown() then frame:Hide(); return end
+        if frame.requesting then Fail("Reentrant animation completion; playback stopped."); return end
+        if repeatAnimation then
+            RequestAnimation()
+        else
+            frame.active = false
+            frame:Load()
+        end
+    end)
+    return frame
+end
+
+-- Reset only presentation; animation cleanup must never authorize a transaction.
+local function ResetJunkSellAnimation()
+    if not junkAnimationFrame then return end
+    junkAnimationFrame.animation:Stop()
+    local mode = junkAnimationModes[junkAnimationFrame.mode] or junkAnimationModes.goblin
+    junkAnimationFrame.texture:SetTexCoord(0, 1 / mode.columns, 0, 1 / mode.rows)
+end
+
+-- Keep merchant artwork independent of the manual/batch button's visibility.
+function OUS.UpdateJunkSellAnimation()
+    if not junkAnimationFrame then return end
+    local merchant = _G.MerchantFrame
+    local db = OdysseusDB and OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+    if not merchant or not IsUtilitiesEnabled() or not db or not db.enabled
+        or not (isMerchantOpen or merchant:IsShown()) then
+        if junkNativeFrame then junkNativeFrame:Hide() end
+        ResetJunkSellAnimation()
+        junkAnimationFrame:Hide()
+        return
+    end
+
+    local active = isMerchantOpen and merchant:IsShown() and junkSaleActive
+        and not junkSaleScheduled and not junkBatchWaiting and #junkPending > 0
+        and not InCombatLockdown()
+        and (not db.limitTo12 or batchSold < batchLimit)
+    if db.nativeGoblin == true and not InCombatLockdown() then
+        if not junkNativeFrame then
+            junkNativeFrame = OUS.CreateJunkGoblinRenderer(merchant, true, function(_, failed)
+                if failed and junkNativeFrame then OUS.UpdateJunkSellAnimation() end
+            end)
+            if junkNativeFrame then
+                -- Grow below the merchant, leaving the approved button and vendor controls untouched.
+                junkNativeFrame:SetPoint("TOPRIGHT", junkSellBtn, "TOPLEFT", -6, 0)
+            end
+        end
+        if junkNativeFrame and not junkNativeFrame.failed then
+            junkNativeFrame:SetViewportSize(db.nativeGoblinSize)
+            junkNativeFrame:Show()
+            junkNativeFrame:SetDistance(db.nativeGoblinDistance)
+            if junkNativeFrame:SetActive(active) then
+                ResetJunkSellAnimation()
+                junkAnimationFrame:Hide()
+                return
+            end
+        end
+    end
+    if junkNativeFrame then junkNativeFrame:Hide() end
+
+    local key = db.animation == "coin" and "coin" or "goblin"
+    local mode = junkAnimationModes[key]
+    if junkAnimationFrame.mode ~= key then
+        ResetJunkSellAnimation()
+        junkAnimationFrame.mode = key
+        junkAnimationFrame.texture:SetTexture("Interface\\AddOns\\OdysseusUtilitySuite\\media\\Textures\\" .. mode.file)
+        junkAnimationFrame.texture:SetSize(mode.size, mode.size)
+        local flipbook = junkAnimationFrame.flipbook
+        flipbook:SetFlipBookRows(mode.rows)
+        flipbook:SetFlipBookColumns(mode.columns)
+        flipbook:SetFlipBookFrames(mode.frames)
+        flipbook:SetDuration(mode.duration)
+        junkAnimationFrame.texture:SetTexCoord(0, 1 / mode.columns, 0, 1 / mode.rows)
+    end
+    junkAnimationFrame:Show()
+
+    if active then
+        if not junkAnimationFrame.animation:IsPlaying() then
+            junkAnimationFrame.texture:SetTexCoord(0, 1, 0, 1)
+            junkAnimationFrame.animation:Play()
+        end
+    else
+        ResetJunkSellAnimation()
+    end
+end
+
+-- Visual preferences never run the settings path that can resume a waiting sale queue.
+function OUS.ApplyJunkSellVisualSettings()
+    if junkNativeFrame then junkNativeFrame.failed = false end
+    OUS.UpdateJunkSellAnimation()
+end
+
+-- Reuse the proven probe FlipBook on an OUS-owned, noninteractive merchant child.
+local function CreateJunkSellAnimation()
+    if junkAnimationFrame then return end
+    junkAnimationFrame = CreateFrame("Frame", nil, _G.MerchantFrame)
+    junkAnimationFrame:SetSize(36, 38)
+    junkAnimationFrame:SetPoint("RIGHT", junkSellBtn, "LEFT", -6, 0)
+    junkAnimationFrame:SetFrameStrata(junkSellBtn:GetFrameStrata())
+    junkAnimationFrame:EnableMouse(false)
+    junkAnimationFrame:Hide()
+
+    -- Frame the sprite without clipping its motion or changing its display size.
+    local backing = junkAnimationFrame:CreateTexture(nil, "BACKGROUND")
+    backing:SetAllPoints()
+    backing:SetColorTexture(0.035, 0.025, 0.06, 0.98)
+    local inset = junkAnimationFrame:CreateTexture(nil, "BORDER")
+    inset:SetPoint("TOPLEFT", 2, -2)
+    inset:SetPoint("BOTTOMRIGHT", -2, 2)
+    inset:SetColorTexture(0.075, 0.055, 0.11, 1)
+    for i, points in ipairs({
+        {"TOPLEFT", "TOPRIGHT"}, {"BOTTOMLEFT", "BOTTOMRIGHT"},
+        {"TOPLEFT", "BOTTOMLEFT"}, {"TOPRIGHT", "BOTTOMRIGHT"},
+    }) do
+        local border = junkAnimationFrame:CreateTexture(nil, "OVERLAY")
+        border:SetPoint(points[1])
+        border:SetPoint(points[2])
+        if i <= 2 then border:SetHeight(1) else border:SetWidth(1) end
+        border:SetColorTexture(0.5, 0.3, 0.7, 0.9)
+    end
+
+    local texture = junkAnimationFrame:CreateTexture(nil, "ARTWORK")
+    texture:SetPoint("CENTER")
+    junkAnimationFrame.texture = texture
+    junkAnimationFrame.animation = texture:CreateAnimationGroup()
+    junkAnimationFrame.animation:SetLooping("REPEAT")
+    local flipbook = junkAnimationFrame.animation:CreateAnimation("FlipBook")
+    flipbook:SetOrder(1)
+    flipbook:SetSmoothing("NONE")
+    flipbook:SetFlipBookFrameWidth(0)
+    flipbook:SetFlipBookFrameHeight(0)
+    junkAnimationFrame.flipbook = flipbook
+    junkAnimationFrame:SetScript("OnHide", ResetJunkSellAnimation)
+    junkAnimationFrame:SetScript("OnShow", OUS.UpdateJunkSellAnimation)
+end
+
+-- Match the FlightMaster tooltip palette without changing merchant geometry or actions.
+local function StyleJunkSellButton(button)
+    local media = LibStub and LibStub("LibSharedMedia-3.0", true)
+    local texture = media and media:Fetch("statusbar", "Blizzard") or "Interface\\TargetingFrame\\UI-StatusBar"
+    local background = button:CreateTexture(nil, "BACKGROUND")
+    background:SetAllPoints()
+    background:SetColorTexture(0.07, 0.05, 0.1, 1)
+
+    local function CreateFace(r, g, b)
+        local face = button:CreateTexture(nil, "ARTWORK")
+        face:SetPoint("TOPLEFT", 1, -1)
+        face:SetPoint("BOTTOMRIGHT", -1, 1)
+        face:SetTexture(texture)
+        face:SetVertexColor(r, g, b)
+        return face
+    end
+    button:SetNormalTexture(CreateFace(0.18, 0.15, 0.25))
+    button:SetPushedTexture(CreateFace(0.09, 0.07, 0.14))
+    button:SetDisabledTexture(CreateFace(0.10, 0.10, 0.12))
+    local highlight = CreateFace(0.45, 0.30, 0.65)
+    highlight:SetAlpha(0.3)
+    button:SetHighlightTexture(highlight, "ADD")
+
+    for i, points in ipairs({
+        {"TOPLEFT", "TOPRIGHT"}, {"BOTTOMLEFT", "BOTTOMRIGHT"},
+        {"TOPLEFT", "BOTTOMLEFT"}, {"TOPRIGHT", "BOTTOMRIGHT"},
+    }) do
+        local border = button:CreateTexture(nil, "OVERLAY")
+        border:SetPoint(points[1])
+        border:SetPoint(points[2])
+        if i <= 2 then border:SetHeight(1) else border:SetWidth(1) end
+        border:SetColorTexture(0.5, 0.3, 0.7, 1)
+    end
+
+    button.actionText = button:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+    button.actionText:SetPoint("TOPLEFT", 6, -5)
+    button.actionText:SetPoint("TOPRIGHT", -6, -5)
+    button.actionText:SetHeight(14)
+    button.actionText:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
+    button.actionText:SetJustifyH("CENTER")
+    button.actionText:SetWordWrap(false)
+    button.countText = button:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    button.countText:SetPoint("TOPLEFT", button.actionText, "BOTTOMLEFT", 0, -1)
+    button.countText:SetPoint("TOPRIGHT", button.actionText, "BOTTOMRIGHT", 0, -1)
+    button.countText:SetHeight(12)
+    button.countText:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+    button.countText:SetJustifyH("CENTER")
+    button.countText:SetWordWrap(false)
+
+    local function SetEnabledColors()
+        button.actionText:SetTextColor(0.94, 0.90, 1)
+        button.countText:SetTextColor(0.72, 0.68, 0.82)
+    end
+    button:SetScript("OnEnable", SetEnabledColors)
+    button:SetScript("OnDisable", function()
+        button.actionText:SetTextColor(0.48, 0.47, 0.53)
+        button.countText:SetTextColor(0.40, 0.39, 0.45)
+    end)
+    SetEnabledColors()
+end
+
+-- Keep the merchant action available only for configured manual/batched selling.
+function OUS.UpdateJunkSellButton()
+    local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+    if not junkSellBtn and IsUtilitiesEnabled() and db and db.enabled
+        and _G.MerchantFrame and _G.MerchantFrame:IsShown() then
+        EnsureJunkSellPresentation()
+    end
+    OUS.UpdateJunkSellAnimation()
+    if not junkSellBtn then return end
+    if not isMerchantOpen or not IsUtilitiesEnabled() or not db or not db.enabled
+        or #junkPending == 0 or not (db.limitTo12 or db.requireShift) then
+        junkSellBtn:Hide()
+        return
+    end
+    junkSellBtn.actionText:SetText(junkSaleActive and "Selling..." or (db.limitTo12 and "Sell Next 12" or "Sell All Junk"))
+    junkSellBtn.countText:SetText(string.format("(%d left)", #junkPending))
+    junkSellBtn:Show()
+end
+
+-- Invalidate timer ownership without changing merchant transactions or preferences.
+local function CancelJunkSelling()
+    junkSaleGeneration = junkSaleGeneration + 1
+    junkBatchWaiting = false
+    junkSaleActive = false
+    junkSaleScheduled = false
+    isMerchantOpen = false
+    junkPending = {}
+    if junkSellBtn then junkSellBtn:Hide() end
+    if junkAnimationFrame then
+        ResetJunkSellAnimation()
+        junkAnimationFrame:Hide()
+    end
+    if junkNativeFrame then
+        junkNativeFrame:Hide()
+        junkNativeFrame.failed = false
+    end
+end
+
+-- Apply master-toggle changes immediately; artwork retains its combat deferral.
+function OUS.ApplyUtilitiesModuleSetting()
+    if not IsUtilitiesEnabled() then CancelJunkSelling() end
+    OUS.UpdateJunkSellButton()
+    OUS.ApplyExtraActionArtworkSetting()
+end
+
 --- Sells one item from junkPending then schedules the next via timer.
-local function SellNextItem()
+local function SellNextItem(generation)
+    if generation ~= junkSaleGeneration then return end
+    local settings = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+    if not IsUtilitiesEnabled() or not settings or not settings.enabled then
+        CancelJunkSelling()
+        return
+    end
     if not isMerchantOpen then return end
-    if InCombatLockdown() then return end
-    if not MerchantFrame:IsShown() then return end
+    if InCombatLockdown() or not MerchantFrame:IsShown() then
+        junkSaleActive = false
+        OUS.UpdateJunkSellButton()
+        return
+    end
     if #junkPending == 0 then
         -- All done — announce and keep the merchant action available
         local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
@@ -343,9 +795,8 @@ local function SellNextItem()
             print(string.format("|cffA78BFA[OUS]:|r Sold %d junk item(s) for %s",
                 batchQuantity, FormatCost(batchCopper)))
         end
-        if junkSellBtn then
-            junkSellBtn:SetText(db and db.limitTo12 and "Sell Junk (0)" or "Sell All Junk (0)")
-        end
+        junkSaleActive = false
+        OUS.UpdateJunkSellButton()
         batchSold     = 0
         batchQuantity = 0
         batchCopper   = 0
@@ -361,10 +812,9 @@ local function SellNextItem()
             print(string.format("|cffA78BFA[OUS]:|r Sold %d junk item(s) for %s",
                 batchQuantity, FormatCost(batchCopper)))
         end
-        if junkSellBtn then
-            junkSellBtn:SetText("Sell Next 12 (" .. #junkPending .. " left)")
-            junkSellBtn:Show()
-        end
+        junkBatchWaiting = true
+        junkSaleActive = false
+        OUS.UpdateJunkSellButton()
         batchSold     = 0
         batchQuantity = 0
         batchCopper   = 0
@@ -420,49 +870,84 @@ local function SellNextItem()
         end
     end
 
+    OUS.UpdateJunkSellButton()
+
     -- Schedule next item after 0.2s delay
-    C_Timer.After(0.2, SellNextItem)
+    C_Timer.After(0.2, function() SellNextItem(generation) end)
 end
 
 --- Starts selling the current batch — entry point.
 local function SellNextBatch()
+    if not IsUtilitiesEnabled() then CancelJunkSelling(); return end
     if not isMerchantOpen then return end
-    if InCombatLockdown() then return end
     local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
-    if not db or not db.enabled then return end
-    if db.requireShift and not IsShiftKeyDown() then return end
+    if not db or not db.enabled then CancelJunkSelling(); return end
+    if InCombatLockdown() or (db.requireShift and not IsShiftKeyDown()) then
+        OUS.UpdateJunkSellButton()
+        return
+    end
+    junkBatchWaiting = false
+    junkSaleActive = true
+    junkSaleScheduled = false
     batchSold     = 0
     batchQuantity = 0
     batchCopper   = 0
-    SellNextItem()
+    junkSaleGeneration = junkSaleGeneration + 1
+    SellNextItem(junkSaleGeneration)
+end
+
+-- Also allow idle artwork when the seller is enabled after a merchant opens.
+EnsureJunkSellPresentation = function()
+    if not junkSellBtn then
+        junkSellBtn = CreateFrame("Button", "OUSJunkSellBtn", MerchantFrame)
+        junkSellBtn:SetSize(120, 38)
+        junkSellBtn:SetPoint("TOPRIGHT", MerchantFrame, "BOTTOMRIGHT", -1, 1)
+        StyleJunkSellButton(junkSellBtn)
+        junkSellBtn:SetScript("OnClick", SellNextBatch)
+    end
+    CreateJunkSellAnimation()
+end
+
+-- Start a waiting queue only when its confirmation requirement has been removed.
+function OUS.ApplyJunkSellSettings()
+    local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
+    if not IsUtilitiesEnabled() or not db or not db.enabled then CancelJunkSelling() end
+    OUS.UpdateJunkSellButton()
+    if isMerchantOpen and #junkPending > 0 and not junkSaleActive and db and not db.requireShift
+        and (not junkBatchWaiting or not db.limitTo12) then
+        SellNextBatch()
+    end
 end
 
 --- Entry point called on MERCHANT_SHOW.
 local function OnMerchantShow()
+    CancelJunkSelling()
+    if not IsUtilitiesEnabled() then return end
     local db = OdysseusDB.utilities and OdysseusDB.utilities.junkSell
     if not db then return end
     if not db.enabled then return end
     isMerchantOpen = true
     junkPending = CollectJunkItems()
 
-    if not junkSellBtn then
-        junkSellBtn = CreateFrame("Button", "OUSJunkSellBtn", MerchantFrame, "UIPanelButtonTemplate")
-        junkSellBtn:SetSize(160, 22)
-        junkSellBtn:SetPoint("BOTTOMLEFT", MerchantFrame, "BOTTOMLEFT", 12, 4)
-        junkSellBtn:SetScript("OnClick", SellNextBatch)
-    end
-    local btnLabel = db.limitTo12
-        and ("Sell Junk (" .. #junkPending .. ")")
-        or  ("Sell All Junk (" .. #junkPending .. ")")
-    junkSellBtn:SetText(btnLabel)
-    junkSellBtn:Show()
+    EnsureJunkSellPresentation()
+    OUS.UpdateJunkSellButton()
 
     -- Auto-sell unless Shift is required
     if db.requireShift and not IsShiftKeyDown() then
         return
     end
 
-    C_Timer.After(0.3, SellNextBatch)
+    local generation = junkSaleGeneration
+    junkSaleActive = true
+    junkSaleScheduled = true
+    OUS.UpdateJunkSellButton()
+    C_Timer.After(0.3, function()
+        if generation == junkSaleGeneration then
+            junkSaleActive = false
+            junkSaleScheduled = false
+            SellNextBatch()
+        end
+    end)
 end
 
 -- ============================================================
@@ -802,18 +1287,19 @@ local junkFrame = CreateFrame("Frame")
 junkFrame:RegisterEvent("MERCHANT_SHOW")
 junkFrame:RegisterEvent("MERCHANT_CLOSED")
 junkFrame:RegisterEvent("UI_ERROR_MESSAGE")
+junkFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
+junkFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
 junkFrame:SetScript("OnEvent", function(_, event, _, msg)
     if event == "MERCHANT_SHOW" then
         OnMerchantShow()
     elseif event == "MERCHANT_CLOSED" then
-        isMerchantOpen = false
-        junkPending = {}
-        if junkSellBtn then junkSellBtn:Hide() end
+        CancelJunkSelling()
+    elseif event == "PLAYER_REGEN_DISABLED" or event == "PLAYER_REGEN_ENABLED" then
+        OUS.UpdateJunkSellAnimation()
     elseif event == "UI_ERROR_MESSAGE" then
         -- Stop selling if vendor refuses or gold cap reached
         if msg == ERR_VENDOR_DOESNT_BUY or msg == ERR_TOO_MUCH_GOLD then
-            isMerchantOpen = false
-            junkPending = {}
+            CancelJunkSelling()
         end
     end
 end)

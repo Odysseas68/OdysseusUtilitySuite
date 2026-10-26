@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Core.lua
--- Version : 2026.10.09
+-- Version : 2026.10.26
 -- Desc    : Namespace, DB init, module defaults, slash commands
 -- ============================================================
 
@@ -100,6 +100,19 @@ f:SetScript("OnEvent", function(self, event, arg1)
         end
         if OdysseusDB.utilities.junkSell.detailedSaleReport == nil then
             OdysseusDB.utilities.junkSell.detailedSaleReport = false
+        end
+        if OdysseusDB.utilities.junkSell.animation ~= "goblin" and OdysseusDB.utilities.junkSell.animation ~= "coin" then
+            OdysseusDB.utilities.junkSell.animation = "goblin"
+        end
+        if OdysseusDB.utilities.junkSell.nativeGoblin == nil then
+            OdysseusDB.utilities.junkSell.nativeGoblin = false
+        end
+        if OdysseusDB.utilities.junkSell.nativeGoblinDistance == nil then
+            OdysseusDB.utilities.junkSell.nativeGoblinDistance = 1.2
+        end
+        local goblinSize = OdysseusDB.utilities.junkSell.nativeGoblinSize
+        if goblinSize ~= 96 and goblinSize ~= 64 and goblinSize ~= 32 then
+            OdysseusDB.utilities.junkSell.nativeGoblinSize = 96
         end
 
         OdysseusDB.minimap = OdysseusDB.minimap or {}

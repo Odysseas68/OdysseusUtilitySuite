@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Changelog.lua
--- Version : 2026.10.09
+-- Version : 2026.10.26
 -- Desc    : OUS2 compact read-only release notes viewer
 -- ================================================
 
@@ -12,6 +12,7 @@ local C = OUS.Config2
 
 local page = CreateFrame("Frame", nil, C.pageContainer)
 page:SetAllPoints()
+page.usesInnerScrollBar = true
 page:Hide()
 
 local SECTION_ORDER = {
@@ -32,6 +33,30 @@ local CHANGELOG_SOURCE = [=[
 # Changelog
 
 All notable changes to **Odysseus Utility Suite** will be documented in this file.
+
+## [Version 1.0.9 - 2026-10-26]
+
+### Added
+- Junk Seller: optional native 3D Goblin with Merchant Counter backdrop, 32/64/96 viewport sizes, camera-distance control and an independent Play Test Animation preview. 3D defaults OFF; size defaults to 96 and distance to 1.2.
+- Junk Seller: animated Goblin Counting Gold / Spinning Coin choices and compact Midnight vendor button with live queue counts. Existing Shift confirmation and 12-item batching remain.
+- Delves: current Instance ID and Map ID beneath the progress bars, with placeholders for positioning preview.
+
+### Changed
+- OUS2: Midnight Railway scrollbar with native dragging and smooth wheel scrolling; Changelog and XP Bar Help retain their own native scrollbars.
+- Junk Seller: merchant-relative artwork and button placement support Blizzard and Krowi vendor layouts. Existing 2D artwork remains the default/fallback.
+
+### Fixed
+- OUS2 closes on combat entry, blocks opening during combat and stays closed afterwards. Manual reopening refreshes the retained page, preserving the active XP Bar child section.
+- Utilities master disable stops automatic repair/sales and stale sale callbacks; restores OUS-hidden ability artwork when safe.
+- Openables delayed Auto Open rechecks settings, combat, candidate and bag slot; stale or duplicate pending attempts are discarded.
+- Disabled XP/Rep/Delves bars stay hidden. Journey MAX uses confirmed maximum renown; Stats Bar reads respect both combat policy and Blizzard stat secrecy.
+- Fishing Tracker UI activity no longer extends the recent-fishing attribution window.
+- Flight distance previews tolerate unavailable map IDs. Flight Master button textures and the standalone Help banner path use the correct asset references.
+
+### Notes
+- Dependency maintenance: bundled LibSharedMedia-3.0 updated to release 3.0-184. Available media still depend on enabled providers.
+
+---
 
 ## [Version 1.0.8 - 2026-10-09]
 
@@ -487,12 +512,16 @@ headerDivider:SetHeight(6)
 
 local scrollBox = CreateFrame("Frame", nil, page, "WowScrollBox")
 scrollBox:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -76)
-scrollBox:SetPoint("BOTTOMRIGHT", page, "BOTTOMRIGHT", -34, 18)
+scrollBox:SetPoint("TOPRIGHT", page, "TOPRIGHT", -34, -76)
+-- The shared scroll child is taller than its viewport at minimum window height.
+scrollBox:SetPoint("BOTTOMLEFT", C.pageContainer:GetParent(), "BOTTOMLEFT", 18, 18)
 
 local scrollBar = CreateFrame("EventFrame", nil, page, "MinimalScrollBar")
 scrollBar:SetWidth(12)
 scrollBar:SetPoint("TOPLEFT", scrollBox, "TOPRIGHT", 4, 0)
 scrollBar:SetPoint("BOTTOMLEFT", scrollBox, "BOTTOMRIGHT", 4, 0)
+
+T.StyleMinimalScrollBar(scrollBar)
 
 local content = CreateFrame("Frame", nil, scrollBox)
 content.scrollable = true

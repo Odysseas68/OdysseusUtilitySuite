@@ -2,15 +2,15 @@
 
 ## Project
 
-OUS2 is the next-generation configuration interface for Odysseus Utility Suite.
+OUS2 is the sole production configuration interface for Odysseus Utility Suite. `/ous` opens OUS2; `/ous2` remains an alias.
 
-The goal is to replace the original Midnight-themed configuration window with a modern, modular, fantasy-themed UI inspired by World of Warcraft Midnight aesthetics.
+The modular Midnight Arcane interface has replaced the legacy configuration windows. Module-page and XP/Rep/Delves migration are implemented; remaining work is bounded runtime acceptance, final parity decisions, polish and optional expansion.
 
 ## Related Documentation
 
 * `Documentation\ARCHITECTURE.md` — OUS2 architecture, page system, and migration status.
 * `Documentation\TODO_v2.md` — high-level phase tracking and remaining milestones.
-* `Documentation\OUS2_XPBAR_PARITY.md` — authoritative engineering checklist for remaining XP Bar, Reputation, and Delves OUS2 parity work.
+* `Documentation\OUS2_XPBAR_PARITY.md` — engineering checklist and historical implementation record for XP Bar, Reputation, and Delves OUS2 parity, including remaining final review decisions.
 * `D:\WoWDev\Reference` — external engineering reference workspace for API, prototype, and third-party research.
 
 ## External Reference Workspace
@@ -146,13 +146,7 @@ Used for:
 | ScrollTrack.tga | 32x256 | Scrollbar track |
 | ScrollThumb.tga | 32x64  | Scrollbar thumb |
 
-Validated display sizes (from OUS2ArtTest):
-
-Track:
-* 15x320 (dynamic — height adjusts with frame resize)
-
-Thumb:
-* 15x60 minimum, 30% of track height
+These textures belong to the historical OUS2ArtTest asset baseline. The production shared scrollbar uses a native Slider with a **6-unit rounded dark-purple rail**, **10x64 lavender capsule thumb** and **14-unit input region**, with three decorative grip marks. Wheel steps are 18 units with 0.12-second interpolation. Changelog and XP Bar Help own native ScrollBox/MinimalScrollBar pairs; they do not need a redundant outer Slider. Remaining native acceptance is tracked in [Finding 009](OUS_RETAIL_API_AUDIT_2026-10-25.md#housekeeping-runtime-009).
 
 ---
 
@@ -246,13 +240,23 @@ Current sidebar page order:
 
 Delves functionality and configuration remain intact, but Delves is reached through the XP Bar hub instead of a standalone sidebar or General dashboard entry. Session Stats configuration is also an XP Bar child view rather than a separate OUS2 page.
 
+## Junk Seller artwork
+
+Under **Utilities → Junk Seller**, **Enable 3D Goblin** opts into a native Goblin with the approved Merchant Counter presentation. It is **off by default**; the existing Goblin Counting Gold / Spinning Coin choice remains the 2D default and fallback. The Sell button and all selling rules remain unchanged.
+
+**3D Goblin Size** uses the existing themed cycling-selector pattern: **96x96 (Large)** → **64x64 (Medium)** → **32x32 (Small)**. Default is **96x96**. It resizes the actual native viewport and counter; the sidebar preview keeps its 96x96 container and centers the selected viewport inside it. Size is independent of camera distance. Combat changes apply on the next safe refresh or preview test. User-reported WoW acceptance covers the preferred **64x64** merchant presentation at camera distance **1.2**, textured rendering, Merchant Counter v2, Loot animation during selling and the independent OUS2 preview. The appearance is approved; no further visual polishing is requested. Other size/layout and lifecycle combinations remain runtime-pending.
+
+**3D Goblin Zoom** controls camera distance from **1.0 to 2.0** in **0.1** steps, default **1.2**. Increasing it moves the model farther away. **Play Test Animation** loads an independent sidebar preview, plays Loot animation 50 once, then reloads to natural idle. It requires no merchant or items and also works with 3D mode off. Leave the Utilities page to clear the preview. Combat blocks preview/model changes; retry preview playback afterwards.
+
+Preferences are account-wide under `OdysseusDB.utilities.junkSell`: `nativeGoblin`, `nativeGoblinDistance` and numeric `nativeGoblinSize` (96, 64 or 32; missing/invalid sizes default to 96). Existing 2D selection, seller settings and blacklist are preserved. Production defaults remain 3D off, size 96 and distance 1.2; the user preference for 64x64 does not change defaults. Exhaustive combat, fallback, rapid-switch and merchant-layout regression acceptance is not established. Standalone research and production acceptance remain separate evidence. Local-only research reference: `Documentation/Research/NativeGoblinLootAnimation.md`, sections 15 (production integration and validation) and 16 (viewport sizing). This historical research is intentionally excluded from Git and distribution packages.
+
 ---
 
 # Validated Frame Settings
 
 AutoRemount's standalone Audit window is separate from this OUS2 shell: 800 × 560, with compact deep-purple/cyan buttons and persistent selected-mode styling. Its top row is DB Audit | Spellbook | Talents | Refresh | Copy All | Close; it does not use the large OUS2 Action button artwork. The OUS2 Auto Remount page exposes Open/Add Custom Spells. See [AutoRemount engine and research surfaces](ARCHITECTURE.md#autoremount-engine-and-research-surfaces) for the current behavior and evidence limits.
 
-Confirmed values from OUS2ArtTest — use these in OUS2Config.lua:
+The following OUS2ArtTest frame geometry agrees with the current T.Frame baseline; production code uses theme constants. The prototype scrollbar formula is historical and is not the production Slider implementation:
 
 ```lua
 -- Frame
@@ -286,7 +290,7 @@ right:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -VedgeInset, 0)
 headerGem:SetPoint("TOP",    frame, "TOP",    0, -15)
 footerGem:SetPoint("BOTTOM", frame, "BOTTOM", 0,  15)
 
--- Scrollbar (dynamic — recalculates on OnSizeChanged)
+-- Historical OUS2ArtTest scrollbar only (not the production shared Slider)
 local trackHeight = frameH - 260       -- adjusts with frame height
 local thumbHeight = math.max(60, math.floor(trackHeight * 0.30))
 track:SetSize(15, trackHeight)
@@ -348,9 +352,9 @@ Phase 5.6 — OUS2 legacy parity final stage
 * General page polish
 * Enabled/disabled module card states
 * Module count summary
-* Global Options functionality
-* Reset semantics review
-* XP Bar / Reputation / Delves parity tracked in `Documentation\OUS2_XPBAR_PARITY.md`
+* Global Options visual/runtime acceptance (minimap and session debug controls are wired)
+* Global reset-scope review and runtime acceptance
+* XP Bar / Reputation / Delves final review tracked in `Documentation\OUS2_XPBAR_PARITY.md`
 * Toolbox expansion features
 * Faster Loot rules system
 * OUSBanner recreation/review

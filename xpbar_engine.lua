@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_engine.lua
--- Version : 2026.10.09
+-- Version : 2026.10.25
 -- Desc    : XP/rep bar tracking logic and event handling
 -- ============================================================
 
@@ -86,6 +86,7 @@ function OUS.ApplyFonts()
     xpBar.text:SetFont(fontPath, size, "OUTLINE")
     delveBar.compText:SetFont(fontPath, math.max(8, size - 2), "OUTLINE")
     delveBar.jourText:SetFont(fontPath, math.max(8, size - 2), "OUTLINE")
+    delveBar.idText:SetFont(fontPath, math.max(8, size - 4), "OUTLINE")
 end
 
 function OUS.ApplyDimensions()
@@ -650,8 +651,14 @@ local function RenderReputationBar(db, targetFactionID)
     xpBar:Show()
 end
 
+-- Keep initialization, callbacks, and direct refreshes from showing a disabled module.
 function OUS.UpdateBar()
-    if not OdysseusDB or not OdysseusDB.xpBar then return end
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then
+        xpBar:Hide()
+        delveBar:Hide()
+        return
+    end
+    if not OdysseusDB.xpBar then return end
 
     local db = OdysseusDB.xpBar
     local playerLevel = UnitLevel("player")

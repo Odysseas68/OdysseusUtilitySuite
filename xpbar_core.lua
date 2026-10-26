@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_core.lua
--- Version : 2026.10.09
+-- Version : 2026.10.25
 -- Desc    : XP/rep bar frame layout and base rendering
 -- ============================================================
 
@@ -176,6 +176,14 @@ delveBar.jourBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 delveBar.jourText = delveBar.jourBar:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 delveBar.jourText:SetPoint("CENTER")
+
+-- Keep location diagnostics beneath the bars without changing their established geometry.
+delveBar.idText = delveBar:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+delveBar.idText:SetPoint("TOPLEFT", delveBar.jourBar, "BOTTOMLEFT", 0, -4)
+delveBar.idText:SetPoint("TOPRIGHT", delveBar.jourBar, "BOTTOMRIGHT", 0, -4)
+delveBar.idText:SetJustifyH("CENTER")
+delveBar.idText:SetWordWrap(false)
+delveBar.idText:SetTextColor(0.65, 0.65, 0.65)
 
 delveBar:SetMovable(false)
 delveBar:SetClampedToScreen(true)

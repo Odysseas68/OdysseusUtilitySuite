@@ -6,8 +6,8 @@ Odysseus Utility Suite (OUS) is a modular World of Warcraft Retail addon for Ret
 
 It combines quality-of-life utility tools into a single addon suite. OUS2 is the sole production configuration framework: `/ous` opens OUS2 and `/ous2` remains an alias.
 
-**Current WoW Interface target:** `120007`
-**SavedVariables:** `OdysseusDB` account-wide, `OdysseusCharDB` per-character
+**Declared WoW Interfaces:** `120000, 120001, 120005, 120007, 120105` (production TOC is authoritative)
+**SavedVariables:** `OdysseusDB` and `OdysseusFishingDB` account-wide; `OdysseusCharDB` per-character
 **Namespace pattern:** `local addonName, OUS = ...`
 **Shared namespace:** all exported functions, module state, defaults, and shared helpers live on the `OUS` table.
 
@@ -41,7 +41,7 @@ When multiple valid solutions exist:
 Never violate these rules:
 
 - Use WoW Retail 12.0+ APIs only.
-- Current Interface target is `120007`.
+- Preserve the production TOC's supported Interface metadata; verify APIs against the intended Retail source baseline.
 - Do not use deprecated APIs.
 - Do not infer WoW API signatures from Classic examples, old addon code, or model memory.
 - Avoid taint and protected-call issues.
@@ -98,7 +98,7 @@ Before implementing compatibility code:
 5. Prefer ecosystem standards (LibDataBroker, LibDBIcon, Ace libraries, etc.) over addon-specific integrations.
 6. Only implement addon-specific compatibility when no standards-based solution exists.
 7. Document the architectural decision and reasoning.
-8. Record important lessons learned in CLAUDE.md when they affect future development.
+8. Record durable engineering lessons in AGENTS.md when project guidance changes.
 
 ---
 
@@ -144,7 +144,7 @@ The TOC order is strict. Do not reorder unless explicitly instructed.
 4. `Libs\LibDBIcon-1.0\lib.xml`
 5. `Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua`
 6. `Core.lua` — creates OUS namespace, DB init, debug engine, slash commands
-7. `flightdata.lua` — flight timing database
+7. `FlightData.lua` — flight timing database
 8. `xpbar_data.lua` — XP/rep data tables
 9. `Odysseus_RoutingDB.lua` — flight routing database
 10. `AutoRemountSpells.lua` — AutoRemount spell ID database
@@ -153,34 +153,36 @@ The TOC order is strict. Do not reorder unless explicitly instructed.
 13. `Flightmaster.lua` — flight timer/routing engine
 14. `Fasterloot.lua` — auto-loot module
 15. `Fishingtracker.lua` — fishing session tracker
-16. `xpbar_core.lua` — XP/rep bar frame and layout
-17. `xpbar_engine.lua` — XP/rep tracking logic
-18. `xpbar_delves.lua` — Delves companion tracking
-19. `xpbar_favorites.lua` — favorite rep pinning
-20. `FlightRouting.lua` — taxi map route rendering
-21. `AutoRemount.lua` — auto remount engine
-22. `StatsBar.lua` — stats bar engine
-23. `Openables.lua` — openables button engine
-24. `Utilities.lua` — utility commands
-25. `Toolbox.lua` — floating icon toolbar engine
-26. `Help.lua` — standalone tabbed help frame
-27. `Config2\OUS2Theme.lua` — OUS2 theme registry
-28. `Config2\OUS2Config.lua` — OUS2 main config frame
-29. `Config2\OUS2ScaleControl.lua` — reusable OUS2 scale control
-30. `Config2\OUS2Page_General.lua`
-31. `Config2\OUS2Page_Utilities.lua`
-32. `Config2\OUS2Page_Openables.lua`
-33. `Config2\OUS2Page_StatsBar.lua`
-34. `Config2\OUS2Page_AutoRemount.lua`
-35. `Config2\OUS2Page_FishingTracker.lua`
-36. `Config2\OUS2Page_FlightMaster.lua`
-37. `Config2\OUS2Page_FlightRouting.lua`
-38. `Config2\OUS2Page_FasterLoot.lua`
-39. `Config2\OUS2Page_Toolbox.lua`
-40. `Config2\OUS2Page_XPBar.lua`
-41. `Config2\OUS2Page_Delves.lua`
-42. `Config2\OUS2Page_Help.lua`
-43. `Config2\OUS2Page_Changelog.lua`
+16. `xpbar_core.lua` — XP/rep frames and transient session state
+17. `xpbar_sessionstats.lua` — Session Stats tracking/display APIs
+18. `xpbar_engine.lua` — XP/rep tracking logic
+19. `xpbar_delves.lua` — Delves companion tracking
+20. `xpbar_favorites.lua` — favorite rep pinning
+21. `FlightRouting.lua` — taxi map route rendering
+22. `AutoRemount.lua` — auto remount engine
+23. `StatsBar.lua` — stats bar engine
+24. `Openables.lua` — openables button engine
+25. `Utilities.lua` — utility commands
+26. `JunkBroker.lua` — read-only LibDataBroker junk/session display
+27. `Toolbox.lua` — floating icon toolbar engine
+28. `Help.lua` — standalone tabbed help frame
+29. `Config2\OUS2Theme.lua` — OUS2 theme registry
+30. `Config2\OUS2Config.lua` — OUS2 main config frame
+31. `Config2\OUS2ScaleControl.lua` — reusable OUS2 scale control
+32. `Config2\OUS2Page_General.lua`
+33. `Config2\OUS2Page_Utilities.lua`
+34. `Config2\OUS2Page_Openables.lua`
+35. `Config2\OUS2Page_StatsBar.lua`
+36. `Config2\OUS2Page_AutoRemount.lua`
+37. `Config2\OUS2Page_FishingTracker.lua`
+38. `Config2\OUS2Page_FlightMaster.lua`
+39. `Config2\OUS2Page_FlightRouting.lua`
+40. `Config2\OUS2Page_FasterLoot.lua`
+41. `Config2\OUS2Page_Toolbox.lua`
+42. `Config2\OUS2Page_XPBar.lua`
+43. `Config2\OUS2Page_Delves.lua`
+44. `Config2\OUS2Page_Help.lua`
+45. `Config2\OUS2Page_Changelog.lua`
 
 OUS2 theme and shell files load after the module engines and standalone Help UI. OUS2 controls and pages load after `Config2\OUS2Config.lua`.
 
@@ -208,6 +210,8 @@ New modules must register a toggle default in `Core.lua` inside the `ADDON_LOADE
 
 Use `OdysseusDB` for account-wide settings.
 
+`OdysseusFishingDB.history` is the separate account-wide Fishing Tracker history store. Preserve history when resetting settings unless an explicit history wipe is authorized.
+
 Use `OdysseusCharDB` for per-character settings, initialized under a module-specific key, for example:
 
 ```lua
@@ -216,6 +220,10 @@ OdysseusCharDB.statsBar
 ```
 
 Do not change existing SavedVariables structures without explicit approval.
+
+Session Stats settings live under `OdysseusDB.xpBar.sessionStats`. `xpbar_core.lua` creates transient `OUS.XPBarSession` state; `xpbar_sessionstats.lua` owns the `OUS.SessionStats` tracking/display APIs and junk-change callbacks. `JunkBroker.lua` publishes a read-only bag/session view through LibDataBroker; it does not own selling transactions or a separate persistent database.
+
+Preserve Core's migration of legacy `showMinimapButton` / `minimapAngle` into `OdysseusDB.minimap.hide` / `minimapPos`. Do not restore obsolete keys or bypass the broker launcher ownership rules.
 
 ### Event-Driven Design
 
@@ -228,6 +236,14 @@ CreateFrame("Frame")
 ```
 
 Avoid polling loops. Avoid `OnUpdate` for state checks unless there is no safe event/timer alternative.
+
+### UI Ownership and Animation Lifecycles
+
+- Decorative frames must remain mouse-transparent; textures and visual overlays must not expand or intercept the owning control's input region.
+- Use the existing parent, frame level, strata and clipping boundaries. Solve local layering problems locally rather than raising global strata or overlapping nearby controls.
+- Prefer reusable native AnimationGroups/FlipBook playback for prepared sprite sheets over Lua frame stepping. Verify texture dimensions, grid, frame count and timing; do not add production dependencies on research probes.
+- Define play, stop and idle/reset behavior for hide, disable and cancellation paths. Reuse animation objects and prevent hidden/background playback or duplicate callbacks.
+- Keep visual lifecycle changes separate from transactions and secure actions. OUS-owned decoration does not establish that protected Blizzard operations or combat updates are safe.
 
 ### Defaults Pattern
 
@@ -341,15 +357,16 @@ Icons, titles, descriptions, and chevrons remain Lua UI elements layered above t
 ### OUS2 Public API
 
 ```lua
-OUS.Config2.RegisterPage(pageName, pageFrame, refreshFn, sidebarFrame)
+OUS.Config2.RegisterPage(pageName, pageFrame, refreshFn, sidebarFrame, refreshCurrentFn)
 OUS.Config2.OpenPage(pageName)
 OUS.Config2.Toggle()
 OUS.Config2.SetHelpText(text)
 OUS.Config2.ClearHelpText()
+OUS.Config2.RefreshScrollbar()
 C.pageContainer
 C.sidebarContainer
 ```
-sidebarFrame is optional and is used for page-specific content inside C.sidebarContainer.
+sidebarFrame is optional and is used for page-specific content inside C.sidebarContainer. The optional refreshCurrentFn handles retained-page refresh without navigation side effects; it defaults to refreshFn. Existing four-argument registrations remain supported.
 
 ### OUS2 Page Keys
 
@@ -418,7 +435,7 @@ Completed:
   - Delves
   - Help
   - Changelog
-- XP Bar hub with internal Global, Experience, Reputation, Favorites, and Help views
+- XP Bar hub with internal Global, Experience, Reputation, Favorites, Session Stats, and Help views
 - Delves implemented as a separate OUS2 page linked from the XP Bar hub
 - Phase 4 module-page migration and legacy configuration retirement completed
 - XP Bar migration completed
@@ -430,9 +447,9 @@ Phase 5 follow-up work:
 - General page polish
 - Enabled/disabled card states
 - Module count summary
-- Global Options functionality
-- Reset semantics review
-- XP Bar, Reputation, and Delves parity items tracked in `Documentation\OUS2_XPBAR_PARITY.md`
+- Global Options visual/runtime acceptance (minimap and session debug wiring are implemented)
+- Global reset-scope review and runtime acceptance
+- XP Bar, Reputation, and Delves final review items tracked in `Documentation\OUS2_XPBAR_PARITY.md`
 - Toolbox expansion
 - Faster Loot rules
 - Helper extraction
@@ -454,13 +471,11 @@ It is atlas-only and does not work with custom TGA files.
 
 ### OUS2 Scrollbar
 
-Scrollbar rules:
-
-- Parent custom scrollbar to `contentPanel`, not to the main frame.
-- `scrollTest` anchors `TOPRIGHT` and `BOTTOMRIGHT` to `contentPanel`.
-- Track height follows `scrollTest:GetHeight()`.
-- Thumb position recalculates on `OnVerticalScroll`.
-- Current constants: `trackW = 10`, `thumbMinH = 60`, `thumbRatio = 0.30`, `scrollStep = 18`.
+- Regular settings pages use the OUS-owned native vertical Slider in `OUS2Config.lua`, parented to `contentPanel`. Preserve native dragging, bidirectional ScrollFrame synchronization, actual range handling and footer clearance; use `T.Scroll` for geometry and wheel timing.
+- Changelog and the XP Bar Help subsection retain native `WowScrollBox` / `MinimalScrollBar` instances. Reuse `T.StyleMinimalScrollBar` for instance-local tinting; do not change global Blizzard templates or state handlers.
+- Suppress the redundant outer Slider in those inner-scroller views, including its hit region. XP Bar Help ownership follows the active subsection, not the whole XP Bar page. Notify `C.RefreshScrollbar()` when changing that ownership; preserve reconciliation on page changes, resize, hide and reopen.
+- Bound inner viewport bottoms to the visible shell rather than an oversized scroll child. Keep ScrollBox and scrollbar anchors coherent, tracks dynamically sized, final content reachable and footer controls clear.
+- Keep artwork mouse-transparent and distinct from Slider input geometry. Preserve existing wheel cancellation, zero-range behavior and combat guards; bounded wheel interpolation is not permission to add polling or competing animation loops.
 
 ### OUS2 Debug Artifacts
 
@@ -534,7 +549,7 @@ Files:
 
 - `Flightmaster.lua`
 - `FlightRouting.lua`
-- `flightdata.lua`
+- `FlightData.lua`
 - `Odysseus_RoutingDB.lua`
 
 Rules:
@@ -600,6 +615,7 @@ Rules:
 - Do not compare or format restricted secret values directly in combat/restricted contexts.
 - `tonumber()` does not neutralize secret number values.
 - Use project-established stat cache/display helper patterns.
+- Treat combat policy and Blizzard stat secrecy as independent read boundaries; combat end or one restriction's deactivation does not establish that secret values are readable.
 
 ### Fasterloot / Fishingtracker
 
@@ -625,6 +641,10 @@ Rules:
 - `Help.lua` is standalone.
 - Preserve global `OdysseusHelpFrame` for `/ous help`.
 - Modern Help content uses `WowScrollBox` + `MinimalScrollBar` patterns.
+
+### Future BuffBars Research
+
+BuffBars remains a research candidate, not an implemented OUS module. Follow [the design and research gate](Documentation/BUFFBARS_DESIGN.md): retain the frozen Retail 12.0.x prototype as historical evidence, verify current LIVE aura/secrecy contracts separately from PTR observations, and validate a separate prototype before authorizing production integration. Do not copy the old aura engine or treat past runtime results as proof for later clients.
 
 ---
 
@@ -658,11 +678,8 @@ Maintain and update when behavior changes:
 - Documentation/ARCHITECTURE.md
 - Documentation/TODO_v2.md
 - CHANGELOG.md (if present)
-- CLAUDE.md
 
-CLAUDE.md is part of the project's long-term engineering documentation.
-Keep CLAUDE.md synchronized with important architectural decisions, coding standards, reusable patterns, and project rules.
-Do not store temporary debugging sessions or transient implementation experiments in CLAUDE.md.
+AGENTS.md is the primary repository guidance. Keep durable architecture, coding standards and reusable engineering rules here; keep investigation histories and detailed implementation evidence in the relevant Documentation files. Do not turn guidance into a temporary debugging log or duplicate architecture manual.
 
 AGENTS.md should only be modified when development rules,
 architecture conventions, workflows, or project standards change.
@@ -719,6 +736,13 @@ When producing code for the user to paste manually:
 - Keep indentation intact.
 - Give clear insertion/replacement location.
 - Avoid tiny ambiguous snippets when a full replacement block is safer.
+
+## Focused Validation and Compatibility
+
+- Treat the current working tree as the implementation authority, including uncommitted changes; preserve unrelated work and established migration/compatibility behavior.
+- Keep validation proportional to the changed boundary. For Lua edits, distinguish Lua 5.1 syntax checks, targeted LuaCheck results and warning baselines, deterministic checks, and native WoW acceptance.
+- Label source facts, inferences, historical offline results and user-reported runtime observations separately. Mocks do not establish native geometry, protected-call behavior, secret-value semantics or taint safety.
+- Bound runtime claims to the actual reported scenarios. Combat exit is not general permission for protected writes; preserve deferred-safe updates and verify native combat/recovery behavior when relevant.
 
 ## Standalone Lua 5.1 Validation
 
@@ -835,7 +859,7 @@ Use when editing:
 
 - `Flightmaster.lua`
 - `FlightRouting.lua`
-- `flightdata.lua`
+- `FlightData.lua`
 - `Odysseus_RoutingDB.lua`
 
 Rules:
@@ -917,7 +941,7 @@ Rules:
 - Do not invent features.
 - Keep current phase/status accurate.
 - Update related documentation consistently when needed.
-- Keep `CLAUDE.md` synchronized with important long-term architecture, standards, reusable patterns, and project rules.
+- Keep `AGENTS.md` synchronized when durable architecture, standards or reusable engineering rules change.
 - Report code/doc mismatches.
 
 ### Pattern: New Module Blueprint

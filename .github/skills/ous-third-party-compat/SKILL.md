@@ -28,7 +28,7 @@ Use this skill when OUS must coexist with another WoW addon or shared addon ecos
 12. Prefer event-driven or library-driven integration over polling.
 13. Keep compatibility logic isolated.
 14. Add concise one-line comments for integration boundaries.
-15. Update documentation, TODO, changelog, and CLAUDE.md when compatibility behavior changes.
+15. Update relevant documentation, TODO and changelog when compatibility behavior changes; record durable engineering lessons in AGENTS.md when project guidance changes.
 16. Prefer removing compatibility code over adding more compatibility code when a standards-based solution exists.
 
 ## Workflow

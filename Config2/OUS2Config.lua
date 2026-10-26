@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Config.lua
--- Version : 2026.10.09
+-- Version : 2026.10.26
 -- Desc    : OUS2 main configuration frame — three-panel layout, nav system, page switching
 
 local _, OUS = ...
@@ -20,6 +20,7 @@ C.pages            = {}        -- [pageName] = { frame, sidebarFrame, navBtn }
 C.navButtons       = {}        -- ordered list of nav button frames
 C.sidebarContainer = nil
 C.locked           = false     -- frame resize lock state
+local RefreshSharedScrollbar
 
 -- ---------------------------------------------------------------------------
 -- Page order (drives nav button creation order)
@@ -76,6 +77,7 @@ end
 
 local mediaDropdown
 local mediaDropdownButtons = {}
+local ownedColorPickerInfo
 
 local function EnsureMediaDropdown()
     if mediaDropdown then
@@ -113,6 +115,7 @@ local function EnsureMediaDropdown()
 end
 
 function C.OpenMediaDropdown(owner, mediaType, currentName, onSelect)
+    if InCombatLockdown() then return false end
     local dropdown = EnsureMediaDropdown()
     local titleText = "Select " .. (mediaType == "font" and "Font" or (mediaType == "statusbar" and "Texture" or "Border"))
 
@@ -201,6 +204,7 @@ function C.OpenMediaDropdown(owner, mediaType, currentName, onSelect)
 end
 
 function C.OpenColorPicker(colorTable, swatchFrame, onUpdate)
+    if InCombatLockdown() then return false end
     if type(colorTable) ~= "table" or not swatchFrame then
         return
     end
@@ -216,6 +220,7 @@ function C.OpenColorPicker(colorTable, swatchFrame, onUpdate)
     }
 
     local function ApplyColor()
+        if InCombatLockdown() then return end
         local r, g, b = ColorPickerFrame:GetColorRGB()
         colorTable.r, colorTable.g, colorTable.b = r, g, b
         swatchFrame:SetColorTexture(r, g, b, 1)
@@ -224,7 +229,8 @@ function C.OpenColorPicker(colorTable, swatchFrame, onUpdate)
         end
     end
 
-    ColorPickerFrame:SetupColorPickerAndShow({
+    local info = {
+        extraInfo = {},
         r = colorTable.r,
         g = colorTable.g,
         b = colorTable.b,
@@ -232,19 +238,23 @@ function C.OpenColorPicker(colorTable, swatchFrame, onUpdate)
         colorPickerFunc = ApplyColor,
         swatchFunc = ApplyColor,
         cancelFunc = function()
+            if InCombatLockdown() then return end
             colorTable.r, colorTable.g, colorTable.b = previous.r, previous.g, previous.b
             swatchFrame:SetColorTexture(previous.r, previous.g, previous.b, 1)
             if onUpdate then
                 onUpdate(previous.r, previous.g, previous.b)
             end
         end,
-    })
+    }
+    ownedColorPickerInfo = info
+    ColorPickerFrame:SetupColorPickerAndShow(info)
 end
 
 local copyDialog
 local copyDialogEditBox
 
 function C.ShowCopyTextDialog(titleText, bodyText)
+    if InCombatLockdown() then return false end
     if not copyDialog then
         copyDialog = CreateFrame("Frame", "OUS2CopyTextDialog", UIParent, "BackdropTemplate")
         copyDialog:SetSize(520, 420)
@@ -331,6 +341,19 @@ function C.ShowCopyTextDialog(titleText, bodyText)
     copyDialogEditBox:SetText(bodyText or "")
     copyDialogEditBox:SetCursorPosition(0)
     copyDialog:Show()
+end
+
+-- Hide only owned editors; shared-picker closure must not apply or roll back settings.
+local function CloseOwnedEditors()
+    if mediaDropdown then mediaDropdown:Hide() end
+    if copyDialog then copyDialog:Hide() end
+    local picker = _G.ColorPickerFrame
+    local info = ownedColorPickerInfo
+    if info and picker and type(picker.GetExtraInfo) == "function"
+        and picker:GetExtraInfo() == info.extraInfo and picker.swatchFunc == info.swatchFunc then
+        picker:Hide()
+    end
+    ownedColorPickerInfo = nil
 end
 
 -- ---------------------------------------------------------------------------
@@ -493,6 +516,7 @@ local function BuildFooter(frame)
     resetBtn:SetScript("OnClick", function()
         StaticPopup_Show("ODYSSEUS_CONFIRM_WIPE_ALL")
     end)
+    return resetBtn, btnY + btnH
 end
 
 -- ---------------------------------------------------------------------------
@@ -513,8 +537,18 @@ local function SetNavButtonActive(pageName)
     end
 end
 
+-- Retained pages synchronize settings without replaying navigation-only initialization.
+local function RefreshCurrentPage()
+    local entry = C.pages[C.currentPage]
+    if entry and entry.RefreshCurrent then entry.RefreshCurrent() end
+end
+
 local function SwitchPage(pageName)
-    if C.currentPage == pageName then return end
+    if C.currentPage == pageName then
+        RefreshCurrentPage()
+        if RefreshSharedScrollbar then RefreshSharedScrollbar() end
+        return
+    end
 
     -- Hide current page
     if C.currentPage and C.pages[C.currentPage] then
@@ -536,6 +570,7 @@ local function SwitchPage(pageName)
     end
 
     SetNavButtonActive(pageName)
+    if RefreshSharedScrollbar then RefreshSharedScrollbar() end
 end
 
 local function BuildNavPanel(navPanel)
@@ -592,71 +627,206 @@ local function BuildNavPanel(navPanel)
 end
 
 -- ---------------------------------------------------------------------------
--- Custom scrollbar (validated pattern from OUS2ArtTest)
+-- Shared native scrollbar
 -- ---------------------------------------------------------------------------
 
-local function BuildScrollbar(frame, contentPanel, scrollFrame)
+-- Native dragging owns only the existing scrollbar gutter, not page or footer input.
+local function BuildScrollbar(frame, contentPanel, scrollFrame, footerButton, footerExtent)
     local S = T.Scroll
-    local F = T.Frame
+    local col = T.Colors
+    local slider = CreateFrame("Slider", nil, contentPanel)
+    slider:SetWidth(S.trackW)
+    slider:SetPoint("TOPRIGHT", contentPanel, "TOPRIGHT", 0, 0)
+    slider:SetOrientation("VERTICAL")
+    slider:EnableMouse(true)
+    slider:EnableMouseWheel(true)
+    slider:SetHitRectInsets(-S.hitInset, -S.hitInset, 0, 0)
+    slider:SetFrameLevel(scrollFrame:GetFrameLevel() + 1)
+    slider:SetValueStep(1)
+    slider:SetObeyStepOnDrag(false)
+    slider:SetMinMaxValues(0, 0)
 
-    -- Scrollbar container — mirrors prototype pattern: centered vertically on frame,
-    -- horizontally positioned between content panel right edge and help panel
-    local scrollTest = CreateFrame("Frame", nil, contentPanel)
-    scrollTest:SetWidth(S.trackW)
-    scrollTest:SetPoint("TOPRIGHT", contentPanel, "TOPRIGHT", 0, 0)
-    scrollTest:SetPoint("BOTTOMRIGHT", contentPanel, "BOTTOMRIGHT", 0, 0)
-
-    local track = scrollTest:CreateTexture(nil, "ARTWORK")
-    track:SetTexture(T.Tex("ScrollTrack"))
-    track:SetSize(S.trackW, 320)
-    track:SetPoint("CENTER")
-
-    local thumb = scrollTest:CreateTexture(nil, "OVERLAY")
-    thumb:SetTexture(T.Tex("ScrollThumb"))
-    thumb:SetSize(S.trackW, S.thumbMinH)
-    thumb:ClearAllPoints()
-    thumb:SetPoint("TOP", track, "TOP", 0, 0)
-
-    -- Sync thumb position to scroll position
-    local function UpdateCustomThumb()
-        local maxScroll = scrollFrame:GetVerticalScrollRange()
-        local current   = scrollFrame:GetVerticalScroll()
-        local trackH    = track:GetHeight()
-        local thumbH    = thumb:GetHeight()
-        local travel    = trackH - thumbH
-        local offset    = 0
-        if maxScroll > 0 then
-            offset = (current / maxScroll) * travel
+    -- Cropped portrait masks form rounded caps without changing the input geometry.
+    local function CreateCapsule(parent, width, inset, layer, color)
+        local caps = {}
+        for index, point in ipairs({ "TOP", "BOTTOM" }) do
+            local cap = parent:CreateTexture(nil, layer)
+            cap:SetSize(width, width / 2)
+            cap:SetPoint(point, parent, point, 0, index == 1 and -inset or inset)
+            local mask = parent:CreateMaskTexture()
+            mask:SetTexture(S.capMask, "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+            mask:SetAllPoints(cap)
+            mask:SetTexCoord(0, 1, (index - 1) / 2, index / 2)
+            cap:AddMaskTexture(mask)
+            cap:SetColorTexture(unpack(color))
+            caps[index] = cap
         end
-        thumb:ClearAllPoints()
-        thumb:SetPoint("TOP", track, "TOP", 0, -offset)
+        local middle = parent:CreateTexture(nil, layer)
+        middle:SetPoint("TOPLEFT", caps[1], "BOTTOMLEFT")
+        middle:SetPoint("BOTTOMRIGHT", caps[2], "TOPRIGHT")
+        middle:SetColorTexture(unpack(color))
+        return { caps[1], middle, caps[2] }
     end
 
-    -- Recalculate track and thumb on frame resize
-    local function UpdateScrollLayout()
-        local scrollH = scrollTest:GetHeight()
-        local trackH  = scrollH
-        local thumbH  = math.max(S.thumbMinH, math.floor(trackH * S.thumbRatio))
+    CreateCapsule(slider, S.railW, 0, "BACKGROUND", col.border)
+    CreateCapsule(slider, S.railW - 2, 1, "BORDER", col.bgDark)
 
-        track:SetSize(S.trackW, trackH)
-        track:ClearAllPoints()
-        track:SetPoint("CENTER", scrollTest, "CENTER")
-
-        thumb:SetSize(S.trackW, thumbH)
-
-        UpdateCustomThumb()
+    slider:SetThumbTexture(T.Tex("ScrollThumb"))
+    local thumb = slider:GetThumbTexture()
+    thumb:SetSize(S.trackW, S.thumbH)
+    thumb:SetColorTexture(1, 1, 1, 0)
+    local thumbArt = CreateFrame("Frame", nil, slider)
+    thumbArt:SetAllPoints(thumb)
+    thumbArt:EnableMouse(false)
+    CreateCapsule(thumbArt, S.trackW, 0, "BACKGROUND", col.border)
+    local thumbFill = CreateCapsule(thumbArt, S.trackW - 2, 1, "ARTWORK", col.accent)
+    CreateCapsule(thumbArt, S.shineW, S.shineInset, "OVERLAY", col.highlight)
+    for _, offset in ipairs({ -3, 0, 3 }) do
+        local grip = thumbArt:CreateTexture(nil, "OVERLAY", nil, 1)
+        grip:SetSize(S.trackW - 6, 1)
+        grip:SetPoint("CENTER", thumbArt, "CENTER", 0, offset)
+        grip:SetColorTexture(unpack(col.border))
     end
 
-    scrollFrame:HookScript("OnVerticalScroll", UpdateCustomThumb)
-    frame:HookScript("OnSizeChanged", function()
-        UpdateScrollLayout()
-        UpdateCustomThumb()
+    local updating, hovered, pressed, enabled = false, false, false, false
+    local bottomInset
+    local targetOffset, startOffset, wheelElapsed
+    local smoothWrite = false
+
+    -- Discard wheel intent whenever another interaction owns the scroll position.
+    local function StopWheelMotion()
+        targetOffset, startOffset, wheelElapsed = nil, nil, nil
+        slider:SetScript("OnUpdate", nil)
+    end
+
+    -- The capsule follows the transparent native thumb without receiving input.
+    local function UpdateAppearance()
+        local color = col.textDisabled
+        if enabled then
+            color = pressed and col.scrollThumbDragging or (hovered and col.scrollThumbHover or col.accent)
+        end
+        for _, region in ipairs(thumbFill) do region:SetColorTexture(unpack(color)) end
+    end
+
+    -- Consume the native range; do not infer it from the declared child height.
+    local function RefreshScrollbar()
+        if updating then return end
+        updating = true
+
+        local inset = math.max(0, footerExtent - T.Frame.footerHeight + S.footerGap)
+        local footerTop, panelBottom = footerButton:GetTop(), contentPanel:GetBottom()
+        if footerTop and panelBottom then
+            inset = math.max(0, footerTop - panelBottom + S.footerGap)
+        end
+        if bottomInset ~= inset then
+            bottomInset = inset
+            slider:SetPoint("BOTTOMRIGHT", contentPanel, "BOTTOMRIGHT", 0, inset)
+        end
+
+        local range = math.max(0, scrollFrame:GetVerticalScrollRange())
+        local offset = scrollFrame:GetVerticalScroll()
+        local clamped = math.max(0, math.min(offset, range))
+        local trackHeight = math.max(1, slider:GetHeight())
+        local thumbHeight = math.min(trackHeight, S.thumbH)
+        if thumb:GetHeight() ~= thumbHeight then thumb:SetHeight(thumbHeight) end
+
+        local minValue, maxValue = slider:GetMinMaxValues()
+        if minValue ~= 0 or maxValue ~= range then slider:SetMinMaxValues(0, range) end
+        if slider:GetValue() ~= clamped then slider:SetValue(clamped) end
+        -- New scroll writes wait out combat; the established wheel path is untouched.
+        if offset ~= clamped and not InCombatLockdown() then scrollFrame:SetVerticalScroll(clamped) end
+        local entry = C.pages[C.currentPage]
+        local innerScroller = entry and entry.frame and entry.frame.usesInnerScrollBar
+        enabled = range > 0 and not innerScroller and not InCombatLockdown()
+        slider:SetEnabled(enabled)
+        slider:SetShown(not innerScroller)
+        if not enabled then pressed = false end
+        UpdateAppearance()
+        updating = false
+    end
+
+    -- Geometry/page changes keep the actual offset but drop obsolete wheel targets.
+    local function ReconcileScrollbar()
+        StopWheelMotion()
+        RefreshScrollbar()
+    end
+
+    -- One bounded update handler interpolates wheel intent, never native dragging.
+    local function AdvanceWheelMotion(_, elapsed)
+        if not targetOffset or InCombatLockdown() then ReconcileScrollbar(); return end
+        local range = math.max(0, scrollFrame:GetVerticalScrollRange())
+        targetOffset = math.max(0, math.min(targetOffset, range))
+        wheelElapsed = math.min(S.wheelDuration, wheelElapsed + elapsed)
+        local progress = wheelElapsed / S.wheelDuration
+        local eased = 1 - (1 - progress) ^ 3
+        local offset = math.max(0, math.min(startOffset + (targetOffset - startOffset) * eased, range))
+        if scrollFrame:GetVerticalScroll() ~= offset then
+            smoothWrite = true
+            scrollFrame:SetVerticalScroll(offset)
+            smoothWrite = false
+        end
+        if progress >= 1 then StopWheelMotion() end
+    end
+
+    local immediateWheel = scrollFrame:GetScript("OnMouseWheel")
+    scrollFrame:SetScript("OnMouseWheel", function(self, delta)
+        if InCombatLockdown() or pressed or not slider:IsShown() then
+            StopWheelMotion()
+            if immediateWheel then immediateWheel(self, delta) end
+            return
+        end
+        local range = math.max(0, self:GetVerticalScrollRange())
+        local current = self:GetVerticalScroll()
+        local step = delta < 0 and S.scrollStep or -S.scrollStep
+        local target = math.max(0, math.min((targetOffset or current) + step, range))
+        if target == current then StopWheelMotion(); return end
+        targetOffset, startOffset, wheelElapsed = target, current, 0
+        if not slider:GetScript("OnUpdate") then slider:SetScript("OnUpdate", AdvanceWheelMotion) end
     end)
 
-    UpdateScrollLayout()
-    UpdateCustomThumb()
-
-    return scrollTest, track, thumb, UpdateScrollLayout
+    slider:SetScript("OnValueChanged", function(_, value)
+        if updating or not enabled then return end
+        if InCombatLockdown() then RefreshScrollbar(); return end
+        StopWheelMotion()
+        local range = math.max(0, scrollFrame:GetVerticalScrollRange())
+        local offset = math.max(0, math.min(value, range))
+        if scrollFrame:GetVerticalScroll() ~= offset then scrollFrame:SetVerticalScroll(offset) end
+    end)
+    slider:SetScript("OnMouseWheel", function(_, delta)
+        local handler = scrollFrame:GetScript("OnMouseWheel")
+        if handler then handler(scrollFrame, delta) end
+    end)
+    slider:SetScript("OnEnter", function() hovered = true; UpdateAppearance() end)
+    slider:SetScript("OnLeave", function() hovered = false; UpdateAppearance() end)
+    slider:SetScript("OnMouseDown", function(_, button)
+        if button == "LeftButton" and enabled then
+            StopWheelMotion()
+            pressed = true
+            UpdateAppearance()
+        end
+    end)
+    slider:SetScript("OnMouseUp", function() pressed = false; UpdateAppearance() end)
+    slider:SetScript("OnHide", function()
+        StopWheelMotion()
+        hovered = false
+        pressed = false
+        UpdateAppearance()
+    end)
+    slider:SetScript("OnSizeChanged", ReconcileScrollbar)
+    scrollFrame:HookScript("OnVerticalScroll", function()
+        if not smoothWrite then StopWheelMotion() end
+        RefreshScrollbar()
+    end)
+    scrollFrame:HookScript("OnScrollRangeChanged", ReconcileScrollbar)
+    scrollFrame:HookScript("OnSizeChanged", ReconcileScrollbar)
+    frame:HookScript("OnSizeChanged", ReconcileScrollbar)
+    frame:HookScript("OnShow", ReconcileScrollbar)
+    frame:HookScript("OnHide", StopWheelMotion)
+    frame:RegisterEvent("PLAYER_REGEN_DISABLED")
+    frame:RegisterEvent("PLAYER_REGEN_ENABLED")
+    frame:SetScript("OnEvent", ReconcileScrollbar)
+    RefreshScrollbar()
+    return ReconcileScrollbar
 end
 
 -- ---------------------------------------------------------------------------
@@ -847,15 +1017,24 @@ local function CreateConfig2Frame()
     -- Content + scroll
     local contentPanel, scrollFrame, scrollChild = BuildContentPanel(frame, navPanel, helpPanel)
 
-    -- Scrollbar
-    BuildScrollbar(frame, contentPanel, scrollFrame)
-
     -- Nav buttons
     BuildNavPanel(navPanel)
 
     -- Header and footer
     BuildHeader(frame, navPanel)
-    BuildFooter(frame)
+    local footerButton, footerExtent = BuildFooter(frame)
+    RefreshSharedScrollbar = BuildScrollbar(frame, contentPanel, scrollFrame, footerButton, footerExtent)
+
+    -- Compose with scrollbar events and ordinary page cleanup; never queue a combat reopen.
+    frame:HookScript("OnHide", function(self)
+        self:StopMovingOrSizing()
+        CloseOwnedEditors()
+    end)
+    frame:HookScript("OnEvent", function(self, event)
+        if event == "PLAYER_REGEN_DISABLED" then
+            if self:IsShown() then self:Hide() else CloseOwnedEditors() end
+        end
+    end)
 
     -- Resize handles
     BuildResizeHandles(frame)
@@ -873,14 +1052,20 @@ end
 -- Public API
 -- ---------------------------------------------------------------------------
 
--- Register a page and optional page-specific sidebar from an external file.
--- usage: OUS.Config2.RegisterPage("Utilities", pageFrame, RefreshFn, sidebarFrame)
-function C.RegisterPage(pageName, pageFrame, refreshFn, sidebarFrame)
+-- Reconcile the outer Slider when a page switches between settings and native inner scrolling.
+function C.RefreshScrollbar()
+    if RefreshSharedScrollbar then RefreshSharedScrollbar() end
+end
+
+-- Register optional retained-page refresh separately when normal entry also changes navigation.
+-- usage: OUS.Config2.RegisterPage(name, frame, refreshFn, sidebarFrame, refreshCurrentFn)
+function C.RegisterPage(pageName, pageFrame, refreshFn, sidebarFrame, refreshCurrentFn)
     if not C.pages[pageName] then
         C.pages[pageName] = {}
     end
     C.pages[pageName].frame        = pageFrame
     C.pages[pageName].Refresh      = refreshFn
+    C.pages[pageName].RefreshCurrent = refreshCurrentFn or refreshFn
     C.pages[pageName].sidebarFrame = sidebarFrame
 
     -- If this is the current page, show it immediately
@@ -896,6 +1081,10 @@ end
 
 -- Open config to a specific page (called from Toolbox or slash commands)
 function C.OpenPage(pageName)
+    if InCombatLockdown() then
+        if C.frame and C.frame:IsShown() then C.frame:Hide() end
+        return false
+    end
     local frame = CreateConfig2Frame()
     frame:Show()
     SwitchPage(pageName)
@@ -903,8 +1092,14 @@ end
 
 -- Toggle the config window
 function C.Toggle()
+    if C.frame and C.frame:IsShown() then
+        C.frame:Hide()
+        return
+    end
+    if InCombatLockdown() then return false end
     local frame = CreateConfig2Frame()
-    frame:SetShown(not frame:IsShown())
+    frame:Show()
+    RefreshCurrentPage()
 end
 
 -- Page files load after this file and require a valid parent immediately.

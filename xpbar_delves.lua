@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : xpbar_delves.lua
--- Version : 2026.10.09
+-- Version : 2026.10.25
 -- Desc    : Delves companion tracking and session detection for XP/rep bar
 -- ============================================================
 
@@ -246,8 +246,13 @@ end
 -- ==========================================
 -- 3. DELVES RENDERING
 -- ==========================================
+-- Direct Delves refreshes and positioning previews must respect the shared master.
 function OUS.UpdateDelveBar()
-    if not OdysseusDB or not OdysseusDB.xpBar or not delveBar then return end
+    if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.xpBar then
+        if delveBar then delveBar:Hide() end
+        return
+    end
+    if not OdysseusDB.xpBar or not delveBar then return end
     local db = OdysseusDB.xpBar
     local isRealDelve = IsPlayerReallyInDelve()
     Session.isTestingDelve = Session.isDelveBarUnlocked == true and not isRealDelve
@@ -296,8 +301,9 @@ function OUS.UpdateDelveBar()
                     local earned    = renownInfo.renownReputationEarned or 0
                     local threshold = renownInfo.renownLevelThreshold or 0
 
-                    -- At max renown Blizzard returns earned=0 with threshold>0 and level>0
-                    local isJourneyMaxed = (level > 0) and (earned == 0) and (threshold > 0)
+                    -- Zero progress is valid below cap; only the faction API establishes maximum.
+                    local isJourneyMaxed = C_MajorFactions.HasMaximumRenown
+                        and C_MajorFactions.HasMaximumRenown(journeyFactionID) == true
 
                     if isJourneyMaxed then
                         jRep     = threshold
@@ -333,6 +339,16 @@ function OUS.UpdateDelveBar()
             delveBar.jourText:SetText(string.format("Journey: (Lvl: %s) :: |cFFFFD100MAX|r", tostring(jLvl)))
         else
             delveBar.jourText:SetText(OUS.ParseRepText(db.delveJourTemplate, "Journey", "Active", jRep, jMax, false, jLvl, jNextLvl))
+        end
+
+        -- Preview must not present the outdoor location as a Delve's IDs.
+        if Session.isTestingDelve then
+            delveBar.idText:SetText("Instance ID: Preview | Map ID: Preview")
+        else
+            local _, _, _, _, _, _, _, instanceID = GetInstanceInfo()
+            local mapID = C_Map.GetBestMapForUnit("player")
+            delveBar.idText:SetText(string.format("Instance ID: %s | Map ID: %s",
+                tostring(instanceID or "-"), tostring(mapID or "-")))
         end
 
         delveBar:Show()

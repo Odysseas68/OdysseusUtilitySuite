@@ -22,6 +22,7 @@ Directory_List.txt
 /Scripts/
 /Reference/
 /tmp/
+/Documentation/Research/
 *.sublime-workspace
 *.code-workspace
 

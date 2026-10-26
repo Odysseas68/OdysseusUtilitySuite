@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : FlightRouting.lua
--- Version : 2026.10.25
+-- Version : 2026.10.26
 -- Desc    : Multi-hop flight routing engine, itinerary panel, and map line drawing
 -- ============================================================
 
@@ -253,6 +253,7 @@ end
 local function CalcTotalRouteDist(nodeNames)
     if not nodeNames or #nodeNames < 2 then return nil end
     local uiMapID  = C_Map.GetBestMapForUnit("player")
+    if uiMapID == nil then return nil end
     local allNodes = C_TaxiMap.GetAllTaxiNodes(uiMapID)
     if not allNodes then return nil end
 

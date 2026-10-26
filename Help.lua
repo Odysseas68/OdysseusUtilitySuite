@@ -183,7 +183,7 @@ helpContent:SetBackdropBorderColor(0.20, 0.14, 0.28, 0.35)
 local helpBannerLogo = helpContent:CreateTexture(nil, "ARTWORK")
 helpBannerLogo:SetSize(200, 100)
 helpBannerLogo:SetPoint("TOP", helpContent, "TOP", 0, -6)
-helpBannerLogo:SetTexture("Interface\\AddOns\\OdysseusUtilitySuite\\Media\\icon\\OUS_banner")
+helpBannerLogo:SetTexture("Interface\\AddOns\\OdysseusUtilitySuite\\media\\icon\\OUS_banner")
 
 local helpBannerTitle = helpContent:CreateFontString(nil, "OVERLAY")
 helpBannerTitle:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")

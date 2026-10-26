@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_XPBar.lua
--- Version : 2026.10.09
+-- Version : 2026.10.26
 -- Desc    : OUS2 XP Bar navigation hub and settings views
 -- ================================================
 
@@ -142,15 +142,18 @@ local function SetPageContentHeight(height)
 end
 
 local function ShowHub()
+    page.usesInnerScrollBar = false
     SetPageContentHeight(defaultPageHeight)
     for _, child in pairs(childFrames) do
         child:Hide()
     end
     hub:Show()
+    C.RefreshScrollbar()
     C.ClearHelpText()
 end
 
 local function ShowChild(childKey)
+    page.usesInnerScrollBar = childKey == "Help"
     SetPageContentHeight(childKey == "Global" and globalPageHeight or defaultPageHeight)
     hub:Hide()
     for key, child in pairs(childFrames) do
@@ -165,8 +168,16 @@ local function ShowChild(childKey)
     elseif childKey == "SessionStats" and RefreshSessionStats then
         RefreshSessionStats()
     end
+    C.RefreshScrollbar()
     C.ClearHelpText()
 end
+
+-- Parent-window reopening retains the child selection but must restore its scroll extent.
+page:HookScript("OnShow", function()
+    local globalShown = childFrames.Global and childFrames.Global:IsShown()
+    SetPageContentHeight(globalShown and globalPageHeight or defaultPageHeight)
+    C.RefreshScrollbar()
+end)
 
 page:HookScript("OnHide", function()
     SetPageContentHeight(defaultPageHeight)
@@ -1041,12 +1052,15 @@ end
 local function CreateHelpScrollContent(parent)
     local scrollBox = CreateFrame("Frame", nil, parent, "WowScrollBox")
     scrollBox:SetPoint("TOPLEFT", parent, "TOPLEFT", 18, -130)
-    scrollBox:SetPoint("BOTTOMRIGHT", parent, "BOTTOMRIGHT", -34, 10)
+    scrollBox:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -34, -130)
+    -- Bound the inner viewport to the visible shell, not the taller shared scroll child.
+    scrollBox:SetPoint("BOTTOMLEFT", C.pageContainer:GetParent(), "BOTTOMLEFT", 18, 18)
 
     local scrollBar = CreateFrame("EventFrame", nil, parent, "MinimalScrollBar")
     scrollBar:SetWidth(12)
     scrollBar:SetPoint("TOPLEFT", scrollBox, "TOPRIGHT", 2, 0)
     scrollBar:SetPoint("BOTTOMLEFT", scrollBox, "BOTTOMRIGHT", 2, 0)
+    T.StyleMinimalScrollBar(scrollBar)
 
     local content = CreateFrame("Frame", nil, scrollBox)
     content:SetWidth(math.max(1, scrollBox:GetWidth() - 4))
@@ -1990,4 +2004,5 @@ local function RefreshForOpen()
     RefreshSessionStats()
 end
 
-C.RegisterPage("XPBar", page, RefreshForOpen)
+-- Retained-page synchronization must not send an active child back to the hub.
+C.RegisterPage("XPBar", page, RefreshForOpen, nil, Refresh)

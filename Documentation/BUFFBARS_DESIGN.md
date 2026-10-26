@@ -181,4 +181,4 @@ Add spellID filters, overrides, advanced visuals, and any reviewed Blizzard-fram
 - No protected frame mutation in combat.
 - OUS2 settings are live and safe.
 - Saved settings persist through `/reload`.
-- Documentation remains synchronized across `BUFFBARS_DESIGN.md`, `TODO_v2.md`, `ARCHITECTURE.md`, `CLAUDE.md`, and `CHANGELOG.md`.
+- Documentation remains synchronized across `BUFFBARS_DESIGN.md`, `TODO_v2.md`, `ARCHITECTURE.md`, `AGENTS.md`, and `CHANGELOG.md`.

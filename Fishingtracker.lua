@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Fishingtracker.lua
--- Version : 2026.10.09
+-- Version : 2026.10.25
 -- Desc    : Fishing session tracker — catch counts, session timer, loot log
 -- ============================================================
 -- luacheck: globals CreateScrollBoxLinearView ScrollUtil
@@ -18,9 +18,10 @@ local MIN_FISHING_SCALE = 0.5
 local MAX_FISHING_SCALE = 2.0
 local pendingFishingScale
 
--- State Variables
+-- Only recognized fishing lifecycle events establish recent-loot attribution.
 local isFishingActive = false
-local lastCastTime = 0
+local lastCastTime
+local lastUIActivityTime = 0
 local lastLootTime = 0
 
 -- Timer State Variables
@@ -1657,7 +1658,7 @@ f:SetScript("OnEvent", function(self, event, ...)
                 end
             end
 
-            lastCastTime = GetTime()
+            lastUIActivityTime = GetTime()
 
             if OdysseusDB.fishingSettings.pos then
                 local p = OdysseusDB.fishingSettings.pos
@@ -1705,7 +1706,7 @@ f:SetScript("OnEvent", function(self, event, ...)
         local unit, _, spellID = ...
         if unit == "player" and FISHING_SPELL_IDS[spellID] then
             -- The 3-minute grace period check
-            if (GetTime() - lastCastTime) > 180 then
+            if lastCastTime and (GetTime() - lastCastTime) > 180 then
                 sessionData.total = 0
                 sessionData.currencyTotal = 0
                 sessionData.catches = {}
@@ -1721,6 +1722,7 @@ f:SetScript("OnEvent", function(self, event, ...)
 
             isFishingActive = true
             lastCastTime = GetTime()
+            lastUIActivityTime = lastCastTime
 
             -- Auto-resume the timer
             if not sessionTimerActive then
@@ -1744,6 +1746,7 @@ f:SetScript("OnEvent", function(self, event, ...)
         if unit == "player" and FISHING_SPELL_IDS[spellID] then
             isFishingActive = false
             lastCastTime = GetTime()
+            lastUIActivityTime = lastCastTime
         end
 
     elseif event == "LOOT_READY" then
@@ -1751,7 +1754,7 @@ f:SetScript("OnEvent", function(self, event, ...)
             return
         end
 
-        local fishingRecently = (GetTime() - lastCastTime) <= 3.0
+        local fishingRecently = lastCastTime and (GetTime() - lastCastTime) <= 3.0
         local isFishingLootEvent = false
 
         if IsFishingLoot and IsFishingLoot() then
@@ -1762,7 +1765,7 @@ f:SetScript("OnEvent", function(self, event, ...)
 
         if isFishingLootEvent then
             lastLootTime = GetTime()
-            lastCastTime = GetTime()
+            lastUIActivityTime = GetTime()
 
             local numItems = GetNumLootItems()
             for i = 1, numItems do
@@ -1826,10 +1829,10 @@ updateFrame:SetScript("OnUpdate", function(self, elapsed)
     end
 
     if not shouldCountdown or isFishingActive then
-        lastCastTime = GetTime()
+        lastUIActivityTime = GetTime()
         closeTimerText:SetText("")
     else
-        local inactiveTime = GetTime() - lastCastTime
+        local inactiveTime = GetTime() - lastUIActivityTime
         local remaining = delay - inactiveTime
 
         if remaining <= 0 then
@@ -1868,7 +1871,7 @@ function OUS.ToggleFishingTracker()
         end
     else
         mainFrame:Show()
-        lastCastTime = GetTime()
+        lastUIActivityTime = GetTime()
         fphUpdateTimer = 15
         if sessionData.total == 0 and not sessionTimerActive and not sessionPaused then
             sessionStartTime = GetTime()

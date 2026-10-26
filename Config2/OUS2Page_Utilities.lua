@@ -1,6 +1,6 @@
 -- Addon   : OdysseusUtilitySuite
 -- File    : Config2\OUS2Page_Utilities.lua
--- Version : 2026.10.09
+-- Version : 2026.10.26
 -- Desc    : OUS2 Utilities module settings page
 -- ================================================
 
@@ -14,6 +14,10 @@ page:Hide()
 
 local checkboxRows = {}
 local junkBlacklistActionLabel
+local junkAnimationLabel
+local nativeGoblinControl
+local nativeGoblinSizeLabel
+local nativePreview
 local junkBlacklistFrameHooked = false
 local junkBlacklistPopupHooked = false
 local Refresh
@@ -223,7 +227,8 @@ CreateCheckboxRow(
     "Enable or disable the Utilities module.",
     -104,
     GetModulesDB,
-    "utilities"
+    "utilities",
+    OUS.ApplyUtilitiesModuleSetting
 )
 
 CreateSectionHeader("Auto Repair", -150)
@@ -255,14 +260,16 @@ CreateCheckboxRow(
     "Enable automatic selling of eligible junk items at merchants.",
     -332,
     GetJunkSellDB,
-    "enabled"
+    "enabled",
+    OUS.ApplyJunkSellSettings
 )
 CreateCheckboxRow(
     "Require Shift to Sell",
     "Require the Shift key to be held before junk selling begins.",
     -372,
     GetJunkSellDB,
-    "requireShift"
+    "requireShift",
+    OUS.ApplyJunkSellSettings
 )
 CreateCheckboxRow(
     "Announce Junk Sales",
@@ -283,7 +290,19 @@ CreateCheckboxRow(
     "Sell junk in batches of 12 items and require confirmation for the next batch.",
     -492,
     GetJunkSellDB,
-    "limitTo12"
+    "limitTo12",
+    OUS.ApplyJunkSellSettings
+)
+junkAnimationLabel = CreateActionButton(
+    "Junk Seller Animation",
+    "Choose the 2D Goblin Counting Gold (default) or Spinning Coin, used when 3D is off or unavailable. Changes artwork only; does not start or stop junk selling.",
+    -532,
+    function()
+        local db = GetJunkSellDB()
+        if not db then return end
+        db.animation = db.animation == "coin" and "goblin" or "coin"
+        OUS.UpdateJunkSellAnimation()
+    end
 )
 junkBlacklistActionLabel = CreateActionButton(
     "Manage Blacklist",
@@ -291,21 +310,114 @@ junkBlacklistActionLabel = CreateActionButton(
     -532,
     OpenJunkBlacklistManager
 )
+junkAnimationLabel:GetParent():SetPoint("TOPRIGHT", page, "TOP", -4, -532)
+junkBlacklistActionLabel:GetParent():SetPoint("TOPLEFT", page, "TOP", 4, -532)
 
-CreateSectionHeader("Rare Announcer", -582)
+CreateCheckboxRow(
+    "Enable 3D Goblin",
+    "Use the native Goblin and Merchant Counter artwork at the selected size. Off preserves your selected 2D animation. Cosmetic only.",
+    -572,
+    GetJunkSellDB,
+    "nativeGoblin",
+    OUS.ApplyJunkSellVisualSettings
+)
+
+local distanceRow = CreateFrame("Frame", nil, page)
+distanceRow:SetHeight(56)
+distanceRow:SetPoint("TOPLEFT", page, "TOPLEFT", 18, -612)
+distanceRow:SetPoint("TOPRIGHT", page, "TOPRIGHT", -18, -612)
+distanceRow:EnableMouse(true)
+local distanceBackground = distanceRow:CreateTexture(nil, "BACKGROUND")
+distanceBackground:SetTexture(T.Tex("CardNormal"))
+distanceBackground:SetAllPoints()
+local distanceLabel = distanceRow:CreateFontString(nil, "OVERLAY", T.Fonts.normal)
+distanceLabel:SetPoint("LEFT", distanceRow, "LEFT", T.Card.Padding, 0)
+distanceLabel:SetText("3D Goblin Zoom")
+SetTextColor(distanceLabel, T.Colors.text)
+nativeGoblinControl = C.CreateScaleControl(distanceRow, 1, 2, 0.1, 1.2, function(value)
+    local db = GetJunkSellDB()
+    if not db then return end
+    db.nativeGoblinDistance = value
+    OUS.ApplyJunkSellVisualSettings()
+    if nativePreview then nativePreview:SetDistance(value) end
+end)
+nativeGoblinControl:SetPoint("RIGHT", distanceRow, "RIGHT", -T.Card.Padding, 0)
+distanceRow:SetScript("OnEnter", function()
+    C.SetHelpText("Camera distance 1.0-2.0, default 1.2. Increasing the value moves the Goblin farther away. Updates safely outside combat.")
+end)
+distanceRow:SetScript("OnLeave", C.ClearHelpText)
+
+local sidebar = CreateFrame("Frame", nil, C.sidebarContainer)
+sidebar:SetAllPoints()
+sidebar:Hide()
+local previewTitle = sidebar:CreateFontString(nil, "OVERLAY", T.Fonts.sectionHeader)
+previewTitle:SetPoint("TOP", sidebar, "TOP", 0, -T.Card.Padding)
+previewTitle:SetText("3D Goblin Preview")
+SetTextColor(previewTitle, T.Colors.header)
+local previewAnchor = CreateFrame("Frame", nil, sidebar)
+previewAnchor:SetSize(96, 96)
+previewAnchor:SetPoint("TOP", previewTitle, "BOTTOM", 0, -T.Card.Padding)
+previewAnchor:EnableMouse(false)
+local previewStatus = sidebar:CreateFontString(nil, "OVERLAY", T.Fonts.small)
+previewStatus:SetPoint("TOPLEFT", previewAnchor, "BOTTOMLEFT", -T.Card.Padding, -T.Card.Padding)
+previewStatus:SetPoint("RIGHT", sidebar, "RIGHT", -T.Card.Padding, 0)
+previewStatus:SetJustifyH("LEFT")
+previewStatus:SetText("Play Test Animation loads a cosmetic preview. No merchant or items required.")
+SetTextColor(previewStatus, T.Colors.textDim)
+
+-- The sidebar preview has its own model and can never enter merchant-selling state.
+local function PlayNativePreview()
+    if InCombatLockdown() then previewStatus:SetText("Preview unavailable during combat. Try again afterwards."); return end
+    if not nativePreview then
+        local reason
+        nativePreview, reason = OUS.CreateJunkGoblinRenderer(previewAnchor, false, function(message)
+            previewStatus:SetText(message)
+        end)
+        if not nativePreview then previewStatus:SetText(reason); return end
+        nativePreview:SetPoint("CENTER", previewAnchor, "CENTER")
+    end
+    nativePreview.failed = false
+    nativePreview:Show()
+    local db = GetJunkSellDB()
+    nativePreview:SetViewportSize(db and db.nativeGoblinSize)
+    nativePreview:SetDistance(db and db.nativeGoblinDistance)
+    nativePreview:SetActive(true)
+end
+nativeGoblinSizeLabel = CreateActionButton(
+    "3D Goblin Size",
+    "Click to cycle 96x96 (Large), 64x64 (Medium), and 32x32 (Small). Resizes the native viewport and counter without changing camera distance or selling state. Combat changes apply at the next safe refresh.",
+    -678,
+    function()
+        local db = GetJunkSellDB()
+        if not db then return end
+        db.nativeGoblinSize = db.nativeGoblinSize == 96 and 64 or (db.nativeGoblinSize == 64 and 32 or 96)
+        OUS.ApplyJunkSellVisualSettings()
+        if nativePreview then nativePreview:SetViewportSize(db.nativeGoblinSize) end
+    end
+)
+local nativeTestLabel = CreateActionButton(
+    "Play Test Animation",
+    "Play Loot animation 50 once in the sidebar preview, then restore natural idle. Works with 3D mode off; never sells items.",
+    -678,
+    PlayNativePreview
+)
+nativeGoblinSizeLabel:GetParent():SetPoint("TOPRIGHT", page, "TOP", -4, -678)
+nativeTestLabel:GetParent():SetPoint("TOPLEFT", page, "TOP", 4, -678)
+
+CreateSectionHeader("Rare Announcer", -728)
 CreateCheckboxRow(
     "Enable Rare Announcer",
     "Enable rare target announcements and waypoint links.",
-    -608,
+    -754,
     GetUtilitiesDB,
     "rareEnabled"
 )
 
-CreateSectionHeader("Extra Action Button", -658)
+CreateSectionHeader("Extra Action Button", -804)
 CreateCheckboxRow(
     "Hide Blizzard Artwork",
     "Hides the decorative Blizzard artwork around Extra Action and Zone Ability buttons while preserving the buttons, icons, cooldowns, clicks, positioning, and Edit Mode behavior.",
-    -684,
+    -830,
     GetUtilitiesDB,
     "hideExtraActionArtwork",
     OUS.ApplyExtraActionArtworkSetting
@@ -318,6 +430,31 @@ Refresh = function()
         entry.checkbox:SetTexture(T.Tex(checked and "CheckboxOn" or "CheckboxOff"))
     end
     RefreshJunkBlacklistCount()
+    local db = GetJunkSellDB()
+    junkAnimationLabel:SetText("Junk Seller Animation\n" .. (db and db.animation == "coin" and "Spinning Coin" or "Goblin Counting Gold"))
+    nativeGoblinControl:SetValue(db and db.nativeGoblinDistance or 1.2, true)
+    local size = db and db.nativeGoblinSize
+    size = (size == 32 or size == 64) and size or 96
+    local sizeName = size == 32 and "Small" or (size == 64 and "Medium" or "Large")
+    nativeGoblinSizeLabel:SetText("3D Goblin Size\n" .. size .. "x" .. size .. " (" .. sizeName .. ")")
+    if nativePreview then
+        nativePreview:SetViewportSize(size)
+        nativePreview:SetDistance(db and db.nativeGoblinDistance)
+    end
 end
 
-C.RegisterPage("Utilities", page, Refresh)
+-- Match the existing page-owned content-height lifecycle as these controls extend the page.
+local previousContentHeight
+page:HookScript("OnShow", function()
+    previousContentHeight = C.pageContainer:GetHeight()
+    C.pageContainer:SetHeight(math.max(previousContentHeight, 890))
+end)
+page:HookScript("OnHide", function()
+    if nativePreview then nativePreview:Hide() end
+    if previousContentHeight then C.pageContainer:SetHeight(previousContentHeight) end
+end)
+sidebar:HookScript("OnHide", function()
+    if nativePreview then nativePreview:Hide() end
+end)
+
+C.RegisterPage("Utilities", page, Refresh, sidebar)

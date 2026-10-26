@@ -1,6 +1,6 @@
 ---
 name: ous-documentation-maintainer
-description: Maintain Odysseus Utility Suite documentation without changing addon code. Use for README.md, Documentation/README_v2.md, Documentation/ARCHITECTURE.md, Documentation/TODO_v2.md, CHANGELOG.md, or AGENTS.md audits and updates. Treat CLAUDE.md as reference-only unless the user explicitly requests changes.
+description: Maintain Odysseus Utility Suite documentation without changing addon code. Use for README.md, Documentation/README_v2.md, Documentation/ARCHITECTURE.md, Documentation/TODO_v2.md, CHANGELOG.md, or AGENTS.md audits and updates. AGENTS.md is the primary repository guidance.
 ---
 
 # OUS Documentation Maintainer
@@ -8,7 +8,7 @@ description: Maintain Odysseus Utility Suite documentation without changing addo
 1. Read `AGENTS.md` and the documentation files relevant to the request.
 2. Inspect implementation code when needed to verify documented behavior, but do not modify addon source.
 3. Treat code as the behavioral source of truth and report code or documentation mismatches.
-4. Do not modify `CLAUDE.md` unless the user explicitly requests it.
+4. Use `AGENTS.md` as the primary repository guidance; preserve references to retired guidance only as clearly historical evidence.
 5. Modify `AGENTS.md` only when development rules, architecture conventions, workflows, or project standards change.
 6. Do not invent completed features, APIs, architecture, or status.
 7. Mark uncertain or inferred details clearly.

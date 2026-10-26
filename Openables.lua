@@ -1,7 +1,7 @@
 -- ============================================================
 -- Addon   : OdysseusUtilitySuite
 -- File    : Openables.lua
--- Version : 2026.10.09
+-- Version : 2026.10.25
 -- Desc    : Openables button engine — detects and opens bags, boxes, and containers
 -- ============================================================
 
@@ -18,6 +18,7 @@ local sessionBlacklist = {}
 
 -- Currently displayed item: { itemID, bag, slot, icon, count }
 local currentItem = nil
+local pendingAutoOpen = nil
 
 -- Debounce timer for bag scans
 local scanPending = false
@@ -605,8 +606,12 @@ end
 
 -- Rescans bags and updates button. Called after bag events.
 function OP.Refresh()
-    if InCombatLockdown() then return end
+    if InCombatLockdown() then
+        pendingAutoOpen = nil
+        return
+    end
     if not OdysseusDB or not OdysseusDB.modules or not OdysseusDB.modules.openables then
+        pendingAutoOpen = nil
         opContainer:Hide()
         return
     end
@@ -616,13 +621,38 @@ function OP.Refresh()
 
     -- Auto-open if enabled and item found
     local db = OdysseusDB and OdysseusDB.openables
-    if db and db.autoOpen and currentItem then
-        C_Timer.After(0.3, function()
-            if currentItem and not InCombatLockdown() then
-                C_Container.UseContainerItem(currentItem.bag, currentItem.slot)
-            end
-        end)
+    if not db or not db.autoOpen or not currentItem then
+        pendingAutoOpen = nil
+        return
     end
+    if pendingAutoOpen and pendingAutoOpen.itemID == currentItem.itemID
+        and pendingAutoOpen.bag == currentItem.bag and pendingAutoOpen.slot == currentItem.slot then
+        return
+    end
+
+    local request = { itemID = currentItem.itemID, bag = currentItem.bag, slot = currentItem.slot }
+    pendingAutoOpen = request
+    C_Timer.After(0.3, function()
+        if pendingAutoOpen ~= request then return end
+        local settings = OdysseusDB and OdysseusDB.openables
+        if InCombatLockdown() or not OdysseusDB or not OdysseusDB.modules
+            or not OdysseusDB.modules.openables or not settings or not settings.autoOpen
+            or not currentItem or currentItem.itemID ~= request.itemID
+            or currentItem.bag ~= request.bag or currentItem.slot ~= request.slot then
+            pendingAutoOpen = nil
+            return
+        end
+
+        local info = C_Container.GetContainerItemInfo(request.bag, request.slot)
+        local candidate = info and info.itemID == request.itemID
+            and BuildOpenableCandidate(request.itemID, request.bag, request.slot, info)
+        -- Item loading can refresh selection while eligibility is rechecked.
+        if pendingAutoOpen ~= request then return end
+        pendingAutoOpen = nil
+        if candidate then
+            C_Container.UseContainerItem(request.bag, request.slot)
+        end
+    end)
 end
 
 -- Debounced refresh — avoids spamming scans on BAG_UPDATE.
@@ -676,6 +706,7 @@ frame:SetScript("OnEvent", function(self, event, arg1)
         DebouncedRefresh()
 
     elseif event == "PLAYER_REGEN_DISABLED" then
+        pendingAutoOpen = nil
         opContainer:Hide()
         opBtn:Hide()
 
@@ -1066,7 +1097,11 @@ function OP.SlashHandler(msg)
     elseif command == "auto" then
         db.autoOpen = not db.autoOpen
         print("|cFF00CCFFOdysseus Openables:|r Auto-open " .. (db.autoOpen and "|cFF00FF00Enabled|r" or "|cFFFF0000Disabled|r"))
-        if db.autoOpen then OP.Refresh() end
+        if db.autoOpen then
+            OP.Refresh()
+        else
+            pendingAutoOpen = nil
+        end
 
     elseif command == "unblacklist" then
         local itemID = tonumber(arg1)
