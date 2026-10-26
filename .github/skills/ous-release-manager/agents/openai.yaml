@@ -1,0 +1,4 @@
+interface:
+  display_name: "OUS Release Manager"
+  short_description: "Prepare and validate OUS releases with approval gates"
+  default_prompt: "Use $ous-release-manager to handle this OUS release checkpoint within the authorized scope."
